@@ -2087,22 +2087,7 @@ focus_tree = {
 		icon = GFX_goal_generic_national_unity
 		x = 27
 		y = 0
-		offset = {
-			x = -2
-			y = 0
-			trigger = {
-				OR = {
-					NOT = { has_dlc = "Man the Guns" }
-					AND = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-						has_completed_focus = uk_empire_focus
-					}
-				}
-			}
-		}
+		
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -2141,22 +2126,7 @@ focus_tree = {
 		icon = GFX_goal_generic_position_armies
 		x = -2
 		y = 1
-		offset = {
-			x = 2
-			y = 0
-			trigger = {
-				OR = {
-					NOT = { has_dlc = "Man the Guns" }
-					AND = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-						has_completed_focus = uk_empire_focus
-					}
-				}
-			}
-		}
+		
 		relative_position_id = uk_empire_focus
 		cost = 10
 
