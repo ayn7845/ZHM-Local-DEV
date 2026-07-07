@@ -1,0 +1,36 @@
+characters={
+	EST_konstantin_pats={
+		name=EST_konstantin_pats
+		portraits={
+			civilian={
+				large="GFX_Portrait_estonia_konstantin_pats"
+			}
+			army = {
+				small = GFX_portrait_EST_konstantin_pats_small #Not ever used
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	EST_artur_sirk={
+		name=EST_artur_sirk
+		portraits={
+			civilian={
+				large="GFX_portrait_EST_artur_sirk"
+			}
+			army = {
+				small = "GFX_idea_EST_artur_sirk" #Not ever used
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits = { HUN_popular_among_paramilitaries }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+}
