@@ -3808,7 +3808,166 @@ country_event = { #Tells ROOT a divided nation decision can be taken
 	}
 }
 
+country_event = { #CZE asks to enter exile
+	id = MUN_czech.1033
+	title = MUN_czech.1033.t
+	desc = MUN_czech.1033.d
+	picture = GFX_report_event_bunker_01
 
+	is_triggered_only = yes
+
+	option = {
+		name = MUN_czech.1033.a
+		ai_chance = {
+			base = 2
+			modifier = {
+				FROM = {
+					is_ai = no
+				}
+				factor = 2
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+				factor = 1.1
+			}
+		}
+		FROM = {
+			hidden_effect = {
+				overlord = {
+					set_autonomy = {
+						target = FROM
+						autonomous_state = autonomy_free
+						end_wars = yes
+						end_civil_wars = yes
+					}
+					FROM = {
+						leave_faction = yes
+						every_enemy_country = {
+							limit = {
+								OR = {
+									is_faction_leader = yes
+									is_in_faction = no
+								}
+							}
+							white_peace = FROM
+						}
+						delete_unit = {
+							disband = yes
+						}
+					}
+				}
+				9 = {
+					IF = {
+						limit = {
+							is_owned_by = FROM
+						}
+						FROM = {
+							set_country_flag = GER_RK_capital_state_trasferred_RKH_victim_flag
+							set_country_flag = GER_reichskommissariats_puppet_flag
+						}
+					}
+					transfer_state_to = RKH
+					set_state_flag = GER_RK_capital_state_trasferred_RKH_flag
+					add_compliance = 25
+				}
+				GER = {
+					set_autonomy = { 
+						target = RKH 
+						autonomy_state = autonomy_reichsprotectorate 
+					}
+				}
+				every_state = {	
+					limit = {
+						NOT = {
+							state = 7
+						}
+						is_owned_by = FROM
+					}
+					add_contested_owner = RKH
+					set_state_controller_to = RKH
+					add_claim_by = RKH
+					add_compliance = 25
+				}
+				RKH = {
+					add_manpower = 50000
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment
+						amount = 5000
+						producer = GER
+					}	
+					add_equipment_to_stockpile = { 
+						type = support_equipment
+						amount = 500
+						producer = GER
+					}	
+					inherit_technology = GER
+					add_offsite_building = { type = arms_factory level = 2 }
+					load_oob = "RK_OOB"
+					declare_war_on = {
+						target = FROM
+						type = annex_everything
+					}
+					add_timed_idea = { idea = CZE_adminstrative_chaos months = 4 }
+				}
+				every_possible_country = {
+					limit = {
+						has_country_flag = CZE_exile_committee
+					}
+					every_character = {
+						set_nationality = FROM
+					}
+				}
+				random_character = {
+					limit = {
+						is_country_leader = yes
+					}
+					set_nationality = RKH
+					promote_character = yes
+				}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				set_popularities = {
+					democratic = 55
+					neutrality = 10
+					fascism = 1
+					communism = 34
+				}
+				random_character = {	#avoid Hodza
+					limit = {
+						is_character = CZE_edvard_benesh
+					}
+					promote_character = yes
+				}
+			}
+			become_exiled_in = { target = ROOT legitimacy = 60 }
+			hidden_effect = {
+				if = {
+					limit = {
+						has_cosmetic_tag = RKH
+					}
+					drop_cosmetic_tag = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = MUN_czech.1033.b
+		ai_chance = {
+			base = 0
+		}
+		set_country_flag = CZE_refused_exile
+		FROM = {
+			uncomplete_national_focus = {
+				focus = CZE_enter_exile
+			}
+		}
+	}
+}
 
 #Hlinka guard forms
 country_event = {
