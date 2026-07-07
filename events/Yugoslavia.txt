@@ -305,7 +305,7 @@ country_event = {
 	option = { # Surrender Slovenia
 		name = yugoslavia.5.a
 		ai_chance = {
-			factor = 90
+			factor = 100
 			modifier = { # Decrease chance YUG resists if AUS isn't taken first
 				AUS = { exists = yes }
 				factor = 0.5
@@ -330,20 +330,6 @@ country_event = {
 			}
 		}
 		GER = { country_event = germany.94 } #Germany gets Slovenia
-	}
-	option = { # Refuse anyway
-		name = yugoslavia.5.b
-		ai_chance = { factor = 10 }
-		GER = {
-			country_event = germany.95 #Germany gains wargoal
-			effect_tooltip = {
-				create_wargoal = {
-					type = take_state_focus
-					target = YUG
-					generator = { 102 853 }
-				}
-			}
-		}
 	}
 }
 
@@ -383,21 +369,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	#Nope
-	option = {
-		name = yugoslavia.7.a
-		ai_chance = { 
-			factor = 5
-		}
-
-		GER = { country_event = { id = germany.111 days = 1 } 
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = YUG
-				}
-			}
-		}
-	}
 
 	#Alrighty
 	option = {
@@ -424,23 +395,6 @@ country_event = {
 
 			add_political_power = -75		
 			add_named_threat = { threat = 5 name = GER_fate_of_yugoslavia }
-			every_country = {
-				limit = {
-					is_subject_of = YUG
-					OR = {
-						original_tag = BOS
-						original_tag = HRZ
-						original_tag = CRO
-						original_tag = MAC
-						original_tag = SLV
-						original_tag = KOS
-						original_tag = MNT
-						original_tag = HUN
-						original_tag = ROM
-					}
-				}
-				GER = { annex_country = { target = PREV transfer_troops = no } }
-			}
 			annex_country = { target = YUG transfer_troops = no }
 
 			hidden_effect = {
@@ -449,7 +403,20 @@ country_event = {
 			}
 			GER_yugoslavia_modify_mefo_bills_or_economy_of_conquest = yes
 			GER_seize_gold_reserves_in_europe_peacefully = yes
-			add_to_variable = { var = GER_mefo_bill_counter value = -10 }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+				add_to_variable = { 
+					GER_industrial_consumer_goods_factor = -0.15
+					tooltip = consumer_goods_factor_tt
+				}
+				GER_reduce_mefo_bills_penalty = yes
+			}
 		}
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = GAME_OVER_TT
@@ -468,21 +435,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	#Fuck that
-	option = {
-		name = yugoslavia.8.a
-		ai_chance = { 
-			factor = 10
-		}
-
-		GER = { country_event = { id = germany.111 days = 1 } 
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = YUG
-				}
-			}
-		}
-	}
 
 	#Sure thing
 	option = {
@@ -521,25 +473,6 @@ country_event = {
 			add_political_power = -25
 			add_named_threat = { threat = 3 name = GER_fate_of_yugoslavia }
 			
-			CRO = {
-				if = {
-					limit = { YUG = { owns_state = 103 } }
-					transfer_state = 103
-				}
-				if = {
-					limit = { YUG = { owns_state = 104 } }
-					transfer_state = 104
-				}
-				if = {
-					limit = { YUG = { owns_state = 109 } }
-					transfer_state = 109
-				}	
-				if = {
-					limit = { YUG = { owns_state = 804 } }
-					transfer_state = 804
-				}
-			}
-			puppet = CRO
 			annex_country = { target = YUG transfer_troops = no }
 
 			hidden_effect = {
@@ -606,25 +539,7 @@ country_event = {
 
 			add_named_threat = { threat = 2 name = GER_fate_of_yugoslavia }
 			
-			CRO = {
-				if = {
-					limit = { YUG = { owns_state = 103 } }
-					transfer_state = 103
-				}
-				if = {
-					limit = { YUG = { owns_state = 104 } }
-					transfer_state = 104
-				}
-				if = {
-					limit = { YUG = { owns_state = 109 } }
-					transfer_state = 109
-				}
-				if = {
-					limit = { YUG = { owns_state = 804 } }
-					transfer_state = 804
-				}				
-			}
-			puppet = CRO
+		
 			puppet = YUG
 
 

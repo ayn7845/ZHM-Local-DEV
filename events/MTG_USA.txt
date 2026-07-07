@@ -4316,63 +4316,20 @@ country_event = {
 	hidden = yes
 
 	trigger = {
-		has_start_date < 1939.1.1
   		tag = CHI
  		has_war_with = JAP
  		# This next bit is to make sure that event only fires if JAP has conquered a fair bit of CHI first, so 
  		# Panay incident doesn't fire if it's an arm-wrestle on the JAP/CHI border.
  		OR = {
  			AND = { #JAP has made headway in the north
- 				608 = { #Beijing
- 					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
-			 	} 
-				614 = { #Hebei
-					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
-			 	} 
-				597 = { #Shandong
-					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
-				} 
-				598 = { #Jiangsu
-					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
+ 				608 = { is_controlled_by = JAP } #Beijing
+				614 = { is_controlled_by = JAP } #Hebei
+				597 = { is_controlled_by = JAP } #Shandong
+				598 = { is_controlled_by = JAP } #Jiangsu
 				}
-			}
 			OR = { #JAP has captured key coastal states in the south
-				597 = {  #Shanghai
-					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
-				}
-				592 = {  #Guangzhou
-					OR = {
-						is_controlled_by = JAP
-						is_controlled_by = MAN
-						is_controlled_by = MEN
-						is_controlled_by = RNG
-					}
-			 	}
+				597 = { is_controlled_by = JAP } #Shanghai
+				592 = { is_controlled_by = JAP } #Guangzhou
 			}
 		}
 		NOT = { #Should only fire if JAP and USA/ENG aren't at war, and CHI and USA/ENG aren't at war.
@@ -4383,9 +4340,6 @@ country_event = {
 				CHI = { has_war_with = ENG }
 			}
 			USA = { has_war_with = ENG }
-			
-			USA = { is_subject_of = JAP}
-			ENG = { is_subject_of = JAP}
 		}
 	}
 
@@ -4426,43 +4380,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	option = { #Pull forces out of China - low war support
-		name = panay_incident.2.a
-		custom_effect_tooltip = panay_incident.2.a.tt
-		trigger = { has_war_support < 0.4 }
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0
-				USA_is_on_historical_plan_trigger = yes
-			}
-		}
-		add_war_support = -0.05
-		add_stability = 0.05
-		if = {
-			limit = {
-				has_completed_focus = USA_neutrality_act
-			}
-			add_political_power = 50
-		}
-		add_opinion_modifier = { target = JAP modifier = panay_inc_opinion_modifier }
-		hidden_effect = { JAP = { country_event = { id = panay_incident.6 days = 2 } } } #Info event for Japan
-	}
-	option = { #Pull forces out of China - medium or above war support
-		name = panay_incident.2.a
-		custom_effect_tooltip = panay_incident.2.e.tt
-		trigger = { has_war_support > 0.39 }
-		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 0
-				USA_is_on_historical_plan_trigger = yes
-			}
-		}
-		add_war_support = -0.05
-		add_opinion_modifier = { target = JAP modifier = panay_inc_opinion_modifier }
-		hidden_effect = { JAP = { country_event = { id = panay_incident.6 days = 2 } } } #Info event for Japan
-	}
 	option = { #Demand compensation
 		name = panay_incident.2.b
 		custom_effect_tooltip = panay_incident.2.b.tt
@@ -4472,36 +4389,7 @@ country_event = {
 		hidden_effect = { JAP = { country_event = { id = panay_incident.3 days = 2 } } } #Delay added so events are spaced out - historically it took months to get JAP to agree to compensation, but that'd be a bit hard to follow in-game, so timelines compressed.
 		add_opinion_modifier = { target = JAP modifier = panay_inc_opinion_modifier }
 	}
-	option = { #War
-		name = panay_incident.2.c
-		custom_effect_tooltip = panay_incident.2.c.tt
-		ai_chance = {
-			factor = 5
-			modifier = {
-				factor = 0
-				USA_is_on_historical_plan_trigger = yes
-			}
-		}
-		if = {
-			limit = {
-				has_completed_focus = USA_neutrality_act
-			}
-			add_war_support = -0.1
-			add_stability = -0.3
-		}
-		add_opinion_modifier = { target = JAP modifier = panay_inc_opinion_modifier }
-		create_wargoal = {
-				target = JAP
-				type = topple_government
-			}
-		add_state_claim = 633
-		add_state_claim = 684
-		add_state_claim = 645
-		add_state_claim = 646
-		add_state_claim = 647
-		add_state_claim = 648
-		hidden_effect = { news_event = { id = news.335 } } #Triggers news event for war between JAP and USA
-	}
+	
 }
 
 #Panay Incident - JAP gets demand for compensation
@@ -4518,19 +4406,6 @@ country_event = {
 		ai_chance = { factor = 70 }
 		add_political_power = -100
 		hidden_effect = { USA = { country_event = { id = panay_incident.4 days = 2 } } } #Delay added to space things out
-	}
-	option = { #We shall never bw down to the western Imperialists!
-		name = panay_incident.3.b
-		custom_effect_tooltip = panay_incident.3.b.tt
-		ai_chance = {
-			factor = 30
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-		add_political_power = 100
-		hidden_effect = { USA = { country_event = { id = panay_incident.5 days = 2 } } } #Delay added here and in earlier event so rest of the world doesn't get Panay Incident one day and War the next, unless US is particularly gung-ho in response to initial event.
 	}
 }
 
@@ -4610,5 +4485,141 @@ country_event = {
 	option = {
 		name = panay_incident.6.a
 		add_political_power = 100
+	}
+}
+
+
+
+add_namespace = mtg_usa_hmm
+#Event for capitulation of Japan (Fate of China)
+country_event = {
+	id = mtg_usa_hmm.1
+	title = mtg_usa_hmm.1.t
+	desc = mtg_usa_hmm.1.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = { #British Administration
+		name = mtg_usa_hmm.1.a
+
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					NOT = {
+						state = 326
+						state = 729
+					}
+				}
+			transfer_state_to = ENG
+			}
+			every_state = {
+				limit = {
+					state = 1028
+					state = 1029
+					state = 1030
+					state = 1031
+					state = 525
+					state = 527
+				}
+			transfer_state_to = ENG
+			}
+			every_state = {
+				limit = {
+					is_core_of = SIA
+				}
+			transfer_state_to = ENG
+			}
+
+		hidden_effect = {
+			USA = {
+				country_event = { id = mtg_usa_hmm.2 days = 2 }
+			}
+		}				
+	}
+
+	option = { #French Administration
+		name = mtg_usa_hmm.1.b
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					NOT = {
+						state = 326
+						state = 729
+					}
+				}
+			transfer_state_to = FRA
+			}
+			every_state = {
+				limit = { 
+					state = 1028
+					state = 1029
+					state = 1030
+					state = 1031
+					state = 525
+					state = 527
+				}
+			transfer_state_to = FRA
+			}
+
+			every_state = {
+				limit = {
+					is_core_of = SIA
+				}
+			transfer_state_to = FRA	
+			}
+
+
+		hidden_effect = {
+			USA = {
+				country_event = { id = mtg_usa_hmm.2 days = 2 }
+			}
+		}	
+	}
+
+	option = { #American Administration (Status Quo)
+		name = mtg_usa_hmm.1.c
+
+		hidden_effect = {
+			USA = {
+				country_event = { id = mtg_usa_hmm.2 days = 2 }
+			}
+		}
+	}
+}
+
+
+#Event for capitulation of Japan, the following event of "Fate of China" (Fate of Japan)
+country_event = {
+	id = mtg_usa_hmm.2
+	title = mtg_usa_hmm.2.t
+	desc = mtg_usa_hmm.2.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+
+	option = { #British Administration
+		name = mtg_usa_hmm.2.a
+
+			every_state = {
+				limit = {
+					is_core_of = JAP
+				}
+			transfer_state_to = ENG
+			}			
+	}
+
+	option = { #French Administration
+		name = mtg_usa_hmm.2.b
+			every_state = {
+				limit = {
+					is_core_of = JAP
+				}
+			transfer_state_to = FRA
+			}	
+	}
+
+	option = { #American Administration (Status Quo)
+		name = mtg_usa_hmm.2.c
 	}
 }

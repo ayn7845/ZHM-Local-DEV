@@ -624,7 +624,7 @@ country_event = {
 			
 		}
 
-		give_guarantee = TIB 
+		
 	}
 
 	option = {
@@ -1210,8 +1210,6 @@ country_event = {
 		if = {
 			limit = {
 				is_subject = yes
-				tag = RAJ
-				is_dynamic_country = no
 				OVERLORD = { has_government = fascism }
 				NOT = {
 					has_autonomy_state = autonomy_satellite
@@ -1232,8 +1230,6 @@ country_event = {
 			limit = {
 				is_subject = yes
 				OVERLORD = { has_government = communism }
-				tag = RAJ
-				is_dynamic_country = no
 				NOT = {
 					has_autonomy_state = autonomy_dominion
 				}
@@ -2062,50 +2058,177 @@ country_event = {
 				}
 			}
 
-			random_scope_in_array = {
-				array = RAJ.owned_states_at_game_start 
-				limit = { 
-					is_controlled_by = ROOT 
-					has_resistance = yes
+			set_temp_variable = { maximum_resistance = 70 }
+			if = {
+				limit = {
+					# If we could do Government of India Act, give us a 1-year grace period from events where we would be forced to pick compliance loss
+					has_completed_focus = RAJ_his_majestys_loyal_government
+					NOT = { has_completed_focus = RAJ_the_government_of_india_act }
+					date < 1937.01.01
+				}
+				set_temp_variable = { maximum_resistance = 25 }
+			}
+			if = {
+				limit = {
+					any_of_scopes = {
+						array =  RAJ.owned_states_at_game_start 
+						is_controlled_by = ROOT 
+						has_resistance = yes
+						# This option ensures that we can still get the first event in the list
+						resistance < maximum_resistance
+					}
+				}
+				for_each_scope_loop = {
+					array = RAJ.owned_states_at_game_start
+					if = {
+						limit = {
+							is_controlled_by = ROOT 
+							has_resistance = yes
+							# This option ensures that we can still get the first event in the list
+							resistance < maximum_resistance
+						}
+						add_to_temp_array = { eligible_unrest_states = this }
+					}
+				}
+				# HMM: prefer to select states in a way that minimizes damage
+				random_scope_in_array = {
+					array = eligible_unrest_states
+					limit = {
+						# Prefer states with no factories or resources in them, compliance loss option in these is a nothingburger
+						industrial_complex < 1
+						arms_factory < 1
+						dockyard < 1
+						steel < 1
+						aluminium < 1
+						rubber < 1
+						tungsten < 1
+						oil < 1
+						chromium < 1
+						coal < 1
+					}
+
+					set_variable = { RAJ.unrest_target_state = THIS }
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = RAJ.unrest_target_state }
+					}
+					random_scope_in_array = {
+						array = eligible_unrest_states
+						limit = {
+							# Prefer states with no factories in them, compliance loss option in these is usually not a big deal
+							industrial_complex < 1
+							arms_factory < 1
+							dockyard < 1
+						}
+
+						set_variable = { RAJ.unrest_target_state = THIS }
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = RAJ.unrest_target_state }
+						}
+						random_scope_in_array = {
+							array = eligible_unrest_states
+							limit = {
+								# These conditions allow all options to be safely picked for all possible events
+								resistance < 25
+								compliance > 20
+							}
+
+							set_variable = { RAJ.unrest_target_state = THIS }
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = RAJ.unrest_target_state }
+							}
+							random_scope_in_array = {
+								array = eligible_unrest_states
+								limit = {
+									# These options allow all events to have at least one option we can safely pick
+									compliance > 20
+									resistance < 65
+								}
+
+								set_variable = { RAJ.unrest_target_state = THIS }
+							}
+
+							if = {
+								limit = {
+									NOT = { has_variable = RAJ.unrest_target_state }
+								}
+								random_scope_in_array = {
+									array = eligible_unrest_states
+									set_variable = { RAJ.unrest_target_state = THIS }
+								}
+							}
+						}
+					}
 				}
 
-				set_variable = { RAJ.unrest_target_state = THIS }
-				random_list = {
-					log = yes 
-					seed = random
-					10 = {
-						ROOT = { country_event = { id = GOE_RAJ_partition.2 hours = 2  } } #Add resistance
-						modifier = {
-							var:RAJ.unrest_target_state = { resistance > 97  }
-							factor = 0
-						}
+				if = {
+					limit = { # HMM: check just in case having no qualifying states causes issues
+						has_variable = RAJ.unrest_target_state
 					}
-
-					3 = {
-						ROOT = { country_event = { id = GOE_RAJ_partition.3 hours = 2  } }
-						modifier = {
-							var:RAJ.unrest_target_state = {
-								industrial_complex < 1
-								arms_factory < 1
-								dockyard < 1
-								infrastructure < 2 
-
+					var:RAJ.unrest_target_state = {
+						random_list = {
+							#log = yes # HMM: disabled to prevent spamming game.log
+							seed = random
+							10 = {
+								ROOT = { country_event = { id = GOE_RAJ_partition.2 hours = 2  } } #Add resistance
+								modifier = {
+									# Was just for if resistance was more than 97 in vanilla, changed in HMM so we cannot fire this if our only option is to push the state to 90 resistance or more (no civil wars!)
+									var:RAJ.unrest_target_state = { NOT = { resistance < 70 } }
+									factor = 0
+								}
 							}
-							factor = 0.5
-						}
 
-						modifier = {
-							var:RAJ.unrest_target_state = { resistance > 40 }
-							add = 3
-						}
+							0 = { # HMM: railroaded to be impossible to trigger to keep Raj consistent and add QoL
+								ROOT = { country_event = { id = GOE_RAJ_partition.3 hours = 2  } }
+								modifier = {
+									var:RAJ.unrest_target_state = {
+										industrial_complex < 1
+										arms_factory < 1
+										dockyard < 1
+										infrastructure < 2 
 
-						modifier = {
-							var:RAJ.unrest_target_state = { resistance > 60 }
-							add = 10
+									}
+									factor = 0.5
+								}
+
+								modifier = {
+									var:RAJ.unrest_target_state = { resistance > 40 }
+									add = 3
+								}
+
+								modifier = {
+									var:RAJ.unrest_target_state = { resistance > 60 }
+									add = 10
+								}
+							}
+							10 = {
+								ROOT = { country_event = { id = GOE_RAJ_partition.4 hours = 2 } }
+								modifier = {
+									# Ensure that we can only get this option in HMM if we can safely pick the third option (no civil wars!)
+									var:RAJ.unrest_target_state = {
+										OR = {
+											NOT = { compliance > 20 }
+											NOT = { resistance < 65 }
+										}
+									}
+									factor = 0
+								}
+								# If we could do Government of India Act, give us a 1-year grace period from this event so we can safely max out the PP bonus from compliance if we plan on doing that
+								modifier = {
+									ROOT = {
+										has_completed_focus = RAJ_his_majestys_loyal_government
+										NOT = { has_completed_focus = RAJ_the_government_of_india_act }
+										date < 1937.01.01
+									}
+									factor = 0
+								}
+							}
 						}
-					}
-					10 = {
-						ROOT = { country_event = { id = GOE_RAJ_partition.4 hours = 2 } }
 					}
 				}
 			}
@@ -2136,6 +2259,9 @@ country_event = {
 
 	option = {
 		name =  GOE_RAJ_partition.2.a
+		var:RAJ.unrest_target_state = { 
+			resistance < 25 # Added in HMM to make sure we can never get to 90 resistance or more (no civil wars!)
+		}
 		if = {
 			limit = {
 				is_ai = yes	
@@ -2159,6 +2285,15 @@ country_event = {
 					resistance < 25 
 				}
 				add = 1
+			}
+		}
+		hidden_effect = {
+			# HMM: needed to make sure we do not accidentally go to 90 or more resistance by holding the event
+			var:RAJ.unrest_target_state = {
+				if = {
+					limit = { NOT = { resistance < 90 } }
+					set_resistance = 89.999
+				}
 			}
 		}
 		clear_variable = RAJ.unrest_target_state
@@ -2200,6 +2335,9 @@ country_event = {
 					resistance > 24 
 				}
 			}
+			var:RAJ.unrest_target_state = { 
+				resistance < 70 # Added in HMM to make sure we can never get to 90 resistance or more (no civil wars!)
+			}
 		}
 
 		if = {
@@ -2222,6 +2360,15 @@ country_event = {
 				custom_effect_tooltip = newline_tt
 				add_compliance = -35
 				custom_effect_tooltip = currentStateCompliance
+			}
+		}
+		hidden_effect = {
+			# HMM: needed to make sure we do not accidentally go to 90 or more resistance by holding the event
+			var:RAJ.unrest_target_state = {
+				if = {
+					limit = { NOT = { resistance < 90 } }
+					set_resistance = 89.999
+				}
 			}
 		}
 		clear_variable = RAJ.unrest_target_state
@@ -2324,6 +2471,11 @@ country_event = {
 
 	option = {
 		name =  GOE_RAJ_partition.4.a
+		trigger = {
+			# HMM: removed noob trap option unless it's very important that we not be forced to lose compliance
+			has_completed_focus = RAJ_his_majestys_loyal_government
+			NOT = { has_completed_focus = RAJ_the_government_of_india_act }
+		}
 		add_stability = -0.045
 		clear_variable = RAJ.unrest_target_state
 		hidden_effect = {
@@ -2342,6 +2494,11 @@ country_event = {
 
 	option = {
 		name =  GOE_RAJ_partition.4.b
+		trigger = {
+			# HMM: removed noob trap option unless it's very important that we not be forced to lose compliance
+			has_completed_focus = RAJ_his_majestys_loyal_government
+			NOT = { has_completed_focus = RAJ_the_government_of_india_act }
+		}
 		add_stability = -0.02
 		add_political_power = -35
 		clear_variable = RAJ.unrest_target_state
@@ -2381,7 +2538,16 @@ country_event = {
 		trigger = {
 			var:RAJ.unrest_target_state = {
 				compliance > 20
-				resistance < 80
+				resistance < 65 # Was 80, now 65 in HMM to make sure we can never get to 90 resistance or more (no civil wars!)
+			}
+		}
+		hidden_effect = {
+			# HMM: needed to make sure we do not accidentally go to 90 or more resistance by holding the event
+			var:RAJ.unrest_target_state = {
+				if = {
+					limit = { NOT = { resistance < 90 } }
+					set_resistance = 89.999
+				}
 			}
 		}
 		clear_variable = RAJ.unrest_target_state
@@ -5181,7 +5347,7 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			country_event = { id =  GOE_RAJ_famine.2 days = 20 random_days = 55 }
+			country_event = { id =  GOE_RAJ_famine.2 days = 45 random_days = 0 }
 		}
 	}
 
@@ -5232,7 +5398,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			country_event = { id =  GOE_RAJ_famine.3 days = 1 random_days = 55 }
+			country_event = { id =  GOE_RAJ_famine.3 days = 25 random_days = 0 }
 		}
 	}
 
@@ -5263,7 +5429,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			country_event = { id = GOE_RAJ_famine.4 days = 1 random_days = 55 }
+			country_event = { id = GOE_RAJ_famine.4 days = 25 random_days = 0 }
 		}
 	}
 
@@ -5284,7 +5450,7 @@ country_event = {
     fire_only_once = yes
 	immediate = {
 		hidden_effect = {
-			country_event = { id =  GOE_RAJ_famine.5 days = 1 random_days = 55 }
+			country_event = { id =  GOE_RAJ_famine.5 days = 25 random_days = 0 }
 		}
 	}
 	
@@ -5309,7 +5475,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			country_event = { id =  GOE_RAJ_famine.6 days = 20 random_days = 55 }
+			country_event = { id =  GOE_RAJ_famine.6 days = 45 random_days = 0 }
 		}
 	}
 	option = {
@@ -5331,7 +5497,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			country_event = { id =  GOE_RAJ_famine.7 days = 20 random_days = 55 }
+			country_event = { id =  GOE_RAJ_famine.7 days = 45 random_days = 0 }
 		}
 	}
 

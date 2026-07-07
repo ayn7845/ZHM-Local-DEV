@@ -119,10 +119,7 @@ country_event = {
 				tag = JAP
 				add = 80 #TODO_WTT_AI script modifiers for how likely people are to accept puppeting
 			}
-			modifier = {
-				tag = TIB
-				add = 30 #TODO_WTT_AI script modifiers for how likely people are to accept puppeting
-			}
+		
 			modifier = {
 				tag = MON
 				add = 30 #TODO_WTT_AI script modifiers for how likely people are to accept puppeting
