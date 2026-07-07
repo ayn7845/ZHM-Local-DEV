@@ -16,8 +16,8 @@ state={
 		victory_points = {
 			919 5
 		}
-		buildings = {
-			infrastructure = 2
+		buildings = { 
+			
 		}
 		add_core_of = TUR
 	}

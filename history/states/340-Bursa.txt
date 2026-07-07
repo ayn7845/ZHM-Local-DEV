@@ -11,10 +11,8 @@ state={
 
 	history={
 		owner = TUR
-		buildings = {
-			infrastructure = 2
-			industrial_complex = 1
-			dockyard = 1
+		buildings = { 
+			
 		}
 		
 		victory_points = {

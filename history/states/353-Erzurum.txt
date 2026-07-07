@@ -15,9 +15,8 @@ state={
 		victory_points = {
 			9868 1
 		}
-		buildings = {
-			infrastructure = 1
-
+		buildings = { 
+			
 		}
 		if = {
 			limit = {
