@@ -1,94 +1,5 @@
 
-political_actions = {
-	PAR_flip_to_fascism = {
-		priority = 20
-		icon = generic_civil_support
-		ai_will_do = {
-			base = 0
-			modifier = {
-				is_historical_focus_on = no
-				add = 2
-			}
-		}
 
-		allowed = {  
-			original_tag = PAR
-			has_dlc = "Trial of Allegiance"
-		}
-
-		available = {
-			has_completed_focus = PAR_nazify_the_army
-		}
-		visible = {
-			has_completed_focus = PAR_nazify_the_army
-			NOT = { has_government = fascism }
-		}
-		cost = 35
-		complete_effect = {
-			set_politics = {
-				ruling_party = fascism
-				elections_allowed = no
-				last_election = "1936.02.04"
-			}
-		}
-	}
-
-	PAR_appoint_estigarribia_as_leader = {
-		priority = 20
-		icon = generic_civil_support
-		ai_will_do = {
-			base = 0
-			modifier = {
-				is_historical_focus_on = no
-				add = 2
-			}
-		}
-
-		allowed = {  
-			original_tag = PAR
-			has_dlc = "Trial of Allegiance"
-		}
-
-		available = {
-			has_completed_focus = PAR_put_estigarribia_on_a_pedestal
-		}
-		visible = {
-			has_completed_focus = PAR_put_estigarribia_on_a_pedestal
-			NOT = { 
-				has_country_leader = {
-					ruling_only = yes # default = yes
-					character = PAR_Jose_Felix_Estigarribia # recommended<bool>
-				}
-			}
-		}
-		cost = 75
-		complete_effect = {
-			hidden_effect = {
-				set_party_name = {
-					ideology = neutrality
-					long_name = neutrality
-					name = neutrality
-				}
-			}
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-				last_election = "1936.03.12"
-			}
-			retire_country_leader = yes
-			PAR_Jose_Felix_Estigarribia = {
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = despotism
-						expire = 1950.1.1
-						traits = { SWI_militaristic_nationalist } 
-					}
-				}
-			}
-		}
-	}
-}
 
 improving_our_army_category = {
 	
@@ -104,12 +15,9 @@ improving_our_army_category = {
  
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR
-				original_tag = BOL
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL
+				
 			}
 		}
 
@@ -145,15 +53,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+		
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -166,22 +67,6 @@ improving_our_army_category = {
 					original_tag = ARG
 				}
 				custom_effect_tooltip = ARG_modify_argentine_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
 			}
@@ -210,12 +95,8 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR
-				original_tag = BOL
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL
 			}
 		}
  
@@ -250,16 +131,8 @@ improving_our_army_category = {
 		}
 
 		remove_effect = {
-			
+		
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.035 tooltip = army_armor_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -272,22 +145,6 @@ improving_our_army_category = {
 					original_tag = ARG
 				}
 				custom_effect_tooltip = ARG_modify_argentine_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.035 tooltip = army_armor_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.035 tooltip = army_armor_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.035 tooltip = army_armor_attack_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 			}
@@ -316,12 +173,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+			
 			}
 		}
 	
@@ -406,16 +261,8 @@ improving_our_army_category = {
 		}
 
 		remove_effect = {
-			
+		
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -428,22 +275,6 @@ improving_our_army_category = {
 					original_tag = ARG
 				}
 				custom_effect_tooltip = ARG_modify_argentine_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 			}
@@ -484,12 +315,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -509,14 +338,6 @@ improving_our_army_category = {
 					has_country_flag = JUNO_already_invited_japanese_advisors_completed
 				}
 			} 
-			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				NOT = {
-					has_completed_focus = CHL_promote_broad_anti_americansim
-				}
-			}
 			custom_trigger_tooltip = {
 				tooltip = has_american_ideology
 				OR = {
@@ -582,15 +403,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+		
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -606,22 +420,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
 				add_to_variable = { JUNO_army_modifier_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
@@ -654,12 +453,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -747,15 +544,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_supply_combat_penalties_on_core_factor = -0.05 tooltip = supply_combat_penalties_on_core_factor_tt }
-				add_to_variable = { JUNO_army_modifier_conscription = 0.01 tooltip = conscription_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -771,22 +561,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_supply_combat_penalties_on_core_factor = -0.05 tooltip = supply_combat_penalties_on_core_factor_tt }
 				add_to_variable = { JUNO_army_modifier_conscription = 0.01 tooltip = conscription_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_supply_combat_penalties_on_core_factor = -0.05 tooltip = supply_combat_penalties_on_core_factor_tt }
-				add_to_variable = { JUNO_army_modifier_conscription = 0.01 tooltip = conscription_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_supply_combat_penalties_on_core_factor = -0.05 tooltip = supply_combat_penalties_on_core_factor_tt }
-				add_to_variable = { JUNO_army_modifier_conscription = 0.01 tooltip = conscription_tt }
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_supply_combat_penalties_on_core_factor = -0.05 tooltip = supply_combat_penalties_on_core_factor_tt }
@@ -821,12 +596,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -912,15 +685,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -936,22 +702,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
-			}
+		
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
@@ -984,12 +735,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+			
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+			
 			}
 		}
 	
@@ -1074,15 +823,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -1098,22 +840,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
@@ -1147,12 +874,11 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				 
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -1239,15 +965,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.1 tooltip = experience_gain_army_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_factor = 0.03 tooltip = army_attack_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -1263,22 +982,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.1 tooltip = experience_gain_army_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_factor = 0.03 tooltip = army_attack_factor_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.1 tooltip = experience_gain_army_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_factor = 0.03 tooltip = army_attack_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.1 tooltip = experience_gain_army_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_attack_factor = 0.03 tooltip = army_attack_factor_tt }
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.1 tooltip = experience_gain_army_factor_tt }
@@ -1312,12 +1016,10 @@ improving_our_army_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+			
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -1403,15 +1105,8 @@ improving_our_army_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_artillery_defence_factor = 0.1 tooltip = army_artillery_defence_factor_tt }
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -1427,22 +1122,7 @@ improving_our_army_category = {
 				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_artillery_defence_factor = 0.1 tooltip = army_artillery_defence_factor_tt }
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_artillery_defence_factor = 0.1 tooltip = army_artillery_defence_factor_tt }
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_artillery_defence_factor = 0.1 tooltip = army_artillery_defence_factor_tt }
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_artillery_attack_factor = 0.05 tooltip = army_artillery_attack_factor_tt }
@@ -1474,12 +1154,10 @@ improving_our_army_category = {
 				AND = {
 					has_dlc = "Trial of Allegiance"
 					OR = {
-						original_tag = URG
-						original_tag = PAR 
-						original_tag = BOL
+						
 						original_tag = BRA
 						original_tag = ARG
-						original_tag = CHL 
+						
 					}
 				}
 				AND = {
@@ -1537,7 +1215,7 @@ improving_our_army_category = {
 			}
 			OR = {
 				has_completed_focus = SMB_purchase_aircraft
-				has_completed_focus = AFG_purchase_aircraft
+				#has_completed_focus = AFG_purchase_aircraft
 			}
 
 			NOT = {
@@ -1940,12 +1618,10 @@ south_american_naval_arms_race_category = {
 	
 		allowed = {  
 			OR = {
-				original_tag = URG
-				original_tag = PAR 
-				original_tag = BOL
+				
 				original_tag = BRA
 				original_tag = ARG
-				original_tag = CHL 
+				
 			}
 		}
 	
@@ -2031,14 +1707,8 @@ south_american_naval_arms_race_category = {
 
 		remove_effect = {
 			
+			
 			IF = {
-				limit = {
-					original_tag = CHL
-				}
-				custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-				SMB_naval_jap_advisors_effect = yes
-			}
-			ELSE_IF = {
 				limit = {
 					original_tag = BRA
 				}
@@ -2052,20 +1722,7 @@ south_american_naval_arms_race_category = {
 				custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 				SMB_naval_jap_advisors_effect = yes
 			}
-			ELSE_IF = {
-				limit = {
-					original_tag = PAR
-				}
-				custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-				SMB_naval_jap_advisors_effect = yes
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = URG
-				}
-				custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-				SMB_naval_jap_advisors_effect = yes
-			}
+			
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 				SMB_naval_jap_advisors_effect = yes
@@ -2097,12 +1754,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+					
 				}
 			}
 		
@@ -2195,14 +1850,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_usa_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -2216,20 +1865,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_usa_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_usa_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_usa_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_usa_advisors_effect = yes
@@ -2263,12 +1899,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+				
 				}
 			}
 		
@@ -2356,14 +1990,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_sov_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -2377,20 +2005,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_sov_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_sov_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_sov_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_sov_advisors_effect = yes
@@ -2423,12 +2038,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+					
 				}
 			}
 		
@@ -2514,14 +2127,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_ger_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -2535,20 +2142,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_ger_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_ger_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_ger_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_ger_advisors_effect = yes
@@ -2581,12 +2175,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+					
 				}
 			}
 		
@@ -2671,14 +2263,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_ita_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -2692,20 +2278,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_ita_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_ita_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_ita_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_ita_advisors_effect = yes
@@ -2738,12 +2311,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+					
 				}
 			}
 		
@@ -2830,14 +2401,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_eng_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -2851,20 +2416,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_eng_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_eng_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_eng_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_eng_advisors_effect = yes
@@ -2896,12 +2448,10 @@ south_american_naval_arms_race_category = {
 		
 			allowed = {  
 				OR = {
-					original_tag = URG
-					original_tag = PAR 
-					original_tag = BOL
+					
 					original_tag = BRA
 					original_tag = ARG
-					original_tag = CHL 
+					
 				}
 			}
 		
@@ -2987,14 +2537,8 @@ south_american_naval_arms_race_category = {
 
 			remove_effect = {
 				
+				
 				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					custom_effect_tooltip = CHL_modify_chilean_navy_ns_intro
-					SMB_naval_fra_advisors_effect = yes
-				}
-				ELSE_IF = {
 					limit = {
 						original_tag = BRA
 					}
@@ -3008,20 +2552,7 @@ south_american_naval_arms_race_category = {
 					custom_effect_tooltip = ARG_modify_argentine_navy_ns_intro
 					SMB_naval_fra_advisors_effect = yes
 				}
-				ELSE_IF = {
-					limit = {
-						original_tag = PAR
-					}
-					custom_effect_tooltip = PAR_modify_paraguayan_navy_ns_intro
-					SMB_naval_fra_advisors_effect = yes
-				}
-				ELSE_IF = {
-					limit = {
-						original_tag = URG
-					}
-					custom_effect_tooltip = URG_modify_uruguayan_navy_ns_intro
-					SMB_naval_fra_advisors_effect = yes
-				}
+				
 				ELSE = {
 					custom_effect_tooltip = JUNO_modify_south_american_navy_ns_intro
 					SMB_naval_fra_advisors_effect = yes
@@ -3064,7 +2595,7 @@ JUNO_promote_immigration_cat = {
 				OR = {
 					original_tag = ARG
 					original_tag = BRA
-					original_tag = CHL
+					
 				}
 			}
 		}
@@ -3127,18 +2658,7 @@ JUNO_promote_immigration_cat = {
 					}
 				}
 
-				else_if = {
-					limit = {
-						ROOT = {
-							original_tag = CHL
-						}
-					}
-					OR = {
-						state = 950
-						state = 949
-						state = 507
-					}
-				}
+				
 			}
 		}
 
@@ -3355,7 +2875,7 @@ JUNO_promote_immigration_cat = {
 			AND = {
 				OR = {
 					original_tag = ARG
-					original_tag = CHL
+					
 				}
 			}
 		}
@@ -3406,18 +2926,7 @@ JUNO_promote_immigration_cat = {
 					}
 				}
 
-				else_if = {
-					limit = {
-						ROOT = {
-							original_tag = CHL
-						}
-					}
-					OR = {
-						state = 279
-						state = 950
-						state = 949
-					}
-				}
+				
 			}
 		}
 
@@ -3427,83 +2936,6 @@ JUNO_promote_immigration_cat = {
 			set_country_flag = JUNO_promote_immigration_ongoing
 			set_country_flag = JUNO_GER_immigration_completed
 			GER = {
-				add_opinion_modifier = {
-   					target = ROOT
-  					modifier = JUNO_promoted_immigration
-  				}	
-			}
-			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
-		}
-	
-		remove_effect = {
-			clr_country_flag = JUNO_promote_immigration_ongoing
-
-			FROM = {
-				add_dynamic_modifier = {
-					modifier = JUNO_immigration_promoted
-				}
-				set_state_flag = JUNO_promote_immigration_complete
-			}
-		}
-	}
-
-	JUNO_promote_immigration_in_state_SPR = {
-
-
-		icon = GFX_decision_SWI_support_humanitarian_efforts
-	
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 10
-				has_political_power > 300
-			}
-		}
-	
-		cost = 150
-		fire_only_once = yes
-	
-		allowed = {
-			original_tag = CHL
-		}
-	
-		available = {
-			has_country_flag = JUNO_promote_immigration_flag
-			NOT = {
-				has_country_flag = JUNO_promote_immigration_ongoing
-				has_country_flag = JUNO_SPR_immigration_completed
-			}
-		}
-	
-	
-		visible = {
-			has_country_flag = JUNO_promote_immigration_flag
-
-			NOT = {
-				has_country_flag = JUNO_SPR_immigration_completed
-			}
-		}
-
-		on_map_mode = decision_view_only
-
-		state_target = yes
-		targets = { 279 949 507 }
-
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				NOT = {
-					has_state_flag = JUNO_promote_immigration_complete
-				}
-			}
-		}
-
-		days_remove = 20
-
-		complete_effect = {
-			set_country_flag = JUNO_promote_immigration_ongoing
-			set_country_flag = JUNO_SPR_immigration_completed
-			SPR = {
 				add_opinion_modifier = {
    					target = ROOT
   					modifier = JUNO_promoted_immigration
