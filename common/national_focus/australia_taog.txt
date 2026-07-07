@@ -1216,6 +1216,7 @@ focus_tree = {
 		}
 
 		available = {
+			always = no
 			custom_override_tooltip = {
 				tooltip = {
 					localization_key = AST_uap_win_count_trigger_tt
@@ -3356,7 +3357,9 @@ focus_tree = {
 		y = 1
 	
 		cost = 5
-
+		allow_branch = { 
+			always = no
+		}
 		available = {
 			threat > 0.8
 			INS = {
@@ -10339,6 +10342,7 @@ focus = {
 		cost = 10
 
 		available = {
+			always = no
 		}
 
 		bypass = {
