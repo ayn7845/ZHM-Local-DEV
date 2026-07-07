@@ -1,0 +1,9 @@
+#State scope
+
+
+WTT_is_chinese_country = {
+	OR = {
+		original_tag = CHI
+		
+	}
+}

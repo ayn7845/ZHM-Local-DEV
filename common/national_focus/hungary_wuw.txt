@@ -1321,7 +1321,7 @@ focus_tree = {
 
 		will_lead_to_war_with = CZE
 		will_lead_to_war_with = SLO
-		will_lead_to_war_with = UKR
+		#will_lead_to_war_with = UKR
 
 		available = {
 
@@ -1398,7 +1398,7 @@ focus_tree = {
 		relative_position_id = wuw_HUN_reaffirm_territorial_claims
 
 		will_lead_to_war_with = ROM
-		will_lead_to_war_with = TRA
+		#will_lead_to_war_with = TRA
 
 		cost = 5
 

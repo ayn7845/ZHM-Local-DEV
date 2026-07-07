@@ -8424,7 +8424,7 @@ focus_tree = {
 				limit = {
 					has_dlc = "By Blood Alone"
 				}
-				#ETH_deescalate_the_war_effect = yes
+				ETH_deescalate_the_war_effect = yes
 			}
 			
 			if = {
