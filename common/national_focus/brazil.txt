@@ -52,16 +52,7 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
-			}
+			
 		}
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
@@ -175,7 +166,9 @@ focus_tree = {
 		}
 		available = {
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		bypass = {
 			has_government = fascism
 		}
@@ -1069,29 +1062,7 @@ focus_tree = {
 			factor = 15
 		}
 
-		offset = {
-			x = -33
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = BRA_prepare_for_second_intentona 
-			}
-		}
-
-		offset = {
-			x = -15
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = BRA_end_the_state_of_emergency 
-			}
-		}
+		
 		available = {
 		}
 
@@ -2051,7 +2022,7 @@ focus_tree = {
 			focus = BRA_secure_our_borders 
 			focus = BRA_the_international_crisis
 		}
-		x = -10
+		x = 0
 		y = 1
 		relative_position_id = BRA_secure_our_borders
 		cost = 5
@@ -2265,6 +2236,10 @@ focus_tree = {
 		available = {
 			is_subject = no
 			is_in_faction = no
+		}
+
+		allow_branch = { 
+			always = no
 		}
 
 		search_filters = { }
@@ -2828,6 +2803,10 @@ focus_tree = {
 		ai_will_do = {
 			factor = 0
 		}
+
+		allow_branch = { 
+			always = no
+		}
 		available = {
 			NOT = {
 				USA = {
@@ -2966,6 +2945,10 @@ focus_tree = {
 				}
 				has_government = communism
 			}
+		}	
+
+		allow_branch = { 
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -3061,7 +3044,9 @@ focus_tree = {
 			}
 			has_army_manpower = { size > 199999 }
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		search_filters = { }
 
 		completion_reward = {
@@ -3850,17 +3835,13 @@ focus_tree = {
 		available = {
 			has_war_support > 0.5
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			URG = {
-				country_event = {
-					id = JUNO_brazil_events.40
-					hours = 1
-				}
-			}
-			add_war_support = 0.1
+			
 		}
 	}
 
@@ -5157,7 +5138,9 @@ allow_branch = {
 				}
 			}
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
@@ -5272,6 +5255,10 @@ allow_branch = {
 		ai_will_do = {
 			factor = 5
 		}
+
+		allow_branch = { 
+			always = no
+		}
 		available = {
 			OR = {
 				USA = {
@@ -5296,24 +5283,7 @@ allow_branch = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			custom_effect_tooltip = BRA_invite_foreign_companies_tt
-			#USA
-			show_mio_tooltip = USA_marmon_herrington_organization
-			show_mio_tooltip = USA_north_american_aviation_organization
-			show_mio_tooltip = USA_newport_news_shipbuilding_organization
-			# UK
-			show_mio_tooltip = ENG_vauxhall_organization
-			show_mio_tooltip = ENG_cammell_laird_organization
-			show_mio_tooltip = ENG_avro_organization
-			# France
-			show_mio_tooltip = FRA_acf_organization
-			show_mio_tooltip = FRA_bloch_organization
-			show_mio_tooltip = FRA_renault_organization
-			# Sweden
-			show_mio_tooltip = SWE_saab_organization			
-			show_mio_tooltip = SWE_landsverk_organization
-			show_mio_tooltip = SWE_gotaverken_organization
-			show_mio_tooltip = SWE_scania_vabis_organization
+			
 		}
 	}
 
