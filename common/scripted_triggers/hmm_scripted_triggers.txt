@@ -68,7 +68,7 @@ allies = {
 		tag = POL
 		tag = DEN
 		tag = PHI
-		ARG = ARG
+		tag = ARG
 	}
 }
 
