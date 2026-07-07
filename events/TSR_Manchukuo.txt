@@ -262,12 +262,39 @@ country_event = {
 			}
 		}
 
-		random_country = { 
-
+		random_country = {
+			limit = {
+				original_tag = MEN
+				has_government = communism
+				is_subject = no
+			}
+			FROM = {
+				puppet = {
+				    target = PREV
+				    end_wars = no
+				    end_civil_wars = no
+				}
+			}
+			set_politics = {
+				ruling_party = communism
+			}
 		}
 
-		hidden_effect = { 
-
+		hidden_effect = {
+			random_country = {
+				limit = {
+					original_tag = MEN
+					NOT = {
+						has_government = communism
+					}
+				}
+				FROM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}	
+				}
+			}
 		}
 
 	}
@@ -299,12 +326,39 @@ country_event = {
 			}
 		}
 
-		random_country = { 
-
+		random_country = {
+			limit = {
+				original_tag = MEN
+				has_government = communism
+				is_subject = no
+			}
+			FROM = {
+				puppet = {
+				    target = PREV
+				    end_wars = no
+				    end_civil_wars = no
+				}
+			}
+			set_politics = {
+				ruling_party = communism
+			}
 		}
 
-		hidden_effect = { 
-			
+		hidden_effect = {
+			random_country = {
+				limit = {
+					original_tag = MEN
+					NOT = {
+						has_government = communism
+					}
+				}
+				FROM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}	
+				}
+			}
 		}
 	}
 }

@@ -1269,11 +1269,29 @@ country_event = { # China tries to stall war with Japan, HBC and SND get the cha
 			}
 		}
 
-		IF = { 
-
+		IF = {
+			limit = {
+				1039 = {
+					is_controlled_by = ROOT
+				}
+				FROM = { has_subject = MEN }
+			}
+			MEN = {
+				transfer_state = 1039
+			}
 		}
-		ELSE_IF = { 
-			
+		ELSE_IF = {
+			limit = {
+				1039 = {
+					is_controlled_by = ROOT
+				}
+				NOT = {
+					FROM = { has_subject = MEN }
+				}
+			}
+			JAP = {
+				transfer_state = 1039
+			}
 		}
 
 		custom_effect_tooltip = the_game_will_end_for_us
