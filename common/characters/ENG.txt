@@ -1954,65 +1954,6 @@ characters={
 		}
 	}
 
-	ENG_sylvia_pankhurst={
-		name=ENG_sylvia_pankhurst
-		portraits={
-			army={
-				small="GFX_idea_ENG_sylvia_pankhurst"
-			}
-		}
-		gender = female
-		advisor={
-			slot = political_advisor
-			idea_token = ENG_sylvia_pankhurst
-			available  = {
-				OR = {
-					has_government  = communism 
-					SWE_refuge_for_revolutionaries_trigger = yes
-				}
-			}
-			allowed  = {
-				OR = {
-					AND = {
-						original_tag  = ENG
-						has_dlc = "Man the Guns"
-					}
-					AND = {
-						original_tag = ETH
-						has_dlc = "By Blood Alone"
-					}
-
-					AND = {
-						original_tag = SWE
-						has_aat = yes
-					}
-				}
-				
-			}
-			traits  = {
-				red_suffragette 
-			}
-			ai_will_do  = {
-				base = 1
-			}
-			on_add = {
-				owner = {
-					IF = {
-						limit = {
-							has_power_balance = {
-								id = ETH_centralization_balance
-							}
-						}
-						
-						hidden_effect = {
-							#ETH_BOP_decentralization_large_effect = yes
-						}
-					}				
-				}
-			}
-		}
-	}
-
 	ENG_david_lloyd_george={
 		name=ENG_david_lloyd_george
 		portraits={

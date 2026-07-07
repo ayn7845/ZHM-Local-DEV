@@ -624,7 +624,7 @@ country_event = {
 			
 		}
 
-		give_guarantee = TIB 
+		
 	}
 
 	option = {

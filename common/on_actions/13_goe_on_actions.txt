@@ -433,383 +433,21 @@ on_actions = {
 					}
 				}
 
-				every_possible_country = {
-					limit = {
-						is_in_array = {
-							array = RAJ.raj_releasables
-							value = THIS
-						}
-						any_core_state = {
-							is_controlled_by = event_target:UK_INDIA
-							controller = { 
-								NOT = {
-									is_subject_of = ROOT
-								}
-							}
-						}
-						is_raj_or_raj_inheritor = no
-						exists = no 
-					}
-
-					event_target:UK_INDIA = { release = PREV }
-					RAJ = {
-						set_autonomy = {
-							target=PREV
-							autonomy_state = autonomy_dominion
-							freedom_level = 0.1 # 0-1 
-							end_wars  = no # default yes. will not cancel non civil wars if set to no
-							end_civil_wars = no # default yes. will not cancel civil wars if set to no
-						}
-					}
-
-					division_template = {
-					 	name = "Princely Security Forces"
-					 	is_locked = no
-					 	#division_names_group = NAMELIST_ID # optional
-					 	priority = 1 # optional 
-					 	#template_counter = <INT> # optional
-					 	regiments = {
-					 		infantry = { x = 0 y = 0 }
-					 		infantry = { x = 0 y = 1 }
-					 		infantry = { x = 0 y = 2 }
-					 		infantry = { x = 1 y = 0 }
-					 		infantry = { x = 1 y = 1 }
-					 		infantry = { x = 1 y = 2 }
-					 		
-					 	}
-					 	support = {
-					 		
-					 	}
-					 }
-
-					 capital_scope = {
- 						create_unit = {
-						  	division = "name = \"Princely Security Forces\" division_template = \"Princely Security Forces\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
-						  	owner = PREV
-						  	allow_spawning_on_enemy_provs = yes 
-						  	count = 3
-
-						} 
-					 	if = {
-					 		limit = {
-					 			owner = { #These are bigger and needs more divisions
-					 				tag = HYD
-					 				tag = RJP
-					 				tag = MYS
-					 			}
-					 		}
-
-	 						create_unit = {
-							  	division = "name = \"Princely Security Forces\" division_template = \"Princely Security Forces\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
-							  	owner = PREV
-							  	allow_spawning_on_enemy_provs = yes 
-							  	count = 3
-
-							}
-					 	}
-					 }
+				every_possible_country = { 
 
 				}
 			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = RAJ_GOE_partition_is_over }
-					has_global_flag = RAJ_GOE_partition_has_happened
-					ROOT = {
-						OR = {
-							original_tag = RAJ
-							original_tag = BAN
-							original_tag = PAK
-						}
-					}
+			if = { 
 
-					FROM = {
-						OR = {
-							original_tag = RAJ
-							original_tag = BAN
-							original_tag = PAK
-						}
-					}
-
-					ENG = {
-						exists = yes
-						is_subject = no
-					}
-				}
-				if = {
-					limit = {
-						FROM = {
-							is_ai = no
-						}
-					}
-					FROM = {
-						country_event = {
-							id = GOE_RAJ_partition.9
-						}
-						activate_mission = RAJ_GOE_eng_is_getting_involved_in_war
-					}
-				}
-
-
-				if = {
-					limit = {
-						ROOT = {
-							is_ai = no
-						}
-					}
-					ROOT = {
-						country_event = {
-							id = GOE_RAJ_partition.9
-						}
-						activate_mission = RAJ_GOE_eng_is_getting_involved_in_war
-					}
-				}
 			}
 
-			if = {
-				limit = {
-					OR = {
-						FROM = { original_tag = DIP }
-						PREV = { original_tag = DIP }
-					}
-				}
-
-				DIP = {
-					set_rule = { can_join_factions = no }
-					set_popularities = {
-						democratic= 0
-						neutrality = 100
-						fascism = 0
-						communism = 0
-					}
-					set_politics = {
-						ruling_party = neutrality
-						elections_allowed = yes
-						last_election = 1935.1.1
-
-
-					}
-					set_party_name = {
-						ideology = neutrality
-						long_name = "Anarchism"
-						name = "Anarchism"
-					}
-				}
+			if = { 
+				
 			}
 			# Will tidy this up with scripted effects someday (TM)
 			#It was in fact, not tidied up
-			IF = {
-				limit = {
-					OR = {
-						AND = {
-							FROM = { original_tag = AFG }
-							ROOT = { 
-								original_tag = SOU 
-								any_owned_state = {
-									has_dynamic_modifier = {
-										modifier = AFG_resistance_active_here
-									}
-								}
-							}
-						}
-						AND = {
-							ROOT = { original_tag = AFG }
-							FROM = { 
-								original_tag = SOU 
-								any_owned_state = {
-									has_dynamic_modifier = {
-										modifier = AFG_resistance_active_here
-									}
-								}
-							}
-						}
-					}
-				}
-				every_state = {
-					limit = {
-						is_owned_and_controlled_by = SOU
-						has_dynamic_modifier = {
-							modifier = AFG_resistance_active_here
-						}
-					}
-					OWNER = {
-						country_event = {
-							id = AFG_political_events.91
-							hours = 1
-						}
-					}
-					IF = {
-						limit = {
-							ROOT = { original_tag = AFG }
-						}
-						transfer_state_to = ROOT
-					}
-					ELSE = {
-						transfer_state_to = FROM
-					}
-				}
-				IF = {
-					limit = {
-						FROM = { original_tag = AFG }
-					}
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = UZB }
-							UZB = { exists = no }
-						}
-						FROM = {
-							release = UZB 
-							puppet = UZB 
-							UZB = {
-								add_to_war = {
-									targeted_alliance = FROM 
-									enemy = ROOT 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = TAJ }
-							TAJ = { exists = no }
-						}
-						FROM = {
-							release = TAJ 
-							puppet = TAJ
-							TAJ = {
-								add_to_war = {
-									targeted_alliance = FROM 
-									enemy = ROOT 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = TMS }
-							TMS = { exists = no }
-						}
-						FROM = {
-							release = TMS 
-							puppet = TMS
-							TMS = {
-								add_to_war = {
-									targeted_alliance = FROM 
-									enemy = ROOT 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = KYR }
-							KYR = { exists = no }
-						}
-						FROM = {
-							release = KYR 
-							puppet = KYR
-							KYR = {
-								add_to_war = {
-									targeted_alliance = FROM 
-									enemy = ROOT 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-				}
-				ELSE_IF = {
-					limit = {
-						ROOT = { original_tag = AFG }
-					}
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = UZB }
-							UZB = { exists = no }
-						}
-						ROOT = {
-							release = UZB 
-							puppet = UZB
-							UZB = {
-								add_to_war = {
-									targeted_alliance = ROOT 
-									enemy = FROM 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = TAJ }
-							TAJ = { exists = no }
-						}
-						ROOT = {
-							release = TAJ 
-							puppet = TAJ
-							TAJ = {
-								add_to_war = {
-									targeted_alliance = ROOT 
-									enemy = FROM 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = TMS }
-							TMS = { exists = no }
-						}
-						ROOT = {
-							release = TMS 
-							puppet = TMS
-							TMS = {
-								add_to_war = {
-									targeted_alliance = ROOT 
-									enemy = FROM 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-					IF = {
-						limit = {
-							any_owned_state = { is_core_of = KYR }
-							KYR = { exists = no }
-						}
-						ROOT = {
-							release = KYR 
-							puppet = KYR
-							KYR = {
-								add_to_war = {
-									targeted_alliance = ROOT 
-									enemy = FROM 
-									hostility_reason = asked_to_join 
-									single_target_only = yes
-								}
-								AFG_create_puppet_army = yes
-							}
-						}
-					} 
-				}
+			IF = { 
+
 			}
 
 			if = {
@@ -872,73 +510,12 @@ on_actions = {
 	#ROOT is country declaring war
 	on_declare_war = {
 		effect = {
-			IF = {
-				limit = {
-					has_dlc = "Graveyard of Empires"
-					AND = {
-						OR = {
-							FROM = {
-								original_tag = AFG
-								has_country_flag = AFG_signed_oil_deal_flag
-							}
-							ROOT = {
-								original_tag = AFG
-								has_country_flag = AFG_signed_oil_deal_flag
-							}
-						}
-						OR = {
-							FROM = {
-								has_country_flag = made_oil_deal_with_afg_flag
-							}
-							ROOT = {
-								has_country_flag = made_oil_deal_with_afg_flag
-							}
-						}
-					}	
-				}
-				IF = {
-					limit = {
-						FROM = {
-							has_country_flag = made_oil_deal_with_afg_flag
-						}
-					}
-					FROM = {
-						country_event = {
-							id = AFG_industrial_events.16
-							hours = 1
-						}
-						remove_resource_rights = 267
-					}
-				}
-				ELSE = {
-					ROOT = {
-						country_event = {
-							id = AFG_industrial_events.16
-							hours = 1
-						}
-						remove_resource_rights = 267
-					}
-				}
+			IF = { 
+
 			}
 			#Picking out who is the leader in a war when invading Iran
-			IF = {
-				limit = {
-					FROM = { 
-						original_tag = PER 
-						NOT = {
-							has_country_flag = PER_has_been_invaded
-						}
-					}
-					has_dlc = "Graveyard of Empires"
-				}
-				ROOT = {
-					set_country_flag = PER_invading_country_flag
-				}
-				FROM = {
-					hidden_effect = {
-						set_country_flag = PER_has_been_invaded
-					}
-				}
+			IF = { 
+
 			}
 		}
 	}
@@ -946,28 +523,8 @@ on_actions = {
 	on_subject_free = {
 		effect = {
 			##ROOT is subject FROM is previous overlord
-			if = {
-				limit = {
-					OR = {
-						ROOT = {
-							original_tag = PAK
-						}
+			if = { 
 
-						FROM = {
-							original_tag = RAJ
-						}
-					}
-				}
-
-				RAJ = {
-					every_army_leader = {
-						limit = {
-							has_trait = loyalty_to_pakistan
-						}
-
-						set_nationality = PAK
-					}
-				}
 			}
 
 
@@ -1051,104 +608,17 @@ on_actions = {
 		}
 		#Capitulations Pertaining to Achievements
 		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						OR = {
-							original_tag = AFG
-							original_tag = IRQ
-							original_tag = PER
-							original_tag = RAJ
-						}
-					}
-					FROM = {
-						OR = {
-							#any_other_country = {
-							#	is_in_faction_with = FROM
-							#}
-							original_tag = AFG
-							original_tag = IRQ
-							original_tag = PER
-							original_tag = RAJ
-						}
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							original_tag = AFG
-						}
-					}
-					FROM = {
-						set_country_flag = GOE_capitulated_AFG
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							original_tag = IRQ
-						}
-					}
-					FROM = {
-						set_country_flag = GOE_capitulated_IRQ
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							original_tag = PER
-						}
-					}
-					FROM = {
-						set_country_flag = GOE_capitulated_PER
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							original_tag = RAJ
-						}
-					}
-					FROM = {
-						set_country_flag = GOE_capitulated_RAJ
-					}
-				}
+			if = { 
+
 			}
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = SOV
-					}
-					FROM = {
-						original_tag = AFG
-					}
-				}
-				FROM = {
-					set_country_flag = AFG_capitulated_Soviet
-				}
+			if = { 
+
 			}
-			if = {
-				limit = {
-					ROOT = {
-						tag = POL
-					}
-				}
-				ROOT = {
-					set_country_flag = POL_has_capitulated_flag
-				}
+			if = { 
+
 			}
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = SAU
-					}
-					FROM = {
-						original_tag = IRQ
-					}
-				}
-				FROM = {
-					set_country_flag = IRQ_capitulated_SAU
-				}
+			if = { 
+				
 			}
 		}
 		effect = {
@@ -1283,19 +753,8 @@ on_actions = {
 	#FROM is faction leader on join faction requests. THIS DOES NOT FIRE ON ADD_TO_FACTION EFFECT! USE ON_OFFER_JOIN_FACTION!
 	ON_OFFER_JOIN_FACTION = { 
 		effect = { # Adding the correct stuff for faction joiners for the AH joint focus tree
-			IF = {
-				limit = {
-					has_dlc = "Graveyard of Empires"
-					FROM = {
-						original_tag = AFG
-						has_idea = neutrality_idea
-					}
-				}
-				FROM = {
-					remove_ideas = {
-						idea = neutrality_idea
-					}
-				}
+			IF = { 
+				
 			}
 		}
 	}

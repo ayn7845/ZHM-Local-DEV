@@ -6317,50 +6317,8 @@ focus_tree = {
 
         search_filters = {FOCUS_FILTER_POLITICAL}
 
-        completion_reward = {
-            TIB = {
-                every_core_state = {
-                    limit = {
-                        NOT = { state = 601 } #Chinese core
-                        controller = {
-                            NOT = { original_tag = ROOT }
-                            NOT = { is_subject_of = ROOT }
-                        }
-                        NOT = { 
-                            controller = {
-                                ROOT = {
-                                    has_wargoal_against = {
-                                         target = PREV
-                                     } 
-                                }
-                            }
-
-                        }
-                    }
-
-                    controller = {
-                        ROOT = {
-                            create_wargoal = {
-                                type = puppet_wargoal_focus
-                                target = PREV
-                                expire = 0
-                            }
-                        }
-                    }
-
-                }
-            }
-            if = {
-                limit = {
-                    CHI = {
-                        exists = yes
-                        is_subject = no
-                    }
-                }
-                CHI = {
-                    country_event = { id = GOE_RAJ.17 hours = 1 }
-                }
-            }
+        completion_reward = { 
+            
         }
     }
 

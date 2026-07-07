@@ -27,7 +27,7 @@ on_actions = {
 				limit = {
 					OR = {
 						original_tag = MON
-						original_tag = TIB
+						#original_tag = TIB
 						original_tag = TAN
 					}
 				}

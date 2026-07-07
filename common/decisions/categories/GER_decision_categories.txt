@@ -120,16 +120,13 @@ GER_reichskommissariats = {
 	visible_when_empty = yes #This is supposed to be visible when empty!
 
 	allowed = {
-		original_tag = GER
+		always = no
 	}
 
 	visible = {
 		OR = {
 			has_completed_focus = GER_uplift_the_rosenberg_office
-			RKH = {
-				is_subject_of = ROOT
-				exists = yes
-			}
+			
 		}
 		has_government = fascism
 	}

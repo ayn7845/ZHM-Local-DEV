@@ -4328,6 +4328,7 @@ focus_tree = {
 			show_unit_leaders_tooltip = GER_heinz_guderian
 			custom_effect_tooltip = available_theorist
 			show_ideas_tooltip = heinz_guderian
+			custom_effect_tooltip = generic_skip_one_line_tt
 			show_unit_leaders_tooltip = GER_erwin_rommel
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = erwin_rommel
@@ -10127,14 +10128,6 @@ focus_tree = {
 					is_in_faction_with = ROOT
 					NOT = { is_subject_of = ROOT }
 				}
-				CZE = { 
-					is_subject_of = ROOT
-					OR = {
-						has_completed_focus = CZE_german_minor_ally
-						has_completed_focus = CZE_german_puppet
-						has_completed_focus = CZE_complete_capitulation
-					}
-				}
 				NOT = {
 					country_exists = CZE
 					9 = { is_controlled_by = ROOT }
@@ -10164,10 +10157,7 @@ focus_tree = {
 						exists = yes
 						has_war = no
 						is_subject = no
-						NOT = {		#refused Sudetenland
-							owns_state = 69
-							owns_state = 972
-						}
+						
 					}
 				}
 				set_global_flag = end_of_czechoslovakia

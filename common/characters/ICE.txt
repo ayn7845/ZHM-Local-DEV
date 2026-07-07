@@ -31,12 +31,8 @@ characters={
 			traits = {
 				democratic_reformer
 			}
-			ai_will_do = {
-				base = 1.0
-				modifier = {
-					factor = 0
-					ICE_has_fascist_ai = yes
-				}
+			ai_will_do = { 
+
 			}
 		}
 	}
@@ -82,9 +78,8 @@ characters={
 			}
 			ai_will_do = {
 				base = 1.0
-				modifier = {
-					factor = 0
-					ICE_has_fascist_ai = yes 
+				modifier = { 
+
 				}
 			}
 		}
@@ -127,9 +122,8 @@ characters={
 			}
 			ai_will_do = {
 				base = 1.0
-				modifier = {
-					factor = 0
-					ICE_has_fascist_ai = yes 
+				modifier = { 
+					
 				}
 			}
 		}

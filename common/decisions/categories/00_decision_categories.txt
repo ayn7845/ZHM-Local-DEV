@@ -163,12 +163,8 @@ fascism_on_the_rise = {
 					original_tag = HUN
 				}
 			}
-			AND = {
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					original_tag = PER
-					original_tag = AFG
-				}
+			AND = { 
+
 			}
 			AND = {
 				has_dlc = "Thunder at Our Gates"
@@ -243,13 +239,7 @@ democratic_on_the_rise = {
 					original_tag = GER
 				}
 			}
-			AND = {
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					original_tag = PER
-					original_tag = AFG
-				}
-			}
+			
 		}
 	}
 	
@@ -309,13 +299,7 @@ communism_on_the_rise = {
 					original_tag = GER
 				}
 			}
-			AND = {
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					original_tag = PER
-					original_tag = AFG
-				}
-			}
+			
 			AND = {
 				has_dlc = "Thunder at Our Gates"
 				OR = {
@@ -580,29 +564,17 @@ generic_purchase_old_ships_category = {
 				original_tag = BRA
 				has_dlc = "Trial of Allegiance"
 			}
-			AND = {
-				original_tag = CHL
-				has_dlc = "Trial of Allegiance"
-			}
+			
 			AND = {
 				original_tag = ARG
 				has_dlc = "Trial of Allegiance"
 			}
 
-			AND = {
-				original_tag = URG
-				has_dlc = "Trial of Allegiance"
-			}
+		
 
-			AND = {
-				original_tag = PAR
-				has_dlc = "Trial of Allegiance"
-			}
+			
 
-			AND = {
-				original_tag = PER
-				has_dlc = "Graveyard of Empires"
-			}
+			
 			AND = {
 				original_tag = RAJ
 				has_dlc = "Graveyard of Empires"
@@ -611,11 +583,7 @@ generic_purchase_old_ships_category = {
 				original_tag = IRQ
 				has_dlc = "Graveyard of Empires"
 			}
-			AND = {
-				original_tag = AFG
-				has_dlc = "Graveyard of Empires"
-			}
-			original_tag = CHI
+			
 			original_tag = NZL
 		}
 	}

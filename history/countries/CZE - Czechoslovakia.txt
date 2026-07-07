@@ -76,12 +76,6 @@ if = {
 	}
 }
 
-IF = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	CZE_create_paul_thummel_operative = yes
-}
 
 set_research_slots = 3
 

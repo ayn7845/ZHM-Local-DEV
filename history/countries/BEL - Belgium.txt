@@ -178,7 +178,7 @@ IF = {
 		name = "T13 B1"
 		type = light_tank_destroyer_chassis_1
 		parent_version = 1
-		design_team = mio:BEL_vickers_armstrong_bel_organization
+		
 		modules = {
 			main_armament_slot = tank_high_velocity_cannon
 			turret_type_slot = tank_light_two_man_tank_turret
@@ -202,7 +202,7 @@ IF = {
 			name = "T13 B1"
 			type = light_tank_destroyer_chassis_1
 			parent_version = 1
-			design_team = mio:BEL_vickers_armstrong_bel_organization
+			
 			modules = {
 				main_armament_slot = tank_high_velocity_cannon
 				turret_type_slot = tank_light_two_man_tank_turret

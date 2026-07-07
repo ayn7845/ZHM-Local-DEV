@@ -377,15 +377,8 @@ ideas = {
 		proper_heritage_spirit = {
 			ledger = army
 			available = {
-				IF = {
-					limit = { 
-						original_tag = AFG 
-						has_dlc = "Graveyard of Empires"
-					}
-					OR = {
-						has_doctrine = grand_battleplan
-						has_doctrine = mounted_infantry
-					}
+				IF = { 
+					
 				}
 				ELSE = {
 					OR = {
@@ -755,7 +748,7 @@ ideas = {
 			ledger = army
 			visible = { has_dlc = "No Compromise, No Surrender" }
 			available = {
-				always = false
+				always = no
 				OR = {
 					has_doctrine = mass_assault 
 					has_doctrine = guerilla_war

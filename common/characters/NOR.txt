@@ -17,7 +17,7 @@ characters={
 			}
 		}
 		allowed_civil_war = {
-			NOR_char_cw_democratic = yes
+		#	NOR_char_cw_democratic = yes
 		}
 		country_leader={
 			ideology=socialism
@@ -38,7 +38,7 @@ characters={
 			}
 		}
 		allowed_civil_war = {
-			NOR_char_cw_democratic = yes
+			#NOR_char_cw_democratic = yes
 		}
 		country_leader={
 			ideology=socialism

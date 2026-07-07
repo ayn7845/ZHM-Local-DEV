@@ -15,7 +15,7 @@ generic_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN original_tag = SLO original_tag = RKH } }
+		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN original_tag = SLO  } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -68,7 +68,7 @@ generic_tank_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				}
 				has_dlc = "Trial of Allegiance"
@@ -85,8 +85,8 @@ generic_tank_organization = {
 		NOT = {
 			AND = {
 				OR = { 
-					original_tag = AFG 
-					original_tag = PER
+					 
+					
 					original_tag = IRQ
 					original_tag = RAJ
 				}
@@ -2464,7 +2464,7 @@ generic_escort_ship_organization = {
 	icon = GFX_idea_generic_naval_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = SWE original_tag = HUN original_tag = CZE original_tag = ROM original_tag = YUG original_tag = POR original_tag = GRE original_tag = TUR original_tag = LAT original_tag = EST original_tag = RKH } }
+		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = SWE original_tag = HUN original_tag = CZE original_tag = ROM original_tag = YUG original_tag = POR original_tag = GRE original_tag = TUR original_tag = LAT original_tag = EST  } }
 		NOT = { OR = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD } }
 		NOT = {
 			AND = {
@@ -2521,7 +2521,7 @@ generic_escort_ship_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				}
 				has_dlc = "Trial of Allegiance"
@@ -2540,8 +2540,8 @@ generic_escort_ship_organization = {
 		NOT = {
 			AND = {
 				OR = { 
-					original_tag = AFG
-					original_tag = PER 
+					
+					 
 					original_tag = IRQ
 				}
 				has_dlc = "Graveyard of Empires"
@@ -2567,7 +2567,7 @@ generic_escort_ship_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = INS
+					
 					original_tag = SIA
 				}
 				has_dlc = "Thunder at Our Gates"
@@ -4001,7 +4001,7 @@ generic_general_aircraft_organization = {
 
 	allowed = {
 		NOT = { 
-			OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = YUG original_tag = ROM original_tag = CZE original_tag = HUN original_tag = CHI original_tag = MAN original_tag = HOL original_tag = BUL original_tag = GRE original_tag = TUR original_tag = LAT original_tag = LIT original_tag = RKH
+			OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = YUG original_tag = ROM original_tag = CZE original_tag = HUN original_tag = CHI original_tag = MAN original_tag = HOL original_tag = BUL original_tag = GRE original_tag = TUR original_tag = LAT original_tag = LIT 
 			} 
 		}
 		NOT = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD }
@@ -4067,7 +4067,7 @@ generic_general_aircraft_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				} 
 				has_dlc = "Trial of Allegiance"
@@ -4085,8 +4085,8 @@ generic_general_aircraft_organization = {
 		NOT = {
 			AND = {
 				OR = { 
-					original_tag = AFG 
-					original_tag = PER
+					 
+					
 					original_tag = IRQ
 				}
 				has_dlc = "Graveyard of Empires"
@@ -4111,7 +4111,7 @@ generic_general_aircraft_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = INS
+					
 					original_tag = SIA
 				}
 				has_dlc = "Thunder at Our Gates"
@@ -6852,7 +6852,7 @@ generic_artillery_organization = {
 	icon = GFX_idea_generic_artillery_manufacturer_2
 
 	allowed = {
-		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = USA tag = JAP tag = CZE tag = ROM tag = MEX tag = SLO tag = RKH tag = INS } }
+		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = USA tag = JAP tag = CZE tag = ROM tag = MEX tag = SLO   } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -6917,7 +6917,7 @@ generic_artillery_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				}
 				has_dlc = "Trial of Allegiance"
@@ -6938,8 +6938,8 @@ generic_artillery_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = AFG
-					original_tag = PER
+					
+					
 					original_tag = IRQ					
 				}
 				has_dlc = "Graveyard of Empires"
@@ -7274,7 +7274,7 @@ generic_infantry_equipment_organization = {
 	icon = GFX_idea_generic_infantry_equipment_manufacturer_2
 
 	allowed = {
-		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = HUN tag = YUG tag = ROM tag = MEX tag = TUR tag = EST tag = SLO tag = RKH tag = INS } }
+		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = HUN tag = YUG tag = ROM tag = MEX tag = TUR tag = EST tag = SLO   } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -7339,7 +7339,7 @@ generic_infantry_equipment_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				}
 				has_dlc = "Trial of Allegiance"
@@ -7359,8 +7359,8 @@ generic_infantry_equipment_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = AFG
-					original_tag = PER	
+					
+						
 					original_tag = IRQ				
 				}
 				has_dlc = "Graveyard of Empires"
@@ -7937,7 +7937,7 @@ generic_motorized_mechanized_organization = {
 	icon = GFX_idea_generic_motorized_equipment_manufacturer_3
 
 	allowed = {
-		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = CZE original_tag = ROM original_tag = MEX original_tag = SLO original_tag = RKH } }
+		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = CZE original_tag = ROM original_tag = MEX original_tag = SLO  } }
 		NOT = {
 			AND = {
 				original_tag = POL
@@ -7999,7 +7999,7 @@ generic_motorized_mechanized_organization = {
 			AND = {
 				OR = {
 					original_tag = BRA 
-					original_tag = CHL
+					
 					original_tag = ARG
 				}
 				has_dlc = "Trial of Allegiance"
@@ -8020,8 +8020,8 @@ generic_motorized_mechanized_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = AFG
-					original_tag = PER
+					
+				
 					original_tag = RAJ			
 					original_tag = IRQ		
 				}
@@ -8033,15 +8033,8 @@ generic_motorized_mechanized_organization = {
 			AND = {
 				OR = {
 					original_tag = PHI
-					original_tag = SND
-					original_tag = HBC
-					original_tag = XIC
-					original_tag = GDC
-					original_tag = SIC
-					original_tag = NXM
-					original_tag = GSM
-					original_tag = KHM
-					original_tag = KUM
+					
+					
 				}
 				has_dlc = "No Compromise, No Surrender"
 			}
@@ -8049,7 +8042,7 @@ generic_motorized_mechanized_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					original_tag = INS
+					
 					original_tag = AST
 					original_tag = SIA
 				}

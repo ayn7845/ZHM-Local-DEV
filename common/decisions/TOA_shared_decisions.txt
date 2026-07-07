@@ -1160,10 +1160,7 @@ improving_our_army_category = {
 						
 					}
 				}
-				AND = {
-					has_dlc = "Graveyard of Empires"
-					original_tag = AFG
-				}
+				
 
 			}
 		} 

@@ -10437,12 +10437,7 @@ country_event = {
 						}
 					}
 				}
-				CZE = {
-					set_nationality = {
-					    target_country = RKH
-					    character = CZE_jaroslav_krejchi
-					}
-				}
+				
 			}
 
 			IF = {
@@ -10450,10 +10445,7 @@ country_event = {
 					has_completed_focus = GER_reorganize_the_wehrmacht
 				}
 				GER = {
-					set_nationality = {
-					    target_country = RKH
-					    character = GER_konstantin_von_neurath
-					}
+					
 				}
 			}
 			ELSE_IF = {
@@ -10461,10 +10453,7 @@ country_event = {
 					has_completed_focus = GER_heed_von_neuraths_concerns
 				}
 				GER = {
-					set_nationality = {
-					    target_country = RKH
-					    character = GER_johannes_blaskowitz
-					}
+					
 				}
 			}
 		}
@@ -10478,43 +10467,7 @@ country_event = {
 			base = 100
 		}	
 
-		RKH = {
-			add_ideas = GER_reichsprotectorate_idea
-			IF = {
-				limit = {
-					ROOT = {
-						has_completed_focus = GER_reorganize_the_wehrmacht
-					}
-				}
-				GER_konstantin_von_neurath = {
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichsprotektor_trait } 
-						}
-					}	
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					ROOT = {
-						has_completed_focus = GER_heed_von_neuraths_concerns
-					}
-				}
-				GER_johannes_blaskowitz = {
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichsprotektor_trait } 
-						}
-					}	
-				}
-			}
-		}
+		
 
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
@@ -10528,12 +10481,7 @@ country_event = {
 						}
 					}
 				}
-				RKH = {
-					set_nationality = {
-					    target_country = CZE
-					    character = CZE_jaroslav_krejchi
-					}
-				}
+				
 			}
 		}
 		
@@ -10555,46 +10503,19 @@ country_event = {
 			base = 0
 		}		
 		
-		RKH = {
-			CZE_jaroslav_krejchi = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichsprotektor_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_reichsprotectorate_idea
-		}
 
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
 					has_completed_focus = GER_reorganize_the_wehrmacht
 				}
-				RKH = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_konstantin_von_neurath
-					}
-				}
+				
 			}
 			ELSE_IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
 					has_completed_focus = GER_heed_von_neuraths_concerns
 				}
-				RKH = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_johannes_blaskowitz
-					}
-				}
+			
 			}
 		}
 
@@ -11096,227 +11017,7 @@ country_event = {
 }
 
 # The Status of Slovakia - event for GER
-country_event = { 
-	id = wuw_GER_reichskommissariats.17
-	title = wuw_GER_reichskommissariats.17.t
-	desc = wuw_GER_reichskommissariats.17.desc 
-	picture = GFX_report_event_fascist_speech
 
-	is_triggered_only = yes
-
-	option = { # Hungary should be rewarded
-		name = wuw_GER_reichskommissariats.17.a
-		ai_chance = {
-			base = 35
-		}	
-		trigger = {
-			HUN = {
-				exists = yes
-				has_capitulated = no
-				OR = {
-					is_in_faction_with = ROOT
-					is_subject_of = ROOT
-				}
-				OR = {
-					owns_state = 155
-					owns_state = 43
-				}
-			}
-		}
-		
-		custom_effect_tooltip = GER_slovakia_hun_effect_tt
-			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-						is_controlled_by = ROOT
-						is_controlled_by = HUN
-					}
-				}
-				transfer_state_to = HUN
-			}
-		}
-		
-	}
-
-	option = { # It should be incorporated into Balkan
-		name = wuw_GER_reichskommissariats.17.b
-		trigger = {
-			RKC = {
-				exists = yes
-			}
-			has_country_flag = GER_decided_on_hungarian_status
-		}
-		ai_chance = {
-			base = 60
-		}		
-		
-		custom_effect_tooltip = GER_slovakia_rkc_effect_tt
-			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-					}
-				}
-				transfer_state_to = RKC
-			}
-			every_state = {	
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					NOT = {
-						OR = {
-							is_owned_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								owns_state = PREV
-							}
-						}
-					}
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-				}
-				add_contested_owner = RKC
-				set_state_controller_to = RKC
-				add_claim_by = RKC
-			}
-		}
-
-	}
-
-	option = { # It should be incorporated into Böhmen-Mähren
-		name = wuw_GER_reichskommissariats.17.c
-		trigger = {
-			AND = {
-				RKH = {
-					exists = yes
-				}
-				SLO = {
-					exists = no
-				}
-			}
-		}
-		ai_chance = {
-			base = 15
-		}		
-		
-		custom_effect_tooltip = GER_slovakia_rkh_effect_tt
-			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-					}
-				}
-				transfer_state_to = RKH
-			}
-			every_state = {	
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					NOT = {
-						OR = {
-							is_owned_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								owns_state = PREV
-							}
-						}
-					}
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-				}
-				add_contested_owner = RKH
-				set_state_controller_to = RKH
-				add_claim_by = RKH
-			}
-		}
-
-	}
-
-	option = { # It should be incorporated into Germany
-		name = wuw_GER_reichskommissariats.17.d
-		trigger = {
-			AND = {
-				73 = {
-					is_owned_and_controlled_by = ROOT
-				}
-				664 = {
-					is_owned_and_controlled_by = ROOT
-				}
-				71 = {
-					is_owned_and_controlled_by = ROOT
-				}
-				70 = {
-					is_owned_and_controlled_by = ROOT
-				}
-				72 = {
-					is_owned_and_controlled_by = ROOT
-				}
-				4 = {
-					is_owned_and_controlled_by = ROOT
-				}
-			}
-		}
-		ai_chance = {
-			base = 5
-		}	
-
-		add_political_power = -250	
-		
-		custom_effect_tooltip = GER_slovakia_ger_effect_tt
-			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_far_north_RKC_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-					}
-				}
-				transfer_state_to = ROOT
-				add_core_of = ROOT
-			}
-		}
-
-	}
-}
 
 
 # A Leader for Mittelafrika - event for GER
