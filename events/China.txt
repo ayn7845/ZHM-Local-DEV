@@ -129,27 +129,11 @@ country_event = {
 					}
 					transfer_state = 743
 				}
-				IF = {
-					limit = {
-						ROOT = { controls_state = 1039 }
-						JAP = {
-							has_subject = MEN
-						}
-					}
-					MEN = {
-						transfer_state = 1039
-					}
+				IF = { 
+
 				}
-				ELSE_IF = {
-					limit = {
-						ROOT = { controls_state = 1039 }
-						JAP = {
-							NOT = {
-								has_subject = MEN
-							}
-						}
-					}
-					transfer_state = 1039
+				ELSE_IF = { 
+					
 				}
 				add_state_claim = 613
 			}

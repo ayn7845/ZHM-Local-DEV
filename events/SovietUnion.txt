@@ -703,36 +703,10 @@ country_event = {
 }
 
 # Xi'an Incident - Truce
-country_event = {
-	id = soviet.21
-	title = soviet.21.t
-	desc = soviet.21.d
-	picture = GFX_report_event_chinese_japanese_handshake
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = soviet.21.a
-		effect_tooltip = {
-			PRC = { remove_opinion_modifier = { target = CHI modifier = hostile_status } }
-			CHI = { remove_opinion_modifier = { target = PRC modifier = hostile_status } }
-		}
-	}
-}
+
 
 # Xi'an Incident - Communists Refuse
-country_event = {
-	id = soviet.22
-	title = soviet.22.t
-	desc = soviet.22.d
-	picture = GFX_report_event_chinese_officers
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = soviet.22.a
-	}
-}
+
 
 # Soviet Union Cedes Land (Japan)
 country_event = {

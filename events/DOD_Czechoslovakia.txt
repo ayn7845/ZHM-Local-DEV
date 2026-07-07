@@ -555,13 +555,9 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					RKH = {
-						exists = no #Hey, you never know
-					}
+					
 				}
-				CZE = {
-					set_cosmetic_tag = RKH
-				}
+				
 			}
 		}
 	}
