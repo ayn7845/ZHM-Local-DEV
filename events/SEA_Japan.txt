@@ -492,7 +492,63 @@ country_event = {
 }
 
 # FROM submits to our rule - event for JAP
+country_event = {
+	id = SEA_japan_foreign_policy.2
+	title = SEA_japan_foreign_policy.2.t
+	desc = SEA_japan_foreign_policy.2.desc
+	picture = GFX_report_event_chinese_japanese_handshake
+	
+	is_triggered_only = yes
 
+	fire_only_once = yes
+
+	# Perfect!
+	option = {
+		name = SEA_japan_foreign_policy.2.a
+		ai_chance = {
+			base = 100
+		}
+
+		add_political_power = 25
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		set_autonomy = {
+			target = FROM
+			autonomous_state = autonomy_wtt_imperial_protectorate
+			end_wars = no
+			end_civil_wars = no
+		}
+
+		IF = {
+			limit = {
+				has_government = neutrality
+			}
+			MEN = {
+				MEN_prince_demchugdongrub = {
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = despotism
+							expire = "1965.1.1.1"
+							traits = { MEN_borjigin_descendant } 
+						}
+					}	
+				}
+			}
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		MEN = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = MEN_mongol_military_government_tag
+		}
+
+		JAP_setup_faction_wide_aoe_effects_root = yes
+
+	}
+}
 
 # FROM refuses to submit to the Emperor - event for JAP
 country_event = {
@@ -905,6 +961,50 @@ country_event = {
 		effect_tooltip = {
 			FROM = {
 				transfer_state = 671
+			}
+		}
+
+	}
+
+	# Who do they think they are?
+	option = { 
+		name = SEA_japan_foreign_policy.10.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				has_war_support > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				strength_ratio = { tag = JAP ratio > 1.5 }
+				factor = 2
+			}
+			modifier = {
+				has_stability < 0.8
+				factor = 0.5
+			}
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+
+		FROM = {
+			country_event = {
+				# FROM refuses to fold
+				id = SEA_japan_foreign_policy.12
+				days = 2
+				random_days = 3
+			}
+		}
+		effect_tooltip = {
+			FROM = {
+				create_wargoal = {
+					type = take_state_focus
+					target = ROOT
+					generator = { 671 }
+					expire = 0
+				}	
 			}
 		}
 
@@ -1360,14 +1460,62 @@ country_event = {
 
 		add_to_faction = FROM
 
-		IF = { 
-			
+		IF = {
+			limit = {
+				FROM = {
+					original_tag = BHU
+				}
+			}
+			add_ai_strategy = {
+				type = protect
+				id = BHU
+				value = 100
+			}
+			FROM = {
+				add_ai_strategy = {
+					type = alliance
+					id = JAP
+					value = 200
+				}
+			}
 		}
-		ELSE_IF = { 
-
+		ELSE_IF = {
+			limit = {
+				FROM = {
+					original_tag = NEP
+				}
+			}
+			add_ai_strategy = {
+				type = protect
+				id = NEP
+				value = 100
+			}
+			FROM = {
+				add_ai_strategy = {
+					type = alliance
+					id = JAP
+					value = 200
+				}
+			}
 		}
-		ELSE_IF = { 
-
+		ELSE_IF = {
+			limit = {
+				FROM = {
+					original_tag = AFG
+				}
+			}
+			add_ai_strategy = {
+				type = protect
+				id = AFG
+				value = 100
+			}
+			FROM = {
+				add_ai_strategy = {
+					type = alliance
+					id = JAP
+					value = 200
+				}
+			}
 		}
 
 		JAP_setup_faction_wide_aoe_effects_root = yes
@@ -1796,27 +1944,113 @@ country_event = {
 					set_state_flag = MEN_occupied_state_suiyuan_campaign
 				}
 			}
-			IF = { 
-
+			IF = {
+				limit = {
+					621 = {
+						is_controlled_by_ROOT_or_subject = yes
+					}
+					746 = {
+						NOT = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				621 = {
+					transfer_state_to = MEN
+				}
+				MEN = {
+					add_war_support = 0.05
+					add_political_power = 50 
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					621 = {
+						is_controlled_by_ROOT_or_subject = yes
+					}
+					746 = {
+						is_controlled_by_ROOT_or_subject = yes
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				621 = {
+					transfer_state_to = MEN
+				}
+				746 = {
+					transfer_state_to = MEN
+				}
+				MEN = {
+					add_war_support = 0.1
+					add_political_power = 150 
+				}
+				add_political_power = 100
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					621 = {
+						NOT = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+					}
+					746 = {
+						NOT = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				MEN = {
+					add_stability = -0.05
+					add_political_power = -50 
+				}
+				add_political_power = -25
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
-			ROOT = { 
-
+			ROOT = {
+				white_peace = {
+					tag = SHX
+				}
 			}
-			every_country = { 
-
+			every_country = {
+				limit = {
+					is_ally_with = ROOT
+					has_war_with = SHX
+				}
+				white_peace = {
+					tag = SHX
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-				
+			IF = {
+				limit = {
+					SHX = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+						}
+					}
+				}
+				SHX = {
+					country_event = {
+						id = SEA_japan_foreign_policy.30
+						hours = 2
+					}	
+				}
 			}
 		}
 	}
@@ -1825,8 +2059,115 @@ country_event = {
 	option = { 
 		name = SEA_japan_foreign_policy.29.a
 
-		effect_tooltip = { 
+		effect_tooltip = {
+			IF = {
+				limit = {
+					621 = {
+						has_state_flag = MEN_occupied_state_suiyuan_campaign
+					}
+					746 = {
+						NOT = {
+							has_state_flag = MEN_occupied_state_suiyuan_campaign
+						}
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				621 = {
+					transfer_state_to = MEN
+				}
+				MEN = {
+					add_war_support = 0.05
+					add_political_power = 50 
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					621 = {
+						has_state_flag = MEN_occupied_state_suiyuan_campaign
+					}
+					746 = {
+						has_state_flag = MEN_occupied_state_suiyuan_campaign
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				621 = {
+					transfer_state_to = MEN
+				}
+				746 = {
+					transfer_state_to = MEN
+				}
+				MEN = {
+					add_war_support = 0.1
+					add_political_power = 150 
+				}
+				add_political_power = 100
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					621 = {
+						NOT = {
+							has_state_flag = MEN_occupied_state_suiyuan_campaign
+						}
+					}
+					746 = {
+						NOT = {
+							has_state_flag = MEN_occupied_state_suiyuan_campaign
+						}
+					}
+					MEN = {
+						exists = yes
+						is_ally_with = ROOT
+					}
+				}
+				MEN = {
+					add_stability = -0.05
+					add_political_power = -50 
+				}
+				add_political_power = -25
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
 
+			ROOT = {
+				white_peace = {
+					tag = SHX
+				}
+			}
+			every_country = {
+				limit = {
+					is_ally_with = ROOT
+					has_war_with = SHX
+				}
+				white_peace = {
+					tag = SHX
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
+				limit = {
+					SHX = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+						}
+					}
+				}
+				SHX = {
+					country_event = {
+						id = SEA_japan_foreign_policy.30
+						hours = 2
+					}	
+				}
+			}
 		}		
 
 	}
@@ -8335,7 +8676,204 @@ country_event = {
 }
 
 # Japan incites a communist civil war - event for KOR 
+country_event = { 
+	id = SEA_japan_foreign_policy.131
+	title = SEA_japan_foreign_policy.131.t
+	desc = SEA_japan_foreign_policy.131.desc
+	picture = GFX_report_event_generic_communist_militia
 
+	is_triggered_only = yes
+
+	option = { #we are communist now!
+		name = SEA_japan_foreign_policy.131.a
+		ai_chance = {
+			base = 98
+		}
+
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		set_party_name = {
+		    ideology = communism
+		    long_name = KOR_communism_namro_party_long
+		    name = KOR_communism_namro_party
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.4
+		}	
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = communism
+			size = 0.5 
+			states = all
+			states_filter = {
+			    OR = {
+			    	state = 527
+			    	state = 1028
+			    	state = 525
+			    }
+			    is_controlled_by = ROOT
+			}
+		}
+
+		add_country_leader_role = {
+			character = KOR_pak_hon_yong
+			promote_leader = yes
+			country_leader = {
+				ideology = stalinism
+				expire = "1952.1.1.1"
+				traits = { JAP_socialist_revolutionary } 
+			}
+		}
+
+		random_country = {
+			limit = {
+				original_tag = KOR
+				has_government = communism
+				is_subject = no
+			}
+			FROM = {
+				puppet = {
+				    target = PREV
+				    end_wars = no
+				    end_civil_wars = no
+				}
+			}
+		}
+
+		hidden_effect = {
+			random_country = {
+				limit = {
+					original_tag = KOR
+					NOT = {
+						has_government = communism
+					}
+				}
+				FROM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}	
+				}
+			}
+		}
+
+	}
+
+	option = { #Fight back the red menace!
+		name = SEA_japan_foreign_policy.131.b
+		ai_chance = {
+			base = 2
+		}
+
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = communism
+			ruling_party = ROOT
+			size = 0.5 
+			states = all
+			states_filter = {
+			    OR = {
+			    	state = 1031
+			    	state = 1030
+			    	state = 1029
+			    }
+			    is_controlled_by = ROOT
+			}
+			PREV = {  # Original country
+				KOR_pak_hon_yong = { # Character
+				    set_nationality = PREV.PREV
+				    # Transfers to breakaway
+				}
+			}
+			IF = {
+				limit = {
+					PREV.PREV = {
+						NOT = {
+							has_country_leader = {
+								ruling_only = yes
+								character = KOR_pak_hon_yong
+							}
+						}
+						has_civil_war = yes
+					}
+				}
+				PREV.PREV = {
+					add_country_leader_role = {
+						character = KOR_pak_hon_yong
+						promote_leader = yes
+						country_leader = {
+							ideology = stalinism
+							expire = "1952.1.1.1"
+							traits = { JAP_socialist_revolutionary } 
+						}
+					}	
+				}
+			}
+			PREV.PREV = {
+				set_party_name = {
+				    ideology = communism
+				    long_name = KOR_communism_namro_party_long
+				    name = KOR_communism_namro_party
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.4
+				}	
+			}
+		}
+
+		random_country = {
+			limit = {
+				original_tag = KOR
+				has_government = communism
+				is_subject = no
+			}
+			FROM = {
+				puppet = {
+				    target = PREV
+				    end_wars = no
+				    end_civil_wars = no
+				}
+			}
+		}
+
+		hidden_effect = {
+			random_country = {
+				limit = {
+					original_tag = KOR
+					NOT = {
+						has_government = communism
+					}
+				}
+				FROM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}	
+				}
+			}
+		}
+
+		
+	}
+}
 
 
 # Japan demands our Submission - event for south east asian nations 

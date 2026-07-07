@@ -1159,9 +1159,26 @@ country_event = {
 	
 	is_triggered_only = yes
 
-
-	option = { #Fold
+	option = { #challenge
 		name = DOD_hungary.40.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+			modifier = {
+				has_war = yes
+				factor = 0.1
+			}
+		}
+		add_stability = -0.05
+		add_war_support = -0.1
+		HUN = { country_event = { id = DOD_hungary.41 } } #option for HUN to back down
+		
+	}
+	option = { #Fold
+		name = DOD_hungary.40.b
 		ai_chance = {
 			factor = 50
 		}
@@ -1287,7 +1304,7 @@ country_event = {
 				is_in_faction = no
 			}
 			set_rule = { can_create_factions = yes }
-			create_faction = BALKAN_ENTENTE_FACTION
+			create_faction_from_template = faction_template_BALKAN_ENTENTE_FACTION
 		}
 		if = {
 			limit = { 
@@ -1401,6 +1418,10 @@ country_event = {
 				ROM_is_on_historical_plan_trigger = yes
 				factor = 0
 			}
+			modifier = {
+				strength_ratio = { tag = HUN ratio < 0.8 }
+				factor = 2
+			}
 		}
 		HUN = { 
 			country_event = { 
@@ -1409,6 +1430,9 @@ country_event = {
 				random_days = 2
 			} 
 		}
+		add_stability = -0.25
+		add_war_support = -0.1
+
 	}
 
 	option = { #no 
@@ -1485,6 +1509,7 @@ country_event = {
 				transfer_state = 82
 			}
 		}
+		add_threat = -1
 		if = {
 			limit = {
 				has_idea = HUN_war_preparation
@@ -1513,8 +1538,44 @@ country_event = {
 		ai_chance = {
 			base = 20
 			modifier = {
+				strength_ratio = { tag = ROM ratio < 1 } #weaker than Romania
+				factor = 2
+			}
+			modifier = {
 				HUN_is_on_historical_plan_trigger = yes
 				factor = 0
+			}
+		}
+		add_stability = -0.2
+		add_war_support = -0.1
+		remove_state_claim = 76
+		remove_state_claim = 83
+		remove_state_claim = 84
+		add_threat = -1
+	}
+
+	option = {# Prepare for war!
+		name = DOD_hungary.52.b
+		ai_chance = {
+			base = 80
+			modifier = {
+				strength_ratio = { tag = ROM ratio > 1.2 }
+				factor = 3
+			}
+		}
+		ROM = { 
+			country_event = { 
+				id = DOD_hungary.53 
+				hours = 24
+			} 
+		}
+		add_ideas = HUN_war_preparation
+		add_war_support = 0.1
+		add_threat = 2
+		hidden_effect = {
+			news_event = { 
+				id = news.302 
+				days = 1 
 			}
 		}
 	}
@@ -3570,7 +3631,7 @@ country_event = {
 	option = {# back down
 		name = DOD_hungary.92.a
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				has_war = yes
 				factor = 2
@@ -3582,7 +3643,7 @@ country_event = {
 	option = {# ask Germany for help
 		name = DOD_hungary.92.b
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				is_in_faction_with = GER
 				factor = 5
@@ -3631,7 +3692,7 @@ country_event = {
 		}
 		name = DOD_hungary.92.c
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				is_in_faction_with = ITA
 				factor = 5
@@ -3649,7 +3710,7 @@ country_event = {
 	option = {# ask both for help
 		name = DOD_hungary.92.d
 		ai_chance = {
-			factor = 170
+			base = 170
 		}
 		trigger = {
 			AND = {
@@ -3663,7 +3724,7 @@ country_event = {
 	option = {# Go alone
 		name = DOD_hungary.92.e
 		ai_chance = {
-			factor = 0
+			base = 0
 			modifier = {
 				add = 10
 				AND = {
@@ -4150,6 +4211,17 @@ country_event = {
 		if = {
 			limit = {
 				country_exists = CZE
+				CZE = {
+					NOT = {
+						OR = {
+							has_cosmetic_tag = CZE_union
+							has_cosmetic_tag = CZE_second_republic
+							has_cosmetic_tag = CZE_union_expanded
+							has_cosmetic_tag = CZE_fall_of_the_republic
+							has_cosmetic_tag = CZE_CEF
+						}
+					}
+				}
 			}
 			CZE = {
 				set_cosmetic_tag = CZE_ONLY
@@ -4204,21 +4276,32 @@ country_event = {
 			HUN = { transfer_state = 664 }
 		}
 		every_state = {
-				limit = {
-					is_owned_by = SLO
-				}
-				add_core_of = SLO
+			limit = {
+				is_owned_by = SLO
 			}
-		SLO = {
+			add_core_of = SLO
+		}
+		hidden_effect = {
+			SLO = {
 				load_oob = SLO_1939
 				add_manpower = 9876
-				add_state_core = 664
-				add_state_core = 73
 			}
+		}
 		puppet = SLO
 		if = {
 			limit = {
 				country_exists = CZE
+				CZE = {
+					NOT = {
+						OR = {
+							has_cosmetic_tag = CZE_union
+							has_cosmetic_tag = CZE_second_republic
+							has_cosmetic_tag = CZE_union_expanded
+							has_cosmetic_tag = CZE_fall_of_the_republic
+							has_cosmetic_tag = CZE_CEF
+						}
+					}
+				}
 			}
 			CZE = {
 				set_cosmetic_tag = CZE_ONLY
