@@ -1045,6 +1045,37 @@ focus_tree = {
 			hidden_effect = { retire_character = ROM_corneliu_codreanu }
 		}
 	}
+	
+	focus = {
+		id = ROM_flexible_foreign_policy
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ROM_revise_the_constitution }
+		x = 0
+		y = 2
+		relative_position_id = ROM_institute_royal_dictatorship
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = ROM_flexible_foreign_policy
+		}
+	}
 	focus = {
 		id = ROM_appoint_soviet_friendly_government
 		icon = GFX_goal_support_communism
@@ -1235,37 +1266,6 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = ROM_flexible_foreign_policy
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ROM_revise_the_constitution }
-		x = 0
-		y = 2
-		relative_position_id = ROM_institute_royal_dictatorship
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 9
-		}
-
-		available = {
-			is_subject = no
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = ROM_flexible_foreign_policy
-		}
-	}
-
 	focus = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_goal_support_fascism

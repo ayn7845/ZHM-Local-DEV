@@ -165,97 +165,12 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 120
 			add_manpower = 30000
-			ANG = {
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 796 }
-					}
-					transfer_state = 796
-					POR = { set_country_flag = POR_released_angola_flag }
-				}
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 540 }
-					}
-					transfer_state = 540
-					POR = { set_country_flag = POR_released_angola_flag }
-				}
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 891 }
-					}
-					transfer_state = 891
-					POR = { set_country_flag = POR_released_angola_flag }
-				}	
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 892 }
-					}
-					transfer_state = 892
-					POR = { set_country_flag = POR_released_angola_flag }
-				}							
-			}
+			
 
-			MZB = {
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 544 }
-					}
-					transfer_state = 544
-					POR = { set_country_flag = POR_released_mozambique_flag }
-				}	
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 896 }
-					}
-					transfer_state = 896
-					POR = { set_country_flag = POR_released_mozambique_flag }
-				}
-				if = {
-					limit = { 
-						POR = { has_full_control_of_state = 897 }
-					}
-					transfer_state = 897
-					POR = { set_country_flag = POR_released_mozambique_flag }
-				}
-			}
+			
 
-			if = {
-				limit = {
-					OR = {
-						has_dlc = "Together for Victory"
-						has_dlc = "Man the Guns"
-					}
-				}
-
-				POR = {
-					if = {
-						limit = { has_country_flag = POR_released_angola_flag }
-						set_autonomy = {
-						    target = ANG
-						    autonomy_state = autonomy_integrated_puppet
-						}
-					}
-					if = {
-						limit = { has_country_flag = POR_released_mozambique_flag }
-						set_autonomy = {
-						    target = MZB
-						    autonomy_state = autonomy_integrated_puppet
-						}
-					}
-				}
-			}
-			else = {
-				if = {
-					limit = { has_country_flag = POR_released_angola_flag }
-					POR = { puppet = ANG }
-				}
-				if = {
-					limit = { has_country_flag = POR_released_mozambique_flag }
-					POR = { puppet = MZB }
-				}
-			}			
-
+			
+			
 			every_other_country = {
 				limit = { has_government = democratic }
 				add_opinion_modifier = {
@@ -4577,10 +4492,10 @@ focus_tree = {
 		mutually_exclusive = { focus = POR_nationalist_intervention }
 
 		icon = GFX_focus_por_iberian_summit
-		x = -1		
+		x = 1		
 		y = 1
 
-		relative_position_id = POR_send_assistance
+		relative_position_id = POR_allow_free_elections
 		cost = 10
 		completion_reward = { 
 			unlock_decision_tooltip = POR_iberian_summit_pro_axis
@@ -6824,8 +6739,7 @@ focus_tree = {
 	focus = {
 		id = POR_latin_america
 
-		will_lead_to_war_with = PAR
-		will_lead_to_war_with = URG
+		
 		will_lead_to_war_with = ARG
 
 		select_effect = {

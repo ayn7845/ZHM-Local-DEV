@@ -170,4 +170,43 @@ CHI_camco_bomber_organization = {
 			} 
 		}
 	}
+	
+}
+
+CHI_mukden_arsenal_organization = {
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_CHI_mukden
+	allowed = {	
+		OR = {
+			is_literally_china = yes
+			tag = MAN
+			tag = MEN
+		}
+	}
+	available = {
+		IF = {
+			limit = {
+				FROM = { 
+					OR = {
+						NOT = { original_tag = CHI }
+						AND = {
+							original_tag = CHI 
+							NOT = { has_dlc = "No Compromise, No Surrender" }
+						}
+					}
+				}
+			}
+			owner = { controls_state = CHI.mio_locations^5 } # #716 Liaoning
+		}
+		IF = {
+			limit = {
+				FROM = { original_tag = CHI }
+				hidden_trigger = { has_dlc = "No Compromise, No Surrender" }
+			}
+			OR = {
+				owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+				owner = { controls_state = CHI.mio_locations^5 } # #716 Liaoning
+			}
+		}
+	}
 }

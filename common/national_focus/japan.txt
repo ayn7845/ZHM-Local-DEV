@@ -7772,18 +7772,6 @@ focus_tree = {
 				add_dynamic_modifier = { modifier = JAP_regional_development }
 			}
 
-			IF = {
-				limit = {
-					has_subject = PLU
-				}
-				PLU = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
 			if = {
 				limit = {
 					647 = {
