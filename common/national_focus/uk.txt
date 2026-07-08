@@ -4070,276 +4070,8 @@ focus_tree = {
 			factor = 1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }	
-		completion_reward = {
-			add_political_power = 50
-			add_manpower = 50000
-			if = {
-				limit = {
-					has_full_control_of_state = 454
-					date < 1939.01.01
-				}
-				release = PAL
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = PAL autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = PAL
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						PAL = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 454
-					date > 1939.01.01
-				}
-				release = ISR
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = ISR autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = ISR
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						ISR = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-					PAL = {
-						is_subject_of = ENG
-						NOT = { has_autonomy_state = autonomy_dominion }
-					}
-				}
-				set_autonomy = { target = PAL autonomy_state = autonomy_dominion }
-				PAL = {
-					drop_cosmetic_tag = yes
-					retire_country_leader = yes
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-					KUW = {
-						is_subject_of = ENG
-					}
-				}
-				KUW = {
-					drop_cosmetic_tag = yes
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-					JOR = {
-						is_subject_of = ENG
-					}
-				}
-				JOR = {
-					drop_cosmetic_tag = yes
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 455
-				}
-				release = JOR
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = JOR autonomy_state = autonomy_colony }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = JOR
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						JOR = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 453
-					has_full_control_of_state = 452
-					has_full_control_of_state = 447
-					has_full_control_of_state = 446
-					has_full_control_of_state = 457
-					has_full_control_of_state = 456
-				}
-				release = EGY
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = EGY autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = EGY
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						EGY = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 656
-				}
-				release = KUW
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = KUW autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = KUW
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						KUW = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 765
-				}
-				release = QAT
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = QAT autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = QAT
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						QAT = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 1014
-				}
-				release = BHR
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = BHR autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = BHR
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						BHR = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 658
-				}
-				release = UAE
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = UAE autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = UAE
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						UAE = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -4385,179 +4117,8 @@ focus_tree = {
 			factor = 1
 		}
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER}	
-		completion_reward = {
-			add_political_power = 50
-			add_manpower = 50000
-			if = {
-				limit = {
-					has_full_control_of_state = 311
-				}
-				release = BLZ
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = BLZ autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = BLZ
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						BLZ = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 690
-					has_full_control_of_state = 693
-				}
-				release = BAH
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = BAH autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = BAH
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						BAH = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 689
-				}
-				release = JAM
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = JAM autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = JAM
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						JAM = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 691
-				}
-				release = TRI
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = TRI autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = TRI
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						TRI = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 692
-					has_full_control_of_state = 308
-				}
-				release = BAS
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = BAS autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = BAS
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						BAS = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 687
-				}
-				release = GYA
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = GYA autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = GYA
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						GYA = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -4608,11 +4169,7 @@ focus_tree = {
 							owns_state = 640
 							owns_state = 288
 						}
-						BRM = {
-							is_subject_of = ENG
-							owns_state = 640
-							owns_state = 288
-						}
+						
 						RAJ = { is_subject = no }
 						ENG = {
 							owns_state = 640
@@ -8777,17 +8334,17 @@ focus_tree = {
 			is_subject = no
 			OR = {
 				country_exists = IRQ
-				country_exists = PER
+				
 				country_exists = HOL
 				country_exists = VEN
 			}
 		}
 
 		will_lead_to_war_with = IRQ
-		will_lead_to_war_with = PER
+		
 		will_lead_to_war_with = HOL
 		will_lead_to_war_with = VEN
-		will_lead_to_war_with = CRC
+		
 
 		continue_if_invalid = yes
 
@@ -9282,67 +8839,25 @@ focus_tree = {
 				factor = 0
 				has_civil_war = yes
 			}
-			modifier = {
-				factor = 0
-				PER = {
-					has_government = ROOT
-				}
+			modifier = { 
+
 			}	
 		}
-		will_lead_to_war_with = PER
-		available = {
-			country_exists = PER
-			NOT = { has_war_with = PER }
-			is_subject = no
-			any_enemy_country = { is_major = yes }
+		
+		available = { 
+
 		}
 		allow_branch = { 
 			always = no
 		}
 		bypass = {
-			PER = { 
-				OR = {
-					exists = no 
-					has_war_with = ROOT
-					is_subject_of = ROOT 
-				}
-			}
+			
 		}
 		
 		search_filters = {}
 
-		completion_reward = {
-			IF = {
-				limit = {
-					has_dlc = "Graveyard of Empires"
-				}
-				PER = {
-					set_country_flag = SOV_ultimatum_sent_flag
-					country_event = { id = 	PER_foreign_policy_events.1 hours = 16 	random_hours = 8 }
-				}
-	
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept_tt
-					ROOT = {
-						puppet = PER
-					}
-	
-					custom_effect_tooltip = if_they_refuse_tt
-					effect_tooltip = {
-						activate_mission = 	SOV_preparations_for_operation_countenance
-						custom_effect_tooltip = 	SOV_preparations_for_operation_countenance_tt
-					}
-					custom_effect_tooltip = PER_preemptive_invasion_of_iran_tt
-				}
-			}
-			ELSE = {
-				create_wargoal = {
-					type = take_state_focus
-					target = PER
-					generator = { 266 }
-					expire = 0
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 	focus = {
@@ -11156,26 +10671,10 @@ focus_tree = {
 		prerequisite = { focus = ENG_imperial_conscription }	
 		available = {
 			is_subject = no
-			BRM = {
-				exists = yes
-				NOT = {
-					is_subject_of = ROOT
-				}
-			}
-
+			always = no
 		}
-		bypass = {
-			OR = {
-				NOT = { country_exists = BRM }
-				BRM = {
-					is_in_faction_with = ENG
-					OR = {
-						has_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
-						has_country_flag = britain_enforced_our_loyalty
-					}
-				}
-				has_completed_focus = ENG_towards_indian_independence
-			}
+		bypass = { 
+			
 		}
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		will_lead_to_war_with = BRM
@@ -11186,28 +10685,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}	
-		completion_reward = {
-			ENG_mosley_pacifism_level_down = yes
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = BRM
-					}
-					NOT = { state = 321 }
-					NOT = { state = 320 }
-				}
-				add_claim_by = ENG
-			}
-			if = {
-				limit = {
-					country_exists = BRM
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = BRM
-					expire = 0
-				}
-			}
+		completion_reward = { 
+			
 		}
 	}
 

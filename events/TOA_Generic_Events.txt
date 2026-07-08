@@ -539,9 +539,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				OR = {
-					original_tag = GYA
-					original_tag = SUR
-					original_tag = CAY
+					
 				}
 			}
 		}
@@ -550,9 +548,7 @@ news_event = {
 		name = south_american_news.7.b
 		trigger = { 
 			OR = {
-				original_tag = GYA
-				original_tag = SUR
-				original_tag = CAY
+				always = no
 			}
 		}
 	}

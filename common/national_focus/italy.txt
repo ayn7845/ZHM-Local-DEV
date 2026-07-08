@@ -14362,20 +14362,9 @@ focus_tree = {
 					OR = {
 						original_tag = BRA
 						original_tag = ARG
-						original_tag = URG
-						original_tag = PAR
-						original_tag = CHL
-						original_tag = BOL
-						original_tag = PRU
-						original_tag = ECU
-						original_tag = COL
+				
 						original_tag = VEN
-						original_tag = CRC
-						original_tag = TRI
-						original_tag = GYA
-						original_tag = SUR
-						original_tag = CAY
-						original_tag = PAN
+					
 					}
 					is_in_faction = no
 					NOT = {

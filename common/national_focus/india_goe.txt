@@ -12124,7 +12124,7 @@ focus = {
 	cost = 10
 
 	available = {
-        always = false
+        always = no
 		NOT = { has_idea = RAJ_mobilization_of_the_indian_army }
 	}
 

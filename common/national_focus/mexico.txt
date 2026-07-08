@@ -4964,21 +4964,8 @@ focus_tree = {
 			random_country = {
 				limit = {
 					original_tag = FRA
-					OR = {
-						AND = {
-							owns_state = 694
-							has_full_control_of_state = 694
-						}
-						AND = {
-							owns_state = 310
-							has_full_control_of_state = 310
-						}
-						CAY = {
-							is_subject_of = PREV
-						}
-						GDL = {
-							is_subject_of = PREV
-						}
+					OR = { 
+
 					}
 				}
 				country_event = { id = mexico.54 hours = 6 }
@@ -4986,14 +4973,8 @@ focus_tree = {
 			random_country = {
 				limit = {
 					original_tag = USA
-					OR = {
-						AND = {
-							owns_state = 686
-							has_full_control_of_state = 686
-						}
-						PUE = {
-							is_subject_of = PREV
-						}
+					OR = { 
+
 					}
 				}
 				country_event = { id = mexico.54 hours = 6 }
@@ -5001,21 +4982,8 @@ focus_tree = {
 			random_country = {
 				limit = {
 					original_tag = HOL
-					OR = {
-						AND = {
-							owns_state = 309 #Suriname 
-							has_full_control_of_state = 309
-						}
-						AND = {
-							owns_state = 695 #Curacao 
-							has_full_control_of_state = 695
-						}
-						SUR = {
-							is_subject_of = PREV
-						}
-						CRC = {
-							is_subject_of = PREV
-						}
+					OR = { 
+						
 					}
 				}
 				country_event = { id = mexico.54 hours = 6 }
@@ -5052,24 +5020,7 @@ focus_tree = {
 							owns_state = 311 #belize
 							has_full_control_of_state = 311
 						}																		
-						BLZ = {
-							is_subject_of = PREV
-						}
-						GYA = {
-							is_subject_of = PREV
-						}
-						TRI = {
-							is_subject_of = PREV
-						}
-						BAS = {
-							is_subject_of = PREV
-						}
-						BAH = {
-							is_subject_of = PREV
-						}
-						JAM = {
-							is_subject_of = PREV
-						}																								
+																										
 					}
 				}
 				country_event = { id = mexico.54 hours = 6 }

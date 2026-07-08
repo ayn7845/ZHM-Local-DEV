@@ -11569,13 +11569,15 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			JAP_yuzuru_hiraga = {	
+			JAP_yuzuru_hiraga = {
+				if = {
 				limit = {
 					NOT = {
 						has_trait = air_controller
 					}
 				}	
 				add_trait = { trait = air_controller }
+			}
 			}
 			
 		}
@@ -11769,23 +11771,26 @@ focus_tree = {
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			JAP_yuzuru_hiraga = {	
+			JAP_yuzuru_hiraga = {
+				if = { 
 				limit = {
 					NOT = {
 						has_trait = air_controller
 					}
 				}	
 				add_trait = { trait = air_controller }
+				}
 			}
-			JAP_yuzuru_hiraga = {	
+			JAP_yuzuru_hiraga = {
+				if = { 	
 				limit = {
 					NOT = {
 						has_trait = ironside
 					}
 				}	
 				add_trait = { trait = ironside }
+				}
 			}
-
 		}
 
 	}

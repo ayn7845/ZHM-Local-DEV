@@ -3849,159 +3849,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = IRQ_raf_levies_focus
-		icon = GFX_focus_generic_air_bases
-		prerequisite = { focus = IRQ_bakr_sidqi_coup }
-		#mutually_exclusive = { focus =  }
-		x = -2
-		y = 2
-		relative_position_id = IRQ_party_of_national_brotherhood
-
-		cost = 10
-
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MANPOWER }
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-			
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = tech_support
-					}
-				}
-				set_technology = {
-					tech_support = 1
-					popup = no
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			air_experience = 15
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			division_template = {
-				name = "RAF Levy"
-				is_locked = no
-				template_counter = 98
-				role = garrison
-				support = {
-					engineer = { x = 0 y = 0 }			
-				}
-				regiments = {
-					militia = { x = 0 y = 0 }
-					militia = { x = 0 y = 1 }
-					militia = { x = 1 y = 0 }
-					militia = { x = 1 y = 1 }
-				}
-				override_model = commonwealth_gfx_infantry_entity
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "division_template = \"RAF Levy\" start_experience_factor = 0.05 start_equipment_factor = 1"
-					owner = IRQ
-					count = 3
-				}
-			}
-		}
-	}
-
-
-	focus = {
-		id = IRQ_assasination_of_sidqi
-		icon = GFX_focus_IRQ_assasination_of_sidqi
-		prerequisite = { focus = IRQ_raf_levies_focus focus = IRQ_increase_italian_business_relations }
-		mutually_exclusive = { focus = IRQ_attempted_assasination_of_sidqi }
-		x = -2
-		y = 3
-		relative_position_id = IRQ_party_of_national_brotherhood
-
-		cost = 10
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-			OR = {
-				has_country_leader = {
-					ruling_only = yes
-					character = IRQ_hikmat_suleiman
-				}
-				NOT = {
-					has_idea = IRQ_ghazi_i
-				}
-			}
-		}
-
-		bypass = {
-
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_country_leader = {
-							ruling_only = yes
-							character = IRQ_nuri_as_said
-						}
-						has_country_leader = {
-							ruling_only = yes
-							character = IRQ_abd_al_ilah 
-						}	
-					}
-				}
-				IRQ_nuri_as_said = {
-					add_country_leader_role = {
-						country_leader = {
-							ideology = despotism
-							expire = "1965.1.1.1"
-							traits = { IRQ_british_lackey }
-						}
-						promote_leader = yes
-					} 
-				}
-			}
-			
-			IF = {
-				limit = {
-					has_idea = IRQ_bakr_sidqi_pm
-				}
-				remove_ideas = IRQ_bakr_sidqi_pm
-			}
-			retire_character = IRQ_bakr_sidqi
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			add_war_support = 0.05
-			add_stability = 0.1
-
-		}
-	}
+	
 
 
 
@@ -4202,7 +4050,159 @@ focus_tree = {
 
 		}
 	}
+	focus = {
+		id = IRQ_raf_levies_focus
+		icon = GFX_focus_generic_air_bases
+		prerequisite = { focus = IRQ_bakr_sidqi_coup }
+		#mutually_exclusive = { focus =  }
+		x = -2
+		y = 2
+		relative_position_id = IRQ_party_of_national_brotherhood
 
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MANPOWER }
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = tech_support
+					}
+				}
+				set_technology = {
+					tech_support = 1
+					popup = no
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+			air_experience = 15
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			division_template = {
+				name = "RAF Levy"
+				is_locked = no
+				template_counter = 98
+				role = garrison
+				support = {
+					engineer = { x = 0 y = 0 }			
+				}
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+				}
+				override_model = commonwealth_gfx_infantry_entity
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"RAF Levy\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = IRQ
+					count = 3
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = IRQ_assasination_of_sidqi
+		icon = GFX_focus_IRQ_assasination_of_sidqi
+		prerequisite = { focus = IRQ_raf_levies_focus focus = IRQ_increase_italian_business_relations }
+		mutually_exclusive = { focus = IRQ_attempted_assasination_of_sidqi }
+		x = -2
+		y = 3
+		relative_position_id = IRQ_party_of_national_brotherhood
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				has_country_leader = {
+					ruling_only = yes
+					character = IRQ_hikmat_suleiman
+				}
+				NOT = {
+					has_idea = IRQ_ghazi_i
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_country_leader = {
+							ruling_only = yes
+							character = IRQ_nuri_as_said
+						}
+						has_country_leader = {
+							ruling_only = yes
+							character = IRQ_abd_al_ilah 
+						}	
+					}
+				}
+				IRQ_nuri_as_said = {
+					add_country_leader_role = {
+						country_leader = {
+							ideology = despotism
+							expire = "1965.1.1.1"
+							traits = { IRQ_british_lackey }
+						}
+						promote_leader = yes
+					} 
+				}
+			}
+			
+			IF = {
+				limit = {
+					has_idea = IRQ_bakr_sidqi_pm
+				}
+				remove_ideas = IRQ_bakr_sidqi_pm
+			}
+			retire_character = IRQ_bakr_sidqi
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_war_support = 0.05
+			add_stability = 0.1
+
+		}
+	}
 	focus = {
 		id = IRQ_increase_italian_business_relations
 		icon = GFX_focus_BRA_joint_italian_motor_development
