@@ -3050,28 +3050,7 @@ focus_tree = {
 					hidden_effect = { country_event = { id =  mtg_britain.17 hours = 6 } }
 				}
 			}
-			MAL = {
-				if = {
-					limit = {
-						is_subject_of = ENG
-					}
-					add_stability = 0.05
-					add_opinion_modifier = { target = ENG modifier = ENG_guiding_the_colonies }
-					add_ideas = ENG_guided_by_britain_2
-					hidden_effect = { country_event = { id =  mtg_britain.17 hours = 6 } }
-				}
-			}
-			BRM = {
-				if = {
-					limit = {
-						is_subject_of = ENG
-					}
-					add_stability = 0.05
-					add_opinion_modifier = { target = ENG modifier = ENG_guiding_the_colonies }
-					add_ideas = ENG_guided_by_britain_2
-					hidden_effect = { country_event = { id =  mtg_britain.17 hours = 6 } }
-				}
-			}
+			
 		}
 	}
 
@@ -3653,181 +3632,8 @@ focus_tree = {
 			factor = 1
 		}
 		search_filters = {FOCUS_FILTER_MANPOWER}	
-		completion_reward = {
-			add_stability = -0.15
-			add_manpower = 25000
-			if = {
-				limit = {
-					has_full_control_of_state = 659
-				}
-				YEM = {
-					transfer_state = 659
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-				659 = {
-					add_core_of = FSA
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 906
-				}
-				YEM = {
-					transfer_state = 906
-					IF = {
-						limit = {
-							YEM = { NOT = { has_opinion_modifier = ENG_returned_our_territory} }
-						}
-						add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 992
-				}
-				YEM = {
-					transfer_state = 992
-					IF = {
-						limit = {
-							YEM = { NOT = { has_opinion_modifier = ENG_returned_our_territory} }
-						}
-						add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-					}
-				}
-			}
-			if = {
-				limit = {
-					RAJ = {
-						has_full_control_of_state = 992
-						is_subject_of = ROOT
-					}
-				}
-				YEM = {
-					transfer_state = 992
-					IF = {
-						limit = {
-							YEM = { NOT = { has_opinion_modifier = ENG_returned_our_territory} }
-						}
-						add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-						add_opinion_modifier = { target = RAJ modifier = ENG_returned_our_territory }
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 326
-				}
-				event_target:WTT_current_china_leader = {
-					transfer_state = 326
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 332
-				}
-				CAN = {
-					transfer_state = 332
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 331
-				}
-				CAN = {
-					transfer_state = 331
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 299
-					has_full_control_of_state = 720
-				}
-				ARG = {
-					transfer_state = 299
-					299 = { add_core_of = ARG }
-					transfer_state = 720
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 119
-				}
-				IRE = {
-					transfer_state = 119
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 1021
-				}
-				MAL = {
-					transfer_state = 1021
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 1065
-				}
-				MAL = {
-					transfer_state = 1065
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 118
-				}
-				random_other_country = {
-					limit = {
-						original_tag = SPR
-						if = {
-							limit = {
-								country_exists = SPD
-							}
-							tag = SPD
-						}
-						else_if = {
-							limit = {
-								country_exists = SPA
-							}
-							tag = SPA
-						}
-						else_if = {
-							limit = {
-								country_exists = SPB
-							}
-							tag = SPB
-						}
-						else_if = {
-							limit = {
-								country_exists = SPC
-							}
-							tag = SPC
-						}
-					}
-					transfer_state = 118
-					118 = { add_core_of = PREV }
-					if = {
-						limit = {
-							NOT = { has_global_flag = scw_over }
-						}
-						every_other_country = {
-							limit = {
-								original_tag = SPR
-								exists = yes
-							}
-							118 = { add_core_of = PREV }
-						}
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_returned_our_territory }
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -4972,11 +4778,7 @@ focus_tree = {
 						has_full_control_of_state = 640
 						has_full_control_of_state = 288
 					}
-					BRM = {
-						is_subject_of = ENG
-						has_full_control_of_state = 640
-						has_full_control_of_state = 288
-					}
+					
 					RAJ = { NOT = { is_subject_of = ENG } }
 					ENG = {
 						has_full_control_of_state = 640
@@ -5028,206 +4830,8 @@ focus_tree = {
 			factor = 1
 		}
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER}	
-		completion_reward = {
-			add_political_power = 75
-			add_manpower = 75000
-			if = {
-				limit = {
-					has_full_control_of_state = 422
-				}
-				release = SRL
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = SRL autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = SRL
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						SRL = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 281
-				}
-				release = MLD
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = MLD autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = MLD
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						MLD = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						has_full_control_of_state = 636
-						has_full_control_of_state = 643
-						has_full_control_of_state = 639
-						has_full_control_of_state = 725
-					}
-				}
-				release = FIJ
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = FIJ autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = FIJ
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						FIJ = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						has_full_control_of_state = 634
-						has_full_control_of_state = 734 
-					}
-				}
-				release = SOL
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = SOL autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = SOL
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						SOL = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					RAJ = {
-						has_full_control_of_state = 640
-						has_full_control_of_state = 288
-						is_subject = yes
-					}
-				}
-				RAJ = { release = BRM }
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = { target = BRM autonomy_state = autonomy_dominion }
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "Together for Victory" }
-					}
-					puppet = BRM
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							has_war_with = ENG
-						}
-						BRM = {
-							add_to_war = { targeted_alliance = ENG enemy = PREV hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-					MAL = {
-						is_subject_of = ENG
-						NOT = { has_autonomy_state = autonomy_dominion }
-					}
-				}
-				set_autonomy = { target = MAL autonomy_state = autonomy_dominion }
-			}
-			MAL = {
-				drop_cosmetic_tag = yes
-				IF = {
-					limit = {
-						has_character = MAL_shenton_thomas
-					}
-					retire_character = MAL_shenton_thomas
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-					BRM = {
-						is_subject_of = ENG
-						NOT = { has_autonomy_state = autonomy_dominion }
-					}
-				}
-				set_autonomy = { target = BRM autonomy_state = autonomy_dominion }
-			}
-			BRM = {
-				drop_cosmetic_tag = yes
-				IF = {
-					limit = {
-						has_character = BRM_archibald_cochrane
-					}
-					retire_character = BRM_archibald_cochrane
-				}
-			}
-			RAJ = {
-				transfer_state = 733
-			}
-			AST = {
-				transfer_state = 711
-				transfer_state = 712
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -5402,7 +5006,7 @@ focus_tree = {
 							tag = RAJ
 							tag = AST
 							tag = NZL
-							tag = MAL
+							#tag = MAL
 						}
 					}
 					OR = {
@@ -5462,7 +5066,7 @@ focus_tree = {
 							tag = RAJ
 							tag = AST
 							tag = NZL
-							tag = MAL
+						#	tag = MAL
 						}
 					}
 					NOT = {
@@ -6410,23 +6014,18 @@ focus_tree = {
 		}	
 
 		available = {
-			MAL = {
-				any_core_state = {
-					is_controlled_by = ROOT
-				}
+			1021 = { 
+				is_owned_and_controlled_by = ENG
 			}
 		}
 
 		available_if_capitulated = no
 
 		bypass = {
-			NOT = {
-				MAL = {
-					any_core_state = {
-						is_fully_controlled_by = ROOT
-					}
-				}
-				has_subject = MAL 
+			1021 = {
+				NOT = { 
+						is_owned_and_controlled_by = ENG
+				} 
 			}
 		}
 
@@ -6468,19 +6067,8 @@ focus_tree = {
 
 			}
 
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = MAL
-					is_fully_controlled_by = ROOT
-				}
-				create_unit = {
-				    division = "name = \"1st Royal Malay Regiment\" division_template = \"Royal Malay Regiment\" start_experience_factor = 0.3 start_equipment_factor = 0.95"
-				    owner = ROOT
-				}
-				create_unit = {
-				    division = "name = \"2nd Royal Malay Regiment\" division_template = \"Royal Malay Regiment\" start_experience_factor = 0.3 start_equipment_factor = 0.95"
-				    owner = ROOT
-				}
+			random_owned_controlled_state = { 
+
 			}
 
 		}
@@ -6509,15 +6097,13 @@ focus_tree = {
 		}	
 
 		available = {
-			has_subject = MAL
+			always = no
 		}
 
 		available_if_capitulated = no
 
 		bypass = {
-			NOT = {
-				has_subject = MAL 
-			}
+			
 		}
 
 		completion_reward = {
@@ -6705,12 +6291,8 @@ focus_tree = {
 		}	
 
 		available = {
-			OR = {
-				has_subject = MAL
-				has_subject = SAR
-				333 = {
-					is_owned_and_controlled_by = ROOT 
-				}
+			333 = {
+				is_owned_and_controlled_by = ROOT 
 			}
 		}
 
@@ -6752,124 +6334,6 @@ focus_tree = {
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			IF = {
-				limit = {
-					has_subject = MAL
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				MAL = {
-
-					hidden_effect = {
-						set_technology = { 
-							TOA_jungle_pioneers_support_tech = 1 
-							popup = no
-						}
-					}
-					custom_effect_tooltip = SMB_jungle_pioneers_tt
-
-					IF = {
-						limit = {
-							has_dlc = "No Compromise, No Surrender"
-						}
-
-						custom_effect_tooltip = generic_skip_one_line_tt
-						
-						add_tech_bonus = {
-							name = ENG_sarawakrangers_focus
-							bonus = 0.75 
-							uses = 1
-							category = rangers_tech_cat
-						}
-						
-						IF = {
-							limit = {
-								has_dlc = "Arms Against Tyranny"
-							}
-							add_doctrine_cost_reduction = {
-								name = ENG_sarawakrangers_focus
-								cost_reduction = 0.75 
-								uses = 1
-								category = special_forces_doctrine
-							}
-							custom_effect_tooltip = ranger_subdoctrines_default_add_mastery_bonus_effect_tooltip
-							hidden_effect = {
-								add_mastery_bonus = {
-									name = PHI_philippine_scouts
-									bonus = 0.1
-									days = 240
-									sub_doctrine = rangers_1
-								}
-								add_mastery_bonus = {
-									name = PHI_philippine_scouts
-									bonus = 0.1
-									days = 240
-									sub_doctrine = rangers_2
-								}
-							}				
-						}
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					has_subject = SAR
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				SAR = {
-
-					hidden_effect = {
-						set_technology = { 
-							TOA_jungle_pioneers_support_tech = 1 
-							popup = no
-						}
-					}
-					custom_effect_tooltip = SMB_jungle_pioneers_tt
-
-					IF = {
-						limit = {
-							has_dlc = "No Compromise, No Surrender"
-						}
-
-						custom_effect_tooltip = generic_skip_one_line_tt
-						
-						add_tech_bonus = {
-							name = ENG_sarawakrangers_focus
-							bonus = 0.75 
-							uses = 1
-							category = rangers_tech_cat
-						}
-						
-						IF = {
-							limit = {
-								has_dlc = "Arms Against Tyranny"
-							}
-							add_doctrine_cost_reduction = {
-								name = ENG_sarawakrangers_focus
-								cost_reduction = 0.75 
-								uses = 1
-								category = special_forces_doctrine
-							}
-							custom_effect_tooltip = ranger_subdoctrines_default_add_mastery_bonus_effect_tooltip
-							hidden_effect = {
-								add_mastery_bonus = {
-									name = PHI_philippine_scouts
-									bonus = 0.1
-									days = 240
-									sub_doctrine = rangers_1
-								}
-								add_mastery_bonus = {
-									name = PHI_philippine_scouts
-									bonus = 0.1
-									days = 240
-									sub_doctrine = rangers_2
-								}
-							}				
-						}
-					}
-				}
 			}
 		}
 	}
@@ -7343,26 +6807,6 @@ focus_tree = {
 					original_tag = CAN
 					is_in_faction_with = ROOT
 				}
-				any_country = {
-					original_tag = MAL
-					is_in_faction_with = ROOT
-				}
-				any_country = {
-					original_tag = PAL
-					is_in_faction_with = ROOT
-				}
-				any_country = {
-					original_tag = JOR
-					is_in_faction_with = ROOT
-				}
-				any_country = {
-					original_tag = KUW
-					is_in_faction_with = ROOT
-				}
-				any_country = {
-					original_tag = BRM
-					is_in_faction_with = ROOT
-				}
 			}
 		}
 
@@ -7382,21 +6826,7 @@ focus_tree = {
 			NZL = {
 				exists = no
 			}
-			MAL = {
-				exists = no
-			}
-			PAL = {
-				exists = no
-			}
-			JOR = {
-				exists = no
-			}
-			KUW = {
-				exists = no
-			}
-			BRM = {
-				exists = no
-			}
+			
 			NOT = {
 				any_state = {
 					OR = {
@@ -7406,8 +6836,7 @@ focus_tree = {
 						is_core_of = AST
 						is_core_of = NZL
 						is_core_of = RAJ
-						is_core_of = MAL
-						is_core_of = BRM
+						
 					}
 					NOT = { state = 320 }
 					NOT = { state = 321 }
@@ -7474,51 +6903,7 @@ focus_tree = {
 				add_political_power = 50
 				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
 			}
-			random_country = {
-				limit = {
-					original_tag = MAL
-					exists = yes
-					is_in_faction_with = ROOT
-				}
-				add_political_power = 50
-				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
-			}
-			random_country = {
-				limit = {
-					original_tag = PAL
-					exists = yes
-					is_in_faction_with = ROOT
-				}
-				add_political_power = 50
-				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
-			}
-			random_country = {
-				limit = {
-					original_tag = JOR
-					exists = yes
-					is_in_faction_with = ROOT
-				}
-				add_political_power = 50
-				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
-			}
-			random_country = {
-				limit = {
-					original_tag = KUW
-					exists = yes
-					is_in_faction_with = ROOT
-				}
-				add_political_power = 50
-				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
-			}
-			random_country = {
-				limit = {
-					original_tag = BRM
-					exists = yes
-					is_in_faction_with = ROOT
-				}
-				add_political_power = 50
-				add_opinion_modifier = { target = ENG modifier = ENG_commonwealth_ties }
-			}
+			
 		}
 	}
 
@@ -9165,15 +8550,8 @@ focus_tree = {
 				}
 				add_core_of = ENG
 			}
-			MAL = {
-				every_unit_leader = {
-					set_nationality = ENG
-				}
-			}
-			annex_country = {
-			    target = MAL
-			    transfer_troops = yes
-			}
+			
+			
 		}
 	}
 
@@ -9297,10 +8675,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							is_controlled_by = ROOT
-							AND = {
-								is_controlled_by = MAL
-								MAL = { is_in_faction_with = ROOT }
-							}
+							
 						}
 					}
 					add_building_construction = {
@@ -9323,10 +8698,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							is_controlled_by = ROOT
-							AND = {
-								is_controlled_by = EGY
-								EGY = { is_in_faction_with = ROOT }
-							}
+							
 						}
 					}
 					add_building_construction = {
@@ -9341,10 +8713,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							is_controlled_by = ROOT
-							AND = {
-								is_controlled_by = EGY
-								EGY = { is_in_faction_with = ROOT }
-							}
+							
 						}
 					}
 					# Alexandria
@@ -9389,10 +8758,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							is_controlled_by = ROOT
-							AND = {
-								is_controlled_by = MLT
-								MLT = { is_in_faction_with = ROOT }
-							}
+							
 						}
 					}
 					add_building_construction = {

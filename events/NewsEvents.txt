@@ -3486,10 +3486,7 @@ news_event = {
 			1021 = {
 				is_owned_by = ENG
 			}
-			MAL = {
-				is_subject_of = ENG
-				owns_state = 1021
-			}
+			
 		}
 		JAP = { has_war_with = ENG }
 		NOT = { has_global_flag = fall_of_singapore }
@@ -3509,7 +3506,7 @@ news_event = {
 			NOT = {
 				TAG = JAP
 				TAG = ENG
-				TAG = MAL
+				#TAG = MAL
 			}
 		}
 	}
@@ -3534,7 +3531,7 @@ news_event = {
 		trigger = { 
 			OR = {
 				TAG = ENG 
-				TAG = MAL 
+				#TAG = MAL 
 			}
 		}
 	}

@@ -969,29 +969,8 @@ country_event = { #ENG: Choice to create a pacific commonwealth under Australian
 				} 
 			}
 
-		IF = {	
-			limit = { 
-				MAL = {
-					is_puppet_of = ENG
-				}
-			}
-			AST = {
-				set_country_flag = AST_canberra_rule_mal
-				annex_country = { target = MAL }
-			}
-		}
-
-		IF = {	
-			limit = { 
-				BRM = { 
-					is_puppet_of = ENG	
-				}
-			}
-			AST = {
-				set_country_flag = AST_canberra_rule_brm
-				annex_country = { target = BRM }
-			}
-		}
+		
+		
 
 		hidden_effect = {
 			AST = { country_event = { id = AST_diplomatic_events.26 hours = 3 } }
@@ -1039,24 +1018,6 @@ country_event = { #UK agrees for Australia to create Pacific Commonwealth
 					transfer_state_to = AST 
 					} 
 				}
-
-			IF = {	
-				limit = { 
-					has_country_flag = AST_canberra_rule_mal
-				}
-				AST = {
-					annex_country = { target = MAL }
-				}
-			}
-
-			IF = {	
-				limit = { 
-					has_country_flag = AST_canberra_rule_brm
-				}
-				AST = {
-					annex_country = { target = BRM }
-				}
-			}
 		}
 	}
 }

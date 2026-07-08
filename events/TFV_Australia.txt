@@ -22,8 +22,8 @@ country_event = {
 		}
 		
 		effect_tooltip = {
-			AST = {
-				puppet = MAL
+			AST = { 
+
 			}
 		}
 		hidden_effect = {
@@ -57,10 +57,7 @@ country_event = {
 	option = {
 		name = tfv_australia.2.a
 		
-		puppet = {
-		    target = MAL
-		    end_wars = no
-		}
+		
 		
 		news_event = { hours = 6 id = news.238 }
 	}
@@ -389,9 +386,7 @@ country_event = {
 		}
 
 		effect_tooltip = {
-			AST = {
-				puppet = MAL
-			}
+			
 		}
 		hidden_effect = {
 			AST = {
@@ -426,10 +421,7 @@ country_event = {
 	option = {
 		name = tfv_australia.71.a
 		
-		puppet = {
-			target = MAL
-			end_wars = no
-		}
+		
 		news_event = { id = news.242 hours = 6 }
 	}
 }
@@ -467,21 +459,8 @@ country_event = {
 		
 		effect_tooltip = {
 			AST = {
-				if = {
-					limit = {
-						MAL = { is_puppet_of = AST }
-					}
-					JAP = {
-						puppet = MAL
-					}
-					
-					else = {
-						JAP = {
-							transfer_state = 334
-							transfer_state = 673
-							transfer_state = 668
-						}
-					}
+				if = { 
+
 				}
 
 				if = {
@@ -535,19 +514,8 @@ country_event = {
 	
 	option = {
 		name = tfv_australia.81.a
-		if = {
-			limit = {
-				MAL = { is_puppet_of = AST }
-			}
-			JAP = {
-				puppet = MAL
-			}
+		if = { 
 			
-			else = {
-				JAP = { transfer_state = 334 }
-				JAP = { transfer_state = 673 }
-				JAP = { transfer_state = 668 }
-			}
 		}
 		
 		if = {

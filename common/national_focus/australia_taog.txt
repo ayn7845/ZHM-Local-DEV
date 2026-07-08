@@ -1952,14 +1952,7 @@ focus_tree = {
 				634 = { #Solomons
 					is_owned_and_controlled_by = ENG
 				}
-				MAL = {
-					is_puppet_of = ENG
-					is_ai = yes
-				}
-				BRM = { 
-					is_puppet_of = ENG
-					is_ai = yes
-				}
+				
 			}
 		}
 
@@ -1967,18 +1960,7 @@ focus_tree = {
 			634 = { #Solomons
 				NOT = { is_owned_and_controlled_by = ENG }
 			}
-			MAL = {
-				OR = {
-					NOT = { is_puppet_of = ENG }
-					is_ai = no
-				}
-			}
-			BRM = { 
-				OR = {
-					NOT = { is_puppet_of = ENG }
-					is_ai = no
-				}
-			}
+			
 		}
 
 		available_if_capitulated = no
@@ -1998,29 +1980,6 @@ focus_tree = {
 					} 
 				}
 
-				IF = {	
-					limit = { 
-						MAL = {
-							is_puppet_of = ENG
-							is_ai = yes
-						}
-					}
-					AST = {
-						annex_country = { target = MAL }
-					}
-				}
-
-				IF = {	
-					limit = { 
-						BRM = { 
-							is_puppet_of = ENG
-							is_ai = yes	
-						}
-					}
-					AST = {
-						annex_country = { target = BRM }
-					}
-				}
 			}
 		}
 
@@ -4923,34 +4882,8 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			IF = {
-				limit = {
-					BRM = {
-						OR = { 
-							is_ai = no 
-							NOT = { is_subject_of = ENG }
-						}
-					}
-					MAL = { 
-						OR = {
-							is_ai = no 
-							NOT = { is_subject_of = ENG }
-						}
-					}
-					NOT = {
-			            any_state = {
-			                is_core_of = BRM
-			                is_owned_by = ENG
-			            }
-			        }
-			        NOT = {
-			            any_state = {
-			                is_core_of = MAL
-			                is_owned_by = ENG
-			            }
-			        }
-				}
-				AST_hand_in_glove_deny_effect = yes
+			IF = { 
+
 			}
 
 			ELSE = {
@@ -6401,14 +6334,6 @@ focus = {
 		}
 		add_to_array = {
 			array = AST_union_control_target_array
-			value = MAL
-		}
-		add_to_array = {
-			array = AST_union_control_target_array
-			value = BRM
-		}
-		add_to_array = {
-			array = AST_union_control_target_array
 			value = RAJ
 		}
 		custom_effect_tooltip = AST_union_control_commonwealth
@@ -6762,41 +6687,9 @@ focus = {
 					original_tag = CAN
 					original_tag = SAF
 					original_tag = RAJ
-					original_tag = MAL
-					original_tag = BRM
+				
 					original_tag = NZL
-					original_tag = OMA
-					original_tag = KUW
-					original_tag = JOR
-					original_tag = EGY
-					original_tag = SUD
-					original_tag = UGA
-					original_tag = KEN
-					original_tag = TZN
-					original_tag = MLW
-					original_tag = ZAM
-					original_tag = ZIM
-					original_tag = BOT
-					original_tag = NGA
-					original_tag = GHA
-					original_tag = SIE
-					original_tag = FSA
-					original_tag = YEM
-					original_tag = UAE
-					original_tag = QAT
-					original_tag = BHR
-					original_tag = GAM
-					original_tag = CYP
-					original_tag = BAH
-					original_tag = BLZ
-					original_tag = GYA
-					original_tag = JAM
-					original_tag = TRI
-					original_tag = BAS
-					original_tag = SOM
-					original_tag = FIJ
-					original_tag = SOL
-					original_tag = NIR
+					
 				}
 			}
 		}
@@ -6811,44 +6704,11 @@ focus = {
 			every_subject_country = {
 				limit = {
 					OR = {
-						original_tag = CAN
-						original_tag = SAF
-						original_tag = RAJ
-						original_tag = MAL
-						original_tag = BRM
-						original_tag = NZL
-						original_tag = OMA
-						original_tag = KUW
-						original_tag = JOR
-						original_tag = EGY
-						original_tag = SUD
-						original_tag = UGA
-						original_tag = KEN
-						original_tag = TZN
-						original_tag = MLW
-						original_tag = ZAM
-						original_tag = ZIM
-						original_tag = BOT
-						original_tag = NGA
-						original_tag = GHA
-						original_tag = SIE
-						original_tag = FSA
-						original_tag = YEM
-						original_tag = UAE
-						original_tag = QAT
-						original_tag = BHR
-						original_tag = GAM
-						original_tag = CYP
-						original_tag = BAH
-						original_tag = BLZ
-						original_tag = GYA
-						original_tag = JAM
-						original_tag = TRI
-						original_tag = BAS
-						original_tag = SOM
-						original_tag = FIJ
-						original_tag = SOL
-						original_tag = NIR
+					original_tag = CAN
+					original_tag = SAF
+					original_tag = RAJ
+				
+					original_tag = NZL
 					}
 				}
 				ROOT = {

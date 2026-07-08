@@ -4697,13 +4697,8 @@ country_event = {
 			}
 		}
 
-		effect_tooltip = {
-			FROM = {
-				annex_country = {
-					target = MAL
-					transfer_troops = yes
-				}
-			}
+		effect_tooltip = { 
+
 		}
 
 		hidden_effect = {
@@ -4844,22 +4839,11 @@ country_event = {
 	option = { #Good stuff
 		name = GOE_RAJ_loyalist.10.a
 
-		if = {
-			limit = {
-				event_target:RAJ_annexing_country_target = {
-					tag = BRM
-				}
-			}
-			annex_country = {
-				target = BRM
-				transfer_troops = yes
-			}
+		if = { 
+			
 		}
-		else = {
-			annex_country = {
-				target = MAL
-				transfer_troops = yes
-			}
+		else = { 
+
 		}
 	}
 }

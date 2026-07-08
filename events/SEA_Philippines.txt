@@ -201,13 +201,8 @@ country_event = { ### Asian trade countries agree to trade
 				}
 				custom_effect_tooltip = idea_desc|PHI_asian_trade_connections_siam
 			}
-			else_if = {
-				limit = {
-					FROM = {
-						original_tag = MAL
-					}
-				}
-				custom_effect_tooltip = idea_desc|PHI_asian_trade_connections_malaya
+			else_if = { 
+				
 			}
 			else = {
 				custom_effect_tooltip = idea_desc|PHI_asian_trade_connections_dutch_east_india

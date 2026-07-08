@@ -2222,10 +2222,6 @@ country_event = {
 				}
 			}
 			
-			MAL = {
-				drop_cosmetic_tag = yes
-				retire_country_leader = yes
-			}
 			CAN = {
 				if = {
 					limit = {
@@ -6894,10 +6890,7 @@ country_event = {
 							is_subject_of = ENG
 							tag = NZL
 						}
-						AND = {
-							is_subject_of = ENG
-							tag = MAL
-						}
+						
 					}
 				}
 				add_ideas = ENG_federal_integration
@@ -6927,10 +6920,7 @@ country_event = {
 							is_subject_of = ENG
 							tag = NZL
 						}
-						AND = {
-							is_subject_of = ENG
-							tag = MAL
-						}
+						
 					}
 				}
 				add_ideas = ENG_federal_integration_tfv
@@ -6981,10 +6971,7 @@ country_event = {
 							is_subject_of = ENG
 							tag = NZL
 						}
-						AND = {
-							is_subject_of = ENG
-							tag = MAL
-						}
+						
 					}
 				}
 				add_ideas = ENG_federal_integration
@@ -7010,10 +6997,7 @@ country_event = {
 							is_subject_of = ENG
 							tag = NZL
 						}
-						AND = {
-							is_subject_of = ENG
-							tag = MAL
-						}
+						
 					}
 				}
 				add_ideas = ENG_federal_integration_tfv
