@@ -383,21 +383,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	#Nope
-	option = {
-		name = yugoslavia.7.a
-		ai_chance = { 
-			factor = 5
-		}
-
-		GER = { country_event = { id = germany.111 days = 1 } 
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = YUG
-				}
-			}
-		}
-	}
+	
 
 	#Alrighty
 	option = {
@@ -449,7 +435,20 @@ country_event = {
 			}
 			GER_yugoslavia_modify_mefo_bills_or_economy_of_conquest = yes
 			GER_seize_gold_reserves_in_europe_peacefully = yes
-			add_to_variable = { var = GER_mefo_bill_counter value = -10 }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+				add_to_variable = { 
+					GER_industrial_consumer_goods_factor = -0.1
+					tooltip = consumer_goods_factor_tt
+				}
+				GER_reduce_mefo_bills_penalty = yes
+			}
 		}
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = GAME_OVER_TT
@@ -468,91 +467,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	#Fuck that
-	option = {
-		name = yugoslavia.8.a
-		ai_chance = { 
-			factor = 10
-		}
-
-		GER = { country_event = { id = germany.111 days = 1 } 
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = YUG
-				}
-			}
-		}
-	}
+	option = {}
 
 	#Sure thing
-	option = {
-		name = yugoslavia.8.b
-
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0
-				any_other_country = {
-					is_major = yes
-					OR = {
-						has_guaranteed = YUG
-						is_in_faction_with = YUG
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				is_puppet = yes
-			} 
-		}
-
-		trigger = { 
-			YUG = { 
-				OR = { 
-					owns_state = 103
-					owns_state = 104
-					owns_state = 109
-					owns_state = 804
-				} 
-			} 
-		}
-
-		GER = {		
-			add_political_power = -25
-			add_named_threat = { threat = 3 name = GER_fate_of_yugoslavia }
-			
-			CRO = {
-				if = {
-					limit = { YUG = { owns_state = 103 } }
-					transfer_state = 103
-				}
-				if = {
-					limit = { YUG = { owns_state = 104 } }
-					transfer_state = 104
-				}
-				if = {
-					limit = { YUG = { owns_state = 109 } }
-					transfer_state = 109
-				}	
-				if = {
-					limit = { YUG = { owns_state = 804 } }
-					transfer_state = 804
-				}
-			}
-			puppet = CRO
-			annex_country = { target = YUG transfer_troops = no }
-
-			hidden_effect = {
-				set_global_flag = GER_fate_of_yugoslavia_puppet_CRO_annex_YUG
-				news_event = { hours = 6 id = news.169 }
-			}
-			GER_yugoslavia_modify_mefo_bills_or_economy_of_conquest = yes
-			GER_seize_gold_reserves_in_europe_peacefully = yes
-			add_to_variable = { var = GER_mefo_bill_counter value = -10 }
-		}
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = GAME_OVER_TT
-	}
+	option = {}
 }
 
 # Fate of Yugoslavia
@@ -567,72 +485,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	#No way
-	option = {
-		name = yugoslavia.9.a
-		ai_chance = { factor = 2 }
-
-		GER = { country_event = { id = germany.111 days = 1 } 
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = YUG
-				}
-			}
-		}
-	}
+	option = {}
 
 	#Seems fair
-	option = {
-		name = yugoslavia.9.b
-		ai_chance = { 
-			factor = 10
-			modifier = {
-				factor = 0
-				any_other_country = {
-					is_major = yes
-					OR = {
-						has_guaranteed = YUG
-						is_in_faction_with = YUG
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				is_puppet = yes
-			} 
-		}
-
-		GER = {
-
-			add_named_threat = { threat = 2 name = GER_fate_of_yugoslavia }
-			
-			CRO = {
-				if = {
-					limit = { YUG = { owns_state = 103 } }
-					transfer_state = 103
-				}
-				if = {
-					limit = { YUG = { owns_state = 104 } }
-					transfer_state = 104
-				}
-				if = {
-					limit = { YUG = { owns_state = 109 } }
-					transfer_state = 109
-				}
-				if = {
-					limit = { YUG = { owns_state = 804 } }
-					transfer_state = 804
-				}				
-			}
-			puppet = CRO
-			puppet = YUG
-
-
-			hidden_effect = {
-				set_global_flag = GER_fate_of_yugoslavia_puppet_CRO_YUG
-				news_event = { hours = 6 id = news.169 }
-			}
-		}
-	}
+	option = {}
 }
 
