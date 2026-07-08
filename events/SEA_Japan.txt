@@ -1460,63 +1460,6 @@ country_event = {
 
 		add_to_faction = FROM
 
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = BHU
-				}
-			}
-			add_ai_strategy = {
-				type = protect
-				id = BHU
-				value = 100
-			}
-			FROM = {
-				add_ai_strategy = {
-					type = alliance
-					id = JAP
-					value = 200
-				}
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				FROM = {
-					original_tag = NEP
-				}
-			}
-			add_ai_strategy = {
-				type = protect
-				id = NEP
-				value = 100
-			}
-			FROM = {
-				add_ai_strategy = {
-					type = alliance
-					id = JAP
-					value = 200
-				}
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				FROM = {
-					original_tag = AFG
-				}
-			}
-			add_ai_strategy = {
-				type = protect
-				id = AFG
-				value = 100
-			}
-			FROM = {
-				add_ai_strategy = {
-					type = alliance
-					id = JAP
-					value = 200
-				}
-			}
-		}
 
 		JAP_setup_faction_wide_aoe_effects_root = yes
 

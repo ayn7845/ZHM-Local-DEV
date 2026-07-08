@@ -1188,10 +1188,7 @@ news_event = {
 	option = {
 		name = mtg_news.28.c
 		trigger = {
-			OR = {
-				original_tag = AFG
-				original_tag = PER
-			}
+			always = no
 			NOT = { original_tag = FROM }
 		}
 	}
@@ -1200,8 +1197,7 @@ news_event = {
 		name = mtg_news.28.d
 		trigger = { 
 			NOT = { original_tag = ENG }
-			NOT = { original_tag = PER }
-			NOT = { original_tag = AFG }
+			
 		}
 	}
 }
@@ -1234,10 +1230,7 @@ news_event = {
 	option = {
 		name = mtg_news.29.c
 		trigger = {
-			OR = {
-				original_tag = AFG
-				original_tag = PER
-			}
+			always = no
 			NOR = { original_tag = FROM }
 		}
 	}
@@ -1246,8 +1239,7 @@ news_event = {
 		name = mtg_news.29.d
 		trigger = { 
 			NOT = { original_tag = ENG }
-			NOT = { original_tag = PER }
-			NOT = { original_tag = AFG }
+		
 		}
 	}
 }

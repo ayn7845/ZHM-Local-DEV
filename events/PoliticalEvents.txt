@@ -420,14 +420,8 @@ country_event = {
 				}
 			}
 		}
-		NOT = {
-			AND = {
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					original_tag = AFG
-					original_tag = PER
-				}
-			}
+		NOT = { 
+			
 		}
 		NOT = {
 			AND = {
@@ -2007,14 +2001,8 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					original_tag = PER
-					original_tag = AFG
-				}
-			}
+		NOT = { 
+
 		}
 
 		NOT = {
@@ -2261,14 +2249,10 @@ country_event = {
 				has_country_flag = ETH_communist_civil_war
 			}
 			AND = {
-				has_dlc = "Graveyard of Empires"
-				original_tag = AFG
-				has_country_flag = AFG_mughal_civil_war
+
 			}
-			AND = {
-				has_dlc = "No Compromise, No Surrender"
-				original_tag = GDC
-				has_global_flag = lingguang_incident_active
+			AND = { 
+				
 			}
 			original_tag = MEX # Best not to let this happen during any of their nmany potential civil wars that may have the same ideology 
 		}

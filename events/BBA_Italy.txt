@@ -9622,24 +9622,11 @@ country_event = {
 
 		custom_effect_tooltip = ITA_release_colonies_south_africa_tt
 		hidden_effect = {
-			release_on_controlled = SAU
-			release_on_controlled = YEM
-			release_on_controlled = OMA
-			release_on_controlled = UAE
-			release_on_controlled = QAT
-			release_on_controlled = KUW
+	
 			release_on_controlled = IRQ
-			release_on_controlled = SYR
-			release_on_controlled = LEB
-			release_on_controlled = JOR
-			release_on_controlled = PAL
-			release_on_controlled = GEO
-			release_on_controlled = ARM
-			release_on_controlled = PER
-			release_on_controlled = AZR
+			
 			release_on_controlled = TUR
-			release_on_controlled = AFG
-			release_on_controlled = KUR
+			
 		}
 	}
 }

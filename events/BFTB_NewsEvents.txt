@@ -987,8 +987,7 @@ news_event = {
 		trigger = {
 			OR =  {
 				tag = GER
-				tag = PER
-				tag = AFG
+				
 			}
 		}
 	}
@@ -1001,7 +1000,7 @@ news_event = {
 					tag = BUL
 					tag = ALB
 					tag = IRQ
-					tag = SAU
+				
 					tag = ENG
 					tag = FRA
 					tag = USA
@@ -1012,8 +1011,7 @@ news_event = {
 					tag = AUS
 					tag = POL
 					tag = GER
-					tag = PER
-					tag = AFG
+					
 				}
 			}
 		}

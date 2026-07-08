@@ -2765,18 +2765,14 @@ news_event = {
 	option = {
 		name = wtt_news.65.a
 		trigger = {
-			OR = {
-				original_tag = PER
-				original_tag = AFG
-			}
+			always = no
 			NOT = { has_war_with = FROM }
 		}
 	}
 	option = {
 		name = wtt_news.65.b
 		trigger = {
-			NOT = { original_tag = PER }
-			NOT = { original_tag = AFG }
+			
 			NOT = { has_war_with = FROM }
 		}
 	}
