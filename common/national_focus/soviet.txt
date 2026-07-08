@@ -18055,15 +18055,7 @@ focus_tree = {
 				target = FRA
 				generator = { 553 554 677 680 799 }
 			}
-			if = {
-				limit = {
-					country_exists = PAK
-				}
-				create_wargoal = { 
-					type = annex_everything
-					target = PAK
-				}
-			}
+			
 			create_wargoal = { 
 				type = annex_everything
 				target = RAJ
