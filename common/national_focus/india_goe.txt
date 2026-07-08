@@ -7129,11 +7129,7 @@ focus_tree = {
 
         completion_reward = {
             custom_effect_tooltip = RAJ_akhand_bharat_tt
-            unlock_decision_tooltip = {
-                decision =  RAJ_form_akhand_bharat
-                show_effect_tooltip = yes # default is no
-                show_modifiers = yes # default is no
-            }
+           
         }
     }
 
@@ -18082,11 +18078,7 @@ focus = {
         search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
-            unlock_decision_tooltip = {
-                decision = RAJ_red_punjab_operation_decision
-                show_effect_tooltip = yes # default is no
-                show_modifiers = yes # default is no
-            }
+            
         }
     }
 
@@ -18124,11 +18116,7 @@ focus = {
         search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
-            unlock_decision_tooltip = {
-                decision = RAJ_secure_rajahsthan_decision
-                show_effect_tooltip = yes # default is no
-                show_modifiers = yes # default is no
-            }
+            
         }
     }
 
@@ -18164,11 +18152,7 @@ focus = {
         search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
-            unlock_decision_tooltip = {
-                decision = RAJ_secure_west_bengal_decision
-                show_effect_tooltip = yes # default is no
-                show_modifiers = yes # default is no
-            }
+           
         }
     }
 

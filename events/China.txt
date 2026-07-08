@@ -51,37 +51,7 @@ country_event = {
 		name = china.1.b
 		ai_chance = { 
 			base = 10 
-			modifier = {
-				factor = 0
-				OR = {
-					is_historical_focus_on = yes
-					has_country_flag = CHI_AI_RANDOM_HISTORICAL
-					has_game_rule = {
-						rule = CHI_ai_behavior
-						option = HISTORICAL
-					}
-				}
-				NOT = {
-					has_game_rule = { #used here instead of checking for default because people might not have WTT
-						rule = CHI_ai_behavior
-						option = ALTERNATE
-					}
-				}
-			}
-			modifier = {
-				factor = 0.5
-				JAP = {
-					has_war = yes
-				}
-			}
-			modifier = {
-				factor = 0.25
-				JAP = {
-					any_enemy_country = {
-						is_major = yes
-					}
-				}
-			}
+			
 		}
 
 		JAP = {

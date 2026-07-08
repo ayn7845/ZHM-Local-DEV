@@ -2451,9 +2451,7 @@
 		}
 		bypass = {
 			is_in_faction_with = ENG
-			NOT = {
-				has_completed_focus = FRA_strengthen_the_little_entente
-			}
+			
 		}
 	 	prerequisite = { focus = FRA_buy_time }
 		x = 0

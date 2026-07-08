@@ -3473,52 +3473,16 @@ focus_tree = {
 			has_war_support > 0.35
 		}
 		
-		bypass = {
-			OR = {
-				owns_state = 315
-				has_war_with = CUB
-				CUB = {is_subject_of = ROOT}
-				has_wargoal_against = {
-    				target = CUB
-    				type = annex_everything
-					}
-			}
+		bypass = { 
+
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		completion_reward = {
-			if = {
-				limit = {
-					CUB = {
-						owns_state = 315
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = CUB
-					expire = 0
-				}
-			}
-			else_if = {
-				limit = {
-					315 = { CONTROLLER = { not = { is_in_faction_with = ROOT } } }
-				}
-				315 = { 
-					CONTROLLER = {
-						ROOT = {
-							create_wargoal = {
-								type = take_state
-								target = PREV
-								expire = 0
-								generator = { 315 }
-							}
-						}
-					} 
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 	focus = {
@@ -3649,113 +3613,16 @@ focus_tree = {
 
 		}
 		
-		bypass = {
+		bypass = { 
 
-				CUB = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				HAI = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				DOM = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				GUA = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				CAN = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				MEX = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				HON = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				NIC = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				PAN = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				COS = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-				ELS = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		completion_reward = {
-			every_country = {
-				limit = {
-					OR = {
-						original_tag = CUB
-						original_tag = HAI
-						original_tag = DOM
-						original_tag = GUA
-						original_tag = MEX
-						original_tag = CAN
-						original_tag = HON
-						original_tag = NIC
-						original_tag = PAN
-						original_tag = COS
-						original_tag = ELS
-					}
-					not = { has_war_with = ROOT }
-					not = { is_subject_of = ROOT }
-					exists = yes
-				}
-				country_event = mtg_usa_north_american_dominion.1
-			}
+		completion_reward = { 
+
 		}
 	}
 	focus = {
@@ -3924,69 +3791,8 @@ focus_tree = {
 		available = {
 
 		}
-		bypass = {
-				AND = { 
-					BRA = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					VEN = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					COL = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					ECU = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					PRU = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					BOL = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					PAR = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					ARG = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					CHL = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-					URG = { 
-						OR = {
-							exists = no
-							has_war_with = ROOT
-						}
-					}
-				}
+		bypass = { 
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -3997,15 +3803,9 @@ focus_tree = {
 				limit = {
 					OR = {
 						original_tag = BRA
-						original_tag = VEN
-						original_tag = COL
-						original_tag = ECU
-						original_tag = PRU
-						original_tag = BOL
-						original_tag = PAR
+					
 						original_tag = ARG
-						original_tag = CHL
-						original_tag = URG
+					
 					}
 					not = { has_war_with = ROOT }
 					not = { is_subject_of = ROOT }
@@ -4382,27 +4182,14 @@ focus_tree = {
 			custom_effect_tooltip = USA_reinforce_monroe_doctrine_tt
 			unlock_decision_category_tooltip = USA_intervention_mandate
 			hidden_effect = {
-				CUB = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				HAI = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				DOM = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				GUA = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				ELS = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				HON = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				NIC = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				COS = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
+			
 				CAN = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
 				MEX = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				COL = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				VEN = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				ECU = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				PRU = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
+			
 				BRA = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				BOL = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				PAR = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				URG = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
+			
 				ARG = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				CHL = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
-				"PAN" = { add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade } }
+				
 			}
 		}
 	}
@@ -4487,27 +4274,13 @@ focus_tree = {
 						has_government = ROOT
 						not = { has_war_with = ROOT }
 						OR = {
-							original_tag = CUB
-							original_tag = CAN
+							
 							original_tag = MEX
 							original_tag = BRA
 							original_tag = ARG
-							original_tag = URG
-							original_tag = CHL
-							original_tag = "PAN"
-							original_tag = PAR
+							
 							original_tag = VEN
-							original_tag = PRU
-							original_tag = BOL
-							original_tag = COL
-							original_tag = ECU
-							original_tag = HON
-							original_tag = DOM
-							original_tag = HAI
-							original_tag = GUA
-							original_tag = COS
-							original_tag = ELS
-							original_tag = NIC
+							
 						}
 					}
 					country_event = generic.5

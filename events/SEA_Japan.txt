@@ -10589,15 +10589,9 @@ country_event = {
 
 		add_war_support = 0.05
 
-		IF = {
-			limit = {
-				NOT = {
-					has_completed_focus = JAP_subdue_the_kwantung_army
-					has_completed_focus = JAP_revoke_the_peace_preservation_law
-				}
-			}
-			custom_effect_tooltip = JAP_first_strike_blocked_due_to_kwantung_army_tt
-		}
+		
+		custom_effect_tooltip = JAP_first_strike_blocked_due_to_kwantung_army_tt
+		
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -10613,18 +10607,12 @@ country_event = {
 				}
 			}
 			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-							has_completed_focus = JAP_revoke_the_peace_preservation_law
-						}
-					}
+				
 					CHI = {
 						set_country_flag = JAP_first_strike_principle_blocked
 					}
 				}
-			}
+			
 			declare_war_on = {
 				target = CHI
 				type = annex_everything
@@ -10633,12 +10621,7 @@ country_event = {
 				limit = {
 					MAN = {
 						is_subject_of = ROOT
-						NOT = {
-							OR = {
-								has_completed_focus = MAN_assertiveness
-								has_completed_focus = MAN_tsr_assertiveness
-							}
-						}
+						
 					}
 				}
 				MAN = {
@@ -10663,19 +10646,13 @@ country_event = {
 			}
 
 			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-							has_completed_focus = JAP_revoke_the_peace_preservation_law
-						}
-					}
+				
 					613 = {
 						OWNER = {
 							set_country_flag = JAP_first_strike_principle_blocked
 						}
 					}
-				}
+				
 			}
 
 			613 = {

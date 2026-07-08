@@ -18,14 +18,9 @@ country_event = {
 
 		add_war_support = 0.05
 
-		IF = {
-			limit = {
-				NOT = {
-					has_completed_focus = JAP_subdue_the_kwantung_army
-				}
-			}
+		
 			custom_effect_tooltip = JAP_first_strike_blocked_due_to_kwantung_army_tt
-		}
+		
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -40,16 +35,11 @@ country_event = {
 				}
 			}
 			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-						}
-					}
+				
 					CHI = {
 						set_country_flag = JAP_first_strike_principle_blocked
 					}
-				}
+				
 			}
 			declare_war_on = {
 				target = CHI
@@ -60,7 +50,7 @@ country_event = {
 					MAN = {
 						is_subject_of = ROOT
 						NOT = {
-							has_completed_focus = MAN_assertiveness
+							#has_completed_focus = MAN_assertiveness
 							has_completed_focus = MAN_tsr_assertiveness
 						}
 					}
@@ -73,281 +63,19 @@ country_event = {
 					}
 				}
 			}
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = CHI
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
-		IF = {
-			limit = {
-				SHX = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-			}
-			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-						}
-					}
-					SHX = {
-						set_country_flag = JAP_first_strike_principle_blocked
-					}
-				}
-			}
-			declare_war_on = {
-				target = SHX
-				type = annex_everything
-			}
-			IF = {
-				limit = {
-					MAN = {
-						is_subject_of = ROOT
-						NOT = {
-							has_completed_focus = MAN_assertiveness
-							has_completed_focus = MAN_tsr_assertiveness
-						}
-					}
-				}
-				MAN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = SHX
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = SHX
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
 
-		IF = {
-			limit = {
-				SND = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-			}
-			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-						}
-					}
-					SND = {
-						set_country_flag = JAP_first_strike_principle_blocked
-					}
-				}
-			}
-			declare_war_on = {
-				target = SND
-				type = annex_everything
-			}
-			IF = {
-				limit = {
-					MAN = {
-						is_subject_of = ROOT
-						NOT = {
-							has_completed_focus = MAN_assertiveness
-							has_completed_focus = MAN_tsr_assertiveness
-						}
-					}
-				}
-				MAN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = SND
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = SND
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
-
-		IF = {
-			limit = {
-				HBC = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-			}
-			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-						}
-					}
-					HBC = {
-						set_country_flag = JAP_first_strike_principle_blocked
-					}
-				}
-			}
-			declare_war_on = {
-				target = HBC
-				type = annex_everything
-			}
-			IF = {
-				limit = {
-					MAN = {
-						is_subject_of = ROOT
-						NOT = {
-							has_completed_focus = MAN_assertiveness
-							has_completed_focus = MAN_tsr_assertiveness
-						}
-					}
-				}
-				MAN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = HBC
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = HBC
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
-
-		IF = {
-			limit = {
-				XIC = {
-					exists = yes
-					owns_state = 608
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-			}
-			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = JAP_subdue_the_kwantung_army
-						}
-					}
-					XIC = {
-						set_country_flag = JAP_first_strike_principle_blocked
-					}
-				}
-			}
-			declare_war_on = {
-				target = XIC
-				type = annex_everything
-			}
-			IF = {
-				limit = {
-					MAN = {
-						is_subject_of = ROOT
-						NOT = {
-							has_completed_focus = MAN_assertiveness
-							has_completed_focus = MAN_tsr_assertiveness
-						}
-					}
-				}
-				MAN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = XIC
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					add_to_war = {
-					    targeted_alliance = ROOT
-					    enemy = XIC
-					    hostility_reason = asked_to_join
-					}
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
-
-		IF = {
-			limit = {
-				NOT = {
-					has_completed_focus = JAP_subdue_the_kwantung_army
-				}
-			}
+		
+			
 			
 			add_timed_idea = {
 				idea = JAP_surprise_invasion_idea
 				days = 245 
 			}	
 			
-		}
+		
 
 		hidden_effect = {
 			country_event = { days = 5 id = news.1 }

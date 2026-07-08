@@ -2012,7 +2012,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			unlock_decision_tooltip = {
-				decision = JAP_empower_the_yi_dynasty_decision 
+				#decision = JAP_empower_the_yi_dynasty_decision 
 				show_effect_tooltip = no 
 			}	
 

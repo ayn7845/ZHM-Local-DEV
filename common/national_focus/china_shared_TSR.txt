@@ -2777,7 +2777,7 @@ shared_focus = {
 			uses = 2
 			category = cv_tech
 		}
-		activate_mission_tooltip = CHI_build_a_carrier
+		#activate_mission_tooltip = CHI_build_a_carrier
 	}
 }
 

@@ -1958,23 +1958,7 @@ country_event = {
 		}
 
 		hidden_effect = {
-			IF = {
-				limit = {
-					ITA = {
-						OR = {
-							has_completed_focus = ITA_guarantee_austrian_independence
-							has_guaranteed = AUS
-						}
-					}
-				}
-
-				ITA = {
-					country_event = {
-						id = AUS_political_events.107
-						hours = 12
-					}
-				}
-			}
+			
 		}
 	}
 
@@ -2364,7 +2348,7 @@ country_event = {
 			limit = {
 				is_in_faction_with = CZE
 				is_faction_leader = yes
-				has_completed_focus = FRA_strengthen_the_little_entente
+				#has_completed_focus = FRA_strengthen_the_little_entente
 				NOT = { is_in_faction_with = ENG }
 			}
 			add_to_faction = ENG #Britain joins the little entente
@@ -2891,79 +2875,8 @@ country_event = {
 
 	option = { # Agree
 		name = germany.53.a
-		ai_chance = {
+		ai_chance = { 
 			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					is_in_faction_with = ENG
-					is_in_faction_with = FRA
-					is_subject = yes
-					GER = {
-						AND = {
-							has_war_with = ENG
-							has_war_with = FRA
-						}
-					}
-					GER = {
-						AND = {
-							has_war_with = SOV
-							OR = {
-								has_war_with = ENG
-								has_war_with = FRA
-							}
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 0.5
-				AUS = { exists = yes }
-			}
-			modifier = {
-				factor = 0.5
-				GER = {
-					OR = {
-						AND = {
-							has_war_with = ENG
-							NOT = {
-								has_war_with = FRA
-							}
-						}
-						AND = {
-							has_war_with = FRA
-							NOT = {
-								has_war_with = ENG
-							}
-						}
-					}
-				}
-			}
-			modifier = { #minors banding together to resist German Annexation should likely resist German annexation
-				factor = 0.5
-				OR = {
-					POL = { #Germany's neighbors are banding together and feeling mighty strong
-						has_completed_focus = POL_coerce_czechoslovakia
-							OR = {
-								is_in_faction_with = CZE
-								has_guaranteed = CZE
-							}
-					}
-					AND = {
-						is_in_faction_with = AUS
-						AUS = {
-							has_completed_focus = AUS_the_danubian_federation
-						}
-					}
-					AND = {
-						is_in_faction_with = HUN
-						HUN = {
-							has_completed_focus = wuw_HUN_a_danubian_federation
-						}
-					}
-				}
-				
-			}
 		}
 		GER = { country_event = germany.55 }
 		if = {
@@ -8574,46 +8487,8 @@ country_event = {
 			}
 		}
 
-		ai_chance = {
+		ai_chance = { 
 			base = 50
-			modifier = {
-				factor = 0.8
-				any_other_country = {
-					is_major = no
-					has_guaranteed = CZE
-				}
-			}
-			modifier = {
-				factor = 0.8
-				is_in_faction = yes
-			}
-			modifier = {
-				factor = 0
-				FRA = { has_completed_focus = FRA_strengthen_the_little_entente }
-			}
-			modifier = {
-				factor = 0
-				POL = {
-					OR = {
-						has_completed_focus = POL_protect_czechozlovakia
-						has_completed_focus = POL_coerce_czechoslovakia
-					}
-				}
-				OR = {
-					is_guaranteed_by = POL
-					is_in_faction_with = POL
-				}
-			}
-			modifier = {
-				factor = 0
-				any_other_country = {
-					is_major = yes
-					OR = {
-						has_guaranteed = CZE
-						is_in_faction_with = CZE
-					}
-				}
-			}
 		}
 
 		effect_tooltip = {

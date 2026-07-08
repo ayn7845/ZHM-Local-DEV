@@ -1324,8 +1324,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = HUN_seize_control_of_burgenland_dec
-			unlock_decision_tooltip = HUN_place_a_habsburg_on_the_austrian_throne
 
 		}
 	}
@@ -1443,8 +1441,6 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			unlock_decision_tooltip = HUN_place_a_habsburg_on_the_bohemian_throne
 
 		}
 	}
@@ -1714,7 +1710,7 @@ focus_tree = {
 					type = puppet_wargoal_focus
 					target = ALB
 				}
-				unlock_decision_tooltip = HUN_place_wied_on_the_albanian_throne
+				
 			}
 			ELSE_IF = {
 				limit = {
@@ -1862,7 +1858,7 @@ focus_tree = {
 					type = puppet_wargoal_focus
 					target = SPR
 				}
-				unlock_decision_tooltip = HUN_place_a_habsburg_on_the_spanish_throne
+				#unlock_decision_tooltip = HUN_place_a_habsburg_on_the_spanish_throne
 			}
 			ELSE_IF = {
 				limit = {
@@ -2004,7 +2000,7 @@ focus_tree = {
 					type = puppet_wargoal_focus
 					target = POL
 				}
-				unlock_decision_tooltip = HUN_place_a_habsburg_on_the_polish_throne
+				
 			}
 			ELSE_IF = {
 				limit = {
@@ -2164,7 +2160,7 @@ focus_tree = {
 						type = puppet_wargoal_focus
 						target = MEX
 					}
-					unlock_decision_tooltip = HUN_place_a_habsburg_on_the_mexican_throne
+					#unlock_decision_tooltip = HUN_place_a_habsburg_on_the_mexican_throne
 				}
 				ELSE_IF = {
 					limit = {
@@ -4120,7 +4116,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = HUN_place_a_habsburg_on_the_ukrainian_throne_decision
+			
 
 		}
 	}
@@ -5971,51 +5967,6 @@ focus_tree = {
 				remove_idea = HUN_hungarian_monarchy_nice_democratic
 			}
 
-			hidden_effect = {
-				remove_opinion_modifier = {
-					target = CZE
-					modifier = BFTB_incongruous_neighbors
-				}
-				remove_opinion_modifier = {
-					target = ROM
-					modifier = BFTB_incongruous_neighbors
-				}
-				remove_opinion_modifier = {
-					target = YUG
-					modifier = BFTB_incongruous_neighbors
-				}
-				every_country = {
-					limit = {
-						has_opinion_modifier = BFTB_balkan_pact_enemy
-					}
-					remove_opinion_modifier = {
-						target = HUN
-						modifier = BFTB_balkan_pact_enemy
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					FRA = {
-						exists = yes
-						is_subject = no
-						has_completed_focus = FRA_strengthen_the_little_entente
-					}
-				}
-				FRA = { country_event = { id = DOD_hungary.30 } }
-			}
-			IF = {
-				limit = {
-					country_exists = ROM
-					OR = {
-						FRA = { NOT = { has_completed_focus = FRA_strengthen_the_little_entente } }
-						FRA = { exists = no }
-						FRA = { is_subject = yes }
-					}
-				}
-				ROM = { country_event = { id = DOD_hungary.30 } }
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6169,7 +6120,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = HUN_unite_hungary_romania_decision
+		
 
 		}
 	}
@@ -7007,30 +6958,11 @@ focus_tree = {
 
 			add_threat = 1
 
-			IF = {
-				limit = {
-					FRA = {
-						has_completed_focus = FRA_strengthen_the_little_entente
-						exists = yes
-						is_subject = no
-					}
-				}
-				FRA = {
-					country_event = {
-						id = DOD_hungary.40
-						days = 1
-					}
-				}
-			}
 
 			IF = {
 				limit = {
 					OR = {
-						NOT = {
-							FRA = {
-								has_completed_focus = FRA_strengthen_the_little_entente
-							}
-						}
+						
 						FRA = {
 							exists = no
 						}
@@ -13409,7 +13341,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = HUN_unify_the_balkans_decision
+			
 
 		}
 	}
@@ -14533,21 +14465,7 @@ focus_tree = {
 			OR = {
 				wuw_HUN_does_not_have_trianon = yes
 				has_idea = HUN_bled_agreement_wuw
-				AND = {
-					ROM = {
-						OR = {
-							exists = no
-							is_puppet = yes
-						}
-					}
-					FRA = {
-						OR = {
-							exists = no
-							is_puppet = yes
-							NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
-						}
-					}
-				}
+				
 			}
 		}
 
@@ -14560,18 +14478,10 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					FRA = { has_completed_focus = FRA_strengthen_the_little_entente }
-				}
-				FRA = { country_event = DOD_hungary.140 }
-			}
-			IF = {
-				limit = {
-					NOT = { FRA = { has_completed_focus = FRA_strengthen_the_little_entente } }
-				}
+		
+			
 				ROM = { country_event = DOD_hungary.140 }
-			}
+			
 
 			custom_effect_tooltip = HUN_bled_agreement_custom_effect_tooltip
 

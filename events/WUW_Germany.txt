@@ -20549,7 +20549,7 @@ country_event = {
 	option = { #that's not great....
 		name = wuw_GER_uncertain_future.01.a
 				
-		activate_mission = GER_growing_public_dissent_mission
+		#activate_mission = GER_growing_public_dissent_mission
 	}
 }
 

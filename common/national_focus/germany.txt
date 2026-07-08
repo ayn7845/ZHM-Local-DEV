@@ -10266,7 +10266,7 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				add_timed_idea = { idea = CZE_integrate_czech_manufacturers_GER_idea_aat days = 180 }
+				#add_timed_idea = { idea = CZE_integrate_czech_manufacturers_GER_idea_aat days = 180 }
 			}
 			else = {
 				custom_effect_tooltip = GER_integrate_czech_manufacturers_no_aat_tt
@@ -10282,7 +10282,7 @@ focus_tree = {
 				# custom_effect_tooltip = available_industrial_concern
 				# show_ideas_tooltip = CZE_bohmische_mahrische_maschinenfabrik_ag_german_manufacturer
 
-				add_timed_idea = { idea = CZE_integrate_czech_manufacturers_GER_idea_no_aat days = 180 }
+				#add_timed_idea = { idea = CZE_integrate_czech_manufacturers_GER_idea_no_aat days = 180 }
 			}
 		}
 	}
@@ -13152,10 +13152,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = GER_reichskommissariat_klein_venedig
-			unlock_decision_tooltip = GER_reichskommissariat_anden
-			unlock_decision_tooltip = GER_reichskommissariat_kolumbus
-			unlock_decision_tooltip = GER_reichskommissariat_nordamerika
+			
 
 		}
 	}
@@ -16403,8 +16400,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = GER_reichskommissariat_nordafrika
-			unlock_decision_tooltip = GER_reichskommissariat_mittelafrika
+		
 
 			custom_effect_tooltip = generic_skip_one_line_tt 
 
@@ -17626,10 +17622,7 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_tooltip = GER_reichskommissariat_arabien
-			unlock_decision_tooltip = GER_reichskommissariat_hindustan
-			unlock_decision_tooltip = GER_reichskommissariat_ostasien
-			unlock_decision_tooltip = GER_reichskommissariat_australasien
+			
 		}
 	}
 	
@@ -21495,15 +21488,8 @@ focus_tree = {
 
 		completion_reward = {
 
-			if = {
-				limit = {
-					has_active_mission = GER_growing_public_dissent_mission
-				}
-				add_days_mission_timeout = {
-					mission = GER_growing_public_dissent_mission
-					days = 14
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+			if = { 
+
 			}
 		
 			add_stability = 0.05
@@ -21553,15 +21539,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_active_mission = GER_growing_public_dissent_mission
-				}
-				add_days_mission_timeout = {
-					mission = GER_growing_public_dissent_mission
-					days = 45
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+			if = { 
+
 			}
 
 			set_country_flag = GER_the_proletarian_revolution_flag
@@ -21684,7 +21663,7 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_tooltip = GER_expand_the_proletarian_uprisings_decision
+			
 				
 			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission_tooltip = GER_imminent_proletarian_revolution_mission
@@ -25317,15 +25296,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_active_mission = GER_growing_public_dissent_mission
-				}
-				add_days_mission_timeout = {
-					mission = GER_growing_public_dissent_mission
-					days = 30
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+			if = { 
+
 			}
 
 			add_popularity = {
@@ -27629,7 +27601,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			unlock_decision_tooltip = {
-				decision = form_european_union
+				#decision = form_european_union
 				show_effect_tooltip = no
 			}	
 
@@ -29156,7 +29128,7 @@ focus_tree = {
 		completion_reward = {
 
 			unlock_decision_tooltip = {
-				decision = form_hre
+				#decision = form_hre
 				show_effect_tooltip = no
 			}	
 
@@ -31904,14 +31876,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = {
-				decision = GER_invite_HOL_to_attack_BEL_decision
-				show_effect_tooltip = no
-			}	
-			unlock_decision_tooltip = {
-				decision = GER_invite_BEL_to_attack_HOL_decision
-				show_effect_tooltip = no
-			}	
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -32194,10 +32159,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt 
 			
-			unlock_decision_tooltip = GER_establish_greater_flanders_decision
-			unlock_decision_tooltip = GER_establish_greater_brittany_decision
-			unlock_decision_tooltip = GER_establish_wales_decision
-			unlock_decision_tooltip = GER_establish_scotland_decision
+			
 
 		}
 	}

@@ -6483,7 +6483,7 @@ focus = {
 					custom_effect_tooltip = AST_ireland_anti_british_pact_offer_accept_later_tt
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				activate_mission = AST_northern_ireland_rises_up
+				#activate_mission = AST_northern_ireland_rises_up
 			}
 		}
 

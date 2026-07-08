@@ -517,6 +517,17 @@ AST_national_defense = {
 	production_factory_max_efficiency_factor = AST_national_defense_production_factory_max_efficiency_factor
 	production_factory_efficiency_gain_factor = AST_national_defense_production_factory_efficiency_gain_factor
 }
-
+INS_agrarian_funding_state = {
+	icon = GFX_modifiers_ETH_state_development
+	enable = {
+		has_dlc = "Thunder at Our Gates"
+	}
+	#remove_trigger = {
+	#	
+	#}
+	local_building_slots_factor = 0.15
+	state_production_speed_buildings_factor = 0.1
+	state_resources_factor = 0.1
+}
 
 

@@ -4154,9 +4154,7 @@ JAP_kwantung_army_decisions = {
 				is_subject = no 
 			}
 			NOT = { has_war_with = CHI }
-			NOT = {
-				has_completed_focus = JAP_subdue_the_kwantung_army
-			}
+			
 		}
 
 		cancel_if_not_visible = yes
@@ -4289,9 +4287,7 @@ JAP_kwantung_army_decisions = {
 			has_civil_war = no
 			is_subject = no 
 			NOT = { has_war_with = CHI }
-			NOT = {
-				has_completed_focus = JAP_subdue_the_kwantung_army
-			}
+			
 			613 = {
 				OWNER = {
 					is_literally_china = yes
@@ -4389,19 +4385,20 @@ JAP_kwantung_army_decisions = {
 		}
 
 		visible = { 
-			OR = {
-				#has_subject = RNG
-				has_subject = CHI
-				AND = {
-					has_completed_focus = JAP_subdue_the_kwantung_army
-					owns_state = 613 # Shanghai
-				}
-			}
-			has_completed_focus = JAP_reorganized_national_government
-			OR = {
-				has_government = neutrality
-				has_government = fascism
-			}
+			always = no
+		#	OR = {
+		#		#has_subject = RNG
+		#		has_subject = CHI
+		#		AND = {
+		#			has_completed_focus = JAP_subdue_the_kwantung_army
+		#			owns_state = 613 # Shanghai
+		#		}
+		#	}
+		#	has_completed_focus = JAP_reorganized_national_government
+		#	OR = {
+		#		has_government = neutrality
+		#		has_government = fascism
+		#	}
 		}
 	
 		available = {
