@@ -1203,27 +1203,16 @@ CZE_skoda_armor_organization = {
 				tag = HUN 
 				has_dlc = "Gotterdammerung"
 			}
-			AND = { 
-				
-			}
+			
 		}
 	}
 	
 	visible = {
-		IF = {
-			limit = { FROM = { original_tag = ETH } }
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
-		IF = {
-			limit = { FROM = { original_tag = HUN } }
-			FROM = { has_completed_focus = wuw_HUN_integrate_bohemian_and_austrian_industries }
-		}
-		IF = { 
-
-		}
+		always = no
 	}
 
 	available = {
+		always = no
 		# When in a Foreign MIO, countries need to be at peace with original country
 		IF = {
 			limit = {

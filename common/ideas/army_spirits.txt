@@ -278,11 +278,15 @@ ideas = {
 		}
 		NOR_flexible_officers_academy_spirit = {
 			ledger = army
-			visible = { 
-				has_military_academy = yes 
+			visible = {
+				always = no
+				
+					original_tag = NOR
+				
 			}
 			available = { 
 				NOR_AAT = yes 
+				always = no
 			}
 			modifier = {
 				army_leader_start_level = 2
