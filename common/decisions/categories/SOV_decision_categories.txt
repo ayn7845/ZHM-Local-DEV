@@ -261,7 +261,7 @@ SOV_soviet_aid_decision_category = { #Dec cat for Sinkiang (mission dummies go h
 	icon = decision_category_generic_communism
 
 	allowed = {
-		original_tag = SIK
+		always = no
 	}
 }
 

@@ -384,7 +384,7 @@ country_event = {
 					has_variable = equipment_amount_for_support_@FROM
 				}
 			}
-			modifier = { tag = SIK  add = 1 }
+			
 		}
 		add_to_variable = { step_increase_from_opinion_ideology_@FROM = increase_from_amount_times_asked_for_support_by_@FROM }
 		set_temp_variable = { temp_extra_PP_amount = step_increase_from_opinion_ideology_@FROM }

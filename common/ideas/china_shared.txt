@@ -1432,11 +1432,8 @@ ideas = {
 				NOT = {
 					has_war_with = SOV
 				}
-				IF = {
-					limit = {
-						original_tag = SIK
-					}
-					has_country_flag = SIK_established_the_xinjiangneft_flag
+				IF = { 
+					
 				}
 			}
 

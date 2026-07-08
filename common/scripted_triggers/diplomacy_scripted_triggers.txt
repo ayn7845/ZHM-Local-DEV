@@ -1676,22 +1676,18 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 					has_completed_focus = SOV_the_gobi_gambit
 					has_completed_focus = SOV_two_red_flags
 					has_completed_focus = SOV_support_the_kuomintang
-					FROM = {
-						tag = SIK
-						has_war_with = KHM
-						has_idea = SIK_battle_for_sinkiang
-					}
+					
 				}
 				NOT = {
 					AND = {
 						has_completed_focus = SOV_the_gobi_gambit
-						FROM = { NOT = { tag = SIK } }
+						
 					}
 				}
 				NOT = {
 					AND = {
 						has_completed_focus = SOV_two_red_flags
-						FROM = { NOT = { tag = PRC } }
+						
 					}
 				}
 				NOT = {

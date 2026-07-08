@@ -3402,84 +3402,16 @@ on_actions = {
 
 		effect = {
 			#Yulbars Khan flees
-			IF = {
-				limit = {
-					ROOT = {
-						has_character = KUM_yulbars_khan
-						has_war_with = SIK
-					}
-				}
-				IF = {
-					IF = {
-						limit = {
-							KHM = {
-								has_capitulated = no
-							}
-						}
-						KHM = {
-							country_event = {
-								id = SEA_warlords.10
-								hours = 6
-							}
-						}
-					}
-					ELSE = {
-						IF = {
-							limit = {
-								CHI = {
-									exists = yes
-								}
-							}
-							CHI = {
-								country_event = {
-									id = SEA_warlords.11
-									hours = 6
-								}
-							}
-						}
-					}
-				}
-				ELSE = {
-					IF = {
-						limit = {
-							CHI = {
-								exists = yes
-							}
-						}
-						CHI = {
-							country_event = {
-								id = SEA_warlords.11
-								hours = 6
-							}
-						}
-					}
-				}
+			IF = { 
+
 			}
 		}
 
 		# Ma Hongbin flees 
 		effect = {
 
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = KHM
-						has_character = XSM_ma_hongbin
-					}
-				}
-				IF = {
-					limit = {
-						NXM = {
-							exists = yes
-						}
-					}
-					NXM = {
-						country_event = {
-							id = SEA_warlords.12
-							hours = 6
-						}
-					}
-				}
+			IF = { 
+
 			}
 
 		}
@@ -3487,47 +3419,16 @@ on_actions = {
 		# Mahmut Muhiti offers to return to Sinkiangi service 
 		effect = {
 
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = KHM
-						has_character = KHM_mahmut_muhiti
-					}
-					FROM = {
-						original_tag = SIK
-					}
-				}
-				SIK = {
-					country_event = {
-						id = SEA_warlords.13
-						hours = 6
-					}
-				}
+			IF = { 
+
 			}
 		}
 
 		# Ma Hushan flees with gold to India 
 		effect = {
 
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = KHM
-						has_character = KHM_ma_hushan
-					}
-					FROM = {
-						original_tag = SIK
-					}
-					RAJ = {
-						exists = yes
-					}
-				}
-				RAJ = {
-					country_event = {
-						id = SEA_warlords.64
-						hours = 12
-					}
-				}
+			IF = { 
+				
 			}
 		}
 

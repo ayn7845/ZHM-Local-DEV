@@ -3652,22 +3652,8 @@ country_event = {
 				country_event = { id = NSB_soviet_foreign_politics_events.150 hours = 1 }
 			}
 		}
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = SOV 
-					has_government = communism
-				}
-				ROOT = {
-					original_tag = SIK
-				}
-			}
-			set_cosmetic_tag = SIK_ssr
-			set_party_name = {
-			    ideology = communism
-			    long_name = SIK_CPSU_communism_party_long
-			    name = SIK_CPSU_communism_party
-			}
+		IF = { 
+			
 		}
 	}
 
@@ -4781,12 +4767,7 @@ country_event = {
 			modifier = SOV_rejected_our_demands
 		}
 
-		create_wargoal = {
-			type = take_state_focus
-			target = SIK
-			expire = 0
-			generator = { 618 617 287 619 759 760 }
-		}
+		
 		add_named_threat = { threat = 2 name = SOV_claim_on_sinkiang_threat }
 	}
 }
@@ -5058,12 +5039,7 @@ country_event = {
 			modifier = SOV_rejected_our_demands
 		}
 
-		create_wargoal = {
-			type = take_state_focus
-			target = SIK
-			expire = 0
-			generator = { 618 617 287 619 759 760 }
-		}
+		
 		add_named_threat = { threat = 2 name = SOV_claim_on_sinkiang_threat }
 	}
 }
@@ -5285,7 +5261,7 @@ country_event = {
 				}
 			}
 
-			SIK = { add_ideas = SOV_expanded_exploitation_of_gold_mines }
+			
 		}
 	}
 }
@@ -5501,16 +5477,7 @@ country_event = {
 
 			custom_effect_tooltip = SOV_sinikiang_influence_cg_tt_sov
 
-			send_equipment = {
-				type = small_plane_airframe
-				amount = 40
-				target = SIK
-			}
-			send_equipment = {
-				type = infantry_equipment
-				amount = 500
-				target = SIK
-			}
+			
 
 			custom_effect_tooltip = SOV_sinkiang_when_project_finishes_tt
 			617 = { #URUMQI - Mil
@@ -5573,32 +5540,7 @@ country_event = {
 					instant_build = yes
 				}
 			}
-			if = {  #DABANCHENG - Forts
-				limit = {
-					SIK = { has_full_control_of_state = 760 }
-				}
-				760 = {
-					add_building_construction = {
-						type = bunker
-						level = 1
-						province = {
-							id = 1838
-							id = 4843
-						}
-						instant_build = yes
-					}
-				}
-			}
-			SIK = {
-				add_tech_bonus = {
-					name = NSB_soviet_foreign_politics_events.278.t
-					bonus = 1
-					uses = 2
-					category = air_equipment
-				}
-				air_experience = 50
-				army_experience = 50
-			}
+			
 		}
 	}
 }
@@ -5830,12 +5772,7 @@ country_event = {
 				modifier = SOV_complied_with_our_demands
 			}
 
-			send_equipment = {
-				type = motorized_equipment
-				amount = 300
-				target = SIK
-			}
-
+			
 			custom_effect_tooltip = SOV_sinikiang_influence_cg_tt_sov
 
 			custom_effect_tooltip = SOV_sinkiang_when_project_finishes_tt
@@ -6100,7 +6037,7 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		original_tag = SIK
+		always = no
 		OR = {
 			is_in_faction_with = SOV
 			is_subject_of = SOV
@@ -6110,11 +6047,7 @@ country_event = {
 			surrender_progress > 0.5
 		}
 		OR = {
-			AND = {
-				country_exists = PRC
-				PRC = { is_subject = no }
-				NOT = { has_war_with = PRC }
-			}
+			
 			AND = {
 				country_exists = CHI
 				CHI = { is_subject = no }
@@ -6209,35 +6142,7 @@ country_event = {
 		}
 
 		hidden_effect = {
-			SOV = {
-				add_ai_strategy = {
-					type = befriend
-					id = SIK			
-					value = -200
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = SIK		
-					value = -200
-				}
-				if = {
-					limit = {
-						has_war = no
-					}
-					add_ai_strategy = {
-						type = antagonize
-						id = SIK		
-						value = 100
-					}
-				}
-				else = {
-					add_ai_strategy = {
-						type = antagonize
-						id = SIK		
-						value = 25
-					}
-				}
-			}
+			
 			add_ai_strategy = {
 				type = befriend
 				id = SOV			
@@ -6259,61 +6164,7 @@ country_event = {
 					value = 100
 				}
 			}
-			if = {
-				limit = {
-					PRC = { is_faction_leader = yes }
-					NOT = { has_war_with = PRC }	
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = PRC		
-					value = 100
-				}
-			}
-			if = {
-				limit = {
-					XSM = { is_faction_leader = yes }
-					NOT = { has_war_with = XSM }	
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = XSM		
-					value = 100
-				}
-			}
-			if = {
-				limit = {
-					SHX = { is_faction_leader = yes }
-					NOT = { has_war_with = SHX }	
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = SHX		
-					value = 100
-				}
-			}
-			if = {
-				limit = {
-					YUN = { is_faction_leader = yes }
-					NOT = { has_war_with = YUN }	
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = YUN		
-					value = 100
-				}
-			}
-			if = {
-				limit = {
-					GXC = { is_faction_leader = yes }
-					NOT = { has_war_with = GXC }	
-				}
-				add_ai_strategy = {
-					type = alliance
-					id = GXC		
-					value = 100
-				}
-			}
+			
 		}
 
 		#Break all previous agreements with the Comintern
