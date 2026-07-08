@@ -221,22 +221,11 @@ country_event = { ### Asian trade countries agree to trade
 				add_ideas = PHI_asian_trade_connections_siam
 			}
 		}
-		else_if = {
-			limit = {
-				FROM = { TAG = INS } 
-			}
-			hidden_effect = { 
-				add_ideas = PHI_asian_trade_connections_dutch_east_india
-			}
-			
+		else_if = { 
+
 		}
-		else_if = {
-			limit = {
-				FROM = { TAG = MAL }
-			}
-			hidden_effect = { 
-				add_ideas = PHI_asian_trade_connections_malaya
-			}
+		else_if = { 
+			
 		}
 		FROM = {
 			hidden_effect = {

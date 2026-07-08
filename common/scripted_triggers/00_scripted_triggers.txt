@@ -178,19 +178,11 @@ check_has_focus_tree_to_switch_to_democratic = {
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
-	NOT = {
-		AND = {
-			OR = {
-				original_tag = INS
-			}
-			has_dlc = "Thunder at Our Gates"
-		}
-	}
 }
 
 check_has_focus_tree_to_switch_to_communism = {
-	NOT = { tag = PRC }
-	NOT = { tag = SIK }
+	#NOT = { tag = PRC }
+	#NOT = { tag = SIK }
 	NOT = { tag = MAN }
 	NOT = { tag = SOV }
 	NOT = {
@@ -205,12 +197,7 @@ check_has_focus_tree_to_switch_to_communism = {
 			has_dlc = "Waking the Tiger"
 		}
 	}
-	NOT = {
-		AND = {
-			tag = YUN
-			has_dlc = "Waking the Tiger"
-		}
-	}
+	
 	NOT = {
 		AND = {
 			tag = USA
@@ -259,14 +246,7 @@ check_has_focus_tree_to_switch_to_communism = {
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
-	NOT = {
-		AND = {
-			OR = {
-				original_tag = INS
-			}
-			has_dlc = "Thunder at Our Gates"
-		}
-	}
+	
 }
 
 #State scope

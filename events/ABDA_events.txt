@@ -21,7 +21,7 @@ country_event = {
 						tag = ENG
 						tag = USA
 						tag = HOL
-						tag = INS
+						#tag = INS
 					}
 				}
 			}
@@ -51,7 +51,7 @@ country_event = {
 						tag = ENG
 						tag = USA
 						tag = HOL
-						tag = INS
+						#tag = INS
 					}
 				}
 			}

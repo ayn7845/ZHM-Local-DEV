@@ -1771,18 +1771,18 @@ on_actions = {
 										owner = HOL
 									}
 								}
-								is_core_of = VIN
-								is_core_of = CAM
+								#is_core_of = VIN
+								#is_core_of = CAM
 								is_core_of = SIA
-								is_core_of = MAL
-								is_core_of = INS
-								is_core_of = PNG
-								is_core_of = TML
-								is_core_of = BRN
-								is_core_of = SAR
-								is_core_of = SAB
-								is_core_of = PLU
-								is_core_of = FOR
+								#is_core_of = MAL
+								#is_core_of = INS
+								#is_core_of = PNG
+								#is_core_of = TML
+								#is_core_of = BRN
+								#is_core_of = SAR
+								#is_core_of = SAB
+								#is_core_of = PLU
+								#is_core_of = FOR
 							}
 						}
 					}

@@ -1932,11 +1932,11 @@ war_measures = {
 					has_dlc = "Trial of Allegiance"
 					NOT = {
 						OR = {
-							tag = CHL #has a focus
+							#tag = CHL #has a focus
 							tag = BRA #has a focus
 							tag = ARG #has a focus
-							tag = URG #has a focus
-							tag = PAR #has a focus
+							#tag = URG #has a focus
+							#tag = PAR #has a focus
 						}
 					}
 				}
@@ -1953,12 +1953,6 @@ war_measures = {
 					has_dlc = "No Compromise, No Surrender"
 					NOT = {
 						tag = PHI #has a focus
-					}
-				}
-				AND = {
-					has_dlc = "Thunder at Our Gates"
-					NOT = {
-						tag = INS #has a focus
 					}
 				}
 			}

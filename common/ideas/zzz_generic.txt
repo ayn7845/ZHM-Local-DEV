@@ -1592,13 +1592,6 @@ ideas = {
 					}
 				}
 
-				NOT = {
-					AND = {
-						tag = INS
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
-
 				PHI_SEA = no
 			}
 			
@@ -1677,12 +1670,7 @@ ideas = {
 					}
 				}
 
-				NOT = {
-					AND = {
-						tag = INS
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
+				
 
 				PHI_SEA = no
 			}
@@ -1757,12 +1745,7 @@ ideas = {
 					}
 				}
 
-				NOT = {
-					AND = {
-						tag = INS
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
+			
 
 				PHI_SEA = no
 			}
@@ -1824,7 +1807,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHL tag = ARG }
+						OR = {  tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1838,7 +1821,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = INS tag = AST }
+						OR = {  tag = AST }
 						has_dlc = "Thunder at Our Gates"
 					}
 				}
@@ -1900,7 +1883,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = CHL tag = ARG }
+						OR = { tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1914,7 +1897,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = INS tag = AST }
+						OR = {  tag = AST }
 						has_dlc = "Thunder at Our Gates"
 					}
 				}
@@ -1997,7 +1980,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-							original_tag = PER
+							#original_tag = PER
 							original_tag = IRQ
 							original_tag = RAJ
 						}
@@ -2009,15 +1992,7 @@ ideas = {
 					AND = {
 						OR = {
 							original_tag = PHI
-							original_tag = SND
-							original_tag = HBC
-							original_tag = XIC
-							original_tag = GDC
-							original_tag = SIC
-							original_tag = NXM
-							original_tag = GSM
-							original_tag = KHM
-							original_tag = KUM
+							
 						}
 						has_dlc = "No Compromise, No Surrender"
 					}
@@ -2027,7 +2002,7 @@ ideas = {
 						OR = {
 							original_tag = SIA
 							original_tag = AST
-							original_tag = INS
+							#original_tag = INS
 						}
 
 						has_dlc = "Thunder at Our Gates"
@@ -2109,7 +2084,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-							original_tag = PER
+							#original_tag = PER
 							original_tag = IRQ
 							original_tag = RAJ
 						}
@@ -2130,7 +2105,7 @@ ideas = {
 					AND = {
 						OR = {
 							original_tag = AST
-							original_tag = INS
+							#original_tag = INS
 						}
 						has_dlc = "Thunder at Our Gates"
 					}
@@ -2199,12 +2174,6 @@ ideas = {
 					}
 				}
 
-				NOT = {
-					AND = {
-						tag = INS
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
 			}
 			
 			cost = 150

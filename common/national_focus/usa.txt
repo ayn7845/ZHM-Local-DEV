@@ -378,41 +378,8 @@ focus_tree = {
 
 		
 
-		completion_reward = {
-			if = {
-				limit = {
-					INS = {
-						exists = yes
-						is_subject = yes
-					}
-				}
-				create_wargoal = {
-					target = INS
-					type = puppet_wargoal_focus
-					expire = 0
-				}
-			}
-			if = {
-				limit = { 
-					523 = {
-						not = {
-							is_owned_by = PNG #already decolonized
-						}	
-					}
-				}
-			}
-			523 = {
-				OWNER = {
-					ROOT = {
-						create_wargoal = {
-							target = PREV
-							type = take_state
-							expire = 0
-							generator = { 523 }
-						}
-					}
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 	
@@ -4209,125 +4176,16 @@ focus_tree = {
 
 		}
 		
-		bypass = {
-			SIA = {
-				OR = {
-					has_war_with = ROOT
-					is_subject_of = ROOT
-					exists = no
-				}
-			}
-			INS = {
-				OR = {
-					has_war_with = ROOT
-					is_subject_of = ROOT
-					exists = no
-				}
-			}
-			671 = {
-				CONTROLLER = {
-					OR = {
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
-			670 = {
-				CONTROLLER = {
-					OR = {
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
-			741 = {
-				CONTROLLER = {
-					OR = {
-						has_war_with = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
+		bypass = { 
+			
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		completion_reward = {
-			if = {
-				limit = { 
-					SIA = { 
-						is_subject = no 
-						not = { has_war_with = ROOT }
-					} 
-				}
-				SIA = {
-					country_event = mtg_usa_secure_asia.1
-				}
-			}
-			if = {
-				limit = {
-					INS = { is_subject = yes }
-				}
-				INS = { OVERLORD = { country_event = mtg_usa_secure_asia.4 } }
-			}
-			else = {
-				INS = { country_event = mtg_usa_secure_asia.1 }
-			}
-			if = {
-				limit = {
-					671 = { 
-						CONTROLLER = { 
-							is_subject = no 
-							controls_state = 670
-							controls_state = 286
-							controls_state = 741
-							controls_state = 1017
-							not = { has_war_with = ROOT }
-						} 
-					}
-				}
-				671 = { CONTROLLER = { country_event = mtg_usa_secure_asia.7 } }
-			}
-			else = {
-				if = {
-					limit = {
-						country_exists = VIN
-						VIN = {
-							is_subject = no
-							not = { has_war_with = ROOT }
-						}
-					}
-					VIN = {
-						country_event = mtg_usa_secure_asia.1
-					}
-				}
-				if = {
-					limit = {
-						country_exists = LAO
-						LAO = {
-							is_subject = no
-							not = { has_war_with = ROOT }
-						}
-					}
-					LAO = {
-						country_event = mtg_usa_secure_asia.1
-					}
-				}
-				if = {
-					limit = {
-						country_exists = CAM
-						CAM = {
-							is_subject = no
-							not = { has_war_with = ROOT }
-						}
-					}
-					CAM = {
-						country_event = mtg_usa_secure_asia.1
-					}
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 	focus = {

@@ -355,10 +355,10 @@ faction_goal_imperial_glory = {
 				original_tag = RAJ
 				original_tag = AST
 				original_tag = NZL
-				original_tag = MAL
+				#original_tag = MAL
 				original_tag = FRA
 				original_tag = HOL
-				original_tag = INS
+				#original_tag = INS
 			}
 		}
 	}
@@ -422,10 +422,10 @@ faction_goal_imperial_glory = {
 				original_tag = RAJ
 				original_tag = AST
 				original_tag = NZL
-				original_tag = MAL
+				#original_tag = MAL
 				original_tag = FRA
 				original_tag = HOL
-				original_tag = INS
+				#original_tag = INS
 			}
 			is_historical_focus_on = yes
 		}
@@ -3150,23 +3150,8 @@ faction_goal_control_indonesian_riches = {
 		
 	}
 	visible = {
-		FROM = {
-			NOT = {
-				original_tag = INS
-				is_in_faction_with = INS
-			}
-		}
-		any_collection_element = {
-			collection = {
-				 input = game:scope
-				 operators = { faction_members controlled_states }
-				 name = FACTION_CONTROLLED_STATES
-			}
-			distance_to = {
-				target = 672
-				value < 2000
-			}
-		}
+		always = no
+	
 	}
 	available = {
 		
