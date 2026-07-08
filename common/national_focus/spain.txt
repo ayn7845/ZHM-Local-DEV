@@ -3156,10 +3156,7 @@ focus_tree = {
 		id = SPA_the_corpo_truppe_volontarie
 		available = {
 			NOT = { has_global_flag = scw_over }
-			has_volunteers_amount_from = {
-				tag = ITA
-				count > 0
-			}
+			
 		}
 		bypass = {
 		}
@@ -3197,10 +3194,7 @@ focus_tree = {
 		id = SPA_the_condor_legion
 		available = {
 			NOT = { has_global_flag = scw_over }
-			has_volunteers_amount_from = {
-				tag = GER
-				count > 0
-			}
+			
 		}
 		bypass = {
 		}

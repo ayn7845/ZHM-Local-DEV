@@ -10155,31 +10155,9 @@ country_event = {
 	
 	fire_only_once = yes
 
-	trigger = {
-		any_country = {
-			original_tag = SPR
-			OR = {
-				has_government = democratic
-				has_government = communism
-			}
-			has_volunteers_amount_from = {
-			    tag = ROOT
-			    count > 0
-			}
-			has_completed_focus = SPR_relocate_the_gold_reserves
-		}
-		OR = {
-			has_country_flag = SPR_relocated_gold_reserves_selection_flag_sov
-			has_country_flag = SPR_relocated_gold_reserves_selection_flag1
-			has_country_flag = SPR_relocated_gold_reserves_selection_flag2
-			has_country_flag = SPR_relocated_gold_reserves_selection_flag3
-		}
-		NOT = { has_country_flag = SPR_relocate_the_gold_reserves_timer_flag }
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		days = 30
-	}
+	
 	
 	option = { # Seize it!
 		name = lar_spain.53.a
