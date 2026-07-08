@@ -272,7 +272,7 @@ country_event = {
 					original_tag = USA
 				}
 			}
-			PRC_USA_lend_lease_strategy = yes
+			#PRC_USA_lend_lease_strategy = yes
 		}
 	}
 }

@@ -13475,8 +13475,8 @@ focus = {
         search_filters = {FOCUS_FILTER_INDUSTRY}
 
         completion_reward = {
-           # ETH_add_random_mil_factory_effect = yes
-           # ETH_add_random_mil_factory_effect = yes
+            ETH_add_random_mil_factory_effect = yes
+            ETH_add_random_mil_factory_effect = yes
         }
     }
 

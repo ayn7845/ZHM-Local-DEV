@@ -112,3 +112,77 @@ ETH_upgrade_state_category = {
 		set_state_category = large_city
 	}
 }
+ETH_add_random_civ_factory_effect = {
+		random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+							OR = {
+								state = 961
+								state = 962
+								state = 963
+								state = 964
+								state = 965
+								state = 966
+								state = 967
+								state = 968
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+}
+ETH_add_random_mil_factory_effect = {
+	random_owned_controlled_state = {
+		limit = {
+			free_building_slots = {
+				building = arms_factory
+				size > 0
+				include_locked = yes
+			}
+			OR = {
+				is_in_home_area = yes
+				NOT = {
+					owner = {
+						any_owned_state = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_in_home_area = yes
+						}
+					}
+				}
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_factory
+			level = 2
+			instant_build = yes
+		}
+	}
+}

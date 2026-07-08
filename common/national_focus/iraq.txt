@@ -4783,7 +4783,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			#ETH_add_random_mil_factory_effect = yes
+			ETH_add_random_mil_factory_effect = yes
 			IF = {
 				limit = {
 					has_dlc = "No Step Back"

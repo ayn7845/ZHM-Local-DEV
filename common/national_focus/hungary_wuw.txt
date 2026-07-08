@@ -728,18 +728,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-				NOT = { has_completed_focus = wuw_HUN_abide_by_the_little_ententes_stipulations }
-			}
+		
 		}
 
 		offset = {
@@ -2251,9 +2240,7 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_war_with = UKR
-			}
+			always = no
 		}
 
 		bypass = {
@@ -2353,9 +2340,7 @@ focus_tree = {
 
 			is_subject = no
 
-			UKR = {
-				exists = no
-			}
+			always = no
 
 			custom_trigger_tooltip = {
 				tooltip = wuw_HUN_the_kingdom_of_ukraine_required_states_tt
@@ -2554,9 +2539,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			UKR = {
-				is_subject_of = ROOT
-			}
+			
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2567,98 +2550,13 @@ focus_tree = {
 
 		completion_reward = {
 
-			ROOT = {
-				HUN_vasyl_vyshyvanyi = { set_nationality = UKR }
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = wuw_HUN_the_kingdom_of_ukraine_tt
-			hidden_effect = {
-				every_state = {
-					limit = {
-						OR = {
-							is_controlled_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								controls_state = PREV
-							}
-						}
-						NOT = {
-							is_core_of = ROOT
-						}
-						OR = {
-							state = 93
-							state = 199
-							state = 201
-							state = 198
-							state = 834
-							state = 192
-							state = 766
-							state = 202
-							state = 193
-							state = 225
-							state = 259
-							state = 203
-							state = 197
-							state = 226
-							state = 196
-							state = 200
-							state = 221
-							state = 227
-							state = 228
-							state = 137
-							state = 218
-							state = 234
-						}
-					}
-					transfer_state_to = UKR
-				}
+			hidden_effect = { 
 
-				every_state = {
-					limit = {
-						NOT = {
-							is_core_of = UKR
-						}
-						OR = {
-							state = 93
-							state = 199
-							state = 201
-							state = 198
-							state = 834
-							state = 192
-							state = 766
-							state = 202
-							state = 193
-							state = 225
-							state = 259
-							state = 203
-							state = 197
-							state = 226
-							state = 196
-							state = 200
-							state = 221
-							state = 227
-							state = 228
-							state = 137
-							state = 218
-							state = 234
-						}
-					}
-					add_core_of = UKR
-				}
-
-				UKR = {
-					drop_cosmetic_tag = yes
-					country_event = {
-					    id = WW_hungary.54
-					    days = 0
-					}
-				}
-
-				puppet = UKR
-
-				set_country_flag = HUN_created_ukrainian_habsburg_monarchy
 			}
 
 		}
@@ -2683,9 +2581,7 @@ focus_tree = {
 
 			is_subject = no
 
-			GEO = {
-				exists = no
-			}
+			always = no
 
 			custom_trigger_tooltip = {
 				tooltip = wuw_HUN_the_kingdom_of_georgia_required_states_tt
@@ -2723,35 +2619,7 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = no
 
-		completion_reward = {
-
-			every_state = {
-				limit = {
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-					NOT = {
-						is_core_of = ROOT
-					}
-					OR = {
-						state = 231
-						state = 826
-					}
-				}
-				transfer_state_to = GEO
-			}
-
-			GEO = {
-				drop_cosmetic_tag = yes
-			}
-
-			puppet = GEO
-
-			set_country_flag = HUN_created_georgian_monarchy
+		completion_reward = { 
 
 		}
 	}
@@ -3292,269 +3160,7 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = no
 
-		completion_reward = {
-
-			IF = {
-				limit = {
-					CRO = {
-						exists = yes
-						is_subject = no
-					}
-				}
-				CRO = {
-					country_event = {
-						id = WW_hungary.66
-						days = 1
-						random_days = 2
-					}
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					CRO = {
-						is_subject = yes
-						NOT = {
-							is_subject_of = ROOT
-						}
-					}
-				}
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = CRO
-				}
-				unlock_decision_tooltip = HUN_place_a_habsburg_on_the_croatian_throne
-			}
-			ELSE_IF = {
-				limit = {
-					CRO = {
-						is_subject_of = ROOT
-					}
-				}
-				add_political_power = 75
-				add_stability = 0.05
-				add_war_support = 0.025
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				every_state = {
-					limit = {
-						OR = {
-							is_controlled_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								controls_state = PREV
-							}
-						}
-						NOT = {
-							is_core_of = ROOT
-						}
-						is_core_of = CRO
-						NOT = {
-							is_owned_and_controlled_by = CRO
-						}
-					}
-					transfer_state_to = CRO
-				}
-
-				CRO = {
-					drop_cosmetic_tag = yes
-					set_cosmetic_tag = CRO_croatia_slavonia_kingdom
-					country_event = {
-						id = WW_hungary.65
-						hours = 0
-					}
-				}
-
-				IF = {
-					limit = {
-						CRO = {
-							NOT = {
-								is_subject_of = ROOT
-							}
-						}
-					}
-					puppet = CRO
-				}
-
-				hidden_effect = {
-					set_country_flag = HUN_created_croatian_habsburg_monarchy
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					CRO = {
-						exists = no
-						AND = {
-							109 = {
-								is_owned_and_controlled_by = ROOT
-							}
-							103 = {
-								is_owned_and_controlled_by = ROOT
-							}
-						}
-					}
-				}
-				add_political_power = 50
-
-				every_state = {
-					limit = {
-						OR  = {
-							state = 104
-							state = 804
-						}
-						NOT = {
-							is_core_of = CRO
-						}
-					}
-					add_core_of = CRO
-				}
-
-				CRO = {
-					every_core_state = {
-						limit = {
-							OR = {
-								is_controlled_by = ROOT
-								any_country = {
-									is_subject_of = ROOT
-									controls_state = PREV
-								}
-							}
-							NOT = {
-								is_core_of = ROOT
-							}
-							NOT = {
-								is_owned_and_controlled_by = CRO
-							}
-						}
-						transfer_state_to = CRO
-					}
-				}
-
-				CRO = {
-					drop_cosmetic_tag = yes
-					set_cosmetic_tag = CRO_croatia_slavonia_kingdom
-					country_event = {
-						id = WW_hungary.65
-						hours = 0
-					}
-				}
-
-				IF = {
-					limit = {
-						CRO = {
-							NOT = {
-								is_subject_of = ROOT
-							}
-						}
-					}
-					puppet = CRO
-				}
-
-				hidden_effect = {
-					set_country_flag = HUN_created_croatian_habsburg_monarchy
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					CRO = {
-						exists = no
-						any_other_country = {
-							NOT = {
-								OR = {
-									is_subject_of = ROOT
-									is_in_faction_with = ROOT
-								}
-							}
-							OR = {
-								owns_state = 109
-								owns_state = 103
-							}
-						}
-					}
-				}
-
-				CRO = {
-					every_core_state = {
-						limit = {
-							NOT = {
-								OR = {
-									is_core_of = ROOT
-									is_claimed_by = ROOT
-									is_owned_by = ROOT
-								}
-							}
-						}
-						add_claim_by = ROOT
-					}
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				every_country = {
-					limit = {
-						NOT = {
-							OR = {
-								is_subject_of = ROOT
-								is_in_faction_with = ROOT
-								original_tag = ROOT
-								original_tag = CRO
-							}
-						}
-						OR = {
-							owns_state = 109
-							owns_state = 103
-						}
-					}
-					ROOT = {
-						create_wargoal = {
-							type = take_claimed_state
-							target = PREV
-						}
-					}
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				unlock_decision_tooltip = HUN_place_a_habsburg_on_the_croatian_throne
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_state = {
-				limit = {
-					OR = {
-						state = 45
-						state = 764
-					}
-					NOT = {
-						is_core_of = ROOT
-					}
-				}
-				add_core_of = ROOT
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					AUS = {
-						exists = yes
-						is_subject_of = ROOT
-					}
-				}
-				every_state = {
-					limit = {
-						OR = {
-							state = 102
-							state = 853
-						}
-						NOT = {
-							is_core_of = AUS
-						}
-					}
-					add_core_of = AUS
-				}
-			}
+		completion_reward = { 
 
 		}
 	}
@@ -3591,255 +3197,9 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = no
 
-		completion_reward = {
+		completion_reward = { 
 
-				IF = {
-					limit = {
-						LBV = {
-							exists = yes
-							is_subject = no
-						}
-					}
-					LBV = {
-						country_event = {
-							id = WW_hungary.69
-							days = 1
-							random_days = 2
-						}
-					}
-				}
-				ELSE_IF = {
-					limit = {
-						LBV = {
-							is_subject = yes
-							NOT = {
-								is_subject_of = ROOT
-							}
-						}
-					}
-					create_wargoal = {
-						type = puppet_wargoal_focus
-						target = LBV
-					}
-					unlock_decision_tooltip = HUN_place_a_habsburg_on_the_lombardo_venetian_throne
-				}
-				ELSE_IF = {
-					limit = {
-						LBV = {
-							is_subject_of = ROOT
-						}
-					}
-					add_political_power = 75
-					add_stability = 0.05
-					add_war_support = 0.025
-
-					custom_effect_tooltip = generic_skip_one_line_tt
-
-					every_state = {
-						limit = {
-							OR = {
-								is_controlled_by = ROOT
-								any_country = {
-									is_subject_of = ROOT
-									controls_state = PREV
-								}
-							}
-							NOT = {
-								is_core_of = ROOT
-							}
-							is_core_of = LBV
-							NOT = {
-								is_owned_and_controlled_by = LBV
-							}
-						}
-						transfer_state_to = LBV
-					}
-
-					LBV = {
-						drop_cosmetic_tag = yes
-					}
-
-					IF = {
-						limit = {
-							LBV = {
-								NOT = {
-									is_subject_of = ROOT
-								}
-							}
-						}
-						puppet = LBV
-					}
-
-					hidden_effect = {
-						set_country_flag = HUN_created_lombardo_venetian_habsburg_monarchy
-					}
-				}
-				ELSE_IF = {
-					limit = {
-						LBV = {
-							exists = no
-							AND = {
-								OR = {
-									160 = {
-										is_owned_and_controlled_by = ROOT
-									}
-									any_country = {
-										is_subject_of = ROOT
-										controls_state = 160
-									}
-								}
-								OR = {
-									850 = {
-										is_owned_and_controlled_by = ROOT
-									}
-									any_country = {
-										is_subject_of = ROOT
-										controls_state = 850
-									}
-								}
-								OR = {
-									159 = {
-										is_owned_and_controlled_by = ROOT
-									}
-									any_country = {
-										is_subject_of = ROOT
-										controls_state = 159
-									}
-								}
-							}
-						}
-					}
-					add_political_power = 50
-
-					LBV = {
-						every_core_state = {
-							limit = {
-								OR = {
-									is_controlled_by = ROOT
-									any_country = {
-										is_subject_of = ROOT
-										controls_state = PREV
-									}
-								}
-								NOT = {
-									is_core_of = ROOT
-								}
-								NOT = {
-									is_owned_and_controlled_by = LBV
-								}
-							}
-							transfer_state_to = LBV
-						}
-					}
-
-					LBV = {
-						drop_cosmetic_tag = yes
-					}
-
-					IF = {
-						limit = {
-							LBV = {
-								NOT = {
-									is_subject_of = ROOT
-								}
-							}
-						}
-						puppet = LBV
-					}
-
-					hidden_effect = {
-						set_country_flag = HUN_created_lombardo_venetian_habsburg_monarchy
-					}
-				}
-				ELSE_IF = {
-					limit = {
-						LBV = {
-							exists = no
-							any_other_country = {
-								NOT = {
-									OR = {
-										is_subject_of = ROOT
-										is_in_faction_with = ROOT
-									}
-								}
-								OR = {
-									owns_state = 160
-									owns_state = 850
-									owns_state = 159
-								}
-							}
-						}
-					}
-
-					LBV = {
-						every_core_state = {
-							limit = {
-								NOT = {
-									OR = {
-										is_core_of = ROOT
-										is_claimed_by = ROOT
-										is_owned_by = ROOT
-									}
-								}
-							}
-							add_claim_by = ROOT
-						}
-					}
-
-					custom_effect_tooltip = generic_skip_one_line_tt
-
-					every_country = {
-						limit = {
-							NOT = {
-								OR = {
-									is_subject_of = ROOT
-									is_in_faction_with = ROOT
-									original_tag = ROOT
-									original_tag = LBV
-								}
-							}
-							OR = {
-								owns_state = 160
-								owns_state = 850
-								owns_state = 159
-							}
-						}
-						ROOT = {
-							create_wargoal = {
-								type = take_claimed_state
-								target = PREV
-							}
-						}
-					}
-
-					custom_effect_tooltip = generic_skip_one_line_tt
-
-					unlock_decision_tooltip = HUN_place_a_habsburg_on_the_lombardo_venetian_throne
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				IF = {
-					limit = {
-						AUS = {
-							exists = yes
-							is_subject_of = ROOT
-						}
-					}
-					every_state = {
-						limit = {
-							OR = {
-								state = 736
-								state = 39
-							}
-							NOT = {
-								is_core_of = AUS
-							}
-						}
-						add_core_of = AUS
-					}
-				}
-			}
+		}
 	}
 
 	focus = {
@@ -3882,354 +3242,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		completion_reward = {
-
-			add_political_power = 100
-
-			custom_effect_tooltip = wuw_HUN_reverse_the_risorgimento_tt
-			hidden_effect = {
-				IF = { #set up Sardinia-Piedmont puppet
-					limit = {
-						158 = {
-							is_owned_or_subject_trigger = yes
-						}
-						114 = {
-							is_owned_or_subject_trigger = yes
-						}
-						SPM = {
-							exists = no
-						}
-					}
-					SPM = {
-						transfer_state = 158
-						transfer_state = 114
-						add_offsite_building = {
-							type = industrial_complex
-							level = 2
-						}
-						add_offsite_building = {
-							type = arms_factory
-							level = 1
-						}
-						add_political_power = 75
-						delete_unit_template_and_units = {
-							division_template = "Battaglione delle Guardie Reali"
-							disband = yes #if yes, will refund equipment/manpower.
-						}
-
-						division_template = {
-							name = "Battaglione delle Guardie Reali"
-							division_names_group = ITA_INF_01
-							role = infantry
-							is_locked = no
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-								infantry = { x = 2 y = 0 }
-								infantry = { x = 2 y = 1 }
-								infantry = { x = 2 y = 2 }
-							}
-							support = {
-								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
-							}
-						}
-
-						random_state = {
-							limit = {
-								is_fully_controlled_by = PREV
-								is_owned_by = PREV
-								is_core_of = PREV
-							}
-							create_unit = {
-							    division = "name = \"Primo Battaglione delle Guardie Reali'\" division_template = \"Battaglione delle Guardie Reali\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
-							    owner = PREV
-							}
-						}
-					}
-					ITA = {
-						ITA_vittorio_emanuele_iii = { set_nationality = SPM }
-					}
-					SPM = {
-						country_event = {
-							id = WW_hungary.79
-							hours = 0
-						}
-					}
-					puppet = SPM
-				}
-				IF = { # Sardinia-Piedmont puppet can gain Corsica if you control it
-					limit = {
-						1 = {
-							is_owned_or_subject_trigger = yes
-						}
-					}
-					SPM = {
-						transfer_state = 1
-						add_state_core = 1
-					}
-				}
-				IF = { # Sardinia-Piedmont puppet can gain Savoy if you control it
-					limit = {
-						735 = {
-							is_owned_or_subject_trigger = yes
-						}
-					}
-					SPM = {
-						transfer_state = 735
-						add_state_core = 735
-					}
-				}
-
-				IF = { # Lombardy-Venetia puppet can gain Ticino if you control it
-					limit = {
-						AND = {
-							846 = {
-								is_owned_or_subject_trigger = yes
-							}
-							LBV = {
-								is_subject_of = ROOT
-							}
-						}
-
-					}
-					LBV = {
-						transfer_state = 846
-						add_state_core = 846
-					}
-				}
-
-				IF = { #set up Tuscany puppet
-					limit = {
-						162 = {
-							is_owned_or_subject_trigger = yes
-						}
-						TOS = {
-							exists = no
-						}
-					}
-					TOS = {
-						transfer_state = 162
-						add_offsite_building = {
-							type = industrial_complex
-							level = 2
-						}
-						add_offsite_building = {
-							type = arms_factory
-							level = 1
-						}
-						add_political_power = 75
-						delete_unit_template_and_units = {
-							division_template = "Battaglione delle Guardie Reali"
-							disband = yes #if yes, will refund equipment/manpower.
-						}
-
-						division_template = {
-							name = "Battaglione delle Guardie Reali"
-							division_names_group = ITA_INF_01
-							role = infantry
-							is_locked = no
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-								infantry = { x = 2 y = 0 }
-								infantry = { x = 2 y = 1 }
-								infantry = { x = 2 y = 2 }
-							}
-							support = {
-								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
-							}
-						}
-
-						random_state = {
-							limit = {
-								is_fully_controlled_by = PREV
-								is_owned_by = PREV
-								is_core_of = PREV
-							}
-							create_unit = {
-							    division = "name = \"Primo Battaglione delle Guardie Reali'\" division_template = \"Battaglione delle Guardie Reali\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
-							    owner = PREV
-							}
-						}
-					}
-					puppet = TOS
-				}
-
-				IF = { #set up Papal puppet
-					limit = {
-						2 = {
-							is_owned_or_subject_trigger = yes
-						}
-						157 = {
-							is_owned_or_subject_trigger = yes
-						}
-						161 = {
-							is_owned_or_subject_trigger = yes
-						}
-						PAP = {
-							exists = no
-						}
-					}
-					PAP = {
-						transfer_state = 2
-						transfer_state = 157
-						transfer_state = 161
-						add_offsite_building = {
-							type = industrial_complex
-							level = 2
-						}
-						add_offsite_building = {
-							type = arms_factory
-							level = 1
-						}
-						add_political_power = 75
-						delete_unit_template_and_units = {
-							division_template = "Battaglione delle Guardie Reali"
-							disband = yes #if yes, will refund equipment/manpower.
-						}
-
-						division_template = {
-							name = "Battaglione delle Guardie Reali"
-							division_names_group = ITA_INF_01
-							role = infantry
-							is_locked = no
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-								infantry = { x = 2 y = 0 }
-								infantry = { x = 2 y = 1 }
-								infantry = { x = 2 y = 2 }
-							}
-							support = {
-								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
-							}
-						}
-
-						random_state = {
-							limit = {
-								is_fully_controlled_by = PREV
-								is_owned_by = PREV
-								is_core_of = PREV
-							}
-							create_unit = {
-							    division = "name = \"Primo Battaglione delle Guardie Papa\" division_template = \"Battaglione delle Guardie Reali\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
-							    owner = PREV
-							}
-						}
-					}
-					ITA = {
-						ITA_papa_pio_xii = { set_nationality = PAP }
-					}
-					PAP = {
-						country_event = {
-							id = WW_hungary.78
-							hours = 0
-						}
-					}
-					puppet = PAP
-				}
-
-				IF = { #set up Neapolitanian puppet
-					limit = {
-						117 = {
-							is_owned_or_subject_trigger = yes
-						}
-						849 = {
-							is_owned_or_subject_trigger = yes
-						}
-						156 = {
-							is_owned_or_subject_trigger = yes
-						}
-						115 = {
-							is_owned_or_subject_trigger = yes
-						}
-						TTS = {
-							exists = no
-						}
-					}
-					TTS = {
-						transfer_state = 117
-						transfer_state = 849
-						transfer_state = 156
-						transfer_state = 115
-						add_offsite_building = {
-							type = industrial_complex
-							level = 2
-						}
-						add_offsite_building = {
-							type = arms_factory
-							level = 1
-						}
-						add_political_power = 75
-						delete_unit_template_and_units = {
-							division_template = "Battaglione delle Guardie Reali"
-							disband = yes #if yes, will refund equipment/manpower.
-						}
-
-						division_template = {
-							name = "Battaglione delle Guardie Reali"
-							division_names_group = ITA_INF_01
-							role = infantry
-							is_locked = no
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-								infantry = { x = 2 y = 0 }
-								infantry = { x = 2 y = 1 }
-								infantry = { x = 2 y = 2 }
-							}
-							support = {
-								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
-							}
-						}
-
-						random_state = {
-							limit = {
-								is_fully_controlled_by = PREV
-								is_owned_by = PREV
-								is_core_of = PREV
-							}
-							create_unit = {
-							    division = "name = \"Primo Battaglione delle Guardie Reali'\" division_template = \"Battaglione delle Guardie Reali\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
-							    owner = PREV
-							}
-						}
-					}
-					puppet = TTS
-				}
-
-				IF = { # Neapolitanian/two sicilies puppet can gain Malta if you control it
-					limit = {
-						116 = {
-							is_owned_or_subject_trigger = yes
-						}
-					}
-					TTS = {
-						transfer_state = 116
-						add_state_core = 116
-					}
-				}
-			}
+		completion_reward = { 
 
 		}
 	}
@@ -4429,24 +3442,7 @@ focus_tree = {
 					}
 				}
 
-				IF = {
-					limit = {
-						CRO = {
-							has_country_leader = {
-								ruling_only = yes
-								character = CRO_joseph_francis
-							}
-						}
-					}
-					CRO = {
-						add_trait = {
-						    character = CRO_joseph_francis
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
+			
 				IF = {
 					limit = {
 						SPR = {
@@ -4503,24 +3499,6 @@ focus_tree = {
 
 				IF = {
 					limit = {
-						UKR = {
-							has_country_leader = {
-								ruling_only = yes
-								character = HUN_vasyl_vyshyvanyi
-							}
-						}
-					}
-					UKR = {
-						add_trait = {
-						    character = HUN_vasyl_vyshyvanyi
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
-				IF = {
-					limit = {
 						MEX = {
 							has_country_leader = {
 								ruling_only = yes
@@ -4536,80 +3514,6 @@ focus_tree = {
 						}
 					}
 				}
-
-				IF = {
-					limit = {
-						LBV = {
-							has_country_leader = {
-								ruling_only = yes
-								character = LBV_robert_von_habsburg
-							}
-						}
-					}
-					LBV = {
-						add_trait = {
-						    character = LBV_robert_von_habsburg
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
-				IF = {
-					limit = {
-						GEO = {
-							has_country_leader = {
-								ruling_only = yes
-								character = GEO_george_bagration
-							}
-						}
-					}
-					GEO = {
-						add_trait = {
-						    character = GEO_george_bagration
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
-				IF = {
-					limit = {
-						TTS = {
-							has_country_leader = {
-								ruling_only = yes
-								character = TTS_ferdinand_pius
-							}
-						}
-					}
-					TTS = {
-						add_trait = {
-						    character = TTS_ferdinand_pius
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
-				IF = {
-					limit = {
-						TOS = {
-							has_country_leader = {
-								ruling_only = yes
-								character = TOS_joseph_ferdinand_von_habsburg
-							}
-						}
-					}
-					TOS = {
-						add_trait = {
-						    character = TOS_joseph_ferdinand_von_habsburg
-						    ideology = despotism
-						    trait = blessed_monarch_trait
-						}
-					}
-				}
-
-
 
 			}
 
@@ -4690,85 +3594,8 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = CZE_skoda_armor_organization
-
-				mio:CZE_skoda_armor_organization = {
-					add_mio_size = 1
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = CZE_ckd_praga_organization
-
-				mio:CZE_ckd_praga_organization = {
-					add_mio_size = 1
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = AUS_ELIN_organization
-
-				mio:AUS_ELIN_organization = {
-					add_mio_size = 1
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = AUS_osterreichische_fleugzeugfabrik_organization
-
-				mio:AUS_osterreichische_fleugzeugfabrik_organization = {
-					add_mio_size = 1
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = AUS_stabilimento_tecnico_triestino_organization
-
-				mio:AUS_stabilimento_tecnico_triestino_organization = {
-					add_mio_size = 1
-				}
-				ELSE = {
-					random_owned_controlled_state = {
-						limit = {
-							is_core_of = ROOT
-							is_fully_controlled_by = ROOT
-						}
-						prioritize = { 9 }
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					random_owned_controlled_state = {
-						limit = {
-							is_core_of = ROOT
-							is_fully_controlled_by = ROOT
-						}
-						prioritize = { 4 }
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
+			IF = { 
+				
 			}
 
 		}
@@ -4944,26 +3771,6 @@ focus_tree = {
 					}
 				}
 				SPR = {
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = embraced_catholicism
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					AND = {
-						has_dlc = "Trial of Allegiance"
-						CHL = {
-							OR = {
-								has_completed_focus = CHL_repeal_the_separation_of_church_an_state
-								has_completed_focus = CHL_state_catholicism
-							}
-						}
-					}
-				}
-				CHL = {
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = embraced_catholicism
@@ -5671,13 +4478,7 @@ focus_tree = {
 					}
 					add_offsite_building = { type = industrial_complex level = 1 }
 				}
-				IF = {
-					limit = {
-						country_exists = TRA
-						TRA = { has_opinion = { target = HUN value > 85 } }
-					}
-					add_offsite_building = { type = industrial_complex level = 1 }
-				}
+				
 				IF = {
 					limit = {
 						country_exists = SLO
@@ -6984,19 +5785,14 @@ focus_tree = {
 						original_tag = CZE
 						original_tag = POL
 						original_tag = SOV
-						original_tag = UKR
+						
 						original_tag = MOL
-						original_tag = CRO
-						original_tag = SER
-						original_tag = ISR
-						original_tag = PAL
-						original_tag = EGY
+						
 						original_tag = ENG
 						original_tag = TUR
 						original_tag = FRA
 						original_tag = GRE
-						original_tag = JOR
-						original_tag = SUD
+					
 					}
 				}
 				ROOT = {
@@ -12581,9 +11377,7 @@ focus_tree = {
 					controls_state = 76
 				}
 			}
-			TRA = {
-				exists = no
-			}
+			always = no
 		}
 
 		bypass = {

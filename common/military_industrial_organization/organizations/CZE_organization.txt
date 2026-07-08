@@ -1187,3 +1187,134 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 
 
 
+CZE_skoda_armor_organization = {
+	include = generic_tank_organization
+	icon = GFX_idea_CZE_skoda_armor
+	
+	allowed = {	
+		OR = {
+			tag = CZE
+			tag = SLO
+			AND = {
+				tag = ETH 
+				has_dlc = "By Blood Alone"
+			}
+			AND = {
+				tag = HUN 
+				has_dlc = "Gotterdammerung"
+			}
+			AND = { 
+				
+			}
+		}
+	}
+	
+	visible = {
+		IF = {
+			limit = { FROM = { original_tag = ETH } }
+			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
+		IF = {
+			limit = { FROM = { original_tag = HUN } }
+			FROM = { has_completed_focus = wuw_HUN_integrate_bohemian_and_austrian_industries }
+		}
+		IF = { 
+
+		}
+	}
+
+	available = {
+		# When in a Foreign MIO, countries need to be at peace with original country
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = CZE } }
+			}
+			FROM = { NOT = { has_war_with = CZE } }
+		}
+
+		IF = {
+			limit = {
+				FROM = { original_tag = ETH }
+			}
+			custom_trigger_tooltip = {
+				tooltip = has_invited_mio_tt
+				FROM = {
+					has_country_flag = has_invited_CZE_skoda_armor_organization_flag
+				}
+			}
+		}
+		IF = { 
+
+		}
+	}
+
+	add_trait = {
+		token = CZE_mio_trait_export_models
+		name = GER_mio_trait_export_models
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x=9 y=0 }
+
+		visible = {
+			FROM = { 
+				original_tag = CZE
+				has_dlc = "Peace For Our Time"
+				NOT = {
+					
+				}
+			}
+		}
+
+		
+		available = {
+			FROM = {
+				has_completed_focus = CZE_keep_focus_on_weapon_exports
+			}
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+			production_cost_factor = -0.03
+		}
+		
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	add_trait = {
+		token = CZE_mio_trait_expanded_production_facilities_skoda_armor
+		name = USA_mio_trait_expanded_production_facilities
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_standardized_components
+
+		visible = {
+			FROM = { 
+				original_tag = CZE
+				has_dlc = "Peace For Our Time"
+			}
+		}
+
+		available = {
+			FROM = {
+				has_completed_focus = CZE_redouble_tank_development_efforts
+			}
+		}
+
+		all_parents = { generic_mio_trait_standardized_components }
+		production_bonus = {
+			production_cost_factor = -0.05
+			production_capacity_factor = 0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+}
+
+

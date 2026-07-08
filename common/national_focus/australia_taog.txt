@@ -3027,7 +3027,7 @@ focus_tree = {
 			USA = { country_event = { id = AST_diplomatic_events.7 days = 3 } }
 			custom_effect_tooltip = AST_bring_on_the_giant_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
-			PRC_USA_lend_lease_strategy = yes
+			#PRC_USA_lend_lease_strategy = yes
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
@@ -6739,10 +6739,7 @@ focus = {
 		cost = 10
 
 		available = {
-			PRC = {
-				has_government = communism
-				has_war_with_major = yes
-			}
+			always = no
 		}
 
 		bypass = {
@@ -6751,21 +6748,12 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_relation_rule_override = {
-				  	target = PRC
-				  	can_send_volunteers = yes
-				}	
+				
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			## Send event to PRC
-			PRC = {
-				country_event = {
-					id = AST_diplomatic_events.65
-					hours = 3 
-					random_hours = 6
-				}
-			}
+			
 
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
@@ -6774,13 +6762,7 @@ focus = {
 					amount = -2500
 					producer = PHI
 				}
-				PRC = { 
-					add_equipment_to_stockpile = { 
-						type = infantry_equipment_0
-						amount = 2500
-						producer = AST
-					}
-				}
+				
 			}
 		}
 
@@ -6848,9 +6830,7 @@ focus = {
 		cost = 10
 
 		available = {
-			PRC = {
-				has_war_with = CHI
-			}
+			always = no
 		}
 
 		bypass = {
@@ -6859,30 +6839,14 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			if = {
-				limit = {
-					PRC = {
-						is_in_faction = no
-					}
-					is_in_faction = yes
-				}
-				add_to_faction = PRC
+			if = { 
+
 			}
-			else_if = {
-				limit = {
-					PRC = {
-						is_in_faction = yes
-					}
-					is_in_faction = no
-				}
-				PRC = { add_to_faction = AST }
+			else_if = { 
+
 			}
-			else = {
-				add_to_war = {
-					targeted_alliance = PRC
-					enemy = CHI
-					hostility_reason = asked_to_join
-				}
+			else = { 
+				
 			}
 
 			custom_effect_tooltip = AST_red_solidarity_tt
