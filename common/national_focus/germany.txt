@@ -8408,21 +8408,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = GER_oppose_hitler
-						has_completed_focus = GER_oppose_hitler_ww
-					}
-				}
-			}
+			
 		}
 
 		available = {
@@ -11136,11 +11122,7 @@ focus_tree = {
 					has_dlc = "La Resistance"
 				}
 				SPA = {
-					exists = yes
-					NOT = { has_war_with = ROOT }
-					has_civil_war = no
-					is_subject = no
-					is_in_faction = no
+					has_completed_focus = SPA_fascist_economic_aid
 				}
 			}
 			FRA = {
