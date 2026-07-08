@@ -145,8 +145,8 @@ RAJ_ammunition_factory_khadki_organization = {
 	allowed = {	
 		has_dlc = "Graveyard of Empires"
 		OR = {
-			ROOT = { original_tag = BAN }
-			ROOT = { original_tag = PAK }
+			
+			
 			ROOT = { original_tag = RAJ }
 		}
 	}
@@ -241,8 +241,7 @@ RAJ_ordnance_factory_kanpur_organization = {
 
 		has_dlc = "Graveyard of Empires"
 		OR = {
-			ROOT = { original_tag = BAN }
-			ROOT = { original_tag = PAK }
+			
 			ROOT = { original_tag = RAJ }
 		}
 	}
@@ -297,8 +296,7 @@ RAJ_ordnance_factory_medak_organization = {
 
 		has_dlc = "Graveyard of Empires"
 		OR = {
-			ROOT = { original_tag = BAN }
-			ROOT = { original_tag = PAK }
+			
 			ROOT = { original_tag = RAJ }
 		}
 	}
@@ -347,8 +345,7 @@ RAJ_vickers_armstrong_organization = {
 	icon = GFX_idea_vickers_armstrong_can
 	allowed = {
 		OR = {
-			ROOT = { original_tag = BAN }
-			ROOT = { original_tag = PAK }
+			
 			ROOT = { original_tag = RAJ }
 		}
 		#has_dlc = "Together for Victory"

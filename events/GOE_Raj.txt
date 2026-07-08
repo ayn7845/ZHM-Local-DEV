@@ -1694,32 +1694,12 @@ country_event = {
 	desc = GOE_RAJ.41.desc
 	picture = GFX_report_event_indian_parade #GFX_report_event_gre_city_siege
 	
-	option = {
-		name = GOE_RAJ.41.a
-		trigger = {
-			tag = RAJ
-		}
+	option = { 
 
-		transfer_state = 986
-		if = {
-			limit = {
-				has_truce_with = PAK
-			}
-			set_truce = {
-				target = PAK
-				days = 0
-			}
-		}
 	}
 
-	option = {
-		name = GOE_RAJ.41.b
-		trigger = {
-			tag = PAK
-		}
-		effect_tooltip = {
-			986 = { set_state_owner_to = RAJ }
-		}
+	option = { 
+
 	}
 }
 
@@ -1755,21 +1735,15 @@ country_event = {
 		}
 
 		transfer_state = 431
-		if = {
-			limit = {
-				has_truce_with = PAK
-			}
-			set_truce = {
-				target = PAK
-				days = 0
-			}
+		if = { 
+
 		}
 	}
 
 	option = {
 		name = GOE_RAJ.43.b
 		trigger = {
-			tag = PAK
+			always = no
 		}
 		effect_tooltip = {
 			431 = { set_state_owner_to = RAJ }
@@ -1808,21 +1782,15 @@ country_event = {
 		}
 
 		transfer_state = 433
-		if = {
-			limit = {
-				has_truce_with = PAK
-			}
-			set_truce = {
-				target = PAK
-				days = 0
-			}
+		if = { 
+
 		}
 	}
 
 	option = {
 		name = GOE_RAJ.45.b
 		trigger = {
-			tag = PAK
+			always = no
 		}
 		effect_tooltip = {
 			433 = { set_state_owner_to = RAJ }
@@ -1987,7 +1955,8 @@ country_event = {
 	option = {
 		name = GOE_RAJ.49.b
 		trigger = {
-			tag = PAK
+			
+			always = no
 		}
 	}
 }
@@ -2010,7 +1979,7 @@ country_event = {
 	option = {
 		name = GOE_RAJ.50.b
 		trigger = {
-			tag = PAK
+			always = no
 		}
 	}
 }
@@ -2033,7 +2002,7 @@ country_event = {
 	option = {
 		name = GOE_RAJ.51.b
 		trigger = {
-			tag = PAK
+			always = no
 		}
 	}
 }
@@ -2500,10 +2469,7 @@ country_event = {
 		}
 
 		#setup pressure
-		PAK = { 
-			set_variable = { pressure_left = 6 } 
-			set_variable = { default_pressure = pressure_left }
-		}
+		
 
 		RAJ = {  
 			set_variable = { pressure_left = 8 } 
@@ -2525,457 +2491,6 @@ country_event = {
 				is_historical_focus_on = no
 			}
 
-			KAS = { #Kashmir and Jammu
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 787.arms_factory_level }
-				add_to_variable = { industry = 441.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 787.industrial_complex_level }
-				add_to_variable = { civs = 441.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 787.state_population_k }
-				add_to_variable = { total_pop = 441.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 100 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 2 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			
-			}
-
-			HYD = { #hyderabad
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 427.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 427.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 427.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 100 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 2 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			MPU = { #Manipir
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 990.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 990.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 990.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.75 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-
-			MYS = { #Mysore
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 425.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 425.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 425.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.75 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			NWF = { #North Western Frontier States
-				set_variable = { liberty_desire = 0 }
-
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 442.arms_factory_level }
-				add_to_variable = { industry = 987.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 442.industrial_complex_level }
-				add_to_variable = { civs = 987.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 442.state_population_k }
-				add_to_variable = { total_pop = 987.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 100 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.35 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			RJP = { #Rajputana
-				set_variable = { liberty_desire = 0 }
-
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 433.arms_factory_level }
-				add_to_variable = { industry = 989.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 433.industrial_complex_level }
-				add_to_variable = { civs = 989.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 433.state_population_k }
-				add_to_variable = { total_pop = 989.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 100 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.8 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-			}
-
-			
-			KOL = { #Deccan states and Koliphur
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 311.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 311.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 311.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.3 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			#Western Indian States (Gujarat)
-			WIS = { 
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 428.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 428.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 428.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 1 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			CIP = { #Central Indian states
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 437.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 437.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 437.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.6 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			RAS = { #Madras states
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 982.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 982.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 982.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 0.4 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
-
-			SKK = { #Sikkim states
-				set_variable = { liberty_desire = 0 }
-
-				#Industry
-				set_variable = { industry = 0 }
-				set_variable = { industry = 985.arms_factory_level }
-				multiply_variable = { industry = 3 }
-
-				set_variable = { civs = 0 }
-				add_to_variable = { civs = 985.industrial_complex_level }
-				
-				multiply_variable = { civs = 1.75 }
-				add_to_variable = { industry = civs }
-
-				#Pop
-				set_variable = { total_pop = 985.state_population_k }
-				multiply_variable = { total_pop = 0.01 }
-
-
-				multiply_variable = { painful_memory = 3 }
-				add_to_variable = { liberty_desire = painful_memory }
-				add_to_variable = { liberty_desire = total_pop }
-				add_to_variable = { liberty_desire = industry }
-
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-					}
-					set_variable = { base_value = 0 }
-				}
-				else = {
-					set_variable = { base_value = 5 }
-				}
-
-				add_to_variable = { liberty_desire = base_value }
-				set_variable = { historical_precedence = 2 }
-				multiply_variable = { liberty_desire = historical_precedence  }
-				
-			}
 		}
 
 
@@ -3006,541 +2521,89 @@ country_event = {
 
 			#Hyderabad
 
-			if = {
-				limit = {
-					HYD = {
-						all_core_state = {
-							is_controlled_by = ROOT
-						}
-					}
-				}
-				release = HYD
-				HYD = {
-					every_core_state = {
-						limit = { is_controlled_by = PREV }
-						add_to_array = { array = RAJ.states_in_play_partition }
-						hidden_effect = {
-							set_state_flag = prefers_raj
-							set_variable = { preference = 1.5 }
-							set_variable = { RAJ_pressure = 0 }
-							set_variable  = { PAK_pressure = 0 }
-							set_variable = { BAN_pressure = 0 }
-						}
-					}
-				}
-
-			}
+			if = {}
 
 			#Kashmir
-			if = {
-				limit = {
-					always = yes
-				}
-
-				release = KAS
-				KAS = {
-					every_core_state = {
-						limit = { is_controlled_by = PREV }
-						add_to_array = { array = RAJ.states_in_play_partition }
-						hidden_effect = {
-							set_variable = { RAJ_pressure = 0 }
-							set_variable  = { PAK_pressure = 0 }
-							set_variable = { BAN_pressure = 0 }
-							
-							if = {
-								limit = {
-									state = 441
-								}
-
-								set_state_flag = prefers_raj
-								set_variable = { preference = 1.5 }
-
-							}
-							if = {
-								limit = {
-									state = 787
-								}
-								set_state_flag = prefers_pak
-								set_variable = { preference = 1.5 }
-							}
-						}
-					}
-				}
-			}
+			if = {}
 
 			#Kalat
-			if = {
-				limit = {
-					KLT = {
-						all_core_state = {
-							is_controlled_by = ROOT
-						}
-					}
-				}
-				release = KLT #kalat
-				KLT = {
-					every_core_state = {
-						limit = { is_controlled_by = PREV }
-
-						set_variable = { RAJ_pressure = 0 }
-						set_variable  = { PAK_pressure = 0 }
-						set_variable = { BAN_pressure = 0 }
-						add_to_array = { array = RAJ.states_in_play_partition }
-						hidden_effect = {
-							set_state_flag = prefers_pak
-							set_variable = { preference = 1.5 }
-						}
-					}
-				}
-			}
+			if = {}
 
 
 			#Kalat
-			if = {
-				limit = {
-					SKK = {
-						all_core_state = {
-							is_controlled_by = ROOT
-						}
-					}
-				}
-				release = SKK #Sikkim
-				SKK = {
-					every_core_state = {
-						limit = { is_controlled_by = PREV }
-
-						set_variable = { RAJ_pressure = 0 }
-						set_variable  = { PAK_pressure = 0 }
-						set_variable = { BAN_pressure = 0 }
-						add_to_array = { array = RAJ.states_in_play_partition }
-						hidden_effect = {
-							set_state_flag = prefers_raj
-							set_variable = { preference = 1.5 }
-						}
-					}
-				}
-			}
+			if = {}
 
 			# release BAN before pakistan if united bengal
-			if = {
-				limit = {
-					has_completed_focus = RAJ_united_bengal
-				}
-				release = BAN
-			}
+			if = {}
 
-			#always release pakistan
-			release = PAK
-			every_unit_leader = {
-				limit = {
-					has_trait = loyalty_to_pakistan
-				}
-				set_nationality = PAK
-			}
+			
+			
 		}
 		else = {
 			# release BAN before pakistan if united bengal
 			RAJ = {
 				add_ideas = idea_RAJ_remaining_paramilitary_organizations
 			}
-			if = {
-				limit = {
-					has_completed_focus = RAJ_united_bengal
-				}
-				release = BAN
-			}
+			
 
 			#always release pakistan
-			release = PAK
-			every_unit_leader = {
-				limit = {
-					has_trait = loyalty_to_pakistan
-				}
-				set_nationality = PAK
-			}
+			
+			
 			hidden_effect = { #
 				#Kashmir
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = KAS.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:KAS.liberty_desire = { 
-						release = KAS
-								#setup pressure
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
+				random_list = { 
 
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						hidden_effect = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-								if = {
-									limit = {
-										state = 441
-									}
-
-									set_state_flag = prefers_raj
-									set_variable = { preference = 1.5 }
-								}
-								if = {
-									limit = {
-										state = 787
-									}
-									set_state_flag = prefers_pak
-									set_variable = { preference = 1.5 }
-								}
-							}
-						}
-					} 
 				}
 
 				#Hyderabad
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = HYD.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:HYD.liberty_desire = { 
-						release = HYD 
-						HYD = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
+				random_list = { 
 
-								add_to_array = { array = RAJ.states_in_play_partition }
-								if = {
-									limit = {
-										state = 441
-									}
-
-									set_state_flag = prefers_raj
-									set_variable = { preference = 1.5 }
-								}
-								if = {
-									limit = {
-										state = 787
-									}
-									set_state_flag = prefers_pak
-									set_variable = { preference = 1.5 }
-								}
-							}
-						}
-					} 
 				}
 
 				#MPU
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = MPU.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:MPU.liberty_desire = { 
-						release = MPU 
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
+				random_list = { 
 
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						MPU = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
 				}
 
 				#Mysore
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = MYS.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:MYS.liberty_desire = { 
-						release = MYS 
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						MYS = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-								set_state_flag = prefers_raj
-								set_variable = { preference = 1.5 }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = NWF.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:NWF.liberty_desire = { 
-						release = NWF 
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						NWF = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-								set_state_flag = prefers_pak
-								set_variable = { preference = 1.25 }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = RJP.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:RJP.liberty_desire = { 
-						PAK = { 
-							add_to_variable = { pressure_left = 1.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 2 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 1 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						release = RJP 
-						RJP = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = KOL.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:KOL.liberty_desire = { 
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						release = KOL 
-						KOL = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-								set_state_flag = prefers_raj
-								set_variable = { preference = 1.25 }
-							}
-						}
-					}
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = WIS.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:WIS.liberty_desire = { 
-						release = WIS 
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						WIS = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
-
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = CIP.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:CIP.liberty_desire = { 
-						release = CIP
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						}
-						CIP = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = RAS.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:RAS.liberty_desire = { 
-						release = RAS
-						PAK = { 
-							add_to_variable = { pressure_left = 0.5 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-
-						RAJ = {  
-							add_to_variable = { pressure_left = 0.8 } 
-							set_variable = { default_pressure = pressure_left }
-						}
-						if = {
-							limit = {
-								BAN = { exists = yes }
-							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
-
-						} 
-						RAS = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 				set_variable = { no_independence = 100 }
 				subtract_from_variable = { no_independence = SKK.liberty_desire }
-				random_list = {
-					seed = random 
-					var:no_independence = {   } 
-					var:SKK.liberty_desire = { 
-						release = SKK 
-						SKK = {
-							every_core_state = {
-								limit = { is_controlled_by = PREV }
-
-								add_to_array = { array = RAJ.states_in_play_partition }
-							}
-						}
-					} 
-				}
+				random_list = {}
 
 			}
 
@@ -3550,39 +2613,12 @@ country_event = {
 				min = 0
 				max = 13
 			}
-			PAK = { 
-				clamp_variable = {
-					var = pressure_left
-					min = 0
-					max = 13
-				}
-			}
+			
 
 			RAJ = {  
 				set_variable = { default_pressure = pressure_left }
 			}
-			if = {
-				limit = {
-					BAN = { exists = yes }
-				}
-				BAN = {
-					if = {
-						limit = {
-							check_variable = { pressure_left = 0 }
-						}
-						add_to_variable = { pressure_left = 2 }
-					}
-					multiply_variable = { pressure_left = RAJ.pressure_mult }
-					round_variable = pressure_left
-					set_variable = { default_pressure = pressure_left }
-					clamp_variable = {
-						var = pressure_left
-						min = 0
-						max = 13
-					}
-
-				}
-			}
+			
 		}
 
 
@@ -3600,58 +2636,18 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				PAK = {
-					is_subject = yes
-				}
-			}
-
-			PAK = { overlord = { set_autonomy = { target = PAK autonomy_state = autonomy_free } } } 
-			log = "Error: Somehow Pak is a subject after partition. Please Check"
-		}
+		if = {}
 
 
-		if = {
-			limit = {
-				BAN = {
-					is_subject = yes
-				}
-			}
-
-			BAN = { overlord = { set_autonomy = { target = BAN autonomy_state = autonomy_free } } } 
-			log = "Error: Somehow BAN is a subject after partition. Please Check"
-		}
-		hidden_effect = {
-			PAK = {
-				set_rule = {  can_declare_war_on_same_ideology = yes }
-				set_rule = {  can_only_justify_war_on_threat_country = no }
-				set_rule = { can_join_factions = no }
-				if = {
-					limit = { is_in_faction = yes }
-					leave_faction = yes
-				}
-				add_ideas = neutrality_idea
-			}
-
-			BAN = {
-				set_rule = {  can_declare_war_on_same_ideology = yes }
-				set_rule = {  can_only_justify_war_on_threat_country = no }
-				set_rule = { can_join_factions = no }
-				if = {
-					limit = { is_in_faction = yes }
-					leave_faction = yes
-				}
-				add_ideas = neutrality_idea
-			}
-		}
+		if = {}
+		hidden_effect = {}
 		for_each_scope_loop = {
 			array = RAJ.raj_releasables
 		
 			if = {
 				limit = {
 					THIS = { exists = yes }
-					NOT = { original_tag = PAK }
+					
 				}
 
 				set_rule = { can_declare_war_on_same_ideology = yes }
@@ -3705,9 +2701,7 @@ country_event = {
 				#}
 
 
-			RAJ_GOE_muhammad_ali_jinnah= {
-				set_nationality = PAK
-			}
+			
 
 			hidden_effect = {
 
@@ -3722,99 +2716,7 @@ country_event = {
 					}
 				}
 
-				PAK = {
-
-					set_politics = {
-						ruling_party = democratic
-						elections_allowed = yes
-
-					}
-					inherit_technology = RAJ
-					if = {
-						limit = { NOT = { has_tech = gw_artillery } }
-						set_technology = {
-							gw_artillery = 1
-							popup = no
-						}
-					}
-
-					if = {
-						limit = { NOT = { has_tech = interwar_antiair } }
-						set_technology = {
-							interwar_antiair = 1
-							popup = no
-						}
-					}
-					division_template = {
-						name = "Pakistan Fauj"
-						is_locked = yes
-						priority = 1
-						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-							infantry = { x = 0 y = 3 }
-							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-							artillery_brigade = { x = 2 y = 0 }
-						
-						}
-						support = {
-							artillery = { x = 0 y = 0 }
-							engineer = { x = 0 y = 1 }
-							anti_air = { x = 0 y = 2 }
-						}
-					}
-
-					division_template = {
-						name = "Pakistani Armored Division"
-						regiments = {
-							medium_armor = { x = 0 y = 0 }
-							medium_armor = { x = 0 y = 1 }
-							medium_armor = { x = 0 y = 2 }
-							motorized = { x = 1 y = 0 }
-							motorized = { x = 1 y = 1 }
-							motorized = { x = 1 y = 2 }
-							motorized = { x = 1 y = 3 }
-							motorized = { x = 2 y = 0 }
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							artillery = { x = 0 y = 1 } 
-							anti_air = { x = 0 y = 2 }
-						}
-					}
-
-					add_equipment_to_stockpile = { 
-						type = artillery_equipment_1
-						amount = 530
-						producer = ENG
-					}
-
-					add_equipment_to_stockpile = { 
-						type = anti_air_equipment_1
-						amount = 340
-						producer = ENG
-					}
-					random_core_state = {
-						limit = { is_owned_and_controlled_by = PAK }
-							create_unit = {
-							division = "name = \"Peshawar Division\" division_template = \"Pakistan Fauj\" start_experience_factor = 1.1 start_equipment_factor = 1 start_manpower_factor = 1"
-							owner = PAK
-						}
-					}
-
-					every_core_state = {
-						random_select_amount = 9
-						limit = { is_owned_and_controlled_by = PAK }
-						create_unit = {
-							division = "name = \"Pakistan Fauj\" division_template = \"Pakistan Fauj\" start_experience_factor = 0.4 start_equipment_factor = 1 start_manpower_factor = 1"
-							owner = PAK
-						}
-					}
-
-				}
+				
 
 				if = {
 					limit = {
@@ -3876,16 +2778,7 @@ country_event = {
 					}
 				}
 
-				PAK = {
-
-					capital_scope = {
-
-						create_unit = {
-								division = "name = \"Pakistani Armored Division\" division_template = \"Pakistani Armored Division\" start_experience_factor = 0.4 start_equipment_factor = 1 start_manpower_factor = 1"
-								owner = PAK
-						}
-					}
-				}
+				
 			}
 		}
 	}
@@ -4012,7 +2905,7 @@ country_event = {
 		name = GOE_RAJ_partition.7.c
 		trigger = {
 			has_completed_focus = RAJ_a_secular_state	
-			PAK = { exists = no }
+			
 		}
 
 
@@ -4840,7 +3733,7 @@ country_event = {
 		name = GOE_RAJ_loyalist.10.a
 
 		if = { 
-			
+
 		}
 		else = { 
 
