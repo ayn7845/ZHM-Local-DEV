@@ -1250,7 +1250,12 @@ ideas = {
 		quick_improvisation_spirit = {
 			ledger = army
 			available = {
-				has_doctrine = new_mobile_warfare
+				OR = { 
+					has_doctrine = new_mobile_warfare
+					tag = USA
+					tag = UK
+				}
+				
 			}
 			modifier = {
 				command_abilities_cost_factor = -0.20
