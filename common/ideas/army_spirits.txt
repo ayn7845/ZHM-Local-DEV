@@ -1253,7 +1253,7 @@ ideas = {
 				OR = { 
 					has_doctrine = new_mobile_warfare
 					tag = USA
-					tag = UK
+					tag = ENG
 				}
 				
 			}
