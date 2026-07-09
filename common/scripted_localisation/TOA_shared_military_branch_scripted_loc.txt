@@ -25,24 +25,7 @@ defined_text = {
 		}
 		localization_key = SMB_army_ARG
 	}
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_army_CHL
-	}
-	text = {
-		trigger = {
-			tag = PAR
-		}
-		localization_key = SMB_army_PAR
-	}
-	text = {
-		trigger = {
-			tag = URG
-		}
-		localization_key = SMB_army_URG
-	}
+
 	text = {
 		localization_key = SMB_army_default
 	}
@@ -527,24 +510,7 @@ defined_text = {
 		}
 		localization_key = SMB_air_force_ARG
 	}
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_air_force_CHL
-	}
-	text = {
-		trigger = {
-			tag = PAR
-		}
-		localization_key = SMB_air_force_PAR
-	}
-	text = {
-		trigger = {
-			tag = URG
-		}
-		localization_key = SMB_air_force_URG
-	}
+
 	text = {
 		localization_key = SMB_air_force_default
 	}
@@ -854,24 +820,7 @@ defined_text = {
 		}
 		localization_key = SMB_navy_ARG
 	}
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_navy_CHL
-	}
-	text = {
-		trigger = {
-			tag = PAR
-		}
-		localization_key = SMB_navy_PAR
-	}
-	text = {
-		trigger = {
-			tag = URG
-		}
-		localization_key = SMB_navy_URG
-	}
+
 	text = {
 		localization_key = SMB_navy_default
 	}

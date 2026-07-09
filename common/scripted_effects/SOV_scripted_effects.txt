@@ -8607,79 +8607,8 @@ SOV_exiles_civil_war_start = {
 
 	}
 
-	# Vladimir Sidorin
-	IF = {
-		limit = {
-			DON = {
-				exists = no
-			}
-		}
-
-		set_country_flag = DON_vladimir_sidorin_went_to_rejoin_the_russian_whites_flag
-
-		DON = {
-			DON_vladimir_sidorin = {
-				demote_leader = yes
-				remove_country_leader_role = {
-				    ideology = fascism_ideology
-				}
-				remove_country_leader_role = {
-				    ideology = despotism
-				}
-				set_nationality = SOV
-			}
-		}
-
-	}
-
-	# Ivanis Vasily Nikolaevich
-	IF = {
-		limit = {
-			KUB = {
-				exists = no
-			}
-		}
-
-		set_country_flag = KUB_ivanis_vasily_nikolaevich_went_to_rejoin_the_russian_whites_flag
-
-		KUB = {
-			KUB_ivanis_vasily_nikolaevich = {
-				demote_leader = yes
-				remove_country_leader_role = {
-				    ideology = fascism_ideology
-				}
-				remove_country_leader_role = {
-				    ideology = despotism
-				}
-				set_nationality = SOV
-			}
-		}
-
-	}
-
-	# Ivan Belyaev
-	IF = {
-		limit = {
-			PAR = {
-				OR = {
-					exists = no
-					has_capitulated = yes
-					NOT = {
-						has_idea = PAR_ivan_belyaev
-					}
-				}
-			}
-		}
-
-		set_country_flag = PAR_ivan_belyaev_went_to_rejoin_the_russian_whites_flag
-
-		PAR = {
-			PAR_ivan_belyaev = {
-				set_nationality = SOV
-			}
-		}
-
-	}
+	
+	
 	
 }
 
