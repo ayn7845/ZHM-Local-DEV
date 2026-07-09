@@ -1730,7 +1730,9 @@
 		ai_will_do = {
 			factor = 1
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		available = {
 			NOT = {
 				has_country_leader = {
@@ -1970,10 +1972,7 @@
 				}
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
-
+		
 		bypass = {
 
 		}
