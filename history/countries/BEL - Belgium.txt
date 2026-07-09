@@ -140,12 +140,7 @@ if = {
 
 
 
-IF = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	BEL_create_jozef_raskin_operative = yes
-}
+
 
 if = {
 	limit = { has_dlc = Gotterdammerung }

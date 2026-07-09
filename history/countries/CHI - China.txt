@@ -8,17 +8,7 @@ recruit_character = CHI_claire_lee_chennault
 
 
 
-if = {
-	limit = {
-		has_dlc = "No Compromise, No Surrender"
-	}
-	CHI_chen_shaokuan = {
-		set_character_flag = can_flip_to_prc
-	}
-	CHI_zhang_zhizhong = {
-		set_character_flag = can_flip_to_prc
-	}
-}
+
 
 set_stability = 0.2
 set_war_support = 0.5
