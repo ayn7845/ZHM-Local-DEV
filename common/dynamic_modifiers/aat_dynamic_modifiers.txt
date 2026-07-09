@@ -91,7 +91,7 @@ NOR_prep_his_dmod_1 = {
 		NOR = {	has_government = democratic }
 	}
 	remove_trigger = {
-		NOR_prep_his_mod_remove_trigger = yes
+		always = no
 	}
 	icon = GFX_modifiers_generic_construction   
 	# Positive 
@@ -107,7 +107,7 @@ NOR_prep_his_dmod_2 = {
 		NOR = {	has_government = democratic }
 	}
 	remove_trigger = {
-		NOR_prep_his_mod_remove_trigger = yes
+		always = no
 	}
 	icon = GFX_modifiers_generic_construction  
 	# Positive
@@ -127,7 +127,7 @@ NOR_prep_his_dmod_3 = {
 		NOR = {	has_government = democratic }
 	}
 	remove_trigger = {
-		NOR_prep_his_mod_remove_trigger = yes
+		always = no
 	}
 	icon = GFX_modifiers_generic_construction   
 	# Positive
