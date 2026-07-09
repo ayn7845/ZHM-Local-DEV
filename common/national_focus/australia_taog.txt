@@ -40,12 +40,12 @@ focus_tree = {
 
 	inlay_window = { #Empty version to show before ast_right_vs_left_campaign_inlay_window is unlocked
 		id = ast_right_vs_left_campaign_empty_inlay_window
-		position = { x = 4705 y = 510 } #Edit for ast_right_vs_left_campaign_inlay_window if changed
+		position = { x = 4300 y = 510 } #Edit for ast_right_vs_left_campaign_inlay_window if changed
 	}
 
 	inlay_window = {
 		id = ast_right_vs_left_campaign_inlay_window
-		position = { x = 4705 y = 510 } #Edit for ast_right_vs_left_campaign_empty_inlay_window if changed
+		position = { x = 4300 y = 510 } #Edit for ast_right_vs_left_campaign_empty_inlay_window if changed
 	}
 
 #### Template ###
