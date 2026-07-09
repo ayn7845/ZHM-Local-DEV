@@ -149,34 +149,7 @@ on_actions = {
 		}
 
 		#KOREA/JAPAN - Set up the resistance DMs 
-		effect = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_game_rule = {
-							rule = asia_colonization_status
-							option = ASIA_DECOLONIZED
-						}
-					}
-				}
-				every_state = {
-					limit = {
-						OR = {
-							state = 1031
-							state = 1030
-							state = 1029
-							state = 1028
-							state = 527
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = KOR_resistance_against_colonial_rule_dm
-					}
-				}
-			}
-			
-		}
+		
 
 		# Adding in the Great Wall province effect
 		effect = {
@@ -622,67 +595,7 @@ on_actions = {
 		}
 
 		#We need to switch out Guerilla Bases to Sabotage Operations because Guerillas only operate on non-core territory - but the fight doesn't stop just because the state changes hands!
-		effect = {
-			if = {
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-					FROM.FROM = {
-						OR = {
-							is_core_of = PRC
-							is_core_of = CHI
-						}
-						is_core_of = ROOT
-						NOT = {
-							has_dynamic_modifier = {
-								modifier = PRC_anti_japanese_base
-							}
-						}
-						OR = {
-							has_dynamic_modifier = {
-								modifier = PRC_guerilla_cells_active_1
-							}
-							has_dynamic_modifier = {
-								modifier = PRC_guerilla_cells_active_2
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							has_dynamic_modifier = {
-								modifier = PRC_guerilla_cells_active_1
-							}
-						}
-					}
-					FROM.FROM = {
-						remove_dynamic_modifier = {
-							modifier = PRC_guerilla_cells_active_1
-						}
-						add_dynamic_modifier = {
-							modifier = PRC_anti_japanese_base
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						FROM.FROM = {
-							has_dynamic_modifier = {
-								modifier = PRC_guerilla_cells_active_2
-							}
-						}
-					}
-					FROM.FROM = {
-						remove_dynamic_modifier = {
-							modifier = PRC_guerilla_cells_active_2
-						}
-						add_dynamic_modifier = {
-							modifier = PRC_anti_japanese_base
-						}
-					}
-				}
-			}
-		}
+		
 
 		effect = {
 			if = {
