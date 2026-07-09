@@ -75,6 +75,6 @@ sp_air_radar = {
 	}
 
 	generic_prototype_rewards = {
-		sp_air_generic_reward_always
+		
 	}
 }

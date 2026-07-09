@@ -92,7 +92,7 @@ sp_rockets_flying_bomb = {
 	}
 
 	generic_prototype_rewards = {
-		sp_air_generic_reward_always
+		
 	}
 
 	unique_prototype_rewards = {
