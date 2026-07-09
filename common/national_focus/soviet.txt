@@ -16179,7 +16179,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			SOV_increase_church_power = yes		
+			#SOV_increase_church_power = yes		
 
 
 		}
@@ -16253,7 +16253,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			SOV_increase_church_power = yes	
+			#SOV_increase_church_power = yes	
 		}
 	}
 
@@ -16651,14 +16651,14 @@ focus_tree = {
 					ideology = neutrality
 					popularity = 0.1
 				}
-				SOV_increase_church_power = yes
+				#SOV_increase_church_power = yes
 			}
 			if = {
 				limit = {
 					has_completed_focus = SOV_dismantle_the_zemsky_sobor
 				}
 				add_stability = 0.05
-				SOV_increase_church_power = yes
+				#SOV_increase_church_power = yes
 			}
 		}
 	}
