@@ -2094,7 +2094,9 @@ focus_tree = {
         ai_will_do = {
             factor = 1
         }
-
+        allow_branch = { 
+            always = no
+        }
         available = {
             compare_autonomy_state > autonomy_colony
         }
@@ -12120,7 +12122,7 @@ focus = {
 	cost = 10
 
 	available = {
-        always = no
+        
 		NOT = { has_idea = RAJ_mobilization_of_the_indian_army }
 	}
 
@@ -12137,7 +12139,7 @@ focus = {
 		add_to_variable = { RAJ_south_east_asia_command_dm_command_power_gain = 0.2 tooltip = command_power_gain_tt }
 		add_to_variable = { RAJ_south_east_asia_command_dm_special_forces_cap = 0.25 tooltip = special_forces_cap_tt }
 
-		country_event = GOE_RAJ_loyalist.06
+		#country_event = GOE_RAJ_loyalist.06
 	}
 }
 focus = {
