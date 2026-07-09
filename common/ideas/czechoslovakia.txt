@@ -5,7 +5,7 @@ ideas = {
 	####################
 	####################
 
-	country = {|
+	country = {
 		#For bookmark and country selection only
 		CZE_a_divided_nation_fake_ns = {
 			name = CZE_a_divided_nation_dynamic_modifier
