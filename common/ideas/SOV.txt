@@ -3388,19 +3388,7 @@ ideas = {
 					NOT = { has_country_flag = SOV_merge_tank_morozov_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_morozov_3_flag }
 				}
-				IF = {
-					limit = {
-						has_dlc = "No Compromise, No Surrender"
-						FROM = { original_tag = CHI }
-					}
-					FROM = { 
-						has_completed_focus = CHI_secure_the_soviet_border 
-						NOT = {
-							has_country_flag = SOV_accepted_Astrov
-							has_country_flag = SOV_accepted_OKMO
-						}
-					}
-				}	
+				
 			}
 
 			available = {
@@ -3685,19 +3673,7 @@ ideas = {
 					NOT = { has_country_flag = SOV_merge_tank_astrov_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_astrov_3_flag }
 				}
-				IF = {
-					limit = {
-						has_dlc = "No Compromise, No Surrender"
-						FROM = { original_tag = CHI }
-					}
-					FROM = { 
-						has_completed_focus = CHI_secure_the_soviet_border 
-						NOT = {
-							has_country_flag = SOV_accepted_Morozov
-							has_country_flag = SOV_accepted_OKMO
-						}
-					}
-				}
+				
 			}
 			available = {
 				IF = {
@@ -3967,19 +3943,7 @@ ideas = {
 					NOT = { has_country_flag = SOV_merge_tank_okmo_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_okmo_3_flag }
 				}
-				IF = {
-					limit = {
-						has_dlc = "No Compromise, No Surrender"
-						FROM = { original_tag = CHI }
-					}
-					FROM = { 
-						has_completed_focus = CHI_secure_the_soviet_border 
-						NOT = {
-							has_country_flag = SOV_accepted_Morozov
-							has_country_flag = SOV_accepted_Astrov
-						}
-					}
-				}
+				
 			}
 
 			available = {
