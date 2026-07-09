@@ -3102,12 +3102,7 @@ country_event = {
 		}
 
 		trigger = {
-			NOT = {
-				AND = {
-					FROM = { original_tag = PER }
-					ROOT = { original_tag = SOV }
-				}
-			}
+			always = no
 		}
 
 		if = {
@@ -3149,13 +3144,8 @@ country_event = {
 	option = { #Respect
 		name = NSB_soviet_foreign_politics_events.152.b
 		
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 1
-				FROM = { original_tag = PER }
-				original_tag = SOV
-			}
+		ai_chance = { 
+			
 		}
 	}
 
@@ -3163,9 +3153,7 @@ country_event = {
 		name = NSB_soviet_foreign_politics_events.152.c
 
 		trigger = {
-			FROM = { original_tag = PER }
-			original_tag = SOV
-			is_subject = no
+			always = no
 		}
 
 		ai_chance = {

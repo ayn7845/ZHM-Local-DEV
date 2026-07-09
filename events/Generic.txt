@@ -309,16 +309,7 @@ country_event = {
 				}
 			}
 
-			modifier = {
-				factor = 2
-				has_dlc = "Graveyard of Empires"
-				FROM = {
-					original_tag = PER
-				}
-				ROOT = {
-					original_tag = GER
-				}
-			}
+			
 			
 			modifier = {
 				factor = 0.75

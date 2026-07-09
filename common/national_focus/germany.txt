@@ -14289,7 +14289,7 @@ focus_tree = {
 							is_on_continent = asia
 						}
 						original_tag = TUR
-						original_tag = PER
+						#original_tag = PER
 						num_of_factories > 30
 					}
 					OR = {

@@ -3311,11 +3311,8 @@ country_event = {
 		}
 
 		effect_tooltip = {
-			FROM = {
-				declare_war_on = {
-					target = PER
-					type = annex_everything
-				}
+			FROM = { 
+
 			}
 		}
 
@@ -3352,10 +3349,7 @@ country_event = {
 	option = { #Yes go ahead
 		name = GOE_RAJ_loyalist.04.a
 
-		declare_war_on = {
-			target = PER
-			type = annex_everything
-		}
+		
 	}
 }
 

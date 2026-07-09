@@ -7960,11 +7960,7 @@ focus_tree = {
 				expire = 0
 			}
 
-			create_wargoal = {
-				target = PER
-				type = puppet_wargoal_focus
-				expire = 0
-			}
+			
 
 			if = {
 				limit = {

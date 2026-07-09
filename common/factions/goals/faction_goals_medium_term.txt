@@ -2712,12 +2712,7 @@ faction_goal_control_persian_oil = {
 		
 	}
 	visible = {
-		FROM = {
-			NOT = {
-				original_tag = PER
-				is_in_faction_with = PER
-			}
-		}
+		
 		any_collection_element = {
 			collection = {
 				 input = game:scope
