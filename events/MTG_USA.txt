@@ -27,16 +27,7 @@ country_event = {
 		add_stability = -0.1
 		
 	}
-	option = { # Aggressive response
-		name = mtg_usa_civil_war_fascists.1.b
-		ai_chance = {
-			factor = 20
-		}
-		custom_effect_tooltip = mtg_usa_civil_war_warning_tt
-		add_political_power = -120
-		USA_congress_small_opposition = yes 
-		country_event = { id = mtg_usa_civil_war_fascists.2 days = 90  }
-	}
+	
 }
 #
 ##second event for the fascist uprising
