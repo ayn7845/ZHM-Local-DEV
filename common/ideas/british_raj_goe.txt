@@ -784,21 +784,9 @@ ideas = {
 
 			cancel = {
 
-				OR = {
-		            BRM = {
-		                NOT = { is_in_faction_with = RAJ }
-		                NOT = { controls_state = 995 }
-		                NOT = { controls_state = 640 }
-		                NOT = { controls_state = 998 }
-		            }
-
-		            any_enemy_country = {
-		            	OR = {
-		            		original_tag = BRM
-		            		is_in_faction_with = BRM	
-		            	}
-		            }
-	            }
+				OR = { 
+					
+				}
 
 			}
 
@@ -854,11 +842,7 @@ ideas = {
 				defense_bonus_against = 0.15
 			}
 
-			targeted_modifier = {
-				tag = BRM
-				attack_bonus_against = 0.15
-				defense_bonus_against = 0.15
-			}	
+			
 
 		}
 
