@@ -10173,16 +10173,7 @@ country_event = {
 		}
 	}
 
-	option = { # Let it go.
-		name = lar_spain.53.b
-		ai_chance = {
-			base = 50
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-	}
+	
 }
 
 # Relocate the Gold Reserves - Event for Spain - Gold seized!
