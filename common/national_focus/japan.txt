@@ -667,13 +667,7 @@ focus_tree = {
 
 		cost = 5
 
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				PRC = { surrender_progress > 0 }
-			}
-		}
+		ai_will_do = { }
 
 		available = {
 			has_government = communism
@@ -1661,10 +1655,7 @@ allow_branch = {
 								is_controlled_by = MON
 								MON = { is_in_faction_with = SOV }
 							}
-							AND = {
-								is_controlled_by = SIK
-								SIK = { is_in_faction_with = SOV }
-							}
+							
 						}
 					}
 				}
@@ -2904,7 +2895,7 @@ allow_branch = {
 				limit = { 
 					OR = {
 						is_major = yes 
-						original_tag = PRC
+						#original_tag = PRC
 					}
 					has_government = communism
 				}
@@ -7024,13 +7015,7 @@ allow_branch = {
 					is_ally_with = ROOT
 				}
 			}
-			PRC = {
-				exists = yes
-				has_government = communism
-				NOT = {
-					is_ally_with = ROOT
-				}
-			}
+			
 			SOV = {
 				exists = yes
 				has_government = communism
@@ -7049,12 +7034,7 @@ allow_branch = {
 						is_ally_with = ROOT
 					}
 				}
-				PRC = {
-					OR = {
-						exists = no
-						is_ally_with = ROOT
-					}
-				}
+				
 				SOV = {
 					OR = {
 						exists = no
@@ -8233,22 +8213,7 @@ allow_branch = {
 			add_to_variable = { JAP_showa_statism_fascism_drift = 0.05 tooltip = fascism_drift_tt }
 			add_to_variable = { JAP_showa_statism_stability_factor = 0.05 tooltip = stability_factor_tt }
 
-			IF = {
-				limit = {
-					has_subject = RNG
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				RNG = {
-					set_politics = {
-						ruling_party = fascism
-						elections_allowed = no
-					}	
-					add_popularity = {
-						ideology = fascism
-						popularity = 0.3
-					}	
-				}
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -10777,17 +10742,8 @@ allow_branch = {
 				id = CHI
 				value = 100
 			}
-			add_ai_strategy = {
-				type = antagonize
-				id = PRC
-				value = 100
-			}
-			add_ai_strategy = {
-				type = antagonize
-				id = SND
-				value = 100
-			}
-
+			
+			
 			hidden_effect = {
 				set_global_flag = JAP_triggered_war_with_china_manually_flag
 				CHI = {
@@ -10953,10 +10909,7 @@ allow_branch = {
 		completion_reward = {
 
 			# Establishes the Reorganized National Government
-			613 = {
-				add_core_of = RNG
-				transfer_state_to = RNG
-			}
+			
 			hidden_effect = {
 				CHI = {
 					every_core_state = {
@@ -10967,21 +10920,7 @@ allow_branch = {
 
 			custom_effect_tooltip =  generic_skip_one_line_tt
 
-			set_autonomy = {
-				target = RNG
-				autonomous_state = autonomy_wtt_imperial_protectorate
-				end_wars = no
-				end_civil_wars = no
-			}
-			RNG = {
-				country_event = {
-					id = SEA_japan_foreign_policy.49
-					hours = 2
-				}
-				hidden_effect = {
-					inherit_technology = CHI 
-				}
-			}
+			
 			IF = {
 				limit = {
 					OR = {
@@ -11008,17 +10947,7 @@ allow_branch = {
 				}
 			}
 
-			add_ai_strategy = {
-			    type = befriend
-			    id = RNG
-			    value = 100
-			}
-			add_ai_strategy = {
-			    type = protect
-			    id = RNG
-			    value = 50
-			}
-
+			
 			custom_effect_tooltip =  generic_skip_one_line_tt
 
 			custom_effect_tooltip = JAP_reorganized_national_government_tt
@@ -11042,40 +10971,12 @@ allow_branch = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
-			CHI = {
-				every_core_state = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-						NOT = {
-							state = 745 # Kwantung Leased Territory
-							state = 609 # Easty Hebei
-							state = 611 # South Chahar
-							state = 612 # Chahar
-							region = 155 # West Manchuria
-							region = 242 # North Manchuria
-							region = 243 # East Manchuria
-							state = 728 # Gouangzhouwan
-							state = 729 # Macau
-							state = 326 # Hong Kong
-							state = 743 # Qingdao
-							state = 524 # Taiwan
-							state = 1039 # Hebei-Chahar
-							state = 591 # Hainan
-						}
-					}
-					add_core_of = RNG
-					transfer_state_to = RNG
-				}
+			CHI = { 
+
 			}
 
-			hidden_effect = {
-				RNG = {
-					add_equipment_to_stockpile = { 
-						type = convoy_1
-						amount = 50
-						producer = JAP
-					}	
-				}
+			hidden_effect = { 
+
 			}
 
 		}
@@ -11542,20 +11443,11 @@ allow_branch = {
 		available = {
 			is_subject = no
 			is_faction_leader = yes
-			AFG = {
-				exists = yes
-				is_subject = no
-				is_in_faction = no
-				NOT = {
-					has_war_with = ROOT
-				}
-			}
+			
 		}
 
 		bypass = {
-			AFG = {
-				is_ally_with = ROOT
-			}
+			
 		}
 
 		cancel_if_invalid = yes
@@ -11566,19 +11458,9 @@ allow_branch = {
 
 		completion_reward = {
 
-			AFG = {
-				country_event = {
-					id = SEA_japan_foreign_policy.18
-					hours = 6
-					random_hours = 12
-				}	
-			}
+			
 			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				ROOT = {
-					add_to_faction = AFG
-				}
-			}
+			
 			
 		}
 	}
@@ -12374,7 +12256,7 @@ allow_branch = {
 				}
 			}
 
-			INS_cancel_hol_ally_strategy_entirely_effect = yes
+			#INS_cancel_hol_ally_strategy_entirely_effect = yes
 			
 			unlock_decision_category_tooltip = prospect_for_resources
 				
@@ -13391,7 +13273,7 @@ allow_branch = {
 			OR = {
 				has_war_with = CHI
 				has_subject = CHI
-				has_subject = RNG
+				
 				owns_state = 608 # Beijing
 			}
 		}
@@ -14006,10 +13888,7 @@ allow_branch = {
 								is_controlled_by = MON
 								MON = { is_in_faction_with = SOV }
 							}
-							AND = {
-								is_controlled_by = SIK
-								SIK = { is_in_faction_with = SOV }
-							}
+							
 							AND = {
 								is_controlled_by = TAN
 								TAN = { is_in_faction_with = SOV }
@@ -16669,21 +16548,7 @@ allow_branch = {
 
 			add_political_power = 50
 
-			IF = {
-				limit = {
-					ETH = {
-						NOT = {
-							has_completed_focus = ETH_support_from_the_japanese_communists
-						}
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				set_country_flag = IA_anarchists_recruited_flag
-				ETH = {
-					IA_sanshiro_ishikawa = { set_nationality = ROOT }
-					IA_sakutaro_iwasa = { set_nationality = ROOT }
-				}
-			}
+			
 			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -25577,18 +25442,7 @@ allow_branch = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_subject = FOR
-				}
-				FOR = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-					add_ideas = MAN_hydroelectric_power
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			
 
 			524 = {
 				add_building_construction = {
@@ -25706,17 +25560,7 @@ allow_branch = {
 				add_dynamic_modifier = { modifier = JAP_regional_development }
 			}
 
-			IF = {
-				limit = {
-					has_subject = PLU
-				}
-				PLU = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			
 
 			if = {
 				limit = {
