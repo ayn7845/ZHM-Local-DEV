@@ -166,3 +166,8 @@ controls_more_than_half_ethiopian_owned_states = {
 	}
 }
 
+ETH_is_horn_of_africa_original_tag = {
+	OR = {
+		always = no 
+	}
+}
