@@ -6008,7 +6008,7 @@ ITA_create_francesco_de_martini_operative = { #INITIAL
 		traits = { operative_commando operative_demolition_expert operative_linguist }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ITA SYR ETH }
+		nationalities = { ITA ETH }
 	}
 }
 
@@ -6019,7 +6019,7 @@ ITA_create_paolo_caccia_dominioni_operative = { #INITIAL
 		traits = { operative_safe_cracker operative_tough operative_escape_artist }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ITA EGY }
+		nationalities = { ITA }
 	}
 }
 

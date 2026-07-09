@@ -6662,74 +6662,7 @@ SOV_upgrade_appropriate_materiel_designer_3_effect = {
 ##   # #  #  # #         ##  #  #  ##  #  #  ##  #  #     ##  #    ### #  # ###  #  ##
 
 
-SOV_increase_church_power = {
-	if = {
-		limit = { has_idea = SOV_church_power_4 }
-		add_political_power = 25
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_3 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_3
-			add_idea = SOV_church_power_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_2 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_2
-			add_idea = SOV_church_power_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_1 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_1
-			add_idea = SOV_church_power_2
-		}
-	}
-	else = {
-		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = SOV_church_power_1
-				add_idea = SOV_church_power_2
-			}
-		}
-	}
-}
 
-SOV_decrease_church_power = {
-	if = {
-		limit = { has_idea = SOV_church_power_1 }
-		add_political_power = -25
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_2 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_2
-			add_idea = SOV_church_power_1
-		}
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_3 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_3
-			add_idea = SOV_church_power_2
-		}
-	}
-	else_if = {
-		limit = { has_idea = SOV_church_power_4 }
-		swap_ideas = {
-			remove_idea = SOV_church_power_4
-			add_idea = SOV_church_power_3
-		}
-	}
-	else = {
-		effect_tooltip = {
-			add_political_power = -25
-		}
-	}
-}
 
 ###########################################################################################################################
 
@@ -8231,12 +8164,8 @@ SOV_left_opposition_civil_war_start = {
 	SOV_launch_wreckers = yes
 
 	# Check Foreign Funds
-	IF = {
-		limit = { has_completed_focus = SOV_funds_for_the_cause }
-		add_timed_idea = {
-			idea = SOV_foreign_funds_idea
-			days = 365
-		}
+	IF = { 
+
 	}
 
 }
@@ -8262,13 +8191,7 @@ SOV_right_opposition_civil_war_start = {
 	}
 
 	# Reverse the collectivisation process
-	IF = {
-		limit = { has_completed_focus = SOV_reverse_the_collectivization_process }
-		add_timed_idea = {
-			idea = SOV_support_from_farmers
-			days = 365
-		}
-	}
+	
 
 	### Set up special units
 	# The Support of the NKVD
@@ -8612,19 +8535,7 @@ SOV_exiles_civil_war_start = {
 	
 }
 
-SOV_launch_wreckers = {
-	IF = {
-		limit = {
-			has_country_flag = SOV_organize_wreckers_flag
-		}
-		SOS = {
-			add_timed_idea = {
-				idea = SOV_organized_wreckers_idea
-				days = 365
-			}
-		}
-	}
-}
+
 
 SOV_the_eyes_fear_units = {
 	# Don't try to cheat ;)
