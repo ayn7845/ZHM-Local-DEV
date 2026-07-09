@@ -4972,12 +4972,9 @@ focus_tree = {
 								is_subject_of = VIC
 							}
 							OR = {
-								original_tag = VIN
-								original_tag = CAM
-								original_tag = LAO
-								original_tag = CHM
+								
 								original_tag = SIA
-								original_tag = BRM
+								
 							}
 						}
 					}
@@ -4997,12 +4994,9 @@ focus_tree = {
 							is_subject_of = VIC
 						}
 						OR = {
-							original_tag = VIN
-							original_tag = CAM
-							original_tag = LAO
-							original_tag = CHM
+							
 							original_tag = SIA
-							original_tag = BRM
+						
 						}
 					}
 					
