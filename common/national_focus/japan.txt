@@ -104,129 +104,13 @@ focus_tree = {
 	inlay_window = {
 		id = jap_imperial_influence_inlay_window
 		
-		position = { X = 10000 y = 700 }
-
-		override_position = {
-			x = 6800
-			y = 700
-			trigger = {
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				NOT = {
-					has_completed_focus = JAP_support_the_kodoha_faction
-					has_completed_focus = JAP_strengthen_civilian_government
-					has_completed_focus = JAP_the_unthinkable_option
-					has_completed_focus = JAP_sea_purge_the_kodoha_faction
-				}
-			}
-		}
-
-		override_position = {
-			x = 4400
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_sea_purge_the_kodoha_faction
-			}
-		}
-
-		override_position = {
-			x = 6000
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
-			}
-		}
-
-		override_position = {
-			x = 4100
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_okadas_military_purge_speech
-				NOT = {
-					has_completed_focus = JAP_organize_a_general_election
-					has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
-				}
-			}
-		}
-
-		override_position = {
-			x = 3000
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_organize_a_general_election
-			}
-		}
-
-		override_position = {
-			x = 3000
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
-			}
-		}
-
-		override_position = {
-			x = 2000
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_support_the_kodoha_faction
-			}
-		}
-
-		override_position = {
-			x = 1500
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_strengthen_civilian_government
-			}
-		}
-
-		override_position = {
-			x = 1700
-			y = 700
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_the_unthinkable_option
-			}
-		}
+		position = { X = 10000 y = 1300 }
 
 	}
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 1200 }
+	continuous_focus_position = { x = 8750 y = 1400 }
 
 
 	focus = {
@@ -457,218 +341,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		completion_reward = {
-			JAP_small_government_faction_gain = yes
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			hidden_effect = {
-				if = {
-					limit = {
-						has_country_leader = { id = 700 ruling_only = yes }
-					}
-					remove_country_leader_trait = imperial_sanction
-				}
-			}
-
-			remove_ideas = JAP_the_unthinkable_option
-
-			set_capital = { state = 532 }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					MAN = { is_subject_of = ROOT }
-				}
-				set_autonomy = { target = MAN autonomy_state = autonomy_free } 
-			}
-
-			IF = {
-				limit = {
-					MEN = { is_subject_of = ROOT }
-				}
-				set_autonomy = { target = MEN autonomy_state = autonomy_free }
-				MAN = {
-					set_autonomy = { target = MEN autonomy_state = autonomy_integrated_puppet }
-				}
-			}
-
-			IF = {
-				limit = {
-					KOR = { is_subject_of = ROOT }
-				}
-				set_autonomy = { target = KOR autonomy_state = autonomy_free }
-				KOR = {
-					drop_cosmetic_tag = yes
-					retire_country_leader = yes
-				}
-			}
-
-			IF = {
-				limit = {
-					MAN = { has_idea = MAN_kwantung_veto }
-				}
-				MAN = { remove_ideas = MAN_kwantung_veto }
-			}
-
-			start_civil_war = {
-				ruling_party = communism
-				ideology = fascism
-				size = 0.5	#This was too much for AI
-				capital = 282
-				states = { 282 533 536 555 529 530 528 526 524 645 648 646 647 684 633 609 745 527 525 1018 }
-				keep_unit_leaders = {
-					750 751 752
-				}
-			}
-
-			custom_effect_tooltip = cast_the_die_TT
-			
-			hidden_effect = {
-
-				division_template = { name = "Japanese People's Regiment" division_names_group = JAP_INF_01 is_locked = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 1 y = 0 } infantry = { x = 2 y = 0 } } }
-
-				532 = {
-					create_unit = { 
-						division = "name = \"1. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"2. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"3. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"4. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"5. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-				}
-
-				531 = {
-					create_unit = { 
-						division = "name = \"6. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"7. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"8. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"9. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"10. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-				}
-
-				534 = {
-					create_unit = { 
-						division = "name = \"11. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"12. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-				}
-
-				535 = {
-					create_unit = { 
-						division = "name = \"13. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-					create_unit = { 
-						division = "name = \"14. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-				}
-
-				537 = {
-					create_unit = { 
-						division = "name = \"15. Japanese People's Regiment\" division_template = \"Japanese People's Regiment\" start_experience_factor = 0" 
-						owner = ROOT
-					}
-				}
-
-			}
-
-			hidden_effect = {
-
-				random_other_country = {
-					limit = {
-						original_tag = JAP
-						has_government = fascism
-					}
-
-					hidden_effect = {
-
-						division_template = { name = "Japanese Loyalist Regiment" division_names_group = JAP_INF_01 is_locked = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 1 y = 0 } infantry = { x = 2 y = 0 } } }
-
-						529 = {
-							create_unit = { 
-								division = "name = \"1. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"2. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"3. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"4. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"5. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-						}
-
-						530 = {
-							create_unit = { 
-								division = "name = \"6. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"7. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-						}
-
-						533 = {
-							create_unit = { 
-								division = "name = \"8. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-							create_unit = { 
-								division = "name = \"9. Japanese Loyalist Regiment\" division_template = \"Japanese Loyalist Regiment\" start_experience_factor = 0" 
-								owner = PREV
-							}
-						}
-
-					}
-				}
-
-			}
-
-			add_stability = -0.1
+		completion_reward = { 
 
 		}
 
@@ -2015,20 +1688,7 @@ allow_branch = {
 					}
 				}
 			}
-			MEN = {
-				every_owned_state = {
-					limit = {
-						is_fully_controlled_by = MEN
-						is_owned_by = MEN
-						MEN = { is_puppet_of = JAP }
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
+			
 		}
 	}
 
@@ -2365,40 +2025,8 @@ allow_branch = {
 				}
 			}
 
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					611 = {
-						IF = {
-							limit = { 
-								is_controlled_by = PREV 
-								any_province_building_level = {
-									province = {
-										id = 1137
-										id = 6904
-										id = 9776
-									}
-									building = bunker
-									level < 5
-								}
-							}
-							add_building_construction = {
-								type = bunker
-								level = 3
-								province = {
-									id = 1137
-									id = 6904
-									id = 9776
-								}
-								instant_build = yes
-							}
-						}
-					}
-				}
+			IF = { 
+
 			}
 			ELSE_IF = {
 				limit = {
@@ -2996,49 +2624,8 @@ allow_branch = {
 
 			country_event = { id = wtt_japan.114 }
 
-			effect_tooltip = {
-				if = {
-					limit = {
-						MAN = { is_subject_of = ROOT }
-					}
-					set_autonomy = { target = MAN autonomy_state = autonomy_free }
-				}
-				if = {
-					limit = {
-						KOR = { is_subject_of = ROOT }
-					}
-					set_autonomy = { target = KOR autonomy_state = autonomy_free }
-					KOR = {
-						retire_country_leader = yes
-					}
-				}
-				if = {
-					limit = {
-						MAN = { has_idea = MAN_kwantung_veto }
-					}
-					MAN = { remove_ideas = MAN_kwantung_veto }
-				}
-				if = {
-					limit = {
-						MEN = { is_subject_of = ROOT }
-					}
-					MAN = { puppet = MEN }
-				}
-				add_popularity = { ideology = democratic popularity = 0.1 }
-				start_civil_war = {
-					ruling_party = democratic
-					ideology = fascism
-					size = 0.5
-				}
-				if = {
-					limit = {
-						any_controlled_state = {
-							is_core_of = KOR
-						}
-					}
-					release = KOR
-					set_autonomy = { target = KOR autonomy_state = autonomy_free }
-				}
+			effect_tooltip = { 
+				
 			}
 
 		}
@@ -3384,8 +2971,8 @@ allow_branch = {
 			factor = 1
 		}
 
-		available = {
-			NOT = { has_war_with = KOR }
+		available = { 
+
 		}
 
 		bypass = {
@@ -3398,51 +2985,8 @@ allow_branch = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			IF = {
-				limit = {
-					country_exists = KOR
-					has_government = democratic
-				}
-				KOR = { 
-					country_event = {
-						id = generic.5
-						hours = 2 
-					}
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					country_exists = KOR
-					NOT = { has_government = democratic }
-					is_subject = no
-				}
-				KOR = { add_timed_idea = { idea = democratic_influence days = 360 } }
-			}
-			ELSE_IF = {
-				limit = {
-					has_full_control_of_state = 525
-					has_full_control_of_state = 527
-					KOR = { exists = no }
-				}
-				activate_mission_tooltip = JAP_release_korea
-				set_country_flag = JAP_release_korea_activate
-			}
-			ELSE_IF = {
-				limit = {
-					MAN = {
-						has_government = fascism
-						has_full_control_of_state = 525
-						has_full_control_of_state = 527
-					}
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = MAN
-					expire = 0
-					generator = { 525 527 }
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -5400,27 +4944,12 @@ allow_branch = {
 			factor = 1
 		}
 
-		available = {
-			OR = {
-				KOR = {
-					exists = yes
-					is_subject_of = ROOT
-				}
-				KOR = {
-					all_core_state = {
-						is_owned_by = ROOT
-					}
-				}
-			}
+		available = { 
+
 		}
 
-		bypass = {
-			KOR = {
-				exists = yes
-				NOT = {
-					is_subject_of = ROOT
-				}
-			}
+		bypass = { 
+
 		}
 
 		cancel_if_invalid = yes
@@ -5429,44 +4958,8 @@ allow_branch = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_MANPOWER }
 
-		completion_reward = {
-				
-			IF = {
-				limit = {
-					KOR = {
-						exists = yes
-						is_ally_with = ROOT
-					}
-				}
-				KOR = {
-					country_event = {
-						id = SEA_japan_foreign_policy.76
-						hours = 12
-						random_hours = 24
-					}	
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					KOR = {
-						all_core_state = {
-							is_owned_by = ROOT
-						}
-					}
-				}
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-					}
-					add_compliance = 25
-					add_extra_state_shared_building_slots = 1
-				}
-			}
+		completion_reward = { 
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = JAP_integrate_the_government_general_tt
-			
 		}
 	}
 
@@ -7004,49 +6497,9 @@ allow_branch = {
 		x = 70
 		y = 0
 		
-		relative_position_id = JAP_okadas_military_purge_speech
+		#relative_position_id = JAP_okadas_military_purge_speech
 
-		offset = {
-			x = -58
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_sea_purge_the_kodoha_faction
-					has_dlc = "No Compromise, No Surrender"
-				}
-			}
-		}
-
-		offset = {
-			x = -26
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_sea_purge_the_kodoha_faction
-					NOT = {
-						has_dlc = "No Compromise, No Surrender"
-					}
-				}
-			}
-		}
-
-		offset = {
-			x = -33
-			y = 0
-			trigger = {
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-			}
-		}
+	
 
 		cost = 0
 
@@ -7054,22 +6507,8 @@ allow_branch = {
 			factor = 4
 		}
 
-		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = JAP_the_unthinkable_option
-					has_completed_focus = JAP_support_the_kodoha_faction
-					has_completed_focus = JAP_strengthen_civilian_government
-					has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
-					has_completed_focus = JAP_okadas_military_purge_speech
-				}
-			}
+		allow_branch = { 
+
 		}
 
 		available = {
@@ -7366,7 +6805,7 @@ allow_branch = {
 		id = JAP_the_harakiri_debate
 		icon = GFX_focus_JAP_the_harakiri_debate
 		mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_promulgate_the_military_ministers_system
 
@@ -7489,7 +6928,7 @@ allow_branch = {
 		id = JAP_new_order_in_east_asia
 		icon = GFX_focus_JAP_new_order_in_east_asia
 		#mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = JAP_konoes_first_cabinet
 
@@ -10994,7 +10433,7 @@ allow_branch = {
 
 		}
 
-		will_lead_to_war_with = MEN
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -11131,7 +10570,7 @@ allow_branch = {
 		}
 
 		available = {
-			has_subject = MEN
+			
 			JAP_army_faction_is_at_least_influential = yes
 		}
 
@@ -11149,33 +10588,13 @@ allow_branch = {
 
 		completion_reward = {
 
-			MEN = {
-				country_event = {
-					id = SEA_japan_foreign_policy.27
-					hours = 2
-				}	
-			}
+			
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 
-				MEN = {
-					drop_cosmetic_tag = yes
-					set_cosmetic_tag = MEN_mongol_autonomy
-					add_political_power = 150
-					add_war_support = 0.1
-				}
+				
 
-				MON = {
-					every_core_state = {
-						limit = {
-							NOT = {
-								is_core_of = MEN
-								is_claimed_by = MEN
-							}
-						}
-						add_claim_by = MEN
-					}
-				}
+				
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -14175,40 +13594,8 @@ allow_branch = {
 				}
 			}
 
-			IF = {
-				limit = {
-					MEN = {
-						is_subject_of = ROOT
-					}
-				}
-				MEN = {
-					611 = {
-						IF = {
-							limit = { 
-								is_controlled_by = PREV 
-								any_province_building_level = {
-									province = {
-										id = 1137
-										id = 6904
-										id = 9776
-									}
-									building = bunker
-									level < 5
-								}
-							}
-							add_building_construction = {
-								type = bunker
-								level = 3
-								province = {
-									id = 1137
-									id = 6904
-									id = 9776
-								}
-								instant_build = yes
-							}
-						}
-					}
-				}
+			IF = { 
+
 			}
 			ELSE_IF = {
 				limit = {
@@ -14302,16 +13689,7 @@ allow_branch = {
 						add_ideas = JAP_mongolian_independence_army_reestablished_idea
 					}
 				}
-				IF = {
-					limit = {
-						MEN = {
-							is_ally_with = ROOT
-						}
-					}
-					MEN = {
-						add_ideas = JAP_mongolian_independence_army_reestablished_idea
-					}
-				}
+				
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -14330,20 +13708,7 @@ allow_branch = {
 					MAN_urzhin_garmaev = { set_nationality = ROOT }
 				}
 			}
-			IF = {
-				limit = {
-					MEN = {
-						exists = no
-						611 = { # South Chahar
-							is_owned_and_controlled_by = ROOT
-						}
-					}
-				}
-				MEN = {
-					MEN_jodbajab = { set_nationality = ROOT }
-					MEN_li_shouxin = { set_nationality = ROOT }
-				}
-			}
+			
 
 			hidden_effect = {
 
@@ -18724,35 +18089,15 @@ allow_branch = {
 			factor = 1
 		}
 
-		available = {
-			has_government = communism 
-			is_subject = no
-			KOR = {
-				exists = yes
-				is_subject = no
-				has_civil_war = no
-				NOT = {
-					is_ally_with = ROOT
-					has_war_with = ROOT
-					has_government = communism
-				}
-			}
+		available = { 
+
 		}
 
-		bypass = {
-			KOR = {
-				OR = {
-					exists = no
-					has_civil_war = yes
-					is_subject = yes 
-					is_ally_with = ROOT
-					has_war_with = ROOT
-					has_government = communism
-				}
-			}
+		bypass = { 
+
 		}
 
-		will_lead_to_war_with = KOR
+	
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -18760,16 +18105,8 @@ allow_branch = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-				
-			KOR = {
-				country_event = {
-					id = SEA_japan_foreign_policy.131
-					hours = 6
-				}	
-			}
-			custom_effect_tooltip = JAP_ignite_the_korean_peninsula_tt
-			
+		completion_reward = { 
+
 		}
 	
 
@@ -18967,13 +18304,7 @@ allow_branch = {
 						has_war_with = ROOT
 					}
 				}
-				MEN = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
+				
 				MON = {
 					exists = yes
 					NOT = {
@@ -18988,20 +18319,8 @@ allow_branch = {
 						has_war_with = ROOT
 					}
 				}
-				KUM = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-				BYA = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
+				
+				
 			}
 		}
 
@@ -19009,11 +18328,10 @@ allow_branch = {
 
 		}
 
-		will_lead_to_war_with = MEN
+		
 		will_lead_to_war_with = MON
 		will_lead_to_war_with = TAN
-		will_lead_to_war_with = KUM
-		will_lead_to_war_with = BYA
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -19026,11 +18344,10 @@ allow_branch = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = MEN
-						original_tag = MON
+						
+						
 						original_tag = TAN
-						original_tag = KUM
-						original_tag = BYA
+						
 					}
 					exists = yes
 					NOT = {
@@ -19087,24 +18404,17 @@ allow_branch = {
 
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = FRA
-		will_lead_to_war_with = MAL
-		will_lead_to_war_with = SNG
-		will_lead_to_war_with = BRM
-		will_lead_to_war_with = VIN
-		will_lead_to_war_with = CAM
-		will_lead_to_war_with = LAO
-		will_lead_to_war_with = CHM
+	
+		
 		will_lead_to_war_with = SIA
 		will_lead_to_war_with = PHI
-		will_lead_to_war_with = MAL
-		will_lead_to_war_with = SNG
-		will_lead_to_war_with = INS
+		
+		
+		
 		will_lead_to_war_with = HOL
 		will_lead_to_war_with = AST
 		will_lead_to_war_with = NZL
-		will_lead_to_war_with = SAR
-		will_lead_to_war_with = SAB
-		will_lead_to_war_with = BRN
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -19117,23 +18427,17 @@ allow_branch = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = MAL
-						original_tag = SNG
-						original_tag = BRM
-						original_tag = VIN
-						original_tag = CAM
-						original_tag = LAO
-						original_tag = CHM
+						
+						
+						
+					
+						
 						original_tag = SIA
 						original_tag = PHI
-						original_tag = MAL
-						original_tag = SNG
-						original_tag = INS
+						
 						original_tag = AST
 						original_tag = NZL
-						original_tag = SAR
-						original_tag = SAB
-						original_tag = BRN
+						
 					}
 					is_subject = no
 					NOT = {
@@ -19869,61 +19173,15 @@ allow_branch = {
 			factor = 1
 		}
 
-		available = {
-			OR = {
-				PLU = {
-					exists = yes
-					NOT = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-				FOR = {
-					exists = yes
-					NOT = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-				KOR = {
-					exists = yes
-					NOT = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-			}	
+		available = { 
+
 		}
 
-		bypass = {
-			AND = {
-				PLU = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-				FOR = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-				KOR = {
-					OR = {
-						exists = no
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				}
-			}
+		bypass = { 
+
 		}
 
-		will_lead_to_war_with = FOR
-		will_lead_to_war_with = PLU
-		will_lead_to_war_with = KOR
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -19931,63 +19189,8 @@ allow_branch = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-				
-			PLU = {
-				every_core_state = {
-					add_claim_by = ROOT
-				}
-			}
-			FOR = {
-				every_core_state = {
-					add_claim_by = ROOT
-				}
-			}
-			KOR = {
-				every_core_state = {
-					add_claim_by = ROOT
-				}
-			}
+		completion_reward = { 
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					PLU = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = PLU
-					expire = 0
-				}	
-			}
-			IF = {
-				limit = {
-					FOR = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = FOR
-					expire = 0
-				}	
-			}
-			IF = {
-				limit = {
-					KOR = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = KOR
-					expire = 0
-				}	
-			}
-			
 		}
 
 	}
@@ -24328,103 +23531,7 @@ allow_branch = {
 		x = 16
 		y = 0
 
-		offset = {
-			x = -62
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_okadas_military_purge_speech
-				}
-			}
-		}
-
-		offset = {
-			x = -42
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
-				}
-			}
-		}
-
-		offset = {
-			x = -50
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_support_the_kodoha_faction
-				}
-			}
-		}
-
-		offset = {
-			x = -55
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_strengthen_civilian_government
-				}
-			}
-		}
-
-		offset = {
-			x = -53
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_the_unthinkable_option
-				}
-			}
-		}
-
-		offset = {
-			x = -4
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
-				}
-			}
-		}
-
-		offset = {
-			x = -4
-			y = 0
-			trigger = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = JAP_organize_a_general_election
-				}
-			}
-		}
+		
 
 		cost = 5
 
@@ -25970,10 +25077,7 @@ allow_branch = {
 		available = {
 			OR = {
 				has_subject = MAN
-				has_subject = KOR
-				has_subject = MEN
-				has_subject = FOR
-				has_subject = PLU
+			
 				524 = {
 					state_is_fully_controlled_by_ROOT_or_subject = yes
 				}
@@ -25998,20 +25102,14 @@ allow_branch = {
 				limit = {
 					OR = {
 						has_subject = MAN
-						has_subject = KOR
-						has_subject = MEN
-						has_subject = FOR
-						has_subject = PLU
+						
 					}
 				}
 				random_subject_country = {
 					limit = {
 						OR = {
 							original_tag = MAN
-							original_tag = KOR
-							original_tag = MEN
-							original_tag = FOR
-							original_tag = PLU
+							
 						}
 					}
 					random_core_state = {
@@ -26378,9 +25476,7 @@ allow_branch = {
 						state_is_fully_controlled_by_ROOT_or_subject = yes
 					}
 				}
-				KOR = {
-					is_ally_with = ROOT
-				}
+				
 			}
 		}
 
@@ -26978,11 +26074,12 @@ allow_branch = {
 			factor = 3
 		}
 		
-		available = { 
-		1031 = { 
-			is_controlled_by = ROOT
+		available = {
+			AND = { 
+				controls_state = 1030
+				controls_state = 1031
 			}
-		}
+		}	
 
 		bypass = {
 			
@@ -26995,70 +26092,24 @@ allow_branch = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-					add_timed_idea = {
-						idea = JAP_japanese_investments
-						days = 720
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR  = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = PREV
-							free_building_slots = {
-								building = industrial_complex
-								size > 1
-								include_locked = yes
-							}
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
-			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					random_select_amount = 2
-					add_extra_state_shared_building_slots = 1
+			1030 = { 
+				add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
 						level = 1
 						instant_build = yes
+						}
+					}
+			1031 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
 					}
 				}
 			}
-
 		}
-		
-	}
 
 	focus = {
 		id = JAP_increase_agricultural_export
@@ -27081,12 +26132,9 @@ allow_branch = {
 		}
 
 		available = {
-			OR = {
-				has_subject = KOR
-				any_controlled_state = {
-					is_core_of = KOR
-					is_fully_controlled_by = ROOT
-				}
+			AND = { 
+				controls_state = 525
+				controls_state = 527
 			}
 		}
 
@@ -27102,30 +26150,23 @@ allow_branch = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = KOR
+		525 = { 
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
 						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
+					}
+			527 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
 					}
 				}
-			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-					}
-					random_select_amount = 2
-					add_extra_state_shared_building_slots = 1
-				}
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -27174,18 +26215,7 @@ allow_branch = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					KOR = {
-						exists = yes
-						is_ally_with = ROOT
-					}
-				}
-				KOR = {
-					add_ideas = MAN_hydroelectric_power
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			
 			1029 = {
 				add_building_construction = {
 					type = dam
@@ -27225,15 +26255,7 @@ allow_branch = {
 			OR = {
 				controls_state = 527
 				controls_state = 1028
-				AND = {
-					has_subject = KOR
-					KOR = {
-						OR = {
-							controls_state = 527
-							controls_state = 1028
-						}
-					}
-				}
+				
 			}
 		}
 
@@ -27249,15 +26271,7 @@ allow_branch = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {				
-					add_war_support = 0.15
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			
 
 			IF = {
 				limit = {
@@ -27380,10 +26394,10 @@ allow_branch = {
 		}
 
 		available = {
-			OR = {
+			
 				controls_state = 525
-				has_subject = KOR
-			}
+				
+			
 		}
 
 		bypass = {
@@ -27398,25 +26412,10 @@ allow_branch = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {
-					add_war_support = 0.1
-					add_manpower = 25000
-					add_equipment_to_stockpile = { 
-						type = infantry_equipment
-						amount = 15000 
-						producer = ROOT
-					}	
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			ELSE = {
+			
 				add_manpower = 30000
 				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+		
 
 			IF = {
 				limit = {
