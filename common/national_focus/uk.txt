@@ -10269,7 +10269,7 @@ focus_tree = {
 			
 		}
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		will_lead_to_war_with = BRM
+		#will_lead_to_war_with = BRM
 		x = 1
 		y = 2
 		relative_position_id = ENG_imperial_conscription
