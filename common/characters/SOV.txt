@@ -2163,9 +2163,7 @@ characters = {
 			}
 			
 			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
-				}
+				
 			}
 			available = {
 				if = {
@@ -2207,9 +2205,7 @@ characters = {
 				original_tag = SOV
 			}
 			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
-				}
+				
 			}
 			available = {
 				if = {
@@ -2257,9 +2253,7 @@ characters = {
 			}
 			
 			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
-				}
+				
 			}
 			traits = {
 				captain_of_industry 
