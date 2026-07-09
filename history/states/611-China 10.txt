@@ -7,7 +7,7 @@ state = {
 
 	history = {
 
-		owner = CHI
+		owner = MAN
 		add_core_of = WST
 		add_core_of = CHI
 
