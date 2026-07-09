@@ -1650,7 +1650,7 @@ focus_tree = {
 		icon = GFX_goal_generic_national_unity
 		x = 4
 		y = 1
-		relative_position_id = SPR_crush_the_revolution
+		relative_position_id = SPR_no_pasaran
 		cost = 10
 
 		available_if_capitulated = yes

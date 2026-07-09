@@ -4282,13 +4282,7 @@ focus_tree = {
 			focus = BRA_guyana_crisis
 		}
 		bypass = {
-			PAR = {
-				OR = {
-					is_in_faction_with = ROOT
-					exists = no
-					is_subject_of = ROOT
-				}
-			}
+			
 		}
 		x = 1
 		y = 1
