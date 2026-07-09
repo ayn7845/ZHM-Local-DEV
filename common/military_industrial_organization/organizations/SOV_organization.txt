@@ -171,22 +171,7 @@ SOV_morozov_design_bureau_organization = {
 		}
 	}
 	visible = {
-		IF = {
-			limit = {
-				has_dlc = "No Compromise, No Surrender"
-				FROM = { original_tag = CHI }
-			}
-			FROM = { 
-				OR ={
-					has_completed_focus = CHI_utilize_the_albazinian_contact
-					has_completed_focus = CHI_secure_the_soviet_border
-				} 
-				NOT = {
-					has_country_flag = SOV_accepted_Astrov
-					has_country_flag = SOV_accepted_OKMO
-				}
-			}
-		}
+		
 	}
 
 	add_trait = { 
@@ -330,22 +315,7 @@ SOV_astrov_design_bureau_organization = {
 		}
 	}
 	visible = {
-		IF = {
-			limit = {
-				has_dlc = "No Compromise, No Surrender"
-				FROM = { original_tag = CHI }
-			}
-			FROM = { 
-				OR ={
-					has_completed_focus = CHI_utilize_the_albazinian_contact
-					has_completed_focus = CHI_secure_the_soviet_border
-				} 
-				NOT = {
-					has_country_flag = SOV_accepted_Morozov
-					has_country_flag = SOV_accepted_OKMO
-				}
-			}
-		}
+		
 	}
 
 	add_trait = { 
@@ -512,22 +482,7 @@ SOV_okmo_organization = {
 		}
 	}
 	visible = {
-		IF = {
-			limit = {
-				has_dlc = "No Compromise, No Surrender"
-				FROM = { original_tag = CHI }
-			}
-			FROM = { 
-				OR ={
-					has_completed_focus = CHI_utilize_the_albazinian_contact
-					has_completed_focus = CHI_secure_the_soviet_border
-				} 
-				NOT = {
-					has_country_flag = SOV_accepted_Morozov
-					has_country_flag = SOV_accepted_Astrov
-				}
-			}
-		}
+		
 	}
 
 	override_trait = {
