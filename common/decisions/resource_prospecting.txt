@@ -8848,11 +8848,8 @@ prospect_for_resources = {
 			num_of_civilian_factories_available_for_projects > 4
 			owns_state = 688
 			controls_state = 688
-			if = {
-				limit = {
-					original_tag = PAR
-				}
-				has_completed_focus = GUAY_exploit_mineral_wealth
+			if = { 
+
 			}
 			else = {
 				hidden_trigger = {
@@ -8886,10 +8883,9 @@ prospect_for_resources = {
 			modifier = {
 				factor = 20 
 				OR = {
-					original_tag = PAR
-					original_tag = BOL
+					
 					original_tag = ARG
-					original_tag = BRA
+				
 				}
 			}
 			modifier = {  # Too low PP
