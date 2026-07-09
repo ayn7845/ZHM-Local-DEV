@@ -27,6 +27,43 @@ ideas = {
 
 			
 		}
+		AUS_treaty_of_saint_germain_en_laye = {
+			allowed = {
+				always = no
+				tag = AUS
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				has_war = yes
+			}
+
+			removal_cost = -1
+			picture = AUS_treaty_of_saint_germain_en_laye
+			modifier = {
+				production_speed_arms_factory_factor = -0.75
+				industrial_capacity_factory = -0.5
+				production_speed_facility_factor = -1
+				custom_modifier_tooltip = AUS_treaty_of_saint_germain_en_laye_tt
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = AUS_treaty_of_saint_germain_en_laye_tt_2
+			}
+
+			rule = {
+				can_send_volunteers = no
+			}
+
+			on_remove = {
+				country_lock_all_division_template = no
+				set_rule = {
+					can_send_volunteers = yes
+				}
+			}
+		}
 	}
 
 	# TECHNOLOGY
