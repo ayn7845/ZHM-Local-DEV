@@ -200,7 +200,7 @@ focus_tree = {
 		}
 
 		cancel_if_invalid = yes
-		continue_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = no
 		search_filters = {FOCUS_FILTER_MANPOWER}
 		completion_reward = {
@@ -711,12 +711,11 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				has_war_with = CSA
-				has_global_flag = USA_civil_war_fired
-			}
+			
 		}
-		
+		allow_branch = { 
+			always = no
+		}
 		bypass = {
 
 		}
