@@ -4392,8 +4392,7 @@ allow_branch = {
 
 		}
 
-		will_lead_to_war_with = SIK
-		will_lead_to_war_with = PRC
+		
 		will_lead_to_war_with = MON
 		will_lead_to_war_with = TAN
 
@@ -7147,7 +7146,7 @@ allow_branch = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		will_lead_to_war_with = PRC
+		
 
 		search_filters = {  }
 
@@ -7189,10 +7188,7 @@ allow_branch = {
 						}
 						add_opinion_modifier = { target = CHI modifier = sino_japanese_alliance_threat }
 					}
-					declare_war_on = {
-						target = PRC
-						type = annex_everything
-					}	
+					
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				ROOT = {
@@ -10470,7 +10466,7 @@ allow_branch = {
 
 		}
 
-		will_lead_to_war_with = SHX
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -11604,22 +11600,14 @@ allow_branch = {
 		}
 
 		available = {
-			AFG = {
-				exists = yes
-				NOT = {
-					has_war_with = ROOT
-					is_ally_with = ROOT
-				}
-			}
+			always = no
 		}
 
 		bypass = {
-			AFG = {
-				has_war_with = ROOT
-			}
+		
 		}
 
-		will_lead_to_war_with = AFG
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -11629,25 +11617,11 @@ allow_branch = {
 
 		completion_reward = {
 
-			AFG = {
-				every_core_state = {
-					limit = {
-						NOT = {
-							is_core_of = ROOT
-							is_claimed_by = ROOT
-						}
-					}
-					add_claim_by = ROOT
-				}
-			}
+		
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			create_wargoal = {
-				type = annex_everything
-				target = AFG
-				expire = 0
-			}	
+			
 			
 		}
 	}
@@ -12119,7 +12093,7 @@ allow_branch = {
 
 		will_lead_to_war_with = AST
 		will_lead_to_war_with = NZL
-		will_lead_to_war_with = PNG
+		
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
@@ -12168,25 +12142,7 @@ allow_branch = {
 					expire = 0
 				}	
 			}
-			IF = {
-				limit = {
-					PNG = {
-						exists = yes
-						NOT = {	
-							is_ally_with = ROOT
-						}
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_wargoal = {
-					type = annex_everything
-					target = PNG
-					expire = 0
-				}	
-			}
+			
 			
 		}
 	}
@@ -12504,7 +12460,7 @@ allow_branch = {
 		}
 
 		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
+		
 
 		cancel_if_invalid = no
 		continue_if_invalid = yes
@@ -12754,10 +12710,8 @@ allow_branch = {
 		}
 
 		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
-		will_lead_to_war_with = CAM
-		will_lead_to_war_with = LAO
-		will_lead_to_war_with = CHM
+		
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -12833,15 +12787,9 @@ allow_branch = {
 								is_subject_of = VIC
 							}
 							OR = {
-								original_tag = VIN
-								original_tag = CAM
-								original_tag = LAO
-								original_tag = CHM
+							
 								original_tag = SIA
-								original_tag = BRM
-								original_tag = GXC
-								original_tag = GDC
-								original_tag = YUN
+								
 							}
 						}
 					}
@@ -12861,15 +12809,9 @@ allow_branch = {
 							is_subject_of = VIC
 						}
 						OR = {
-							original_tag = VIN
-							original_tag = CAM
-							original_tag = LAO
-							original_tag = CHM
+						
 							original_tag = SIA
-							original_tag = BRM
-							original_tag = GXC
-							original_tag = GDC
-							original_tag = YUN
+						
 						}
 					}
 					
@@ -13256,7 +13198,7 @@ allow_branch = {
 		}
 
 		will_lead_to_war_with = POR
-		will_lead_to_war_with = TML
+		
 
 		cancel_if_invalid = no
 		continue_if_invalid = yes
@@ -13266,18 +13208,7 @@ allow_branch = {
 
 		completion_reward = {
 			
-			IF = {
-				limit = {
-					721 = {
-						is_owned_by = TML
-					}
-				}
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = TML
-					expire = 0
-				}	
-			}
+			IF = {}
 			ELSE_IF = {
 				limit = {
 					721 = {
@@ -17958,43 +17889,16 @@ allow_branch = {
 		available = {
 			has_government = communism 
 			is_subject = no
-			OR = {
-				FOR = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
-				PLU = {
-					exists = yes
-					NOT = {
-						is_ally_with = ROOT
-						has_war_with = ROOT
-					}
-				}
+			OR = { 
+
 			}
 		}
 
-		bypass = {
-			FOR = {
-				OR = {
-					exists = no
-					is_ally_with = ROOT
-					has_war_with = ROOT
-				}
-			}
-			PLU = {
-				OR = {
-					exists = no
-					is_ally_with = ROOT
-					has_war_with = ROOT
-				}
-			}
+		bypass = { 
+
 		}
 
-		will_lead_to_war_with = FOR
-		will_lead_to_war_with = PLU
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -18002,71 +17906,8 @@ allow_branch = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-				
-			IF = {
-				limit = {
-					FOR = {
-						exists = yes
-						NOT = {
-							is_ally_with = ROOT
-							has_war_with = ROOT
-						}
-					}
-				}
-				FOR = {
-					country_event = {
-						id = SEA_japan_foreign_policy.128
-						hours = 6
-					}	
-				} 
-			}
+		completion_reward = { 
 
-			IF = {
-				limit = {
-					PLU = {
-						exists = yes
-						NOT = {
-							is_ally_with = ROOT
-							has_war_with = ROOT
-						}
-					}
-				}
-				PLU = {
-					country_event = {
-						id = SEA_japan_foreign_policy.128
-						hours = 6
-					}	
-				} 
-			}
-
-			IF = {
-				limit = {
-					AND = {
-						FOR = {
-							exists = no
-						}
-						PLU = {
-							exists = no
-						}
-					}
-				}
-				effect_tooltip = {
-					FOR = {
-						country_event = {
-							id = SEA_japan_foreign_policy.128
-							hours = 6
-						}	
-					} 
-					PLU = {
-						country_event = {
-							id = SEA_japan_foreign_policy.128
-							hours = 6
-						}	
-					} 
-				}
-			}
-			
 		}
 
 	}
@@ -18204,18 +18045,7 @@ allow_branch = {
 		}
 
 		will_lead_to_war_with = CHI
-		will_lead_to_war_with = SHX
-		will_lead_to_war_with = SND
-		will_lead_to_war_with = XSM
-		will_lead_to_war_with = GXC
-		will_lead_to_war_with = GDC
-		will_lead_to_war_with = XIC
-		will_lead_to_war_with = SIC
-		will_lead_to_war_with = KUM
-		will_lead_to_war_with = GSM
-		will_lead_to_war_with = NXM
-		will_lead_to_war_with = KHM
-		will_lead_to_war_with = HBC
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -19286,18 +19116,7 @@ allow_branch = {
 		}
 
 		will_lead_to_war_with = CHI
-		will_lead_to_war_with = SHX
-		will_lead_to_war_with = SND
-		will_lead_to_war_with = XSM
-		will_lead_to_war_with = GXC
-		will_lead_to_war_with = GDC
-		will_lead_to_war_with = XIC
-		will_lead_to_war_with = SIC
-		will_lead_to_war_with = KUM
-		will_lead_to_war_with = GSM
-		will_lead_to_war_with = NXM
-		will_lead_to_war_with = KHM
-		will_lead_to_war_with = HBC
+	
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -19517,13 +19336,7 @@ allow_branch = {
 
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = FRA
-		will_lead_to_war_with = MAL
-		will_lead_to_war_with = SNG
-		will_lead_to_war_with = BRM
-		will_lead_to_war_with = VIN
-		will_lead_to_war_with = CAM
-		will_lead_to_war_with = LAO
-		will_lead_to_war_with = CHM
+		
 		will_lead_to_war_with = SIA
 
 		cancel_if_invalid = yes
@@ -19866,9 +19679,6 @@ allow_branch = {
 
 		will_lead_to_war_with = PHI
 		will_lead_to_war_with = ENG
-		will_lead_to_war_with = MAL
-		will_lead_to_war_with = SNG
-		will_lead_to_war_with = INS
 		will_lead_to_war_with = HOL
 
 		cancel_if_invalid = yes
