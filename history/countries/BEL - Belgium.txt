@@ -253,8 +253,7 @@ set_stability = 0.75
 IF = {
 	limit = { has_dlc = "Gotterdammerung" }
 	add_ideas = {
-		BEL_language_barriers_ns
-		BEL_chasseurs_ardennais_ns
+		
 	}
 }
 

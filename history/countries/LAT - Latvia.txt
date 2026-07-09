@@ -31,7 +31,7 @@ IF = {
 	limit = { has_dlc = "No Step Back" }
 	add_ideas = {
 		
-		democratic_opposition
+		
 	}
 }
 

@@ -228,7 +228,7 @@ if = {
 	recruit_character = SPR_indalecio_prieto
 	
 	recruit_character = SPR_diego_martinez_barrio
-	recruit_character = SPR_augusto_barcia_trelles
+	
 	
 	recruit_character = SPA_luis_valdes_cavanillas
 	recruit_character = SPA_tomas_garciano_goni

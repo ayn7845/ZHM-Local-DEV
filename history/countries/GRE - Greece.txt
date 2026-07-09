@@ -190,7 +190,7 @@ if = {
 		female = no
 		nationalities = { ENG GRE }
 	}
-	recruit_character = GRE_father_dimistrios
+	
 }
 
 
