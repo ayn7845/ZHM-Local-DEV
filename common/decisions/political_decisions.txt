@@ -2086,19 +2086,7 @@ political_actions = {
 				has_completed_focus = ITA_monarchia_d_italia
 			}
 
-			modifier = {
-				add = 500
-				original_tag = SIA
-				has_idea = idea_SIA_civilian_rebellious
-			}
-
-			modifier = {
-				add = 500
-				original_tag = SIA 
-				NOT = { has_completed_focus = SIA_achieve_domestic_legitimacy }
-				has_completed_focus = SIA_to_lay_the_bait
-				NOT = { has_idea = idea_SIA_civilian_full_support }
-			}
+			
 		}
     }
 

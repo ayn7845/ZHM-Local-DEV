@@ -259,17 +259,7 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				if = {
-					limit = {
-						original_tag = AUS
-					}
-					NOT = {
-						has_idea = AUS_treaty_of_saint_germain_en_laye
-					}
-				}
-				IF = { 
-
-				}
+				
 			}
 
 			modifier = {
@@ -536,17 +526,8 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				if = {
-					limit = {
-						original_tag = AUS
-					}
-					NOT = {
-						has_idea = AUS_treaty_of_saint_germain_en_laye
-					}
-				}
-				IF = { 
-
-				}				
+				
+								
 			}
 			ai_will_do = {
    				factor = 1
@@ -810,17 +791,7 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				if = {
-					limit = {
-						original_tag = AUS
-					}
-					NOT = {
-						has_idea = AUS_treaty_of_saint_germain_en_laye
-					}
-				}
-				IF = { 
-
-				}
+				
 			}
 
 			ai_will_do = {
@@ -1060,17 +1031,8 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				if = {
-					limit = {
-						original_tag = AUS
-					}
-					NOT = {
-						has_idea = AUS_treaty_of_saint_germain_en_laye
-					}
-				}
-				IF = { 
-
-				}
+				
+				
 			}
 
 			ai_will_do = {
@@ -1298,17 +1260,8 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				if = {
-					limit = {
-						original_tag = AUS
-					}
-					NOT = {
-						has_idea = AUS_treaty_of_saint_germain_en_laye
-					}
-				}
-				IF = { 
+				
 					
-				}	
 			}
 
 			ai_will_do = {
