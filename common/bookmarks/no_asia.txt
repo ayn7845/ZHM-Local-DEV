@@ -308,7 +308,7 @@ bookmarks = {
 			focuses = {
 				SPA_caudillo_of_spain
 				SPA_national_recovery
-				SPR_expand_the_axis_gold_trade
+				SPA_expand_the_axis_gold_trade
 			}
 		}
 
