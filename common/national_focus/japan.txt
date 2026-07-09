@@ -5034,7 +5034,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-
+		allow_branch = { 
+			always = no
+		}
 		available = {
 			is_subject = no
 			is_faction_leader = yes
@@ -5355,36 +5357,21 @@ focus_tree = {
 					generator = { 671 670 286 741 }
 				}
 			}
-			IF = { 
-
-			}
-			IF = { 
-
-			}
-			IF = { 
-
-			}
-			IF = { 
-
-			}
-			IF = { 
-				
-			}
-
+		
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = {
-				decision = JAP_establish_the_state_of_burma_decision
-				show_effect_tooltip = no 
-			}
-			unlock_decision_tooltip = {
-				decision = JAP_establish_the_provisional_government_of_free_india_decision
-				show_effect_tooltip = no 
-			}	
-			unlock_decision_tooltip = {
-				decision = JAP_establish_the_second_philippine_republic_decision
-				show_effect_tooltip = no 
-			}	
+			#unlock_decision_tooltip = {
+			#	decision = JAP_establish_the_state_of_burma_decision
+			#	show_effect_tooltip = no 
+			#}
+			#unlock_decision_tooltip = {
+			#	decision = JAP_establish_the_provisional_government_of_free_india_decision
+			#	show_effect_tooltip = no 
+			#}	
+			#unlock_decision_tooltip = {
+			#	decision = JAP_establish_the_second_philippine_republic_decision
+			#	show_effect_tooltip = no 
+			#}	
 
 		}
 
