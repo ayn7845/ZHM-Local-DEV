@@ -40,11 +40,6 @@ commonwealth_let_raj_defend_itself = {
 		id = RAJ
 		value = 300
 	}
-	ai_strategy = {
-		type = dont_defend_ally_borders
-		id = BRM
-		value = 300
-	}
 
 	ai_strategy = {
 		type = area_priority
@@ -112,40 +107,6 @@ RAJ_communist_prioritize_decisions = { # ensures the AI actually has PP before g
 		id = decision
 		value = 100
 	}
-}
-
-RAJ_communist_pakistan_surrounded = {
-	allowed = {
-		original_tag = RAJ
-		OR = {
-			has_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM
-			has_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM_URBAN
-			has_game_rule = {
-				rule = RAJ_ai_behavior
-				option = GOE_INDIA_COMMUNISM	
-			}
-			has_game_rule = {
-				rule = RAJ_ai_behavior
-				option = GOE_INDIA_COMMUNISM_URBAN	
-			}
-		}
-	}
-	enable = {
-		PAK = {
-			exists = yes
-			NOT = { is_subject_of = RAJ }
-		}
-		RAJ = {
-			has_war = no
-		}
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = prepare_for_war
-		id = PAK
-		value = 10
-	}	
 }
 
 RAJ_communist_i_dont_want_a_navy = {

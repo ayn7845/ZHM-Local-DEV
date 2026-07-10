@@ -428,27 +428,14 @@ southern_thrust = {
 		has_completed_focus = SOV_the_southern_thrust
 		OR = {
 			country_exists = IRQ
-			country_exists = PER
-			country_exists = AFG
+			
 		}
 	}
 	abort = {
 		NOT = {
 			country_exists = IRQ
-			country_exists = PER
-			country_exists = AFG
+			
 		}
-	}
-
-	ai_strategy = {
-		type = antagonize
-		id = "PER"
-		value = 200
-	}
-	ai_strategy = {
-		type = antagonize
-		id = "AFG"
-		value = 150
 	}
 	ai_strategy = {
 		type = antagonize
@@ -1043,81 +1030,6 @@ SOV_dont_mess_with_volunteers_for_european_democratic_nations = { # Reverse stra
 	}
 }
 
-SOV_dont_send_volunteers_that_early_to_china = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		JAP = { has_war_with = CHI }
-		country_exists = CHI
-		CHI = {
-			surrender_progress < 0.8
-		}
-	}
-
-	abort = {
-		CHI = {
-			surrender_progress > 0.8
-		}
-		OR = {
-			#Soviet focus plans are set so that they support a Chinese tag in 39-40
-			AND = {
-				has_completed_focus = SOV_the_gobi_gambit
-				country_exists = SIK
-				SIK = { has_war_with = JAP }
-			}
-			AND = {
-				has_completed_focus = SOV_two_red_flags
-				country_exists = PRC
-				PRC = { has_war_with = JAP }
-			}
-			AND = {
-				has_completed_focus = SOV_support_the_kuomintang
-				country_exists = CHI
-				CHI = { has_war_with = JAP }
-			}
-		}
-	}
-
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "CHI"
-		value = -800
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "GXC"
-		value = -800
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "PRC"
-		value = -800
-	}
-}
-
-SOV_send_volunteers_to_sinkiang = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		SIK = { has_war_with = KHM }
-		country_exists = SIK
-	}
-
-	abort = {
-		NOT = {
-			SIK = { has_war_with = KHM }
-		}
-	}
-
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "SIK"
-		value = 999
-	}
-}
-
 SOV_dont_send_volunteers_to_japan = {
 	allowed = {
 		original_tag = SOV
@@ -1142,21 +1054,6 @@ SOV_dont_send_volunteers_to_japan = {
 	ai_strategy = {
 		type = send_volunteers_desire
 		id = "MAN"
-		value = -800
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "MEN"
-		value = -800
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "KOR"
-		value = -800
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "RNG"
 		value = -800
 	}
 }
@@ -1780,7 +1677,7 @@ SOV_molotov_active_hostile_others = {
 			original_tag = USA
 			original_tag = POL
 			original_tag = FIN
-			original_tag = SAU #Khakimov incident
+			#original_tag = SAU #Khakimov incident
 		}
 	}
 
@@ -1881,7 +1778,7 @@ SOV_litvinov_active_friendly_others = {
 			original_tag = USA
 			original_tag = POL
 			original_tag = FIN
-			original_tag = SAU #Khakimov incident
+			#original_tag = SAU #Khakimov incident
 		}
 	}
 
@@ -1941,85 +1838,10 @@ SOV_litvinov_active_hostile_others = {
 #########################
 
 #Soviets
-SOV_khakimov_proposal_sov = {
-	allowed = {
-		original_tag = SOV
-	}
 
-	enable = {
-		has_idea = SOV_maksim_litvinov
-		has_completed_focus = SOV_the_khakimov_proposal
-		SAU = {
-			has_opinion = {
-				target = SOV
-				value < 0
-			}
-			is_subject = no
-		}
-		is_subject = no
-	}
-
-	abort = {
-		OR = {
-			NOT = { has_idea = SOV_maksim_litvinov }
-			is_in_faction_with = SAU
-			SAU = { has_capitulated = yes }
-			SAU = { is_subject = no }
-			SAU = {
-				has_opinion = {
-					target = SOV
-					value > 75
-				}
-			}
-			is_subject = yes
-		}
-	}
-
-	ai_strategy = {
-		type = diplo_action_desire
-		id = SAU
-		target = befriend
-		value = 50
-	}
-	ai_strategy = {
-		type = diplo_action_desire
-		id = SAU
-		target = improve_relation
-		value = 50
-	}
-}
 
 #Soviets
-SOV_khakimov_proposal_sau = {
-	allowed = {
-		original_tag = SAU
-	}
 
-	enable = {
-		SOV = {
-			has_idea = SOV_maksim_litvinov
-			has_completed_focus = SOV_the_khakimov_proposal
-			is_subject = no
-		}
-		is_subject = no
-	}
-
-	abort = {
-		OR = {
-			SOV = { NOT = { has_idea = SOV_maksim_litvinov } }
-			is_in_faction_with = SOV
-			SOV = { has_capitulated = yes }
-			is_subject = yes
-		}
-	}
-
-	ai_strategy = {
-		type = diplo_action_desire
-		id = SOV
-		target = befriend
-		value = 25
-	}
-}
 
 SOV_unit_buffer_for_asian_threat = {
 	allowed = {
@@ -2065,82 +1887,6 @@ SOV_unit_buffer_for_asian_threat = {
 	}
 }
 
-SOV_coming_to_getcha_iran = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		has_completed_focus = SOV_preemptive_invasion_of_iran
-		PER = {
-			exists = yes
-			is_in_faction = no
-			is_subject = no
-			has_capitulated = no
-		}
-	}
-	abort = {
-		OR = {
-			surrender_progress > 0.5 #we have bigger fish to fry
-			PER = {
-				OR = {
-					exists = no
-					is_in_faction = yes
-					is_subject = yes
-					has_capitulated = yes
-				}
-			}
-		}
-	}
-	ai_strategy = {
-		type = antagonize
-		id = PER
-		value = 200
-	}
-	ai_strategy = {
-		type = conquer
-		id = PER
-		value = 200
-	}
-}
-
-SOV_ENG_tagteam_iran = {
-	allowed = {
-		OR = {
-			original_tag = SOV
-			original_tag = ENG
-			original_tag = RAJ
-		}
-	}
-	enable = {
-		has_completed_focus = SOV_preemptive_invasion_of_iran
-		has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
-		RAJ = {
-			is_in_faction_with = ENG
-		}
-		PER = {
-			exists = yes
-			is_in_faction = no
-			is_subject = no
-		}
-	}
-	abort = {
-		OR = {
-			surrender_progress > 0.5 #we have bigger fish to fry
-			PER = {
-				OR = {
-					exists = no
-					is_in_faction = yes
-					is_subject = yes
-				}
-			}
-		}
-	}
-	ai_strategy = {
-		type = conquer
-		id = PER
-		value = 200
-	}
-}
 
 SOV_boost_div_upgrades = { #lets make sure sov upgrades divs when at war
 	allowed = {
@@ -2558,12 +2304,6 @@ ALLIES_avoid_enemies_for_a_while_ww3 = {
 	}
 
 	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = conquer
-		id = PER
-		value = -200
-	}
 	ai_strategy = {
 		type = conquer
 		id = SOV
