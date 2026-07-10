@@ -100,12 +100,12 @@ italy_alt_hist = {
 	icon = "GFX_decision_ITA_claim_yugo_4"
 	default = {
 		name = on
-		text = "Italy can go A-Hist"
+		text = "On"
 		desc = ""
 	} 
 	option = {
 		name =  off
-		text = "Italy forced on Hist"
+		text = "Off"
 		desc = ""
 	}
 }
@@ -115,12 +115,12 @@ soviet_research_slot = {
 	icon = "GFX_decision_SOV_secure_the_administration"
 	option = {
 		name = on
-		text = "Soviet 4th Slot"
+		text = "On"
 		desc = ""
 	} 
 	default = {
 		name = off
-		text = "No 4th Slot"
+		text = "Off"
 		desc = ""
 	}
 
@@ -131,172 +131,189 @@ soviet_collectivized_economy = {
 	icon = "GFX_decision_SOV_secure_the_administration"
 	default = {
 		name = on
-		text = "Soviet on Collectivized"
+		text = "On"
 		desc = ""
 	} 
 	option = {
 		name = off
-		text = "Soviet NOT on Collectivized"
+		text = "Off"
 		desc = ""
 	}
 }
 soviet_eradicate_western_fascism_rule = {
-	name = "Eradicate Western Fascism Focus"
+	name = "Soviet Eradicate Western Fascism"
 	group = "HMM Rules"
 	icon = "GFX_decision_SOV_secure_the_administration"
 	option = {
 		name = yes
-		text = "Eradicate Western Fascism allowed"
+		text = "Allowed"
 		desc = ""
 	} 
 	default = {
 		name = no
-		text = "Eradicate Western Fascism banned"
+		text = "Banned"
 		desc = ""
 	}
 }
-
 Brasil_AC_rule = {
-	name = "Select if Brazil can be AC"
+	name = "Brazil AC"
 	group = "HMM Rules"
 	icon = "GFX_volunteers"
 	option = {
 		name = Brasil_AC
-		text = "Brazil can AC"
+		text = "Allowed"
 		desc = ""
 	} 
 	default = {
 		name = Brasil_no_AC
-		text = "Brazil can't AC"
+		text = "Banned"
+		desc = ""
+	}
+
+}
+
+Germany_czech_manufacturers = {
+	name = "German Czech MIO"
+	group = "HMM Rules"
+	icon = "GFX_decision_generic_GER_flag"
+	option = {
+		name = allowed
+		text = "Allowed"
+		desc = ""
+	}
+	default = {
+		name = banned
+		text = "Banned"
 		desc = ""
 	}
 
 }
 Germany_Wirtschaftswunder = {
-	name = "Select if Germany is allowed to complete Prioritize Economic Growth "
+	name = "German Prioritize Economic Growth "
 	group = "HMM Rules"
-	icon = "GFX_volunteers"
-	option = {
+	icon = "GFX_decision_ger_mefo_bills"
+	default = {
 		name = Germany_no_wirtschaftswunder
-		text = "Germany can't do the Left Side Economy Tree"
+		text = "Banned"
 		desc = ""
 	}
-	default = {
+	option = {
 		name = Germany_wirtschaftswunder
-		text = "Germany can do the Left Side Economy Tree"
+		text = "Allowed"
 		desc = ""
 	}
 
 }
+
 Germany_Cancel_Mefo= {
-	name = "Select if Germany is allowed to cancel MEFO Bills"
+	name = "cancel MEFO Bills"
 	group = "HMM Rules"
-	icon = "GFX_volunteers"
+	icon = "GFX_decision_ger_mefo_bills"
 	default = {
 		name = Germany_no_cancel_MEFO_Bills
-		text = "Germany can't cancel MEFO Bills"
+		text = "Banned"
 		desc = ""
 	}
 	option = {
 		name = Germany_cancel_MEFO_Bills
-		text = "Germany can cancel MEFO Bills"
+		text = "Allowed"
 		desc = ""
 	}
 
 }
 Germany_Fate_of_yugo= {
-	name = "Select if Germany is allowed to annex Yugoslavia"
+	name = "Fate of Yugoslavia"
 	group = "HMM Rules"
-	icon = "GFX_volunteers"
+	icon = "GFX_decision_generic_GER_flag"
 	default = {
 		name = Germany_no_fate_of_yugo
-		text = "Germany can't annex Yugoslavia"
+		text = "Banned"
 		desc = ""
 	}
 	option = {
 		name = Germany_fate_of_yugo
-		text = "Germany can annex Yugoslavia"
+		text = "Allowed"
 		desc = ""
 	}
 
 }
 urban_assault_vechile= {
-	name = "Select if Urban Assault Vehicle is allowed or not "
+	name = "Urban Assault Vehicle"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_tank"
 	default = {
 		name = off
-		text = "You CANNOT research armoured engineer company."
-		desc = "You also don't get the urban assault vehicle."
+		text = "Banned"
+		desc = ""
 	}
 	option = {
 		name = on
-		text = "You CAN research armoured engineer company"
-		desc = "You also get the urban assault vehicle."
+		text = "Allowed"
+		desc = ""
 	}
 }
 railway_gun= {
-	name = "Select if Railway Gun is allowed or not "
+	name = "Railway Gun"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_ignite_civil_war"
 	default = {
 		name = off
-		text = "You CANNOT research Railway Battery."
+		text = "Banned"
 		desc = "###."
 	}
 	option = {
 		name = on
-		text = "You CAN research Railway Battery."
+		text = "Allowed"
 		desc = "###"
 	}
 }
 super_heavy_railway_gun= {
-	name = "Select if Super Heavy Railway Battery is allowed or not "
+	name = "Super Heavy Railway Gun"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_ignite_civil_war"
 	default = {
 		name = off
-		text = "You CANNOT research Super Heavy Railway Battery."
+		text = "Banned"
 		desc = "###."
 	}
 	option = {
 		name = on
-		text = "You CAN research Super Heavy Railway Battery."
+		text = "Allowed"
 		desc = "###"
 	}
 }
 multi_charge_large_caliber_gun= {
-	name = "Select if Multi Charge LCG is allowed or not "
+	name = "Multi Charge LCG"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_ignite_civil_war"
 	default = {
 		name = off
-		text = "You CANNOT research Multi Charge LCG."
+		text = "Banned"
 		desc = "###."
 	}
 	option = {
 		name = on
-		text = "You CAN research Multi Charge LCG."
+		text = "Allowed"
 		desc = "###"
 	}
 }
 max_submarine_tech= {
-	name = "Select if Submarine 3 and 4 are allowed. "
+	name = "Submarine 3 and 4"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_ignite_civil_war"
 	default = {
 		name = sub2
-		text = "You CANNOT research Submarine 3 or 4."
+		text = "Submarine 3 & 4 Banned"
 		desc = "###."
 	}
 	option = {
 		name = sub3
-		text = "You CAN research Submarine 3 and Snorkel 1."
+		text = "Submarine 3 and Snorkel 1 Allowed"
 		desc = "###"
 	}
 	option = {
 		name = sub4
-		text = "You CAN research Submarine 4 and Snorkel 2."
+		text = "Submarine 4 and Snorkel 2. Allowed"
 		desc = "###"
 	}
 }
