@@ -1,5 +1,8 @@
 ai_no_gar = {
-	
+	enable = {
+		always = yes
+	}
+	abort = { always = no }
 	ai_strategy = {
 		type = pp_spend_priority
 		id = guarantee

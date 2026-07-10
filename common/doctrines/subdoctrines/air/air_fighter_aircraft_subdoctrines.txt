@@ -100,6 +100,7 @@ track = fighter_aircraft
     icon = GFX_doctrine_low_echelon_support_medium
 
     visible = {
+        allies = yes
     	has_dlc = "By Blood Alone"
     }
 
@@ -107,7 +108,7 @@ track = fighter_aircraft
     xp_type = air
 
     available = {
-        always = no
+        always = yes
     }
 
     ai_will_do = { base = 0 }

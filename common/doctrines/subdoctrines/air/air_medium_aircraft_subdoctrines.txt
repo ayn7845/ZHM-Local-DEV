@@ -165,9 +165,11 @@ air_subdoctrine_tactical_battlefield_support = {
 
     xp_cost = 100
     xp_type = air
-
+    visible = { 
+        allies = yes
+    }
     available = {
-        always = no
+        always = yes
     }
 
     ai_will_do = {
