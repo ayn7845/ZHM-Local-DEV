@@ -341,26 +341,13 @@ southern_expansion = {
 		value = 100
 	}
 
-	ai_strategy = {
-		type = antagonize
-		id = BRM
-		value = 200
-	}
+	
 	ai_strategy = {
 		type = antagonize
 		id = RAJ
 		value = 100
 	}
-	ai_strategy = {
-		type = antagonize
-		id = MAL
-		value = 200
-	}
-	ai_strategy = {
-		type = antagonize
-		id = INS
-		value = 100
-	}
+	
 
 
 }
@@ -817,7 +804,10 @@ JAP_dei_stage_2_core = {
 	allowed = {
 		original_tag = JAP
 	}
-	
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = HOL
+	}
 	abort_when_not_enabled = yes
 
 	# Java heartland
@@ -1604,41 +1594,6 @@ JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry 
 		execution_type = careful
 	}
 
-	ai_strategy = {
-		type = front_control
-
-		tag = GXC
-
-		ratio = 0.25
-
-		priority = 100
-		ordertype = front
-		execution_type = careful
-	}
-
-	ai_strategy = {
-		type = front_control
-
-		tag = YUN
-
-		ratio = 0.25
-
-		priority = 100
-		ordertype = front
-		execution_type = careful
-	}
-
-	ai_strategy = {
-		type = front_control
-
-		tag = GDC
-
-		ratio = 0.25
-
-		priority = 100
-		ordertype = front
-		execution_type = careful
-	}
 
 }
 
