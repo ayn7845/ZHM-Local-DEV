@@ -713,7 +713,7 @@ JUNO_create_rosita_serrano_operative = { #INITIAL
 		traits = { operative_linguist operative_seducer operative_well_groomed }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { CHL SPR GER }
+		nationalities = { SPR GER }
 	}
 }
 

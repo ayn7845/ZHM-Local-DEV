@@ -1774,14 +1774,7 @@ south_american_naval_arms_race_category = {
 						has_country_flag = JUNO_already_invited_japanese_naval_advisors_completed
 					}
 				} 
-				IF = {
-					limit = {
-						original_tag = CHL
-					}
-					NOT = {
-						has_completed_focus = CHL_promote_broad_anti_americansim
-					}
-				}
+				
 				custom_trigger_tooltip = {
 					tooltip = has_american_ideology
 					OR = {
