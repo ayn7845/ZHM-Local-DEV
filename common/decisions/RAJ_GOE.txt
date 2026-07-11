@@ -2101,20 +2101,8 @@ RAJ_GOE_mughal_independence_category = {
 				is_locked = no
 			}
 
-			hidden_effect = {
-				every_state = {
-					limit = {
-						owner = { tag = BRM }
-					}
-					teleport_armies = { 
-						#only define one. if neither is defined will teleport to unit to their capital  
-						to_state = 988
-						to_province = 5105
-						limit = { 
-							tag = RAJ
-						}
-					}
-				}
+			hidden_effect = { 
+				
 			}
 		}
 	}

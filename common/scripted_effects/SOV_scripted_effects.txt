@@ -8108,7 +8108,7 @@ SOV_left_opposition_civil_war_start = {
 	SOV_set_up_left_opposition_militia = yes
 
 	# Initiate Wreckers
-	SOV_launch_wreckers = yes
+	
 
 	# Check Foreign Funds
 	IF = { 
@@ -8157,7 +8157,7 @@ SOV_right_opposition_civil_war_start = {
 	SOV_set_up_extras_from_concessions = yes
 
 	# Initiate Wreckers
-	SOV_launch_wreckers = yes
+	
 
 	# POUM brigades come to help (if has supported POUM and POUM won the SCW)
 	if = {
@@ -8427,7 +8427,7 @@ SOV_exiles_civil_war_start = {
 	SOV_set_up_extras_from_concessions = yes
 
 	# Initiate Wreckers
-	SOV_launch_wreckers = yes
+	
 
 	# Vasily Flug and Boris Shtefion
 	IF = {
@@ -8444,14 +8444,6 @@ SOV_exiles_civil_war_start = {
 		set_country_flag = SOV_flug_and_shteifon_are_ready_to_serve_flag
 		set_global_flag = SOV_flug_and_shteifon_went_to_russia_flag
 
-		YUG = {
-			SOV_vasily_flug = {
-				set_nationality = SOV
-			}
-			SOV_boris_shteifon = {
-				set_nationality = SOV
-			}
-		}
 
 	}
 
@@ -8469,12 +8461,7 @@ SOV_exiles_civil_war_start = {
 
 		set_country_flag = ETH_feodor_konovalov_went_to_rejoin_the_russian_whites_flag
 
-		ETH = {
-			ETH_feodor_konovalov = {
-				set_nationality = SOV
-			}
-		}
-
+		
 	}
 
 	

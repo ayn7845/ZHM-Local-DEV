@@ -6534,8 +6534,8 @@ faction_goal_control_guadalcanal = {
 			NOT = {
 				original_tag = AST
 				is_in_faction_with = AST
-				original_tag = SOL
-				is_in_faction_with = SOL
+				#original_tag = SOL
+				#is_in_faction_with = SOL
 			}
 		}
 		any_collection_element = {

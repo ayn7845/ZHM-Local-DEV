@@ -1911,11 +1911,7 @@ comintern_avoid_starting_wars_during_endgame = { #Sov should avoid attacking all
 		id = FIN
 		value = 400 #These values offset each other. Basically we won't start wars with anyone except for finland while this strategy is active
 	}
-	ai_strategy = {
-		type = conquer
-		id = PER
-		value = 400 #These values offset each other. Basically we won't start wars with anyone except for iran while this strategy is active
-	}
+	
 }
 
 allies_avoid_starting_wars_during_endgame = { #Allies should avoid attacking.. well, anyone while ww2 is in endgame

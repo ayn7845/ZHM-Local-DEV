@@ -614,7 +614,7 @@ ideas = {
 			allowed = {
 				OR = {
 					original_tag = IRQ
-					original_tag = KUR
+					#original_tag = KUR
 				}
 			}
 			removal_cost = -1
@@ -630,7 +630,7 @@ ideas = {
 			allowed = {
 				OR = {
 					original_tag = IRQ
-					original_tag = KUR
+					#original_tag = KUR
 				}
 			}
 			removal_cost = -1

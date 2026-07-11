@@ -5182,10 +5182,7 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			create_wargoal = {
-                type = annex_everything
-                target = SOL
-            }
+			
 
 			create_wargoal = {
                 type = annex_everything

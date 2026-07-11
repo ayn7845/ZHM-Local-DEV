@@ -663,7 +663,7 @@ on_actions = {
 				limit = {
 					FROM.FROM = {
 						OR = {
-							is_core_of = BRM
+							#is_core_of = BRM
 							is_in_array = {
 								array = RAJ.owned_states_at_game_start
 								value = THIS
@@ -675,7 +675,7 @@ on_actions = {
 					FROM = {
 						OR = {
 							original_tag = RAJ
-							original_tag = BRM
+							#original_tag = BRM
 						}
 					}
 				}

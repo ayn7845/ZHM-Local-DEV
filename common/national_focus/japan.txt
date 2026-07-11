@@ -18163,18 +18163,11 @@ allow_branch = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = MAL
-						original_tag = SNG
-						original_tag = BRM
-						original_tag = VIN
-						original_tag = CAM
-						original_tag = LAO
-						original_tag = CHM
+						
 						original_tag = SIA
 						original_tag = PHI
-						original_tag = MAL
-						original_tag = SNG
-						original_tag = INS
+					
+					
 						original_tag = AST
 						original_tag = NZL
 					}
@@ -21848,12 +21841,7 @@ allow_branch = {
 			ENG = {
 				is_in_faction_with = ROOT
 				OR = {
-					has_subject = MAL
-					has_subject = BRM
-					has_subject = SAR
-					has_subject = SAB
-					has_subject = BRN
-					has_subject = INS
+					
 					has_subject = SIA
 					has_subject = PHI
 				}

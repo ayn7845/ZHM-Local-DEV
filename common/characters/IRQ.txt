@@ -689,7 +689,7 @@ characters = {
 				has_dlc = "Graveyard of Empires"
 				OR = {
 					original_tag = IRQ
-					original_tag = KUR
+					#original_tag = KUR
 				}
 			}
 			available = {

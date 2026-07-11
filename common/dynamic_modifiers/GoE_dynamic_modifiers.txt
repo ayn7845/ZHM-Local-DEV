@@ -480,7 +480,7 @@ KUR_resistance_modifier = {
 		ROOT = {
 			OWNER = {
 				OR = {
-					tag = KUR
+					#tag = KUR
 					has_cosmetic_tag = IRQ_kurdistan_tag
 					has_cosmetic_tag = greater_kurdistan
 				} 

@@ -22,14 +22,3 @@ is_british_gulf_state_with_oman = {
 	}
 }
 
-kurdistan_exists = {
-	custom_trigger_tooltip = {
-		tooltip = kurdistan_exists_tt
-		OR = {
-			KUR = {
-				exists = yes
-			}
-			has_global_flag = kurdistan_exists_flag
-		}
-	}	
-}

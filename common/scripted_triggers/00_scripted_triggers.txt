@@ -628,18 +628,8 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 		NOT = { FROM = { original_tag = YUG } }
 	}
 
-	if = {
-		limit = {
-			original_tag = POL
-		}
-		NOT = { FROM = { original_tag = DNZ } }
-	}
-	if = {
-		limit = {
-			original_tag = TUR
-		}
-		NOT = { FROM = { original_tag = KUR } }
-	}
+
+	
 	NOT = {
 		any_country_with_original_tag = {
 			original_tag_to_check = FROM
@@ -1052,71 +1042,7 @@ country_can_be_reasonable_target_of_wargoal = { #Expected scopes: Target country
 # Countries will be less likely to try and liberate or puppet these nations 
 is_unlikely_country_tag = {
 	OR = {
-	    tag = BRI
-	    tag = CAT
-	    tag = NAV
-	    tag = GLC
-	    tag = ADU
-	    tag = BRI
-	    tag = OCC
-	    tag = COR
-	    tag = DNZ
-	    tag = KSH
-	    tag = CKK
-	    tag = FER
-	    tag = YAK
-	    tag = VLA
-	    tag = KKP
-	    tag = YAM
-	    tag = TAY
-	    tag = OVO
-	    tag = NEN
-	    tag = KOM
-	    tag = CHU
-	    tag = MEL
-	    tag = RIF
-	    tag = HAR
-	    tag = TIG
-	    tag = AFA
-	    tag = BEG
-	    tag = GBA
-	    tag = SID
-	    tag = ORO
-	    tag = QEM
-	    tag = LBV
-	    tag = PAP
-	    tag = TOS
-	    tag = SPM
-	    tag = TTS
-		tag = BSK
-		tag = TAT
-		tag = UDM
-		tag = KHA
-		tag = VGE
-		tag = KAL
-		tag = KAR
-		tag = SIL
-		tag = KSH
-		tag = ALT
-		tag = BUK
-		tag = KHI
-		tag = SMI
-		tag = QUE
-		tag = YUC
-		tag = RIG
-		tag = WLA
-		tag = GRN
-		tag = EVE
-		tag = SHL
-		tag = MEK
-		tag = HAN
-		tag = SAX
-		tag = PRE
-		tag = BAY
-		tag = WUR
-		tag = THU
-		tag = HES
-		tag = RHI
+	 
 	}
 }
 

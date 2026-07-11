@@ -429,8 +429,7 @@ focus_tree = {
 				add_stability = -0.1
 			}
 			USA_return_majority = yes
-			
-				limit = { not = { has_country_flag = mtg_usa_civil_war_fascists_1 } }
+		
 				country_event = mtg_usa_civil_war_fascists.1
 				#custom_effect_tooltip = mtg_usa_civil_war_warning_tt
 			
