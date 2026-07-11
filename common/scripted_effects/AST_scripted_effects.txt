@@ -1080,7 +1080,7 @@ AST_divide_the_pacific_effect = {
 	    limit = {
 	        OR = {
 	           
-	            a
+	            
 	            any_state = {
 	            	OR = {
 		                is_controlled_by = AST
