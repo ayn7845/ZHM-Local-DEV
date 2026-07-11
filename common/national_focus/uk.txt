@@ -5020,10 +5020,6 @@ focus_tree = {
 
 			}
 
-			random_owned_controlled_state = { 
-
-			}
-
 		}
 
 	}
