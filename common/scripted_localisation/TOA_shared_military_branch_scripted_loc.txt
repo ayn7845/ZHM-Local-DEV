@@ -146,12 +146,7 @@ defined_text = {
 # Tank Warfare
 defined_text = { 
 	name = SMB_tank_warfare_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_tank_warfare_default_CHL
-	}
+
 	text = {
 		localization_key = SMB_tank_warfare_default
 	}
@@ -234,12 +229,7 @@ defined_text = {
 # Artillery Equipment
 defined_text = { 
 	name = SMB_artillery_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_artillery_CHL
-	}
+	
 	text = {
 		localization_key = SMB_artillery_default
 	}
@@ -282,12 +272,7 @@ defined_text = {
 # Army Professionalism
 defined_text = { 
 	name = SMB_army_professionalism_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_army_professionalism_CHL
-	}
+	
 	text = {
 		localization_key = SMB_army_professionalism_default
 	}
@@ -302,12 +287,7 @@ defined_text = {
 # Conscription
 defined_text = { 
 	name = SMB_conscription_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_conscription_CHL
-	}
+	
 	text = {
 		localization_key = SMB_conscription_default
 	}
@@ -396,12 +376,7 @@ defined_text = {
 		}
 		localization_key = SMB_special_forces_option_2_BRA
 	}
-	text = {
-		trigger = {
-			original_tag = CHL
-		}
-		localization_key = SMB_special_forces_option_2_CHL
-	}
+	
 	text = {
 		localization_key = SMB_special_forces_option_2_default
 	}
@@ -409,12 +384,7 @@ defined_text = {
 # Marines desc
 defined_text = { 
 	name = SMB_special_forces_option_2_desc_key
-	text = {
-		trigger = {
-			original_tag = CHL
-		}
-		localization_key = SMB_special_forces_option_2_CHL_desc
-	}
+	
 	text = {
 		localization_key = SMB_special_forces_option_2_default_desc
 	}
@@ -829,12 +799,7 @@ defined_text = {
 # The Army desc
 defined_text = {
 	name = SMB_navy_desc_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_CHL_navy_desc
-	}
+	
 	text = {
 		localization_key = SMB_navy_desc_default
 	}
@@ -860,10 +825,7 @@ defined_text = {
 		trigger = { original_tag = BRA }
 		localization_key = SMB_naval_academy_BRA
 	}
-	text = {
-		trigger = { original_tag = CHL }
-		localization_key = SMB_naval_academy_CHL
-	}
+	
 	text = {
 		localization_key = SMB_naval_academy_default
 	}
@@ -871,12 +833,7 @@ defined_text = {
 # Naval Academy desc
 defined_text = {
 	name = SMB_naval_academy_desc_key
-	text = {
-		trigger = {
-			tag = CHL
-		}
-		localization_key = SMB_naval_academy_CHL_desc
-	}
+	
 	text = {
 		localization_key = SMB_naval_academy_default_desc
 	}
@@ -1048,8 +1005,7 @@ defined_text = {
 			OR = {
 				tag = BRA
 				tag = ARG
-				tag = URG
-				tag = CHL
+			
 			}
 		}
 		localization_key = south_american_naval_arms_race_category_default
