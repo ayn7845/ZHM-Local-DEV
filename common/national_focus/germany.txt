@@ -30202,11 +30202,7 @@ focus_tree = {
 					original_tag = LAT
 					original_tag = POL
 					original_tag = EST
-					original_tag = UBD
-					original_tag = BLR
-					original_tag = KSH
-					original_tag = SIL
-					original_tag = UKR
+					
 				}
 				OR = {
 					is_guaranteed_by = ROOT
@@ -30235,11 +30231,7 @@ focus_tree = {
 								original_tag = LAT
 								original_tag = POL
 								original_tag = EST
-								original_tag = UBD
-								original_tag = BLR
-								original_tag = KSH
-								original_tag = SIL
-								original_tag = UKR
+							
 							}
 							OR = {
 								is_guaranteed_by = ROOT
@@ -30259,11 +30251,7 @@ focus_tree = {
 						original_tag = LAT
 						original_tag = POL
 						original_tag = EST
-						original_tag = UBD
-						original_tag = BLR
-						original_tag = KSH
-						original_tag = SIL
-						original_tag = UKR
+					
 					}
 					exists = yes
 					OR = {
@@ -30504,12 +30492,7 @@ focus_tree = {
 					original_tag = LAT
 					original_tag = POL
 					original_tag = EST
-					original_tag = UBD
-					original_tag = BLR
-					original_tag = KSH
-					original_tag = SIL
-					original_tag = UKR
-					original_tag = KAR
+			
 				}
 				is_guaranteed_by = ROOT
 				is_in_faction = no
@@ -30529,12 +30512,7 @@ focus_tree = {
 						original_tag = LAT
 						original_tag = POL
 						original_tag = EST
-						original_tag = UBD
-						original_tag = BLR
-						original_tag = KSH
-						original_tag = SIL
-						original_tag = UKR
-						original_tag = KAR
+			
 					}
 					is_guaranteed_by = ROOT
 					is_in_faction = no

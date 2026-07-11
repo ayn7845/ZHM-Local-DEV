@@ -1556,7 +1556,7 @@ SOV_CAV_02 = #COSSACK CAVALRY
 				tag = SOV
 				has_completed_focus = SOV_restore_cossack_units
 			}
-			tag = UKR
+			
 		}
 	}
 

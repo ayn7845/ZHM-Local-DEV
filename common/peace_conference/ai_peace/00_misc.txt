@@ -1168,17 +1168,7 @@ peace_ai_desires = {
 		}
 		ai_desire = -100
 	}
-	
-	release_ukraine_because_it_is_big_and_would_otherwise_be_messy = {
-		peace_action_type = liberate
-		enable = {
-			has_government = democratic
-			ROOT.FROM = {
-				tag = UKR
-			}
-		}
-		ai_desire = 2000
-	}
+
 	
 	leave_allied_ai_claims_alone = {
         peace_action_type = { take_states puppet force_government liberate }

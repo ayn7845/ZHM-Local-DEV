@@ -152,18 +152,7 @@ ITA_is_protestant_or_orthodox_country_in_europe_for_pope = {
 		original_tag = ROM
 		original_tag = BUL
 		original_tag = YUG
-		original_tag = SER
-		original_tag = MNT
-		original_tag = KOS
-		original_tag = BOS
-		original_tag = HRZ
-		original_tag = MAC
-		original_tag = TRA
-		original_tag = MOL
-		original_tag = UKR
-		original_tag = BLR
-		original_tag = CRI
-		original_tag = KAR
+		
 	}
 }
 
