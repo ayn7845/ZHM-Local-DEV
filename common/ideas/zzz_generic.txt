@@ -1502,7 +1502,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHL tag = ARG tag = BRA }
+						OR = { #tag = CHL tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1580,7 +1580,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = CHL tag = ARG tag = BRA }
+						OR = { #tag = CHL tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1733,7 +1733,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = CHL tag = ARG }
+						OR = { #tag = CHL tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -2283,14 +2283,6 @@ ideas = {
 						has_dlc = "By Blood Alone"
 					}
 				}
-
-				NOT = {
-					AND = {
-						tag = CHL
-						has_dlc = "Trial of Allegiance"
-					}
-				}
-
 				NOT = {
 					AND = {
 						tag = HUN
