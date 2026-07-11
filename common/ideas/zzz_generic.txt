@@ -1502,7 +1502,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { #tag = CHL tag = ARG tag = BRA }
+						OR = {  tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1537,7 +1537,7 @@ ideas = {
 			picture = generic_naval_manufacturer_1
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = SWE tag = HUN tag = CZE tag = FIN } }
+				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = SWE tag = HUN tag = CZE tag = FIN  } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = naval_manufacturer limit = 1 }
 				}
@@ -1549,7 +1549,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = MAN  }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1561,7 +1561,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = SPR tag = SPA }
+						OR = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD }
 						has_dlc = "La Resistance"
 					}
 				}
@@ -1580,7 +1580,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { #tag = CHL tag = ARG tag = BRA }
+						OR = {  tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1591,6 +1591,8 @@ ideas = {
 						has_dlc = "Gotterdammerung"
 					}
 				}
+
+				
 
 				PHI_SEA = no
 			}
@@ -1627,7 +1629,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI  tag = MAN  }
+						OR = { tag = CHI tag = MAN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1702,7 +1704,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI  tag = MAN  }
+						OR = { tag = CHI tag = MAN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1733,7 +1735,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { #tag = CHL tag = ARG }
+						OR = {  tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1745,7 +1747,7 @@ ideas = {
 					}
 				}
 
-			
+				
 
 				PHI_SEA = no
 			}
@@ -1777,7 +1779,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN  }
+						OR = { tag = CHI tag = MAN }
 						
 					}
 				}
@@ -1853,7 +1855,7 @@ ideas = {
 						has_dlc = "Waking the Tiger"
 					}
 					NOT = {
-						OR = { tag = CHI tag = MAN  }
+						OR = { tag = CHI tag = MAN }
 					}
 				}
 				NOT = {
@@ -1883,7 +1885,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = ARG }
+						OR = {  tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1897,7 +1899,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = {  tag = AST }
+						OR = { tag = INS tag = AST }
 						has_dlc = "Thunder at Our Gates"
 					}
 				}
@@ -1992,7 +1994,7 @@ ideas = {
 					AND = {
 						OR = {
 							original_tag = PHI
-							
+						
 						}
 						has_dlc = "No Compromise, No Surrender"
 					}
@@ -2138,7 +2140,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI  tag = MAN }
+						OR = { tag = CHI tag = MAN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -2174,6 +2176,7 @@ ideas = {
 					}
 				}
 
+				
 			}
 			
 			cost = 150
@@ -2197,7 +2200,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN  }
+						OR = { tag = CHI  tag = MAN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -2283,6 +2286,8 @@ ideas = {
 						has_dlc = "By Blood Alone"
 					}
 				}
+
+
 				NOT = {
 					AND = {
 						tag = HUN
