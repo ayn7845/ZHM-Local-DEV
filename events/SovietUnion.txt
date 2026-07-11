@@ -2546,17 +2546,9 @@ country_event = {
 	id = soviet.63
 	
 	trigger = {
+		always = no
 		tag = SOV
-		country_exists = UKR
-		country_exists = BLR
-		country_exists = GEO
-		country_exists = AZR
-		country_exists = ARM
-		country_exists = UZB
-		country_exists = TAJ
-		country_exists = KYR
-		country_exists = TMS
-		country_exists = KAZ
+	
 		NOT = { has_global_flag = SOV_became_russia }
 	}
 

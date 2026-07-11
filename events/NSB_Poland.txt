@@ -3873,15 +3873,7 @@ country_event = {
 			custom_effect_tooltip = form_country_ukraine_coring_states_tt
 			custom_effect_tooltip = form_country_belarus_coring_states_tt
 			hidden_effect = {
-				every_state = {
-					limit = {
-						OR = {
-							is_core_of = BLR
-							is_core_of = UKR
-						}
-					}
-					add_core_of = POL
-				}
+				
 			}
 		}
 		else_if = {
@@ -3891,12 +3883,7 @@ country_event = {
 			custom_effect_tooltip = form_country_ukraine_coring_states_tt
 			custom_effect_tooltip = core_black_sea_tt
 			hidden_effect = {
-				every_state = {
-					limit = {
-						is_core_of = UKR
-					}
-					add_core_of = POL
-				}
+				
 				137 = { add_core_of = POL }
 				218 = { add_core_of = POL }
 				234 = { add_core_of = POL }
