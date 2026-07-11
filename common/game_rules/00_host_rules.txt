@@ -119,6 +119,21 @@ cas_doctrines_status = {
 		desc = "All grand doctrines and air subdoctrines can be taken by anyone."
 	}
 }
+allied_pre_grind = { 
+	name = "Allies Pre-Grind"
+	group = "HMM Rules"
+	icon = "GFX_decision_category_eng_imperial_conference"
+	default = { 
+		name = on
+		text = "On"
+		desc = ZHM_game_rule
+	}
+	option = { 
+		name = off
+		text = "Off"
+		desc= ""
+	}
+}
 italy_alt_hist = {
 	name = "Italy Alt-Hist Paths"
 	group = "HMM Rules"

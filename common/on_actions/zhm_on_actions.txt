@@ -2,16 +2,105 @@ on_actions = {
 	on_startup = {
 		effect = {
 
-  				######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
-  				######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
-			  ##          ##      ##  ####  ####  ##                ##      ##  ##      ##  ##          ##          ##          
-			  ##          ##      ##  ####  ####  ##                ##      ##  ##      ##  ##          ##          ##          
-			  ##    ####  ##########  ##  ##  ##  ########          ########    ##      ##  ##          ########      ######    
-			  ##    ####  ##########  ##  ##  ##  ########          ########    ##      ##  ##          ########      ######    
-			  ##      ##  ##      ##  ##      ##  ##                ##    ##    ##      ##  ##          ##                  ##  
-			  ##      ##  ##      ##  ##      ##  ##                ##    ##    ##      ##  ##          ##                  ##  
-  				######    ##      ##  ##      ##  ##########        ##      ##    ######    ##########  ##########  ########    
-  				######    ##      ##  ##      ##  ##########        ##      ##    ######    ##########  ##########  ########        
+  			  ######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
+  			  ######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
+			##          ##      ##  ####  ####  ##                ##      ##  ##      ##  ##          ##          ##          
+			##          ##      ##  ####  ####  ##                ##      ##  ##      ##  ##          ##          ##          
+			##    ####  ##########  ##  ##  ##  ########          ########    ##      ##  ##          ########      ######    
+			##    ####  ##########  ##  ##  ##  ########          ########    ##      ##  ##          ########      ######    
+			##      ##  ##      ##  ##      ##  ##                ##    ##    ##      ##  ##          ##                  ##  
+			##      ##  ##      ##  ##      ##  ##                ##    ##    ##      ##  ##          ##                  ##  
+  			  ######    ##      ##  ##      ##  ##########        ##      ##    ######    ##########  ##########  ########    
+  			  ######    ##      ##  ##      ##  ##########        ##      ##    ######    ##########  ##########  ########   
+			if = { 
+				limit = {
+					AND = { 
+						has_game_rule = { 
+							rule =	allied_pre_grind
+							option = on
+						}
+						has_game_rule = { 
+							rule =	cas_doctrines_status
+							option = banned
+						}
+					} 
+					
+				} 
+				USA = { # USA 2x Panzer Leaders, 1 Infantry Expert, & Patton Calvary Leader
+					if = {
+						limit = { 
+							has_character = USA_dwight_d_eisenhower
+						}
+					}
+					USA_dwight_d_eisenhower = {
+						add_attack = 1
+
+						add_trait = { trait = panzer_leader }
+						#add_unit_leader_trait = infantry_leader
+						add_trait = { trait = pre_grind }
+					}
+					if = {
+						limit = { 
+							has_character = USA_george_s_patton
+						}
+					}
+					USA_george_s_patton = { 
+						add_trait = { trait = cavalry_leader }
+						add_trait = { trait = infantry_leader }
+						add_trait = { trait = pre_grind }
+					}
+				}
+				FRA = { # FRA 2x Panzer leaders & armor expert
+					if = { 
+						limit = { 
+							has_character = FRA_jean_de_lattre_de_tassigny
+						}
+					}
+					FRA_jean_de_lattre_de_tassigny = {
+						add_skill_level = 1
+						add_attack = -2
+
+						add_trait = { trait = panzer_leader }
+					}
+					if = { 
+						limit = { 
+							has_character = FRA_alphonse_juin
+						}
+					}
+					FRA_alphonse_juin = { 
+						add_skill_level = 1
+					}
+				}
+				ENG = { 
+					if = { 
+						limit = { 
+							has_character = ENG_bernard_montgomery
+						}
+					}
+					ENG_bernard_montgomery = { 
+						add_trait = { trait = infantry_leader } 
+						add_trait = { trait = panzer_leader }
+						add_trait = { trait = pre_grind }
+					}
+					if = { 
+						limit = { 
+							has_character = ENG_jock_campbell
+						}
+					}
+					ENG_jock_campbell = {
+						add_skill_level = 1
+						add_attack = 1
+
+						add_trait = { trait = infantry_leader } 
+						add_trait = { trait = panzer_leader }
+						add_trait = { trait = cavalry_leader }
+						add_trait = { trait = pre_grind }
+					}
+				}
+			}
+					
+					
+				    
 			if = { 
 				limit = { 
 					has_game_rule = { 
