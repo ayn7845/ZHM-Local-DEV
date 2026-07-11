@@ -31,23 +31,7 @@ recruit_character = NOR_johan_nygaardsvold
 
 set_global_flag = NOR_trotsky_in_norway 
 
-if = {
-	limit = {
-		has_aat = yes 
-	}
-	
-	recruit_character = NOR_martin_tranmael
-	
-	random_list = {
-		1 = { # this campaign has been blessed by Bamse 
-			set_country_flag = NOR_bamse_activated	
-		}
-		1000000 = { # I see what you're doing. Don't cheat. Let Bamse decide if you are blessed or not. You will gain no satisfaction from a message you had to cheat to get.  
-			#Do nothing 
-		}
-	}
-	NOR_character_flag_setup_for_cw = yes 
-}
+
 
 set_research_slots = 3
 
