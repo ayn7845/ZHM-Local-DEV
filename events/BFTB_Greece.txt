@@ -2747,28 +2747,12 @@ country_event = {
 				transfer_state = 352
 				transfer_state = 353
 				transfer_state = 800
-				release_autonomy = { 
-					target = KUR
-					autonomy_state = autonomy_puppet
-					freedom_level = 0.8
-				}
-				KUR = {
-					transfer_state = 344
-					add_state_core = 344
-					set_cosmetic_tag = KUR_FRA
-				}
+				
 				country_event = { id = bftb_greece.210 days = 7 }
 
 				# Handing Back Deir az Zur 
-				IF = {
-					limit = {
-						FRA = {
-							has_subject = SYR
-						}
-					}
-					SYR = {
-						transfer_state = 680
-					}
+				IF = { 
+					
 				}
 				ELSE = {
 					FRA = {

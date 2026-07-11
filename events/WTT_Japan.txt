@@ -2467,13 +2467,7 @@ country_event = {
 					RAJ = { NOT = { has_completed_focus = RAJ_forward_bloc } }
 				}
 			}
-			AND = {
-				has_war_with = BRM
-				OR = {
-					BRM = { is_in_faction_with = ENG }
-					BRM = { is_subject_of = ENG }
-				}
-			}
+			
 		}
 	}
 

@@ -116,8 +116,7 @@ country_event = {
 			RAJ = { country_event = { id = mtg_britain.15 } }
 			AST = { country_event = { id = mtg_britain.15 } }
 			NZL = { country_event = { id = mtg_britain.15 } }
-			BRM = { country_event = { id = mtg_britain.15 } }
-
+			
 		}
 	}
 
@@ -194,7 +193,7 @@ country_event = {
 			RAJ = { country_event = { id = mtg_britain.15 } }
 			AST = { country_event = { id = mtg_britain.15 } }
 			NZL = { country_event = { id = mtg_britain.15 } }
-			BRM = { country_event = { id = mtg_britain.15 } }
+		
 		}
 	}
 }
@@ -300,7 +299,7 @@ country_event = {
 				RAJ = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 				AST = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 				NZL = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
-				BRM = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
+				
 			}
 			dismantle_faction = yes
 		}
@@ -525,19 +524,7 @@ country_event = {
 				}
 			}
 
-			if = {
-				limit = {
-					BRM = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
-				}
-				BRM = {
-					country_event = { id = mtg_britain.16 }
-					add_ai_strategy = {
-						type = alliance
-						id = ENG
-						value = -200
-					}
-				}
-			}
+			
 		}
 		hidden_effect = { news_event = { id = mtg_news.62 days = 1 } }
 	}
@@ -1090,12 +1077,7 @@ country_event = {
 				NZL_enforce_loyalty = yes
 			}
 
-			if = {
-				limit = {
-					tag = BRM
-				}
-				NZL_enforce_loyalty = yes
-			}
+		
 		}
 	}
 }
@@ -1197,44 +1179,7 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				tag = BRM
-			}
-			FROM = { set_autonomy = { target = BRM autonomy_state = autonomy_free } }
-			drop_cosmetic_tag = yes
-			if = {
-				limit = {
-					CAN = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
-					AST = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
-				}
-				create_faction_from_template = {
-					template = faction_template_allies
-					name = ENG_commonwealth_of_nations
-					icon = GFX_faction_logo_generic_2
-				}
-				if = {
-					limit = {
-						NZL = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
-					}
-					add_to_faction = NZL
-				}
-				hidden_effect = {
-					every_other_country = {
-						limit = {
-							NOT = { tag = NZL }
-						}
-						ROOT = {
-							add_ai_strategy = {
-								type = alliance
-								id = PREV
-								value = -200
-							}
-						}
-					}
-				}
-			}
-		}
+	
 		if = {
 			limit = {
 				tag = RAJ
@@ -6492,8 +6437,7 @@ country_event = {
 	
 	# Ok I guess
 	option = {
-		name = mtg_britain.109.a
-		release = BRM
+		
 	}
 }
 

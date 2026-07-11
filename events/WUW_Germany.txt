@@ -11208,14 +11208,7 @@ country_event = {
 			base = 80
 		}
 
-		YUG = {
-			SOV_vasily_flug = {
-				set_nationality = GER
-			}
-			SOV_boris_shteifon = {
-				set_nationality = GER
-			}
-		}
+	
 
 		set_global_flag = SOV_flug_and_shteifon_went_to_germany_flag
 

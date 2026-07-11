@@ -1499,19 +1499,8 @@ country_event = { #JAP agreed to divide Pacific territories
 			IF = { #Only for tooltip
 			    limit = {
 			        OR = {
-			            BRM = { 
-			            	OR = {
-			            		is_subject_of = AST 
-			            		has_country_flag = AST_brm_puppet_to_jap
-			            	}
-			            }
-			            any_state = {
-			                is_core_of = BRM
-			                OR = {
-				                is_controlled_by = AST
-				                has_state_flag = AST_transfer_to_jap
-				            }
-			            }
+			           
+			           
 			            any_state = {
 			            	OR = {
 				                is_controlled_by = AST
@@ -1535,16 +1524,7 @@ country_event = { #JAP agreed to divide Pacific territories
 				custom_effect_tooltip = AST_dividing_the_pacific_tt3
 			}
 
-			IF = {
-				limit = {
-					BRM = { 
-						has_country_flag = AST_brm_puppet_to_jap
-					}
-				}
-				JAP = {
-					puppet = BRM
-				}	
-			}
+		
 
 			every_state = {
 				limit = {
@@ -1581,9 +1561,7 @@ country_event = { #BRM: Overlordship is transferred to JAP
 		name = AST_diplomatic_events.37.a
 
 		effect_tooltip = {
-			JAP = {
-				puppet = BRM
-			}
+			
 		}
 	}
 }
