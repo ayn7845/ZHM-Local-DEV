@@ -1052,18 +1052,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ARG = {
-				IF = {
-					limit = {
-						is_in_faction = yes
-					}
-					add_to_faction = CHL
-				}
-			}
-				CHL = {
-					transfer_state = 953
-					transfer_state = 954
-				}
+		
 			}	
 		}
 
@@ -1081,11 +1070,7 @@ country_event = {
 		ai_chance = {
 			base = 2
 		}
-		
-		add_opinion_modifier = {
-				target = CHL
-				modifier = large_decrease
-			}
+	
 		}	
 	}
 

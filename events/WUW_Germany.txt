@@ -11565,54 +11565,9 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 
-			IF = {
-				limit = {
-					MEK = {
-						exists = no
-					}
-				}
-				MEK = {
-					set_nationality = {
-					    target_country = RAN
-					    character = MEK_christian_louis
-					}
-				}
-			}
-			ELSE = {
-				GER = {
-					set_nationality = {
-					    target_country = RAN
-					    character = GER_rolf_carls
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					PRU = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				PRU = {
-					set_nationality = {
-					    target_country = RAN
-					    character = PRU_Óscar_benavides
-					}
-				}
-			}
-			ELSE = {
-				CHL = {
-					set_nationality = {
-					    target_country = RAN
-					    character = CHL_jorge_gonzález_von_marées
-					}
-				}
-			}
+			
+			
+			
 
 		}
 	}
@@ -11625,74 +11580,13 @@ country_event = {
 			base = 95
 		}	
 
-		RAN = {
-			IF = {
-				limit = {
-					MEK = {
-						exists = no
-					}
-				}
-				MEK_christian_louis = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_rolf_carls = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = GER_german_controlled_reichskommissariat
-		}
+		
 
 		hidden_effect = {
 			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					PRU = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RAN = {
-					set_nationality = {
-					    target_country = PRU
-					    character = PRU_Óscar_benavides
-					}
-				}
-			}
-			ELSE = {
-				RAN = {
-					set_nationality = {
-					    target_country = CHL
-					    character = CHL_jorge_gonzález_von_marées
-					}
-				}
-			}
+			
 		}
 		
 	}
@@ -11705,74 +11599,11 @@ country_event = {
 			base = 5
 		}		
 		
-		RAN = {
-			IF = {
-				limit = {
-					PRU = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				PRU_Óscar_benavides = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				CHL_jorge_gonzález_von_marées = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
+		
 
 		hidden_effect = {
 			
-			IF = {
-				limit = {
-					MEK = {
-						exists = no
-					}
-				}
-				RAN = {
-					set_nationality = {
-					    target_country = MEK
-					    character = MEK_christian_louis
-					}
-				}
-			}
-			ELSE = {
-				RAN = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_rolf_carls
-					}
-				}
-			}
+			
 			
 		}
 
@@ -11786,52 +11617,7 @@ country_event = {
 	desc = wuw_GER_reichskommissariats.21.desc 
 	picture = GFX_report_event_german_politician_speech
 
-	immediate = {
-		hidden_effect = {
-
-			IF = {
-				limit = {
-					SAX = {
-						exists = no
-					}
-				}
-				SAX = {
-					set_nationality = {
-					    target_country = RCO
-					    character = SAX_george_of_saxony
-					}
-				}
-			}
-			ELSE = {
-				GER = {
-					set_nationality = {
-					    target_country = RCO
-					    character = GER_gunther_lutjens
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					MEX = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				MEX = {
-					set_nationality = {
-					    target_country = RCO
-					    character = MEX_salvador_abascal
-					}
-				}
-			}
-
-		}
-	}
+	immediate = {}
 
 	is_triggered_only = yes
 
@@ -11841,66 +11627,11 @@ country_event = {
 			base = 95
 		}	
 
-		RCO = {
-			IF = {
-				limit = {
-					SAX = {
-						exists = no
-					}
-				}
-				SAX_george_of_saxony = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_gunther_lutjens = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
+		
 
 		hidden_effect = {
 			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					MEX = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RCO = {
-					set_nationality = {
-					    target_country = MEX
-					    character = MEX_salvador_abascal
-					}
-				}
-			}
+			
 
 		}
 		
@@ -11908,63 +11639,16 @@ country_event = {
 
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.21.b
-		trigger = {
-			MEX = {
-				NOT = {
-					AND = {
-						has_government = fascism
-						exists = yes
-					}
-				}
-			}
+		trigger = { 
+			always = no
 		}
 		ai_chance = {
 			base = 5
 		}		
 		
-		RCO = {
-			MEX_salvador_abascal = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
+		
 
-		hidden_effect = {
-			
-			IF = {
-				limit = {
-					SAX = {
-						exists = no
-					}
-				}
-				RCO = {
-					set_nationality = {
-					    target_country = SAX
-					    character = SAX_george_of_saxony
-					}
-				}
-			}
-			ELSE = {
-				RCO = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_gunther_lutjens
-					}
-				}
-			}
-			
-		}
+		hidden_effect = { }
 
 	}
 }
@@ -11980,54 +11664,8 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 
-			IF = {
-				limit = {
-					HUN = {
-						OR = {
-							exists = no
-							NOT = {
-								has_completed_focus = wuw_HUN_volksbund_der_deutschen_in_ungarn
-							}
-						}
-					}
-					NOT = {
-						has_global_flag = GER_installed_franz_anton_bach_as_governor_of_hungary_flag
-					}
-				}
-				HUN = {
-					set_nationality = {
-					    target_country = RUS
-					    character = HUN_franz_anton_bach
-					}
-				}
-			}
-			ELSE = {
-				GER = {
-					set_nationality = {
-					    target_country = RUS
-					    character = GER_alfred_jodl
-					}
-				}
-			}
 
-			IF = {
-				limit = {
-					USA = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				USA = {
-					set_nationality = {
-					    target_country = RUS
-					    character = USA_william_dudley_pelley
-					}
-				}
-			}
+			
 
 		}
 	}
@@ -12040,74 +11678,11 @@ country_event = {
 			base = 95
 		}	
 
-		RUS = {
-			IF = {
-				limit = {
-					HUN = {
-						OR = {
-							exists = no
-							NOT = {
-								has_completed_focus = wuw_HUN_volksbund_der_deutschen_in_ungarn
-							}
-						}
-					}
-					NOT = {
-						has_global_flag = GER_installed_franz_anton_bach_as_governor_of_hungary_flag
-					}
-				}
-				HUN_franz_anton_bach = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_alfred_jodl = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
+		
 
 		hidden_effect = {
 			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					USA = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RUS = {
-					set_nationality = {
-					    target_country = USA
-					    character = USA_william_dudley_pelley
-					}
-				}
-			}
+		
 
 		}
 		
@@ -12149,35 +11724,8 @@ country_event = {
 
 		hidden_effect = {
 			
-			IF = {
-				limit = {
-					HUN = {
-						OR = {
-							exists = no
-							NOT = {
-								has_completed_focus = wuw_HUN_volksbund_der_deutschen_in_ungarn
-							}
-						}
-					}
-					NOT = {
-						has_global_flag = GER_installed_franz_anton_bach_as_governor_of_hungary_flag
-					}
-				}
-				RUS = {
-					set_nationality = {
-					    target_country = HUN
-					    character = HUN_franz_anton_bach
-					}
-				}
-			}
-			ELSE = {
-				RUS = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_alfred_jodl
-					}
-				}
-			}
+		
+		
 			
 		}
 
@@ -12243,9 +11791,7 @@ country_event = {
 	option = { # It should be incorporated into Nordamerika
 		name = wuw_GER_reichskommissariats.23.b
 		trigger = {
-			RUS = {
-				exists = yes
-			}
+			always = no
 		}
 		ai_chance = {
 			base = 50
@@ -12253,44 +11799,8 @@ country_event = {
 		
 		custom_effect_tooltip = GER_west_coast_america_rus_effect_tt
 			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_west_coast_north_america_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-					}
-				}
-				transfer_state_to = RUS
-			}
-			every_state = {	
-				limit = {
-					GER_is_west_coast_north_america_state = yes
-					NOT = {
-						OR = {
-							is_owned_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								owns_state = PREV
-							}
-						}
-					}
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-				}
-				add_contested_owner = RUS
-				set_state_controller_to = RUS
-				add_claim_by = RUS
-			}
+		hidden_effect = { 
+
 		}
 
 	}
@@ -12298,9 +11808,7 @@ country_event = {
 	option = { # It should be incorporated into Kolumbus
 		name = wuw_GER_reichskommissariats.23.c
 		trigger = {
-			RCO = {
-				exists = yes
-			}
+			always = no
 		}
 		ai_chance = {
 			base = 50
@@ -12308,45 +11816,7 @@ country_event = {
 		
 		custom_effect_tooltip = GER_west_coast_america_rco_effect_tt
 			
-		hidden_effect = {
-			every_state = {
-				limit = {
-					GER_is_west_coast_north_america_state = yes
-					OR = {
-						is_owned_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							owns_state = PREV
-						}
-					}
-				}
-				transfer_state_to = RCO
-			}
-			every_state = {	
-				limit = {
-					GER_is_west_coast_north_america_state = yes
-					NOT = {
-						OR = {
-							is_owned_by = ROOT
-							any_country = {
-								is_subject_of = ROOT
-								owns_state = PREV
-							}
-						}
-					}
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-				}
-				add_contested_owner = RCO
-				set_state_controller_to = RCO
-				add_claim_by = RCO
-			}
-		}
+		hidden_effect = { }
 
 	}
 }
@@ -12359,58 +11829,7 @@ country_event = {
 	desc = wuw_GER_reichskommissariats.24.desc 
 	picture = GFX_report_event_german_politician_speech
 
-	immediate = {
-		hidden_effect = {
-
-			IF = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					SWI = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				SWI = {
-					set_nationality = {
-					    target_country = RAR
-					    character = SWI_robert_tobler
-					}
-				}
-			}
-			ELSE = {
-				GER = {
-					set_nationality = {
-					    target_country = RAR
-					    character = GER_walter_model
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					IRQ = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				IRQ = {
-					set_nationality = {
-					    target_country = RAR
-					    character = IRQ_rashid_ali_algaylani
-					}
-				}
-			}
-
-		}
-	}
+	immediate = { }
 
 	is_triggered_only = yes
 
@@ -12420,72 +11839,11 @@ country_event = {
 			base = 5
 		}	
 
-		RAR = {
-			IF = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					SWI = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				SWI_robert_tobler = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_walter_model = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
+	
 
 		hidden_effect = {
 			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					IRQ = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RAR = {
-					set_nationality = {
-					    target_country = IRQ
-					    character = IRQ_rashid_ali_algaylani
-					}
-				}
-			}
+			
 
 		}
 		
@@ -12494,68 +11852,15 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.24.b
 		trigger = {
-			IRQ = {
-				NOT = {
-					AND = {
-						has_government = fascism
-						exists = yes
-					}
-				}
-			}
+			always = no
 		}
 		ai_chance = {
 			base = 95
 		}		
 		
-		RAR = {
-			IRQ_rashid_ali_algaylani = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
+	
 
-		hidden_effect = {
-			
-			IF = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					SWI = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RAR = {
-					set_nationality = {
-					    target_country = SWI
-					    character = SWI_robert_tobler
-					}
-				}
-			}
-			ELSE = {
-				RAR = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_walter_model
-					}
-				}
-			}
-			
-		}
+		hidden_effect = { }
 
 	}
 }
@@ -12568,55 +11873,7 @@ country_event = {
 	picture = GFX_report_event_german_politician_speech
 
 	immediate = {
-		hidden_effect = {
-
-			IF = {
-				limit = {
-					WUR = {
-						NOT = {
-							AND = {
-								has_government = neutrality
-								exists = yes
-							}
-						}
-					}
-				}
-				WUR = {
-					set_nationality = {
-					    target_country = RHD
-					    character = WUR_philipp_albrecht
-					}
-				}
-			}
-			ELSE = {
-				GER = {
-					set_nationality = {
-					    target_country = RHD
-					    character = GER_alfred_saalwachter
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					RAJ = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RAJ = {
-					set_nationality = {
-					    target_country = RHD
-					    character = RAJ_v_d_savarkar
-					}
-				}
-			}
-
-		}
+		hidden_effect = { }
 	}
 
 	is_triggered_only = yes
@@ -12627,142 +11884,13 @@ country_event = {
 			base = 5
 		}	
 
-		RHD = {
-			IF = {
-				limit = {
-					WUR = {
-						NOT = {
-							AND = {
-								has_government = neutrality
-								exists = yes
-							}
-						}
-					}
-				}
-				WUR_philipp_albrecht = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_alfred_saalwachter = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
+	
 
-		hidden_effect = {
-			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					RAJ = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RHD = {
-					set_nationality = {
-					    target_country = RAJ
-					    character = RAJ_v_d_savarkar
-					}
-				}
-			}
-
-		}
+		hidden_effect = { }
 		
 	}
 
-	option = { # It might be wise to use a local puppet
-		name = wuw_GER_reichskommissariats.25.b
-		trigger = {
-			RAJ = {
-				NOT = {
-					AND = {
-						has_government = fascism
-						exists = yes
-					}
-				}
-			}
-		}
-		ai_chance = {
-			base = 95
-		}		
-		
-		RHD = {
-			RAJ_v_d_savarkar = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
-
-		hidden_effect = {
-			
-			IF = {
-				limit = {
-					WUR = {
-						NOT = {
-							AND = {
-								has_government = neutrality
-								exists = yes
-							}
-						}
-					}
-				}
-				RHD = {
-					set_nationality = {
-					    target_country = WUR
-					    character = WUR_philipp_albrecht
-					}
-				}
-			}
-			ELSE = {
-				RHD = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_alfred_saalwachter
-					}
-				}
-			}
-			
-		}
-
-	}
+	
 }
 
 
@@ -12774,35 +11902,7 @@ country_event = {
 	picture = GFX_report_event_german_politician_speech
 
 	immediate = {
-		hidden_effect = {
-			
-			GER = {
-				set_nationality = {
-				    target_country = ROA
-				    character = GER_franz_ritter_von_epp
-				}
-			}
-
-			IF = {
-				limit = {
-					CHI = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				CHI = {
-					set_nationality = {
-					    target_country = ROA
-					    character = CHI_wang_jingwei
-					}
-				}
-			}
-
-		}
+		hidden_effect = { }
 	}
 
 	is_triggered_only = yes
@@ -12813,97 +11913,13 @@ country_event = {
 			base = 50
 		}	
 
-		ROA = {
-			
-			GER_franz_ritter_von_epp = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
+	
 
-		hidden_effect = {
-			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					CHI = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				ROA = {
-					set_nationality = {
-					    target_country = CHI
-					    character = CHI_wang_jingwei
-					}
-				}
-			}
-
-		}
+		hidden_effect = { }
 		
 	}
 
-	option = { # It might be wise to use a local puppet
-		name = wuw_GER_reichskommissariats.26.b
-		trigger = {
-			CHI = {
-				NOT = {
-					AND = {
-						has_government = fascism
-						exists = yes
-					}
-				}
-			}
-		}
-		ai_chance = {
-			base = 50
-		}		
-		
-		ROA = {
-			CHI_wang_jingwei = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
-
-		hidden_effect = {
-			
-			ROA = {
-				set_nationality = {
-				    target_country = GER
-				    character = GER_franz_ritter_von_epp
-				}
-			}
-			
-		}
-
-	}
+	
 }
 
 
@@ -12915,201 +11931,12 @@ country_event = {
 	picture = GFX_report_event_german_politician_speech
 
 	immediate = {
-		hidden_effect = {
-			
-			IF = {
-				limit = {
-					POL = {
-						NOT = {
-							AND = {
-								has_completed_focus = POL_restore_bermontians
-								exists = yes
-							}
-						}
-					}
-				}
-				POL = {
-					set_nationality = {
-					    target_country = RAA
-					    character = POL_pavel_bermondt_avalov
-					}
-				}
-			}
-			ELSE = {
-				ROOT = {
-					set_nationality = {
-					    target_country = RAA
-					    character = GER_werner_von_fritsch
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					AST = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				AST = {
-					set_nationality = {
-					    target_country = RAA
-					    character = AST_eric_campbell
-					}
-				}
-			}
-
-		}
+		hidden_effect = { }
 	}
 
 	is_triggered_only = yes
 
-	option = { # We Need a German Official
-		name = wuw_GER_reichskommissariats.27.a
-		ai_chance = {
-			base = 60
-		}	
-
-		RAA = {
-			IF = {
-				limit = {
-					POL = {
-						NOT = {
-							AND = {
-								has_completed_focus = POL_restore_bermontians
-								exists = yes
-							}
-						}
-					}
-				}
-				POL_pavel_bermondt_avalov = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			ELSE = {
-				GER_werner_von_fritsch = {
-					remove_country_leader_role = {
-						ideology = nazism
-					}	
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = nazism
-							expire = 1960.1.1
-							traits = { GER_reichskommissar_trait } 
-						}
-					}	
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_german_controlled_reichskommissariat
-		}
-
-		hidden_effect = {
-			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
-			IF = {
-				limit = {
-					AST = {
-						NOT = {
-							AND = {
-								has_government = fascism
-								exists = yes
-							}
-						}
-					}
-				}
-				RAA = {
-					set_nationality = {
-					    target_country = AST
-					    character = AST_eric_campbell
-					}
-				}
-			}
-
-		}
-		
-	}
-
-	option = { # It might be wise to use a local puppet
-		name = wuw_GER_reichskommissariats.27.b
-		trigger = {
-			AST = {
-				NOT = {
-					AND = {
-						has_government = fascism
-						exists = yes
-					}
-				}
-			}
-		}
-		ai_chance = {
-			base = 40
-		}		
-		
-		RAA = {
-			AST_eric_campbell = {
-				remove_country_leader_role = {
-					ideology = nazism
-				}	
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = nazism
-						expire = 1960.1.1
-						traits = { GER_reichskommissar_trait } 
-					}
-				}	
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = GER_local_controlled_reichskommissariat
-		}
-
-		hidden_effect = {
-			
-			IF = {
-				limit = {
-					POL = {
-						NOT = {
-							AND = {
-								has_completed_focus = POL_restore_bermontians
-								exists = yes
-							}
-						}
-					}
-				}
-				RAA = {
-					set_nationality = {
-					    target_country = POL
-					    character = POL_pavel_bermondt_avalov
-					}
-				}
-			}
-			ELSE = {
-				RAA = {
-					set_nationality = {
-					    target_country = GER
-					    character = GER_werner_von_fritsch
-					}
-				}
-			}
-			
-		}
-
-	}
+	
 }
 
 
