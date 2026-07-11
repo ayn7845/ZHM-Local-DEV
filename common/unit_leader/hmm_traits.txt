@@ -61,5 +61,22 @@ leader_traits = {
             factor = 0
         }
 	}
+	
+	sov_inf_gen = { 
+		type = land
+		trait_type = basic_terrain_trait
+		
+		gain_xp = {
+			always = no # not gainable
+		}
+
+		corps_commander_modifier = {
+			max_commander_army_size = 999
+		}
+		
+		new_commander_weight = {
+            factor = 0
+        }
+	}
 
 }

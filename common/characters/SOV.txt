@@ -171,7 +171,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader commando pre_grind }
+			traits = { panzer_leader trickster urban_assault_specialist trait_engineer skilled_staffer cavalry_leader commando pre_grind }
 			skill = 6
 			attack_skill = 6
 			defense_skill = 10
@@ -218,7 +218,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader commando pre_grind }
+			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader urban_assault_specialist commando pre_grind }
 			skill = 6
 			attack_skill = 6
 			defense_skill = 10
@@ -361,8 +361,8 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { trait_reckless infantry_officer }
-			skill = 3
+			traits = { trait_reckless trickster infantry_officer sov_inf_gen pre_grind }
+			skill = 5
 			attack_skill = 1
 			defense_skill = 3
 			planning_skill = 3
@@ -382,7 +382,7 @@ characters = {
 			#	NOT = {has_tech = peoples_army}
 			#}
 			traits = {
-				army_infantry_2
+				army_infantry_3
 			}
 			cost = 100
 			ai_will_do = {
@@ -434,7 +434,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader commando pre_grind }
+			traits = { panzer_leader trickster trait_engineer skilled_staffer urban_assault_specialist cavalry_leader commando pre_grind }
 			skill = 6
 			attack_skill = 6
 			defense_skill = 10
@@ -1026,7 +1026,7 @@ characters = {
 			traits = { army_CombinedArms_2}
 		}
 		corps_commander = {
-			traits = { brilliant_strategist  winter_specialist panzer_leader trickster trait_engineer cavalry_leader organizer commando unyielding_defender pre_grind }
+			traits = { brilliant_strategist  winter_specialist panzer_leader trickster trait_engineer cavalry_leader urban_assault_specialist organizer commando unyielding_defender pre_grind }
 			skill = 8
 			attack_skill = 5
 			defense_skill = 10
@@ -1631,28 +1631,6 @@ characters = {
 		}		
 	}
 
-	SOV_aleksandr_golovanov = {
-		name = SOV_aleksandr_golovanov
-		portraits = {
-			army = {
-				small = "GFX_idea_alexander_golovanov"
-			}
-		}
-
-		advisor = {
-			cost = 100
-			slot = theorist
-			idea_token = alexander_golovanov
-			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
-			traits = { air_warfare_theorist }
-			ai_will_do = {
-				base = 0.5
-			}
-		}		
-	}
 
 	SOV_mikhail_frinovsky = {
 		name = SOV_mikhail_frinovsky
@@ -2163,7 +2141,9 @@ characters = {
 			}
 			
 			visible = {
-				
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
 			}
 			available = {
 				if = {
@@ -2205,7 +2185,9 @@ characters = {
 				original_tag = SOV
 			}
 			visible = {
-				
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
 			}
 			available = {
 				if = {
@@ -2253,7 +2235,9 @@ characters = {
 			}
 			
 			visible = {
-				
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
 			}
 			traits = {
 				captain_of_industry 
@@ -4224,5 +4208,40 @@ characters = {
 		}
 	}
 
+                              
+ #          ##    #    #  #####  
+ #         #  #   ##   #  #    # 
+ #        #    #  # #  #  #    # 
+ #        ######  #  # #  #    # 
+ #        #    #  #   ##  #    # 
+ #######  #    #  #    #  #####  
+
+
+	SOV_aleksandr_golovanov = {
+		name = SOV_aleksandr_golovanov
+		portraits = {
+			army = {
+				large = GFX_portrait_SOV_alexander_golovanov
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_armored_specialist }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+
+		#advisor = {
+			#cost = 100
+			#slot = theorist
+			#idea_token = alexander_golovanov
+			#ledger = air
+			#allowed = {
+				#original_tag = SOV
+			#}
+			#traits = { air_warfare_theorist }
+		#}		
 
 }
