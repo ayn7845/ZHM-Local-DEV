@@ -122,10 +122,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 					NOT = { original_tag = YUG }
 				}
 			}
-			OR = {
-				NOT = { has_dlc = "Trial of Allegiance" }
-				NOT = { original_tag = CHL }
-			}
+			
 			OR = {
 				NOT = { original_tag = SOV }
 				FROM = {
@@ -191,32 +188,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 		
 		}
 	}
-	if = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = allow_release_nations
-					option = FREE
-				}
-				has_game_rule = {
-					rule = allow_release_nations
-					option = PEACE_ONLY
-				}
-			}
-			has_dlc = "Trial of Allegiance"
-			original_tag = CHL
-			NOT = { 
-				OR = {
-					has_completed_focus = CHL_crusade_against_imperialism 
-					has_completed_focus = CHL_endorse_the_constitution
-				}
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_RELEASE_NATIONS_NOT_CHILE_TOOLTIP
-			
-		}
-	}
+	
 	IF = {
 		limit = {
 			OR = {
