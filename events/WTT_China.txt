@@ -887,29 +887,21 @@ country_event = {
 				factor = 4
 				has_war_with = JAP
 			}
-			modifier = {
-				PRC = {
-					has_completed_focus = PRC_social_democracy_focus
-				}
-				factor = 2 #Commies being nice to us
-			}
+			
 			modifier = {
 				CHI_is_on_historical_plan_trigger = yes
 				factor = 0
 			}
 		}
-		PRC = { country_event = wtt_xian_incident.5 }
+		#PRC = { country_event = wtt_xian_incident.5 }
 	}
 
 	option = {
 		name = wtt_xian_incident.4.b #disgree
 		ai_chance = {
 			base = 75
-			modifier = {
-				PRC = {
-					has_completed_focus = PRC_focus_on_china #commies being mean to us!
-				}
-				factor = 2
+			modifier = { 
+				
 			}
 			modifier = {
 				JAP = {
@@ -935,7 +927,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		trigger = { ## Doesn't trigger for Guomao
+		trigger = {
+			always = no ## Doesn't trigger for Guomao
 			NOT = {
 				OR = {
 					AND = {
@@ -949,14 +942,8 @@ country_event = {
 						}
 					}
 				}
-				OR = {
-					PRC = {
-						has_completed_focus = PRC_the_unwilling_diarchy_focus
-						focus_progress = {
-							focus = PRC_the_unwilling_diarchy_focus
-							progress > 0
-						}
-					}
+				OR = { 
+
 				}
 			}		
 		}
@@ -969,61 +956,7 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = news.288 days = 1 }
 		}
-		if = {
-			limit = {
-				NOT = { is_in_faction_with = CHI }
-				CHI = { is_in_faction = no }
-			}
-			if = {
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				CHI = {
-					set_rule = { can_create_factions = yes }
-					create_faction_from_template = faction_template_chinese_united_front
-				}
-			}
-			else = {
-				CHI = {
-					set_rule = { can_create_factions = yes }
-					create_faction = chinese_united_front
-				}
-			}
-			CHI = { add_to_faction = PRC }
-		}
-		if = {
-			limit = {
-				CHI = { is_faction_leader = yes }
-			}
-			CHI = { add_to_faction = PRC }
-			PRC = { 
-				add_ai_strategy = {
-					type = alliance
-					id = CHI
-					value = 200
-				}
-				set_rule = { can_join_factions = yes }
-			}
-			every_country = {
-				limit = {
-					is_subject_of = CHI
-				}
-				CHI = { add_to_faction = PREV }
-			}
-		}
-		IF = {
-			limit = {
-				XIC = { 
-					has_completed_focus = XIC_invite_chiang_for_troop_inspections
-				}
-			}
-			XIC = { 
-				country_event = {
-					id = SEA_warlords.61
-					hours = 6
-				}	
-			}
-		}
+		
 
 		hidden_effect = {
 			set_country_flag = CHI_chiang_accepted_the_deal_flag 
@@ -1050,9 +983,7 @@ country_event = {
 		}
 
 		custom_effect_tooltip = reject_second_united_front_tt
-		PRC = {
-			set_country_flag = PRC_said_no_to_cuf
-		}
+		
 		
 
 	}
@@ -1177,23 +1108,11 @@ country_event = {
 		}
 		event_target:CHI_xian_instigator = { clr_country_flag = CHI_xian_instigator_flag }
 		custom_effect_tooltip = reject_second_united_front_tt
-		PRC = {
-			set_country_flag = PRC_said_no_to_cuf
-		}
-		if = {
-			limit = {
-				PRC = {
-					has_country_flag = SOV_xian_refuse
-				}
-			}
-			add_opinion_modifier = {
-				target = SOV
-				modifier = protest_action
-			}
-		}
+		
 	}
 	option = {
 		trigger = { ## Doesn't trigger for Guomao
+		always = no
 			NOT = {
 				OR = {
 					AND = {
@@ -1207,14 +1126,8 @@ country_event = {
 						}
 					}
 				}
-				OR = {
-					PRC = {
-						has_completed_focus = PRC_the_unwilling_diarchy_focus
-						focus_progress = {
-							focus = PRC_the_unwilling_diarchy_focus
-							progress > 0
-						}
-					}
+				OR = { 
+
 				}
 			}		
 		}
@@ -1236,21 +1149,13 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = wtt_news.33 days = 1 random_hours = 36 }
 		}
-		PRC = {
-			set_country_flag = PRC_said_no_to_cuf
-		}
+		
 		
 	}
 	option = {
 		name = wtt_xian_incident.7.e #no deals with anyone
 		trigger = { ## Only available for Unwilling Diarchy
-			PRC = {
-				has_completed_focus = PRC_the_unwilling_diarchy_focus
-				focus_progress = {
-					focus = PRC_the_unwilling_diarchy_focus
-					progress > 0
-				}
-			}
+			always = no
 		}	
 		ai_chance = {
 			base = 100
@@ -1259,9 +1164,7 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = wtt_news.33 days = 1 random_hours = 36 }
 		}
-		PRC = {
-			set_country_flag = PRC_said_no_to_cuf
-		}
+		
 		
 	}
 
@@ -1350,7 +1253,7 @@ country_event = {
 		trigger = {
 			NOT = { has_completed_focus = CHI_avoid_another_crisis }
 		}
-		PRC = { country_event = wtt_xian_incident.7 }
+		#PRC = { country_event = wtt_xian_incident.7 }
 	}
 }
 
@@ -1399,10 +1302,7 @@ country_event = {
 				}
 				CHI_kill_chiang_for_new_leader = yes
 			}
-			create_wargoal = {
-				target = PRC
-				type = annex_everything
-			}
+			
 		}
 		event_target:CHI_xian_instigator = { clr_country_flag = CHI_xian_instigator_flag }
 		hidden_effect = {
@@ -1464,24 +1364,15 @@ country_event = {
 					create_faction = chinese_united_front
 				}
 			}
-			CHI = { add_to_faction = PRC }
-			PRC = {
-				set_rule = { can_join_factions = yes }
-			}
+			
+			
 		}
 		else_if = {
 			limit = {
 				CHI = { is_faction_leader = yes }
 			}
-			CHI = { add_to_faction = PRC }
-			PRC = { 
-				add_ai_strategy = {
-					type = alliance
-					id = "CHI"
-					value = 200
-				}
-				set_rule = { can_join_factions = yes }
-			}
+			
+			
 			every_country = {
 				limit = {
 					is_subject_of = CHI
@@ -1489,19 +1380,7 @@ country_event = {
 				CHI = { add_to_faction = PREV }
 			}
 		}
-		IF = {
-			limit = {
-				XIC = { 
-					has_completed_focus = XIC_invite_chiang_for_troop_inspections
-				}
-			}
-			XIC = { 
-				country_event = {
-					id = SEA_warlords.61
-					hours = 6
-				}	
-			}
-		}
+		
 		event_target:CHI_xian_instigator = { clr_country_flag = CHI_xian_instigator_flag }
 	}
 

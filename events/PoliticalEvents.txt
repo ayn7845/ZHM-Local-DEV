@@ -1456,10 +1456,7 @@ country_event = {
 			#Special case CHI PRC
 			OR = {
 				NOT = { tag = CHI }
-				AND = {
-					NOT = { country_exists = PRC }
-					tag = CHI
-				}			
+							
 			}
 		}
 		set_politics = {
@@ -1726,10 +1723,7 @@ country_event = {
 		#Special case CHI PRC
 		OR = {
 			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
+						
 		}
 		NOT = {
 			AND = {
@@ -1911,10 +1905,7 @@ country_event = {
 		NOT = { has_government = democratic }
 		OR = {
 			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
+					
 		}
 		NOT = {
 			AND = {

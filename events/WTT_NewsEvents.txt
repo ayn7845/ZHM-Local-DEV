@@ -1087,7 +1087,7 @@ news_event = {
 	option = {
 		name = wtt_news.30.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1106,7 +1106,7 @@ news_event = {
 		name = wtt_news.30.d
 		trigger = {
 			NOT = {
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = CHI
 				original_tag = SOV
 			}
@@ -1126,7 +1126,7 @@ news_event = {
 	option = {
 		name = wtt_news.30.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1145,7 +1145,7 @@ news_event = {
 		name = wtt_news.30.d
 		trigger = {
 			NOT = {
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = CHI
 				original_tag = SOV
 			}
@@ -1169,7 +1169,7 @@ news_event = {
 	option = {
 		name = wtt_news.32.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1197,7 +1197,7 @@ news_event = {
 		name = wtt_news.32.d
 		trigger = {
 			NOT = {
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = CHI
 				original_tag = SOV
 				original_tag = JAP
@@ -1222,7 +1222,7 @@ news_event = {
 	option = {
 		name = wtt_news.31.c
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1250,7 +1250,7 @@ news_event = {
 		name = wtt_news.32.d
 		trigger = {
 			NOT = {
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = CHI
 				original_tag = SOV
 				original_tag = JAP
@@ -1354,7 +1354,7 @@ news_event = {
 	option = {
 		name = wtt_news.36.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1371,7 +1371,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				original_tag = PRC
+				#original_tag = PRC
 				is_literally_china = yes
 			}
 		}
@@ -1391,7 +1391,7 @@ news_event = {
 	option = {
 		name = wtt_news.37.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1408,7 +1408,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				original_tag = PRC
+				#original_tag = PRC
 				is_literally_china = yes
 			}
 		}
@@ -1428,7 +1428,7 @@ news_event = {
 	option = {
 		name = wtt_news.38.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1451,7 +1451,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = SOV
 				is_literally_china = yes
 			}
@@ -1471,7 +1471,7 @@ news_event = {
 	option = {
 		name = wtt_news.39.a
 		trigger = {
-			original_tag = PRC
+			always = no
 		}
 	}
 	option = {
@@ -1479,7 +1479,7 @@ news_event = {
 		trigger = {
 			is_literally_china = yes
 			NOT = {
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = CHI
 			}
 		}
@@ -1501,7 +1501,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				original_tag = PRC
+				#original_tag = PRC
 				original_tag = JAP
 				is_literally_china = yes
 			}

@@ -1914,24 +1914,8 @@ country_event = {
 			base = 10
 		}
 
-		IF = {
-			limit = {
-				PRC = {
-					NOT = {
-						has_government = democratic
-						has_completed_focus = PRC_peaceful_reunification
-					}
-				}
-			}
-			add_country_leader_role = {
-				character = CHI_zhang_lan
-				promote_leader = yes
-				country_leader = {
-					ideology = socialism
-					expire = "1965.1.1.1"
-					traits = { JAP_democratic_socialist } 
-				}
-			}	
+		IF = { 
+
 		}
 		ELSE = {
 			add_country_leader_role = {
@@ -2957,7 +2941,7 @@ country_event = { #China is losing against PRC
 		original_tag = CHI
 		is_subject = no
 		has_completed_focus = CHI_dang_guo
-		has_war_with = PRC
+		always = no
 		surrender_progress > 0.7
 		524 = { is_fully_controlled_by = ROOT}
 		1035 = { state_is_fully_controlled_by_ROOT_or_subject = no }

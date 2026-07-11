@@ -1347,7 +1347,7 @@ country_event = {
 		custom_effect_tooltip = ETH_morale_boost_tt
 		add_to_variable = { ETH_army_army_defence_factor = 0.1 }
 		add_to_variable = { ETH_army_army_org_factor = 0.05 }
-		ETH_improve_army_spirit_effect = yes # increase bling value
+		#ETH_improve_army_spirit_effect = yes # increase bling value
 	}
 }
 

@@ -274,13 +274,11 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				SWE = {
-					is_in_faction = yes
-				}
+				
 			}
 			modifier = {
 				factor = 0
-				SWE = { SWE_is_historical_ai = yes }
+				#SWE = { SWE_is_historical_ai = yes }
 			}
 		}
 		SWE = {
@@ -292,26 +290,7 @@ country_event = {
 		}
 	}
 	# Don't ask for access, ends event chain here.
-	option = { 
-		name = AAT_Sweden_flashpoints.30.b
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 10
-				has_war_with = SWE
-			}
-			modifier = {
-				add = 10
-				SWE = {
-					is_in_faction = yes
-				}
-			}
-			modifier = {
-				factor = 10
-				SWE = { SWE_is_historical_ai = yes }
-			}
-		}
-	}
+
 
 }
 

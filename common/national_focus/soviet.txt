@@ -11843,7 +11843,7 @@ focus_tree = {
 		id = SOV_the_comintern
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 8
+		x = 10
 		y = 0
 		relative_position_id = SOV_addressing_internal_affairs
 		cost = 5
@@ -11906,7 +11906,7 @@ focus_tree = {
 			}	
 		}
 		allow_branch = {
-			always = no
+			
 		}
 		available = {
 			any_allied_country = {
