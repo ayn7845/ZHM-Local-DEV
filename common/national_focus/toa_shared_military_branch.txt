@@ -6,9 +6,7 @@ shared_focus = {
 	dynamic = yes
 
 	icon = {
-		GFX_focus_CHL_ejercito_de_chile = {
-			original_tag = CHL
-		}
+		
 		GFX_focus_ARG_army = {
 			original_tag = ARG
 		}
@@ -366,9 +364,7 @@ shared_focus = {
 	#}
 
 	allow_branch = { 
-		NOT = {
-			original_tag = CHL
-		}
+		
 	}
 
 	available = {
@@ -699,7 +695,7 @@ shared_focus = {
 	allow_branch = {
 		OR = {
 			original_tag = ARG
-			original_tag = CHL
+			#original_tag = CHL
 		}
 	}
 
@@ -708,14 +704,8 @@ shared_focus = {
 		}
 
 	completion_reward = {
+		
 		IF = {
-			limit = {
-				original_tag = CHL
-			}
-			custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-			add_to_variable = { JUNO_army_modifier_acclimatization_cold_climate_gain_factor = 0.15 tooltip = acclimatization_cold_climate_gain_factor_tt }
-		}
-		ELSE_IF = {
 			limit = {
 				original_tag = BRA
 			}
@@ -765,19 +755,13 @@ shared_focus = {
 	allow_branch = {
 		OR = {
 			original_tag = ARG
-			original_tag = CHL
+			#original_tag = CHL
 		}
 	}
 
 	completion_reward = {
+		
 		IF = {
-			limit = {
-				original_tag = CHL
-			}
-			custom_effect_tooltip = CHL_modify_chilean_army_ns_intro
-			add_to_variable = { JUNO_army_modifier_acclimatization_hot_climate_gain_factor = 0.15 tooltip = acclimatization_hot_climate_gain_factor_tt }
-		}
-		ELSE_IF = {
 			limit = {
 				original_tag = BRA
 			}
@@ -818,7 +802,7 @@ shared_focus = {
 	}
 
 	allow_branch = {
-		original_tag = CHL
+		always = no
 	}
 
 	ai_will_do = {
@@ -1902,7 +1886,7 @@ shared_focus = {
 	}
 
 	allow_branch = {
-		original_tag = CHL
+		always = no
 	}
 
 	ai_will_do = {
@@ -2005,9 +1989,7 @@ shared_focus = {
 	}
 
 	icon = {
-		GFX_focus_CHL_fuerza_aerea_de_chile = {
-			original_tag = CHL
-		}
+		
 		GFX_focus_ARG_air_force = {
 			original_tag = ARG
 		}
@@ -3125,9 +3107,7 @@ shared_focus = {
 	dynamic = yes
 
 	icon = {
-		GFX_focus_CHL_armada_de_chile = {
-			original_tag = CHL
-		}
+		
 		GFX_focus_ARG_navy = {
 			original_tag = ARG
 		}
