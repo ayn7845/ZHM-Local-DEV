@@ -7,6 +7,9 @@
  pre_grind_desc:0 "No Grinding Pregrinded Generals"
  tank_pre_grind:0 "Tank Pregrind" 
 
+ HMM_banned_by_rules: "Banned by Game Rules"
+ HMM_axis_only: "Axis Only"
+ HMM_allies_only: "Allies Only"
 
 
 

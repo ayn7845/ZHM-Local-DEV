@@ -220,6 +220,7 @@ armored_infantry_support = {
             }
 			category_tank_destroyer_regimental_support = {			
                 max_organisation = 5
+				ap_attack = 0.1
 			}
         }
 		

@@ -91,7 +91,7 @@ last_stand = {
     xp_cost = 100
     xp_type = army
 
-    available = { 
+    available = {
         always = yes
     }
     # EFFECTS

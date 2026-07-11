@@ -10214,8 +10214,14 @@ focus_tree = {
 		}
 
 		available = {
-			9 = {
+				AND = {
+					has_game_rule = { 
+					rule = Germany_czech_manufacturers
+					option = allowed
+					}
+				9 = {
 				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
 			}
 		}
 
