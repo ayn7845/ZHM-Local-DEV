@@ -84,9 +84,7 @@ on_actions = {
 				set_variable = { CHI_warlord_integration_pp_cost = 50 }
 			}
 
-			YUN = {
-				set_variable = { political_power_warlord_integration_cost = 100 }
-			}
+			
 		}
 
 		#JAPAN - Add Chinese States to an array for Strategic Offensives Decision purposes
