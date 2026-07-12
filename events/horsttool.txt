@@ -233,7 +233,7 @@ country_event = {
     option = {
         name = "Yes, move the host tool"
         # Store new host globally BEFORE clearing flags
-        set_global_variable = { new_host_country = temp_new_host }
+        set_variable = { global.new_host_country = temp_new_host }
         # Clear host flag from everyone
         every_country = {
             clr_country_flag = host
@@ -268,7 +268,7 @@ news_event = {
     option = {
         name = "Understood"
         # Clear the global variable after showing the notification
-        clear_global_variable = new_host_country
+        clear_variable = global.new_host_country
     }
 }
 # Pause blocker events
@@ -294,8 +294,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "War in my war game?Bruh"
-        clear_global_variable = war_declarer
-        clear_global_variable = war_target
+        clear_variable = global.war_declarer
+        clear_variable = global.war_target
     }
 }
 
@@ -309,8 +309,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Hope they like their new home!"
-        clear_global_variable = switch_from
-        clear_global_variable = switch_to
+        clear_variable = global.switch_from
+        clear_variable = global.switch_to
     }
 }
 
@@ -695,8 +695,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        clear_global_variable = compliance_value
-        clear_global_variable = compliance_state
+        clear_variable = global.compliance_value
+        clear_variable = global.compliance_state
     }
 }
 
@@ -710,8 +710,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        clear_global_variable = resistance_value
-        clear_global_variable = resistance_state
+        clear_variable = global.resistance_value
+        clear_variable = global.resistance_state
     }
 }
 
