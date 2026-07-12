@@ -23,33 +23,7 @@ peace_ai_desires = {
   
 
     # Create a chinese puppet state from the rest of China
-    JAP_create_chinese_puppet = {
-        peace_action_type = puppet
-        enable = {
-            FROM.FROM = {
-                original_tag = CHI
-            }
-            FROM.FROM.FROM = {
-                NOT = {
-                    is_state_japan_wants = yes
-                }
-                any_neighbor_state = {
-                    OR = {
-                        is_owned_by = ROOT.FROM
-                        pc_is_state_claimed_by = ROOT
-                        is_coastal = yes
-                    }
-                }
-            }
-            ROOT = {
-                original_tag = JAP
-                NOT = {
-                    has_subject = RNG
-                }
-            }
-        }
-        ai_desire = 150
-    }
+   
 	
 	JAP_dont_eat_chinese_puppet = {
         peace_action_type = take_states

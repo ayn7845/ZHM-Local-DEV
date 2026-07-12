@@ -128,7 +128,7 @@ country_event = {
 		add_to_variable = { demonstrate_resolve_art_reward = 100 }
 		add_dynamic_modifier = { modifier = CHI_soviet_support }
 
-		PRC_SOV_lend_lease_strategy = yes
+		#PRC_SOV_lend_lease_strategy = yes
 		hidden_effect = {
 			add_ideas = CHI_soviet_support_hidden
 		}
@@ -604,7 +604,7 @@ country_event = { # Event for Chiang get's killed
 		ai_chance = {
 			base = 10
 		}
-		CHI_kill_chiang_for_new_leader = yes
+		#CHI_kill_chiang_for_new_leader = yes
 		if = {
 			limit = {
 				has_country_flag = CHI_chiang_died_during_liangguang_incident_flag
@@ -1269,29 +1269,11 @@ country_event = { # China tries to stall war with Japan, HBC and SND get the cha
 			}
 		}
 
-		IF = {
-			limit = {
-				1039 = {
-					is_controlled_by = ROOT
-				}
-				FROM = { has_subject = MEN }
-			}
-			MEN = {
-				transfer_state = 1039
-			}
+		IF = { 
+
 		}
-		ELSE_IF = {
-			limit = {
-				1039 = {
-					is_controlled_by = ROOT
-				}
-				NOT = {
-					FROM = { has_subject = MEN }
-				}
-			}
-			JAP = {
-				transfer_state = 1039
-			}
+		ELSE_IF = { 
+			
 		}
 
 		custom_effect_tooltip = the_game_will_end_for_us

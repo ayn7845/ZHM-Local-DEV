@@ -1612,7 +1612,7 @@ ideas = {
 			picture = chi_wargaming_division
 
 			allowed = {
-				original_tag = SHX
+				always = no
 			}
 
 			allowed_civil_war = {

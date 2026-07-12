@@ -262,104 +262,18 @@ country_event = {
 			}
 		}
 
-		random_country = {
-			limit = {
-				original_tag = MEN
-				has_government = communism
-				is_subject = no
-			}
-			FROM = {
-				puppet = {
-				    target = PREV
-				    end_wars = no
-				    end_civil_wars = no
-				}
-			}
-			set_politics = {
-				ruling_party = communism
-			}
+		random_country = { 
+			
 		}
 
-		hidden_effect = {
-			random_country = {
-				limit = {
-					original_tag = MEN
-					NOT = {
-						has_government = communism
-					}
-				}
-				FROM = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}	
-				}
-			}
+		hidden_effect = { 
+
 		}
 
 	}
 
-	option = { #Fight back the red menace!
-		name = tsr_manchukuo.5.b
-		ai_chance = {
-			base = 2
-		}
-
-		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				set_variable = { ROOT.temp_capital = THIS.id }
-			}
-		}
-
-		start_civil_war = {
-			ideology = communism
-			ruling_party = ROOT
-			size = 0.5
-			states = all
-			states_filter = {
-			    state = 612
-			    is_controlled_by = ROOT
-			    is_capital = no
-			}
-		}
-
-		random_country = {
-			limit = {
-				original_tag = MEN
-				has_government = communism
-				is_subject = no
-			}
-			FROM = {
-				puppet = {
-				    target = PREV
-				    end_wars = no
-				    end_civil_wars = no
-				}
-			}
-			set_politics = {
-				ruling_party = communism
-			}
-		}
-
-		hidden_effect = {
-			random_country = {
-				limit = {
-					original_tag = MEN
-					NOT = {
-						has_government = communism
-					}
-				}
-				FROM = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}	
-				}
-			}
-		}
+	option = { 
+		
 	}
 }
 
@@ -1030,13 +944,8 @@ country_event = {
 				hours = 2
 			}
 		}
-		effect_tooltip = {
-			FROM = {
-				annex_country = {
-					target = RNG
-					transfer_troops = yes
-				}
-			}
+		effect_tooltip = { 
+
 		}
 	}
 	
@@ -1070,9 +979,8 @@ country_event = {
 		ai_chance = { 
 			base = 10
 		}
-		annex_country = {
-			target = RNG
-			transfer_troops = yes
+		annex_country = { 
+			
 		}
 	}
 }

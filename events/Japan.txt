@@ -200,28 +200,10 @@ country_event = {
 			614 = { add_claim_by = ROOT }
 		}
 
-		IF = {
-			limit = {
-				1039 = {
-					is_controlled_by = FROM
-				}
-				has_subject = MEN
-			}
-			MEN = {
-				transfer_state = 1039
-			}
+		IF = { 
+
 		}
-		ELSE_IF = {
-			limit = {
-				1039 = {
-					is_controlled_by = FROM
-				}
-				NOT = {
-					has_subject = MEN
-				}
-			}
-			transfer_state = 1039
-		}
+		
 		ELSE_IF = {
 			limit = {
 				1039 = {

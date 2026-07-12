@@ -2552,14 +2552,7 @@ generic_escort_ship_organization = {
 			AND = {
 				OR = {
 					original_tag = PHI
-					original_tag = SND
-					original_tag = HBC
-					original_tag = XIC
-					original_tag = GDC
-					original_tag = SIC
-					original_tag = NXM
-					original_tag = GSM
-					original_tag = KHM
+				
 				}
 				has_dlc = "No Compromise, No Surrender"
 			}
@@ -4096,14 +4089,7 @@ generic_general_aircraft_organization = {
 			AND = {
 				OR = {
 					original_tag = PHI
-					original_tag = SND
-					original_tag = HBC
-					original_tag = XIC
-					original_tag = GDC
-					original_tag = SIC
-					original_tag = NXM
-					original_tag = GSM
-					original_tag = KHM
+				
 				}
 				has_dlc = "No Compromise, No Surrender"
 			}

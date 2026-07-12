@@ -178,17 +178,13 @@ country_event = {
 	}
 
 	trigger = {
-		tag = event_target:WTT_current_china_leader
-		any_other_country = {
-			has_completed_focus = PRC_infiltration
-			has_government = communism
-		}
+		always = no
 	}
 	
 	immediate = {
 		every_controlled_state = { 
 			limit = {
-				has_any_PRC_infiltration_flag = yes
+				#has_any_PRC_infiltration_flag = yes
 				NOT = { has_state_flag = discovered_infiltration }
 			}
 			random_list = {
@@ -257,23 +253,6 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				NOT = { has_global_flag = new_infiltration_detected }
-			}
-			if = {
-				limit = { ROOT_any_state_infiltration_detected = yes }
-				country_event = wtt_infiltration.3
-				else_if = {
-					limit = { 
-						has_country_flag = CHI_first_infiltration_discovered 
-						NOT = { has_country_flag = CHI_clean_sweep }
-					}
-					#No infiltrations discovered
-					country_event = wtt_infiltration.4
-				}
-			}
-		}
 		clr_global_flag = new_infiltration_detected
 	}
 }
@@ -493,32 +472,8 @@ country_event = {
 		days = 30
 	}
 
-	trigger = {
-		OR = {
-			609 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-			610 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-			611 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-			612 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-			714 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-			715 = {
-				is_controlled_by_ROOT_or_subject = yes
-			}
-		}
-		any_other_country = {
-			has_completed_focus = PRC_anti_japanese_expedition
-			has_government = communism
-			not = { is_in_faction_with = ROOT }
-		}		
+	trigger = { 
+		always = no
 	}
 	
 	immediate = {
@@ -530,7 +485,7 @@ country_event = {
 						tag = ROOT
 					}
 				}
-				has_any_PRC_infiltration_flag = yes
+				#has_any_PRC_infiltration_flag = yes
 				NOT = { has_state_flag = discovered_infiltration }
 			}
 			random_list = {
@@ -1097,7 +1052,7 @@ country_event = {
 			}
 		}
 		CHI = {
-			CHI_kill_chiang_for_new_leader = yes
+			#CHI_kill_chiang_for_new_leader = yes
 			create_wargoal = {
 				target = PREV
 				type = annex_everything
@@ -1222,26 +1177,7 @@ country_event = {
 			type = annex_everything
 			target = event_target:CHI_xian_instigator
 		}
-		IF = {
-			limit = { 
-				has_dlc = "No Compromise, No Surrender"
-			}
-			retire_character = CHI_chiang_kaishek
-			IF = {
-				limit = {
-					CHI_wang_jingwei = {
-						is_country_leader = no
-					}
-				}
-				add_country_leader_role = {
-					character =  CHI_wang_jingwei # optional if inside character scope
-					promote_leader = yes
-					country_leader = {
-						ideology = despotism
-					}
-				}
-			}
-		}
+		
 		event_target:CHI_xian_instigator = { clr_country_flag = CHI_xian_instigator_flag }
 	}
 
@@ -1300,7 +1236,7 @@ country_event = {
 						has_global_flag = CHI_wang_defects
 					}
 				}
-				CHI_kill_chiang_for_new_leader = yes
+				#CHI_kill_chiang_for_new_leader = yes
 			}
 			
 		}

@@ -180,7 +180,7 @@ CHI_mukden_arsenal_organization = {
 		OR = {
 			is_literally_china = yes
 			tag = MAN
-			tag = MEN
+			
 		}
 	}
 	available = {

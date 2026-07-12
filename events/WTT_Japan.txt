@@ -1161,57 +1161,7 @@ country_event = {
 
 	is_triggered_only = yes
 	
-	option = {
-		name = wtt_japan.114.a
-		if = {
-			limit = {
-				MAN = { is_subject_of = ROOT }
-			}
-			set_autonomy = { target = MAN autonomy_state = autonomy_free }
-			if = {
-				limit = {
-					MEN = { is_subject_of = ROOT }
-				}
-				MAN = { puppet = MEN }
-			}
-			MAN = {
-				set_cosmetic_tag = MAN_kwantung_army
-				hidden_effect = {
-					set_country_flag = MAN_kwantung_army_took_control_flag
-				}
-			}
-		}
-		if = {
-			limit = {
-				MAN = { has_idea = MAN_kwantung_veto }
-			}
-			MAN = { remove_ideas = MAN_kwantung_veto }
-		}
-		if = {
-			limit = {
-				KOR = { is_subject_of = ROOT }
-			}
-			set_autonomy = { target = KOR autonomy_state = autonomy_free }
-			KOR = {
-				retire_character = KOR_jiro_minami
-			}
-
-		}
-		add_popularity = { ideology = democratic popularity = 0.1 }
-		start_civil_war = {
-			ruling_party = democratic
-			ideology = fascism
-			size = 0.5
-		}
-		if = {
-			limit = {
-				any_controlled_state = {
-					is_core_of = KOR
-				}
-			}
-			release = KOR
-		}
-	}
+	
 }
 
 ###  ###  ###    ### #   # ###  ### ### #   # ###     #   #  ##  ###  
@@ -1764,128 +1714,13 @@ country_event = {
 	# They have accepted.
 	option = {
 		name = wtt_japan.127.a
-		if = {
-			limit = {
-				NOT = {
-					MAN = {
-						controls_state = 525
-						controls_state = 527
-						controls_state = 1029
-						controls_state = 1031
-						controls_state = 1030
-						controls_state = 1028
-					}
-				}
-				JAP = {
-					owns_state = 525
-					owns_state = 527
-					owns_state = 1029
-					owns_state = 1031
-					owns_state = 1030
-					owns_state = 1028
-				}
-			}
-			KOR = {
-				transfer_state = 525
-				transfer_state = 527
-				transfer_state = 1029
-				transfer_state = 1031
-				transfer_state = 1030
-				transfer_state = 1028
-			}
+		if = { 
+
 		}
-		else_if = {
-			limit = {
-				KOR = {
-					exists = yes
-					is_subject_of = JAP
-				}
-				MAN = {
-					controls_state = 525
-					controls_state = 527
-					controls_state = 1029
-					controls_state = 1031
-					controls_state = 1030
-					controls_state = 1028
-				}
-			}
-			JAP = {
-				set_autonomy = {
-					target = KOR
-					autonomy_state = autonomy_free
-					end_wars  = yes 
-					end_civil_wars = yes
-				}	
-			}
-			every_other_country = {
-				limit = {
-					is_literally_china = yes
-					has_war_with = KOR
-				}
-				white_peace = KOR
-			}
-			MAN = {
-				puppet = KOR
-			}
-			KOR = {	
-				set_party_name = {
-					ideology = neutrality
-					long_name = KOR_neutrality_party
-					name = KOR_neutrality_party
-				}
-				set_party_name = {
-					ideology = democratic
-					long_name = KOR_democratic_party
-					name = KOR_democratic_party
-				}
-				retire_character = KOR_jiro_minami
-			}
+		else_if = { 
+
 		}
-		else_if = {
-			limit = {
-				KOR = {
-					exists = yes
-					is_subject_of = JAP
-				}
-			}
-			JAP = {
-				set_autonomy = {
-					target = KOR
-					autonomy_state = autonomy_free
-					end_wars  = yes 
-					end_civil_wars = yes
-				}	
-			}
-			every_other_country = {
-				limit = {
-					OR = {
-						AND = {
-							tag = MAN
-							is_in_faction_with = event_target:WTT_current_china_leader
-						}
-						is_literally_china = yes
-					}
-					has_war_with = KOR
-				}
-				white_peace = KOR
-			}
-			KOR = {	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				set_party_name = {
-					ideology = neutrality
-					long_name = KOR_neutrality_party
-					name = KOR_neutrality_party
-				}
-				set_party_name = {
-					ideology = democratic
-					long_name = KOR_democratic_party
-					name = KOR_democratic_party
-				}
-				retire_character = KOR_jiro_minami
-			}
+		else_if = { 
 
 		}
 		if = {
@@ -1951,19 +1786,8 @@ country_event = {
 				white_peace = ROOT
 			}
 		}
-		if = {
-			limit = {
-				RNG = {
-					exists = yes
-					is_ally_with = JAP
-				}
-			}
-			event_target:WTT_current_china_leader = {
-				annex_country = {
-					target = RNG 
-					transfer_troops = no
-				}	
-			}
+		if = { 
+			
 		}
 		else = {
 			every_other_country = {
@@ -2052,108 +1876,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	# We accept their surrender.
-	option = {
-		name = wtt_japan.126.a
-		ai_chance = {
-			factor = 1
-		}
-		effect_tooltip = {
-			if = {
-				limit = {
-					NOT = {
-						any_country = {
-							is_literally_china = yes
-							controls_state = 525
-							controls_state = 527
-							controls_state = 1029
-							controls_state = 1031
-							controls_state = 1030
-							controls_state = 1028
-						}
-					}
-					JAP = {
-						owns_state = 525
-						owns_state = 527
-						owns_state = 1029
-						owns_state = 1031
-						owns_state = 1030
-						owns_state = 1028
-					}
-				}
-				FROM = { release = KOR }
-				KOR = {
-					transfer_state = 525
-					transfer_state = 527
-					transfer_state = 1029
-					transfer_state = 1031
-					transfer_state = 1030
-					transfer_state = 1028
-				}
-				MAN = {
-					puppet = KOR
-				}
-			}
-			else_if = {
-				limit = {
-					KOR = {
-						exists = yes
-						is_subject_of = JAP
-					}
-				}
-				JAP = {
-					set_autonomy = {
-						target = KOR
-						autonomy_state = autonomy_free
-						end_wars  = yes 
-						end_civil_wars = yes
-					}	
-				}
-				MAN = {
-					puppet = KOR
-				}
-			}
-			if = {
-				limit = {
-					524 = {
-						is_controlled_by = JAP
-					}
-				}
-				transfer_state = 524
-			}
-			MAN = {
-				every_controlled_state = {
-					limit = {
-						OR = {
-							is_owned_by = JAP
-							AND = {
-								is_owned_by = MEN
-								MEN = { is_subject_of = JAP }
-							}
-						}
-						NOT = {
-							state = 525
-							state = 527
-							state = 1029
-							state = 1031
-							state = 1030
-							state = 1028
-						}
-					}
-					every_country = {
-						limit = {
-							original_tag = MAN
-							controls_state = PREV
-						}
-						transfer_state = PREV
-					}
-				}
-				white_peace = JAP
-			}
-		}
-		FROM = {
-			country_event = { id = wtt_japan.130 }
-		}
-	}
+
 
 	# No surrender! We want total victory!
 	option = {
@@ -2177,112 +1900,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	# They have accepted.
-	option = {
-		name = wtt_japan.127.a
-		if = {
-			limit = {
-				NOT = {
-					any_country = {
-						is_literally_china = yes
-						controls_state = 525
-						controls_state = 527
-						controls_state = 1029
-						controls_state = 1031
-						controls_state = 1030
-						controls_state = 1028
-					}
-				}
-				JAP = {
-					owns_state = 525
-					owns_state = 527
-					owns_state = 1029
-					owns_state = 1031
-					owns_state = 1030
-					owns_state = 1028
-				}
-			}
-			FROM = { release = KOR }
-			KOR = {
-				transfer_state = 525
-				transfer_state = 527
-				transfer_state = 1029
-				transfer_state = 1031
-				transfer_state = 1030
-				transfer_state = 1028
-			}
-			MAN = {
-				puppet = KOR
-			}
-			KOR = {	
-				set_party_name = {
-					ideology = neutrality
-					long_name = KOR_neutrality_party
-					name = KOR_neutrality_party
-				}
-				set_party_name = {
-					ideology = democratic
-					long_name = KOR_democratic_party
-					name = KOR_democratic_party
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				KOR = {
-					exists = yes
-					is_subject_of = JAP
-				}
-			}
-			JAP = {
-				set_autonomy = {
-					target = KOR
-					autonomy_state = autonomy_free
-					end_wars  = yes 
-					end_civil_wars = yes
-				}	
-			}
-			MAN = {
-				puppet = KOR
-			}
-			KOR = {	
-				set_party_name = {
-					ideology = neutrality
-					long_name = KOR_neutrality_party
-					name = KOR_neutrality_party
-				}
-				set_party_name = {
-					ideology = democratic
-					long_name = KOR_democratic_party
-					name = KOR_democratic_party
-				}
-				retire_character = KOR_jiro_minami
-			}
-		}
-		if = {
-			limit = {
-				524 = {
-					is_controlled_by = JAP
-				}
-			}
-			MAN = { transfer_state = 524 }
-		}
-		MAN = {
-			every_controlled_state = {
-				limit = {
-					OR = {
-						is_owned_by = JAP
-						AND = {
-							is_owned_by = MEN
-							MEN = { is_subject_of = JAP }
-						}
-					}
-				}
-				MAN = {
-					transfer_state = PREV
-				}
-			}
-			white_peace = ROOT
-		}
+	option = { 
+		
 	}
 }
 

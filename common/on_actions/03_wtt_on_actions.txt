@@ -240,18 +240,7 @@ on_actions = {
 
 		effect = {
 			#Clear any tribute and support flag if new communists end up at war with SOV
-			if = {
-				limit = { has_country_flag = WTT_support_from_soviet }
-				PRC_soviet_tribute_clear_all = yes
-				clr_country_flag = WTT_support_from_soviet
-			}
-			FROM = {
-				if = {
-					limit = { has_country_flag = WTT_support_from_soviet }
-					PRC_soviet_tribute_clear_all = yes
-					clr_country_flag = WTT_support_from_soviet
-				}
-			}
+		
 			if = { #TODO_Danne REMOVE THIS!!! It's replaced with the Blitzkrieg/Bewegungskrieg modifiers
 				limit = {
 					OR = {

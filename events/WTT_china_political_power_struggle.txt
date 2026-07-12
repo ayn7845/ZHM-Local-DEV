@@ -720,16 +720,7 @@ country_event = {
 		name = wtt_take_national_leadership.1.b
 		ai_chance = {
 			base = 0
-			modifier = {
-				AND = {
-					original_tag = CHI
-					has_country_leader = {
-						ruling_only = yes # default = yes
-						character = CHI_wang_jingwei
-					}
-				}
-				add = 500 ## Wang Jingwei really didn't wanna go down without a fight
-			}
+		
 		}
 
 		hidden_effect = {

@@ -527,45 +527,8 @@ on_actions = {
 
 		}
 
-		effect = { # Trigger the han fuju flees event
-			IF = {
-				limit = {
-					FROM.FROM = {
-						state = 1038 #Jinan
-						is_owned_by = SND
-					}
-					ROOT = {
-						has_war_with = SND
-						has_war_with = CHI
-						OR = {
-							original_tag = JAP
-							AND = {
-								original_tag = RNG
-								is_ally_with = JAP
-							}
-							AND = {
-								original_tag = MAN
-								is_ally_with = JAP
-							}
-						}
-					}
-					FROM = {
-						original_tag = SND
-						is_subject = no
-						is_in_faction_with = CHI 
-						NOT = { 
-							has_country_flag = SND_han_fuju_stays 
-						}
-					}
-					NOT = { has_global_flag = jinan_has_fallen }
-				}
-				CHI = {
-					country_event = {
-						id = SEA_warlords.42
-						hours = 6
-					}
-				}
-			}
+		effect = { 
+
 		}
 
 		effect = { #BEL-inspired fall of Phillipines
@@ -3029,50 +2992,14 @@ on_actions = {
         }
 
         # CHI has lost and RNG has been validated as an actual China 
-        effect = {
-    		IF = {
-    			limit = {
-    				# The Reorganized National Government is a winner
-    				ROOT = {
-    					original_tag = RNG
-    				}
-    				# One of the losers if Nationalist China
-    				FROM = {
-    					original_tag = CHI 
-    	 			}
-    			}
-    			FROM = {
-    				every_core_state = {
-    					add_core_of = ROOT
-    				}
-    			}
-    		}
-        }
+        effect = { 
+
+		}
 
         # Merging of Japanese puppet governments into one (ONLY WHEN JAPAN IS AN AI)
-        effect = {
-        	IF = {
-        		limit = {
-        			# Japan is a winner and has the RNG as their puppet 
-        			ROOT = {
-        				original_tag = JAP
-        				is_ai = yes 
-        				has_subject = RNG
-        			}
-        			# One of the losers if Nationalist China and has been puppeted by Japan 
-        			FROM = {
-        				original_tag = CHI 
-        				is_subject_of = JAP
-         			}
-        		}
-        		RNG = {
-        			annex_country = {
-        				target = FROM
-        				transfer_troops = yes
-        			}	
-        		}
-        	}
-        }
+        effect = { 
+			
+		}
 
         # Merging of accidental leftover Japan into American Japanese puppet government if there is one, if Japan surrendered through the focus  
         effect = {

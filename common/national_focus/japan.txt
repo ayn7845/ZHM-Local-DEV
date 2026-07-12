@@ -17227,16 +17227,8 @@ allow_branch = {
 			country_event = {
 				id = SEA_japan_popup_events.34
 			}	
-			effect_tooltip = {
-				every_owned_state = {
-					limit = {
-						is_core_of = ANU
-					}
-					add_dynamic_modifier = {
-						modifier = JAP_ainu_revoluton_theory_implemented_dm
-						scope = ROOT
-					}	
-				}
+			effect_tooltip = { 
+				
 			}
 			
 		}
