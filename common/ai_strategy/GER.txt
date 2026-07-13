@@ -1,5 +1,51 @@
 #Added the way it is so there can be less errors in the log
 
+GER_guns_before_anchluss = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		NOT = { 
+			has_completed_focus = GER_anschluss
+		}
+	}
+	abort = {
+		has_completed_focus = GER_anschluss
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = infantry
+		value = 32
+	}
+
+}
+
+GER_stockpile_guns_until_anchluss = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		NOT = { 
+			has_completed_focus = GER_anschluss
+		}
+	}
+	abort = {
+		has_completed_focus = GER_anschluss
+	}
+
+	ai_strategy = {
+		type = equipment_production_surplus_management
+		id = infantry_equipment
+		value = -10000
+	}
+	ai_strategy = { 
+		type = build_army
+		infantry = infantry
+		value = -10000
+	}
+
+}
+
 GER_unit_production = {
 	allowed = {
 		original_tag = GER
