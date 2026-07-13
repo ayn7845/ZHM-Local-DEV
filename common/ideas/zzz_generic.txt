@@ -1897,12 +1897,7 @@ ideas = {
 					}
 				}
 
-				NOT = {
-					AND = {
-						OR = { tag = INS tag = AST }
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
+			
 
 				PHI_SEA = no
 			}

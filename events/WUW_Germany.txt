@@ -315,22 +315,7 @@ country_event = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				original_tag = HOL
-				has_country_flag = GER_trading_proposal_flag
-			}
-			effect_tooltip = {
-				INS = {
-					add_ideas = GER_german_trade_ns
-
-					add_opinion_modifier = {
-						target = FROM
-						modifier = GER_trading_partners
-					}
-				}
-			}
-		}
+		
 		if = {
 			limit = {
 				original_tag = BEL
@@ -401,21 +386,7 @@ country_event = { #FROM accepts our trade deal
 			}
 			set_country_flag = GER_getting_offshore_civ_flag
 		}
-		if = {
-			limit = {
-				FROM = {
-					original_tag = HOL
-					has_country_flag = GER_trading_proposal_flag
-				}
-			}
-			INS = {
-				add_ideas = GER_german_trade_ns
-				add_opinion_modifier = {
-					target = GER
-					modifier = GER_trading_partners
-				}
-			}
-		}
+		
 		if = {
 			limit = {
 				FROM = {
