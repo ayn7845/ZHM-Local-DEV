@@ -2146,46 +2146,7 @@ on_actions = {
 			}
 
 			#	ROOT is new controller, FROM is old controller, FROM.FROM is state ID.
-			if = {
-				limit = {
-					SWE = { has_idea = SWE_crusade_against_the_eastern_threat }
-					ROOT = {
-						OR = {
-							original_tag = SWE
-							is_in_faction_with = SWE
-						}
-					}
-
-					FROM = {
-						original_tag = SOV
-					}
-
-					FROM.FROM = {
-						OR = {
-							state = 195 #Leningrad
-							state = 206 #Minsk
-							state = 202 #Kiev
-							state = 242 #Smolensk
-							state = 219 #Moscow
-							state = 137 #Crimea
-							state = 218 #Rostov
-							state = 217 #Stalingrad
-							state = 252 #Gorky
-							state = 249 #Kazan
-							state = 229 #Azerbaijan (Baku)
-							state = 247 #Kalinin
-							state = 408 #Vladivostok
-							state = 214 #Arch-Ankle
-						}
-					}
-				}
-
-				remove_ideas = SWE_crusade_against_the_eastern_threat
-				add_timed_idea = {
-					idea = SWE_crusade_against_the_eastern_threat
-					days = 365
-				}
-			}
+		
 		}
 		effect = { # Waiting for Norway to be over 50% conquered. 
 			if = {
