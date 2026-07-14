@@ -1,3 +1,60 @@
+#real world equivalencies - use these to guide historical templates to maintain parity between countries with similar equipment
+#
+#USE THESE ONLY AS A GUIDE, NOT A HARD RULE. REAL WORLD CAPABILITY IS NOT JUST FROM WEAPON CALIBER, BUT A COMBINATION OF THAT, RANGE, FIRE CONTROL, AMMUNITION QUALITY, ETC. DO NOT GIVE COUNTRIES MODULES THEY DON'T HAVE TECH FOR!
+#
+#Weapons -
+#single large caliber (.50 cal/12.7mm) or multiple smaller machine guns in a turret = tank_heavy_machine_gun
+#small tank flamethrower (Flammpanzer II, L3 Lf) = flamethrower
+#large tank flamethrower (Churchill Crocodile etc) = advanced_flamethrower
+#~20mm autocannon in turret, land targets only= tank_auto_cannon
+#late war/larger caliber/faster firing autocannon, land targets = tank_auto_cannon_2
+#~20mm AA gun = tank_anti_air_cannon
+#~37mm AA gun, or multiple smaller AA guns = tank_anti_air_cannon_2
+#~50mm modern AA gun or multiple ~37mm weapons = tank_anti_air_cannon_3
+#~37mm short gun = tank_small_cannon
+#~50mm short gun = tank_small_cannon_2
+#~50mm long gun = tank_high_velocity_cannon
+#~75mm short gun = tank_close_support_gun
+#~75mm medium length gun (~L/30) = tank_medium_cannon
+#~75mm longer gun (~L/40) = tank_medium_cannon_2
+#~75mm very long gun (Panther/Firefly) = tank_high_velocity_cannon_2
+#~88-152mm short gun (KV-2, SU-122 etc) = tank_heavy_cannon
+#~88-152mm medium gun(Tiger I, Pershing, etc) = tank_heavy_cannon_2
+#~88-152mm long gun (SU-152, etc) = tank_heavy_cannon_3
+#~88mm very long gun (Tiger II) = tank_high_velocity_cannon_3
+#gigantic guns (Maus) = tank_super_heavy_cannon
+#75-105mm howitzer capable of indirect fire = tank_medium_howitzer
+#~150mm howitzer capable of indirect fire = tank_medium_howitzer_2
+#~203mm howitzer capable of indirect fire = tank_heavy_howitzer
+#100-150mm rockets capable of indirect fire = tank_rocket_launcher
+#200mm rockets capable of indirect fire = tank_rocket_launcher_2
+#
+#Modules - generally choose for effect/stats desired more than strict historical accuracy
+#
+#Engines -
+#gasoline: fast
+#diesel: reliable
+#petrol-electric: breakthrough/heavy tanks
+#gas turbine: super fast but expensive and unreliable
+#
+#Armour -
+#riveted: cheap/prewar
+#cast: stronger, industrially expensive
+#welded: stronger, resource expensive
+#
+#Suspension-
+#torsion bar: reliable
+#Christie: fast
+#bogie wheels: cheap
+#interleaved: expensive, good for breakthrough/heavy tanks
+#wheeled: cheaper, less prone to immobilization, more vulnerable. 
+#half track: slightly more expensive than wheeled, slightly less vulnerable
+#
+#Non-self-explanatory modules -
+#machine gun in turret, independent from main turret = secondary_turret_hmg
+#37-50mm cannon in coax mount or a secondary turret = secondary_turret_small_cannon
+#pintle-mounted MGs, close defence weapons like Nahverteidigungswaffe (do not apply this for the normal MGs in turret and hull, only for extra ones mounted on the commander's cupola) = additional_machine_guns
+#
 equipment_modules = {
 	limit = {
 		has_dlc = "No Step Back" 
@@ -82,7 +139,6 @@ equipment_modules = {
 			defense = 2
 			breakthrough = 2
 		}
-		
 		multiply_stats = {
 			build_cost_ic = -0.2
 
@@ -100,7 +156,6 @@ equipment_modules = {
 			hardness = 0.02	
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			build_cost_ic = 0.2
 			armor_value = 0.3
@@ -111,20 +166,18 @@ equipment_modules = {
 		abbreviation = "wel"
 		category = tank_armor_type
 		sfx = sfx_ui_sd_module_sonar
-		
 
 		add_stats = {
 			defense = 4
 			breakthrough = 4
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			armor_value = 0.3
 		}
 
 		build_cost_resources = {
-			chromium = 0
+			chromium = 0 #1
 		}
 	}
 
@@ -139,7 +192,6 @@ equipment_modules = {
 			breakthrough = 0
 			hardness = -0.3
 		}
-		
 		multiply_stats = {
 			build_cost_ic = -0.3
 		}
@@ -258,7 +310,6 @@ equipment_modules = {
 			
 		}
 		dismantle_cost_ic = 0.5
-		
 		multiply_stats = {
 			
 		}
@@ -275,7 +326,6 @@ equipment_modules = {
 			breakthrough = 10
 			
 		}
-		
 		dismantle_cost_ic = 0.5
 		multiply_stats = {
 			
@@ -294,7 +344,6 @@ equipment_modules = {
 			breakthrough = 14
 		}
 		dismantle_cost_ic = 0.5
-		
 		multiply_stats = {
 			
 		}
@@ -313,12 +362,20 @@ equipment_modules = {
 			}
 		}
 		forbid_equipment_type_exact_match_for_category = {
-			tank_medium_main_armament = armor
-			tank_heavy_main_armament = armor
-			tank_super_heavy_main_armament = armor
+			tank_medium_main_armament = {
+				armor
+				amphibious 
+			}
+			tank_heavy_main_armament = {
+				armor
+				amphibious 
+			}
+			tank_super_heavy_main_armament = {
+				armor
+				amphibious 
+			}
 		}
 
-		
 		dismantle_cost_ic = 0.5
 		add_stats = {
 			build_cost_ic = 1
@@ -353,7 +410,6 @@ equipment_modules = {
 			
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			
 			hard_attack = -0.05
@@ -377,7 +433,6 @@ equipment_modules = {
 			breakthrough = 16
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 		}
 
@@ -399,7 +454,6 @@ equipment_modules = {
 			breakthrough = 24
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 	
 		}
@@ -419,11 +473,16 @@ equipment_modules = {
 			}
 		}
 		forbid_equipment_type_exact_match_for_category = {
-			tank_heavy_main_armament = armor
-			tank_super_heavy_main_armament = armor
+			tank_heavy_main_armament = {
+				armor
+				amphibious 
+			}
+			tank_super_heavy_main_armament = {
+				armor
+				amphibious 
+			}
 		}
 
-		
 		dismantle_cost_ic = 1
 		add_stats = {
 			build_cost_ic = 1.5
@@ -458,7 +517,6 @@ equipment_modules = {
 				tank_heavy_main_armament
 			}
 		}
-		
 		dismantle_cost_ic = 1
 
 		add_stats = {
@@ -485,7 +543,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		add_stats = {
 			build_cost_ic = 5.5
 			maximum_speed = -0.25
@@ -512,10 +569,12 @@ equipment_modules = {
 			}
 		}
 		forbid_equipment_type_exact_match_for_category = {
-			tank_super_heavy_main_armament = armor
+			tank_super_heavy_main_armament = {
+				armor
+				amphibious 
+			}
 		}
 		dismantle_cost_ic = 1
-		
 		add_stats = {
 			build_cost_ic = 5
 			reliability = 0.2
@@ -555,7 +614,6 @@ equipment_modules = {
 			build_cost_ic = 0.50
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			hard_attack = -0.1
 		}
@@ -584,7 +642,6 @@ equipment_modules = {
 			build_cost_ic = 0.50
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			
 		}
@@ -607,7 +664,6 @@ equipment_modules = {
 			breakthrough = 24
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 		}
 
@@ -634,7 +690,6 @@ equipment_modules = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 0.5
 		}
-		
 	}
 
 	flamethrower = { #Hans, hol den Flammenwerfer!
@@ -654,7 +709,6 @@ equipment_modules = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 0.5
 		}
-		
 	}
 
 	advanced_flamethrower = { #SP module
@@ -675,7 +729,6 @@ equipment_modules = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 1
 		}
-		
 	}
 
 	tank_auto_cannon = {
@@ -692,7 +745,6 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 1.5
@@ -713,7 +765,6 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 2
@@ -736,7 +787,6 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 2
@@ -759,13 +809,12 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 3
 		}
 		build_cost_resources = {
-			steel = 0
+			steel = 0 #2
 			tungsten = 1
 		}
 	}
@@ -786,13 +835,12 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
-			steel = 0
+			steel = 0 #3
 			tungsten = 1
 		}
 	}
@@ -811,7 +859,6 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 1.5
@@ -832,7 +879,6 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 3
@@ -853,13 +899,12 @@ equipment_modules = {
 			reliability = -0.1
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
-			steel = 0
+			steel = 0 #1
 		}
 	}
 
@@ -879,7 +924,6 @@ equipment_modules = {
 			breakthrough = 2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 3
@@ -887,7 +931,7 @@ equipment_modules = {
 
 		build_cost_resources = {
 			tungsten = 1
-			steel = 0
+			steel = 0 #1
 		}
 	}
 
@@ -908,15 +952,14 @@ equipment_modules = {
 			breakthrough = 4
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
 			tungsten = 1
-			steel = 0
-			chromium = 0
+			steel = 0 #2
+			chromium = 0 #1
 		}
 	}
 
@@ -936,14 +979,13 @@ equipment_modules = {
 			breakthrough = -2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
 			tungsten = 1
-			steel = 0
+			steel = 0 #2
 		}
 	}
 
@@ -963,15 +1005,14 @@ equipment_modules = {
 			breakthrough = -2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 5.5
 		}
 		build_cost_resources = {
 			tungsten = 1
-			steel = 0
-			chromium = 0
+			steel = 0 #3
+			chromium = 0 #1
 		}
 	}
 
@@ -989,18 +1030,17 @@ equipment_modules = {
 			build_cost_ic = 4
 			maximum_speed = -0.1
 			reliability = -0.1
-			breakthrough = -4
+			breakthrough = -2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 4
 		}
 
 		build_cost_resources = {
-			tungsten = 1
-			steel = 0
+			tungsten = 1 #2
+			steel = 0 #1
 		}
 	}
 
@@ -1018,17 +1058,16 @@ equipment_modules = {
 			build_cost_ic = 5
 			maximum_speed = -0.2
 			reliability = -0.1
-			breakthrough = -4
+			breakthrough = -2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 5
 		}
 		build_cost_resources = {
 			tungsten = 2
-			steel = 0
+			steel = 0 #1
 		}
 	}
 
@@ -1047,14 +1086,13 @@ equipment_modules = {
 			reliability = -0.05
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_small_main_armament
 			convert_cost_ic = 3
 		}
 		build_cost_resources = {
-			tungsten = 1
-			steel = 0
+			tungsten = 1 #2
+			steel = 0 #2
 		}
 	}
 
@@ -1073,15 +1111,14 @@ equipment_modules = {
 			reliability = -0.175
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_medium_main_armament
 			convert_cost_ic = 5
 		}
 		build_cost_resources = {
-			tungsten = 1
-			chromium = 0
-			steel = 0
+			tungsten = 1 #2
+			chromium = 0 #1
+			steel = 0 #2
 		}
 	}
 	tank_high_velocity_cannon_3 = {
@@ -1099,15 +1136,14 @@ equipment_modules = {
 			reliability = -0.2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_heavy_main_armament
 			convert_cost_ic = 7
 		}
 		build_cost_resources = {
-			tungsten = 1
-			chromium = 0
-			steel = 0
+			tungsten = 1 #2
+			chromium = 0 #1
+			steel = 0 #3
 		}
 	}
 
@@ -1126,15 +1162,14 @@ equipment_modules = {
 			reliability = -0.25
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_heavy_main_armament
 			convert_cost_ic = 6
 		}
 		build_cost_resources = {
 			tungsten = 1
-			chromium = 0
-			steel = 0
+			chromium = 0 #1
+			steel = 0 #2
 		}
 	}
 
@@ -1153,15 +1188,14 @@ equipment_modules = {
 			reliability = -0.25
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_heavy_main_armament
 			convert_cost_ic = 7
 		}
 		build_cost_resources = {
-			tungsten = 1
-			chromium = 0
-			steel = 0
+			tungsten = 1 #2
+			chromium = 0 #1
+			steel = 0 #2
 		}
 	}
 
@@ -1180,15 +1214,14 @@ equipment_modules = {
 			reliability = -0.3
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_heavy_main_armament
 			convert_cost_ic = 8
 		}
 		build_cost_resources = {
-			tungsten = 1
-			chromium = 0
-			steel = 0
+			tungsten = 1 #3
+			chromium = 0 #1
+			steel = 0 #3
 		}
 	}
 
@@ -1205,10 +1238,9 @@ equipment_modules = {
 			build_cost_ic = 7
 			maximum_speed = -0.5
 			reliability = -0.3
-			breakthrough = -4
+			breakthrough = -2
 		}
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = tank_heavy_main_armament
 			convert_cost_ic = 7
@@ -1216,8 +1248,8 @@ equipment_modules = {
 
 		build_cost_resources = {
 			tungsten = 1
-			chromium = 0
-			steel = 0
+			chromium = 0 #1
+			steel = 0 #3
 		}
 	}
 
@@ -1236,10 +1268,9 @@ equipment_modules = {
 			reliability = -0.35
 		}
 		dismantle_cost_ic = 1
-		
 		build_cost_resources = {
 			tungsten = 5
-			chromium = 0
+			chromium = 0 #2
 		}
 	}
 
@@ -1255,7 +1286,6 @@ equipment_modules = {
 			reliability = -0.25
 		}
 		dismantle_cost_ic = 0.5
-		
 		multiply_stats = {
 			
 		}
@@ -1273,7 +1303,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 0.5
 		}
-		
 		multiply_stats = {
 			defense = 0.20
 			breakthrough = 0.15
@@ -1289,7 +1318,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1.5
 		}
-		
 		multiply_stats = {
 			defense = 0.40
 			breakthrough = 0.25
@@ -1305,7 +1333,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 2.5
 		}
-		
 		multiply_stats = {
 			defense = 0.60
 			breakthrough = 0.40
@@ -1329,7 +1356,6 @@ equipment_modules = {
 			build_cost_ic = 2
 			reliability = -0.15
 		}
-		
 		multiply_stats = {
 			build_cost_ic = 0.1
 		}
@@ -1344,7 +1370,9 @@ equipment_modules = {
 			build_cost_ic = 1.5
 			soft_attack = 4
 		}
-		
+		multiply_stats = {
+			soft_attack = -0.04
+		}
 		multiply_stats = {
 		}
 	}
@@ -1361,7 +1389,10 @@ equipment_modules = {
 			reliability = -0.1
 			breakthrough = 2
 		}
-		
+		multiply_stats = {
+			soft_attack = -0.05
+			hard_attack = -0.05
+		}		
 		multiply_stats = {
 		}
 	}
@@ -1374,7 +1405,6 @@ equipment_modules = {
 		add_stats = {
 		}
 		dismantle_cost_ic = 1
-		
 		multiply_stats = {
 			armor_value = 0.25
 			build_cost_ic = 0.1
@@ -1390,7 +1420,6 @@ equipment_modules = {
 			build_cost_ic = 2
 			breakthrough = 5
 		}
-		
 
 	}
 
@@ -1404,7 +1433,6 @@ equipment_modules = {
 			defense = 2
 			breakthrough = 1
 		}
-		
 		multiply_stats = {
 
 		}
@@ -1420,7 +1448,6 @@ equipment_modules = {
 			breakthrough = 2
 			defense = 4
 		}
-		
 	}
 
 	wet_ammo_storage = {
@@ -1432,7 +1459,6 @@ equipment_modules = {
 			reliability = 0.15
 			build_cost_ic = 1
 		}
-		
 		multiply_stats = {
 			
 		}
@@ -1446,13 +1472,12 @@ equipment_modules = {
 		add_stats = {
 			
 		}
-		
 		multiply_stats = {
 			ap_attack = 0.1
 		}
 
 		build_cost_resources = {
-			tungsten = 0
+			tungsten = 0 #1
 		}
 	}
 
@@ -1466,7 +1491,6 @@ equipment_modules = {
 			breakthrough = 3
 			build_cost_ic = 0.5
 		}
-		
 		multiply_stats = {
 			
 		}
@@ -1481,7 +1505,6 @@ equipment_modules = {
 			entrenchment = 1
 			build_cost_ic = 1
 		}
-		
 		multiply_stats = {
 			
 		}
@@ -1498,7 +1521,6 @@ equipment_modules = {
 			defense = 4
 		}
 		
-		
 	}
 
 	easy_maintenance = {
@@ -1510,7 +1532,6 @@ equipment_modules = {
 			reliability = 0.1
 		}
 		dismantle_cost_ic = 1
-		xp_cost = 0
 		multiply_stats = {
 			build_cost_ic = -0.075
 		}
@@ -1526,7 +1547,6 @@ equipment_modules = {
 			defense = 2
 			build_cost_ic = 0.5
 		}
-		
 		multiply_stats = {
 			
 		}
@@ -1542,7 +1562,6 @@ equipment_modules = {
 			build_cost_ic = 1
 			maximum_speed = -0.25
 		}
-		
 		multiply_stats = {
 			
 		}
@@ -1583,7 +1602,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_main_armament
 			convert_cost_ic = 16 #Heavy Howitzer: 7
@@ -1611,7 +1629,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_main_armament
 			convert_cost_ic = 16 #Heavy Howitzer: 7
@@ -1639,7 +1656,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_main_armament
 			convert_cost_ic = 16 #Advanced AT Cannon: 7
@@ -1668,7 +1684,6 @@ equipment_modules = {
 
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_main_armament
 			convert_cost_ic = 16 #Advanced AA Cannon: 7
@@ -1700,7 +1715,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_secondary_armament
 			convert_cost_ic = 12 #Heavy Howitzer: 7
@@ -1728,7 +1742,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_secondary_armament
 			convert_cost_ic = 12 #Heavy Howitzer: 7
@@ -1759,7 +1772,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_secondary_armament
 			convert_cost_ic = 10 #Heavy Howitzer: 7
@@ -1787,7 +1799,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_secondary_armament
 			convert_cost_ic = 12 #Advanced AT Cannon: 7
@@ -1815,7 +1826,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_secondary_armament
 			convert_cost_ic = 12 #Advanced AA Cannon: 7
@@ -1847,7 +1857,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 4 #Heavy Howitzer: 7 / #Improved Medium Cannon: 4
@@ -1877,7 +1886,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 8 #Heavy Howitzer: 7
@@ -1905,7 +1913,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 8 #Advanced AT Cannon: 7
@@ -1932,7 +1939,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 8 #Advanced AA Cannon: 7
@@ -1956,7 +1962,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 1 #Flamethrower: 0.05
@@ -1982,7 +1987,6 @@ equipment_modules = {
 		}
 
 		dismantle_cost_ic = 1
-		
 		can_convert_from = {
 			module_category = lc_additional_armament
 			convert_cost_ic = 5 #Improved Rocket Launcher: 5
@@ -2008,7 +2012,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 2 #was 1
 		}
-		
 		multiply_stats = {
 			defense = 0.20
 			breakthrough = 0.15
@@ -2024,7 +2027,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 4 #was 2
 		}
-		
 		multiply_stats = {
 			defense = 0.40
 			breakthrough = 0.25
@@ -2040,7 +2042,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 6 #was 3
 		}
-		
 		multiply_stats = {
 			defense = 0.60
 			breakthrough = 0.40
@@ -2055,7 +2056,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 8 #Advanced Radio: 2.5
 		}
-		
 		multiply_stats = {
 			defense = 0.75 #Advanced Radio: 0.60
 			breakthrough = 0.5 #Advanced Radio: 0.40
@@ -2074,7 +2074,6 @@ equipment_modules = {
 			build_cost_ic = 6
 			fuel_consumption = 2
 		}
-		
 	}
 
 	lc_helipad = {
@@ -2089,7 +2088,6 @@ equipment_modules = {
 			build_cost_ic = 4
 			fuel_consumption = 1
 		}
-		
 	}
 
 	lc_armored_skirts = {
@@ -2102,7 +2100,6 @@ equipment_modules = {
 			breakthrough = 6 #Armored Skirts: 3
 			build_cost_ic = 8 #Armored Skirts: 0.5
 		}
-		
 	}
 
 	lc_smoke_generators = {
@@ -2115,7 +2112,6 @@ equipment_modules = {
 			breakthrough = 3 #Smoke Launchers: 1
 			build_cost_ic = 2 #Smoke Launchers: 0.5
 		}
-		
 	}
 
 	lc_obstacle_clearance_gear = {
@@ -2128,7 +2124,6 @@ equipment_modules = {
 			build_cost_ic = 2 #Dozer Blade: 1
 			fuel_consumption = 1 #Dozer Blade: 0
 		}
-		
 	}
 
 	lc_radar = {
@@ -2139,7 +2134,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 10 #Advanced Radio: 2.5
 		}
-		
 		multiply_stats = {
 			defense = 0.1 #Advanced Radio: 0.60
 			air_attack = 0.5
@@ -2156,7 +2150,6 @@ equipment_modules = {
 			build_cost_ic = 2 #Fuel Drum: 1
 			maximum_speed = -0.15 #Fuel Drum: -0.25
 		}
-		
 	}
 
 	lc_internal_ammunition_compartments = {
@@ -2169,7 +2162,6 @@ equipment_modules = {
 			breakthrough = 2 #Extra Ammo Storage: 2
 			defense = 4 #Extra Ammo Storage: 4
 		}
-		
 	}
 	
 	lc_wet_ammunition_storage = {
@@ -2181,7 +2173,6 @@ equipment_modules = {
 			reliability = 0.15 #Wet Ammunition Storage: 0.15
 			build_cost_ic = 2 #Wet Ammunition Storage: 1
 		}
-		
 	}
 
 	lc_bunker_emplacement = {
@@ -2197,7 +2188,6 @@ equipment_modules = {
 			build_cost_ic = 8
 			fuel_consumption = 1
 		}
-		
 	}
 
 	lc_stabilizers = {
@@ -2209,7 +2199,6 @@ equipment_modules = {
 			build_cost_ic = 3 #Stabilizer: 2
 			breakthrough = 6 #Stabilizer: 5
 		}
-		
 
 	}
 
