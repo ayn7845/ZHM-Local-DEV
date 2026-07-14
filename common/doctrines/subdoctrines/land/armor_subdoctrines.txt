@@ -220,7 +220,6 @@ armored_infantry_support = {
             }
 			category_tank_destroyer_regimental_support = {			
                 max_organisation = 5
-				ap_attack = 0.1
 			}
         }
 		
@@ -277,8 +276,7 @@ streamlined_deployment = {
             factor = 25
             OR = {
                 original_tag = SOV 
-                original_tag = CHI 
-                #original_tag = PRC 
+                original_tag = CHI
             }
         }
 
