@@ -90,6 +90,7 @@ German_historical = {
 		GER_around_maginot 						#28 	MAY 40 		 
 		GER_war_with_france 					#70 	SEP 39 - is usually BYPASSED 
 		GER_the_swiss_gold						#35 	CGF Decrease
+		GER_loyalty_to_the_fuhrer
 		GER_zentrale_planung					#70 	in 42
 		GER_armament_rationalization			#70 	in 42
 		GER_create_rustungsstab					#70 	AUG 44
