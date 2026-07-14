@@ -5782,7 +5782,7 @@ focus_tree = {
 						original_tag = POL
 						original_tag = SOV
 						
-						original_tag = MOL
+						
 						
 						original_tag = ENG
 						original_tag = TUR

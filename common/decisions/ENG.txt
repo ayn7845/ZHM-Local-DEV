@@ -3686,7 +3686,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = canadian_focus keep_completed = yes }
-						CAN_enforce_loyalty = yes
+						#CAN_enforce_loyalty = yes
 					}
 				}	
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -3791,7 +3791,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = south_african_focus keep_completed = yes }
-						SAF_enforce_loyalty = yes
+						#SAF_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }

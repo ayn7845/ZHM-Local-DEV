@@ -40,7 +40,7 @@ GER_stockpile_guns_until_anchluss = {
 	}
 	ai_strategy = { 
 		type = build_army
-		infantry = infantry
+		id = infantry
 		value = -10000
 	}
 

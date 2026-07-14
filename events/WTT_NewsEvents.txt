@@ -2830,15 +2830,7 @@ news_event = {
 		trigger = {
 			OR = {
 				original_tag = IRQ
-				original_tag = SAU
-				original_tag = YEM
-				original_tag = OMA
-				original_tag = EGY
-				original_tag = LBA
-				original_tag = JOR
-				original_tag = PAL
-				original_tag = LEB
-				original_tag = SYR
+			
 			}
 			NOT = { has_war_with = FROM }
 		}
@@ -2847,15 +2839,7 @@ news_event = {
 		name = wtt_news.67.b
 		trigger = {
 			NOT = { original_tag = IRQ }
-			NOT = { original_tag = SAU }
-			NOT = { original_tag = YEM }
-			NOT = { original_tag = OMA }
-			NOT = { original_tag = EGY }
-			NOT = { original_tag = LBA }
-			NOT = { original_tag = JOR }
-			NOT = { original_tag = PAL }
-			NOT = { original_tag = LEB }
-			NOT = { original_tag = SYR }
+		
 			NOT = { has_war_with = FROM }
 		}
 	}

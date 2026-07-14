@@ -321,21 +321,8 @@ country_event = {
 			}
 		}
 
+		
 		IF = {
-			limit = {
-				JOR = {
-					exists = yes
-					is_subject_of = ROOT
-				}
-			}
-			JOR = {
-				country_event = {
-					id = IRQ_political_events.17
-					hours = 1
-				}
-			}
-		}
-		ELSE_IF = {
 			limit = {
 				455 = {
 					is_owned_and_controlled_by = ROOT
@@ -392,8 +379,8 @@ country_event = {
 				hours = 1
 			}
 		}
-		effect_tooltip = {
-			IRQ = { puppet = JOR }
+		effect_tooltip = { 
+
 		}
 	}
 	# Refuse
@@ -428,17 +415,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = {
-			limit = {
-				JOR = {
-					exists = yes
-					is_subject_of = ENG 
-				}
-			}
-			JOR = { drop_cosmetic_tag = yes }
-			IRQ = {
-				puppet = JOR
-			}
+		IF = { 
 			
 		}
 		ELSE = {
@@ -525,21 +502,8 @@ country_event = {
 			}
 		}
 
+		
 		IF = {
-			limit = {
-				PAL = {
-					exists = yes
-					is_subject_of = ROOT
-				}
-			}
-			PAL = {
-				country_event = {
-					id = IRQ_political_events.22
-					hours = 1
-				}
-			}
-		}
-		ELSE_IF = {
 			limit = {
 				454 = {
 					is_owned_and_controlled_by = ROOT
@@ -596,8 +560,8 @@ country_event = {
 			}
 		}
 		drop_cosmetic_tag = yes
-		effect_tooltip = {
-			IRQ = { puppet = PAL }
+		effect_tooltip = { 
+
 		}
 	}
 	# Refuse
@@ -632,21 +596,8 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = {
-			limit = {
-				PAL = {
-					exists = yes
-					is_subject_of = ENG 
-				}
-			}
-			PAL = { 
-				drop_cosmetic_tag = yes 
-				retire_country_leader = yes
-			}
-			IRQ = {
-				puppet = PAL
-			}
-			
+		IF = { 
+
 		}
 		ELSE = {
 			455 = {
@@ -1973,29 +1924,10 @@ news_event = { # Palestine Revolt 1936
 				is_on_continent = middle_east
 				is_core_of = ROOT
 			}
-			NOT = { ROOT = { has_war_with = PAL } }
+			#NOT = { ROOT = { has_war_with = PAL } }
 		}
 	}
-	option = {
-		name = GOE_IRQ_news.1.b
-		trigger = {
-			OR = {
-				capital_scope = {
-					NOT = { 
-						is_on_continent = middle_east 
-					}
-				}
-				AND = {
-					capital_scope = {
-						is_on_continent = middle_east
-						is_core_of = ROOT
-					}
-					ROOT = { has_war_with = PAL } 
-				}
-			}
-			NOT = { tag = ENG }
-		}
-	}
+	
 	option = {
 		name = GOE_IRQ_news.1.c
 		trigger = {

@@ -150,11 +150,7 @@ greater_iraq_decision_cat = {
 	        	NOT = { is_core_of = ROOT }
 	        	is_fully_controlled_by = ROOT
 	        	OR = {
-	        		is_core_of = KUW
-	        		is_core_of = SYR
-	        		is_core_of = LEB
-	        		is_core_of = PAL
-	        		is_core_of = JOR
+	        		
 	        		state = 413
 	        	}
 	        }

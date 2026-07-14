@@ -1035,50 +1035,7 @@ country_event = {
 		}
 		custom_effect_tooltip = mtg_britain.15_tt_2
 		set_country_flag = ENG_abdication_crisis_dominion_will_stay
-		if = {
-			limit = {
-				has_dlc = "Together for Victory"
-				NOT = {
-					AND = {
-						tag = AST
-						has_dlc = "Thunder at Our Gates"
-					}
-				}
-			}
-			custom_effect_tooltip = ENG_staying_loyal_tt
-			if = {
-				limit = {
-					tag = CAN
-				}
-				CAN_enforce_loyalty = yes
-			}
-			if = {
-				limit = {
-					tag = SAF
-				}
-				SAF_enforce_loyalty = yes
-			}
-			if = {
-				limit = {
-					tag = RAJ
-				}
-				RAJ_enforce_loyalty = yes
-			}
-			if = {
-				limit = {
-					tag = AST
-				}
-				AST_enforce_loyalty = yes
-			}
-			if = {
-				limit = {
-					tag = NZL
-				}
-				NZL_enforce_loyalty = yes
-			}
-
 		
-		}
 	}
 }
 
@@ -6519,43 +6476,8 @@ country_event = {
 		    target = FROM
 		    autonomy_state = autonomy_integrated_puppet
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					FROM = { original_tag = CAN }
-				}
-				FROM = {
-					load_focus_tree = { tree = canadian_focus keep_completed = yes }
-					CAN_enforce_loyalty = yes
-				}
-			}
-			if = {
-				limit = {
-					FROM = { original_tag = SAF }
-				}
-				FROM = {
-					load_focus_tree = { tree = south_african_focus keep_completed = yes }
-					SAF_enforce_loyalty = yes
-				}
-			}
-			if = {
-				limit = {
-					FROM = { original_tag = AST }
-				}
-				FROM = {
-					load_focus_tree = { tree = australian_focus keep_completed = yes }
-					AST_enforce_loyalty = yes
-				}
-			}
-			if = {
-				limit = {
-					FROM = { original_tag = NZL }
-				}
-				FROM = {
-					load_focus_tree = { tree = new_zealander_focus keep_completed = yes }
-					NZL_enforce_loyalty = yes
-				}
-			}
+		hidden_effect = { 
+
 		}
 	}
 }
@@ -6664,89 +6586,11 @@ country_event = {
 			base = 1
 		}
 
-		if = {
-			limit = {
-				FROM = {
-					has_government = fascism
-				}
-			}
-			set_politics = { ruling_party = fascism elections_allowed = no }
-			add_popularity = { ideology = fascism popularity = 0.2 }
-			add_timed_idea = { idea = fascist_influence days = 730 }
-			hidden_effect = { news_event = { id = mtg_news.32 days = 1 } }
+		if = { 
 
-
-			if = {
-				limit = {
-					original_tag = RAJ
-				}
-				RAJ_enforce_loyalty = yes 
-			}
-			else_if = {
-				limit = {
-					original_tag = AST
-				}
-				AST_enforce_loyalty = yes 
-			}
-			else_if = {
-				limit = {
-					original_tag = NZL
-				}
-				NZL_enforce_loyalty = yes
-			}
-			else_if = {
-				limit = {
-					original_tag = CAN
-				}
-				CAN_enforce_loyalty = yes
-			}
-			else_if = {
-				limit = {
-					original_tag = SAF
-				}
-				SAF_enforce_loyalty = yes
-			}
 		}
-		else = {
-			custom_effect_tooltip = ENG_replace_government_communism_tt
-			set_politics = { ruling_party = communism elections_allowed = no }
-			add_popularity = { ideology = communism popularity = 0.2 }
-			add_timed_idea = { idea = communist_influence days = 730 }
+		else = { 
 			
-			hidden_effect = { set_country_flag = ENG_remain_as_puppet } ## Check meaning of this - is ENG_replace_government_communism_tt
-			hidden_effect = { news_event = { id = mtg_news.32 days = 1 } }
-			
-			if = {
-				limit = {
-					original_tag = RAJ
-				}
-				RAJ_enforce_loyalty = yes 
-			}
-			else_if = {
-				limit = {
-					original_tag = AST
-				}
-				AST_enforce_loyalty = yes 
-			}
-			else_if = {
-				limit = {
-					original_tag = NZL
-				}
-				NZL_enforce_loyalty = yes
-			}
-			else_if = {
-				limit = {
-					original_tag = CAN
-				}
-				CAN_enforce_loyalty = yes
-			}
-			else_if = {
-				limit = {
-					original_tag = SAF
-				}
-				SAF_enforce_loyalty = yes
-			}
-
 		}
 
 	}

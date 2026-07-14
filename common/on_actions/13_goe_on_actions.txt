@@ -732,10 +732,7 @@ on_actions = {
 				limit = {
 					date > 1936.3.1
 					OR = {
-						PAL = {
-							exists = yes
-							is_subject_of = ENG
-						}
+						
 						454 = {
 							is_owned_by = ENG
 						}
