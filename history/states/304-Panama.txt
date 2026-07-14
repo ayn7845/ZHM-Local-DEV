@@ -19,5 +19,5 @@ state={
 		1633 4611 4624 7630 10482 
 	}
 
-	local_supplies=0.0 
+	local_supplies = 0.0 
 }

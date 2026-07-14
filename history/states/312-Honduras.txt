@@ -2,7 +2,7 @@ state=
 {
 	id=312
 	name="STATE_312"
-	manpower=1
+	manpower = 1
 	
 	
 	state_category = wasteland
@@ -18,5 +18,5 @@ state=
 		2031 8017 12865
 	}
 
-	local_supplies=0.0 
+	local_supplies = 0.0 
 }
