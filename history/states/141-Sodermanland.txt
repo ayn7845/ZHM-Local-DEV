@@ -6,7 +6,7 @@ state = {
 	state_category = city
 	
 	resources = {
-		steel = 20 # was: 40
+		steel = 40 # was: 40 # was 20 ACTUALLY
 		aluminium = 12 # was: 4
 		tungsten = 30
 		coal = 10
