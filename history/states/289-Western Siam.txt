@@ -7,7 +7,7 @@ state={
 	}
 	state_category=rural
 	history={
-		owner = SIA
+		owner = JAP
 		add_core_of = SIA
 		victory_points = {
 			7312 1 #Mae Sot

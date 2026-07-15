@@ -12799,22 +12799,26 @@ allow_branch = {
 		}
 
 		available = {
-			SIA = {
-				exists = yes
-				NOT = {
-					has_war_with = ROOT
-					is_ally_with = ROOT
-				}
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = SIA
 			}
+			#SIA = {
+			#	exists = yes
+			#	NOT = {
+			#		has_war_with = ROOT
+			#		is_ally_with = ROOT
+			#	}
+			#}
 		}
 
 		bypass = {
-			SIA = {
-				OR = {
-					exists = no
-					has_war_with = ROOT
-				}
-			}
+			#SIA = {
+			#	OR = {
+			#		exists = no
+			#		has_war_with = ROOT
+			#	}
+			#}
 		}
 
 		will_lead_to_war_with = SIA
@@ -12827,31 +12831,40 @@ allow_branch = {
 
 		completion_reward = {
 
-			SIA = {
-					transfer_units_fraction = {
-						target = JAP
-						size = 1
-						stockpile_ratio = 1
-						army_ratio = 1
-						navy_ratio = 1
-						air_ratio = 1
-						keep_unit_leaders_trigger = {
-							always = no
-						}
-					}
-				}
-				JAP = {
-					annex_country = {
-						target = SIA
-						transfer_troops = yes
-					}
-				}
+			#SIA = {
+				#	transfer_units_fraction = {
+				#		target = JAP
+				#		size = 1
+				#		stockpile_ratio = 1
+				#		army_ratio = 1
+				#		navy_ratio = 1
+				#		air_ratio = 1
+				#		keep_unit_leaders_trigger = {
+				#			always = no
+				#		}
+				#	}
+				#}
+				#JAP = {
+				#	annex_country = {
+				#		target = SIA
+				#		transfer_troops = yes
+				#	}
+				#}
 				every_state = {
 					limit = {
 						is_core_of = SIA
 						is_controlled_by = JAP
 					}
-					add_compliance = 100
+					set_compliance = 100
+				}
+				hidden_effect = { 
+					every_state = {
+					limit = {
+						is_core_of = SIA
+						is_controlled_by = JAP
+					}
+					set_resistance = 0
+					}
 				}
 
 		}
