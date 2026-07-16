@@ -737,20 +737,8 @@ country_event = {
 				modifier = POR_bought_ships
 			}
 		}
+		
 		if = {
-			limit = { FROM = { tag = ENG } }
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_sold_ships
-			}
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_ships_trade
-			}
-			activate_decision = POR_british_submarines_construction_progress
-			set_country_flag = POR_purchase_british_submarines_flag
-		}
-		else_if = {
 			limit = { FROM = { tag = ITA } }
 			add_opinion_modifier = {
 				target = ITA
@@ -780,20 +768,8 @@ country_event = {
 				modifier = POR_bought_ships
 			}
 		}
+	
 		if = {
-			limit = { FROM = { tag = ENG } }
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_sold_ships
-			}
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_ships_trade
-			}
-			activate_decision = POR_british_destroyers_construction_progress
-			set_country_flag = POR_purchase_british_destroyers_flag
-		}
-		else_if = {
 			limit = { FROM = { tag = ITA } }
 			add_opinion_modifier = {
 				target = ITA
@@ -823,20 +799,8 @@ country_event = {
 				modifier = POR_bought_ships
 			}
 		}
+		
 		if = {
-			limit = { FROM = { tag = ENG } }
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_sold_ships
-			}
-			add_opinion_modifier = {
-				target = ENG
-				modifier = POR_ships_trade
-			}
-			activate_decision = POR_british_light_cruiser_construction_progress
-			set_country_flag = POR_purchase_british_light_cruiser_flag
-		}
-		else_if = {
 			limit = { FROM = { tag = ITA } }
 			add_opinion_modifier = {
 				target = ITA
@@ -925,7 +889,7 @@ country_event = {
 
 	option = {
 		name = lar_portugal_promote_monarchist_cause.1.a
-		unlock_decision_tooltip = POR_repress_brazilian_monarchists
+		#unlock_decision_tooltip = POR_repress_brazilian_monarchists
 	}
 }
 
