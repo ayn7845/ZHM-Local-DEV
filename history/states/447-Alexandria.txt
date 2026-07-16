@@ -21,7 +21,11 @@ state={
 		
 		victory_points = {
 			1071 1 
-		}		
+		}	
+		strategic_province_location = {
+			defensive_chokepoint = 1071
+		}
+			
 		buildings = {
 			infrastructure = 3 #was: 5
 			industrial_complex = 1
@@ -30,13 +34,12 @@ state={
 				naval_base = 8
 				naval_supply_hub = 1
 			}
+
+			1071 = { 
+				bunker = 4
+			}
 		}
-		strategic_province_location = {
-			defensive_chokepoint = 1071
-		}
-		1071 = { 
-			bunker = 4
-		}
+		
 
 		add_core_of = WST
 	}
