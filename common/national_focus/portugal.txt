@@ -103,7 +103,8 @@ focus_tree = {
 		cost = 5
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		completion_reward = {
-			
+			#unlock_decision_tooltip = POR_mozambique_overseas_territory
+			#unlock_decision_tooltip = POR_angola_overseas_province
 			swap_ideas = { 
 				remove_idea = POR_colonial_assimilation_policy
 				add_idea = POR_colonial_assimilation_policy_3
@@ -2165,7 +2166,11 @@ focus_tree = {
 	focus = {
 		id = POR_endless_sea
 		available = {
-			
+			OR = {
+				has_full_control_of_state = 321
+				has_full_control_of_state = 729
+				has_full_control_of_state = 721
+			}
 		}
 
 		bypass = {
