@@ -46,9 +46,9 @@ POR_naval_blockade = {
 			}
 			original_tag = POR
 		}
-		POR = {
-			has_completed_focus = POR_refuse_the_naval_blockade
-		}	
+		#POR = {
+		#	has_completed_focus = POR_refuse_the_naval_blockade
+		#}	
 	}
 }
 
