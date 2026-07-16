@@ -98,10 +98,7 @@ IF = {
 	set_variable = { ETH_state_decentralization_attack = 0.15 }
 	set_variable = { ETH_state_decentralization_recruitable_population = -0.1 }
 	set_variable = { ETH_state_decentralization_army_speed = 0.1 }
-	set_power_balance = {
-		id = ETH_centralization_balance
-		set_default = yes  # whether or not to reset the power balance to the initial value, default = no
-	}
+	
 
 	### Add ideas 
 	add_ideas = {
