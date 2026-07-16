@@ -8796,14 +8796,9 @@ country_event = {
 
 		custom_effect_tooltip = ITA_release_colonies_south_africa_tt
 		hidden_effect = {
-			release_on_controlled = NMB
+			
 			release_on_controlled = SAF
-			release_on_controlled = BOT
-			release_on_controlled = ZIM
-			release_on_controlled = ZAM
-			release_on_controlled = MLW
-			release_on_controlled = MZB
-			release_on_controlled = MAD
+	
 		}
 	}
 }

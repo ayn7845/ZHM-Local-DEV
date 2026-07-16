@@ -354,7 +354,7 @@ CZE_balance_industrial_development = { #State Modifier
 					OR = {
 						original_tag = CZE
 						original_tag = SLO
-						original_tag = RUT
+						
 					} 
 				} 
 			}
@@ -376,7 +376,7 @@ CZE_industrial_subsidies = { #State Modifier
 					OR = {
 						original_tag = CZE
 						original_tag = SLO
-						original_tag = RUT
+						
 					} 
 				} 
 			}

@@ -3896,7 +3896,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = australian_focus keep_completed = yes }
-						AST_enforce_loyalty = yes
+						#AST_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -4001,7 +4001,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = new_zealander_focus keep_completed = yes }
-						NZL_enforce_loyalty = yes
+						#NZL_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }

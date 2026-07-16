@@ -798,63 +798,7 @@ country_event = {
 	picture = GFX_report_event_ENG_middle_eastern_conflict
 	is_triggered_only = yes
 	# Ok
-	option = {
-		name = IRQ_political_events.40.a
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 5
-				is_in_faction_with = FROM
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value > 50
-				}
-			}
-			modifier = {
-				factor = 0
-				has_war_with = FROM
-			}
-		}
-		IF = {
-			limit = {
-				SYR = {
-					exists = yes
-					is_subject_of = ROOT
-				}
-			}
-			SYR = {
-				country_event = {
-					id = IRQ_political_events.41
-					hours = 1
-				}
-			}
-			effect_tooltip = {
-				FROM = {
-					annex_country = {
-						target = SYR
-						transfer_troops = yes
-					}	
-				}
-			}
-		}
-		ELSE = {
-			FROM = {
-				country_event = {
-					id = IRQ_political_events.43
-					hours = 1
-				}
-			}
-			effect_tooltip = {
-				every_owned_state = {
-					limit = { is_core_of = SYR }
-					transfer_state_to = FROM
-				}
-			}
-		}
-	}
+	
 	# No
 	option = {
 		name = IRQ_political_events.40.b
@@ -936,47 +880,7 @@ country_event = {
 			base = 5
 		}
 	}
-	option = {
-		name = IRQ_political_events.42.b
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 5
-				is_in_faction = yes
-			}
-			modifier = {
-				factor = 10
-				any_allied_country = {
-					is_major = yes
-				}
-			}
-		}
-		IF = { 
-			limit = { 
-				FROM = { tag = SYR }
-			} 
-			ROOT = { 
-				create_wargoal = {
-					target = FROM
-					type = puppet_wargoal_focus
-				}
-			}
-		}
-		ELSE = {
-			every_owned_state = {
-				limit = {
-					is_core_of = SYR
-				}
-				add_claim_by = ROOT
-			}
-			ROOT = {
-				create_wargoal = {
-					target = FROM
-					type = take_claimed_state
-				}
-			}
-		}
-	}
+	
 }
 
 ## FRA accepts transfer of SYR
@@ -987,34 +891,7 @@ country_event = {
 	picture = GFX_report_event_generic_sign_treaty2
 	is_triggered_only = yes
 	# Ok
-	option = {
-		name = IRQ_political_events.43.a
-		ai_chance = {
-			base = 10
-		}
-		FROM = {
-			IF = { 
-				limit = { 
-					tag = SYR 
-				}
-				ROOT = { 
-					annex_country = {
-						target = SYR 
-						transfer_troops = yes
-					}	
-				}
-				drop_cosmetic_tag = yes
-			}
-			ELSE = {
-				every_owned_state = {
-					limit = {
-						is_core_of = SYR
-					}
-					transfer_state_to = ROOT
-				}
-			}
-		}
-	}
+	option = {}
 }
 
 ## IRQ reuests our annexation
@@ -1101,38 +978,15 @@ country_event = {
 				has_war_with = FROM
 			}
 		}
+		
 		IF = {
-			limit = {
-				KUW = {
-					exists = yes
-					is_subject_of = ROOT
-				}
-			}
-			KUW = {
-				country_event = {
-					id = IRQ_political_events.51
-					hours = 1
-				}
-			}
-			effect_tooltip = {
-				FROM = {
-					puppet = KUW
-				}
-			}
-		}
-		ELSE = {
 			FROM = {
 				country_event = {
 					id = IRQ_political_events.53
 					hours = 1
 				}
 			}
-			effect_tooltip = {
-				every_owned_state = {
-					limit = { is_core_of = KUW }
-					transfer_state_to = FROM
-				}
-			}
+			
 		}
 	}
 	# No
@@ -1221,29 +1075,8 @@ country_event = {
 			}
 		}
 		FROM = {
-			IF = { 
-				limit = { 
-					tag = KUW 
-				} 
-				ROOT = { 
-					create_wargoal = {
-						target = PREV
-						type = puppet_wargoal_focus
-					}
-				}
-			}
-			ELSE = {
-				every_owned_state = {
-					limit = {
-						is_core_of = KUW
-					}
-					add_claim_by = ROOT
-				}
-				create_wargoal = {
-					target = PREV
-					type = take_claimed_state
-				}
-			}
+			IF = {}
+			ELSE = {}
 		}
 	}
 }
@@ -1261,23 +1094,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		FROM = {
-			IF = { 
-				limit = { 
-					tag = KUW 
-				} 
-				ROOT = { puppet = KUW }
-				drop_cosmetic_tag = yes
-			}
-			ELSE = {
-				every_owned_state = {
-					limit = {
-						is_core_of = KUW
-					}
-					transfer_state_to = ROOT
-				}
-			}
-		}
+		
 	}
 }
 

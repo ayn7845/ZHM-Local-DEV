@@ -141,18 +141,7 @@ country_event = {
 					has_government = neutrality
 				}
 			}
-			effect_tooltip = {
-				MEN_prince_demchugdongrub = {
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = despotism
-							expire = "1965.1.1.1"
-							traits = { MEN_borjigin_descendant } 
-						}
-					}	
-				}
-			}
+			effect_tooltip = { }
 		}
 		custom_effect_tooltip = MEN_li_shouxin_available_tt
 

@@ -2080,13 +2080,7 @@ characters={
 				
 				visible = {
 					OR = {
-						AND = {
-							original_tag = HYD
-							has_country_leader = {
-								ruling_only = yes
-								character = RAJ_mir_osman_ali_khan
-							}
-						}
+						
 						AND = {
 							original_tag = RAJ
 							has_completed_focus = RAJ_mughal_court
@@ -2263,13 +2257,7 @@ characters={
 				
 				visible = {
 					OR = {
-						AND = {
-							original_tag = BAN
-							has_country_leader = {
-								ruling_only = yes
-								character = RAJ_huseyn_shaheed_suhrawardy
-							}
-						}
+						
 						AND = {
 							original_tag = RAJ
 							has_completed_focus = RAJ_mughal_court

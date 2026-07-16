@@ -1153,16 +1153,7 @@ country_event = {
 ###  ### #   #  ##   ##  #  # #  #  #  ###  ##       ##   ##   ##  #    
 
 #Democratic Coup event
-country_event = {
-	id = wtt_japan.114
-	title = wtt_japan.114.t
-	desc = wtt_japan.114.desc
-	picture = GFX_report_event_japanese_soldiers_02
 
-	is_triggered_only = yes
-	
-	
-}
 
 ###  ###  ###    ### #   # ###  ### ### #   # ###     #   #  ##  ###  
 #  # #  # #      #   ## ## #  #  #   #  #   # #       #   # #  # #  # 

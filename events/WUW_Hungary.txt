@@ -1092,25 +1092,7 @@ country_event = {
 			target = FROM
 			generator = { 73 }
 		}
-		if = {
-			limit = {
-				RUT = {
-					exists = yes
-					is_subject_of = FROM
-					owns_state = 73
-				}
-			}
-			add_ai_strategy = {
-				type = declare_war
-				id = RUT
-				value = 100
-			}
-			add_ai_strategy = {
-				type = conquer
-				id = RUT
-				value = 100
-			}
-		}
+		
 	}
 
 	# It is simply not worth the effort
@@ -1491,8 +1473,7 @@ country_event = {
 					original_tag = YUG
 					original_tag = CZE
 					original_tag = SLO
-					original_tag = TRA
-					original_tag = SER
+				
 				}
 			}
 			create_wargoal = {
@@ -3267,70 +3248,7 @@ country_event = {
 	fire_only_once = yes
 	
 	# They made the right choice
-	option = { 
-		name = WW_hungary.67.a
-		ai_chance = {
-			factor = 100
-		}
-
-		every_state = {
-			limit = {
-				OR  = {
-					state = 104
-					state = 804
-				}
-				NOT = {
-					is_core_of = CRO
-				}
-			}
-			add_core_of = CRO
-		}
-
-		every_state = {
-			limit = {
-				OR = {
-					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
-						controls_state = PREV
-					}
-				}
-				NOT = {
-					is_core_of = ROOT
-				}
-				is_core_of = CRO
-				NOT = {
-					is_owned_and_controlled_by = CRO
-				}
-			}
-			transfer_state_to = CRO
-		} 
-
-		CRO = {
-			drop_cosmetic_tag = yes
-			set_cosmetic_tag = CRO_croatia_slavonia_kingdom
-			country_event = {
-				id = WW_hungary.65
-				hours = 0
-			}	
-		}
-
-		IF = {
-			limit = {
-				CRO = {
-					NOT = {
-						is_subject_of = ROOT
-					}
-				}
-			}
-			puppet = CRO 
-		}
-
-		hidden_effect = {
-			set_country_flag = HUN_created_croatian_habsburg_monarchy 
-		}
-
-	}
+	option = { }
 }
 
 # Croatia Rejects a Habsburg Monarch - event for HUN
@@ -3452,41 +3370,11 @@ country_event = {
 			factor = 100
 		}
 
-		LBV = {
-			every_core_state = {
-				limit = {
-					OR = {
-						is_controlled_by = ROOT
-						any_country = {
-							is_subject_of = ROOT
-							controls_state = PREV
-						}
-					}
-					NOT = {
-						is_core_of = ROOT
-					}
-					NOT = {
-						is_owned_and_controlled_by = LBV
-					}
-				}
-				transfer_state_to = LBV
-			}
-		}
+		
 
-		LBV = {
-			drop_cosmetic_tag = yes	
-		}
+		
 
-		IF = {
-			limit = {
-				LBV = {
-					NOT = {
-						is_subject_of = ROOT
-					}
-				}
-			}
-			puppet = LBV 
-		}
+		
 
 		hidden_effect = {
 			set_country_flag = HUN_created_lombardo_venetian_habsburg_monarchy 
@@ -4000,188 +3888,6 @@ country_event = {
 		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = CZE_vojtyech_luzha
-				}
-			}
-			FROM = {
-				CZE_vojtyech_luzha = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = CZE_josef_shnejdarek
-				}
-			}
-			FROM = {
-				CZE_josef_shnejdarek = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = CZE_richard_tesarzhik
-				}
-			}
-			FROM = {
-				CZE_richard_tesarzhik = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = CZE_sergej_vojcechovsky
-				}
-			}
-			FROM = {
-				CZE_sergej_vojcechovsky = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_valentin_feuerstein
-				}
-			}
-			FROM = {
-				AUS_valentin_feuerstein = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_eduard_barger
-				}
-			}
-			FROM = {
-				AUS_eduard_barger = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_karl_eglseer
-				}
-			}
-			FROM = {
-				AUS_karl_eglseer = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_alfred_jansa
-				}
-			}
-			FROM = {
-				AUS_alfred_jansa = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_ludwig_von_eimannsberger
-				}
-			}
-			FROM = {
-				AUS_ludwig_von_eimannsberger = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_lothar_rendulic
-				}
-			}
-			FROM = {
-				AUS_lothar_rendulic = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = MNT_blazo_dukanovic
-				}
-			}
-			FROM = {
-				MNT_blazo_dukanovic = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = CRO_duro_jakcin
-				}
-			}
-			FROM = {
-				CRO_duro_jakcin = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_johannes_of_liechtenstein
-				}
-			}
-			FROM = {
-				AUS_johannes_of_liechtenstein = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_character = AUS_alois_of_liechtenstein
-				}
-			}
-			FROM = {
-				AUS_alois_of_liechtenstein = {
-					set_nationality = ROOT
-				}
-			}
-		}
 
 		annex_country = {
 			target = FROM
@@ -5292,48 +4998,18 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		76 = {
-			add_victory_points = {
-				province = 9672
-				value = 8
-			}	
-			transfer_state_to = TRA
-		}
+	
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		puppet = TRA
+		
 
 		custom_effect_tooltip = generic_skip_one_line_tt	
 
-		TRA = {
-			set_cosmetic_tag = TRA_szekely_land
-		}
+		
 
 		hidden_effect = {
-			IF = {
-				limit = {
-					TRA = {
-						capital_scope = {
-							NOT = {
-								is_in_array = {
-									array = AUS.expansion_targets
-									value = THIS
-								}
-							}
-						}
-					}
-				}
-
-				TRA = {
-					capital_scope = {
-						add_to_array = {
-							array = AUS.expansion_targets
-							value = TRA
-						}
-					}
-				}
-			}
+			
 		}
 
 	}
@@ -5540,10 +5216,7 @@ country_event = {
 		name = WW_hungary.104.a
 		ai_chance = {
 			factor = 60
-			modifier = {
-				factor = 0.5
-				original_tag = CRO
-			}
+			
 			modifier = {
 				strength_ratio = { tag = HUN ratio < 1 }
 				factor = 2
@@ -5570,10 +5243,7 @@ country_event = {
 		name = WW_hungary.104.b
 		ai_chance = {
 			factor = 40
-			modifier = {
-				factor = 1.5
-				original_tag = CRO
-			}
+			
 			modifier = {
 				strength_ratio = { tag = HUN ratio > 1 }
 				factor = 2
@@ -5630,32 +5300,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		IF = {
-			limit = {
-				OR = {
-					FROM = {
-						original_tag = CRO
-					}
-					CRO = {
-						exists = no
-					}
-				}
-			}
-
-			every_possible_country = {
-
-				limit = {
-					has_character = CRO_duro_jakcin
-				}
-
-				set_nationality = {
-				    target_country = ROOT
-				    character = CRO_duro_jakcin
-				}	
-
-			}
-
-		}
+		
 
 	}
 }

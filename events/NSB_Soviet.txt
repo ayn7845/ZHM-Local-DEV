@@ -3202,21 +3202,7 @@ country_event = {
 
 	hidden = yes
 
-	immediate = {
-		transfer_state = 419 #Tibriz (AZB)
-		transfer_state = 420 #Gilan (AZB)
-		transfer_state = 416 #Khorasan
-		transfer_state = 1000 #East Azerbaijan
-		transfer_state = 1004 #North Khorasan
-		PER = {
-			give_resource_rights = { receiver = SOV state = 411 }
-			give_resource_rights = { receiver = SOV state = 412 }
-			give_resource_rights = { receiver = SOV state = 413 }
-		}
-		411 = { set_state_flag = SOV_soviet_resource_rights_iran_flag }
-		412 = { set_state_flag = SOV_soviet_resource_rights_iran_flag }
-		413 = { set_state_flag = SOV_soviet_resource_rights_iran_flag }
-	}
+	immediate = { }
 }
 
 # HIDDEN EVENT TO MANAGE THE FALL OF IRAN - JOINT INVASION
@@ -3227,22 +3213,7 @@ country_event = {
 
 	hidden = yes
 
-	immediate = {
-		transfer_state = 419 #Tibriz (AZB)
-		transfer_state = 420 #Gilan (AZB)
-		transfer_state = 416 #Khorasan
-		transfer_state = 1000 #East Azerbaijan
-		transfer_state = 1004 #North Khorasan
-		PER = {
-			give_resource_rights = { receiver = SOV state = 411 }
-			give_resource_rights = { receiver = SOV state = 412 }
-			give_resource_rights = { receiver = ENG state = 413 }
-			give_military_access = ROOT
-		}
-		411 = { set_state_flag = SOV_soviet_resource_rights_iran_flag }
-		412 = { set_state_flag = SOV_soviet_resource_rights_iran_flag }
-		413 = { set_state_flag = SOV_british_resource_rights_iran_flag }
-	}
+	immediate = { }
 }
 
 # Generic Ultimatum - Event for target ### (ITA uses this too)

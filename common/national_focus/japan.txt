@@ -2613,7 +2613,7 @@ allow_branch = {
 				}
 			}
 
-			country_event = { id = wtt_japan.114 }
+			
 
 			effect_tooltip = { 
 				

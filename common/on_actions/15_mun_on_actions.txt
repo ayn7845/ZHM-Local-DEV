@@ -231,38 +231,7 @@ on_actions = {
 	}
 
 	on_declare_war = {
-		effect = {
-			if = {
-				limit = {
-					threat < 0.76
-					OR = {
-						tag = HUN
-						has_country_flag = CZE_pfot_rut_war_news_event_flag
-					}
-					FROM = {
-						tag = RUT
-						is_subject = no
-						is_in_faction = no
-						has_idea = CZE_back_against_the_mountains_RUT
-					}
-				}
-				every_country = {
-					limit = {
-						exists = yes
-						OR = {
-							capital_scope = {
-								is_on_continent = europe
-							}
-							is_subject_of = ROOT
-						}
-					}
-					news_event = {
-						id = MUN_czech.news.2
-						hours = 1
-					}
-				}
-			}
-		}
+		
 	}
 
 	on_release_as_puppet = {

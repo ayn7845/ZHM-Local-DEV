@@ -110,27 +110,8 @@ country_event = {
 				end_puppet = ROOT
 			}
 			drop_cosmetic_tag = yes
-			IF = {
-				limit = {
-					original_tag = SYR
-				}
-				set_cosmetic_tag = SYR_vichy
-				add_country_leader_role = {
-					character = FRA_henri_dentz
-					promote_leader = yes
-					country_leader = {
-						ideology = fascism_ideology
-						expire = "1960.1.1.1" 
-						traits = { eager_collaborator } 
-					}
-				}	
-			}
-			IF = {
-				limit = {
-					original_tag = LEB
-				}
-				set_cosmetic_tag = LEB_vichy
-			}
+			IF = {}
+			IF = {}
 		}
 		VIC = {
 			country_event = {

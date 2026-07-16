@@ -4885,7 +4885,6 @@ country_event = {
 				is_historical_focus_on = yes
 			}
 		}
-		YUG_start_peters_coup = yes
 	}
 }
 
