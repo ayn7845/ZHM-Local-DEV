@@ -124,12 +124,7 @@ political_actions = {
 					}
 				}
 			}
-			modifier = {
-				add = 1000
-				has_stability < 0.76
-				original_tag = SWE
-				has_idea = SWE_hungershield
-			}
+			
 		}
 	}
 }
@@ -271,10 +266,7 @@ economy_decisions = {
 			modifier = {
 				add = 1
 				has_stability > 0.74
-				NOT = {
-					original_tag = SWE
-					has_idea = SWE_hungershield
-				}
+				
 			}
 		}
 
