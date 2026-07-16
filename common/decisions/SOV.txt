@@ -14612,20 +14612,11 @@ SOV_permanent_revolution_dec_cat = {
 
 		complete_effect = {
 			FROM = {
-				if = { #If country has banned communism, then add the weakened version of the NS
-					limit = {
-						has_country_flag = banned_communism_flag
-					}
-					add_timed_idea = {
-						idea = SOV_trotskyist_revolutionary_agitation_weakened
-						days = 120
-					}
+				if = { 
+
 				}
-				else = {
-					add_timed_idea = {
-						idea = SOV_trotskyist_revolutionary_agitation
-						days = 120
-					}
+				else = { 
+					
 				}
 				country_event = { id = NSB_soviet_permanent_revolution.1 hours = 2 }
 			}
