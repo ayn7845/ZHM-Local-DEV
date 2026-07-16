@@ -1799,11 +1799,11 @@ country_event = {
 			    days = 360 
 			}
 			hidden_effect = {
-				CHI = {
-					add_days_mission_timeout = {
-					    mission = CHI_kwantung_army_impatience_dummy
-					    days = 360 
-					}
+				#CHI = {
+				#	add_days_mission_timeout = {
+				#	    mission = CHI_kwantung_army_impatience_dummy
+				#	    days = 360 
+				#	}
 				}
 			}
 		}
@@ -2265,12 +2265,12 @@ country_event = {
 			    days = 730 
 			}
 			hidden_effect = {
-				CHI = {
-					add_days_mission_timeout = {
-					    mission = CHI_kwantung_army_impatience_dummy
-					    days = 730 
-					}
-				}
+				#CHI = {
+				#	add_days_mission_timeout = {
+				#	    mission = CHI_kwantung_army_impatience_dummy
+				#	    days = 730 
+				#	}
+				#}
 			}
 
 		}
@@ -2304,12 +2304,12 @@ country_event = {
 			}
 
 			hidden_effect = {
-				CHI = {
-					add_days_mission_timeout = {
-					    mission = CHI_kwantung_army_impatience_dummy
-					    days = -360 
-					}
-				}
+				#CHI = {
+				#	add_days_mission_timeout = {
+				#	    mission = CHI_kwantung_army_impatience_dummy
+				#	    days = -360 
+				#	}
+				#}
 			}
 		}
 

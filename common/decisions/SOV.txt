@@ -10085,8 +10085,7 @@ SOV_great_patriotic_war = {
 		complete_effect = {
 			set_country_flag = SOV_scorched_earth
 			unlock_decision_tooltip = SOV_scorched_earth_baltics
-			unlock_decision_tooltip = SOV_scorched_earth_byelorussia
-			unlock_decision_tooltip = SOV_scorched_earth_ukraine
+			
 			unlock_decision_tooltip = SOV_scorched_earth_stalingrad
 			unlock_decision_tooltip = SOV_scorched_earth_caucasus
 			unlock_decision_tooltip = SOV_scorched_earth_moscow

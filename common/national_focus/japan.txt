@@ -3046,8 +3046,8 @@ allow_branch = {
 					generator = { 610 716 328 715 714 717 }
 				}
 			}
-			unlock_decision_tooltip = JAP_return_manchuria
-			custom_effect_tooltip = JAP_liberate_manchuria_tt
+			#unlock_decision_tooltip = JAP_return_manchuria
+			#custom_effect_tooltip = JAP_liberate_manchuria_tt
 		}
 	}
 
@@ -8685,10 +8685,10 @@ allow_branch = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = {
-				decision = JAP_empower_the_yi_dynasty_decision 
-				show_effect_tooltip = no 
-			}	
+			#unlock_decision_tooltip = {
+			#	decision = JAP_empower_the_yi_dynasty_decision 
+			#	show_effect_tooltip = no 
+			#}	
 
 			hidden_effect = {
 				news_event = { 
@@ -10738,12 +10738,12 @@ allow_branch = {
 			
 			hidden_effect = {
 				set_global_flag = JAP_triggered_war_with_china_manually_flag
-				CHI = {
-					add_days_mission_timeout = {
-					    mission = CHI_kwantung_army_impatience_dummy
-					    days = -420 
-					}
-				}
+				#CHI = {
+				#	add_days_mission_timeout = {
+				#	    mission = CHI_kwantung_army_impatience_dummy
+					#    days = -420 
+				#	}
+				#}
 			}
 			
 		}
@@ -13311,10 +13311,10 @@ allow_branch = {
 				    days = 840 
 				}
 				hidden_effect = {
-					add_days_mission_timeout = {
-					    mission = CHI_kwantung_army_impatience_dummy
-					    days = 840 
-					}
+					#add_days_mission_timeout = {
+					#    mission = CHI_kwantung_army_impatience_dummy
+					 #   days = 840 
+					#}
 				}
 
 			}

@@ -3677,9 +3677,9 @@ ETH_italian_occupation_category = {
 		complete_effect = {
 			set_country_flag = expanding_regional_control_flag
 			set_variable = { state_integrated = FROM }
-			hidden_effect = {
-				FROM = { owner = { activate_mission = ETH_italian_control_mission } } # Starts "warning timer" for Original owner
-			}
+			#hidden_effect = {
+			#	FROM = { owner = { activate_mission = ETH_italian_control_mission } } # Starts "warning timer" for Original owner
+			#}
 		}
 
 		remove_effect = {

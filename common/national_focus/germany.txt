@@ -21664,7 +21664,7 @@ focus_tree = {
 			
 				
 			custom_effect_tooltip = generic_skip_one_line_tt
-			activate_mission_tooltip = GER_imminent_proletarian_revolution_mission
+			#activate_mission_tooltip = GER_imminent_proletarian_revolution_mission
 			custom_effect_tooltip = GER_start_the_proletarian_revolution_civil_war_tt
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -21713,10 +21713,10 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = GER_the_peoples_victory }
 				}
-				add_days_mission_timeout = {
-					mission = GER_imminent_proletarian_revolution_mission
-					days = 15
-				}
+			#	add_days_mission_timeout = {
+			#		mission = GER_imminent_proletarian_revolution_mission
+			#		days = 15
+			#	}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
@@ -21965,10 +21965,10 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = GER_the_peoples_victory }
 				}
-				add_days_mission_timeout = {
-					mission = GER_imminent_proletarian_revolution_mission
-					days = 15
-				}
+				#add_days_mission_timeout = {
+				#	mission = GER_imminent_proletarian_revolution_mission
+				#	days = 15
+				#}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
@@ -22077,10 +22077,10 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = GER_the_peoples_victory }
 				}
-				add_days_mission_timeout = {
-					mission = GER_imminent_proletarian_revolution_mission
-					days = 15
-				}
+				#add_days_mission_timeout = {
+				#	mission = GER_imminent_proletarian_revolution_mission
+				#	days = 15
+				#}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
@@ -22151,10 +22151,10 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = GER_the_peoples_victory }
 				}
-				add_days_mission_timeout = {
-					mission = GER_imminent_proletarian_revolution_mission
-					days = 15
-				}
+				#add_days_mission_timeout = {
+				#	mission = GER_imminent_proletarian_revolution_mission
+				#	days = 15
+				#}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
@@ -23117,7 +23117,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			unlock_decision_tooltip = form_greater_proletarian_state
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
@@ -24917,10 +24917,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			add_timed_idea = {
-				idea = GER_fernostliche_legion_prc_ns
-				days = 545
-			}
+			
 
 			add_ai_strategy = { 
 				
