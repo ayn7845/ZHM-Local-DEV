@@ -203,7 +203,7 @@ shared_focus = {
 		}
 	
 		ELSE = {
-			add_dynamic_modifier = { modifier = south_american_army_modifier }
+			#add_dynamic_modifier = { modifier = south_american_army_modifier }
 		}
 	}
 }
@@ -2066,7 +2066,7 @@ shared_focus = {
 		}
 		
 		ELSE = {
-			add_dynamic_modifier = { modifier = south_american_airforce_modifier }
+			#add_dynamic_modifier = { modifier = south_american_airforce_modifier }
 		}
 	}
 }
@@ -3181,7 +3181,7 @@ shared_focus = {
 		}
 		
 		ELSE = {
-			add_dynamic_modifier = { modifier = south_american_navy_modifier }
+			#add_dynamic_modifier = { modifier = south_american_navy_modifier }
 		}
 
 	}
