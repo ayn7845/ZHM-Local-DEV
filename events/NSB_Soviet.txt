@@ -3149,145 +3149,9 @@ country_event = {
 		}
 	}
 
-	option = { #Make Preparations -> Iran
-		name = NSB_soviet_foreign_politics_events.152.c
+	option = { }
 
-		trigger = {
-			always = no
-		}
-
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					strength_ratio = {
-						tag = FROM
-						ratio < 0.6
-					}
-					surrender_progress > 0.95
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				has_dlc = "Graveyard of Empires"
-			}
-			set_country_flag = PER_operation_countenance_flag
-		}
-
-		set_global_flag = SOV_soviet_invasion_of_iran_flag
-		
-		activate_mission = SOV_preparations_for_operation_countenance
-		custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-
-		custom_effect_tooltip = SOV_operation_countenance_successful_tt
-		effect_tooltip = {
-			puppet = PER
-			transfer_state = 419 #Tibriz (AZB)
-			transfer_state = 420 #Gilan (AZB)
-			transfer_state = 416 #Khorasan
-			transfer_state = 1000 #East Azerbaijan
-			transfer_state = 1004 #North Khorasan
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = SOV state = 413 }
-			}
-		}
-	}
-
-	option = { #Joint Invasion with ENG -> Iran
-		name = NSB_soviet_foreign_politics_events.152.d
-
-		trigger = {
-			FROM = { original_tag = PER }
-			original_tag = SOV
-			is_subject = no
-			country_exists = ENG
-			NOT = { has_war_with = ENG }
-			NOT = { is_justifying_wargoal_against = ENG }
-		}
-
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 100
-				is_in_faction_with = ENG
-			}
-			modifier = {
-				factor = 100
-				is_historical_focus_on = yes
-			}
-			modifier = {
-				factor = 2
-				has_opinion = {
-					target = FROM
-					value > -25
-				}
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value > 50
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					strength_ratio = {
-						tag = FROM
-						ratio < 0.6
-					}
-					surrender_progress > 0.95
-				}
-			}
-		}
-
-		ENG = { country_event = { id = NSB_soviet_foreign_politics_events.153 hours = 6 random_hours = 3 } }
-
-		effect_tooltip = {
-			custom_effect_tooltip = if_they_accept_tt
-			activate_mission = SOV_preparations_for_operation_countenance
-			ENG = { activate_mission = SOV_preparations_for_operation_countenance }
-			custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-
-			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			ENG = {
-				puppet = PER
-			}
-			SOV = {
-				transfer_state = 419 #Tibriz (AZB)
-				transfer_state = 420 #Gilan (AZB)
-				transfer_state = 416 #Khorasan
-				transfer_state = 1000 #East Azerbaijan
-				transfer_state = 1004 #North Khorasan
-			}
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = ENG state = 413 }
-				give_military_access = SOV
-			}
-
-			custom_effect_tooltip = if_they_refuse_tt
-			activate_mission = SOV_preparations_for_operation_countenance
-			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
-			transfer_state = 419 #Tibriz (AZB)
-			transfer_state = 420 #Gilan (AZB)
-			transfer_state = 416 #Khorasan
-			transfer_state = 1000 #East Azerbaijan
-			transfer_state = 1004 #North Khorasan
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = SOV state = 413 }
-			}
-		}
-	}
+	option = { }
 }
 
 # Anglo-Soviet Invasion of Iran proposal - Event for ENG
@@ -3299,102 +3163,9 @@ country_event = {
 
 	is_triggered_only = yes
 			
-	option = { #Agree
-		name = NSB_soviet_foreign_politics_events.153.a
+	option = {}
 
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 100
-				is_in_faction_with = FROM
-			}
-			modifier = {
-				factor = 100
-				is_historical_focus_on = yes
-			}
-			modifier = {
-				factor = 2
-				has_opinion = {
-					target = FROM
-					value > -25
-				}
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value > 50
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = {
-						any_enemy_country = {
-							is_major = yes
-							has_war_with = FROM
-						}
-					}
-					has_war_with = PER
-					has_guaranteed = PER
-					has_non_aggression_pact_with = PER
-					is_in_faction_with = PER
-					is_subject = yes
-					strength_ratio = {
-						tag = FROM
-						ratio < 0.4
-					}
-					surrender_progress > 0.15
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				has_dlc = "Graveyard of Empires"
-			}
-			set_country_flag = PER_operation_countenance_flag
-		}
-		
-		set_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
-
-		effect_tooltip = {
-			activate_mission = SOV_preparations_for_operation_countenance
-			custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-
-			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
-			SOV = {
-				transfer_state = 419 #Tibriz (AZB)
-				transfer_state = 420 #Gilan (AZB)
-				transfer_state = 416 #Khorasan
-				transfer_state = 1000 #East Azerbaijan
-				transfer_state = 1004 #North Khorasan
-			}
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = ENG state = 413 }
-				give_military_access = SOV
-			}
-		}
-
-		FROM = { country_event = { id = NSB_soviet_foreign_politics_events.154 hours = 1 } }
-	}
-
-	option = { #Reject
-		name = NSB_soviet_foreign_politics_events.153.b
-
-		ai_chance = {
-			base = 1
-		}
-
-		custom_effect_tooltip = NSB_soviet_foreign_politics_events.153_soviets_alone_tt
-		hidden_effect = {
-			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.155 hours = 4 } }
-			set_global_flag = SOV_soviet_invasion_of_iran_flag
-		}
-	}
+	option = {}
 }
 
 # Anglo-Soviet Invasion of Iran - ENG ACCEPTS - Event for SOV
@@ -3406,31 +3177,7 @@ country_event = {
 
 	is_triggered_only = yes
 			
-	option = { #Good
-		name = NSB_soviet_foreign_politics_events.154.a
-
-		activate_mission = SOV_preparations_for_operation_countenance		
-		ENG = { activate_mission = SOV_preparations_for_operation_countenance }
-		custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-
-		effect_tooltip = {
-			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			ENG = {
-				puppet = PER
-			}
-			transfer_state = 419 #Tibriz (AZB)
-			transfer_state = 420 #Gilan (AZB)
-			transfer_state = 416 #Khorasan
-			transfer_state = 1000 #East Azerbaijan
-			transfer_state = 1004 #North Khorasan
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = ENG state = 413 }
-				give_military_access = SOV
-			}
-		}
-	}
+	option = {}
 }
 
 # Anglo-Soviet Invasion of Iran - ENG REFUSES - Event for SOV
@@ -3442,33 +3189,8 @@ country_event = {
 
 	is_triggered_only = yes
 	
-	option = { #Ok
-		name = NSB_soviet_foreign_politics_events.155.a
-
-		activate_mission = SOV_preparations_for_operation_countenance
-		custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-
-		IF = {
-			limit = {
-				has_dlc = "Graveyard of Empires"
-			}
-			set_country_flag = PER_operation_countenance_flag
-		}
-
-		effect_tooltip = {
-			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
-			transfer_state = 419 #Tibriz (AZB)
-			transfer_state = 420 #Gilan (AZB)
-			transfer_state = 416 #Khorasan
-			transfer_state = 1000 #East Azerbaijan
-			transfer_state = 1004 #North Khorasan
-			PER = {
-				give_resource_rights = { receiver = SOV state = 411 }
-				give_resource_rights = { receiver = SOV state = 412 }
-				give_resource_rights = { receiver = SOV state = 413 }
-			}
-		}
+	option = { 
+		
 	}
 }
 
@@ -8954,20 +8676,11 @@ country_event = {
 		name = NSB_soviet_permanent_revolution.1.a
 
 		effect_tooltip = {
-			if = { #I f country has banned communism, then add the weakened version of the NS
-				limit = {
-					has_country_flag = banned_communism_flag
-				}
-				add_timed_idea = {
-					idea = SOV_trotskyist_revolutionary_agitation_weakened
-					days = 120
-				}
+			if = { 
+				
 			}
-			else = {
-				add_timed_idea = {
-					idea = SOV_trotskyist_revolutionary_agitation
-					days = 120
-				}
+			else = { 
+				
 			}
 			FROM = {
 				create_wargoal = {
