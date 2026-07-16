@@ -24,6 +24,12 @@ state={
 		victory_points = {
 			1068 3 
 		}
+		strategic_province_location = {
+			defensive_chokepoint = 10127
+		}
+		10127 = { 
+			bunker = 4
+		}
 		add_core_of = WST
 
 	}

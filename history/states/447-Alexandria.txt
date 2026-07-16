@@ -31,6 +31,12 @@ state={
 				naval_supply_hub = 1
 			}
 		}
+		strategic_province_location = {
+			defensive_chokepoint = 1071
+		}
+		1071 = { 
+			bunker = 4
+		}
 
 		add_core_of = WST
 	}
