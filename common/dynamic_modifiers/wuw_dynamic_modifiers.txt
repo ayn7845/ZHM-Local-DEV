@@ -31,55 +31,7 @@ FRA_maginot_line_dynamic_modifier = { #State Modifer
 	enable = { always = yes }
 
 	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 4
-}
-FRA_maginot_line_dynamic_modifier_2 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 8
-}
-FRA_maginot_line_dynamic_modifier_3 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 7
-}
-FRA_maginot_line_dynamic_modifier_4 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
     state_bunker_max_level_terrain_limit = 6
-}
-FRA_maginot_line_dynamic_modifier_5 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 5
-}
-FRA_maginot_line_dynamic_modifier_6 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 4
-}
-FRA_maginot_line_dynamic_modifier_7 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 3
-}
-FRA_maginot_line_dynamic_modifier_8 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 2
-}
-FRA_maginot_line_dynamic_modifier_9 = { #State Modifer
-	enable = { always = yes }
-
-	icon = GFX_modifiers_generic_defense
-    state_bunker_max_level_terrain_limit = 1
 }
 
 
