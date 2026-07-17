@@ -894,7 +894,7 @@ country_event = { # to China. FROM agrees to repudiate the treaty
 			base = 1
 		}
 
-		CHI = { CHI_reduce_nine_power_malus = yes }
+		
 
 		remove_from_array = {
 			array = CHI.nine_power_treaty_signatories
@@ -1020,7 +1020,7 @@ country_event = { # To China, FROM embargoes
 	option = {
 		name = SEA_china.23.a #Punish
 
-		CHI = { CHI_reduce_nine_power_malus = yes }
+		
 
 		remove_from_array = {
 			array = CHI.nine_power_treaty_signatories
@@ -1040,7 +1040,7 @@ country_event = { # To China. FROM folds, no embargo
 	option = {
 		name = SEA_china.24.a
 
-		CHI = { CHI_reduce_nine_power_malus = yes }
+		
 
 		remove_from_array = {
 			array = CHI.nine_power_treaty_signatories

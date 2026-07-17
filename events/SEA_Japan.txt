@@ -1443,12 +1443,7 @@ country_event = {
 			ruling_party = ROOT
 			size = 0.6
 			keep_all_characters = yes 
-			PREV = {  # Original country
-	            TIB_thubten_kunpela = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	        }
+			
 		}
 
 	}

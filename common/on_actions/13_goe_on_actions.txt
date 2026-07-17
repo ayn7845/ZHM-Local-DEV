@@ -1,10 +1,6 @@
 #There are some vanilla repeating errors inside the file , in this version how ever they are dealt with and are NOT an issue anymore
 on_actions = {
-	on_monthly_AFG = {
-		effect = {
-			
-		}
-	}
+	
 
 	#ROOT is the nation being released, FROM is the overlord.
 	on_startup = {
@@ -726,37 +722,6 @@ on_actions = {
 		}
 	}
 
-	on_monthly_PAL = {
-		effect = {
-			IF = {
-				limit = {
-					date > 1936.3.1
-					OR = {
-						
-						454 = {
-							is_owned_by = ENG
-						}
-					}
-					NOT = { has_global_flag = the_1936_PAL_revolt_has_happened }
-				}
-				every_country = {
-					limit = {
-						OR = {
-							tag = ENG
-							capital_scope = {
-								is_on_continent = middle_east
-							}
-						}
-					}
-					news_event = {
-						id = GOE_IRQ_news.1
-						days = 19
-					}
-				}
-				set_global_flag = the_1936_PAL_revolt_has_happened
-			}
-		}
-	}
 
 	on_release_as_puppet = {
 		effect = {
