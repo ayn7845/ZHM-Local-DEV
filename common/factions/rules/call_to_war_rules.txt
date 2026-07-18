@@ -4,12 +4,7 @@ call_to_war_rule_faction_leader_only = {
 		is_faction_leader = yes
 	}
 	ai_will_do = {
-		base = 0
-		modifier = { 
-			add = 2
-			is_faction_leader = yes
-			NOT = { has_government = democratic }
-		}
+		always = no
 	}
 	modifier = {
 		political_power_factor = -0.1
@@ -22,11 +17,7 @@ call_to_war_rule_major_only = {
 		is_major = yes
 	}
 	ai_will_do = {
-		base = 0
-		modifier = { 
-			add = 2
-			tag = GER 
-		}
+		always = no
 	}
 	modifier = {
 		political_power_factor = -0.05
