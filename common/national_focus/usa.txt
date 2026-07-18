@@ -4957,9 +4957,9 @@ focus_tree = {
 				category = land_doctrine
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_george_s_patton = {
-				add_skill_level = 1
-			}	
+			#USA_george_s_patton = {
+			#	add_skill_level = 1
+			#}	
 		}
 	}
 	focus = {
@@ -5031,12 +5031,12 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = USA_army_of_the_united_states
 			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_omar_bradley = {
-				add_skill_level = 1
-			}
-			USA_mark_clark = {
-				add_skill_level = 1
-			}
+			#USA_omar_bradley = {
+			#	add_skill_level = 1
+			#}
+			#USA_mark_clark = {
+			#	add_skill_level = 1
+			#}
 		}
 	}
 	focus = {
