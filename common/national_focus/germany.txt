@@ -531,7 +531,7 @@ focus_tree = {
 			modify_building_resources = {
         	   building = synthetic_refinery
         	   resource = rubber
-        	   amount = 1
+        	   amount = 2
         	}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -548,6 +548,10 @@ focus_tree = {
 			add_to_variable = { 
 				GER_industrial_research_speed_factor = 0.05
 				tooltip = research_speed_factor_tt 
+			}
+			add_to_variable = { 
+				GER_global_building_slots = 1
+				tooltip = global_building_slots_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
