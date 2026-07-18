@@ -10372,6 +10372,7 @@ prospect_for_resources = {
 					original_tag = GER
 				}
 				has_completed_focus = GER_autarky_efforts
+				has_completed_focus = GER_industrial_expansion
 			}
 		}
 		highlight_states = {
