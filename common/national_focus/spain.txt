@@ -361,7 +361,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_STABILITY}
 		completion_reward = {
 			add_stability = 0.1
-			#activate_mission = SPA_carlist_uprising_mission
+			activate_mission = SPA_carlist_uprising_mission
 		}
 	}
 
@@ -591,10 +591,10 @@ focus_tree = {
 					}
 				}
 			}
-			#add_days_mission_timeout = {
-			#	mission = SPA_carlist_uprising_mission
-			#	days = 70
-			#}
+			add_days_mission_timeout = {
+				mission = SPA_carlist_uprising_mission
+				days = 70
+			}
 		}
 	}
 
@@ -620,10 +620,10 @@ focus_tree = {
 				remove_idea = SPA_carlism_1
 				add_idea = SPA_carlism_2
 			}
-			#add_days_mission_timeout = {
-			#	mission = SPA_carlist_uprising_mission
-			#	days = 140
-			#}
+			add_days_mission_timeout = {
+				mission = SPA_carlist_uprising_mission
+				days = 140
+			}
 		}
 	}
 
@@ -904,10 +904,10 @@ focus_tree = {
 			show_ideas_tooltip = SPA_manuel_hedilla
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPA_raimundo_fernandez_cuesta
-			#add_days_mission_timeout = {
-				#mission = SPA_carlist_uprising_mission
-				#days = 140
-			#}
+			add_days_mission_timeout = {
+				mission = SPA_carlist_uprising_mission
+				days = 140
+			}
 		}
 	}
 
@@ -5033,10 +5033,7 @@ focus_tree = {
 			has_full_control_of_state = 176
 			has_full_control_of_state = 792
 			has_full_control_of_state = 41
-			any_allied_country = {
-				is_major = yes
-				has_government = fascism
-			}
+		
 		}
 		bypass = {
 		}
@@ -5117,10 +5114,7 @@ focus_tree = {
 	focus = {
 		id = SPA_improve_cross_country_railways
 		available = {
-			any_allied_country = {
-				is_major = yes
-				has_government = fascism
-			}
+			
 			has_full_control_of_state = 169
 			has_full_control_of_state = 789
 			has_full_control_of_state = 175
@@ -5162,11 +5156,7 @@ focus_tree = {
 	focus = {
 		id = SPA_support_the_war_industry
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+			
 		}
 		bypass = {
 		}
@@ -5283,11 +5273,7 @@ focus_tree = {
 	focus = {
 		id = SPA_the_duty_to_work
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+		
 		}
 		bypass = {
 		}
