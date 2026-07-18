@@ -338,5 +338,64 @@ on_actions = {
 				}
 			}	
 		}
+
+
+		effect = {  # Adds a spirit that gives 100% of factories to target
+			POR = { # if SPAIN IS A PLAYER!
+				if = { 
+					limit = {
+						AND = { 
+							is_ai = yes
+							SPR = { 
+								is_ai = no
+							}
+						}
+					}
+					add_ideas = POR_is_ai
+				}
+			}
+
+			POR = { # IF SPAIN IS AI TOO
+				if = { 
+					limit = {
+						AND = { 
+							is_ai = yes
+							SPR = { 
+								is_ai = yes
+							}
+						}
+					}
+					add_ideas = POR_and_SPA_is_ai
+				}
+			}
+
+			ARG = { # IF BRAZIL IS A PLAYER!
+				if = { 
+					limit = { 
+						AND = { 
+							is_ai = yes
+							BRA = { 
+								is_ai = no
+							}
+						}
+					}
+					add_ideas = ARG_is_ai
+				}
+			}
+
+			ARG = { # IF BRAZIL IS AI TOO
+				if = { 
+					limit = { 
+						AND = { 
+							is_ai = yes
+							BRA = { 
+								is_ai = yes
+							}
+						}
+					}
+					add_ideas = ARG_and_BRA_is_ai
+				}
+			}
+		}
 	}
 }
