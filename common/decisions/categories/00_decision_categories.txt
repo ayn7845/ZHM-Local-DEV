@@ -163,9 +163,6 @@ fascism_on_the_rise = {
 					original_tag = HUN
 				}
 			}
-			AND = { 
-
-			}
 			AND = {
 				has_dlc = "Thunder at Our Gates"
 				OR = {
