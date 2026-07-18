@@ -132,7 +132,7 @@ on_actions = {
 
 					add_offsite_building = {
 						type = industrial_complex
-						level = 4
+						level = 5
 					}
 				}
 				651 = { 
