@@ -130,17 +130,26 @@ sp_land_military_engineering_vehicles = {
 			armored_support_vehicle_1
 		}
 
-		enable_subunits = {
-			limit = {
-				has_game_rule = {
-					rule = urban_assault_vechile
-					option = on
-				}
-			}
-			assault_engineer
-		}
+		# HMM: commented out and replaced with conditional tech unlock because of new game rule that can ban assault engineers
+		#enable_subunits = {
+		#	assault_engineer
+		#}
 
 		country_effects = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = urban_assault_vechile
+						option = on
+					}
+				}
+				hidden_effect = {
+					set_technology = {
+						HMM_assault_engineers_tech = 1
+						popup = no
+					}
+				}
+			}
 			if = {
 				limit = {
 					has_dlc = "Gotterdammerung"
@@ -1953,7 +1962,7 @@ sp_land_large_caliber_kinetic_energy_sabot = {
 		base = 1
 		modifier = {
 			factor = 0 
-			FROM = { is_major = no } # Not worried about forts 
+			ROOT = { is_major = no } # Not worried about forts 
 		}
 		# modifier = { #Forts are a pressing issue
 		# 	factor = 2
@@ -1973,21 +1982,23 @@ sp_land_large_caliber_kinetic_energy_sabot = {
 		# }
 		modifier = { #Forts are a very pressing issue for me
 			factor = 100
-			FROM = { original_tag = GER }
-			any_country = {
-				OR = {
-					original_tag = CZE
-					original_tag = FRA
-				}
-				has_war_with = FROM
-				is_neighbor_of = FROM
-				any_state = {
-					any_province_building_level = {
-						province = {
-							limit_to_border = yes
+			ROOT = {
+				original_tag = GER
+				any_country = {
+					OR = {
+						original_tag = CZE
+						original_tag = FRA
+					}
+					has_war_with = ROOT
+					is_neighbor_of = ROOT
+					any_state = {
+						any_province_building_level = {
+							province = {
+								limit_to_border = yes
+							}
+							building = bunker
+							level > 4
 						}
-						building = bunker
-						level > 4
 					}
 				}
 			}
