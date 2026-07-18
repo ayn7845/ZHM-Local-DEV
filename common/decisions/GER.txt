@@ -324,9 +324,12 @@ GER_seize_gold_reserves_cat = {
 
 		complete_effect = {
 			set_temp_variable = { occupied_state_num_factory = 0 } #This will show how many factories in total Germany controls from FROM's cores
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@GER }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@GER }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@GER }
+			set_temp_variable = { occupied_state_num_factory_tt = 0 } # HMM: this is needed to make the tooltip work
+			# HMM: this is stupid and exploitable, we don't want to count all occupied factories each time the decision is taken, just the ones in the states that would be exploited
+			# However, tooltips can't properly deal with variables inside loops, so we have to use these still for it, we'll just make sure we label it as approximate
+			add_to_temp_variable = { GER.occupied_state_num_factory_tt = FROM.num_of_military_factories_in_cores@GER }
+			add_to_temp_variable = { GER.occupied_state_num_factory_tt = FROM.num_of_civilian_factories_in_cores@GER }
+			add_to_temp_variable = { GER.occupied_state_num_factory_tt = FROM.num_of_naval_factories_in_cores@GER }
 
 			if = {
 				limit = {
@@ -343,6 +346,10 @@ GER_seize_gold_reserves_cat = {
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 						}
+						# HMM: add the factories in this state to our count
+						add_to_temp_variable = { GER.occupied_state_num_factory = arms_factory_level }
+						add_to_temp_variable = { GER.occupied_state_num_factory = industrial_complex_level }
+						add_to_temp_variable = { GER.occupied_state_num_factory = building_level@dockyard }
 						add_compliance = -5
 						add_resistance = 10
 						set_state_flag = GER_seize_gold_reserves_state_flag
@@ -357,6 +364,10 @@ GER_seize_gold_reserves_cat = {
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 						}
+						# HMM: add the factories in this state to our count
+						add_to_temp_variable = { GER.occupied_state_num_factory = arms_factory_level }
+						add_to_temp_variable = { GER.occupied_state_num_factory = industrial_complex_level }
+						add_to_temp_variable = { GER.occupied_state_num_factory = building_level@dockyard }
 						add_compliance = -5
 						add_resistance = 10
 						set_state_flag = GER_seize_gold_reserves_state_flag
@@ -367,6 +378,8 @@ GER_seize_gold_reserves_cat = {
 			
 			divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
 			multiply_temp_variable = { occupied_state_num_factory = -1 }
+			divide_temp_variable = { occupied_state_num_factory_tt = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
+			multiply_temp_variable = { occupied_state_num_factory_tt = -1 }
 
 			#If Germany has seized Gold Reserves from Soviet states, deduct that amount when seizing the nation wide Gold Reserves from Soviet, so we're not double dipping
 			if = { 
@@ -378,11 +391,16 @@ GER_seize_gold_reserves_cat = {
 					check_variable = { GER_reduce_russian_CG_bonus < 0 }
 				}
 				subtract_from_temp_variable = { occupied_state_num_factory = GER_reduce_russian_CG_bonus }
+				subtract_from_temp_variable = { occupied_state_num_factory_tt = GER_reduce_russian_CG_bonus }
 			}
 			
-			custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+			custom_effect_tooltip = HMM_seize_gold_modify_economy_of_conquest_modifier_tt #GER_modify_economy_of_conquest_modifier_tt
 			add_to_variable = {
 				GER_industrial_consumer_goods_factor = occupied_state_num_factory
+				#tooltip = consumer_goods_factor_tt # HMM: tooltips don't work properly with variables modified inside loops, so showing this will be misleading
+			}
+			add_to_variable = { # We need a left side for the tooltip to function
+				occupied_state_num_factory_tt = occupied_state_num_factory_tt
 				tooltip = consumer_goods_factor_tt
 			}
 			GER_reduce_mefo_bills_penalty = yes
