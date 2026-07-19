@@ -193,7 +193,7 @@ JAP_mitsubishi_heavy_industries_organization = {
 					original_tag = JAP
 					has_dlc = "Arms Against Tyranny"
 			}
-			PHI_SEA = yes
+			
 		}
 	}
 
@@ -203,25 +203,6 @@ JAP_mitsubishi_heavy_industries_organization = {
 				FROM = { NOT = { original_tag = JAP } }
 			}
 			FROM = { NOT = { has_war_with = JAP } }
-		}
-		
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-				}
-			}
 		}
 	}
 
@@ -627,7 +608,7 @@ JAP_yokosuka_naval_arsenal_organization = {
 				original_tag = JAP
 				has_dlc = "Arms Against Tyranny"
 			}
-			PHI_SEA = yes
+			
 		}
 	}
 
@@ -639,24 +620,7 @@ JAP_yokosuka_naval_arsenal_organization = {
 			FROM = { NOT = { has_war_with = JAP } }
 		}
 		
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-				}
-			}
-		}
+		
 	}
 
 	add_trait = {
@@ -1090,12 +1054,7 @@ JAP_maizuru_naval_arsenal_organization = {
 	}
 	
 	visible = {
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
+		
 	}
 	
 	available = {
@@ -1450,7 +1409,7 @@ JAP_mitsubishi_kobe_shipyard_organization = {
 				original_tag = JAP 
 				has_dlc = "Arms Against Tyranny"
 			}
-			PHI_SEA = yes
+			
 		}
 	}
 
@@ -1462,24 +1421,7 @@ JAP_mitsubishi_kobe_shipyard_organization = {
 			FROM = { NOT = { has_war_with = JAP } }
 		}
 		
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-				}
-			}
-		}
+	
 	}
 
 	add_trait = {
@@ -1701,18 +1643,13 @@ JAP_mitsubishi_organization = {
 				original_tag = ETH
 				has_dlc = "By Blood Alone"
 			}
-			PHI_SEA = yes
+			
 		}
 		has_dlc = "Arms Against Tyranny"
 	}
 	
 	visible = {
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
+		
 	}
 	
 	available = {
@@ -1732,25 +1669,6 @@ JAP_mitsubishi_organization = {
 				tooltip = has_invited_mio_tt
 				FROM = {
 					has_country_flag = has_invited_JAP_mitsubishi_organization_flag
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
 				}
 			}
 		}
@@ -2464,7 +2382,7 @@ JAP_kokura_arsenal_organization = {
 				original_tag = JAP
 				has_dlc = "Arms Against Tyranny"
 			}
-			PHI_SEA = yes
+			
 		}
 
 	}
@@ -2476,25 +2394,7 @@ JAP_kokura_arsenal_organization = {
 			}
 			FROM = { NOT = { has_war_with = JAP } }
 		}
-		
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-				}
-			}
-		}
+
 	}
 
 	add_trait = {
@@ -2637,18 +2537,13 @@ JAP_nissan_organization = {
 				original_tag = MAN
 				has_dlc = "No Compromise, No Surrender"
 			}
-			PHI_SEA = yes
+			
 		}
 		has_dlc = "Arms Against Tyranny"
 	}
 	
 	visible = {
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
+		
 		IF = {
 			limit = {
 				FROM = { original_tag = MAN }
@@ -2674,25 +2569,6 @@ JAP_nissan_organization = {
 				tooltip = has_invited_mio_tt
 				FROM = {
 					has_country_flag = has_invited_JAP_nissan_organization_flag
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
 				}
 			}
 		}
@@ -2884,7 +2760,7 @@ JAP_tokyo_automobile_industries_organization = {
 	allowed = {	
 		OR = {
 			original_tag = JAP
-			PHI_SEA = yes
+			
 		}
 		has_dlc = "La Resistance"
 		has_dlc = "Arms Against Tyranny"
@@ -2898,24 +2774,6 @@ JAP_tokyo_automobile_industries_organization = {
 			FROM = { NOT = { has_war_with = JAP } }
 		}
 		
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = PHI
-				}
-			}
-			FROM = {
-				has_completed_focus = PHI_align_with_japan
-				if = {
-					limit = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-					NOT = {
-						has_completed_focus = PHI_declare_military_emergency
-					}
-				}
-			}
-		}
 	}
 
 	add_trait = {

@@ -32,10 +32,6 @@ foreign_mio_decisions_category = {
 				limit = { original_tag = BUL }
 				has_completed_focus = BUL_contract_foreign_companies
 			}
-			ELSE_IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
 			ELSE = {
 				always = no 
 			}
@@ -215,13 +211,7 @@ foreign_mio_decisions_category = {
 			GER = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -366,13 +356,7 @@ foreign_mio_decisions_category = {
 			GER = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -810,10 +794,6 @@ foreign_mio_decisions_category = {
 				limit = { original_tag = BUL }
 				has_completed_focus = BUL_contract_foreign_companies
 			}
-			ELSE_IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
 			ELSE = {
 				always = no 
 			}
@@ -1011,10 +991,6 @@ foreign_mio_decisions_category = {
 					has_completed_focus = BUL_a_black_sea_fleet
 				}
 			}
-			ELSE_IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
 			ELSE = {
 				always = no 
 			}
@@ -1113,10 +1089,6 @@ foreign_mio_decisions_category = {
 				limit = { original_tag = BUL }
 				has_completed_focus = BUL_contract_foreign_companies
 			}
-			ELSE_IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
 			ELSE = {
 				always = no 
 			}
@@ -1213,10 +1185,6 @@ foreign_mio_decisions_category = {
 			IF = {
 				limit = { original_tag = BUL }
 				has_completed_focus = BUL_contract_foreign_companies
-			}
-			ELSE_IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
 			}
 			ELSE = {
 				always = no 
@@ -1592,13 +1560,7 @@ foreign_mio_decisions_category = {
 			CZE = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1651,13 +1613,7 @@ foreign_mio_decisions_category = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
 
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1711,13 +1667,7 @@ foreign_mio_decisions_category = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
 
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1771,13 +1721,7 @@ foreign_mio_decisions_category = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
 
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1831,13 +1775,7 @@ foreign_mio_decisions_category = {
 			FRA = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1890,13 +1828,7 @@ foreign_mio_decisions_category = {
 			FRA = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -1948,13 +1880,7 @@ foreign_mio_decisions_category = {
 			FRA = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2008,13 +1934,7 @@ foreign_mio_decisions_category = {
 			JAP = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2066,13 +1986,7 @@ foreign_mio_decisions_category = {
 			JAP = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2125,13 +2039,7 @@ foreign_mio_decisions_category = {
 			JAP = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2185,13 +2093,7 @@ foreign_mio_decisions_category = {
 			SWE = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2244,13 +2146,7 @@ foreign_mio_decisions_category = {
 			SWE = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {
@@ -2302,13 +2198,7 @@ foreign_mio_decisions_category = {
 			SWE = {
 				mio_original_country_exists_and_not_at_war_with_ROOT = yes
 			}
-			IF = {
-				limit = { original_tag = ETH }
-				has_completed_focus = ETH_invite_foreign_industrialists
-			}
-			ELSE = {
-				always = no 
-			}
+			always = no
 		}
 
 		available = {

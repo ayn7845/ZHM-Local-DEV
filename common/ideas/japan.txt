@@ -5861,21 +5861,8 @@ ideas = {
 				}
 			}
 
-			available = {
-				if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+
 			}
 			
 			research_bonus = {
@@ -5931,27 +5918,8 @@ ideas = {
 				}
 			}
 			
-			available = {
-				if = {
-					limit = {
-						original_tag = JAP
-					}
-					has_completed_focus = JAP_develop_new_fighters
-				}
-				else_if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+
 			}
 			
 			research_bonus = {
@@ -6469,21 +6437,8 @@ ideas = {
 				}
 			}
 
-			available = {
-				if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+
 			}
 			
 			research_bonus = {
@@ -6502,21 +6457,8 @@ ideas = {
 				}
 			}
 
-			available = {
-				if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+
 			}
 						
 			research_bonus = {
@@ -6537,21 +6479,8 @@ ideas = {
 				}
 			}
 
-			available = {
-				if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+
 			}
 			
 			cost = 150
@@ -6704,21 +6633,8 @@ ideas = {
 				}
 			}
 
-			available = {
-				if = {
-					limit = {
-						original_tag = PHI
-					}
-					has_completed_focus = PHI_align_with_japan
-					if = {	#Easter egg so dont always show the requirement
-						limit = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-						NOT = {
-							has_completed_focus = PHI_declare_military_emergency
-						}
-					}
-				}
+			available = { 
+				
 			}
 
 			research_bonus = {

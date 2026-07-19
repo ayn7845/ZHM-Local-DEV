@@ -37,7 +37,7 @@ SIA_bangkok_dock_organization = {
 	}
 
 	available =  {
-		SIA = { NOT = { has_completed_focus = SIA_sell_bangkok_dock_co } }
+		#SIA = { NOT = { has_completed_focus = SIA_sell_bangkok_dock_co } }
 	}
 }
 

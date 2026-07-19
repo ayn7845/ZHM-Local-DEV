@@ -204,7 +204,7 @@ CHI_mukden_arsenal_organization = {
 				hidden_trigger = { has_dlc = "No Compromise, No Surrender" }
 			}
 			OR = {
-				owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+				#owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
 				owner = { controls_state = CHI.mio_locations^5 } # #716 Liaoning
 			}
 		}

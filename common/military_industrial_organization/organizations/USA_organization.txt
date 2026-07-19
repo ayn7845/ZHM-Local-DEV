@@ -52,7 +52,6 @@ USA_chrysler_organization = {
 				tag = MEX 
 				has_dlc = "Man the Guns"
 			}
-			NOR_AAT = yes 
 			PHI_SEA = yes
 		}
 	}
@@ -92,14 +91,6 @@ USA_chrysler_organization = {
 				FROM = {
 					has_completed_focus = PHI_align_with_the_usa
 				}
-			}
-		}
-		else_if = {
-			limit = {
-				FROM = { tag = NOR }
-			}
-			FROM = { 
-				has_completed_focus = NOR_invite_transnational_manufacturers
 			}
 		}
 	}
@@ -1381,14 +1372,6 @@ USA_ford_motor_company_organization = {
 				has_dlc = "Battle for the Bosporus"
 			}
 			AND = {
-				OR = {
-					original_TAG = LAT
-					original_TAG = LIT
-					original_TAG = EST
-				}
-				has_dlc = "No Step Back"
-			}
-			AND = {
 				original_TAG = BRA
 				# TODO_JUNO: Add juno DLC name here!!
 				has_dlc = "Arms Against Tyranny"
@@ -1432,20 +1415,7 @@ USA_ford_motor_company_organization = {
 			limit = { FROM = { original_tag = ROM } }
 			FROM = { has_country_flag = USA_mot_chosen }
 		}
-		if = {
-			limit = {
-				FROM = {
-					OR = {
-						original_TAG = LAT
-						original_TAG = LIT
-						original_TAG = EST
-					}
-				}
-			}
-			FROM = {
-				has_completed_focus = BALTIC_ford_motors
-			}
-		}
+		
 		IF = {
 			limit = {
 				FROM = {
