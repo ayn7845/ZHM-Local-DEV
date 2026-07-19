@@ -363,60 +363,16 @@ on_actions = {
 				}
 
 			}
-			if = {
-				limit = {
-					original_tag = SWI
-					has_country_flag = SWI_in_secret_pact_with_allies
-				}
-				var:SWI.SWI_secret_ally = {
-					if = {
-						limit = { is_faction_leader = yes }
-						add_to_faction = SWI
-					}
-					else_if = {
-						limit = {
-							is_in_faction = yes
-						}
-						random_other_country = {
-							limit = {
-								is_in_faction_with = PREV
-								is_faction_leader = yes
-							}
-							add_to_faction = SWI
-						}
-					}
-				}
-			}
+			
 		}
-		effect = {
-			if = {
-				limit = {
-					SWI_bba = yes
-					SWI_has_any_spirit_of_helvetia = yes
-				}
-				SWI_make_helvetia_war = yes
-			}
-		}
+		
 
 	}
 	#ROOT = attacking side
 	#FROM = defending side
 	#fired when two countries end up at war with each other ()
 	on_war_relation_added = {
-		effect = {
-			if = {
-				limit = {
-					SWI_bba = yes 
-					has_dynamic_modifier = { modifier = SWI_swiss_gold_market}
-				}
-				every_enemy_country = {
-					limit = {
-						has_dynamic_modifier = { modifier = SWI_gold_trade_with_switzerland }
-					}
-					SWI_seize_gold = yes 
-				}
-			}
-		}	
+		
 	}
 
 	#ROOT = attacking side
