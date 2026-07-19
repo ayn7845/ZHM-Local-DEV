@@ -438,7 +438,10 @@ characters={
 				has_dlc = "No Compromise, No Surrender"
 			}
 			available = {
-				has_completed_focus = PHI_align_with_japan
+				always = no
+			}
+			visible = { 
+				always = no
 			}
 			idea_token = PHI_benigno_ramos
 
