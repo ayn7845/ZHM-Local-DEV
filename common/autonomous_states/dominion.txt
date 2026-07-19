@@ -100,25 +100,7 @@ autonomy_state = {
 			ELSE = {
 				OR = {
 					has_completed_focus = AST_adopt_westminster
-					has_completed_focus = AST_abandon_the_westminster_system
-					has_completed_focus = AST_sever_ties_with_uk
 				}
-			}
-		}
-		if = {
-			limit = {
-				original_tag = SAF
-			}
-			has_completed_focus = SAF_abandon_westminster
-		}
-		IF = {
-			limit = {
-				original_tag = COG
-				has_dlc = "Gotterdammerung"			
-			}
-			has_completed_focus = CONGO_republic_of_congo
-			NOT = {
-				has_completed_focus = CONGO_dominion_of_congo
 			}
 		}
 		if = {
@@ -143,26 +125,10 @@ autonomy_state = {
 			has_completed_focus = RAJ_keep_calm_and_carry_on
 			has_completed_focus = RAJ_holding_the_gates_of_india
 		}
-		if = {
-			limit = {
-				original_tag = INS
-			}
-			NOT = {
-				has_idea = idea_INS_netherlands_most_precious_jewel
-			}
-		}
+		
 	}
 
 	can_lose_level = {
-		IF = {
-			limit = {
-				OVERLORD = { original_tag = BEL } 
-				original_tag = COG
-				has_dlc = "Gotterdammerung"			
-			}
-			NOT = {
-				has_completed_focus = CONGO_dominion_of_congo
-			}
-		}
+		
 	}
 }
