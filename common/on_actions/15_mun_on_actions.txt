@@ -153,40 +153,7 @@ on_actions = {
 		}
 	}
 
-	on_monthly_CZE = {
-		effect = {
-			if = {
-				limit = {
-					any_country_with_original_tag = { 
-						original_tag_to_check = CZE
-           				exists = yes
-        			}
-					has_global_flag = CZE_skoda_focus_activation
-					NOT = {
-						has_country_flag = CZE_recently_changed_skoda_focus
-					}
-					OR = {
-						NOT = {
-							has_country_flag = CZE_bimonthly_flag
-						}
-						has_country_flag = CZE_skoda_optimization_raise_fast
-					}
-					check_variable = {
-						skoda_optimization_tier < skoda_max_optimization_tier
-					}
-				}
-				add_to_variable = {
-					skoda_optimization_tier = 1
-				}
-				set_country_flag = { #This turns the on_monthly into a bi-monthly thing
-					flag = CZE_bimonthly_flag
-					days = 35
-					value = 1
-				}
-				CZE_update_skoda_tier = yes
-			}
-		}
-	}
+	
 
 	on_civil_war_end_before_annexation = {
 		effect = {

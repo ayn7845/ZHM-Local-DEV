@@ -1,51 +1,7 @@
  on_actions = {
 
  	on_join_faction = {
- 		effect = {
-
-
- 			# ROOT = joiner, FROM = faction leader
- 			# If HOL joins a faction, go through all of the faction members (aside from HOL / DEI) and give them the strategy
- 			if = {
- 				limit = {
- 					ROOT = {
- 						OR = {
- 							tag = HOL
- 							is_subject_of = HOL
- 						}
- 					}
- 				}
- 				every_country = {
- 					limit = {
- 						is_in_faction_with = FROM
- 						NOT = {
- 							tag = HOL
- 							is_subject_of = HOL
- 						}
- 					}
- 					INS_set_hol_ally_strategy_effect = yes
- 				}
- 			}
- 			# If HOL is already in a faction, and someone new joins, give them the strategy
- 			else_if = {
- 				limit = {
- 					# hol is in the same faction
- 					HOL = {
- 						is_in_faction_with = FROM
- 					}
- 					# its not hol joining
- 					ROOT = {
- 						NOT = {
- 							original_tag = HOL
- 							is_subject_of = HOL
- 						}
- 					}
- 				}
- 				ROOT = {
- 					INS_set_hol_ally_strategy_effect = yes
- 				}
- 			}
- 		}
+ 		
  	}
 
 	on_daily_AST = { #Veterans_civil_war
@@ -167,276 +123,14 @@
 					}
 				}
 			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_completed_focus = SIA_plan_for_a_short_war
-						NOT = { has_idea = idea_SIA_short_war_temp_buff }
-					}
-				}
-				add_timed_idea = {
-					idea = idea_SIA_short_war_temp_buff
-					days = 120
-				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-					}
-					ROOT = {
-						original_tag = SIA
-					}
-				}
-				FROM = {
-					if = {
-						limit = {
-							has_completed_focus = SIA_american_investment_aid
-						}
-						add_cic = 15000
-						add_equipment_to_stockpile = {
-							type = infantry_equipment
-							amount = 1200
-							producer = USA
-						}
-						add_equipment_to_stockpile = {
-							type = support_equipment
-							amount = 150
-							producer = USA
-						}
-						add_equipment_to_stockpile = {
-							type = artillery_equipment
-							amount = 70
-							producer = USA
-						}
-					}
-					if = {
-						limit = {
-							has_completed_focus = SIA_thai_students_in_the_oss
-						}
-						SIA_thai_students_in_the_oss_effect = yes
-					}
-					if = {
-						limit = {
-							has_completed_focus = SIA_prepare_to_drop
-						}
-						division_template = {
-							name = "Expeditionary Paratrooper Division"
-							division_names_group = ENG_PAR_01
-							is_locked = yes
-							regiments = {
-								paratrooper = { x = 0 y = 0 }
-								paratrooper = { x = 0 y = 1 }
-								paratrooper = { x = 0 y = 2 }
-
-								paratrooper = { x = 1 y = 0 }
-								paratrooper = { x = 1 y = 1 }
-								paratrooper = { x = 1 y = 2 }
-							}
-						}
-
-						random_owned_controlled_state = {
-							create_unit = { 
-								division = "name = \"Expeditionary Paratrooper Division\" division_template = \"Expeditionary Paratrooper Division\" start_experience_factor = 1.0" 
-								owner = PREV
-							}
-						}
-						random_owned_controlled_state = {
-							create_unit = { 
-								division = "name = \"Expeditionary Paratrooper Division\" division_template = \"Expeditionary Paratrooper Division\" start_experience_factor = 1.0" 
-								owner = PREV
-							}
-						}
-						random_owned_controlled_state = {
-							create_unit = { 
-								division = "name = \"Expeditionary Paratrooper Division\" division_template = \"Expeditionary Paratrooper Division\" start_experience_factor = 1.0" 
-								owner = PREV
-							}
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						OR = {
-							is_faction_leader = no
-							NOT = {
-								any_allied_country = { has_war_with = ROOT }
-							}
-						}
-						NOT = {
-							OR = {
-								has_completed_focus = SIA_reluctant_submission
-								has_completed_focus = SIA_standing_our_ground
-							}
-						}
-					}
-					ROOT = {
-						is_major = yes
-					}
-				}
-				FROM = {
-					set_variable = {
-						var = SIA_first_major_attacking_country
-						value = ROOT
-					}
-					country_event = {
-						id = siam.34
-						hours = 1
-					}
-				}
-			}
+			
 
 			#diversitifaction focus
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
-							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
-						}
-						ROOT = {
-							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
-							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
-						}
-					}
-				}
+		
 
-				SIA = {
-					set_country_flag = SIA_diversity_foreign_reserves_flag
-					add_offsite_building = {
-						type = arms_factory
-						level = 3
-					}
+		
 
-					random_core_state = {
-						limit = {
-							is_controlled_by = SIA
-						}
-
-						add_resource = {
-							type = steel
-							amount = 8
-						}
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					FROM = {
-						NOT = { original_tag = SIA } 
-					}
-					ROOT = { has_idea = idea_SIA_war_fervor }
-				}
-
-				ROOT = {
-					remove_ideas = idea_SIA_war_fervor
-					add_timed_idea = {
-						idea = idea_SIA_bloodlusted_irredentism	
-						days = 90
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					FROM = { original_tag = SIA }
-					ROOT = { original_tag = SIA }
-					SIA = { 
-						has_civil_war = yes 
-					}
-				}
-
-				if = {
-					limit = {
-						SIA = {
-							has_completed_focus = SIA_support_songsuradets_military_clique
-							NOT = { has_completed_focus = SIA_the_songsuradet_rebellion }
-							NOT = { has_country_flag = has_spawned_senior_officer_loyalists }
-						}
-					}
-
-					SIA = {
-						set_country_flag = has_spawned_senior_officer_loyalists
-						division_template = {
-							name = "Senior Officer Loyalists"
-							is_locked = no
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 0 y = 3 }
-
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-							}
-							support = {
-								
-							}
-						}
-
-						random_controlled_state = {
-							create_unit = {
-								division = "name = \"Senior Officer Loyalists\" division_template = \"Senior Officer Loyalists\" start_experience_factor = 0.5 start_equipment_factor = 1 start_manpower_factor = 1"
-								owner = SIA
-								allow_spawning_on_enemy_provs = yes
-								count = 3  
-							}
-						}
-					}
-
-				}
-
-				if = {
-					limit = {
-						SIA = {
-							has_completed_focus = SIA_the_royal_police_counterweight 
-							NOT = { has_country_flag = has_spawned_royal_police }
-						}
-					}
-
-					SIA = {
-						set_country_flag = has_spawned_royal_police
-						set_technology = {
-							militia_tech = 1
-							popup = no
-						}
-						division_template = {
-							name = "Royal Police"
-							is_locked = no
-							regiments = {
-								militia = { x = 0 y = 0 }
-								militia = { x = 0 y = 1 }
-								militia = { x = 0 y = 2 }
-								militia = { x = 0 y = 3 }
-
-								militia = { x = 1 y = 0 }
-								militia = { x = 1 y = 1 }
-								militia = { x = 1 y = 2 }
-							}
-							support = {
-								
-							}
-						}
-
-						random_controlled_state = {
-							create_unit = {
-								division = "name = \"Royal Police\" division_template = \"Royal Police\" start_experience_factor = 0.5 start_equipment_factor = 1 start_manpower_factor = 1"
-								owner = SIA
-								allow_spawning_on_enemy_provs = yes
-								count = 2
-							}
-						}
-					}
-				}
-			}
+			
 		}
 
 		effect = {
@@ -504,64 +198,7 @@
 
 				SIA = { SIA_refresh_indochina_controllers = yes }
 			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_country_flag = achievement_grand_siam_flag_1
-						has_country_flag = achievement_grand_siam_flag_2
-						has_country_flag = achievement_grand_siam_flag_3
-						NOT = { has_country_flag = achievement_grand_siam_flag_4 }
-						NOT = { has_country_flag = achievement_grand_siam }
-					}
-				}
-				FROM = { set_country_flag = { flag = achievement_grand_siam_flag_4 value = 1 days = 365 } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_country_flag = achievement_grand_siam_flag_1
-						has_country_flag = achievement_grand_siam_flag_2
-						NOT = { has_country_flag = achievement_grand_siam_flag_3 }
-						NOT = { has_country_flag = achievement_grand_siam }
-					}
-				}
-				FROM = { set_country_flag = { flag = achievement_grand_siam_flag_3 value = 1 days = 365 } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_country_flag = achievement_grand_siam_flag_1
-						NOT = { has_country_flag = achievement_grand_siam_flag_2 }
-						NOT = { has_country_flag = achievement_grand_siam }
-					}
-				}
-				FROM = { set_country_flag = { flag = achievement_grand_siam_flag_2 value = 1 days = 365 } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						NOT = { has_country_flag = achievement_grand_siam_flag_1 }
-						NOT = { has_country_flag = achievement_grand_siam }
-					}
-				}
-				FROM = { set_country_flag = { flag = achievement_grand_siam_flag_1 value = 1 days = 365 } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_country_flag = achievement_grand_siam_flag_1
-						has_country_flag = achievement_grand_siam_flag_2
-						has_country_flag = achievement_grand_siam_flag_3
-						has_country_flag = achievement_grand_siam_flag_4
-					}
-				}
-				FROM = { set_country_flag = achievement_grand_siam }
-			}
+			
 
 			# AST union control: if Azad Hind (RAJ tag without the loyalist cosmetic) capitulates,
 			# the civil war doesn't formally end while they're protected by a faction, so
@@ -623,62 +260,16 @@
 
 	# 	ROOT is the country which called, FROM is the country that joined.  Trigger the following commands whenever a country accepts the call to war. 
 	on_call_allies = {
-		effect = {
-			if = {
-				limit = {
-					SIA = { has_variable = limited_war_target }
-					OR = {
-						check_variable = { SIA.limited_war_target = ROOT }
-						ROOT = { 
-							is_ally_with = var:SIA.limited_war_target 
-							has_war_with = SIA
-						}
-						
-					}
-					NOT = {
-						is_in_array = { array = SIA.limited_war_target_allies value = FROM }
-					}
-				}
-
-				add_to_array = { array = SIA.limited_war_target_allies value = FROM }
-			}
-		}
+		
 	}
 
 	#ROOT is civil war winner, FROM gets annexed. This will also fire on_annex. 
 	on_civil_war_end = {
 		effect = {
 			# SIA
-			if = {
-				limit = {
-					ROOT = {
-						has_country_leader = { character = SIA_plaek_phibunsongkhram }
-					}
+			
 
-					FROM = {
-						has_country_leader = { character = SIA_phraya_songsuradet }
-					}
-				}
-
-				ROOT = { country_event = { id = siam.9 hours = 2 } }
-			}
-
-			if = {
-				limit = {
-					ROOT = { 
-						has_completed_focus = SIA_the_kings_gambit
-					}
-				}
-
-				ROOT = { 
-					set_variable = { total_constructed_civilian_factory_target = total_constructed_civilian_factory }
-					set_variable = { total_constructed_military_factory_target = total_constructed_military_factory } 
-
-					add_to_variable = { total_constructed_civilian_factory_target = 2 }
-					add_to_variable = { total_constructed_military_factory_target = 2 }
-
-				}
-			}
+			
 			# AST
 			if = {
 				limit = {
@@ -1861,18 +1452,7 @@
 
 	#FROM is the faction Leader, ROOT is the country leaving the faction 
 	on_leave_faction  = {
-		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
-					}
-				}
-				
-				FROM = { SIA_update_adc = yes }
-			}
-		}
+		
 
 		effect = {
 			IF = { #Downgrade AST Training Initiative spirit if <5 faction members
@@ -1907,18 +1487,7 @@
 	}
 
 	on_offer_join_faction = {
-		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
-					}
-				}
-				
-				ROOT = { SIA_update_adc = yes }
-			}
-		}
+		
 		# Late ABDACOM invite: covers add_to_faction and accepted offers
 		effect = {
 			if = {
@@ -2090,20 +1659,6 @@
 			}
 		}
 
-		effect = {
-
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
-					}
-				}
-
-				
-				FROM = { SIA_update_adc = yes }
-			}
-		}
 
 		effect = {
 			IF = { #Joiners gain AST Training Initiative spirit
