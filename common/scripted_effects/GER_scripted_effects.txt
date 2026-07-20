@@ -3073,7 +3073,7 @@ GER_set_up_colonial_resistance_states = {
 						OR = {
 							is_on_continent = africa 
 							is_on_continent = asia
-							is_core_of = EGY
+							#is_core_of = EGY
 						}	
 						has_resistance = yes
 						NOT = { # no point adding if already in there

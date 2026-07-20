@@ -5449,8 +5449,7 @@ faction_goal_control_suez_canal = {
 				NOT = {
 				original_tag = ENG
 				is_in_faction_with = ENG
-				original_tag = EGY
-				is_in_faction_with = EGY
+				
 			}
 		}
 		any_collection_element = {

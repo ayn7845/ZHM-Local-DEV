@@ -8562,12 +8562,7 @@ country_event = {
 
 		custom_effect_tooltip = ITA_release_colonies_north_africa_tt
 		hidden_effect = {
-			release_on_controlled = MOR
-			release_on_controlled = ALG
-			release_on_controlled = TUN
-			release_on_controlled = LBA
-			release_on_controlled = EGY
-			release_on_controlled = SUD
+			
 		}
 	}
 }
