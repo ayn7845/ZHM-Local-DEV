@@ -5533,7 +5533,7 @@ SOV_diplomacy_nordic_decision_category = {
 			}
 		}
 
-		targets = { FIN SWE NOR DEN KAR } #All Continental Nordic Countries
+		targets = { FIN SWE NOR DEN } #All Continental Nordic Countries
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes
@@ -5609,7 +5609,7 @@ SOV_diplomacy_nordic_decision_category = {
 			}
 		}
 
-		targets = { FIN SWE NOR DEN KAR } #All Continental Nordic Countries
+		targets = { FIN SWE NOR DEN } #All Continental Nordic Countries
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes

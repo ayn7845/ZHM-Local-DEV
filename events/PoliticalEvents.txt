@@ -30,10 +30,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						#EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -259,10 +256,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -369,10 +363,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -557,10 +548,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+				
 				}
 			}
 		}
@@ -887,10 +875,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -1049,10 +1034,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -1160,10 +1142,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -1250,10 +1229,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -1559,10 +1535,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -1739,10 +1712,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+				
 				}
 			}
 		}
@@ -1915,10 +1885,7 @@ country_event = {
 					original_tag = EST
 					original_tag = LAT
 					original_tag = LIT
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
+					
 				}
 			}
 		}
@@ -2219,11 +2186,8 @@ country_event = {
 					original_tag = LAT
 					original_tag = LIT
 					original_tag = ROM
-					AND = {
-						original_tag = FIN
-						EST = { has_completed_focus = EST_national_pride_in_finland }
-					}
-					original_tag = BLR #Baltic Belarus civil war
+					
+					
 				}
 			}
 			AND = {

@@ -315,25 +315,10 @@ on_actions = {
  	#ROOT is the nation being released, FROM is the overlord
 	on_release_as_free = { 
 		effect = {
-			SWE_on_freed_cross_we_bear = yes
+			#SWE_on_freed_cross_we_bear = yes
 		}
 
-		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						tag = SMI
-						owns_state = 148
-					}
-				}
-				148 = {
-					add_victory_points = {
-						province = 6142
-						value = 2
-					}
-				}	
-			}
-		}
+		
 
 		effect = { # Jan Mayen's Rebirth 
 			if = {
@@ -1069,26 +1054,7 @@ on_actions = {
 		}
 
 		# FINNISH PRESERVE SAPMI - If new SMI core controlled and focus is completed, add core of FIN.
-		effect = { #	ROOT is new controller, FROM is old controller, FROM.FROM is state ID.
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-					ROOT = {
-						original_tag = FIN
-						has_completed_focus = FIN_preserve_sapmi
-						OR = {
-							has_government = democratic
-							has_government = communism
-						}
-					}
-					FROM.FROM = {
-						is_core_of = SMI
-						NOT = { is_core_of = FIN }
-					}
-				}
-				FROM.FROM = { add_core_of = ROOT }
-			}
-		}
+		
 
 		# FINNISH CONFEDERATED FINNO-RUSSIAN REPUBLICS
 		effect = { #	ROOT is new controller, FROM is old controller, FROM.FROM is state ID.
