@@ -33,6 +33,7 @@ news_event = {
 country_event = {
 	id = hmm.3
 	title = hmm.3.a
+	desc = ""
 
 	fire_for_sender = yes
 	fire_only_once = yes
@@ -53,6 +54,7 @@ country_event = {
 country_event = {
 	id = hmm.4
 	title = hmm.4.a
+	desc = ""
 
 	fire_for_sender = yes
 	fire_only_once = yes
@@ -73,6 +75,7 @@ country_event = {
 country_event = {
 	id = hmm.5
 	title = hmm.5.a
+	desc = ""
 
 	fire_for_sender = yes
 	fire_only_once = yes
@@ -93,6 +96,7 @@ country_event = {
 country_event = {
 	id = hmm.6
 	title = hmm.6.a
+	desc = ""
 
 	fire_for_sender = yes
 	fire_only_once = yes

@@ -191,7 +191,7 @@ on_actions = {
 					}
 				}
 				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
-				CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
 			}
 			if = {
 				limit = {
@@ -280,7 +280,7 @@ on_actions = {
 					}
 				}
 				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
-				CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
 			}
 			if = {
 				limit = {
@@ -358,7 +358,7 @@ on_actions = {
 					}
 				}
 				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
-				CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
 			}
 			if = {
 				limit = {

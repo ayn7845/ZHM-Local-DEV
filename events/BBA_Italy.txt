@@ -8732,16 +8732,9 @@ country_event = {
 
 		custom_effect_tooltip = ITA_release_colonies_central_africa_tt
 		hidden_effect = {
-			release_on_controlled = CMR
-			release_on_controlled = CHA
-			release_on_controlled = CAR
+			
 			release_on_controlled = COG
-			release_on_controlled = EQG
-			release_on_controlled = GAB
-			release_on_controlled = RCG
-			release_on_controlled = ANG
-			release_on_controlled = RWA
-			release_on_controlled = BRD
+			
 		}
 	}
 }

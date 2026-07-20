@@ -35566,72 +35566,7 @@ allow_branch = {
 					generator = { 541 }
 				}
 			}
-			if = {
-				limit = {
-					country_exists = NMB
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = NMB
-					expire = 0
-					generator = { 541 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = CMR
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = CMR
-					expire = 0
-					generator = { 773 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = TOG
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = TOG
-					expire = 0
-					generator = { 777 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = TZN
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = TZN
-					expire = 0
-					generator = { 549 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = RWA
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = RWA
-					expire = 0
-					generator = { 768 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = BRD
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = BRD
-					expire = 0
-					generator = { 769 }
-				}
-			}
+			
 			add_state_claim = 523
 			add_state_claim = 773
 			add_state_claim = 541

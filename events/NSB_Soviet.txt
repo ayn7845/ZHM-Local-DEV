@@ -11420,9 +11420,9 @@ country_event = {
 		}
 	}
 
-	
+	option = { 
 
-	
+	}
 }
 
 

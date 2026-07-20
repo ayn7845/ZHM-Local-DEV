@@ -3678,14 +3678,7 @@ country_event = {
 			}
 		}
 
-		effect_tooltip = {
-			FROM = {
-				annex_country = {
-					target = BRM
-					transfer_troops = yes
-				}
-			}
-		}
+		
 
 		hidden_effect = {
 			FROM = { country_event = { id = GOE_RAJ_loyalist.10 hours = 8 random_hours = 2 } }
@@ -5537,13 +5530,7 @@ country_event = {
 	picture = GFX_report_event_indian_soldiers
 	option = {
 		name = GOE_RAJ_princely.1.a
-		HYD = {
-			RAJ_mir_osman_ali_khan = {
-				set_nationality = RAJ
-				set_character_flag = is_mughal_emperor
-			}
-			promote_character = RAJ_mir_osman_ali_khan
-		}	
+		
 	}
 	option = {
 		name = GOE_RAJ_princely.1.b
@@ -5561,20 +5548,7 @@ country_event = {
 			}
 			#retire_country_leader = yes
 	}
-	option = {
-		name = GOE_RAJ_princely.1.c
-		KLT = {
-			RAJ_ahmad_yar_khan = {
-				set_nationality = RAJ
-				set_character_flag = is_mughal_emperor
-			}
-			promote_character = RAJ_ahmad_yar_khan
-		}	
-	}
-	option = {
-		name = GOE_RAJ_princely.1.d
-		
-	}
+	
 }
 
 country_event = {

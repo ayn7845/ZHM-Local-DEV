@@ -575,23 +575,7 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				NOT = { has_global_flag = new_infiltration_detected }
-			}
-			if = {
-				limit = { ROOT_any_anti_JAP_state_infiltration_detected = yes }
-				country_event = wtt_infiltration.23
-				else_if = {
-					limit = { 
-						has_country_flag = PRC_anti_japanese_first_detection
-						NOT = { has_country_flag = PRC_anti_japanese_clean_sweep }
-					}
-					#No infiltrations discovered
-					country_event = wtt_infiltration.24
-				}
-			}
-		}
+		
 		clr_global_flag = new_infiltration_detected
 	}
 }

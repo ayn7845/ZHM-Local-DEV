@@ -239,11 +239,7 @@ ITA_is_valid_free_states_of_europe_target = {
 		original_tag = SWI
 		original_tag = AUS
 		original_tag = YUG
-		original_tag = SER
-		original_tag = CRO
-		original_tag = MNT
-		original_tag = BOS
-		original_tag = KOS
+	
 		original_tag = GRE
 		original_tag = ALB
 		original_tag = TUR
@@ -255,9 +251,7 @@ ITA_is_valid_free_states_of_europe_target = {
 				original_tag = HUN
 				original_tag = CZE
 				original_tag = SLO
-				original_tag = SLV
-				original_tag = MAC
-				original_tag = TRA
+			
 				original_tag = LUX
 				original_tag = BEL
 				original_tag = HOL

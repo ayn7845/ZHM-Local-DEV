@@ -6219,16 +6219,7 @@ country_event = {
 	option = {
 		name = WW_hungary.124.a
 		
-		GEO_ioseb_jughashvili = {
-			add_country_leader_role = {
-				promote_leader = yes
-				country_leader = {
-					ideology = stalinism
-					expire = "1965.1.1.1"
-					traits = { GEO_vengeful_stalinist } 
-				}
-			}	
-		}
+		
 
 		IF = {
 			limit = {

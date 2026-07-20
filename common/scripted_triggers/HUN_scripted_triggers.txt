@@ -199,14 +199,7 @@ HABSBURG_is_a_habsburg_viable_nation = {
 		}
 		original_tag = CZE
 		original_tag = SLO
-		original_tag = TRA
-		original_tag = CRO
-		original_tag = LBV
-		original_tag = SIL
-		original_tag = MNT
-		original_tag = BOS
-		original_tag = SLV
-		original_tag = HRZ
+	
 		original_tag = ALB
 	}
 }

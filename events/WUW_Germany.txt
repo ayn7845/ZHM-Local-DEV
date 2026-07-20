@@ -7432,8 +7432,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_core_of = COG
-					is_core_of = RWA
-					is_core_of = BRD
+					
 				}
 			}
 			add_claim_by = ROOT
