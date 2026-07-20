@@ -1799,7 +1799,7 @@ country_event = {
 				#	    mission = CHI_kwantung_army_impatience_dummy
 				#	    days = 360 
 				#	}
-				}
+				#}
 			}
 		}
 
@@ -2758,16 +2758,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		every_possible_country = {
-			limit = {
-				has_character = MEN_jodbajab
-			}
-			set_nationality = {
-			    target_country = ROOT
-			    character = MEN_jodbajab
-			}
-		}
-
+	
 		set_country_flag = MON_jodbajab_arrived_in_the_country_flag
 
 	}
