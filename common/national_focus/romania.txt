@@ -14,7 +14,7 @@ focus_tree = {
 	
 	default = no
 
-	continuous_focus_position = { x = 50 y = 1200 }
+	continuous_focus_position = { x = 1200 y = 1100 }
 
 #	focus = {
 #		id = ROM_
@@ -64,6 +64,7 @@ focus_tree = {
 	focus = {
 		id = ROM_preserve_greater_romania
 		icon = GFX_focus_rom_preserve_romania
+		
 		x = 3
 		y = 0
 
@@ -162,7 +163,125 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ROM_basing_rights_for_soviet_union
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = ROM_a_deal_with_the_devil }
+		x = 0
+		y = 2
+		relative_position_id = ROM_a_deal_with_the_devil
 
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		allow_branch = { 
+			always = no
+		}
+		available = {
+			is_in_faction = no
+			SOV = {
+				exists = yes
+				is_puppet = no
+				NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no 
+			}
+		}
+
+		bypass = {
+			is_in_faction_with = SOV
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			SOV = { country_event = DOD_romania.30 }
+		}
+	}
+
+	focus = {
+		id = ROM_romanian_volunteer_brigades
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = ROM_basing_rights_for_soviet_union }
+		x = -1
+		y = 3
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = ROM_romanian_volunteer_brigades
+		}
+	}
+
+	focus = {
+		id = ROM_join_comintern
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ROM_basing_rights_for_soviet_union }
+		x = 0
+		y = 4
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				SOV = {
+					has_capitulated = yes
+				}
+			}
+		}
+
+		available = {
+			SOV_comintern_joinable = yes 
+			is_in_faction = no
+			is_subject = no
+			NOT = {
+				any_other_country = {
+					is_in_faction_with = SOV
+					has_war_with = ROM
+				}
+			}
+		}
+
+		bypass = {
+			is_in_faction_with = SOV
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			SOV = { country_event = generic.2 }
+		}
+	}
 
 	focus = {
 		id = ROM_trade_treaty_with_germany
@@ -339,6 +458,62 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ROM_german_romanian_oil_exploitation_company
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = ROM_join_axis }
+		x = 0
+		y = 5
+		relative_position_id = ROM_trade_treaty_with_germany
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_in_faction_with = GER
+			GER = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 46 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+			GER = {
+				random_owned_controlled_state = {
+					limit = {
+						GER = { has_full_control_of_state = PREV }
+					}
+					add_resource = {
+						type = oil
+						amount = 4
+					}
+				}
+			}
+		}
+	}
 
 
 	############################
@@ -349,7 +524,7 @@ focus_tree = {
 		id = ROM_civil_works
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = ROM_preserve_greater_romania }
-		x = 4
+		x = 5
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
@@ -381,6 +556,7 @@ focus_tree = {
 			}
 		}
 	}
+
 
 
 	focus = {
@@ -767,14 +943,50 @@ focus_tree = {
 		}
 	}
 
-
 	focus = {
-		id = ROM_expand_the_university_of_bucharest
-		icon = GFX_focus_research
+		id = ROM_expand_ploiesti_oil_production
+		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ROM_invest_in_the_iar }
 		prerequisite = { focus = ROM_hunedoara_steel_works }
 		x = 0
 		y = 5
+		relative_position_id = ROM_civil_works
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_full_control_of_state = 46
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			46 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_expand_the_university_of_bucharest
+		icon = GFX_focus_research
+		prerequisite = { focus = ROM_expand_ploiesti_oil_production }
+		x = 0
+		y = 6
 		relative_position_id = ROM_civil_works
 
 		cost = 10
@@ -805,7 +1017,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = ROM_expand_the_university_of_bucharest }
 		x = 0
-		y = 6
+		y = 7
 		relative_position_id = ROM_civil_works
 
 		cost = 10
@@ -835,6 +1047,7 @@ focus_tree = {
 	### BALKANS DOMINANCE ####
 	####¤#####################
 
+
 	#############################
 	######## KING BRANCH ########
 	#############################
@@ -842,7 +1055,7 @@ focus_tree = {
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
-		x = 13
+		x = 15
 		y = 0
 
 		cost = 10
@@ -922,6 +1135,138 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ROM_his_majestys_loyal_government
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = ROM_fortify_the_borders }
+		prerequisite = { focus = ROM_revise_the_constitution }
+		mutually_exclusive = { focus = ROM_flexible_foreign_policy }
+		x = -1
+		y = 1
+		relative_position_id = ROM_fortify_the_borders
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+		allow_branch = { 
+			always = no
+		}
+		available = {
+			OR = {
+				has_country_flag = ROM_HUN_aligned
+				HUN = { is_subject_of = ROM }
+				AND = {
+					HUN = { exists = no }
+					ROM = {
+						owns_state = 155
+						owns_state = 154
+						owns_state = 43
+						owns_state = 973
+						owns_state = 974
+					}
+				}
+			}
+			is_subject = no
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = ROM_militarize_the_sentinels
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_his_majestys_loyal_government }
+	
+		x = 0
+		y = 1
+		relative_position_id = ROM_his_majestys_loyal_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_the_sentinel_of_the_motherland_2
+				remove_idea = ROM_the_sentinel_of_the_motherland
+			}			
+		}
+	}
+
+	focus = {
+		id = ROM_all_parties_must_end
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = ROM_militarize_the_sentinels }
+	
+		x = 0
+		y = 2
+		relative_position_id = ROM_his_majestys_loyal_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_king_carol_ii_handled
+				remove_idea = ROM_king_carol_ii_hedonist
+			}
+			remove_country_leader_trait = hedonist
+		}
+	}
 
 	focus = {
 		id = ROM_revise_the_constitution
@@ -1050,6 +1395,7 @@ focus_tree = {
 		id = ROM_flexible_foreign_policy
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ROM_revise_the_constitution }
+		mutually_exclusive = { focus = ROM_his_majestys_loyal_government }
 		x = 0
 		y = 2
 		relative_position_id = ROM_institute_royal_dictatorship
@@ -1076,16 +1422,19 @@ focus_tree = {
 			add_ideas = ROM_flexible_foreign_policy
 		}
 	}
+
 	focus = {
 		id = ROM_appoint_soviet_friendly_government
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = ROM_flexible_foreign_policy }
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
 
 		cost = 10
-
+		allow_branch = { 
+			always = No
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1266,11 +1615,12 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = ROM_flexible_foreign_policy }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
 
@@ -1579,11 +1929,11 @@ focus_tree = {
 	focus = {
 		id = ROM_force_abdication
 		icon = GFX_focus_rom_abdicate
-		prerequisite = { focus = ROM_iron_guard  focus = ROM_national_christian_party }
-	
-		x = 1				
-		y = 1
-		relative_position_id = ROM_iron_guard
+		prerequisite = { focus = ROM_iron_guard focus = ROM_securitate focus = ROM_national_christian_party }
+		mutually_exclusive = { focus = ROM_handle_the_king }
+		x = 0				
+		y = 2
+		relative_position_id = ROM_appoint_soviet_friendly_government
 
 		cost = 10
 
@@ -1654,23 +2004,126 @@ focus_tree = {
 				add_idea = ROM_figurehead_king_michael
 				remove_idea = ROM_king_carol_ii_hedonist
 			}
-			remove_ideas = ROM_the_sentinel_of_the_motherland
+
+			if = {
+				limit = {
+					has_idea = ROM_the_sentinel_of_the_motherland
+				}
+				remove_ideas = ROM_the_sentinel_of_the_motherland
+			}
+			
 			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
 			hidden_effect = {
 				news_event = { id = news.323 days = 1 }
 			}
 		}
 	}
+
+	focus = {
+		id = ROM_king_michaels_coup
+		icon = GFX_focus_rom_coup
+		prerequisite = { focus = ROM_force_abdication }
+		x = 0
+		y = 1
+		relative_position_id = ROM_force_abdication
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_completed_focus = ROM_iron_guard
+			}
+		}
+		allow_branch = { 
+			always = no
+		}
+		available = {
+			is_subject = no
+			OR = {
+				has_war = yes
+				threat > 0.25
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_decision_category_tooltip = ROM_change_sides
+			if = {
+				limit = {
+					POL = {
+						has_country_leader = {
+							character = ROM_king_michael
+							ruling_only = yes
+						}
+					}
+				}
+				set_cosmetic_tag = ROM_polish_loyalists
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				set_political_party = {
+					ideology = neutrality
+					popularity = 50
+				}
+				POL = {
+					set_autonomy = {
+						target = ROM
+						autonomy_state = autonomy_personal_union
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				set_political_party = {
+					ideology = democratic
+					popularity = 50
+				}
+				promote_character = { character = ROM_king_michael ideology = liberalism }
+			}
+			if = {
+				limit = {
+					has_completed_focus = ROM_iron_guard
+				}
+				remove_ideas = ROM_iron_guard
+			}
+			
+			hidden_effect = {
+				news_event = { id = news.322 days = 1 }
+				set_country_flag = can_change_sides_dem
+				set_country_flag = can_change_sides_com
+				set_country_flag = can_change_sides_fas				
+			}
+			unlock_decision_tooltip = ROM_change_sides_to_allies
+			unlock_decision_tooltip = ROM_change_sides_to_axis
+			unlock_decision_tooltip = ROM_change_sides_to_commintern
+		}
+	}
+
 	focus = {
 		id = ROM_appoint_allied_friendly_government
 		icon = GFX_goal_support_democracy
 		prerequisite = { focus = ROM_flexible_foreign_policy }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
 
 		cost = 10
-
+		allow_branch = { 
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1792,8 +2245,62 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ROM_handle_the_king
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = ROM_constitutional_guarantees }
+		mutually_exclusive = { focus = ROM_force_abdication }
+		x = 0
+		y = 2
+		relative_position_id = ROM_appoint_allied_friendly_government
 
+		cost = 10
 
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			is_subject = no
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = ROM_carol_current_leader_trigger
+					has_country_leader = { id = 550 }
+				}
+				has_government = democratic
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_leader = { id = 550 }
+				}
+				retire_country_leader = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+			}
+			swap_ideas = {
+				add_idea = ROM_king_carol_ii_handled_2
+				remove_idea = ROM_king_carol_ii_hedonist
+			}
+		}
+	}
 
 	############################
 	######## AIR BRANCH ########
@@ -1802,9 +2309,9 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 24
+		x = 10
 		y = 0
-
+		relative_position_id = ROM_institute_royal_dictatorship
 		cost = 10
 
 		ai_will_do = {
@@ -1978,6 +2485,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
 			add_mastery_bonus = {
 				name = ROM_air_defense
 				bonus = 0.2
@@ -2021,6 +2529,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
 			add_mastery_bonus = {
 				name = ROM_ground_support
 				bonus = 0.2
@@ -2213,12 +2722,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
 			add_mastery_bonus = {
 				name = ROM_air_superiority
 				bonus = 0.1
 				days = 240
 				track = fighter_aircraft
 			}
+			
+
 		}
 	}
 
@@ -2475,9 +2987,9 @@ focus_tree = {
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 32
+		x = 9
 		y = 0
-
+		relative_position_id = ROM_expand_the_air_force
 		cost = 10
 
 		ai_will_do = {
@@ -3171,9 +3683,9 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 40
+		x = 18
 		y = 0
-
+		relative_position_id = ROM_expand_the_air_force
 		cost = 10
 
 		ai_will_do = {
