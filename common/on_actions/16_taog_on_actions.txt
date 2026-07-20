@@ -191,13 +191,7 @@
 	#Fra can cap etc
 	on_capitulation = {
 		effect = {
-			if = {
-				limit = {
-					is_in_array = { array = SIA.indochina_controllers value = ROOT }
-				}
-
-				SIA = { SIA_refresh_indochina_controllers = yes }
-			}
+		
 			
 
 			# AST union control: if Azad Hind (RAJ tag without the loyalist cosmetic) capitulates,
@@ -393,24 +387,7 @@
 	# Script Documentation - On Action ID 3: Events
 	on_startup = {
 		effect = {
-			if = {
-				limit = { has_dlc = "Thunder at Our Gates" }
-
-				SIA = { #Anandas bday Sep 20
-					set_variable = { SIA_anandas_age = 10 }
-					#country_event = {
-					#	id = siam.26
-					#	days = 264
-					#}
-
-					SIA_phraya_songsuradet = {
-						set_unit_leader_flag = dont_move_in_cw
-					}
-					SIA_adul_aduldejajaras = {
-						set_unit_leader_flag = dont_move_in_cw
-					}
-				}
-			}
+			
 
 			
 
@@ -1429,23 +1406,7 @@
 
 	#ROOT is new controller, FROM is old controller, FROM.FROM is state ID
 	on_state_control_changed = {
-		effect = {
-			if = {
-				limit = {
-					has_dlc = "Thunder at Our Gates"
-					is_in_array = {
-						array = SIA.indochina_states
-						value = FROM.FROM.FROM
-					}
-					NOT = {
-						ROOT = {
-							original_tag = SIA
-						}
-					}
-				}
-				SIA = { SIA_refresh_indochina_controllers = yes }
-			}
-		}
+		
 		
 	}
 
