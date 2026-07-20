@@ -29094,25 +29094,26 @@ focus_tree = {
 		relative_position_id = GER_conquer_italy
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_remilitarize_the_rhineland
-				}
-			}
-			OR = {
-				has_country_leader = { 
-					ruling_only = yes 
-					character = GER_victoria 
-				}
-				has_completed_focus = GER_conquer_italy
-			}
+			always = no
+			#has_dlc = "Gotterdammerung"
+			#if = {
+			#	limit = {
+			#		has_game_rule = {
+			#			rule = obsolete_focus_branches_visibility
+			#			option = HIDE
+			#		}
+			#	}
+			#	NOT = {
+			#		has_completed_focus = GER_remilitarize_the_rhineland
+			#	}
+			#}
+			#OR = {
+			#	has_country_leader = { 
+			#		ruling_only = yes 
+			#		character = GER_victoria 
+			#	}
+			#	has_completed_focus = GER_conquer_italy
+			#}
 		}
 
 		cost = 10
