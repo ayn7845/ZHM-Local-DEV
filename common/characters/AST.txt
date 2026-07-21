@@ -244,21 +244,7 @@ characters={
 					small="GFX_idea_AST_ben_chifley" #small="GFX_idea_generic_political_advisor_europe_3"
 				}
 			}
-			advisor={
-				slot = political_advisor
-				idea_token = AST_ben_chifley
-				allowed = {
-					original_tag = AST
-					has_dlc = "Together for Victory"
-				}
-				cost = 100.000
-				traits = {
-					smooth_talking_charmer 
-				}
-				available = {
-					has_completed_focus = AST_never_another_gallipoli 
-				}
-			}
+			
 		}	
 	}
 
@@ -2862,40 +2848,7 @@ characters={
 					small="GFX_idea_AST_lance_sharkey" #small="GFX_idea_generic_communist_revolutionary_western_european_2d"
 				}
 			}
-			advisor={
-				slot = political_advisor
-				idea_token = AST_lance_sharkey
-				allowed = {
-					original_tag = AST
-				}
-				available = {
-					if = {
-						limit = {
-							has_dlc = "Together for Victory"
-						}
-						has_completed_focus = AST_empower_the_workers 
-					}
-					if = {
-						limit = {
-							has_dlc = "Man the Guns"
-						}
-						NOT = {
-							has_autonomy_state = autonomy_supervised_state
-						}
-					}
-				}
-				traits = {
-					communist_revolutionary 
-				}
-				do_effect = {
-					NOT = {
-						has_government = communism 
-					}
-				}
-				ai_will_do = {
-					factor = 0.000
-				}
-			}	
+				
 		}	
 	}
 
@@ -2912,21 +2865,8 @@ characters={
 			allowed = {
 				original_tag = AST
 			}
-			available = {
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					has_completed_focus = AST_support_the_centre_party 
-				}
-				if = {
-					limit = {
-						has_dlc = "Man the Guns"
-					}
-					NOT = {
-						has_autonomy_state = autonomy_supervised_state
-					}
-				}
+			available = { 
+				always = no
 			}
 			traits = {
 				fascist_demagogue 
@@ -2961,7 +2901,7 @@ characters={
 						has_dlc = "Together for Victory"
 					}
 					or = {
-						has_completed_focus = AST_protect_the_homeland 
+						#has_completed_focus = AST_protect_the_homeland 
 						has_completed_focus = AST_support_the_policy_of_appeasement 
 					}
 				}
