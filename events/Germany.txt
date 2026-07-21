@@ -2691,7 +2691,7 @@ country_event = {
 }
 
 # Germany (Czechoslovakia Surrenders Sudetenland) - Event for GER (from CZE)
-country_event = {
+country_event = { # ZHM Unused, Railroaded.
 	id = germany.50
 	title = germany.40.t
 	desc = germany.50.d

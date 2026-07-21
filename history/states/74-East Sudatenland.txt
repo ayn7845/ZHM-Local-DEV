@@ -11,8 +11,8 @@ state = {
 	
 	history = {
 		
-		owner = CZE
-		add_core_of = CZE
+		owner = WST
+		add_core_of = WST
 
 		buildings = {
 			infrastructure = 4

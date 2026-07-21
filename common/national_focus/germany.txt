@@ -8867,13 +8867,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_ARMY_XP FOCUS_FILTER_STABILITY }
 
 		select_effect = {
-			AUS = {
-				country_event = {
-					id = AUS_political_events.77
-					hours = 12
-				}
-				set_country_flag = AUS_anschluss_process_has_begun_flag
-			}
+			#AUS = {
+			#	country_event = {
+			#		id = AUS_political_events.77
+			#		hours = 12
+			#	}
+			#	set_country_flag = AUS_anschluss_process_has_begun_flag
+			#}
 		}
 
 		completion_reward = {
@@ -8926,18 +8926,13 @@ focus_tree = {
 					amount = 2
 				}
 
-				every_state = {
-					if = {
-						limit = { 
-							state = 4
-							state = 152
-							state = 153
-							state = 848
-							state = 975
-							state = 976
-						}
-					}
-					add_core_of = GER
+				GER = { 
+					add_state_core = 4
+					add_state_core = 152
+					add_state_core = 153
+					add_state_core = 848
+					add_state_core = 975
+					add_state_core = 976
 				}
 
 				GER = { 
@@ -9646,7 +9641,21 @@ focus_tree = {
 			### CLAIMS
 			add_named_threat = { threat = 4 name = GER_demand_sudetenland_threat }
 			custom_effect_tooltip = generic_skip_one_line_tt
-			
+
+			hidden_effect = { 
+				GER = { # Sudentenland
+					add_state_core = 69
+					add_state_core = 74
+					add_state_core = 972
+				}
+			}
+
+			GER = { # Sudentenland
+				transfer_state = 69
+				transfer_state = 74
+				transfer_state = 972
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 25
 			add_stability = 0.05
 			add_war_support = 0.1
@@ -9659,22 +9668,9 @@ focus_tree = {
 			hidden_effect = {
 				set_country_flag = sudetenland_acquired #Unused flag for now
 
-				every_state = { # Sudentenland
-					if = {
-						limit = { 
-							state = 69
-							state = 74
-							state = 972
-						}
-					}
-					add_core_of = GER
-				}
+				
 
-				GER = { # Sudentenland
-					transfer_state = 69
-					transfer_state = 74
-					transfer_state = 972
-				}
+				
 
 				if = {
 					limit = {
@@ -9685,7 +9681,7 @@ focus_tree = {
 					}
 					custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
 					add_to_variable = { 
-						GER_industrial_consumer_goods_factor = -0.03 # Sudentenland Gold
+						GER_industrial_consumer_goods_factor = -0.025 # Sudentenland Gold
 						tooltip = consumer_goods_factor_tt
 					}
 					GER_reduce_mefo_bills_penalty = yes
@@ -9693,10 +9689,16 @@ focus_tree = {
 
 
 
-				POL = { # Zaolzi Whatever idk how to spell
+				POL = { # Zaolzie Whatever idk how to spell
 					transfer_state = 72
 					add_state_core = 72
 				}
+
+				#HUN = { # Southern Slovakia # Done through First Vienna Award.
+				#	transfer_state = 73
+				#	transfer_state = 664
+				#	add_state_core = 664
+				#}
 
 				USA = {
 					set_country_flag = { flag = USA_munich_window days = 60 value = 1 }
@@ -9739,37 +9741,19 @@ focus_tree = {
 		cost = 5
 
 		bypass = {
-			OR = {
-				AND = {
-					NOT = { CZE = { controls_state = 664 } }
-					NOT = { SLO = { controls_state = 664 is_subject_of = CZE } }
-					NOT = { owns_state = 664 }
-				}
-				HUN = { 
-					OR = {
-						is_friend_or_potential_friend_of_GER = no
-						has_government = communism
-						has_government = democratic
-					}
-				}
-				CZE = { is_puppet_of = GER }
-				CZE = { is_in_faction_with = GER }
+			HUN = { 
+				owns_state = 664
 			}
 		}
 
 		available = {
 			is_subject = no
 			HUN = { 
-				is_friend_or_potential_friend_of_GER = yes
-				OR = {
-					has_government = neutrality
-					has_government = fascism
+				NOT = { 
+					owns_state = 664
 				}
 			}
-			OR = {
-				owns_state = 69
-				owns_state = 972
-			}
+			
 		}
 
 		ai_will_do = {
@@ -9786,10 +9770,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
 		
 		completion_reward = {
+			
 			HUN = {
-				country_event = { id = germany.51 }
-				event_option_tooltip = germany.51.a
-			}
+				transfer_state = 73
+				transfer_state = 664
+				#add_state_core = 664
+				}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			every_other_country = {
@@ -9797,6 +9783,10 @@ focus_tree = {
 					is_faction_leader = yes
 				}
 				reverse_add_opinion_modifier = { target = HUN modifier = GER_first_vienna_award_other }
+			}
+			hidden_effect = { 
+				add_opinion_modifier = { target = GER modifier = GER_first_vienna_award_GER }
+				set_country_flag = GER_first_vienna_award_flag
 			}
 		}
 	}
@@ -9825,24 +9815,10 @@ focus_tree = {
 			}
 		}
 
-		will_lead_to_war_with = CZE
+		#will_lead_to_war_with = CZE
 
-		bypass = {
-			OR = {
-				has_war_with = CZE
-				CZE = { 
-					is_in_faction_with = ROOT
-					NOT = { is_subject_of = ROOT }
-				}
-				NOT = {
-					country_exists = CZE
-					9 = { is_controlled_by = ROOT }
-					75 = { is_controlled_by = ROOT }
-				}
-				any_allied_country = {
-					has_subject = CZE
-				}
-			}
+		bypass = { 
+
 		}
 		
 		available = { 
@@ -9853,133 +9829,122 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			add_named_threat = { threat = 5 name = GER_end_of_czechoslovakia }
-
+			add_named_threat = { threat = 6 name = GER_end_of_czechoslovakia }
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					CZE = {
-						exists = yes
-						has_war = no
-						is_subject = no
-						
-					}
+			add_political_power = -25
+			add_war_support = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ZHM_fate_of_czech
+			
+			GER_czechoslovakia_modify_mefo_bills_or_economy_of_conquest = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			ENG = {
+				add_war_support = 0.1
 				}
+
+			FRA = {
+				add_war_support = 0.1
+			}
+			hidden_effect = {
+				
 				set_global_flag = end_of_czechoslovakia
-				CZE = { country_event = germany.53 }
-			}
-			else_if = {
-				limit = {
-					CZE = { 
-						is_subject_of = ROOT
-					}
+				GER = { 
+					transfer_state = 9
+					transfer_state = 75
+					transfer_state = 70
+					transfer_state = 71
 				}
-				CZE = { country_event = { id = wuw_GER_diplomacy.117 days = 1 }}
-			}
-			else_if = {
-				limit = {
-					CZE = {
-						exists = no
-					}
-					9 = {
-						is_controlled_by = ROOT
-						NOT = { is_claimed_by = ROOT }
-					}
-					75 = {
-						is_controlled_by = ROOT
-						NOT = { is_claimed_by = ROOT }
-					}
-				}
-				add_state_claim = 9
-				add_state_claim = 75
-				if = { #Don't get claims or wargoal on Romania or its puppet if you agreed to split CZE with them
+				every_state = {
 					limit = {
-						NOT = {
-							has_country_flag = GER_split_CZE_with_ROM_flag
+						OR = {
+						state = 9
+						state = 75
+						state = 70
+						state = 71
+						}
+					}	
+					set_compliance = 50
+				}
+
+				if = {
+					limit = {
+						OR = {
+							has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+							has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
 						}
 					}
-					country_event = { id = germany.55 hours = 6 }
+					custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+					add_to_variable = { 
+						GER_industrial_consumer_goods_factor = -0.15 # Rest of the Czechoslovakian Gold
+						tooltip = consumer_goods_factor_tt
+					}
+					GER_reduce_mefo_bills_penalty = yes
 				}
-				else =  {
-					if = { #Lower the MEFO Bills 
-						limit = { 
-							OR = {
-								has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-								has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-							}
-						}
-						if = {
-							limit = {
-								CZE = {
-									any_core_state = {
-										is_on_continent = europe
-										is_controlled_by = ROOT
-										NOT = { is_core_of = ROOT }
-										NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
-									}
-								}
-							}
+
+				
 							
-							ROOT = { set_temp_variable = { occupied_state_num_factory = 0 } } #This will show how many factories in total Germany controls from FROM's cores
-							add_to_temp_variable = { GER.occupied_state_num_factory = CZE.num_of_military_factories_in_cores@GER }
-							add_to_temp_variable = { GER.occupied_state_num_factory = CZE.num_of_civilian_factories_in_cores@GER }
-							add_to_temp_variable = { GER.occupied_state_num_factory = CZE.num_of_naval_factories_in_cores@GER }
-							hidden_effect = {
-								CZE = {
-									every_core_state = {
-										limit = {
-											is_on_continent = europe
-											is_fully_controlled_by = ROOT
-											NOT = { is_core_of = ROOT }
-											NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
-										}
-										set_state_flag = GER_seize_gold_reserves_state_flag
-									}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 34000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 240
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment_1
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 680
+				}
+				add_equipment_to_stockpile = {
+					type = anti_tank_equipment_1
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment_1
+					amount = 205
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 11
+				}
+				add_equipment_to_stockpile = {
+					type = light_tank_chassis_2
+					amount = 700
+					producer = CZE
+					variant_name = "TNH"
+				}
+							
+				if = {
+					limit = {
+						has_DLC = "Death or Dishonor"
+						country_exists = YUG
+						YUG = { has_war = no }
+						}
+						GER = {
+							country_event = {
+								id = DOD_yugoslavia.32
+								hours = 6
 								}
-							}
-
-							ROOT = {			
-								divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
-								multiply_temp_variable = { occupied_state_num_factory = -1 }
-								
-								if = {
-									limit = {
-										has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-									}
-									custom_effect_tooltip = GER_modify_mefo_bills_modifier_tt
-								}
-								else_if = {
-									limit = {
-										has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-									}
-									custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
-								}
-
-								add_to_variable = {
-									GER_industrial_consumer_goods_factor = occupied_state_num_factory
-									tooltip = consumer_goods_factor_tt
-								}
-								GER_reduce_mefo_bills_penalty = yes
-								custom_effect_tooltip = generic_skip_one_line_tt
 							}
 						}
+
+				country_event = { hours = 6 id = news.62 }
+
 					}
 				}
-			}
-			else_if = {
-				limit = {
-					CZE = { exists = yes }
-				}
-				add_state_claim = 9
-				add_state_claim = 75
-				create_wargoal = {
-					type = annex_everything
-					target = CZE
-				}
-			}
-		}
-	}
+			}	
 
 	#Peace For Our Time#
 	focus = { #All related content and local will be in Czech related files and local locations
