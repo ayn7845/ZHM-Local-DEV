@@ -54,7 +54,7 @@ generic_tank_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = ETH tag = SWI }
+				OR = { tag = ETH  }
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -2507,7 +2507,7 @@ generic_escort_ship_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { original_tag = ETH original_tag = SWI }
+				OR = { original_tag = ETH  }
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -4040,7 +4040,7 @@ generic_general_aircraft_organization = {
 			AND = {
 				OR = { 
 					original_tag = ETH 
-					original_tag = SWI 
+					
 				}
 				has_dlc = "By Blood Alone"
 			}
@@ -6889,7 +6889,7 @@ generic_artillery_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = ETH tag = SWI }
+				OR = { tag = ETH  }
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -7311,7 +7311,7 @@ generic_infantry_equipment_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = ETH tag = SWI }
+				OR = { tag = ETH  }
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -7971,7 +7971,7 @@ generic_motorized_mechanized_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { original_tag = ETH original_tag = SWI }
+				OR = { original_tag = ETH }
 				has_dlc = "By Blood Alone"
 			}
 		}

@@ -94,10 +94,7 @@ SPR_hispano_aviacion_organization = {
 				has_dlc = "La Resistance"
 				tag = SPR
 			}					
-			AND = {
-				has_dlc = "By Blood Alone"
-				tag = SWI
-			}
+			
 		}
 	}
 
@@ -110,16 +107,8 @@ SPR_hispano_aviacion_organization = {
 			FROM = { NOT = { has_war_with = SPR } }
 		}
 
+		
 		if = {
-			limit = {
-				FROM = { tag = SWI }
-			}
-			custom_trigger_tooltip = {
-				tooltip = SPR_scw_not_in_progress_tt
-				NOT = { SPR_scw_in_progress = yes }
-			}	
-		}
-		else = {
 			FROM = { controls_state = 169 }
 			custom_trigger_tooltip = {
 				tooltip = SPR_scw_not_in_progress_tt
@@ -208,10 +197,7 @@ SPR_hispano_suiza_organization = {
 				has_dlc = "La Resistance"
 				tag = SPR
 			}					
-			AND = {
-				has_dlc = "By Blood Alone"
-				tag = SWI
-			}
+			
 		}
 	}
 
@@ -224,16 +210,8 @@ SPR_hispano_suiza_organization = {
 			FROM = { NOT = { has_war_with = SPR } }
 		}
 		
+		
 		if = {
-			limit = {
-				FROM = { tag = SWI }
-			}
-			custom_trigger_tooltip = {
-				tooltip = SPR_scw_not_in_progress_tt
-				NOT = { SPR_scw_in_progress = yes }
-			}	
-		}
-		else = {
 			FROM = { controls_state = 169 }
 			custom_trigger_tooltip = {
 				tooltip = SPR_scw_not_in_progress_tt
@@ -241,12 +219,5 @@ SPR_hispano_suiza_organization = {
 			}
 		}
 	}
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			FROM = { original_tag = SWI }
-			NOT = { has_global_flag = scw_over } 
-		}
-	}
+	
 }

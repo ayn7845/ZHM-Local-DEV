@@ -2789,11 +2789,7 @@ ideas = {
 			modifier = {
 			}
 
-			targeted_modifier = {
-				tag = SWI
-				attack_bonus_against = 0.05
-				breakthrough_bonus_against = 0.05
-			}
+			
 		}
 
 		GER_recieving_payments_for_protection_fake_idea = {

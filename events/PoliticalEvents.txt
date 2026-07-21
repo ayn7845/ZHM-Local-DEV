@@ -563,12 +563,7 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI
-			}
-		}
+		
 
 		NOT = {
 			AND = {
@@ -1049,12 +1044,7 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-					original_tag = SWI
-			}
-		}
+		
 		NOT = {
 			AND = {
 				has_dlc = "Arms Against Tyranny"
@@ -1156,12 +1146,7 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI
-			}
-		}
+		
 		NOT = {
 			AND = {
 				has_dlc = "Arms Against Tyranny"
@@ -1539,12 +1524,7 @@ country_event = {
 				}
 			}
 		}
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI				
-			}
-		}
+		
 		NOT = {
 			AND = {
 				has_dlc = "Battle for the Bosporus"
@@ -1555,12 +1535,7 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI
-			}
-		}
+		
 		NOT = {
 			AND = {
 				has_dlc = "Arms Against Tyranny"
@@ -1716,12 +1691,7 @@ country_event = {
 				}
 			}
 		}
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI				
-			}
-		}
+		
 		NOT = {
 			AND = {
 				has_dlc = "Battle for the Bosporus"
@@ -1898,12 +1868,7 @@ country_event = {
 				}
 			}
 		}
-		NOT = {
-			AND = {
-				has_dlc = "By Blood Alone"
-				original_tag = SWI				
-			}
-		}
+		
 		has_civil_war = no
 		check_has_focus_tree_to_switch_to_democratic = yes
 		NOT = {
@@ -1913,12 +1878,7 @@ country_event = {
 			}
 		}
 
-		NOT = {
-			AND = {
-				original_tag = SWI
-				has_dlc = "By Blood Alone"
-			}
-		}
+		
 
 		NOT = {
 			AND = {
