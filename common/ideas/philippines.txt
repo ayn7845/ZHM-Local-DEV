@@ -816,7 +816,8 @@ ideas = {
 			}
 
 			available = {
-				has_completed_focus = PHI_encourage_japanese_investment
+				always = no
+				#has_completed_focus = PHI_encourage_japanese_investment
 			}
 
 			visible = {
