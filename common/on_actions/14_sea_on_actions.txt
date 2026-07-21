@@ -1469,8 +1469,8 @@ on_actions = {
 								AND = {
 									is_core_of = WST
 									OR = {
-										owner = ENG
-										owner = HOL
+										is_owned_and_controlled_by = ENG
+										is_owned_and_controlled_by = HOL
 									}
 								}
 								#is_core_of = VIN
@@ -2387,71 +2387,7 @@ on_actions = {
 	}
 	
 	on_monthly_CHI = {
-		effect = {
-			CHI_is_corruption_in_government_on_balance_good = yes
-			CHI_update_claimed_and_core_states = yes
-
-			if = {
-				limit = {
-					has_completed_focus = CHI_denounce_feudalism
-				}
-
-				every_subject_country = {
-					limit = {
-						is_literally_china = yes
-						NOT = {
-							is_in_array = {
-								array = ROOT.warlord_subjects
-								value = THIS
-							}
-						}
-					}
-					add_to_array = {
-						array = ROOT.warlord_subjects
-						value = THIS
-					}
-				}
-
-				for_each_scope_loop = {
-					array = ROOT.warlord_subjects
-
-					if = {
-						limit = {
-							OR = {
-								exists = no
-								is_subject = no
-								NOT = { is_ally_with = ROOT }
-							}
-						}
-						remove_from_array = {
-							array = ROOT.warlord_subjects
-							value = THIS 
-						}
-					}
-					
-				}
-				if = {
-					limit = {
-						check_variable = { warlord_subjects^num > 0 }
-					}
-					if = {
-						limit = {
-							check_variable = { t_warlord_subjects_pp_gain > 0 }
-						}
-						subtract_from_variable = { CHI_corruption_pp_gain = t_warlord_subjects_pp_gain }
-					}
-
-					set_variable = { t_warlord_subjects_pp_gain = warlord_subjects_pp_gain_base }
-					multiply_variable = { t_warlord_subjects_pp_gain = warlord_subjects^num }
-					divide_variable = { t_warlord_subjects_pp_gain = 30 }
-					
-					add_to_variable = { 
-						CHI_corruption_pp_gain = t_warlord_subjects_pp_gain
-					}
-				}
-			}
-
-		}
+		
 		effect = {
 			IF = {
 				limit = {
