@@ -1244,8 +1244,17 @@ ideas = {
 			picture = CHI_camco_sea
 
 			available = {
-				tag = event_target:WTT_current_china_leader
-				owner = { controls_state = CHI.mio_locations^8 } # #596 Zhejiang
+				if = {
+					limit = {
+						original_tag = CHI
+					}
+					has_completed_focus = CHI_camco_primacy
+					owner = { controls_state = CHI.mio_locations^8 } # #596 Zhejiang
+				}
+				else = {
+					tag = event_target:WTT_current_china_leader
+					owner = { controls_state = CHI.mio_locations^8 } # #596 Zhejiang
+				}
 			}
 
 			allowed = {
@@ -1274,8 +1283,17 @@ ideas = {
 			picture = CHI_SINAW
 
 			available = {
-				tag = event_target:WTT_current_china_leader
-				owner = { controls_state = CHI.mio_locations^9 } # #600 Jiangxi
+				if = {
+					limit = {
+						original_tag = CHI
+					}
+					has_completed_focus = CHI_SINAW_primacy
+					owner = { controls_state = CHI.mio_locations^9 } # #600 Jiangxi
+				}
+				else = {
+					tag = event_target:WTT_current_china_leader
+					owner = { controls_state = CHI.mio_locations^9 } # #600 Jiangxi
+				}
 			}
 
 			allowed = {

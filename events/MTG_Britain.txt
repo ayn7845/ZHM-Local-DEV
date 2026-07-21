@@ -3408,7 +3408,21 @@ country_event = {
 		}
 
 		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
-			
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
 			NOT = {
 				AND = {
 					original_tag = AST
@@ -3481,7 +3495,21 @@ country_event = {
 		name = mtg_britain.66.b
 
 		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
-			
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
 			NOT = {
 				AND = {
 					original_tag = AST
@@ -3644,7 +3672,19 @@ country_event = {
 
 		trigger = { #If Dominion is on fascist path when UK is fascist / communist path when UK is communist, SHOW this option
 			OR = {
-				
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
 				AND = {
 					original_tag = AST
 					has_dlc = "Thunder at Our Gates"
