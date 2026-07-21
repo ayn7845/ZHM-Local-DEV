@@ -1474,7 +1474,7 @@ ITA_missiolinis = {
 		selectable_mission = no
 		days_mission_timeout = ITA_missiolinis_default_days
 
-		
+		cosmetic_tag = SWI
 		cosmetic_ideology = democratic
 
 		timeout_effect = { #MISSION FAILS

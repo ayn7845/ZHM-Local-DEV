@@ -1073,8 +1073,108 @@ ITA_missiolini_occupy_ticino_failure_effect = {
 	}
 }
 
-ITA_missiolini_occupy_ticino_success_effect = { 
-	
+ITA_missiolini_occupy_ticino_success_effect = {
+	if = { #DEFAULT
+		limit = {
+			NOT = { has_completed_focus = ITA_to_live_as_a_lion }
+		}
+		add_political_power = 50
+		add_war_support = 0.03
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
+
+		custom_effect_tooltip = ITA_missiolini_occupy_ticino_occupation_effects
+		every_controlled_state = {
+			limit = {
+				is_core_of = SWI
+				is_fully_controlled_by = ROOT
+				has_resistance = yes
+			}
+			add_compliance = 5 #WARNING CHANGING THESE NUMBERS REQUIRES CHANGING THE TOOLTIPS
+			add_resistance = -5
+		}
+
+		if = {
+			limit = {
+				has_subject_autonomy_feature = yes
+			}
+			if = {
+				limit = {
+					SWI = {
+						is_subject_of = ROOT
+					}
+				}
+				SWI = {
+					add_autonomy_score = {
+						value = -35
+						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = ITA_missiolini_occupy_ticino_subject_effects
+				effect_tooltip = {
+					SWI = {
+						add_autonomy_score = {
+							value = -35
+							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
+						}
+					}
+				}
+			}
+		}
+	}
+	else = { # GREATER REWARD (from To Live as a Lion focus)
+		add_political_power = 65
+		add_war_support = 0.05
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.1
+		}
+
+		custom_effect_tooltip = ITA_missiolini_occupy_ticino_occupation_effects
+		every_controlled_state = {
+			limit = {
+				is_core_of = SWI
+				is_fully_controlled_by = ROOT
+				has_resistance = yes
+			}
+			add_compliance = 5 #WARNING CHANGING THESE NUMBERS REQUIRES CHANGING THE TOOLTIPS
+			add_resistance = -5
+		}
+
+		if = {
+			limit = {
+				has_subject_autonomy_feature = yes
+			}
+			if = {
+				limit = {
+					SWI = {
+						is_subject_of = ROOT
+					}
+				}
+				SWI = {
+					add_autonomy_score = {
+						value = -50
+						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = ITA_missiolini_occupy_ticino_subject_effects
+				effect_tooltip = {
+					SWI = {
+						add_autonomy_score = {
+							value = -50
+							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 ### BOLSTER POLITICAL CABINET ###

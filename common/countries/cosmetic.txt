@@ -926,6 +926,75 @@ ITA_rds = {
 	color_ui = rgb { 10 150 90 }
 }
 
+SWI_GER_puppet_fascism ={
+	color = rgb{ 125 0 0 }
+	color_ui = rgb { 255 255 255 } 
+}
+
+SWI_FRA_puppet_fascism = {
+	color = rgb { 100 0 100 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_ITA_puppet_fascism = {
+	color = rgb { 0 100 0 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_ENG_puppet_fascism = {
+	color = rgb { 60 60 100 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_GER_puppet_democratic = {
+	color = rgb { 140 140 140 }
+	color_ui = rgb { 255 255 255 }  
+}
+
+SWI_FRA_puppet_democratic = {
+	color = rgb { 247 200 15}
+	color_ui = rgb {247 200 15 }
+}
+
+SWI_ITA_puppet_democratic = {
+	color = rgb { 129 163 0 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_ENG_puppet_democratic = {
+	color = rgb { 5 5 249 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_SOV_puppet_communism = {
+	color = rgb { 192 50 50 }
+	color_ui = rgb { 255 255 255 } 
+}
+
+SWI_alpine_democratic = {
+	color = rgb{ 220 220 255 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_alpine_fascism = {
+	color = rgb{ 120 120 120 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_alpine_communism = {
+	color = rgb{ 250 215 215 }
+	color_ui = rgb { 255 255 255 }
+}
+
+SWI_alpine_neutrality = {
+	color = rgb { 180 180 180 }
+	color_ui = rgb { 140 140 140 }
+}
+
+SWI_helvetic_republic = {
+	color = rgb { 0 54 163 }
+	color_ui = rgb { 140 140 140 }
+}
 
 ICE_personal_union = {
 	color = rgb { 153 116 93 }

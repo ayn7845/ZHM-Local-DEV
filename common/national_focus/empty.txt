@@ -74,7 +74,10 @@ focus_tree = {
 			add = 100
 			tag = ICE
 		}
-		
+		modifier = {
+			add = 100
+			tag = SWI
+		}
 	}
 	default = no
 }

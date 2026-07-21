@@ -92,7 +92,13 @@ political_actions = {
 	}
 
 	visible = {
-		
+		if = {
+			limit = {
+				has_dlc = "By Blood Alone"
+			}
+			NOT = { original_tag = SWI }
+			NOT = { has_country_flag = SWI_can_use_political_actions }
+		}
 		if = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
@@ -136,7 +142,7 @@ fascism_on_the_rise = {
 			AND = {
 				has_dlc = "By Blood Alone"
 				OR = {
-					
+					original_tag = SWI
 					original_tag = ITA
 				}
 			}
@@ -202,7 +208,7 @@ democratic_on_the_rise = {
 			AND = {
 				has_dlc = "By Blood Alone"
 				OR = {
-					
+					original_tag = SWI
 					original_tag = ITA
 				}
 			}

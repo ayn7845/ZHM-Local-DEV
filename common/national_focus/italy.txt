@@ -16243,7 +16243,7 @@ focus_tree = {
 		available = {
 
 			846 = {
-				# lol
+				is_owned_and_controlled_by = SWI
 			}
 			is_subject = no
 			159 = { 
@@ -16257,13 +16257,19 @@ focus_tree = {
 			}
 		}
 
-		
+		will_lead_to_war_with = SWI
 
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = { 
 
-			
+			SWI = {
+				country_event = {
+				    id = BBA_italy_interaction_events.1
+				    days = 2
+				    random = 6
+				}
+			}
 
 		}
 	}

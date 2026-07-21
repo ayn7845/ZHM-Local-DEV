@@ -1456,4 +1456,157 @@ ITA_expanded_corporatism_modifier = {
 ###################################################################################################
 ###################################################################################################
 
+SWI_dormant_citizen_militia = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT = {
+			has_country_flag = SWI_militias_turned_into_regulars
+		}
+	}
+	icon = GFX_idea_prc_low_popular_support3
+	modifier_army_sub_unit_militia_attack_factor = -0.5
+	modifier_army_sub_unit_militia_defence_factor = -0.5
+	modifier_army_sub_unit_militia_speed_factor = -0.5
+	modifier_army_sub_unit_militia_max_org_factor = -0.5
+	modifier_army_sub_unit_militia_org_recovery_cap_factor = -0.7
+}
+
+SWI_active_citizen_militia = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT = {
+			has_country_flag = SWI_militias_turned_into_regulars
+		}
+	}
+	icon = GFX_idea_generic_manpower_bonus
+
+	industrial_capacity_factory = SWI_citizen_militia_industrial_capacity_factory
+	industrial_capacity_dockyard = SWI_citizen_militia_industrial_capacity_dockyard
+	production_speed_buildings_factor = SWI_citizen_militia_production_speed_buildings_factor
+	training_time_factor = SWI_citizen_militia_training_time_factor
+	civilian_factory_use = SWI_citizen_militia_civ_factory_use
+
+}
+
+SWI_fake_active_citizen_militia_for_the_tooltip = { # I swear this is the last time I use Dynamic Modifiers
+	enable = { always = yes }
+	icon = GFX_idea_generic_manpower_bonus
+	industrial_capacity_factory = -0.1
+	industrial_capacity_dockyard = -0.1
+	production_speed_buildings_factor = -0.1
+	training_time_factor = 0.1
+	civilian_factory_use = 1
+
+}
+
+SWI_gold_trade_with_switzerland = {
+	enable = { 
+		NOT = {
+			has_war_with = SWI
+		}
+	}
+	icon = GFX_idea_SPR_seize_the_gold_reserves
+
+	consumer_goods_factor = SWI_gold_trade_consumer_goods_factor
+	production_speed_buildings_factor = SWI_gold_trade_building_speed_factor
+	research_speed_factor = SWI_gold_trade_research_speed_factor
+	production_lack_of_resource_penalty_factor = SWI_gold_trade_lack_of_resource_penalty_factor
+	production_factory_max_efficiency_factor = SWI_gold_trade_factory_max_efficiency_factor
+}
+
+SWI_swiss_gold_market = {
+	enable = { 
+		always = yes
+	 }
+	icon = GFX_idea_SPR_seize_the_gold_reserves
+
+	consumer_goods_factor = SWI_gold_trade_consumer_goods_factor
+	production_speed_buildings_factor = SWI_gold_trade_building_speed_factor
+	research_speed_factor = SWI_gold_trade_research_speed_factor
+	production_lack_of_resource_penalty_factor = SWI_gold_trade_lack_of_resource_penalty_factor
+	production_factory_max_efficiency_factor = SWI_gold_trade_factory_max_efficiency_factor
+}
+
+SWI_seized_gold = {
+	enable = { always = yes }
+	icon = GFX_idea_SPR_seize_the_gold_reserves
+
+	consumer_goods_factor = SWI_gold_seized_consumer_goods_factor
+	production_speed_buildings_factor = SWI_gold_seized_building_speed_factor
+	research_speed_factor = SWI_gold_seized_research_speed_factor
+	production_lack_of_resource_penalty_factor = SWI_gold_seized_lack_of_resource_penalty_factor
+	production_factory_max_efficiency_factor = SWI_gold_seized_factory_max_efficiency_factor
+}
+
+SWI_stole_our_gold_reserves = {
+	enable = { always = yes }
+	icon = GFX_idea_usa_great_depression_3
+
+	consumer_goods_factor = SWI_gold_seized_bad_consumer_goods_factor
+	production_speed_buildings_factor = SWI_gold_seized_bad_building_speed_factor
+	research_speed_factor = SWI_gold_seized_bad_research_speed_factor
+	production_lack_of_resource_penalty_factor = SWI_gold_seized_bad_lack_of_resource_penalty_factor
+	production_factory_max_efficiency_factor = SWI_gold_seized_bad_factory_max_efficiency_factor
+}
+
 #### State Modifiers ####
+
+SWI_attack_from_the_mountains = {
+	enable = { always = yes } 
+	army_attack_factor = 2
+	state_production_speed_bunker_factor = -0.35
+	icon = GFX_modifiers_generic_military_plans
+
+}
+
+SWI_frontier_defense = {
+	enable = { always = yes} 
+	icon = GFX_modifiers_SOV_invaders_must_die
+	army_defence_factor = 1.5
+}
+
+SWI_heer_und_haus_mod = {
+	enable = { always = yes }
+	icon = GFX_modifiers_SWI_spiritual_resistance
+
+	resistance_activity =  0.3
+	resistance_growth = 0.2
+	resistance_decay = -0.3
+}
+
+SWI_Ortswehren_dynamic_mod = {
+	enable = { always = yes } 
+	icon = GFX_modifiers_generic_military_plans 
+
+	army_defence_factor = 0.25
+	land_reinforce_rate = 0.03
+	fortification_collateral_chance = -0.2
+	cas_damage_reduction = 0.1
+	max_dig_in_factor = 0.2
+
+}
+
+SWI_citizen_supply_mandate_mod = {
+	enable = { always = yes }
+	icon = GFX_modifiers_generic_military_plans 
+
+	local_supplies = 0.5
+}
+
+SWI_alpine_redoubt_dynamic_modifier = {
+	enable = { always = yes }
+	icon = GFX_modifiers_generic_defense
+
+	army_defence_factor = 0.2
+	enemy_army_bonus_air_superiority_factor = -0.15
+	cas_damage_reduction = 0.1
+	state_production_speed_bunker_factor = 0.35
+	production_speed_anti_air_building_factor = 0.2
+}
+
+SWI_infrastructure_rigged_to_blow = {
+	enable = { always = yes }
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+
+	state_production_speed_buildings_factor = -0.15
+}

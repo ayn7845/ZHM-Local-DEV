@@ -12132,14 +12132,20 @@ focus_tree = {
 		relative_position_id = GER_war_with_france
 		cost = 10
 
-	
+		will_lead_to_war_with = SWI
 		
 		cancel_if_invalid = yes
 		allow_branch = {
 			always = no
 		}
 		available = {
-		
+			is_subject = no
+			NOT = { has_guaranteed = SWI }
+			NOT = { has_non_aggression_pact_with = SWI }
+			SWI = {
+				exists = yes
+				NOT = { is_ally_with = ROOT }
+			}
 		}
 
 		ai_will_do = {
@@ -12159,8 +12165,47 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		
-		completion_reward = { 
+		completion_reward = {
 
+			if = {
+				limit = {
+					NOT = { has_war_with = SWI }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SWI
+					expire = 0
+				}
+			}
+
+			add_state_claim = 845
+			add_state_claim = 3
+			add_state_claim = 151
+			add_state_claim = 847
+
+			if = {
+				limit = {
+					ITA = {
+						OR = {
+							is_in_faction_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				ITA = {
+					add_state_claim = 846
+				}
+			}
+			else = {
+				add_state_claim = 846
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = GER_operation_tannenbaum_ns
+				days = 180
+			}
 		}
 	}
 	
@@ -29227,7 +29272,7 @@ focus_tree = {
 						NOT = {
 							original_tag = ENG
 							original_tag = FRA
-							
+							original_tag = SWI
 							original_tag = ITA
 							original_tag = IRE
 							original_tag = TUR
@@ -31695,20 +31740,81 @@ focus_tree = {
 
 		cost = 4
 
-		available = { 
-
+		available = {
+			is_subject = no
+			NOT = { has_war_with = SWI }
+			OR = {
+				has_war_with = FRA
+				has_wargoal_against = FRA
+			}
+			SWI = {
+				NOT = {
+					is_in_faction_with = ROOT
+					is_guaranteed_by = ROOT
+					has_non_aggression_pact_with = ROOT
+				}
+			}
 		}
 
-		bypass = { 
-
+		bypass = {
+			OR = {
+				SWI = {
+					OR = {
+						exists = no
+						is_ally_with = ROOT
+						has_war_with = ROOT
+						is_guaranteed_by = ROOT
+						has_non_aggression_pact_with = ROOT
+					}
+				}
+				FRA = {
+					OR = {
+						exists = no 
+						is_ally_with = ROOT 
+					}
+				}
+			}
 		}
 
-		
+		will_lead_to_war_with = SWI
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = { 
+		completion_reward = {
+			
+			create_wargoal = {
+				type = annex_everything
+				target = SWI
+				expire = 0
+			}
 
+			add_state_claim = 845
+			add_state_claim = 3
+			add_state_claim = 151
+			add_state_claim = 847
+			IF = {
+				limit = {
+					ITA = {
+						OR = {
+							is_in_faction_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				ITA = {
+					add_state_claim = 846
+				}
+			}
+			ELSE = {
+				add_state_claim = 846
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = GER_operation_tannenbaum_ns
+				days = 180
+			}
 		}
 	}
 
@@ -31857,7 +31963,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					NOT = {
-						
+						is_in_faction_with = SWI
 						OR = {
 							3 = {
 								is_controlled_by = ROOT
@@ -31879,7 +31985,10 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-				
+					NOT = {
+						is_in_faction_with = SWI
+
+					}
 					OR = {
 						3 = {
 							is_controlled_by = ROOT
@@ -35679,13 +35788,15 @@ allow_branch = {
 		icon = GFX_focus_attack_switzerland
 		prerequisite = { focus = GER_carte_blanche_for_alsace_and_french_colonies }
 		available = {
-			
+			is_subject = no
+			has_war_with = FRA
+			NOT = { is_in_faction_with = SWI }
 		}
 		bypass = {
-			
+			NOT = { country_exists = SWI }
 		}
 		cancel_if_invalid = yes
-		
+		will_lead_to_war_with = SWI
 		x = 0
 		y = 2
 		relative_position_id = GER_carte_blanche_for_alsace_and_french_colonies
@@ -35695,7 +35806,11 @@ allow_branch = {
 		}
 		
 		completion_reward = {
-			
+			create_wargoal = {
+				type = annex_everything
+				target = SWI
+				expire = 0
+			}
 		}
 	}
 
@@ -36412,7 +36527,7 @@ allow_branch = {
 					NOT = {
 						tag = ENG
 						tag = FRA
-						
+						tag = SWI
 						tag = ITA
 						tag = IRE
 						tag = TUR
