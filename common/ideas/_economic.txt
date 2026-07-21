@@ -1594,9 +1594,8 @@ ideas = {
 				always = no
 			}
 			visible = {
-				always = no
-				#original_tag = RAJ
-				#has_completed_focus = RAJ_special_economic_zones
+				original_tag = RAJ
+				has_completed_focus = RAJ_special_economic_zones
 			}
 			available = {
 
