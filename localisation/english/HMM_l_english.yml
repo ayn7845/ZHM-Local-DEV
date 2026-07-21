@@ -19,6 +19,11 @@
  ZHM_SOV_ultimatum_lit:0 "§YSoviet Union§W annexes §YLithuania§!"
  ZHM_SOV_ultimatum_lat:0 "§YSoviet Union§W annexes §YLatvia§!"
  ZHM_SOV_ultimatum_est:0 "§YSoviet Union§W annexes §YEstonia§!"
+ ZHM_SOV_send_ultimatum_est_TT:0 "§YSend Ultimatum to §YEstonia§!"
+ ZHM_SOV_send_ultimatum_lat_TT:0 "§YSend Ultimatum to §YLatvia§!"
+ ZHM_SOV_send_ultimatum_lit_TT:0 "§YSend Ultimatum to §YLithuania§!"
+
+ 
 
  ## HMM'S ALTERNED VANILLA TOOLTIPS
 
