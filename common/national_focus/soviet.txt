@@ -13403,45 +13403,38 @@ focus_tree = {
 		completion_reward = {
 			# Estonia
 			custom_effect_tooltip = SOV_estonian_claimed_states_tt
-			hidden_effect = {
-				EST = {
-					every_owned_state = {
-						limit = {
-							is_core_of = PREV
-						}
-						ROOT = { add_state_claim = PREV }
-					}
-				}
-			}
+			
 			# Latvia
 			custom_effect_tooltip = SOV_latvian_claimed_states_tt
-			hidden_effect = {
-				LAT = {
-					every_owned_state = {
-						limit = {
-							is_core_of = PREV
-						}
-						ROOT = { add_state_claim = PREV }
-					}
-				}
-			}
+			
 			# Lithuania
 			custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
 			hidden_effect = {
-				LIT = {
-					every_owned_state = {
-						limit = {
-							is_core_of = PREV
+				every_state = { 
+					limit = { 
+						OR = { 
+							state = 191
+							state = 813
+							state = 13
+							state = 811
+							state = 812
+							state = 809
+							state = 190
+							state = 810
+							state = 808
+							state = 12
+							state = 11
+							state = 815
+							state = 814
+							state = 189
 						}
-						ROOT = { add_state_claim = PREV }
 					}
+					add_state_claim = SOV
 				}
 			}
-			#Activate targeted decisions
-			#activate_targeted_decision = { target = EST decision = SOV_send_ultimatum_to_country_baltic }
-			#activate_targeted_decision = { target = LAT decision = SOV_send_ultimatum_to_country_baltic }
-			#activate_targeted_decision = { target = LIT decision = SOV_send_ultimatum_to_country_baltic }
-			#activate_targeted_decision = { target = WST  decision = SOV_send_ultimatum_to_estonia }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_category_tooltip = SOV_diplomacy_baltic_decision_category
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_named_threat = { threat = 1 name = SOV_claims_in_baltic }
 		}
@@ -13484,14 +13477,7 @@ focus_tree = {
 		completion_reward = {
 			add_state_claim = 146 # Karjala
 
-			if= {
-				limit = {
-					146 = {
-						controller = {
-							NOT = { has_war_with = ROOT }
-						}
-					}
-				}
+		
 				146 = {
 					controller = {
 						set_country_flag = SOV_ultimatum_sent_flag #Add it for AI strats reasons
@@ -13502,8 +13488,10 @@ focus_tree = {
 						country_event = { id = finland.1 hours = 16 random_hours = 8 }
 					}
 				}
-				custom_effect_tooltip = if_they_accept_tt
-				event_option_tooltip = soviet.12.a
+				custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = { 
+				idea = zhm_war_bonds
+				days = 180
 			}
 		}
 	}

@@ -9,6 +9,15 @@ ideas = {
 			}
 		}
 
+		zhm_war_bonds = { 
+			name = "War Bonds"
+			picture = generic_foreign_capital
+			removal_cost = -1
+			modifier = { 
+				consumer_goods_factor = -0.15
+			}
+		}
+
 		POR_is_ai = {
 			name = "Portuguese Integrated Economy"
 			allowed = {
