@@ -603,50 +603,50 @@ on_actions = {
 		#		}
 		#	}
 
-			CZE = {
-				add_equipment_to_stockpile = {
-					type = infantry_equipment_0
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = infantry_equipment_1
-					amount = 34000
-				}
-				add_equipment_to_stockpile = {
-					type = support_equipment_1
-					amount = 240
-				}
-				add_equipment_to_stockpile = {
-					type = motorized_equipment_1
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = artillery_equipment_1
-					amount = 680
-				}
-				add_equipment_to_stockpile = {
-					type = anti_tank_equipment_1
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = anti_air_equipment_1
-					amount = 205
-				}
-				add_equipment_to_stockpile = {
-					type = convoy
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = train_equipment
-					amount = 11
-				}
-				add_equipment_to_stockpile = {
-					type = light_tank_chassis_2
-					amount = 700
-					producer = CZE
-					variant_name = "TNH"
-				}
-			}
+		#	CZE = {
+		#		add_equipment_to_stockpile = {
+		#			type = infantry_equipment_0
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = infantry_equipment_1
+		#			amount = 34000
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = support_equipment_1
+		#			amount = 240
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = motorized_equipment_1
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = artillery_equipment_1
+		#			amount = 680
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = anti_tank_equipment_1
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = anti_air_equipment_1
+		#			amount = 205
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = convoy
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = train_equipment
+		#			amount = 11
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = light_tank_chassis_2
+		#			amount = 700
+		#			producer = CZE
+		#			variant_name = "TNH"
+		#		}
+		#	}
 			YUG = {
 				add_equipment_to_stockpile = {
 					type = infantry_equipment_0
