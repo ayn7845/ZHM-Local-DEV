@@ -10362,16 +10362,14 @@ focus_tree = {
 		cost = 5
 		
 		bypass = {
-			188 = { is_owned_by = GER }
-			85 = { is_owned_by = GER }
-			86 = { is_owned_by = GER }
+			
 		}
 		
 		available = { 
 			is_subject = no 
 		}
 
-		will_lead_to_war_with = LIT
+		#will_lead_to_war_with = LIT
 
 		ai_will_do = {
 			factor = 10	
@@ -10392,27 +10390,21 @@ focus_tree = {
 
 		completion_reward = {
 
-			188 = { add_claim_by = GER }
-			85 = { add_claim_by = GER }
-			807 = { add_claim_by = GER }
-			86 = { add_claim_by = GER }
-			762 = { add_claim_by = GER }
+			
 
 			add_named_threat = { threat = 3 name = GER_demand_memel_threat }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			GER = {
+				transfer_state = 188
+				add_state_core = 188
+			}
 
-			random_other_country = {
-				limit = {
-					owns_state = 188
-					controls_state = 188
-					NOT = {
-						has_war_with = ROOT
-					}
-				}
-				country_event = { 
-					id = baltic.4 
-					days = 1
-					random_days = 3
-				}
+			hidden_effect = { 
+				188 = { add_claim_by = GER }
+				85 = { add_claim_by = GER }
+				807 = { add_claim_by = GER }
+				86 = { add_claim_by = GER }
+				762 = { add_claim_by = GER }
 			}
 
 		}

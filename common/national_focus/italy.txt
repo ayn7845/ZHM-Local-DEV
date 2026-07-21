@@ -8639,7 +8639,7 @@ focus_tree = {
 		icon = GFX_focus_ITA_devaluate_the_lire
 		prerequisite = { focus = ITA_triumph_in_africa_bba }
 
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
