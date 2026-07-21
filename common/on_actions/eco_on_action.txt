@@ -568,40 +568,40 @@ on_actions = {
 			}
 
 
-			AUS = {
-				add_equipment_to_stockpile = {
-					type = infantry_equipment_0
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = infantry_equipment_1
-					amount = 3400
-				}
-				add_equipment_to_stockpile = {
-					type = support_equipment_1
-					amount = 240
-				}
-				add_equipment_to_stockpile = {
-					type = motorized_equipment_1
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = artillery_equipment_1
-					amount = 121
-				}
-				#add_equipment_to_stockpile = {
-				#	type = anti_tank_equipment_1
-				#	amount = 0
-				#}
-				add_equipment_to_stockpile = {
-					type = convoy
-					amount = 0
-				}
-				add_equipment_to_stockpile = {
-					type = train_equipment
-					amount = 2
-				}
-			}
+		#	AUS = { # ZHM Austria is removed.
+		#		add_equipment_to_stockpile = {
+		#			type = infantry_equipment_0
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = infantry_equipment_1
+		#			amount = 3400
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = support_equipment_1
+		#			amount = 240
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = motorized_equipment_1
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = artillery_equipment_1
+		#			amount = 121
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = anti_tank_equipment_1
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = convoy
+		#			amount = 0
+		#		}
+		#		add_equipment_to_stockpile = {
+		#			type = train_equipment
+		#			amount = 2
+		#		}
+		#	}
 
 			CZE = {
 				add_equipment_to_stockpile = {
