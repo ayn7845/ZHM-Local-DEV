@@ -5375,6 +5375,7 @@ SOV_diplomacy_baltic_decision_category = {
 		}
 
 		visible = {
+			always = no
 		}
 
 		days_remove = SOV_ultimatum_days
@@ -5412,6 +5413,251 @@ SOV_diplomacy_baltic_decision_category = {
 			custom_effect_tooltip = SOV_ultimatum_baltic_effects_tt
 
 			custom_effect_tooltip = SOV_decision_will_be_locked_tt
+		}
+	}
+
+
+	SOV_send_ultimatum_to_estonia = {
+		priority = 50
+		
+		icon = GFX_decision_EST_claim_state_4
+
+		name = "Send Ultimatum to Estonia"
+
+		ai_will_do = {
+			base = 200
+			
+		}
+		
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			
+		}
+		
+		visible = {
+			has_completed_focus = SOV_claims_in_baltic
+			NOT = { has_country_flag = SOV_annexed_est } 
+		}
+
+		days_remove = SOV_ultimatum_days
+
+		cost = SOV_send_ultimatum_to_country_cost
+
+		remove_effect = {
+			set_country_flag = SOV_annexed_est
+			custom_effect_tooltip = ZHM_SOV_ultimatum_est
+			hidden_effect = { 
+				SOV = { # Estonian Cores
+					transfer_state = 191 
+					transfer_state = 813
+					transfer_state = 13
+					transfer_state = 811
+					transfer_state = 812
+				}
+				every_state = { 
+					limit = { 
+						OR = { 
+							state = 191
+							state = 813
+							state = 13
+							state = 811
+							state = 812
+						}
+					}
+					set_compliance = 35
+				}
+
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 800
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 18200
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 654
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 5
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 10
+				}
+			}
+		}
+	}
+
+	SOV_send_ultimatum_to_latvia = {
+		priority = 50
+		
+		icon = GFX_decision_LAT_claim_state_4
+			
+		ai_will_do = {
+			base = 200
+			
+		}
+
+		name = "Send Ultimatum to Lavtia"
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+			has_completed_focus = SOV_claims_in_baltic
+			NOT = { has_country_flag = SOV_annexed_lat } 
+		}
+
+		days_remove = SOV_ultimatum_days
+
+		cost = SOV_send_ultimatum_to_country_cost
+
+		remove_effect = {
+			set_country_flag = SOV_annexed_lat
+			custom_effect_tooltip = ZHM_SOV_ultimatum_lat
+			hidden_effect = { 
+				SOV = { # Latvian Cores
+					transfer_state = 809 
+					transfer_state = 190
+					transfer_state = 810
+					transfer_state = 808
+					transfer_state = 12
+				}
+				every_state = { 
+					limit = { 
+						OR = { 
+							state = 809
+							state = 190
+							state = 810
+							state = 808
+							state = 12
+						}
+					}
+					set_compliance = 35
+				}
+
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 724
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 15000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 292
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 265
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 45
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 4
+				}
+			}
+		}
+	}
+
+	SOV_send_ultimatum_to_lithuania = {
+		priority = 50
+		
+		name = "Send Ultimatum to Lithunaia"
+
+		icon = GFX_decision_LIT_claim_state_4
+
+			
+		ai_will_do = {
+			base = 200
+			
+		}
+		
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+			has_completed_focus = SOV_claims_in_baltic
+			NOT = { has_country_flag = SOV_annexed_lit } 
+		}
+
+		days_remove = SOV_ultimatum_days
+
+		cost = SOV_send_ultimatum_to_country_cost
+
+		remove_effect = {
+			set_country_flag = SOV_annexed_lit
+			custom_effect_tooltip = ZHM_SOV_ultimatum_lit
+			hidden_effect = { 
+				SOV = { # Lithuanian Cores
+					transfer_state = 11 
+					transfer_state = 815
+					transfer_state = 814
+					transfer_state = 189
+					if = { 
+						limit = { 
+							GER = { 
+								NOT = { 
+									owns_state = 188
+								}
+							}
+						}
+						transfer_state = 188
+					}
+				}
+				every_state = { 
+					limit = { 
+						OR = { 
+							state = 11
+							state = 815
+							state = 814
+							state = 189
+						}
+					}
+					set_compliance = 10
+				}
+				
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 1400
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 5400
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 241
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 216
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 10
+				}
+			}
 		}
 	}
 

@@ -146,10 +146,16 @@ SOV_diplomacy_baltic_decision_category = {
 
 	visible = {
 		has_completed_focus = SOV_baltic_security
-		OR = {
-			country_exists = EST
-			country_exists = LAT
-			country_exists = LIT
+		OR = { 
+			NOT = { 
+				has_country_flag = SOV_annexed_est
+			}
+			NOT = { 
+				has_country_flag = SOV_annexed_lat
+			}
+			NOT = { 
+				has_country_flag = SOV_annexed_lit
+			}
 		}
 		is_subject = no
 	}

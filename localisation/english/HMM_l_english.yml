@@ -16,7 +16,9 @@
  ZHM_game_rule:0 "UK, USA, & France will have some pregrinded traits §RTRAITS WILL NOT SPAWN IF CAS DOCTRINES ARE ALLOWED§!"
  ZHM_anchluss:0 "§YGerman Reich§W annexes §YAustria§!"
  ZHM_fate_of_czech:0 "§YGerman Reich§W annexes §YCzechoslovakia§!"
-
+ ZHM_SOV_ultimatum_lit:0 "§YSoviet Union§W annexes §YLithuania§!"
+ ZHM_SOV_ultimatum_lat:0 "§YSoviet Union§W annexes §YLatvia§!"
+ ZHM_SOV_ultimatum_est:0 "§YSoviet Union§W annexes §YEstonia§!"
 
  ## HMM'S ALTERNED VANILLA TOOLTIPS
 

@@ -13304,12 +13304,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			NOT = {
-				country_exists = EST
-				country_exists = LAT
-				country_exists = LIT
-			}
+			
 		}
 
 		available = {
@@ -13321,73 +13316,8 @@ focus_tree = {
 		
 		search_filters = {}
 
-		completion_reward = {
-			if = {
-				limit = {
-					country_exists = EST
-				}
-				EST = {
-					if = {
-						limit = { ROOT = { has_government = fascism } }
-						add_timed_idea = { idea = fascist_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = democratic } }
-						add_timed_idea = { idea = democratic_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = communism } }
-						add_timed_idea = { idea = communist_influence days = 1095 }
-					}
-					hidden_effect = {
-						country_event = { id = generic.1 }
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = LAT
-				}
-				LAT = {
-					if = {
-						limit = { ROOT = { has_government = fascism } }
-						add_timed_idea = { idea = fascist_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = democratic } }
-						add_timed_idea = { idea = democratic_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = communism } }
-						add_timed_idea = { idea = communist_influence days = 1095 }
-					}
-					hidden_effect = {
-						country_event = { id = generic.1 }
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = LIT
-				}
-				LIT = {
-					if = {
-						limit = { ROOT = { has_government = fascism } }
-						add_timed_idea = { idea = fascist_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = democratic } }
-						add_timed_idea = { idea = democratic_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = communism } }
-						add_timed_idea = { idea = communist_influence days = 1095 }
-					}
-					hidden_effect = {
-						country_event = { id = generic.1 }
-					}
-				}
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -13465,15 +13395,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			all_state = {
-				OR = {
-					is_core_of = EST
-					is_core_of = LAT
-					is_core_of = LIT
-				}
-				NOT = { state = 188 }
-				is_controlled_by = ROOT
-			}
+			
 		}
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}
@@ -13516,9 +13438,10 @@ focus_tree = {
 				}
 			}
 			#Activate targeted decisions
-			activate_targeted_decision = { target = EST decision = SOV_send_ultimatum_to_country_baltic }
-			activate_targeted_decision = { target = LAT decision = SOV_send_ultimatum_to_country_baltic }
-			activate_targeted_decision = { target = LIT decision = SOV_send_ultimatum_to_country_baltic }
+			#activate_targeted_decision = { target = EST decision = SOV_send_ultimatum_to_country_baltic }
+			#activate_targeted_decision = { target = LAT decision = SOV_send_ultimatum_to_country_baltic }
+			#activate_targeted_decision = { target = LIT decision = SOV_send_ultimatum_to_country_baltic }
+			#activate_targeted_decision = { target = WST  decision = SOV_send_ultimatum_to_estonia }
 
 			add_named_threat = { threat = 1 name = SOV_claims_in_baltic }
 		}
