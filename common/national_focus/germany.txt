@@ -8877,6 +8877,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_named_threat = { threat = 12 name = germany.4.t }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
@@ -8895,11 +8897,11 @@ focus_tree = {
 					add_stability = 0.05
 					army_experience = 10
 
-						custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = generic_skip_one_line_tt
 
-						custom_effect_tooltip = ZHM_anchluss
+					custom_effect_tooltip = ZHM_anchluss
 												
-					
+			
 
 			hidden_effect = {
 
@@ -8945,8 +8947,23 @@ focus_tree = {
 
 
 		#GER_anschluss_modify_mefo_bills_or_economy_of_conquest = yes
-		#GER_seize_gold_reserves_in_europe_peacefully = yes
-		#add_to_variable = { var = GER_mefo_bill_counter value = -10 }
+		#GER_seize_gold_reserves_in_europe_peacefully = yes # ZHM Bugged(Lowers CGF by like 40% LOL)
+		#add_to_variable = { var = GER_mefo_bill_counter value = -13 } # ZHM DOESNT WORK UNLESS IT'S THROUGH EVENTS 
+
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+				add_to_variable = { 
+					GER_industrial_consumer_goods_factor = -0.13 # 13% is good enough for Austrian Gold
+					tooltip = consumer_goods_factor_tt
+				}
+				GER_reduce_mefo_bills_penalty = yes
+			}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
