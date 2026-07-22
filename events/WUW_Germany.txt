@@ -13627,125 +13627,11 @@ country_event = {
 
 	# The lesser-German solution was a mistake
 	option = { 
-		name = wuw_GER_realpolitik.36.a
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 2
-				has_government = FROM
-			}
-			modifier = {
-				factor = 2
-				strength_ratio = {
-				    tag = FROM
-				    ratio < 0.75
-				}
-			}
-			modifier = {
-				factor = 2
-				strength_ratio = {
-				    tag = FROM
-				    ratio < 0.5
-				}
-			}
-			modifier = {
-				factor = 2
-				has_country_flag = AUS_is_more_likely_to_accept_being_brothers_in_arms_flag
-			}
-		}
-
-		FROM = { # FROM Accepts
-			country_event = { 
-				id = wuw_GER_realpolitik.37 
-				hours = 5 
-				random_hours = 6
-			}
-		}
-
-		effect_tooltip = {
-			FROM = {
-				annex_country = {
-					target = ROOT
-					transfer_troops = yes
-				}
-			}
-			ROOT = {
-				every_core_state = {		
-					add_core_of = FROM
-				}
-			}
-
-			ROOT = {
-				IF = {
-					limit = { ROOT = { has_completed_focus = AUS_bring_generals_out_of_retirement } }
-
-
-					AUS_wilhelm_gebauer = {
-						set_nationality = FROM
-					}
-				}
-				AUS_ludwig_von_eimannsberger = {
-					set_nationality = FROM
-				}
-
-				AUS_anton_kienbauer = {
-					set_nationality = FROM
-				}
-			}
-		}
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = GAME_OVER_TT
 
 	}
 
 	# We will not compromise on our independence!
-	option = {
-		name = wuw_GER_realpolitik.36.b
-		ai_chance = {
-			base = 2
-			modifier = {
-				factor = 5
-				strength_ratio = {
-				    tag = FROM
-				    ratio > 1
-				}
-			}
-			modifier = {
-				factor = 5
-				strength_ratio = {
-				    tag = FROM
-				    ratio > 1.25
-				}
-			}
-			modifier = {
-				factor = 0
-				is_subject_of = FROM
-			}
-
-			modifier = {
-				factor = 200 #needs to be this big to cancel out effects in option a
-				FROM = {
-					is_faction_leader = yes
-				}
-				any_other_country = {
-					NOT = { original_tag = FROM }
-					is_in_faction_with = FROM
-				}
-			}
-		}
-
-		add_war_support = 0.1
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		FROM = { # FROM Rejects
-			country_event = { 
-				id = wuw_GER_realpolitik.38 
-				hours = 5 
-				random_hours = 6
-			}
-		}
+	option = { 
 
 	}
 }
@@ -13779,25 +13665,7 @@ country_event = {
 		GER_seize_gold_reserves_in_europe_peacefully = yes
 		add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 
-		IF = {
-			limit = { AUS = { has_completed_focus = AUS_bring_generals_out_of_retirement } }
-
-			AUS = {
-				AUS_wilhelm_gebauer = {
-					set_nationality = ROOT
-				}
-			}
-		}
-
-		AUS = {
-			AUS_ludwig_von_eimannsberger = {
-				set_nationality = ROOT
-			}
-
-			AUS_anton_kienbauer = {
-				set_nationality = ROOT
-			}
-		}
+		
 
 		set_country_flag = GER_got_austrian_generals
 	}
@@ -14206,45 +14074,9 @@ country_event = {
 				}
 			}
 
-			IF = {
-				limit = {
-					NOT = { 
-						OR = {
-							has_completed_focus = AUS_reinstate_the_imperial_council
-							has_global_flag = HUN_otto_von_habsburg_has_joined_hungary_flag
-						}
-					}
-				}
-				HUN = {
-					HUN_otto_von_habsburg = { 
-						set_nationality = AUS
-						promote_character = yes
-					}
-				}
+			
 
-				set_global_flag = AUS_otto_von_habsburg_has_joined_austria_flag
-			}
-
-			ELSE_IF = {
-				limit = {
-					has_global_flag = HUN_otto_von_habsburg_has_joined_hungary_flag
-					NOT = {
-						has_completed_focus = AUS_reinstate_the_imperial_council
-					}
-				}
-
-				AUS_ernst_rudiger_starhemberg = {
-
-					remove_country_leader_trait = {
-						ideology = despotism
-						trait = anti_communist 
-					}
-
-					add_country_leader_trait = AUS_prince_of_starhemberg
-
-					promote_character = yes
-				}
-			}
+			
 
 			set_party_name = {
 				ideology = neutrality 

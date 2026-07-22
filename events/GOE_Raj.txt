@@ -1298,18 +1298,7 @@ country_event = {
 			days = 365
 		}
 
-		if = {
-			limit = {
-				FROM = { has_completed_focus = RAJ_great_depression_price_controls }
-			}
-			FROM = {	
-				uncomplete_national_focus = {
-					focus = RAJ_great_depression_price_controls
-					uncomplete_children = yes
-					refund_political_power = yes
-				}
-			}
-		}
+		
 
 		FROM = { set_country_flag = ENG_rejected_eic } #activate the other AI strat
 

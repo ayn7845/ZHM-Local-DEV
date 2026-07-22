@@ -3011,38 +3011,7 @@ country_event = {
 						country_event = { id = wtt_germany.1005 days = 1095 random_days = 365 } 
 					} 
 				}
-				1 = {
-					modifier = {
-						has_dlc = "Gotterdammerung"
-						tag = AUS
-						has_completed_focus = AUS_repeal_the_may_constitution
-						factor = 0
-					}
-
-					IF = {
-						limit = {
-							has_dlc = "Gotterdammerung"
-							AUS = {
-								exists = yes
-								OR = {
-									has_government = fascism
-									has_government = neutrality
-								}
-								NOT = {
-									has_completed_focus = AUS_repeal_the_may_constitution
-								}
-							}
-						}
-
-						AUS = {
-							country_event = {
-								id = AUS_political_events.104
-								days = 30
-							}
-						}
-					}
-				}
-				296 = {}
+				
 			}
 		}
 	}

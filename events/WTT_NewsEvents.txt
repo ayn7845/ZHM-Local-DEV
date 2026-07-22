@@ -1102,7 +1102,7 @@ news_event = {
 		name = wtt_news.30.d
 		trigger = {
 			NOT = {
-				#original_tag = PRC
+				
 				original_tag = CHI
 				original_tag = SOV
 			}
@@ -1141,7 +1141,7 @@ news_event = {
 		name = wtt_news.30.d
 		trigger = {
 			NOT = {
-				#original_tag = PRC
+				
 				original_tag = CHI
 				original_tag = SOV
 			}
@@ -1193,7 +1193,7 @@ news_event = {
 		name = wtt_news.32.d
 		trigger = {
 			NOT = {
-				#original_tag = PRC
+				
 				original_tag = CHI
 				original_tag = SOV
 				original_tag = JAP
@@ -1246,7 +1246,7 @@ news_event = {
 		name = wtt_news.32.d
 		trigger = {
 			NOT = {
-				#original_tag = PRC
+				
 				original_tag = CHI
 				original_tag = SOV
 				original_tag = JAP
@@ -1357,9 +1357,7 @@ news_event = {
 		name = wtt_news.36.b
 		trigger = {
 			is_literally_china = yes
-			NOT = {
-				original_tag = PRC
-			}
+			
 		}
 	}
 	option = {
@@ -1367,7 +1365,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				#original_tag = PRC
+				
 				is_literally_china = yes
 			}
 		}
@@ -1394,9 +1392,7 @@ news_event = {
 		name = wtt_news.37.b
 		trigger = {
 			is_literally_china = yes
-			NOT = {
-				original_tag = PRC
-			}
+			
 		}
 	}
 	option = {
@@ -1404,7 +1400,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				#original_tag = PRC
+				
 				is_literally_china = yes
 			}
 		}
@@ -1431,9 +1427,7 @@ news_event = {
 		name = wtt_news.38.b
 		trigger = {
 			is_literally_china = yes
-			NOT = {
-				original_tag = PRC
-			}
+			
 		}
 	}
 	option = {
@@ -1447,7 +1441,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				#original_tag = PRC
+				
 				original_tag = SOV
 				is_literally_china = yes
 			}
@@ -1475,7 +1469,7 @@ news_event = {
 		trigger = {
 			is_literally_china = yes
 			NOT = {
-				#original_tag = PRC
+				
 				original_tag = CHI
 			}
 		}
@@ -1497,7 +1491,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				original_tag = CHI
-				#original_tag = PRC
+				
 				original_tag = JAP
 				is_literally_china = yes
 			}

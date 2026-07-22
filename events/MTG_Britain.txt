@@ -330,23 +330,7 @@ country_event = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					RAJ = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
-					NOT ={
-						has_completed_focus = RAJ_great_depression_price_controls
-					}
-				}
-
-				RAJ = {
-					country_event = { id = mtg_britain.16 }
-					add_ai_strategy = {
-						type = alliance
-						id = ENG
-						value = -200
-					}
-				}
-			}
+			
 			if = {
 				limit = {
 					AST = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -3371,29 +3355,8 @@ country_event = {
 	desc = mtg_britain.66.d
 	picture = GFX_report_event_generic_sign_treaty3
 
-	trigger = {
-		OR = {
-			tag = CAN
-			tag = SAF
-			tag = RAJ
-			tag = AST
-			tag = NZL
-		}
-		NOT = {
-			has_government = ENG ## Make sure you're not communist / fascist too
-		}
-		is_subject_of = ENG
-		OR = {
-			ENG = { has_government = fascism }
-			ENG = { has_government = communism }
-		}
-		ENG = { has_civil_war = no }
-		NOT = { has_country_flag = ENG_cannot_leave_faction }
-		NOT = { ENG = { has_country_flag = ENG_switched_to_fascism_communism_dominions_timer_flag } }
-		has_dlc = "Man the Guns"
-		NOT = { has_country_flag = ENG_dominions_stayed_with_fascist_britain_flag }
-		NOT = { has_country_flag = britain_enforced_our_loyalty }
-		NOT = { has_country_flag = ENG_already_left_faction_flag }
+	trigger = { 
+		always = no
 	}
 	
 	fire_only_once = no
@@ -3409,67 +3372,8 @@ country_event = {
 
 		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
 			
-			NOT = {
-				AND = {
-					original_tag = AST
-					has_dlc = "Thunder at Our Gates"
-					OR = {
-						AND = {
-							has_completed_focus = AST_australia_first
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = AST_against_war_and_fascism
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = NZL
-					OR = {
-						AND = {
-							has_completed_focus = NZL_in_the_darkness
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = NZL_the_lee_affair
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = CAN
-					OR = {
-						AND = {
-							has_completed_focus = CAN_swastika_clubs
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = CAN_burn_the_royal_portraits
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = SAF
-					OR = {
-						AND = {
-							has_completed_focus = SAF_support_the_afrikaner_broederbond
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = SAF_empower_the_workers
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
+			always = no
+			
 			#RAJ has other solution	
 		}
 
@@ -3482,67 +3386,7 @@ country_event = {
 
 		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
 			
-			NOT = {
-				AND = {
-					original_tag = AST
-					has_dlc = "Thunder at Our Gates"
-					OR = {
-						AND = {
-							has_completed_focus = AST_australia_first
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = AST_against_war_and_fascism
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = NZL
-					OR = {
-						AND = {
-							has_completed_focus = NZL_in_the_darkness
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = NZL_the_lee_affair
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = CAN
-					OR = {
-						AND = {
-							has_completed_focus = CAN_swastika_clubs
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = CAN_burn_the_royal_portraits
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					original_tag = SAF
-					OR = {
-						AND = {
-							has_completed_focus = SAF_support_the_afrikaner_broederbond
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = SAF_empower_the_workers
-							ENG = { has_government = communism }
-						}
-					}
-				}
-			}
+		always = no
 			#RAJ has other solution	
 		}
 
@@ -3642,64 +3486,8 @@ country_event = {
 	option = {
 		name = mtg_britain.66.c
 
-		trigger = { #If Dominion is on fascist path when UK is fascist / communist path when UK is communist, SHOW this option
-			OR = {
-				
-				AND = {
-					original_tag = AST
-					has_dlc = "Thunder at Our Gates"
-					OR = {
-						AND = {
-							has_completed_focus = AST_australia_first
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = AST_against_war_and_fascism
-							ENG = { has_government = communism }
-						}
-					}
-				}
-				AND = {
-					original_tag = NZL
-					OR = {
-						AND = {
-							has_completed_focus = NZL_in_the_darkness
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = NZL_the_lee_affair
-							ENG = { has_government = communism }
-						}
-					}
-				}
-				AND = {
-					original_tag = CAN
-					OR = {
-						AND = {
-							has_completed_focus = CAN_swastika_clubs
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = CAN_burn_the_royal_portraits
-							ENG = { has_government = communism }
-						}
-					}
-				}
-				AND = {
-					original_tag = SAF
-					OR = {
-						AND = {
-							has_completed_focus = SAF_support_the_afrikaner_broederbond
-							ENG = { has_government = fascism }
-						}
-						AND = {
-							has_completed_focus = SAF_empower_the_workers
-							ENG = { has_government = communism }
-						}
-					}
-				}
-				#RAJ has other solution		
-			}
+		trigger = { 
+			always = no
 		}
 
 		IF = {

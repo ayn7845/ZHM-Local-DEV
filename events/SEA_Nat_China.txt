@@ -28,12 +28,7 @@ country_event = {
 				factor = 100
 				is_historical_focus_on = yes
 			}
-			modifier = {
-				factor = 15
-				FROM = {
-					has_completed_focus = CHI_utilize_the_albazinian_contact
-				}
-			}
+			
 		}
 
 		FROM = {
@@ -583,14 +578,7 @@ country_event = { # Event for Chiang get's killed
 	desc = SEA_china.13.desc
 	picture = GFX_report_event_generic_rally
 	trigger = {
-		OR = {
-			has_completed_focus = CHI_prepare_for_a_change_in_leadership
-			has_completed_focus = CHI_strengthening_our_resolve
-			AND = {
-				has_completed_focus = CHI_denounce_feudalism
-				has_global_flag = early_united_front 	
-			}
-		}
+		always = no
 		has_global_flag = chiang_needs_to_die
 	}
 	mean_time_to_happen = {
@@ -765,55 +753,7 @@ country_event = { # to FROM, China wants to remove 9 power treaty
 			}
 		}
 
-		IF = {
-			limit = {
-				FROM = {
-					has_completed_focus = CHI_invoke_the_nine_powers
-					has_war_with = JAP 
-				}
-				ROOT = {
-					NOT = {
-						is_ally_with = JAP
-						has_war_with = JAP
-						has_non_aggression_pact_with = JAP
-					}
-				}
-			}
-			add_opinion_modifier = {
-				target = JAP
-				modifier = CHI_broke_the_nine_powers_treaty_opm 
-			}	
-			IF = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				send_embargo = JAP
-				JAP = {
-					every_subject_country = {
-						ROOT = {
-							send_embargo = PREV
-						}
-					}
-				}
-			}
-			ELSE = {
-				add_opinion_modifier = {
-					target = JAP 
-					modifier = embargo
-				}
-				JAP = {
-					every_subject_country = {
-						ROOT = {
-							add_opinion_modifier = {
-								target = PREV 
-								modifier = embargo
-							}
-						}
-					}
-				}
-			}
-			#custom_effect_tooltip = SEA_china.19_tt
-		}
+		
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1568,25 +1508,7 @@ country_event = { # Event for pressing warlords to become subject
 
 		ai_chance = {
 			base = 1
-			modifier = {
-				has_completed_focus = CHI_opposition
-				add = 2
-			}
-
-			modifier = {
-				has_completed_focus = CHI_proclaim_rival_government
-				add = 4
-			}
-
-			modifier = {
-				has_completed_focus = CHI_cooperation_with_the_communists
-				add = 1
-			}
-
-			modifier = {
-				has_completed_focus = CHI_join_the_chinese_soviet
-				add = 2.5
-			}
+			
 		}
 		
 	}

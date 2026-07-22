@@ -11181,7 +11181,7 @@ news_event = {
 		trigger = {
 			OR = {
 				TAG = CHI
-				#TAG = PRC
+			
 			}
 		}
 	}
@@ -11190,7 +11190,7 @@ news_event = {
 		trigger = { 
 			NOT = {
 				TAG = CHI
-				#TAG = PRC
+				
 			}
 			OR = {
 				TAG = JAP
@@ -11202,7 +11202,7 @@ news_event = {
 		name = news.288.c
 		trigger = { 
 			NOT = { 
-				#TAG = PRC 
+				
 				TAG = CHI
 				TAG = JAP
 				is_in_faction_with = JAP

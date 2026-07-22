@@ -2343,10 +2343,7 @@ country_event = {
 		}
 		load_focus_tree = french_focus
 		unlock_national_focus = FRA_revive_the_national_bloc
-		unlock_national_focus = FRA_utilize_the_leagues
-		unlock_national_focus = FRA_national_regeneration
-		unlock_national_focus = FRA_diplomatic_freedom
-		unlock_national_focus = FRA_towards_a_new_europe
+	
 	}
 }
 
@@ -2380,10 +2377,7 @@ country_event = {
 		}
 		load_focus_tree = french_focus
 		unlock_national_focus = FRA_revive_the_national_bloc
-		unlock_national_focus = FRA_utilize_the_leagues
-		unlock_national_focus = FRA_national_regeneration
-		unlock_national_focus = FRA_diplomatic_freedom
-		unlock_national_focus = FRA_latin_entente
+		
 	}
 }
 
@@ -2474,10 +2468,7 @@ country_event = {
 		}
 		load_focus_tree = french_focus
 		unlock_national_focus = FRA_revive_the_national_bloc
-		unlock_national_focus = FRA_utilize_the_leagues
-		unlock_national_focus = FRA_national_regeneration
-		unlock_national_focus = FRA_diplomatic_freedom
-		unlock_national_focus = FRA_latin_entente
+	
 	}
 }
 

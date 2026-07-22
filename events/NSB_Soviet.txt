@@ -6581,21 +6581,7 @@ country_event = {
 				factor = 1.5
 				SOV = { has_idea = SOV_maksim_litvinov }
 			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_wargoal_against = SOV
-					AND = {
-						is_subject = yes
-						NOT = { is_subject_of = SOV }
-					}
-					has_completed_focus = FRA_utilize_the_leagues
-					focus_progress = {
-						focus = FRA_utilize_the_leagues
-						progress > 0
-					}
-				}
-			}
+			
 		}
 
 		effect_tooltip = {
@@ -6657,18 +6643,7 @@ country_event = {
 				factor = 4
 				has_guaranteed = POL 
 			}
-			modifier = {
-				factor = 0
-				OR = {
-					NOT = { country_exists = POL }
-					POL = { has_capitulated = yes }
-					has_completed_focus = FRA_utilize_the_leagues
-					focus_progress = {
-						focus = FRA_utilize_the_leagues
-						progress > 0
-					}
-				}
-			}
+		
 		}
 
 		trigger = { #Only European countries care about Poland
@@ -6720,10 +6695,7 @@ country_event = {
 
 		ai_chance = {
 			base = 10
-			modifier = {
-				factor = 10
-				has_completed_focus = FRA_utilize_the_leagues
-			}
+			
 			modifier = {
 				factor = 0.1
 				has_completed_focus = FRA_form_the_popular_front
@@ -6876,16 +6848,7 @@ country_event = {
 				factor = 1.25
 				SOV = { has_idea = SOV_maksim_litvinov }
 			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_completed_focus = FRA_utilize_the_leagues
-					focus_progress = {
-						focus = FRA_utilize_the_leagues
-						progress > 0
-					}
-				}
-			}
+			
 		}
 
 		FROM = { country_event = { id = NSB_soviet_policies_of_collective_security.9 hours = 8 random_hours = 4 } }
@@ -6979,10 +6942,7 @@ country_event = {
 					has_government = communism
 				}
 			}
-			modifier = {
-				factor = 2
-				has_completed_focus = POL_organize_the_peasants_strike
-			}
+			
 			modifier = {
 				factor = 2
 				is_in_faction = no
@@ -6997,13 +6957,7 @@ country_event = {
 					SOV = { has_completed_focus = SOV_claims_on_poland }
 				}
 			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_completed_focus = POL_assemble_the_regency_council
-					has_completed_focus = POL_nationalist_constitution
-				}
-			}
+			
 		}
 
 		FROM = { country_event = { id = NSB_soviet_policies_of_collective_security.12 hours = 8 random_hours = 4 } } #Answer to FRA (potentially) who will in turn asnswer to SOV, so FROM is available for effects that can't use variables
@@ -7027,10 +6981,7 @@ country_event = {
 					has_guaranteed = POL
 				}
 			}
-			modifier = {
-				factor = 2
-				has_completed_focus = POL_complete_april_constitution
-			}
+			
 			modifier = {
 				factor = 2
 				has_government = fascism

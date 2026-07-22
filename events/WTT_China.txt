@@ -1171,9 +1171,9 @@ country_event = {
 			base = 70
 		}
 		trigger = {
-			NOT = { has_completed_focus = CHI_avoid_another_crisis }
+		
 		}
-		#PRC = { country_event = wtt_xian_incident.7 }
+		
 	}
 }
 
