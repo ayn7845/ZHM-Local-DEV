@@ -13401,27 +13401,23 @@ focus_tree = {
 			# Lithuania
 			custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
 			hidden_effect = {
-				every_state = { 
-					limit = { 
-						OR = { 
-							state = 191
-							state = 813
-							state = 13
-							state = 811
-							state = 812
-							state = 809
-							state = 190
-							state = 810
-							state = 808
-							state = 12
-							state = 11
-							state = 815
-							state = 814
-							state = 189
-						}
-					}
-					add_state_claim = SOV
-				}
+				hidden_effect = { 
+				191 = { add_claim_by = SOV }
+				813 = { add_claim_by = SOV }
+				13 = { add_claim_by = SOV }
+				811 = {add_claim_by = SOV }
+				812 = { add_claim_by = SOV}
+				809 = { add_claim_by = SOV}
+				190 = { add_claim_by = SOV}
+				810 = { add_claim_by = SOV}
+				808 = { add_claim_by = SOV}
+				12 = { add_claim_by = SOV}
+				11 = { add_claim_by = SOV}
+				815 = { add_claim_by = SOV}
+				814 = { add_claim_by = SOV}
+				189 = { add_claim_by = SOV}
+			}
+				
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_category_tooltip = SOV_diplomacy_baltic_decision_category
