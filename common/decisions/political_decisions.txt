@@ -1963,13 +1963,7 @@ political_actions = {
     				has_dlc = "Thunder at Our Gates"
     			}
 			}
-			IF = {
-				limit = {
-					has_dlc = "Gotterdammerung"
-					original_tag = AUS
-				}
-				NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
-			}
+			
 		}
 
 		available = {
@@ -2338,13 +2332,7 @@ political_actions = {
 				NOT = { original_tag = GRE }
 			}
 
-			IF = {
-				limit = {
-					has_dlc = "Gotterdammerung"
-					original_tag = AUS
-				}
-				NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
-			}
+		
 
 			IF = {
 				limit = {

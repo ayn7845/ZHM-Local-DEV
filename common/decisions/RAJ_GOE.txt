@@ -468,15 +468,11 @@ RAJ_GOE_india_indivisible_cat = {
 		state_target = yes
 		
 		visible = { 
-			has_completed_focus = RAJ_trade_federation_of_india
+			always = no
 		}
 		
 		available = {
-			FROM = { 
-				is_owned_and_controlled_by = ROOT 
-				compliance > 60
-			}
-			has_completed_focus = RAJ_trade_federation_of_india
+			always = no
 		}
 		
 		target_root_trigger = {

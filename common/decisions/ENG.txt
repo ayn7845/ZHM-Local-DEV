@@ -8068,15 +8068,7 @@ operations = {
 
 		fire_only_once = yes
 
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 200 
-				ICE = {
-					has_completed_focus = ICE_declare_absolute_neutrality
-				}	
-			}
-		}
+	
 		
 		visible = {
 			tag = ENG
@@ -8137,13 +8129,7 @@ operations = {
 					has_government = fascism
 				}
 			}
-			modifier = {
-				# Iceland has gone their own path, so we can consolidate the North Sea
-				factor = 2 	
-				ICE = {
-					has_completed_focus = ICE_declare_absolute_neutrality
-				}
-			}
+			
 			modifier = {
 				# Norway has already fallen, we are too late
 				factor = 6

@@ -69,26 +69,8 @@ FRA_civil_unrest_category = {
 
 		icon = generic_civil_support
  
-		available = {
-			OR = {
-				has_stability > 0.25	
-				has_government = fascism
-				has_completed_focus = FRA_destroy_the_counter_revolution
-				custom_trigger_tooltip = {
-					tooltip = french_communist_civil_war_intervention_tt 
-					AND = {
-						has_war = yes
-						NOT = {
-							AND = {
-								SPR_scw_in_progress = yes
-								any_enemy_country = {
-									original_tag = SPR #civil war still fires if in intervention in Spain
-								}
-							}
-						}
-					}
-				}	
-			}
+		available = { 
+			always = no
 		}
 
 		days_mission_timeout = 90
@@ -109,7 +91,7 @@ FRA_civil_unrest_category = {
 				}
 			}
 			has_completed_focus = FRA_form_the_popular_front
-			NOT = { has_completed_focus = FRA_destroy_the_counter_revolution }
+			
 			not = { has_global_flag = flag_french_fascist_civil_war }
 		}
 
@@ -1594,8 +1576,7 @@ political_actions = {
 		available = { }
 
 		visible = { 
-			has_completed_focus = FRA_utilize_the_leagues 
-			NOT = { has_government = fascism }
+			always = no
 		}
 
 		days_re_enable = 60
@@ -1623,8 +1604,7 @@ political_actions = {
 		available = { }
 
 		visible = { 
-			has_completed_focus = FRA_utilize_the_leagues 
-			NOT = { has_government = fascism }
+			always = no
 		}
 		days_re_enable = 30
 		complete_effect = {

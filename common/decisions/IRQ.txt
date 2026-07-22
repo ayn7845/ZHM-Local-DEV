@@ -135,7 +135,7 @@ greater_iraq_decision_cat = {
 		}
 		
 		visible = {
-			has_completed_focus = IRQ_greater_iraq
+			always = no
 		}
 		available = {
 			NOT = { has_country_flag = IRQ_coring_state_in_progress }
@@ -196,7 +196,7 @@ united_arab_republic_cat = {
 		}
 		
 		visible = {
-			has_completed_focus = IRQ_proclaim_united_arab_republic
+			always = no
 		}
 		available = {
 			NOT = { has_country_flag = IRQ_coring_state_in_progress }
@@ -265,19 +265,8 @@ hashemite_federation_cat = {
 			original_tag = IRQ
 		}
 		
-		visible = {
-			has_completed_focus = IRQ_expand_membership
-			OR = {
-				has_government = democratic
-				has_government = neutrality
-			}
-			FROM = {
-				exists = yes
-				NOT = {
-					has_war_with = ROOT
-				}
-				is_subject = no
-			}
+		visible = { 
+			always = no
 		}
 
 		available = {
@@ -381,19 +370,8 @@ hashemite_federation_cat = {
 			original_tag = IRQ
 		}
 		
-		visible = {
-			has_completed_focus = IRQ_expand_membership
-			OR = {
-				has_government = democratic
-				has_government = neutrality
-			}
-			FROM = {
-				exists = yes
-				NOT = {
-					has_war_with = ROOT
-				}
-				is_subject = no
-			}
+		visible = { 
+			always = no
 		}
 
 		available = {
