@@ -1704,7 +1704,27 @@ focus_tree = {
 			}
 		}
 		
-		bypass = {}
+		bypass = {
+			EST = {
+				OR = {
+					AND = {
+						is_subject = yes
+						NOT = { is_subject_of = ROOT }
+					}
+					has_capitulated = yes
+					exists = no
+					all_core_state = {
+						OR = {
+							is_claimed_by = ROOT
+							is_owned_by = ROOT
+							controller = {
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
 
 		available = {
 			is_subject = no
@@ -1716,7 +1736,17 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {}
+		completion_reward = {
+			EST = {
+				country_event = { id = AAT_finland_diplomacy.01 hours = 4 random_hours = 2 }
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+			custom_effect_tooltip = FIN_viron_kansa_positive_outcome_tt
+
+			custom_effect_tooltip = if_they_refuse_tt
+			event_option_tooltip = AAT_finland_diplomacy.04.b
+		}
 	}
 
 	focus = {
@@ -2732,7 +2762,419 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {}
+		completion_reward = {
+			custom_effect_tooltip = FIN_keepers_of_the_baltic_countries_tt
+			hidden_effect = {
+
+				### ESTONIA ###
+				if = { #Finnish puppet or independent ally - Annexation
+					limit = {
+						EST = {
+							FIN_is_valid_root_puppet_or_independent_ally = yes
+						}
+					}
+					EST = {
+						country_event = { id = AAT_finland_diplomacy.14 hours = 1 }
+					}
+				}
+				else_if = { #Ally's puppet and AI - Request puppet transfer
+					limit = {
+						EST = {
+							FIN_is_valid_allied_puppet_ai = yes
+						}
+					}
+					EST = {
+						overlord = {
+							if = {
+								limit = {
+									NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+								}
+								#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+								add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+							}
+							PREV = {
+								every_controlled_state = {
+									if = {
+										limit = {
+											OR = {
+												is_core_of = EST
+												is_core_of = LAT
+												is_core_of = LIT
+												is_owned_by = PREV
+											}
+										}
+										#This array will be used in the ONE event that the country's overlord will receive for transferring the appropriate states
+										add_to_array = { PREV.PREV.FIN_states_requested_by_finland_array = THIS } #store array in overlord
+									}
+									else = {
+										#This array will be used in the ONE event that the country's overlord will receive for transferring states back to the overlord 
+										add_to_array = { PREV.PREV.FIN_states_to_come_back_to_overlord_array = THIS } #store array in overlord
+									}
+								}
+							}
+						}
+					}
+				}
+				else_if = { #Neutral/enemy - Claims and wargoal
+					limit = {
+						EST = {
+							OR = {
+								FIN_is_valid_neutral_or_enemy = yes
+								has_civil_war = yes
+							}
+						}
+					}
+					EST = {
+						every_core_state = {
+							limit = {
+								controller = {
+									original_tag = PREV.PREV
+									FIN_is_valid_neutral_or_enemy = yes
+								}
+							}
+							add_claim_by = ROOT
+						}
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}
+
+							if = {
+								limit = {
+									has_non_aggression_pact_with = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = non_aggression_pact
+									active = no
+								}
+							}
+							if = {
+								limit = {
+									has_guaranteed = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = guarantee
+									active = no
+								}
+							}
+						}
+					}
+				}
+			
+				if = { #Someone else controls core states - Demand Estonian states.
+					limit = {
+						EST = {
+							any_core_state = {
+								FIN_is_valid_occupier_country = yes
+							}
+						}
+					}
+					EST = {
+						every_core_state = {
+							limit = {
+								FIN_is_valid_occupier_country = yes
+							}
+							controller = {
+								if = {
+									limit = {
+										NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+									}
+									#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+									add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+								}
+
+								#Add state target for Finnish request of state transfer. This array will be used in the ONE event that the country will receive for transferring the appropriate states
+								add_to_array = { FIN_states_requested_by_finland_array = PREV }
+							}
+						}
+					}
+				}
+
+
+				### LATVIA ###
+
+				if = { #Finnish puppet or independent ally - Annexation
+					limit = {
+						LAT = {
+							FIN_is_valid_root_puppet_or_independent_ally = yes
+						}
+					}
+					LAT = {
+						country_event = { id = AAT_finland_diplomacy.14 hours = 1 }
+					}
+				}
+				else_if = { #Ally's puppet and AI - Request puppet transfer
+					limit = {
+						LAT = {
+							FIN_is_valid_allied_puppet_ai = yes
+						}
+					}
+					LAT = {
+						overlord = {
+							if = {
+								limit = {
+									NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+								}
+								#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+								add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+							}
+							PREV = {
+								every_controlled_state = {
+									if = {
+										limit = {
+											OR = {
+												is_core_of = EST
+												is_core_of = LAT
+												is_core_of = LIT
+												is_owned_by = PREV
+											}
+										}
+										#This array will be used in the ONE event that the country's overlord will receive for transferring the appropriate states
+										add_to_array = { PREV.PREV.FIN_states_requested_by_finland_array = THIS } #store array in overlord
+									}
+									else = {
+										#This array will be used in the ONE event that the country's overlord will receive for transferring states back to the overlord 
+										add_to_array = { PREV.PREV.FIN_states_to_come_back_to_overlord_array = THIS } #store array in overlord
+									}
+								}
+							}
+						}
+					}
+				}
+				else_if = { #Neutral/enemy - Claims and wargoal
+					limit = {
+						LAT = {
+							OR = {
+								FIN_is_valid_neutral_or_enemy = yes
+								has_civil_war = yes
+							}
+						}
+					}
+
+					LAT = {
+						every_core_state = {
+							limit = {
+								controller = {
+									original_tag = PREV.PREV
+									FIN_is_valid_neutral_or_enemy = yes
+								}
+							}
+							add_claim_by = ROOT
+						}
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}
+
+							if = {
+								limit = {
+									has_non_aggression_pact_with = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = non_aggression_pact
+									active = no
+								}
+							}
+							if = {
+								limit = {
+									has_guaranteed = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = guarantee
+									active = no
+								}
+							}
+						}
+					}
+				}
+			
+				if = { #Someone else controls core states - Demand Estonian states.
+					limit = {
+						LAT = {
+							any_core_state = {
+								FIN_is_valid_occupier_country = yes
+							}
+						}
+					}
+					LAT = {
+						every_core_state = {
+							limit = {
+								FIN_is_valid_occupier_country = yes
+							}
+							controller = {
+								if = {
+									limit = {
+										NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+									}
+									#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+									add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+								}
+
+								#Add state target for Finnish request of state transfer. This array will be used in the ONE event that the country will receive for transferring the appropriate states
+								add_to_array = { FIN_states_requested_by_finland_array = PREV }
+							}
+						}
+					}
+				}
+
+
+				### LITHUANIA ###
+
+				if = { #Finnish puppet or independent ally - Annexation
+					limit = {
+						LIT = {
+							FIN_is_valid_root_puppet_or_independent_ally = yes
+						}
+					}
+					LIT = {
+						country_event = { id = AAT_finland_diplomacy.14 hours = 1 }
+					}
+				}
+				else_if = { #Ally's puppet and AI - Request puppet transfer
+					limit = {
+						LIT = {
+							FIN_is_valid_allied_puppet_ai = yes
+						}
+					}
+					LIT = {
+						overlord = {
+							if = {
+								limit = {
+									NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+								}
+								#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+								add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+							}
+							PREV = {
+								every_controlled_state = {
+									if = {
+										limit = {
+											OR = {
+												is_core_of = EST
+												is_core_of = LAT
+												is_core_of = LIT
+												is_owned_by = PREV
+											}
+										}
+										#This array will be used in the ONE event that the country's overlord will receive for transferring the appropriate states
+										add_to_array = { PREV.PREV.FIN_states_requested_by_finland_array = THIS } #store array in overlord
+									}
+									else = {
+										#This array will be used in the ONE event that the country's overlord will receive for transferring states back to the overlord 
+										add_to_array = { PREV.PREV.FIN_states_to_come_back_to_overlord_array = THIS } #store array in overlord
+									}
+								}
+							}
+						}
+					}
+				}
+				else_if = { #Neutral/enemy - Claims and wargoal
+					limit = {
+						LIT = {
+							OR = {
+								FIN_is_valid_neutral_or_enemy = yes
+								has_civil_war = yes
+							}
+						}
+					}
+
+					LIT = {
+						every_core_state = {
+							limit = {
+								controller = {
+									original_tag = PREV.PREV
+									FIN_is_valid_neutral_or_enemy = yes
+								}
+							}
+							add_claim_by = ROOT
+						}
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}
+
+							if = {
+								limit = {
+									has_non_aggression_pact_with = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = non_aggression_pact
+									active = no
+								}
+							}
+							if = {
+								limit = {
+									has_guaranteed = PREV
+								}
+								diplomatic_relation = {
+									country = PREV
+									relation = guarantee
+									active = no
+								}
+							}
+						}
+					}
+				}
+			
+				if = { #Someone else controls core states - Demand Estonian states.
+					limit = {
+						LIT = {
+							any_core_state = {
+								FIN_is_valid_occupier_country = yes
+							}
+						}
+					}
+					LIT = {
+						every_core_state = {
+							limit = {
+								FIN_is_valid_occupier_country = yes
+							}
+							controller = {
+								if = {
+									limit = {
+										NOT = { is_in_array = { ROOT.countries_with_baltic_territory_array = THIS } }
+									}
+									#This array will be used at the end of the effect to send ONE SINGLE EVENT to each country with Baltic puppets or states with Finnish demands
+									add_to_array = { ROOT.countries_with_baltic_territory_array = THIS }
+								}
+
+								#Add state target for Finnish request of state transfer. This array will be used in the ONE event that the country will receive for transferring the appropriate states
+								add_to_array = { FIN_states_requested_by_finland_array = PREV }
+							}
+						}
+					}
+				}
+				
+
+				#### SEND EVENT TO COUTNRIES OCCUPYING / PUPPETING BALTICS ###
+				for_each_scope_loop = {
+					array = ROOT.countries_with_baltic_territory_array			
+					country_event = { id = AAT_finland_diplomacy.17 hours = 1 }
+					#log = "Sent event to [THIS.GetName]"
+				}
+				clear_array = ROOT.countries_with_baltic_territory_array
+
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = EST
+							is_core_of = LAT
+							is_core_of = LIT
+						}
+						has_resistance = yes
+					}
+					add_compliance = 30
+				}
+			}
+		}
 	}
 	
 	focus = {
@@ -3029,8 +3471,39 @@ focus_tree = {
 		relative_position_id = FIN_join_the_comintern
 		cost = 10
 
-		bypass = { 
-			
+		bypass = {
+			EST = {
+				OR = {
+					exists = no
+					is_subject = yes
+					is_in_faction = yes
+					has_war_with = ROOT
+				}
+			}
+			LAT = {
+				OR = {
+					exists = no
+					is_subject = yes
+					is_in_faction = yes
+					has_war_with = ROOT
+				}
+			}
+			LIT = {
+				OR = {
+					exists = no
+					is_subject = yes
+					is_in_faction = yes
+					has_war_with = ROOT
+				}
+			}
+			POL = {
+				OR = {
+					exists = no
+					is_subject = yes
+					is_in_faction = yes
+					has_war_with = ROOT
+				}
+			}
 		}
 
 		available = {
@@ -3039,8 +3512,241 @@ focus_tree = {
 
 		search_filters = {}
 
-		completion_reward = { 
+		completion_reward = {
+			custom_effect_tooltip = FIN_finnish_influence_in_the_baltic_tt
 
+			if = {
+				limit = {
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
+				}
+				custom_effect_tooltip = generic_current_effects_new_lines
+
+				#Just for tooltip purposes (more compact tooltip)
+				every_other_country = {
+					limit = {
+						OR = {
+							original_tag = EST
+							original_tag = LAT
+							original_tag = LIT
+							original_tag = POL
+						}
+						FIN_country_can_be_invited_into_faction_socialist = yes
+						has_government = ROOT
+					}
+
+					custom_effect_tooltip = FIN_northern_defense_front_faction_tt
+				}
+
+				every_other_country = {
+					limit = {
+						OR = {
+							original_tag = EST
+							original_tag = LAT
+							original_tag = LIT
+							original_tag = POL
+						}
+						FIN_country_can_be_invited_into_faction_socialist = yes
+						NOT = { has_government = ROOT }
+					}
+
+					custom_effect_tooltip = FIN_northern_defense_front_influence_tt
+				}
+			}
+
+			custom_effect_tooltip = FIN_unlock_foreign_politics_decisions_baltic_tt
+
+			hidden_effect = {
+				if = { #Estonia in case they somehow are still around
+					limit = {
+						EST = {
+							FIN_country_can_be_invited_into_faction_socialist = yes
+							has_government = ROOT
+						}
+					}
+					EST = {
+						hidden_effect = {
+							ROOT = {
+								add_ai_strategy = {
+									type = befriend
+									id = PREV
+									value = 50
+								}
+							}
+							add_ai_strategy = {
+								type = befriend
+								id = ROOT
+								value = 50
+							}
+							country_event = { id = generic.5 hours = 4 random_hours = 4 }
+						}
+						custom_effect_tooltip = FIN_northern_defense_front_faction_tt
+					}
+				}
+				else = {
+					EST = {
+						add_opinion_modifier = { target = ROOT modifier = FIN_finnish_influence_in_the_baltic }
+						if = {
+							limit = {	NOT = { has_government = ROOT } }
+							if = {
+								limit = { ROOT = { has_government = democratic } }
+								add_timed_idea = { idea = democratic_influence days = 1095 }
+							}
+							if = {
+								limit = { ROOT = { has_government = communism } }
+								add_timed_idea = { idea = communist_influence days = 1095 }
+							}
+							country_event = { id = generic.1 }
+						}
+					}
+
+					activate_targeted_decision = { target = EST decision = FIN_pressure_country_government_baltic }
+					activate_targeted_decision = { target = EST decision = FIN_promote_ideology_rallies_baltic }
+				}
+				if = {
+					limit = {
+						LAT = {
+							FIN_country_can_be_invited_into_faction_socialist = yes
+							has_government = ROOT
+						}
+					}
+					LAT = {
+						hidden_effect = {
+							ROOT = {
+								add_ai_strategy = {
+									type = befriend
+									id = PREV
+									value = 50
+								}
+							}
+							add_ai_strategy = {
+								type = befriend
+								id = ROOT
+								value = 50
+							}
+							country_event = { id = generic.5 hours = 4 random_hours = 4 }
+						}
+						custom_effect_tooltip = FIN_northern_defense_front_faction_tt
+					}
+					else = {
+						LAT = {
+							if = {
+								limit = {	NOT = { has_government = ROOT } }
+								add_opinion_modifier = { target = ROOT modifier = FIN_finnish_influence_in_the_baltic }
+								if = {
+									limit = { ROOT = { has_government = democratic } }
+									add_timed_idea = { idea = democratic_influence days = 1095 }
+								}
+								if = {
+									limit = { ROOT = { has_government = communism } }
+									add_timed_idea = { idea = communist_influence days = 1095 }
+								}
+								country_event = { id = generic.1 }
+							}
+						}
+
+						activate_targeted_decision = { target = LAT decision = FIN_pressure_country_government_baltic }
+						activate_targeted_decision = { target = LAT decision = FIN_promote_ideology_rallies_baltic }
+					}
+				}
+				if = {
+					limit = {
+						LIT = {
+							FIN_country_can_be_invited_into_faction_socialist = yes
+							has_government = ROOT
+						}
+					}
+					LIT = {
+						hidden_effect = {
+							ROOT = {
+								add_ai_strategy = {
+									type = befriend
+									id = PREV
+									value = 50
+								}
+							}
+							add_ai_strategy = {
+								type = befriend
+								id = ROOT
+								value = 50
+							}
+							country_event = { id = generic.5 hours = 4 random_hours = 4 }
+						}
+						custom_effect_tooltip = FIN_northern_defense_front_faction_tt
+					}
+
+				}
+				else = {
+					LIT = {
+						if = {
+							limit = {	NOT = { has_government = ROOT } }
+							add_opinion_modifier = { target = ROOT modifier = FIN_finnish_influence_in_the_baltic }
+							if = {
+								limit = { ROOT = { has_government = democratic } }
+								add_timed_idea = { idea = democratic_influence days = 1095 }
+							}
+							if = {
+								limit = { ROOT = { has_government = communism } }
+								add_timed_idea = { idea = communist_influence days = 1095 }
+							}
+							country_event = { id = generic.1 }
+						}
+					}
+
+					activate_targeted_decision = { target = LIT decision = FIN_pressure_country_government_baltic }
+					activate_targeted_decision = { target = LIT decision = FIN_promote_ideology_rallies_baltic }
+				}
+				if = {
+					limit = {
+						POL = {
+							FIN_country_can_be_invited_into_faction_socialist = yes
+							has_government = ROOT
+						}
+					}
+					log = "Invitation"
+					POL = {
+						hidden_effect = {
+							ROOT = {
+								add_ai_strategy = {
+									type = befriend
+									id = PREV
+									value = 50
+								}
+							}
+							add_ai_strategy = {
+								type = befriend
+								id = ROOT
+								value = 50
+							}
+							country_event = { id = generic.5 hours = 4 random_hours = 4 }
+						}
+						custom_effect_tooltip = FIN_northern_defense_front_faction_tt
+					}
+
+				}
+				else = {
+					POL = {
+						if = {
+							limit = {	NOT = { has_government = ROOT } }
+							add_opinion_modifier = { target = ROOT modifier = FIN_finnish_influence_in_the_baltic }
+							if = {
+								limit = { ROOT = { has_government = democratic } }
+								add_timed_idea = { idea = democratic_influence days = 1095 }
+							}
+							if = {
+								limit = { ROOT = { has_government = communism } }
+								add_timed_idea = { idea = communist_influence days = 1095 }
+							}
+							country_event = { id = generic.1 }
+						}
+					}
+
+					activate_targeted_decision = { target = POL decision = FIN_pressure_country_government_baltic }
+					activate_targeted_decision = { target = POL decision = FIN_promote_ideology_rallies_baltic }
+				}
+			}
 		}
 	}
 	
@@ -5840,7 +6546,27 @@ focus_tree = {
 		allow_branch = { 
 			always = no
 		}
-		bypass = {}
+		bypass = {
+			EST = {
+				OR = {
+					AND = {
+						is_subject = yes
+						NOT = { is_subject_of = ROOT }
+					}
+					has_capitulated = yes
+					exists = no
+					all_core_state = {
+						OR = {
+							is_claimed_by = ROOT
+							is_owned_by = ROOT
+							controller = {
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
 
 		available = {
 			is_subject = no
@@ -5856,7 +6582,17 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {}
+		completion_reward = {
+			EST = {
+				country_event = { id = AAT_finland_diplomacy.01 hours = 4 random_hours = 2 }
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+			custom_effect_tooltip = FIN_viron_kansa_positive_outcome_tt
+
+			custom_effect_tooltip = if_they_refuse_tt
+			event_option_tooltip = AAT_finland_diplomacy.04.b
+		}
 	}
 	
 	focus = {
@@ -5869,13 +6605,75 @@ focus_tree = {
 		relative_position_id = FIN_viron_kansa
 		cost = 10
 
-		bypass = {}
+		bypass = {
+			EST = {
+				all_core_state = {
+					OR = {
+						is_claimed_by = ROOT
+						is_owned_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			LAT = {
+				all_core_state = {
+					OR = {
+						is_claimed_by = ROOT
+						is_owned_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			LIT = {
+				all_core_state = {
+					OR = {
+						is_claimed_by = ROOT
+						is_owned_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+		}
 
-		available = {}
+		available = {
+			is_subject = no
+			OR = {
+				NOT = { country_exists = EST }
+				is_in_faction_with = EST
+				has_subject = EST
+				any_controlled_state = {
+					is_core_of = EST
+				}
+			}
+			OR = {
+				has_war = no
+				surrender_progress < 0.05
+			}
+		}
 
 		search_filters = {}
 
-		completion_reward = {}
+		completion_reward = {
+			custom_effect_tooltip = FIN_ambitions_in_the_south_claims_tt
+			custom_effect_tooltip = generic_current_effects
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = EST #In case previous focus was bypassed
+						is_core_of = LAT
+						is_core_of = LIT
+					}
+					NOT = { is_owned_by = ROOT }
+				}
+				add_claim_by = ROOT
+			}
+		}
 	}
 	
 	focus = {

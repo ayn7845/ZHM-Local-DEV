@@ -93,7 +93,9 @@ peace_action_modifiers = {
                     # What nations are cheaper to liberate
               
                     tag = FIN
-                  
+                    tag = EST
+                    tag = LAT
+                    tag = LIT
                     tag = POL
                     tag = ROM
                     tag = TAN
@@ -118,7 +120,9 @@ peace_action_modifiers = {
                     # What nations are cheaper to "liberate"
            
                     tag = FIN
-                  
+                    tag = EST
+                    tag = LAT
+                    tag = LIT
                     tag = POL
                     tag = ROM
                     tag = TAN

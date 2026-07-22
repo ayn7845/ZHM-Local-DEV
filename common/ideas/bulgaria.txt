@@ -4587,11 +4587,110 @@ ideas = {
 			}
 		}
 
-	
+		BUL_anti_capitalism_est = {
+			name = BUL_anti_capitalism
 
-	
+			picture = eng_tackle_capitalism
 
+			allowed = {
+				original_tag = BUL
+			}
 		
+			allowed_civil_war = {
+				tag = BUL
+				if = {
+					limit = {
+						has_completed_focus = BUL_the_anti_capitalist_fight
+					}
+					has_government = communism
+				}	
+			}
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = EST
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+			cancel = {
+				OR = {
+					has_country_flag = BUL_anti_capitalism_ns_expired_flag
+					has_country_flag = BUL_toppling_giants_ns_expired_flag
+					has_country_flag = BUL_the_fight_against_bolshevism_ns_expired_flag
+				}
+			}
+		}
+
+		BUL_anti_capitalism_lat = {
+			name = BUL_anti_capitalism
+
+			picture = eng_tackle_capitalism
+
+			allowed = {
+				original_tag = BUL
+			}
+		
+			allowed_civil_war = {
+				tag = BUL
+				if = {
+					limit = {
+						has_completed_focus = BUL_the_anti_capitalist_fight
+					}
+					has_government = communism
+				}	
+			}
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = LAT
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+			cancel = {
+				OR = {
+					has_country_flag = BUL_anti_capitalism_ns_expired_flag
+					has_country_flag = BUL_toppling_giants_ns_expired_flag
+					has_country_flag = BUL_the_fight_against_bolshevism_ns_expired_flag
+				}
+			}
+		}
+
+		BUL_anti_capitalism_lit = {
+			name = BUL_anti_capitalism
+
+			picture = eng_tackle_capitalism
+
+			allowed = {
+				original_tag = BUL
+			}
+		
+			allowed_civil_war = {
+				tag = BUL
+				if = {
+					limit = {
+						has_completed_focus = BUL_the_anti_capitalist_fight
+					}
+					has_government = communism
+				}	
+			}
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = LIT
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+			cancel = {
+				OR = {
+					has_country_flag = BUL_anti_capitalism_ns_expired_flag
+					has_country_flag = BUL_toppling_giants_ns_expired_flag
+					has_country_flag = BUL_the_fight_against_bolshevism_ns_expired_flag
+				}
+			}
+		}
 	}
 
 }

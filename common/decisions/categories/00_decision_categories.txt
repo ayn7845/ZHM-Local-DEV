@@ -127,7 +127,9 @@ fascism_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}
@@ -190,7 +192,9 @@ democratic_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}
@@ -246,7 +250,9 @@ communism_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}

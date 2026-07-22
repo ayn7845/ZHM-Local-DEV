@@ -107,7 +107,9 @@ ai_manpower = {
 }
 ai_annex = {
 	OR = {
-		
+		tag = LIT
+		tag = LAT
+		tag = EST
 		tag = AUS
 		tag = CZE
 		tag = COG

@@ -476,7 +476,20 @@ MR_pact_transfer_state_effect = {
 				}
 			}
 		}
-	
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = LIT_gets_vilnius
+					LIT = { is_in_faction_with = SOU }
+					LIT = { controls_state = 784 }
+				}
+				LIT = {
+					exists = yes
+					has_capitulated = no
+				}
+			}
+			LIT = { transfer_state = 784 }
+		}
 		else_if = {
 			limit = {
 				NOT = {
@@ -615,6 +628,19 @@ MR_pact_transfer_faction_state_effect = {
 					}
 				}
 			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = LIT_gets_vilnius
+					LIT = { controls_state = 784 }
+				}
+				LIT = {
+					exists = yes
+					has_capitulated = no
+				}
+			}
+			LIT = { transfer_state = 784 }
 		}
 		else = {
 			SOU = { transfer_state = 784 }
@@ -1484,7 +1510,9 @@ GER_setup_SOV_sphere_of_influence_array = { #REMEMBER to update the focus toolti
 					is_on_continent = europe
 					OR = {
 						is_core_of = FIN
-					
+						is_core_of = EST
+						is_core_of = LAT
+						is_core_of = LIT
 						is_core_of = SLO
 						is_core_of = ROM
 						is_core_of = YUG

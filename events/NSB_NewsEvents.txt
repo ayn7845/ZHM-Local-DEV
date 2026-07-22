@@ -390,13 +390,18 @@ news_event = {
 		}
 	}
 	
-	
+	option = {
+		name = nsb_news.8.c
+		trigger = {
+			tag = LIT
+		}
+	}
 	
 	option = {
 		name = nsb_news.8.d
 		trigger = {
 			NOT = {
-				
+				tag = LIT
 				tag = POL
 				has_government = communism
 			}

@@ -20,6 +20,18 @@ focus_tree = {
 			tag = HOL
 		}
 		# ANNEXED SOV FOOD
+		modifier = {
+			add = 100
+			tag = EST
+		}
+		modifier = {
+			add = 100
+			tag = LAT
+		}
+		modifier = {
+			add = 100
+			tag = LIT
+		}
 		# ANNEXED NEUTRALS (AXIS FOOD)
 		modifier = {
 			add = 100

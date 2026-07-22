@@ -704,7 +704,14 @@ ENG_rsaf_enfield_organization = {
 				tag = GRE
 				has_dlc = "Battle for the Bosporus"
 			}
-			
+			AND = {
+				OR = {
+					original_TAG = LAT
+					original_TAG = LIT
+					original_TAG = EST
+				}
+				has_dlc = "No Step Back"
+			}
 		}
 	}
 
@@ -717,7 +724,9 @@ ENG_rsaf_enfield_organization = {
 			FROM = { NOT = { has_war_with = ENG } }
 		}
 
-		
+		if = { 
+
+		}
 	}
 
 	override_trait = { 
@@ -833,7 +842,14 @@ ENG_royal_arsenal_organization = {
 	allowed = {
 		OR = {
 			tag = ENG
-			
+			AND = {
+				OR = {
+					original_TAG = LAT
+					original_TAG = LIT
+					original_TAG = EST
+				}
+				has_dlc = "No Step Back"
+			}
 		}
 	}
 
@@ -864,6 +880,18 @@ ENG_crossley_motors_organization = {
 			AND = {
 				tag = HUN
 				has_dlc = "Gotterdammerung"
+			}
+			AND = {
+				tag = EST
+				has_dlc = "No Step Back"
+			}
+			AND = {
+				tag = LAT
+				has_dlc = "No Step Back"
+			}
+			AND = {
+				tag = LIT
+				has_dlc = "No Step Back"
 			}
 			AND = {
 				tag = IRQ

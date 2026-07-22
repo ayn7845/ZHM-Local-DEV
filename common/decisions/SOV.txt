@@ -5181,6 +5181,142 @@ SOV_soviet_aid_to_poum_decision_category = {
 ##############
 
 SOV_diplomacy_baltic_decision_category = {
+	SOV_pressure_country_government_baltic = {
+		priority = 50
+
+		icon = generic_political_discourse
+
+		ai_will_do = {
+			base = 0.8
+			modifier = {
+				factor = 2
+				has_political_power > 160
+			}
+			modifier = { #If ideological rallies happened, then it's better
+				factor = 4
+				FROM = { has_country_flag = SOV_ideological_rallies_promoted_flag }
+			}
+			modifier = { #Do it only once, don't spam
+				factor = 0
+				FROM = { has_country_flag = SOV_government_pressured_flag }
+			}
+		}
+
+		targets = {	EST LAT LIT	}
+
+		target_trigger = {
+			SOV_basic_pressure_government_triggers = yes
+		}
+
+		target_root_trigger = {
+			has_completed_focus = SOV_respect_baltic_self_determination
+			is_subject = no
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			is_faction_leader = yes
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 49
+				}
+				#SOV_is_valid_subject = yes # The Soviet Union might not give a sh*t about their petty overlord ;) # -> THE USSR does indeed not care about their petty overlord, for now.
+				NOT = { has_war_with = ROOT }
+			}
+			NOT = { has_country_flag = SOV_pressure_government_active_flag }
+		}
+
+		visible = {
+		}
+
+		days_remove = SOV_pressure_government_days
+
+		days_re_enable = SOV_pressure_government_cd
+
+		cost = SOV_pressure_country_government_cost
+
+		modifier = {
+			political_power_gain = -0.25
+		}
+
+		complete_effect = {
+			set_country_flag = SOV_pressure_government_active_flag
+		}
+
+		remove_effect = {
+			FROM = {
+				country_event = { id = NSB_soviet_foreign_politics_events.1 hours = 4 random_hours = 2 }
+				set_country_flag = SOV_government_pressured_flag #For AI weights - don't spam
+			}
+			clr_country_flag = SOV_pressure_government_active_flag
+			custom_effect_tooltip = SOV_pressure_government_effects_tt
+			custom_effect_tooltip = SOV_pressure_government_cd_tt
+		}
+	}
+
+	SOV_promote_ideology_rallies_baltic = {
+		priority = 50
+
+		icon = generic_political_rally
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				has_political_power > 160
+			}
+		}
+
+		targets = { EST LAT LIT }
+
+		target_trigger = {
+			SOV_basic_promote_rallies_triggers = yes
+		}
+
+		target_root_trigger = {
+			has_completed_focus = SOV_respect_baltic_self_determination
+			is_subject = no
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			FROM = {
+				#SOV_is_valid_subject = yes # The Soviet Union might not give a sh*t about their petty overlord ;) # -> THE USSR does indeed not care about their petty overlord, for now.
+				NOT = { has_war_with = ROOT }
+			}
+		}
+
+		visible = {
+		}
+
+		days_remove = SOV_ideological_rallies_days
+
+		fire_only_once = yes
+
+		cost = SOV_promote_ideology_rallies_cost
+
+		modifier = {
+			political_power_gain = -0.25
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			FROM = {
+				country_event = { id = NSB_soviet_foreign_politics_events.2 hours = 4 random_hours = 2 }
+			}
+			custom_effect_tooltip = SOV_promote_rallies_effects_tt
+			custom_effect_tooltip = SOV_promote_ideological_rallies_cd_tt
+		}
+	}
 
 	SOV_send_ultimatum_to_country_baltic = {
 		priority = 50
@@ -5214,7 +5350,7 @@ SOV_diplomacy_baltic_decision_category = {
 			}
 		}
 
-		#targets = { EST LAT LIT }
+		targets = { EST LAT LIT }
 
 		target_trigger = {
 			SOV_basic_ultimatum_triggers = yes
@@ -5246,8 +5382,37 @@ SOV_diplomacy_baltic_decision_category = {
 
 		cost = SOV_send_ultimatum_to_country_cost
 
-		remove_effect = { 
+		remove_effect = {
+			if = {
+				limit = {
+					FROM = { tag = EST }
+				}
+				EST = {
+					set_country_flag = SOV_ultimatum_sent_flag
+					country_event = { id = baltic.1 hours = 16 random_hours = 8 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = LAT }
+				}
+				LAT = {
+					set_country_flag = SOV_ultimatum_sent_flag
+					country_event = { id = baltic.2 hours = 16 random_hours = 8 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = LIT }
+				}
+				LIT = {
+					set_country_flag = SOV_ultimatum_sent_flag
+					country_event = { id = baltic.3 hours = 16 random_hours = 8 }
+				}
+			}
+			custom_effect_tooltip = SOV_ultimatum_baltic_effects_tt
 
+			custom_effect_tooltip = SOV_decision_will_be_locked_tt
 		}
 	}
 
@@ -5491,6 +5656,96 @@ SOV_diplomacy_baltic_decision_category = {
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = 10
+				}
+			}
+		}
+	}
+
+	SOV_fight_alongside_country_comrades_baltic = {
+		priority = 100
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 0.01
+				has_stability > 0.4
+				NOT = { #Join if it will not lead to a new war against a major
+					any_country = {
+						is_major = yes
+						has_war_with = FROM
+						NOT = { has_war_with = ROOT }
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+			modifier = {
+				factor = 1.5
+				has_manpower > 100000
+			}
+			modifier = {
+				factor = 10
+				FROM = { is_neighbor_of = ROOT }
+			}
+		}
+
+		targets = { EST LAT LIT }
+
+		target_trigger = {
+			SOV_basic_fight_alongside_comrades_triggers = yes
+		}
+
+		target_root_trigger = {
+			has_completed_focus = SOV_baltic_security
+			is_subject = no
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			has_war_support > 0.15
+			has_stability > 0.25
+			NOT = { has_war_with = FROM }
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				random_country = {
+					limit = {
+						original_tag = FROM
+						has_civil_war = yes
+						NOT = { has_government = ROOT }
+					}
+					ROOT = { add_to_war = { targeted_alliance = FROM enemy = PREV hostility_reason = asked_to_join } }
+				}
+			}
+			custom_effect_tooltip = BUL_fight_alongside_country_comrades_join_cw_tt #This tt works just fine :)
+
+			effect_tooltip = {
+				give_military_access = FROM
+				FROM = { give_military_access = ROOT }
+			}
+			hidden_effect = {
+				diplomatic_relation = {
+					country = FROM
+					relation = military_access
+					active = yes
+				}
+				FROM = {
+					diplomatic_relation = {
+						country = ROOT
+						relation = military_access
+						active = yes
+					}
 				}
 			}
 		}
@@ -7857,6 +8112,131 @@ SOV_national_academy_of_sciences_dec_cat = {
 #		}
 #	}
 
+	SOV_build_national_academy_of_sciences_integrated_republic_EST = {
+		priority = 1
+
+		icon = GFX_decision_SOV_academy_of_sciences
+
+		ai_will_do = { #Integrated republics go after puppets
+			base = 0.5
+		}
+
+		cosmetic_tag = EST
+		cosmetic_ideology = communism
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+		}
+
+		visible = {
+			has_completed_focus = SOV_national_academies_of_sciences
+			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_EST_flag }
+			NOT = { country_exists = EST }
+		}
+
+		fire_only_once = yes
+
+		cost = SOV_national_academy_of_sciences_construction_cost
+
+		days_remove = SOV_national_academy_of_sciences_construction_time
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			EST = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			set_country_flag = SOV_national_academy_of_sciences_built_EST_flag
+		}
+	}
+
+	SOV_build_national_academy_of_sciences_integrated_republic_LAT = {
+		priority = 1
+
+		icon = GFX_decision_SOV_academy_of_sciences
+
+		ai_will_do = { #Integrated republics go after puppets
+			base = 0.5
+		}
+
+		cosmetic_tag = LAT
+		cosmetic_ideology = communism
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+		}
+
+		visible = {
+			has_completed_focus = SOV_national_academies_of_sciences
+			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_LAT_flag }
+			NOT = { country_exists = LAT }
+		}
+
+		fire_only_once = yes
+
+		cost = SOV_national_academy_of_sciences_construction_cost
+
+		days_remove = SOV_national_academy_of_sciences_construction_time
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			LAT = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			set_country_flag = SOV_national_academy_of_sciences_built_LAT_flag
+		}
+	}
+
+	SOV_build_national_academy_of_sciences_integrated_republic_LIT = {
+		priority = 1
+
+		icon = GFX_decision_SOV_academy_of_sciences
+
+		ai_will_do = { #Integrated republics go after puppets
+			base = 0.5
+		}
+
+		cosmetic_tag = LIT
+		cosmetic_ideology = communism
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+		}
+
+		visible = {
+			has_completed_focus = SOV_national_academies_of_sciences
+			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_LIT_flag }
+			NOT = { country_exists = LIT }
+		}
+
+		fire_only_once = yes
+
+		cost = SOV_national_academy_of_sciences_construction_cost
+
+		days_remove = SOV_national_academy_of_sciences_construction_time
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			LIT = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			set_country_flag = SOV_national_academy_of_sciences_built_LIT_flag
+		}
+	}
 
 	SOV_build_national_academy_of_sciences_integrated_republic_POL = {
 		priority = 1

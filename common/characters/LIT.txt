@@ -1,0 +1,30 @@
+characters={
+	LIT_antanas_smetona={
+		name=LIT_antanas_smetona
+		portraits={
+			civilian={
+				large="GFX_Portrait_lithuania_antanas_smetona"
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	LIT_wilhelm_karl={
+		name=LIT_wilhelm_karl
+		portraits={
+			civilian={
+				large="GFX_portrait_LIT_karl_gero_von_urach_father"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			expire="1928.1.1.1" #dead at game start
+			id=-1
+			traits = {  }
+		}
+	}
+}

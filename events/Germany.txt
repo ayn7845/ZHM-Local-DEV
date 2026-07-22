@@ -6124,7 +6124,24 @@ country_event = {
 			}
 		}
 
-	
+		if = {
+			limit = {
+				has_guaranteed = LIT
+				is_guaranteed_by = LIT
+			}
+			diplomatic_relation = {
+				country = LIT
+				relation = guarantee
+				active = no
+			}
+			LIT = {
+				diplomatic_relation = {
+					country = POL
+					relation = guarantee
+					active = no
+				}
+			}
+		}
 
 		hidden_effect = {
 			news_event = { hours = 1 id = news.204 }
