@@ -93,7 +93,7 @@ SOV_is_free_chinese_tag = {
 		tooltip = SOV_is_free_chinese_tag_tt
 		OR = {
 			original_tag = CHI
-			#original_tag = PRC
+			
 		
 			original_tag = MAN
 			
