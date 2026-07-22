@@ -2402,6 +2402,7 @@ PHI_relations_with_spanish_america = {
 	PHI_propose_treaty_of_mutual_assistance = {
 		targets = { ARG MEX SPR SPA SPD SPB SPC }	#Spanish America + Spain
 		target_trigger = {
+			always = no
 			FROM = {
 				NOT = {
 					has_war_with = ROOT
@@ -2409,23 +2410,14 @@ PHI_relations_with_spanish_america = {
 				is_in_faction = no
 				is_subject = no
 				has_civil_war = no
-				if = {
-					limit =  {
-						original_tag = SPR
-					}
-					ROOT = {
-						has_completed_focus = PHI_reconciliation_with_spain
-					}
-				}
+				
 			}
 		}
 		target_root_trigger = {
-			has_completed_focus = PHI_hispanic_overtures
+			always = no
 			OR = {
 				is_faction_leader = yes
-				NOT = {
-					has_completed_focus = PHI_war_of_independence
-				}
+				
 			}
 		}
 		available = {	#these need to be updated more often than daily
@@ -2438,10 +2430,7 @@ PHI_relations_with_spanish_america = {
 		}
 		ai_will_do = {
 			factor = 100
-			modifier = {	#you have obtained support for indepence, other important things may now take priority
-				has_completed_focus = PHI_war_of_independence
-				add = -97
-			}
+			
 			modifier = {
 				FROM = {
 					OR = {
@@ -2487,7 +2476,7 @@ PHI_relations_with_spanish_america = {
 			}
 		}
 		target_root_trigger = {
-			has_completed_focus = PHI_reino_de_filipinas
+			always = no
 		}
 		available = {
 			NOT = {
@@ -2553,7 +2542,7 @@ PHI_relations_with_spanish_america = {
 	PHI_force_unification = {
 		targets = { ARG MEX SPR SPA SPD SPB SPC }	#Spanish America + Spain
 		target_root_trigger = {
-			has_completed_focus = PHI_reino_de_filipinas
+			always = no
 		}
 		target_trigger = {
 			FROM = {
