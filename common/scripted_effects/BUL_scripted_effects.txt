@@ -1781,30 +1781,7 @@ BUL_add_hidden_targeted_ns = {
 			add_ideas = BUL_anti_capitalism_pol
 		}
 	}
-	else_if = {
-		limit = {
-			original_tag = EST
-		}
-		ROOT = {
-			add_ideas = BUL_anti_capitalism_est
-		}
-	}
-	else_if = {
-		limit = {
-			original_tag = LAT
-		}
-		ROOT = {
-			add_ideas = BUL_anti_capitalism_lat
-		}
-	}
-	else_if = {
-		limit = {
-			original_tag = LIT
-		}
-		ROOT = {
-			add_ideas = BUL_anti_capitalism_lit
-		}
-	}
+	
 	else_if = {
 		limit = {
 			original_tag = SWE

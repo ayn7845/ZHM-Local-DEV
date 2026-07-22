@@ -142,10 +142,7 @@ ITA_is_protestant_or_orthodox_country_in_europe_for_pope = {
 		original_tag = FIN
 		original_tag = GER
 		original_tag = HOL
-		original_tag = LAT
-		original_tag = LIT
-		#ORTHODOX / MUSLIM
-		original_tag = EST
+	
 		original_tag = SOV
 		original_tag = ALB
 		original_tag = GRE

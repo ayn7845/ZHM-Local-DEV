@@ -13341,11 +13341,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_claims_in_baltic }
 
 		bypass = {
-			NOT = {
-				country_exists = EST
-				country_exists = LAT
-				country_exists = LIT
-			}
+			
 		}
 		allow_branch = {
 			always = no
@@ -13358,12 +13354,7 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			activate_targeted_decision = { target = EST decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = LAT decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = LIT decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = EST decision = SOV_pressure_country_government_baltic }
-			activate_targeted_decision = { target = LAT decision = SOV_pressure_country_government_baltic }
-			activate_targeted_decision = { target = LIT decision = SOV_pressure_country_government_baltic }
+			
 		}
 	}
 
@@ -17332,9 +17323,7 @@ focus_tree = {
 		}
 		available_if_capitulated = no
 
-		will_lead_to_war_with = EST
-		will_lead_to_war_with = LIT
-		will_lead_to_war_with = LAT
+		
 
 		search_filters = {}
 
@@ -17342,33 +17331,11 @@ focus_tree = {
 			is_subject = no
 		}
 		bypass = {
-			EST = {
-				OR = {
-					exists = no
-					has_war_with = SOV
-					is_subject_of = SOV
-				}
-			}
-			LAT = {
-				OR = {
-					exists = no
-					has_war_with = SOV
-					is_subject_of = SOV
-				}
-			}
-			LIT = {
-				OR = {
-					exists = no
-					has_war_with = SOV
-					is_subject_of = SOV
-				}
-			}
+			
 		}
 
 		completion_reward = {
-			create_wargoal = { type = annex_everything target = EST }
-			create_wargoal = { type = annex_everything target = LIT }
-			create_wargoal = { type = annex_everything target = LAT }
+			
 		}
 	}	
 
