@@ -3834,29 +3834,7 @@ GER_sweden_was_a_puppet_and_broke_free_so_now_we_are_angry = {
 	}
 }
 
-GER_sweden_joined_our_pact_so_we_are_kinda_happy = {
-	allowed = {
-		original_tag = GER
-	}
-	enable = {
-		SWE = { has_completed_focus = SWE_join_the_anti_soviet_pact }
-	}
 
-	abort = {
-		SWE = { has_war_with = GER }
-	}
-
-	ai_strategy = {
-		type = alliance
-		id = SWE
-		value = 50
-	}
-	ai_strategy = {
-		type = protect
-		id = SWE
-		value = 70
-	}
-}
 
 GER_dont_DOW_benelux = { #Don't try to bypass Around the Maginot!
 	allowed = {
