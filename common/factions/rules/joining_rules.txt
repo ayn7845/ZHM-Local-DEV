@@ -381,7 +381,7 @@ joining_rule_china_only = {
 		capital_scope = {
 			OR = {
 				is_core_of = CHI
-				#is_core_of = PRC
+				
 			}
 		}
 	}
@@ -402,7 +402,7 @@ joining_rule_china_only = {
 			capital_scope = {
 				OR = {
 					is_core_of = CHI
-					#is_core_of = PRC
+					
 				}
 			}
 		}
