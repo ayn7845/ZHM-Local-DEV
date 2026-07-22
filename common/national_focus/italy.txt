@@ -8938,7 +8938,7 @@ focus_tree = {
 		allow_branch = {
 			if = {
 				limit = {
-					has_dlc = "By Blood Alone"
+					
 					has_game_rule = {
 						rule = obsolete_focus_branches_visibility
 						option = HIDE
@@ -15024,24 +15024,26 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			if = {
-				limit = {
-					ALB = { has_war = no }
+			custom_effect_tooltip = ZHM_ITA_Ultimatum_alb
+			
+			hidden_effect = { 
+				every_state = { 
+					limit = { 
+						OR = { 
+							state = 44
+							state = 805
+							state = 934
+						}
+					}
+				transfer_state_to = ITA
+				set_compliance = 35
 				}
-				ALB = { country_event = { id = italy.3 hours = 1 } }
 			}
-			else = {
-				create_wargoal = {
-					type = take_state_focus
-					target = ALB
-					generator = { 44 }
-				}
-			}
+			
 
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
-				annex_country = { target = ALB }
-				add_named_threat = { threat = 2 name = ITA_albania_war_goal }
+				
 				# The king is an idea
 				if = {
 					limit = {
