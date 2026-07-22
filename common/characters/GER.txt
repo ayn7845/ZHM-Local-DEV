@@ -1368,12 +1368,7 @@ characters = {
 				planning_skill = 3
 				logistics_skill = 2
 				legacy_id = -1
-				visible = {
-					AND = {
-						original_tag = GER
-						has_country_flag = AUS_annexed
-					}
-				}
+				
 			}
 		}
 	}
@@ -1391,6 +1386,7 @@ characters = {
 				allowed = {
 					original_tag = GER
 				}
+				
 				traits = {
 					army_commando_2
 				}
@@ -1416,12 +1412,7 @@ characters = {
 				planning_skill = 3
 				logistics_skill = 2
 				legacy_id = -1
-				visible = {
-					AND = {
-						original_tag = GER
-						has_country_flag = AUS_annexed 
-					}
-				}
+				
 			}
 		}
 
@@ -1435,7 +1426,7 @@ characters = {
 				idea_token = AUS_eugen_beyer
 				ledger = army
 				allowed = {
-					original_tag = AUS
+					original_tag = GER
 				}
 				traits = {
 					army_commando_2
@@ -1469,12 +1460,7 @@ characters = {
 				planning_skill = 3
 				logistics_skill = 2
 				legacy_id = -1
-				visible = {
-					AND = {
-						original_tag = GER
-						has_country_flag = AUS_annexed 
-					}
-				}
+				
 			}
 			name = AUS_lothar_rendulic
 			portraits = { #add new art here
@@ -1504,12 +1490,7 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 2
 			legacy_id = -1
-			visible = {
-				AND = {
-					original_tag = GER
-					has_country_flag = AUS_annexed 
-				}
-			}
+			
 		}
 	}
 

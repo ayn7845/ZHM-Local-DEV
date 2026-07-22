@@ -470,6 +470,11 @@ add_ideas = {
 # Activates the MEFO Bills Mission
 activate_mission = GER_mefo_bills_mission
 
+# ZHM Austrian Character moved here since they're removed in Austria's file.
+recruit_character = AUS_franz_bohme
+recruit_character = AUS_eugen_beyer
+recruit_character = AUS_lothar_rendulic
+recruit_character = AUS_karl_eglseer
 # Character Recruitment
 recruit_character = GER_wilhelm_pieck
 recruit_character = GER_konrad_adenauer
@@ -1141,7 +1146,7 @@ if = {
 			special_type_slot_1 = empty
 		}
 		obsolete = yes
-		icon = GFX_GER_cv_fighter1_medium
+		icon = "GFX_GER_cv_fighter1_medium"
 	}
 	create_equipment_variant = {
 		name = "Bf 109 D"
