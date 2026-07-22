@@ -69,6 +69,10 @@ YUG = {
 	color = rgb { 72 73 126 }
 	color_ui = rgb { 94 95 164 }
 }
+SWI = {
+	color = rgb { 224 5 5 }
+	color_ui = rgb { 193 81 81 }
+}
 TUR = {
 	color = rgb { 0 0 0 }
 	color_ui = rgb { 0 0 0 }
@@ -76,6 +80,10 @@ TUR = {
 GRE = {
 	color = rgb { 93 181 227 }
 	color_ui = rgb { 121 235 255 }
+}
+ALB = {
+	color = rgb { 0 0 0 } # was 149 45 102
+	color_ui = rgb { 194 59 133 }
 }
 NOR = {
 	color = rgb { 111 71 71 }
