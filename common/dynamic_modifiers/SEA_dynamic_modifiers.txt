@@ -887,21 +887,7 @@ CHI_blue_shirt_society = {
 	army_morale_factor = CHI_blue_shirt_society_army_morale_factor
 }
 
-CHI_gung_ho_idea = {
-	icon = GFX_idea_CHI_initiate_gung_ho_movement
-	enable = {
-		has_war = yes 
-		has_completed_focus = CHI_initiate_the_gung_ho_movement
-	}
 
-	war_support_factor = CHI_gung_ho_idea_war_support_factor 
-	production_speed_arms_factory_factor = CHI_gung_ho_idea_production_speed_arms_factory_factor
-	production_factory_efficiency_gain_factor = CHI_gung_ho_idea_production_factory_efficiency_gain_factor 
-	production_factory_max_efficiency_factor = CHI_gung_ho_idea_production_factory_max_efficiency_factor 
-	industry_repair_factor = CHI_gung_ho_idea_repair_speed_factor 
-	production_speed_facility_factor = CHI_gung_ho_idea_production_speed_facility_factor
-	production_factory_start_efficiency_factor = CHI_gung_ho_idea_production_factory_start_efficiency_factor
-}
 
 CHI_new_life_movement = {
 	icon = GFX_idea_CHI_new_life_movement
