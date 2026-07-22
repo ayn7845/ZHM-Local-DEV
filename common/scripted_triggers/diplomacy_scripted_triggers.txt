@@ -153,21 +153,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			
 		}
 	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_release_nations
-				option = FREE
-			}
-			has_dlc = "Death or Dishonor"
-			original_tag = YUG
-			NOT = { has_completed_focus = YUG_reunite_the_kingdom }
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_RELEASE_NATIONS_NOT_YUGOSLAVIA_TOOLTIP
-		
-		}
-	}
+
 	if = {
 		limit = {
 			OR = {
@@ -523,7 +509,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			tooltip = RULE_ALLOW_RELEASE_NATIONS_WARLORD_CHINA_TOOLTIP
 			NOT = { 
 				FROM = { tag = CHI } 
-				#FROM = { tag = PRC } 
+			
 			}
 		}
 	}
@@ -1161,14 +1147,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 					tag = SPC
 					has_completed_focus = SPR_regional_defense_council_of_aragon
 				}
-				NOT = { 
-					AND = {
-						tag = ETH 
-						ETH = {
-							has_completed_focus = ETH_support_spain
-						}
-					}
-				}
+				
 			}
 			custom_trigger_tooltip = {
 				tooltip = RULE_VOLUNTEERS_NOT_ANARCHISTS_TT
@@ -1193,14 +1172,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 					tag = SPC
 					has_completed_focus = SPR_regional_defense_council_of_aragon
 				}
-				NOT = { 
-					AND = {
-						tag = ETH 
-						ETH = {
-							has_completed_focus = ETH_support_spain
-						}
-					}
-				}
+				
 			}
 			custom_trigger_tooltip = {
 				tooltip = RULE_VOLUNTEERS_NOT_ANARCHISTS_TT
@@ -1510,14 +1482,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		if = {
 			limit = {
 				NOT = { tag = SPC }
-				NOT = { 
-					AND = {
-						tag = ETH 
-						ETH = {
-							has_completed_focus = ETH_support_spain
-						}
-					}
-				}
+				
 				FROM = {
 					tag = SPC
 					has_completed_focus = SPR_regional_defense_council_of_aragon
