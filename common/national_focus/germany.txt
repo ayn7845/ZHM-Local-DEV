@@ -23645,7 +23645,7 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = if_they_accept_tt
-			custom_effect_tooltip = FRA_establish_spheres_of_influence #This is here so we can re-use this phrase in the available and bypass triggers for the focuses below
+			#custom_effect_tooltip = FRA_establish_spheres_of_influence #This is here so we can re-use this phrase in the available and bypass triggers for the focuses below
 			custom_effect_tooltip = GER_spheres_of_influence_tt
 			
 			add_named_threat = { threat = 5 name = GER_spheres_of_influence }
@@ -26923,125 +26923,12 @@ focus_tree = {
 			}
 		}
 
-		will_lead_to_war_with = AUS
+	
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-
-			AUS = {
-				country_event = {
-					id = wuw_GER_realpolitik.36
-					hours = 6
-					random_hours = 12
-				}	
-			}
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-
-				annex_country = {
-					target = AUS
-					transfer_troops = yes
-				}
-				GER_anschluss_modify_mefo_bills_or_economy_of_conquest = yes
-
-				custom_effect_tooltip =  generic_skip_one_line_tt
-				
-				AUS = {
-					every_core_state = {		
-						add_core_of = ROOT
-					}
-				}
-
-				AUS = {
-					IF = {
-						limit = {
-							has_completed_focus = AUS_bring_generals_out_of_retirement
-						}
-						AUS_wilhelm_gebauer = {
-							set_nationality = ROOT
-						}
-					}
-					
-					AUS_ludwig_von_eimannsberger = {
-						set_nationality = ROOT
-					}
-
-					AUS_anton_kienbauer = {
-						set_nationality = ROOT
-					}
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					HUN = {
-						exists = yes
-						is_subject = no
-						is_in_faction = no
-						OR = {
-							has_government = neutrality
-							has_government = democratic
-							has_government = fascism
-						}
-					}
-				}
-				HUN = {
-					country_event = {
-						id = wuw_GER_realpolitik.39
-						days = 2
-						random_days = 3
-					}	
-				}
-				custom_effect_tooltip = if_they_accept_tt
-				effect_tooltip = {
-
-					every_state = {
-						limit = {
-							OR = {
-								state = 664
-								state = 73
-								state = 76
-								state = 84
-								state = 83
-								state = 82
-								state = 45
-								state = 975
-							}
-						}
-						add_claim_by = HUN
-					}
-
-					HUN = {
-						set_cosmetic_tag = HUN_GREATER
-					}
-
-					custom_effect_tooltip = generic_skip_one_line_tt
-
-					every_controlled_state = {
-						limit = {
-							OR = {
-								state = 664
-								state = 73
-								state = 76
-								state = 84
-								state = 83
-								state = 82
-								state = 45
-								state = 975
-							}
-						}
-						transfer_state_to = HUN
-						add_core_of = HUN
-					}
-
-					ROOT = {
-						add_to_faction = HUN
-					}
-				}
-			}
+		completion_reward = { 
+			
 		}
 	}
 

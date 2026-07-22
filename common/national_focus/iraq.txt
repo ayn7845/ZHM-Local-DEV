@@ -3310,19 +3310,12 @@ focus_tree = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_completed_focus = IRQ_kurdish_revolt
-				}
-				add_dynamic_modifier = {
-					modifier = IRQ_navy_modifier_KUR
-				}
-			}
-			ELSE = {
+			
+			
 				add_dynamic_modifier = {
 					modifier = IRQ_navy_modifier_IRQ
 				}
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3794,17 +3787,7 @@ focus_tree = {
 		#relative_position_id = IRQ_ensure_sunni_dominance
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = IRQ_promote_kurdish_culture
-				}
-			}
+			
 		}
 
 		cost = 5
@@ -4265,7 +4248,7 @@ focus_tree = {
 		id = IRQ_al_muthanna_club
 		icon = GFX_focus_ITA_generic_fascist_workers
 		prerequisite = { focus = IRQ_bakr_sidqi_coup }
-		#mutually_exclusive = { focus = IRQ_curtail_arabism }
+		
 		x = 0
 		y = 2
 		relative_position_id = IRQ_party_of_national_brotherhood
@@ -4422,7 +4405,7 @@ focus_tree = {
 		id = IRQ_iraqi_al_futuwwa
 		icon = GFX_focus_generic_fascist_troops
 		prerequisite = { focus = IRQ_strengthen_the_golden_square }
-		#mutually_exclusive = { focus = IRQ_curtail_arabism }
+	
 		x = 4
 		y = 1
 		relative_position_id = IRQ_strengthen_the_golden_square
@@ -4449,15 +4432,9 @@ focus_tree = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_completed_focus = IRQ_curtail_arabism
-				}
-				add_ideas = IRQ_iraqi_al_futuwwa_no_fascism_idea
-			}
-			ELSE = {
+			
 				add_ideas = IRQ_iraqi_al_futuwwa_idea
-			}
+			
 			
 
 		}

@@ -2236,12 +2236,7 @@
 		}
 
 		available = {
-			NOT = {
-				OR = {
-					has_completed_focus = FRA_invite_communist_ministers
-					has_completed_focus = FRA_utilize_the_leagues
-				}
-			}
+		
 		}
 		
 		bypass = {
@@ -2658,22 +2653,12 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					not = { has_completed_focus = FRA_utilize_the_leagues }
-				}
-				set_temp_variable = { FRA_fascism = party_popularity@fascism }
-				add_popularity = { ideology = democratic popularity = FRA_fascism } 
-				multiply_temp_variable = { FRA_fascism = -1 }
-				add_popularity = { ideology = fascism popularity = FRA_fascism }
-			}
-			else = {
-				set_temp_variable = { FRA_democracy = party_popularity@democratic }
-				multiply_temp_variable = { FRA_democracy = 0.3 }
-				add_popularity = { ideology = fascism popularity = FRA_democracy } 
-				multiply_temp_variable = { FRA_democracy = -1 }
-				add_popularity = { ideology = democratic popularity = FRA_democracy }
-			}
+		
+				
+			set_temp_variable = { FRA_fascism = party_popularity@fascism }
+			add_popularity = { ideology = democratic popularity = FRA_fascism } 
+			multiply_temp_variable = { FRA_fascism = -1 }
+			add_popularity = { ideology = fascism popularity = FRA_fascism }
 			FRA_communism_riot_effect = yes
 		}
 	}	

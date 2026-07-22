@@ -2895,17 +2895,14 @@ allow_branch = {
 				limit = { 
 					OR = {
 						is_major = yes 
-						#original_tag = PRC
+					
 					}
 					has_government = communism
 				}
 				add_opinion_modifier = { target = ROOT modifier = JAP_anti_communist_bulwark }
 				ROOT = { add_opinion_modifier = { target = PREV modifier = JAP_anti_communist_bulwark } }
 			}
-			# SOV = { add_opinion_modifier = { target = ROOT modifier = JAP_anti_communist_bulwark } }
-			# PRC = { add_opinion_modifier = { target = ROOT modifier = JAP_anti_communist_bulwark } }
-			# add_opinion_modifier = { target = SOV modifier = JAP_anti_communist_bulwark }
-			# add_opinion_modifier = { target = PRC modifier = JAP_anti_communist_bulwark }
+			
 		}
 	}
 
@@ -10826,19 +10823,7 @@ allow_branch = {
 		}
 
 		available = {
-			any_controlled_state = {
-				OR = {
-					has_dynamic_modifier = {
-						modifier = PRC_guerilla_cells_active_1
-					}
-					has_dynamic_modifier = {
-						modifier = PRC_guerilla_cells_active_2
-					}
-					has_dynamic_modifier = {
-						modifier = PRC_anti_japanese_base
-					}
-				}
-			}	
+			
 		}
 
 		bypass = {
@@ -10919,11 +10904,7 @@ allow_branch = {
 						NOT = {
 							has_dlc = "No Compromise, No Surrender"
 						}
-						CHI = {
-							NOT = {
-								has_completed_focus = CHI_prepare_for_a_change_in_leadership
-							}
-						}
+						
 					}
 					CHI = {
 						exists = yes

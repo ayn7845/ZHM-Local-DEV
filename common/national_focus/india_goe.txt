@@ -580,8 +580,9 @@ focus_tree = {
         }
 
         allow_branch = {
+              always = no
         	if = {
-                always = no
+              
 				limit = {
 					has_game_rule = {
 						rule = obsolete_focus_branches_visibility
@@ -589,7 +590,7 @@ focus_tree = {
 					}
 				}
 	            NOT = {
-	            	has_completed_focus = RAJ_great_depression_price_controls
+	            	
 	            	has_completed_focus = RAJ_his_majestys_loyal_government
 	            	has_completed_focus = RAJ_league_against_gandhism
 	            }
@@ -661,7 +662,7 @@ focus_tree = {
 					}
 				}
 	            NOT = {
-	            	has_completed_focus = RAJ_great_depression_price_controls
+	            	
 	            	has_completed_focus = RAJ_his_majestys_loyal_government
 	            	has_completed_focus = RAJ_mahatma
 	            }
@@ -1930,7 +1931,7 @@ focus_tree = {
 					}
 				}
 	            NOT = {
-	            	has_completed_focus = RAJ_great_depression_price_controls
+	            
 	            	has_completed_focus = RAJ_his_majestys_loyal_government
 	            	has_completed_focus = RAJ_mahatma
 	            	has_completed_focus = RAJ_red_in_the_shadows
@@ -2165,7 +2166,7 @@ focus_tree = {
 					}
 				}
 	            NOT = {
-	            	has_completed_focus = RAJ_great_depression_price_controls
+	            
 	            	has_completed_focus = RAJ_his_majestys_loyal_government
 	            	has_completed_focus = RAJ_mahatma
 	            	has_completed_focus = RAJ_forward_bloc
