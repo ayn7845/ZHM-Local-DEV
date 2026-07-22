@@ -221,7 +221,7 @@ on_actions = {
 					NOT = {
 						OR = {
 							has_completed_focus = RAJ_red_in_the_shadows
-							has_completed_focus = RAJ_great_depression_price_controls
+							
 							has_completed_focus = RAJ_forward_bloc
 							has_completed_focus = RAJ_his_majestys_loyal_government
 						}

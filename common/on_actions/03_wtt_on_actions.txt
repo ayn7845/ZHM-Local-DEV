@@ -267,38 +267,8 @@ on_actions = {
 	}
 	
 	#FROM is faction leader on join faction requests.
-	on_offer_join_faction = {
-		effect = {
-			if = {
-				limit = {
-					FROM = { is_literally_china = yes }
-					event_target:WTT_current_china_leader = {
-						tag = ROOT
-					}
-					NOT = { has_dlc = "No Compromise, No Surrender" }
-				}
-				event_target:WTT_current_china_leader = {
-					CHI_unity_level_up = yes #adds surrender defense
-				}					
-			}
-		}
-	}
 
-	on_leave_faction = {
-		effect = {
-			if = {
-				limit = {
-					is_literally_china = yes
-					event_target:WTT_current_china_leader = {
-						tag = FROM
-					}
-				}
-				FROM = {
-					CHI_unity_level_down = yes #adds surrender defense
-				}					
-			}
-		}
-	}
+
 
 	#ROOT is subject FROM is overlord
 	on_subject_annexed = {
