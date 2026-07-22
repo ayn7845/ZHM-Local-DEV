@@ -45,7 +45,7 @@ characters={
 					original_tag = RAJ
 				}
 				visible = {
-					NOT = { has_completed_focus = RAJ_incorporation_of_the_east_india_company }
+					
 					has_completed_focus = RAJ_mahatma
 				}
 				available = {
@@ -1200,7 +1200,7 @@ characters={
 					#original_tag = PAK
 					AND = {
 						original_tag = RAJ
-						has_completed_focus = RAJ_the_mughal_uprising
+						always = no
 					}
 				}
 			}
@@ -1248,7 +1248,7 @@ characters={
 					#original_tag = PAK
 					AND = {
 						original_tag = RAJ
-						has_completed_focus = RAJ_the_mughal_uprising
+						always = no
 					}
 				}
 			}
@@ -1850,7 +1850,7 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
-				NOT = { has_completed_focus = RAJ_incorporation_of_the_east_india_company }
+				
 			}
 			available = {
 			}
@@ -2083,7 +2083,7 @@ characters={
 						
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2144,7 +2144,7 @@ characters={
 						}
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2199,7 +2199,7 @@ characters={
 						
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2254,7 +2254,7 @@ characters={
 						
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2372,7 +2372,7 @@ characters={
 						}
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2433,7 +2433,7 @@ characters={
 						}
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2494,7 +2494,7 @@ characters={
 						}
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2546,16 +2546,10 @@ characters={
 				
 				visible = {
 					OR = {
-						AND = {
-							original_tag = MYS
-							has_country_leader = {
-								ruling_only = yes
-								character = RAJ_maharaja_jayachamarajendra_wadiyar
-							}
-						}
+						
 						AND = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_mughal_court
+							always = no
 						}
 					}
 				}
@@ -2590,7 +2584,7 @@ characters={
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_lobby_parliment
+				always = no
 			}
 			traits = {
 				RAJ_conservationalist
@@ -2864,7 +2858,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				army_infantry_2
@@ -2890,7 +2884,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				army_logistics_1
@@ -2916,7 +2910,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				army_commando_2
@@ -2942,7 +2936,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				army_cavalry_2
@@ -2968,7 +2962,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				army_regrouping_2
@@ -2992,7 +2986,7 @@ RAJ_GOE_william_rhodes_davis= {
 			idea_token = RAJ_GOE_mughal_theorist
 			ledger = army
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			allowed = {
 				original_tag = RAJ
@@ -3015,7 +3009,7 @@ RAJ_GOE_william_rhodes_davis= {
 			slot = navy_chief
 			idea_token = RAJ_GOE_mughal_navy_guy
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			allowed = {
 				original_tag = RAJ
@@ -3039,7 +3033,7 @@ RAJ_GOE_william_rhodes_davis= {
 		advisor={
 			slot = air_chief
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			idea_token = RAJ_GOE_mughal_air_guy
 			allowed = {
@@ -3093,7 +3087,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				captain_of_industry 
@@ -3115,7 +3109,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				war_industrialist 
@@ -3137,7 +3131,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				silent_workhorse 
@@ -3159,7 +3153,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			visible = {
-				has_completed_focus = RAJ_the_mughal_uprising
+				always = no
 			}
 			traits = {
 				backroom_backstabber 

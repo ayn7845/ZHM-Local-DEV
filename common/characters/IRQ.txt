@@ -217,7 +217,7 @@ characters = {
 			logistics_skill = 2
 			legacy_id = -1 
 			visible = {
-				has_completed_focus = IRQ_commander_of_the_faithful
+				always = no
 			}
 		}
 
@@ -247,10 +247,7 @@ characters = {
 			logistics_skill = 3
 			legacy_id = -1 
 			visible = {
-				OR = {
-					has_completed_focus = IRQ_reapproachment_with_the_tribes
-					has_completed_focus = IRQ_kurdish_revolt
-				}
+				always = no
 			}
 		}
 				
@@ -275,10 +272,7 @@ characters = {
 			logistics_skill = 3
 			legacy_id = -1 
 			visible = {
-				OR = {
-					has_completed_focus = IRQ_reapproachment_with_the_tribes
-					has_completed_focus = IRQ_kurdish_revolt
-				}
+				always = no
 			}
 		}
 				
@@ -660,10 +654,7 @@ characters = {
 				}
 			}
 			available = {
-				has_completed_focus = IRQ_refuge_for_the_grand_mufti
-				NOT = {
-					is_in_faction_with = ENG
-				}
+				always = no
 			}
 			cost = 150
 			ai_will_do = {
@@ -693,11 +684,7 @@ characters = {
 				}
 			}
 			available = {
-				OR = {
-					has_completed_focus = IRQ_kurdish_outreach
-					has_completed_focus = IRQ_promote_kurdish_culture
-					has_completed_focus = IRQ_encourage_federalism
-				}
+				always = no
 			}
 			cost = 150
 			ai_will_do = {
@@ -989,10 +976,10 @@ characters = {
 			available = {
 				#Golden Square
 				has_government = fascism
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			visible = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+			
 			}
 			ai_will_do  = {
 				base = 1
@@ -1008,10 +995,10 @@ characters = {
 				air_air_superiority_2
 			}
 			visible = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			available = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			ai_will_do  = {
 				base = 1
@@ -1027,7 +1014,7 @@ characters = {
 			logistics_skill = 2
 			visible = {
 				#likely from start,  but might not stick around if going anything but golden square
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 		}
 	}
@@ -1308,7 +1295,7 @@ characters = {
 				IRQ_shiite_representative
 			}
 			available = {
-				has_completed_focus = IRQ_increase_prime_ministers_powers
+				always = no
 			}
 			ai_will_do  = {
 				factor  = 0.000
@@ -1329,7 +1316,7 @@ characters = {
 				has_dlc = "Graveyard of Empires" 
 			} 
 			visible = {
-				NOT = {has_completed_focus = IRQ_promote_kurdish_culture }
+				
 			}
 			slot = high_command
 			idea_token = IRQ_werner_junck
@@ -1370,10 +1357,7 @@ characters = {
 			}
 			cost = 100
 			available = {
-				OR = {
-					has_government = democratic
-					has_completed_focus = IRQ_allied_training
-				}
+				always = no
 			}
 			ai_will_do  = {
 				factor  = 0.000
@@ -1498,10 +1482,10 @@ characters = {
 				air_warfare_theorist
 			}
 			available = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			visible = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			cost = 100
 			ai_will_do = {
@@ -1521,10 +1505,10 @@ characters = {
 				air_chief_ground_support_2
 			}
 			available = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 			visible = {
-				NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 			}
 		}
 	}
@@ -1820,10 +1804,10 @@ characters = {
 				idea_token = IRQ_fahmi_said
 				ledger = army
 				available = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 				}
 				visible = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+					
 				}
 				traits = {
 					army_CombinedArms_2
@@ -1842,7 +1826,7 @@ characters = {
 				logistics_skill = 2
 				legacy_id = -1 
 				visible = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 				}
 			}
 		}
@@ -1892,10 +1876,10 @@ characters = {
 				idea_token = IRQ_kamil_shabib
 				ledger = army
 				available = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+					
 				}
 				visible = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 				}
 				traits = {
 					army_infantry_2
@@ -1915,7 +1899,7 @@ characters = {
 				logistics_skill = 2
 				legacy_id = -1 
 				visible = {
-					NOT = { has_completed_focus = IRQ_kurdish_revolt}
+				
 				}
 			}
 		}
@@ -1960,7 +1944,7 @@ characters = {
 					NOT = {
 						OR = {
 							has_completed_focus = IRQ_assasination_of_sidqi
-							has_completed_focus = IRQ_curtail_arabism
+							
 						}
 					}
 				}

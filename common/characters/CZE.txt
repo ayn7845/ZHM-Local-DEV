@@ -72,31 +72,7 @@
 					CZE_2nd_prezident CZE_diplomatic_workhorse de_facto_leader
 				}
 			}
-			advisor={
-				slot = political_advisor
-				idea_token = CZE_edvard_benesh_idea
-				can_be_fired = no
-				allowed  = {
-					original_tag  = CZE
-				}
-				available = {
-					has_government = democratic
-					is_country_leader = no
-					NOT = {
-						has_completed_focus = CZE_topple_the_king
-					}
-				}
-				visible = {
-					is_country_leader = no
-					has_government = democratic
-					NOT = {
-						has_completed_focus = CZE_topple_the_king
-					}
-				}
-				traits  = {
-					CZE_diplomatic_workhorse CZE_2nd_prezident
-				}
-			}
+			
 		}
 	}
 

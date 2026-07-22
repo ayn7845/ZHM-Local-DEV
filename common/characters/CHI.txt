@@ -149,9 +149,9 @@ characters = {
 				}
 				available = {
 					OR = {
-						has_completed_focus = CHI_scout_for_air_experts
+						
 						has_completed_focus = CHI_sea_hire_chennault
-						has_completed_focus = CHI_aeronautical_expertise
+						
 					}	
 					not_already_hired_except_as = air_chief
 
@@ -170,8 +170,7 @@ characters = {
 				cost = 25
 				available = {
 					OR = {
-						has_completed_focus = CHI_aeronautical_expertise
-						has_completed_focus = CHI_scout_for_air_experts
+					
 					}
 					not_already_hired_except_as = theorist
 					NOT = { has_war_with = USA }

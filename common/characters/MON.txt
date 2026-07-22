@@ -123,7 +123,7 @@ characters={
 					military_theorist
 				}
 				available = {
-					has_Completed_focus = MON_spirit_of_genkhis			
+					always = no	
 				}
 		}
 		name="Dagva Skibidriosil"
@@ -351,7 +351,7 @@ characters={
 				factor = 1.000
 			}
 			available = {
-				has_completed_focus = MON_army 
+				always = no
 			}
 		}
 

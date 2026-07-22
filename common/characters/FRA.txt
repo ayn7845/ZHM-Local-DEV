@@ -1078,7 +1078,7 @@ characters={
 				original_tag  = FRA
 			}
 			available  = {
-				has_completed_focus  = FRA_confirm_eastern_commitments 
+				always = no
 				has_government  = democratic 
 			}
 			cost  = 75.000
