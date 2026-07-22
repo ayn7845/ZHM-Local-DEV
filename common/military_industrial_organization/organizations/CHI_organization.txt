@@ -23,7 +23,7 @@ CHI_sino_german_technical_mission_organization = {
 				NOT = {
 					OR = {
 						tag = CHI
-						#tag = PRC
+					
 					}
 				}
 			}
@@ -67,7 +67,7 @@ CHI_camco_medium_organization = {
 				NOT = {
 					OR = {
 						tag = CHI
-						#tag = PRC
+					
 					}
 				}
 			}
@@ -108,7 +108,7 @@ CHI_camco_fighter_organization = {
 				NOT = {
 					OR = {
 						tag = CHI
-						#tag = PRC
+						
 					}
 				}
 			}
@@ -147,7 +147,7 @@ CHI_camco_bomber_organization = {
 				NOT = {
 					OR = {
 						tag = CHI
-						#tag = PRC
+						
 					}
 				}
 			}
