@@ -127,9 +127,7 @@ SOV_is_soviet_republic_tag_lax = {
 
 	
 
-		tag = EST
-		tag = LAT
-		tag = LIT
+	
 		tag = POL
 		tag = FIN
 		tag = MON
@@ -159,18 +157,7 @@ SOV_has_already_built_national_academy_of_sciences = {
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_TAN_flag }
 		}
 		
-		AND = {
-			FROM = { tag = EST }
-			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_EST_flag }
-		}
-		AND = {
-			FROM = { tag = LAT }
-			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_LAT_flag }
-		}
-		AND = {
-			FROM = { tag = LIT }
-			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_LIT_flag }
-		}
+	
 		AND = {
 			FROM = { tag = POL }
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_POL_flag }
@@ -1106,20 +1093,3 @@ SOV_is_stalinist = {
 	has_completed_focus = SOV_the_centre
 }
 
-SOV_we_want_to_send_ultimatums = {
-	OR = {
-		has_completed_focus = SOV_claims_in_baltic
-		focus_progress = {
-			focus = SOV_claims_in_baltic
-			progress > 0.01
-		}
-	}
-	any_other_country = {
-		OR = {
-			original_tag = LIT
-			original_tag = LAT
-			original_tag = EST
-		}
-		NOT = { has_country_flag = SOV_ultimatum_sent_flag }
-	}
-}

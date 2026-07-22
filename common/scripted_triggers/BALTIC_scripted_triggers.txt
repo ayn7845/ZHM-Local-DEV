@@ -13,30 +13,6 @@
 #	}
 # 
 
-is_baltic_country = {
-	OR = {
-		original_tag = LIT
-		original_tag = LAT
-		original_tag = EST
-	}
-}
-
-#Checking if SOV is in civil war
-is_SOS_active = {
-	AND = {
-		SOV = {
-			NOT = {has_government = communism} 
-		}
-		has_global_flag = SOV_soviet_civil_war
-		any_country = {
-			AND = {
-				original_tag = SOV
-				has_government = communism
-			}
-		}
-	}
-}
-
 suitable_fascist_major_in_europe = {
 	any_other_country = {
 		is_major = yes

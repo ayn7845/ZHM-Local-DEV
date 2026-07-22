@@ -1985,98 +1985,9 @@ SOV_wants_civ = {
 ###########################
 ### avoid attacking the baltics until we have sent ultimatums
 ###########################
-SOV_ultimatum_LIT = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		is_historical_focus_on = yes
-		LIT = {
-			NOT = { has_country_flag = SOV_ultimatum_sent_flag }
-		}
-	}
-	abort = {
-		OR = {
-			LIT = {
-				has_country_flag = { flag = SOV_ultimatum_sent_flag value = 1 days > 15 }
-			}
-			date > 1941.12.31 #If it's late then it's fine
-		}
-	}
 
-	ai_strategy = {
-		type = antagonize
-		id = LIT
-		value = -50
-	}
-	ai_strategy = {
-		type = conquer
-		id = LIT
-		value = -200
-	}
-}
 
-SOV_ultimatum_LAT = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		is_historical_focus_on = yes
-		LAT = {
-			NOT = { has_country_flag = SOV_ultimatum_sent_flag }
-		}
-	}
-	abort = {
-		OR = {
-			LAT = {
-				has_country_flag = { flag = SOV_ultimatum_sent_flag value = 1 days > 15 }
-			}
-			date > 1941.12.31 #If it's late then it's fine
-		}
-	}
 
-	ai_strategy = {
-		type = antagonize
-		id = LAT
-		value = -50
-	}
-	ai_strategy = {
-		type = conquer
-		id = LAT
-		value = -200
-	}
-}
-
-SOV_ultimatum_EST = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		is_historical_focus_on = yes
-		EST = {
-			NOT = { has_country_flag = SOV_ultimatum_sent_flag }
-		}
-	}
-	abort = {
-		OR = {
-			EST = {
-				has_country_flag = { flag = SOV_ultimatum_sent_flag value = 1 days > 15 }
-			}
-			date > 1941.12.31 #If it's late then it's fine
-		}
-	}
-
-	ai_strategy = {
-		type = antagonize
-		id = EST
-		value = -50
-	}
-	ai_strategy = {
-		type = conquer
-		id = EST
-		value = -200
-	}
-}
 
 #No longer necessary
 #SOV_nothing_bad_could_possibly_happen_now = {

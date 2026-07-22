@@ -3437,48 +3437,7 @@ country_event = {
 				random_days = 2 
 			}
 		}
-		effect_tooltip = {
-			IF = {
-				limit = {
-					original_tag = LIT
-					owns_state = 188
-				}
-				add_ideas = anti_soviet_pact
-				FROM = {
-					give_guarantee = ROOT
-				}
-				188 = {
-					transfer_state_to = FROM
-					add_core_of = FROM
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					original_tag = LIT
-					NOT = {
-						owns_state = 188
-					}
-				}
-				add_ideas = anti_soviet_pact
-				add_ideas = GER_paying_tributes_to_germany_idea
-				FROM = {
-					give_guarantee = ROOT
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					OR = {
-						original_tag = LAT
-						original_tag = EST
-					}
-				}
-				FROM = {
-					give_guarantee = ROOT
-				}
-				add_ideas = GER_paying_tributes_to_germany_idea
-				add_ideas = anti_soviet_pact
-			}
-		}
+		
 
 	}
 
@@ -3531,73 +3490,7 @@ country_event = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = LIT
-					owns_state = 188
-				}
-			}
-			FROM = {
-				add_ideas = anti_soviet_pact
-			}
-			give_guarantee = FROM
-			188 = {
-				transfer_state_to = ROOT
-				add_core_of = ROOT
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				FROM = {
-					original_tag = LIT
-					NOT = {
-						owns_state = 188
-					}
-				}
-			}
-			FROM = {
-				add_ideas = anti_soviet_pact
-				add_ideas = GER_paying_tributes_to_germany_idea
-			}
-			give_guarantee = FROM
-			add_timed_idea = {
-				idea = GER_recieving_payments_from_lithuania_idea
-				days = 180
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				FROM = {
-					original_tag = LAT
-				}
-			}
-			FROM = {
-				add_ideas = anti_soviet_pact
-				add_ideas = GER_paying_tributes_to_germany_idea
-			}
-			give_guarantee = FROM
-			add_timed_idea = {
-				idea = GER_recieving_payments_from_latvia_idea
-				days = 180
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				FROM = {
-					original_tag = EST
-				}
-			}
-			FROM = {
-				add_ideas = anti_soviet_pact
-				add_ideas = GER_paying_tributes_to_germany_idea
-			}
-			give_guarantee = FROM
-			add_timed_idea = {
-				idea = GER_recieving_payments_from_estonia_idea
-				days = 180
-			}
-		}
+		
 
 		GER_lower_CGFF_small = yes
 	}
@@ -11684,50 +11577,10 @@ country_event = {
 
 	is_triggered_only = yes
 
-	option = { # We should try to annex them
-		name = wuw_GER_realpolitik.5.a
-		ai_chance = {
-			base = 60
-			modifier = {
-				factor = 0
-				LIT = {
-					is_ai = no
-				}
-			}
-		}
-		
-		LIT = {
-			# Germany demands our annexation
-			country_event = {
-				id = wuw_GER_realpolitik.6
-				hours = 6
-				random_hours = 12
-			}	
-		}
-
-		# To determine the outcome of the response events
-		set_global_flag = GER_wishes_to_annex_lithuania_flag
+	option = { 
 
 	}
-	option = { # We should try to puppet them
-		name = wuw_GER_realpolitik.5.b
-		ai_chance = {
-			base = 40
-		}
-		
-		LIT = {
-			# Germany demands we become their vassal
-			country_event = {
-				id = wuw_GER_realpolitik.7
-				hours = 6
-				random_hours = 12
-			}	
-		}
-
-		# To determine the outcome of the response events
-		set_global_flag = GER_wishes_to_puppet_lithuania_flag
-
-	}
+	
 }
 
 # Germany wants to annex us - event for LIT
@@ -12450,24 +12303,7 @@ country_event = {
 			}
 		}
 
-		IF = {
-			limit = {
-				has_guaranteed = LIT
-				is_guaranteed_by = LIT
-			}
-			diplomatic_relation = {
-				country = LIT
-				relation = guarantee
-				active = no
-			}
-			LIT = {
-				diplomatic_relation = {
-					country = POL
-					relation = guarantee
-					active = no
-				}
-			}
-		}
+		
 
 		effect_tooltip = {
 			every_state = {
@@ -12798,24 +12634,7 @@ country_event = {
 			}
 		}
 
-		IF = {
-			limit = {
-				has_guaranteed = LIT
-				is_guaranteed_by = LIT
-			}
-			diplomatic_relation = {
-				country = LIT
-				relation = guarantee
-				active = no
-			}
-			LIT = {
-				diplomatic_relation = {
-					country = POL
-					relation = guarantee
-					active = no
-				}
-			}
-		}
+	
 		effect_tooltip = {
 			every_state = {
 				limit = {

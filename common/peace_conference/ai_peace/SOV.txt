@@ -20,8 +20,7 @@ peace_ai_desires = {
         peace_action_type = { take_states }
         enable = {
             tag = SOV  # Negotiatior is soviet union
-            NOT = { LIT = { is_subject_of = ROOT } }
-            FROM = { tag = ROOT }  # And the negotiator is also taking for themselves
+          
             FROM.FROM.FROM = { state = 188 }  # Memel
         }
 
@@ -33,8 +32,7 @@ peace_ai_desires = {
         peace_action_type = { take_states }
         enable = {
             tag = SOV  # Negotiatior is soviet union
-            LIT = { pc_is_puppeted_by = ROOT }
-            FROM = { tag = LIT }  # And the negotiator is also taking for themselves
+           
             FROM.FROM.FROM = { state = 188 }  # Memel
         }
 

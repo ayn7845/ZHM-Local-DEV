@@ -411,9 +411,7 @@ news_event = {
 				original_tag = SOV
 				original_tag = POL
 				original_tag = FIN
-				original_tag = EST
-				original_tag = LAT
-				original_tag = LIT
+				
 				is_in_faction_with = GER
 			}
 		}
@@ -427,9 +425,7 @@ news_event = {
 			OR = {
 				original_tag = POL
 				original_tag = FIN
-				original_tag = EST
-				original_tag = LAT
-				original_tag = LIT
+			
 			}
 		}
 	}
@@ -2474,7 +2470,7 @@ news_event = {
 		trigger = {
 			OR = {
 				original_tag = POL
-				original_tag = LIT
+				
 			}
 			NOT = { has_war_with = FROM }
 		}
@@ -2483,7 +2479,7 @@ news_event = {
 		name = wtt_news.57.b
 		trigger = {
 			NOT = { original_tag = POL }
-			NOT = { original_tag = LIT }
+		
 			NOT = { has_war_with = FROM }
 		}
 	}
@@ -2576,42 +2572,7 @@ news_event = {
 }
 
 # Formation of Baltic Federation
-news_event = {
-	id = wtt_news.60
-	title = wtt_news.60.t
-	desc = wtt_news.60.desc
-	picture = GFX_news_event_generic_parliament
 
-	is_triggered_only = yes
-	major = yes
-	
-	option = {
-		name = wtt_news.60.a
-		trigger = {
-			OR = {
-				original_tag = EST
-				original_tag = LAT
-				original_tag = LIT
-			}
-			NOT = { has_war_with = FROM }
-		}
-	}
-	option = {
-		name = wtt_news.60.b
-		trigger = {
-			NOT = { original_tag = EST }
-			NOT = { original_tag = LAT }
-			NOT = { original_tag = LIT }
-			NOT = { has_war_with = FROM }
-		}
-	}
-	option = {
-		name = wtt_news.53.c
-		trigger = {
-			has_war_with = FROM
-		}
-	}
-}
 
 # Formation of Ottoman Empire
 news_event = {

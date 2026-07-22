@@ -2811,36 +2811,7 @@ on_actions = {
 								}
 							}
 						}
-						EST = {
-							all_core_state = {
-								OR = {
-									is_controlled_by = ROOT
-									controller = {
-										is_in_faction_with = ROOT
-									}
-								}
-							}
-						}
-						LAT = {
-							all_core_state = {
-								OR = {
-									is_controlled_by = ROOT
-									controller = {
-										is_in_faction_with = ROOT
-									}
-								}
-							}
-						}
-						LIT = {
-							all_core_state = {
-								OR = {
-									is_controlled_by = ROOT
-									controller = {
-										is_in_faction_with = ROOT
-									}
-								}
-							}
-						}
+						
 					}
 					if = {
 						limit = {

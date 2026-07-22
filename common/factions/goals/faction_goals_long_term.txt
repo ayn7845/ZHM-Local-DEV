@@ -522,18 +522,7 @@ faction_goal_eastern_european_security = {
 		count_triggers = {
 			amount = 6
 				
-			EST = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			LAT = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			LIT = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
+			
 			POL = {
 				is_subject_of = ROOT
 				is_in_faction_with = ROOT

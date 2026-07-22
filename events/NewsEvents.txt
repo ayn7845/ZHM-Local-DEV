@@ -583,7 +583,6 @@ news_event = {
 		trigger = {
 			NOT = {
 				TAG = GER
-				TAG = LIT
 				is_in_faction_with = GER
 			}
 		}
@@ -593,15 +592,11 @@ news_event = {
 		trigger = { TAG = GER }
 	}
 	option = {
-		name = news.19.c
-		trigger = { TAG = LIT }
-	}
-	option = {
 		name = news.19.e
 		trigger = {
 			NOT = {
 				TAG = GER
-				TAG = LIT
+				
 			}
 			is_in_faction_with = GER
 		}
@@ -625,7 +620,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				TAG = GER
-				TAG = LIT
+				
 				is_in_faction_with = GER
 			}
 		}
@@ -634,16 +629,13 @@ news_event = {
 		name = news.20.b
 		trigger = { TAG = GER }
 	}
-	option = {
-		name = news.20.c
-		trigger = { TAG = LIT }
-	}
+	
 	option = {
 		name = news.20.b
 		trigger = {
 			NOT = {
 				TAG = GER
-				TAG = LIT
+				
 			}
 			is_in_faction_with = GER
 		}
@@ -2585,43 +2577,8 @@ news_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		if = {
-			limit = { FROM = { tag = LIT } }
-		 	SOV = {
-		 		annex_country = {
-				target = LIT
-				transfer_troops = yes } 
-				add_named_threat = { threat = 2 name = soviet.35_threat_LIT }
-			}
-		}
-		if = {
-			limit = { FROM = { tag = FIN } }
-		 	SOV = { 
-		 		annex_country = {
-				target = FIN
-				transfer_troops = yes } 
-				add_named_threat = { threat = 5 name = soviet.35_threat_FIN }
-			}
-		}
-		if = {
-			limit = { FROM = { tag = EST } }
-		 	SOV = { 
-		 		annex_country = {
-				target = EST
-				transfer_troops = yes } 
-				add_named_threat = { threat = 2 name = soviet.35_threat_EST }
-			}
-		}
-		if = {
-			limit = { FROM = { tag = LAT } }
-		 	SOV = {
-		 		annex_country = {
-				target = LAT
-				transfer_troops = yes }
-				add_named_threat = { threat = 2 name = soviet.35_threat_LAT }
-			}
-		}
+	immediate = { 
+
 	}
 }
 
@@ -8599,79 +8556,6 @@ news_event = {
 }
 
 #Poland Seeks Baltic Cooperation
-news_event = {
-	id = news.214
-	title = news.214.t
-	desc = {
-		text = news.214.d_baltic
-		trigger = {
-			OR = {
-				tag = EST
-				tag = LAT
-				tag = LIT
-			}
-		}
-	}
-	desc = {
-		text = news.214.d_not_baltic
-		trigger = {
-			NOT = {
-				OR = {
-					tag = EST
-					tag = LAT
-					tag = LIT
-				}
-			}
-		}
-	}
-	picture = GFX_news_event_polish_army
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_for_sender = no
-
-	option = {
-		name = news.214.a
-		trigger = {
-			NOT = {
-				OR = {
-					tag = EST
-					tag = LAT
-					tag = LIT
-					tag = GER
-					tag = SOV
-				}
-			}
-		}
-	}
-
-	option = {
-		name = news.214.b
-		trigger = {
-			tag = SOV
-		}
-	}
-
-	option = {
-		name = news.214.c
-		trigger = {
-			tag = GER
-		}
-	}
-
-	option = {
-		name = news.214.e
-		trigger = {
-			OR = {
-				tag = EST
-				tag = LAT
-				tag = LIT
-			}
-		}
-	}
-}
 
 
 #Anti-Soviet Pact
