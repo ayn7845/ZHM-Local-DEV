@@ -812,7 +812,7 @@ opinion_modifiers = {
 
 	AST_commitment_to_the_cause = { value = 25 }
 
-	CAN_permanent_joint_defense_board = { value = 25 }
+	
 	CAN_patriation_mod = { 
 		value = -40 
 		months = 36
