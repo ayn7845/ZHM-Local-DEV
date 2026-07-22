@@ -2020,8 +2020,7 @@ unit_medals = {
 	yug_extreme_bravery = {
 		
 		available = { 
-			tag = YUG
-			has_completed_focus = YUG_medal_for_extreme_bravery
+			always = no
 		}
 		frame = 1
 		icon = "GFX_medal_icon_default"
