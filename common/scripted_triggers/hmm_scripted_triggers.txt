@@ -100,7 +100,6 @@ ai_manpower = {
 		tag = CHI
 		tag = GRE
 		tag = DEN
-		tag = ALB
 		tag = IRE
 
 	}
