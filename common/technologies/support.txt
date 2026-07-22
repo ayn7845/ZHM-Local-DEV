@@ -1867,7 +1867,9 @@ technologies = {
 		enable_equipments = {
 			railway_gun_equipment_1
 		}
-		always = no
+		allow = { 
+			always = no
+		}
 		enable_equipment_modules = {
 			lc_hull_mounted_railway_gun #Module for Land Cruiser
 		}

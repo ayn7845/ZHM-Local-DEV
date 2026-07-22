@@ -9064,10 +9064,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_workers_government_idea
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_workers_government_idea
+			#	days = 365
+			#}
 			add_stability = 0.1
 			add_political_power = 100
 			hidden_effect = {
@@ -9182,10 +9182,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_revolutionary_spirit_idea
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_revolutionary_spirit_idea
+			#	days = 365
+			#}
 		}
 	}
 
@@ -10223,10 +10223,10 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.05
 			}
-			add_timed_idea = {
-				idea = SOV_support_of_the_peasants_idea
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_support_of_the_peasants_idea
+			#	days = 365
+			#}
 		}
 	}
 
@@ -10807,10 +10807,10 @@ focus_tree = {
 						is_in_faction_with = ROOT 
 					}
 				}
-				add_timed_idea = {
-					idea = SOV_enemies_of_the_people_idea
-					days = 365
-				}
+				#add_timed_idea = {
+				#	idea = SOV_enemies_of_the_people_idea
+				#	days = 365
+				#}
 			}
 			
 		}
@@ -10832,10 +10832,10 @@ focus_tree = {
 
 		completion_reward = {
 			add_war_support = 0.1
-			add_timed_idea = {
-				idea = SOV_soviet_hegemony_idea
-				days = 730
-			}
+			#add_timed_idea = {
+			#	idea = SOV_soviet_hegemony_idea
+			#	days = 730
+			#}
 
 		}
 	}
@@ -14492,7 +14492,7 @@ focus_tree = {
 					}
 				}
 			}
-			activate_targeted_decision = { target = CHI decision = SOV_send_infantry_equipment_asia }
+			#activate_targeted_decision = { target = CHI decision = SOV_send_infantry_equipment_asia }
 			custom_effect_tooltip = SOV_volunteers_allowed_kuomintang_tt
 		}
 	}
@@ -14576,10 +14576,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			unlock_decision_tooltip = {
-				decision = SOV_cancel_the_japanese_resource_rights_to_sakhalin_decision 
-				show_effect_tooltip = yes
-			}	
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			every_country = {
@@ -15660,7 +15657,7 @@ focus_tree = {
 						}
 					}
 				}
-				add_timed_idea = { idea = SOV_national_brotherhood_idea days = 730 }
+				#add_timed_idea = { idea = SOV_national_brotherhood_idea days = 730 }
 				add_opinion_modifier = { target = ROOT modifier = SOV_support_for_exiles }
 				add_ai_strategy = {
 					type = send_volunteers_desire
@@ -15797,10 +15794,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_aristocratic_investments_idea
-				days = 730
-			}
+			#add_timed_idea = {
+			#	idea = SOV_aristocratic_investments_idea
+				#days = 730
+			#}
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -15845,10 +15842,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_consolidate_power
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_consolidate_power
+			#	days = 365
+			#}
 			custom_effect_tooltip = SOV_consolidate_power_tt
 		}
 	}
@@ -15871,10 +15868,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_rebuild_the_nation
-				days = 540
-			}
+			#add_timed_idea = {
+			#	idea = SOV_rebuild_the_nation
+			#	days = 540
+			#}
 		}
 	}
 
@@ -16053,10 +16050,10 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.1
-			add_timed_idea = {
-				idea = SOV_rebuild_the_savior_cathedral
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_rebuild_the_savior_cathedral
+			#	days = 365
+			#}
 		}
 	}
 
@@ -16303,7 +16300,7 @@ focus_tree = {
 				popularity = 0.15
 			}
 			promote_character = SOV_konstantin_rodzayevsky
-			add_ideas = SOV_national_brotherhood_idea
+			#add_ideas = SOV_national_brotherhood_idea
 			news_event = { id = nsb_news.401 hours = 12 }
 			IF = { 
 				limit = { has_idea = SOV_uncertain_counter_revolution_idea }
@@ -16397,10 +16394,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = SOV_romanov_reconstruction
-				days = 730
-			}
+			#add_timed_idea = {
+			#	idea = SOV_romanov_reconstruction
+			#	days = 730
+			#}
 			IF = { 
 				limit = { has_idea = SOV_uncertain_counter_revolution_idea }
 				remove_ideas = SOV_uncertain_counter_revolution_idea
@@ -17771,10 +17768,10 @@ focus_tree = {
 						has_government = fascism
 					}
 				}
-				add_timed_idea = {
-					idea = SOV_russian_political_influence
-					days = 730
-				}
+				#add_timed_idea = {
+				#	idea = SOV_russian_political_influence
+				#	days = 730
+				#}
 			}
 			
 			custom_effect_tooltip = SOV_intervention_in_the_americas_tt
@@ -18034,16 +18031,16 @@ focus_tree = {
 				limit = {
 					has_dlc = "Man the Guns"
 				}
-				add_timed_idea = {
-					idea = SOV_modernize_the_far_eastern_fleet
-					days = 730
-				}
+				#add_timed_idea = {
+				#	idea = SOV_modernize_the_far_eastern_fleet
+				#	days = 730
+				#}
 			}
 			else = {
-				add_timed_idea = {
-					idea = SOV_modernize_the_far_eastern_fleet_vanilla
-					days = 730
-				}
+				#add_timed_idea = {
+				#	idea = SOV_modernize_the_far_eastern_fleet_vanilla
+				#	days = 730
+				#}
 			}
 		}
 	}
@@ -18075,10 +18072,10 @@ focus_tree = {
 					province = 957
 				}
 			}
-			add_timed_idea = {
-				idea = SOV_memories_of_1905_idea
-				days = 365
-			}
+			#add_timed_idea = {
+			#	idea = SOV_memories_of_1905_idea
+			#	days = 365
+			#}
 		}
 	}
 

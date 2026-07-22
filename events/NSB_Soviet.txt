@@ -4540,7 +4540,7 @@ country_event = {
 
 		hidden_effect = {
 			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.274 hours = 1 } }
-			activate_mission = SOV_sinkiang_mineral_prospection_mission_dummy
+			#activate_mission = SOV_sinkiang_mineral_prospection_mission_dummy
 		}
 	}
 
@@ -4817,7 +4817,7 @@ country_event = {
 
 		hidden_effect = {
 			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.277 hours = 1 } }
-			activate_mission = SOV_sinkiang_oil_prospection_mission_dummy
+			#activate_mission = SOV_sinkiang_oil_prospection_mission_dummy
 		}
 	}
 
@@ -5085,7 +5085,7 @@ country_event = {
 
 		hidden_effect = {
 			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.279 hours = 1 } }
-			activate_mission = SOV_sinkiang_military_aid_mission_dummy
+			#activate_mission = SOV_sinkiang_military_aid_mission_dummy
 		}
 	}
 
@@ -5383,7 +5383,7 @@ country_event = {
 
 		hidden_effect = {
 			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.281 hours = 1 } }
-			activate_mission = SOV_sinkiang_support_expansion_mission_dummy
+			#activate_mission = SOV_sinkiang_support_expansion_mission_dummy
 		}
 	}
 
@@ -10070,10 +10070,10 @@ country_event = {
 			}
 		}
 		ROOT = { 
-			add_timed_idea = { 
-				idea = SOV_arms_purchases_idea 
-				days = 365 
-			} 
+			#add_timed_idea = { 
+			#	idea = SOV_arms_purchases_idea 
+			#	days = 365 
+			#} 
 		}
 		set_variable = { SOV.SOV_japanese_rifles = 2500 }
 		set_variable = { SOV.SOV_japanese_guns = 200 }
@@ -10241,10 +10241,10 @@ country_event = {
 		}
 		ROOT = {
 			custom_effect_tooltip = SOV_baku_oil_fields_tt
-			add_timed_idea = {
-				idea = SOV_covert_military_buildup_idea
-				days = 60
-			}
+			#add_timed_idea = {
+				#idea = SOV_covert_military_buildup_idea
+				#days = 60
+			#}
 		}
 		FROM = {
 			set_country_flag = SOV_CSW_baku_oil_flag
@@ -10297,10 +10297,10 @@ country_event = {
 		ROOT = {
 			custom_effect_tooltip = SOV_baku_oil_fields_tt
 			custom_effect_tooltip = SOV_german_advisors_tt
-			add_timed_idea = {
-				idea = SOV_covert_military_buildup_idea
-				days = 120
-			}
+			#add_timed_idea = {
+			#	idea = SOV_covert_military_buildup_idea
+			#	days = 120
+			#}
 		}
 		FROM = {
 			set_country_flag = SOV_CSW_baku_oil_flag
@@ -10448,10 +10448,10 @@ country_event = {
 		}
 		ROOT = {
 			custom_effect_tooltip = SOV_ukraine_insurrection_tt
-			add_timed_idea = {
-				idea = SOV_covert_ukrainian_military_buildup_idea
-				days = 180
-			}
+			#add_timed_idea = {
+			#	idea = SOV_covert_ukrainian_military_buildup_idea
+			#	days = 180
+			#}
 		}
 		FROM = {
 			set_country_flag = SOV_CSW_ukraine_germany_flag
@@ -10624,14 +10624,14 @@ country_event = {
 		}
 		ROOT = {
 			custom_effect_tooltip = SOV_belarus_tt
-			add_timed_idea = {
-				idea = SOV_arms_purchases_idea
-				days = 150 # TODO set correct number of days
-			}
-			add_timed_idea = {
-				idea = SOV_covert_military_buildup_idea
-				days = 180 # TODO set correct number of days
-			}
+			#add_timed_idea = {
+			#	idea = SOV_arms_purchases_idea
+			#	days = 150 # TODO set correct number of days
+		#	}
+			#add_timed_idea = {
+			#	idea = SOV_covert_military_buildup_idea
+			#	days = 180 # TODO set correct number of days
+			#}
 		}
 		FROM = {
 			set_country_flag = SOV_CSW_belarus_uk_flag
@@ -10814,7 +10814,7 @@ country_event = {
 				infantry_equipment < 50
 			}
 		}
-		ROOT = { add_timed_idea = { idea = SOV_arms_purchases_idea days = 365 } }
+		#ROOT = { add_timed_idea = { idea = SOV_arms_purchases_idea days = 365 } }
 		IF = {
 			limit = { 
 				SOV_soviet_civil_war_not_started = yes 
@@ -11689,10 +11689,10 @@ country_event = {
 	option = {
 		name = NSB_soviet_fascist_tsarist.4.a
 		effect_tooltip = {
-			add_timed_idea = {
-				idea = SOV_russian_political_influence
-				days = 730
-			}
+			#add_timed_idea = {
+			#	idea = SOV_russian_political_influence
+			#	days = 730
+			#}
 		}
 	}
 }

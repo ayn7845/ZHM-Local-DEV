@@ -1705,10 +1705,10 @@ country_event = { #Fall of Manila
 		name = SEA_PHI_political_events.54.a
 		complete_national_focus = PHI_subject_surrender
 		hidden_effect = {
-        	add_timed_idea = {		#hidden so safe to reuse
-        		idea = BEL_surrender_ns
-        		days = 14
-    		}
+        	#add_timed_idea = {		#hidden so safe to reuse
+        	#	idea = BEL_surrender_ns
+        	#	days = 14
+    		#}
 		}
 	}
 }

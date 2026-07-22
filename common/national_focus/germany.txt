@@ -8554,24 +8554,18 @@ focus_tree = {
 			modifier = {
 				factor = 4
 				CZE = {
-					has_completed_focus = CZE_german_leanings
+				
 				}
 			}
 			modifier = {
 				factor = 4
 				CZE = {
 					OR = {
-						has_completed_focus = CZE_deliver_sudetenland
-						has_completed_focus = CZE_feeding_the_alligator
+						
 					}
 				}
 			}
-			modifier = {
-				factor = 2
-				CZE = {
-					has_completed_focus = CZE_go_right
-				}
-			}
+			
 			modifier = {
 				factor = 0
 				OR = {
@@ -8587,9 +8581,7 @@ focus_tree = {
 			if = {
 				limit = {
 					CZE = {
-						NOT = {
-							has_completed_focus = CZE_unify_the_fascist_parties
-						}
+						
 					}
 				}
 				CZE = {
@@ -8690,30 +8682,8 @@ focus_tree = {
 			}
 		}
 
-		bypass = {
-			OR = {
-				has_war_with = CZE
-				NOT = { country_exists = CZE }
-				CZE = {
-					is_subject = yes
-					NOT = { is_subject_of = ROOT }
-					OVERLORD = {
-						is_in_faction_with = ROOT
-					}	
-				}
-				CZE = { 
-					is_subject_of = ROOT
-					OR = {
-						has_completed_focus = CZE_german_minor_ally
-						has_completed_focus = CZE_german_puppet
-						has_completed_focus = CZE_complete_capitulation
-					}
-				}
-				CZE = {
-					has_completed_focus = CZE_work_with_germany
-					is_in_faction_with = ROOT
-				}
-			}
+		bypass = { 
+
 		}
 
 		will_lead_to_war_with = CZE
@@ -11610,54 +11580,25 @@ focus_tree = {
 
 		completion_reward = {
 			#limit wargoals to when it makes sense to give them. No faction, war or non exist
-			if = { 
-				limit = {
-					country_exists = BEL
-					NOT = { BEL = { is_in_faction_with = GER } }
-					NOT = { has_war_with = BEL }
-				}
+			
 				create_wargoal = {
 					type = take_state_focus
 					target = BEL
 					expire = 0
 					generator = { 6 }
 				}
-			}
-			if =  {
-				limit = {
-					country_exists = HOL
-					NOT = { HOL = { is_in_faction_with = GER } }
-					NOT = { has_war_with = HOL }
-					NOT = { HOL = { has_completed_focus = HOL_cave_to_the_germans } }
-				}
+			
+			
 				create_wargoal = {
 					type = take_state_focus
 					target = HOL
 					expire = 0
 					generator = { 7 }
 				}
-			}
-			if =  {
-				limit = {
-					country_exists = HOL
-					NOT = { HOL = { is_in_faction_with = GER } }
-					NOT = { has_war_with = HOL }
-					HOL = { has_completed_focus = HOL_cave_to_the_germans } 
-					NOT = { HOL = { has_completed_focus = HOL_the_netherlands_first } }
-				}
-				HOL = {
-					country_event = { id = mtg_germany.1 hours = 6 }
-				}
-			}
-			if = { 
-
-			}
-			if = {
-				limit = {
-					country_exists = LUX
-					NOT = { LUX = { is_in_faction_with = GER } }
-					NOT = { has_war_with = LUX }
-				}
+		
+			
+			
+			
 				create_wargoal = {
 					type = take_state_focus
 					target = LUX
@@ -11669,7 +11610,7 @@ focus_tree = {
 					id = LUX
 					value = 100
 				}		
-			}
+			
 			hidden_effect = {
 				news_event = { hours = 6 id = news.234 }
 			}
@@ -11860,7 +11801,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 10
+		cost = 0
 
 		bypass = {
 			OR = {
@@ -22154,28 +22095,8 @@ focus_tree = {
 
 		search_filters = {}
 
-		completion_reward = {
-			IF = {
-				limit = {
-					any_country = {
-						has_autonomy_state = autonomy_volkskommissariat
-					}
-				}
-				every_other_country = {
-					limit = {
-						has_autonomy_state = autonomy_volkskommissariat
-					}
+		completion_reward = { 
 
-					add_ideas = GER_volkskommissariat_military
-				}
-			}
-
-			ELSE = {
-				custom_effect_tooltip = GER_current_future_volkskommisariats_tt
-				effect_tooltip = {
-					add_ideas = GER_volkskommissariat_military
-				}
-			}
 		}
 	}
 	focus = {
@@ -22195,29 +22116,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-
-			IF = {
-				limit = {
-					any_country = {
-						has_autonomy_state = autonomy_volkskommissariat
-					}
-				}
-				every_other_country = {
-					limit = {
-						has_autonomy_state = autonomy_volkskommissariat
-					}
-
-					add_ideas = GER_volkskommissariat_economic_integration
-				}
-			}
-
-			ELSE = {
-				custom_effect_tooltip = GER_current_future_volkskommisariats_tt
-				effect_tooltip = {
-					add_ideas = GER_volkskommissariat_economic_integration
-				}
-			}
+		completion_reward = { 
+			
 		}
 	}
 	focus = {

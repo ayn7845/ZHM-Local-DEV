@@ -73,45 +73,8 @@ on_actions = {
 		}
 	}
 	on_ruling_party_change = {
-		effect = {
-			if = {
-				limit = {
-					has_dlc = "Trial of Allegiance"
-					OR = {
-						original_tag = URG
-						original_tag = PAR
-					}
-				}
-				if = {
-					limit = {
-						has_completed_focus = GUAY_the_permanent_leader
-						NOT = { has_country_leader_with_trait = JUNO_the_permanent_leader }
-					}
-
-					add_country_leader_trait = JUNO_the_permanent_leader
-				}
-
-				if = {
-					limit = {
-						has_completed_focus = GUAY_cult_of_personality
-						NOT = { has_country_leader_with_trait = JUNO_cult_of_personality }
-					}
-
-					add_country_leader_trait = JUNO_cult_of_personality
-				}
-
-			}
-		}
-		effect = {
-			IF = {
-				limit = {
-					NOT = { has_dlc = "Trial of Allegiance" }
-					original_tag = URG
-					has_cosmetic_tag = URG_is_unaligned_URG_but_has_normal_URG_flag
-				}
-				drop_cosmetic_tag = yes
-			}
-		}
+		
+		
 		effect = {
 			if = {
 				limit = {

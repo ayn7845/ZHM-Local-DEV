@@ -1433,7 +1433,7 @@ focus_tree = {
 
 		cost = 10
 		allow_branch = { 
-			always = No
+			always = no
 		}
 		ai_will_do = {
 			factor = 1

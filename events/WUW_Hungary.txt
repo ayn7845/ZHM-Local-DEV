@@ -4003,16 +4003,7 @@ country_event = {
 				HUN = { is_in_faction = yes }
 				factor = 2
 			}
-			modifier = {
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_great_austrian_economic_push
-						has_completed_focus = AUS_bring_phonix_insurance_from_the_ashes
-						has_completed_focus = AUS_apprentice_programmes
-					}
-				}
-				factor = 1.5
-			}
+			
 		}
 
 		effect_tooltip = {
@@ -4051,10 +4042,7 @@ country_event = {
 				strength_ratio = { tag = HUN ratio > 1.5 }
 				factor = 2
 			}
-			modifier = {
-				has_completed_focus = AUS_great_austrian_economic_push
-				factor = 2.5
-			}
+			
 		}
 
 		FROM = {

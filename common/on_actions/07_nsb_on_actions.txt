@@ -58,7 +58,7 @@ on_actions = {
 				limit = {
 					FROM.FROM = { state = 85 }
 				}
-				85 = { POL_remove_danzig_effect = yes }
+				#85 = { POL_remove_danzig_effect = yes }
 				if = {
 					limit = {
 						ROOT = {
@@ -82,30 +82,7 @@ on_actions = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					divisions_in_state = { state = FROM.FROM size > 0 }
-					FROM.FROM = { 
-						NOT = { 
-							AND = { 
-								has_state_flag = already_sabotaged_flag
-								is_core_of = controller # Should solve most instances of peaceful annexation
-							}
-						}
-					}
-					FROM = {
-						original_tag = POL
-						has_completed_focus = POL_sabotage_polish_industry
-						NOT = { 
-							has_country_flag = GER_sent_annex_proposal_flag # To solve GER European Confederation
-						}
-					}
-				}
-				FROM.FROM = { 
-					set_state_flag = poland_state_withdrawn
-					state_event = { id = poland.23 trigger_for = controller }
-				}
-			}
+			
 			if = {
 				limit = {
 					FROM.FROM = { state = 119 }
@@ -727,79 +704,7 @@ on_actions = {
 	#ROOT - country that just went to peace
 	on_peaceconference_ended = { 
 		effect = {
-			if = {
-				limit = {
-					ROOT = { original_tag = POL }
-					FROM = { original_tag = HUN }
-					POL = { has_completed_focus = POL_press_the_habsburg_claim }
-					HUN = { has_government = neutrality }
-				}
-				HUN = {
-					promote_character = HUN_otto_von_habsburg
-					add_ruling_to_neu = yes
-					set_politics = {
-						ruling_party = neutrality
-						elections_allowed = no
-						name = HUN_legitimists_party
-						long_name = HUN_legitimists_party_long
-					}
-					if = { #Switch to the Habsburg branch
-						limit = {
-							has_focus_tree = hungarian_focus
-						}
-						if = {
-							limit = {
-								has_completed_focus = HUN_economic_intervention
-							}
-							uncomplete_national_focus = {
-								focus = HUN_economic_intervention
-								uncomplete_children = yes
-							}
-						}
-						if = {
-							limit = {
-								has_completed_focus = HUN_elect_a_democratic_king
-							}
-							uncomplete_national_focus = {
-								focus = HUN_elect_a_democratic_king
-								uncomplete_children = yes
-							}
-						}
-						if = {
-							limit = {
-								has_completed_focus = HUN_elect_a_fascist_king
-							}
-							uncomplete_national_focus = {
-								focus = HUN_elect_a_fascist_king
-								uncomplete_children = yes
-							}
-						}
-						if = {
-							limit = {
-								NOT = { has_completed_focus = HUN_balanced_budget }
-							}
-							complete_national_focus = HUN_balanced_budget
-						}
-						if = {
-							limit = {
-								NOT = { has_completed_focus = HUN_elect_a_king }
-							}
-							complete_national_focus = HUN_elect_a_king
-						}
-						unlock_national_focus = HUN_invite_the_habsburg_prince
-						if = {
-							limit = {
-								NOT = { has_completed_focus = HUN_strengthen_the_monarchists }
-							}
-							complete_national_focus = HUN_strengthen_the_monarchists
-						}
-						swap_ideas = {
-							add_idea = HUN_habsburg_restored
-							remove_idea = HUN_hungarian_monarchy_2
-						}
-					}
-				}
-			}
+			
 			if = {
 				limit = {
 					tag = GER

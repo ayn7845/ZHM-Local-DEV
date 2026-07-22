@@ -58,12 +58,7 @@ focus_tree = {
         search_filters = { FOCUS_FILTER_MILITARY_CHARACTER }
 
         completion_reward = {
-            IF = {
-                limit = {
-                    NOT = {
-                        has_completed_focus = RAJ_look_to_the_past
-                    }
-                }
+           
                 every_army_leader = {
                     limit = {
                         has_trait = loyalty_to_india
@@ -78,10 +73,8 @@ focus_tree = {
                         }    
                     }
                 }
-            }
-            ELSE = {
-                army_experience = 50
-            }
+            
+           
         }
     }
 
@@ -370,9 +363,7 @@ focus_tree = {
 
         available = {
             992 = { is_fully_controlled_by = ROOT }
-            NOT = {
-                has_completed_focus = RAJ_look_to_the_past
-            }
+           
         }
         
         bypass = {
@@ -425,7 +416,7 @@ focus_tree = {
 
         available = {
             992 = { is_fully_controlled_by = ROOT }
-            NOT = { has_completed_focus = RAJ_look_to_the_past }
+            
         }
         
         bypass = {

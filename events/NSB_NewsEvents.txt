@@ -973,7 +973,7 @@ news_event = {
 			limit = {
 				has_completed_focus = SOV_the_fourth_international
 			}
-			add_timed_idea = { idea = SOV_the_fourth_international_idea days = 720 }
+			#add_timed_idea = { idea = SOV_the_fourth_international_idea days = 720 }
 			IF = {
 				limit = {
 					has_country_leader = {

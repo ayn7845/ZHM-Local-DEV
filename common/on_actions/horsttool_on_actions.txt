@@ -30,10 +30,10 @@ on_actions = {
 				limit = {has_game_rule = {rule = horst_host_country option = BUL}}
 				set_variable={host = BUL.id}
 			}
-			else_if = {
-				limit = {has_game_rule = {rule = horst_host_country option = YUG}}
-				set_variable={host = YUG.id}
-			}
+			#else_if = { # ZHM We're not having yugoslavia as a fucking playable
+			#	limit = {has_game_rule = {rule = horst_host_country option = YUG}}
+			#	set_variable={host = YUG.id}
+			#}
 			# Co-prosperity Sphere
 			else_if = {
 				limit = {has_game_rule = {rule = horst_host_country option = JAP}}
@@ -43,10 +43,10 @@ on_actions = {
 				limit = {has_game_rule = {rule = horst_host_country option = MAN}}
 				set_variable={host = MAN.id}
 			}
-			else_if = {
-				limit = {has_game_rule = {rule = horst_host_country option = SIA}}
-				set_variable={host = SIA.id}
-			}
+			#else_if = { # ZHM Siam removed day 1
+			#	limit = {has_game_rule = {rule = horst_host_country option = SIA}}
+			#	set_variable={host = SIA.id}
+			#}
 			# allies
 			else_if = {
 				limit = {has_game_rule = {rule = horst_host_country option = ENG}}
@@ -84,10 +84,10 @@ on_actions = {
 				limit = {has_game_rule = {rule = horst_host_country option = BRA}}
 				set_variable={host = BRA.id}
 			}
-			else_if = {
-				limit = {has_game_rule = {rule = horst_host_country option = HOL}}
-				set_variable={host = HOL.id}
-			}
+			#else_if = { # ZHM We're not having netherlands as a fucking playable
+			#	limit = {has_game_rule = {rule = horst_host_country option = HOL}}
+			#	set_variable={host = HOL.id}
+			#}
 			# comintern
 			else_if = {
 				limit = {has_game_rule = {rule = horst_host_country option = SOV}}

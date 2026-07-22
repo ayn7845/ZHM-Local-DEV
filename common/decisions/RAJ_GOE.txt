@@ -692,7 +692,7 @@ political_actions = {
 
 		visible = {
 			original_tag = RAJ 
-			has_completed_focus = RAJ_revisiting_inquities
+			always = no
 		}
 
 		available = {
@@ -1521,7 +1521,7 @@ RAJ_GOE_eic_hostile_takeover_cat = {
 			if = {
 				limit = {
 					is_ai = yes
-					NOT = { has_completed_focus = RAJ_deathknell_to_the_raj }
+					
 				}
 				is_in_array = {
 					array = RAJ.owned_states_at_game_start
@@ -1648,25 +1648,12 @@ RAJ_GOE_eic_hostile_takeover_cat = {
 				add = 10
 
 			}
-			modifier = {
-
-				NOT = {
-					is_in_array = {
-						array = RAJ.owned_states_at_game_start
-						value = FROM
-					}
-				}
-				has_completed_focus = RAJ_deathknell_to_the_raj
-				num_of_owned_factories > 30
-
-				add = 10
-
-			}
+		
 		}
 
 		state_target = yes
 		visible = {
-			has_completed_focus = RAJ_hostile_takeover
+			always = no
 		}
 		days_re_enable = 14
 

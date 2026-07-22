@@ -46,6 +46,11 @@ horst_host_country = {
 		text = "Japan"
 		desc = ""
 	}
+	option = {
+		name = MAN
+		text = "Manchukuo"
+		desc = ""
+	}
 	# allies
 	option = {
 		name = ENG
@@ -80,6 +85,11 @@ horst_host_country = {
 	option = {
 		name = SAF
 		text = "South Africa"
+		desc = ""
+	}
+	option = {
+		name = MEX
+		text = "Mexico"
 		desc = ""
 	}
 	option = {

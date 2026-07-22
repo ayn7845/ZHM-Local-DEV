@@ -903,13 +903,7 @@ faction_goal_the_two_seas = {
 	}
 	ai_will_do = {
 		base = 0
-		modifier = {
-			add = 10
-			OR = {
-				has_completed_focus = POL_the_between_the_seas_concept
-				has_completed_focus = POL_sea_to_sea
-			}
-		}
+		
 	}
 }
 

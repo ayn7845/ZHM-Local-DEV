@@ -12291,11 +12291,7 @@ war_measures = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CHI_holding_state_mission_trigger
-				CHI = {
-					NOT = {
-						has_active_mission = CHI_holding_state_mission
-					}
-				}
+				
 			}
 			
 		}

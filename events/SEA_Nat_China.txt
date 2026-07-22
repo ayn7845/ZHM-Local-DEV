@@ -593,25 +593,7 @@ country_event = { # Event for Chiang get's killed
 			base = 10
 		}
 		#CHI_kill_chiang_for_new_leader = yes
-		if = {
-			limit = {
-				has_country_flag = CHI_chiang_died_during_liangguang_incident_flag
-				OR = {
-					fascism > 0.3
-					has_completed_focus = CHI_reform_the_blue_shirts
-				}
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = GXC
-				expire = 365
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = GDC
-				expire = 365
-			}
-		}
+		
 	}
 }
 
@@ -1525,15 +1507,7 @@ country_event = { # Event for pressing warlords to become subject
 				}
 				factor = 0
 			}
-			modifier = {
-				has_completed_focus = CHI_cooperation_with_the_nationalists
-				add = 2
-			}
-
-			modifier = {
-				has_completed_focus = CHI_join_the_republican_government
-				add = 2
-			}
+			
 
 			modifier = {
 				has_opinion = {
@@ -1648,33 +1622,9 @@ country_event = { # Warlord accepts event
 			}
 		}
 
-		if = {
-			limit = {
-				has_completed_focus = CHI_appoint_sympathetic_judges
-				FROM = { NOT = { has_idea = idea_CHI_sympathetic_judges } }
-			}
-			FROM = {
-				add_ideas = idea_CHI_sympathetic_judges
-			}
-		}
+	
 
-		if = {
-			limit = {
-				has_completed_focus = CHI_take_control_of_the_executive_yuan 
-			}
-
-			every_subject_country = {
-				limit = {
-					is_chinese_warlord = yes
-					NOT = { tag = FROM }
-				}
-
-				add_autonomy_ratio = { 
-					value = -0.03
-					localization = CHI_take_control_of_the_executive_yuan
-				}
-			}
-		}
+		
 	}
 }
 
@@ -1812,7 +1762,7 @@ country_event = {
 	option = { # Chinese Action Committee 
 		name = SEA_china_democratic.1.a
 		trigger = {
-			has_completed_focus = CHI_revive_the_chinese_action_committee
+			always = no
 		}
 		ai_chance = {
 			base = 10
@@ -1852,7 +1802,7 @@ country_event = {
 	option = { # Carsun Chang 
 		name = SEA_china_democratic.1.b
 		trigger = {
-			has_completed_focus = CHI_invite_carsun_chang
+			always = no
 		}
 		ai_chance = {
 			base = 10
@@ -1882,7 +1832,7 @@ country_event = {
 	option = { # Soong Ching Ling 
 		name = SEA_china_democratic.1.c
 		trigger = {
-			has_completed_focus = CHI_give_protection_of_civil_rights
+			always = no
 		}
 		ai_chance = {
 			base = 10
@@ -1917,7 +1867,7 @@ country_event = {
 	option = { # Zeng Qi (YCP)
 		name = SEA_china_democratic.1.d
 		trigger = {
-			has_completed_focus = CHI_ally_the_young_china_party
+			always = no
 		}
 		ai_chance = {
 			base = 10
@@ -2173,10 +2123,10 @@ country_event = {
 		}
 		name = SEA_china_democratic.6.a
 
-		add_timed_idea = {
-			idea = CHI_republican_agitation
-			days = 720
-		}
+		#add_timed_idea = {
+		#	idea = CHI_republican_agitation
+			#days = 720
+		#}
 		set_country_flag = received_CHI_republican_agitation_flag
 	}
 
@@ -2611,25 +2561,8 @@ country_event = { # Event for pressing warlords to become subject
 		name = SEA_china_democratic.17.a #Refuse
 		ai_chance = {
 			base = 1
-			modifier = {
-				has_completed_focus = CHI_opposition
-				add = 2
-			}
+			
 
-			modifier = {
-				has_completed_focus = CHI_proclaim_rival_government
-				add = 4
-			}
-
-			modifier = {
-				has_completed_focus = CHI_cooperation_with_the_communists
-				add = 1
-			}
-
-			modifier = {
-				has_completed_focus = CHI_join_the_chinese_soviet
-				add = 2.5
-			}
 		}
 
 		FROM = {
@@ -2664,15 +2597,7 @@ country_event = { # Event for pressing warlords to become subject
 				factor = 0
 			}
 
-			modifier = {
-				has_completed_focus = CHI_cooperation_with_the_nationalists
-				add = 2
-			}
-
-			modifier = {
-				has_completed_focus = CHI_join_the_republican_government
-				add = 2
-			}
+		
 
 			modifier = {
 				has_government = FROM
@@ -2814,10 +2739,10 @@ country_event = { # [FROM.GetNameDefCap] Demands Application of Mínquán!
 			base = 100
 		}
 		
-		add_timed_idea = {
-			idea = idea_CHI_central_government_minquan_pressure_democratic
-			days = 365
-		}
+		#add_timed_idea = {
+		#	idea = idea_CHI_central_government_minquan_pressure_democratic
+		#	days = 365
+		#}
 		clr_country_flag = CHI_currently_being_asked_about_minquan
 
 	}
@@ -2844,7 +2769,7 @@ country_event = { #China is losing against PRC
 	trigger = {
 		original_tag = CHI
 		is_subject = no
-		has_completed_focus = CHI_dang_guo
+	
 		always = no
 		surrender_progress > 0.7
 		524 = { is_fully_controlled_by = ROOT}

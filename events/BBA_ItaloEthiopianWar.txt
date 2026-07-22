@@ -82,10 +82,10 @@ unit_leader_event = { # THIS IS ACTUALLY THE FIRST MISSIOLINI!
 			days = 180
 		}
 		ETH =  {
-			add_timed_idea = {
-				idea = ETH_italian_offensive_idea
-				days = 180
-			}
+			#add_timed_idea = {
+			#	idea = ETH_italian_offensive_idea
+			#	days = 180
+			#}
 		}
 
 		# Other effects for ETH

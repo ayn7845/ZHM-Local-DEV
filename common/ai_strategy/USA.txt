@@ -1432,10 +1432,7 @@ USA_democracy_on_JAP = {
 		}
 	}
 
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 105 # perl harbor
-	}
+	
 }
 
 USA_onto_the_beaches = {

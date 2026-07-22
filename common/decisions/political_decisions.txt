@@ -2000,19 +2000,9 @@ political_actions = {
 		cost = 50
 
 		cancel_trigger = {
-			if = {
-				limit = {
-					original_tag = AUS
-				}
-				OR = {
-					has_completed_focus = AUS_clamp_down_on_dnsap
-					has_completed_focus = AUS_ban_dnsap
-					has_completed_focus = AUS_rebuild_democratic_systems
-				}
-			}
-			else = {
-				always = no
-			}
+			
+			always = no
+			
 		}
 
 		complete_effect = {
@@ -2710,15 +2700,7 @@ political_actions = {
 					has_idea = SPR_political_violence
 				}
 			}
-			if = {
-				limit = {
-					tag = TUR
-					has_dlc = "Battle for the Bosporus"
-				}
-				NOT = {
-					has_completed_focus = TUR_privatize_the_anadolu_agency
-				}
-			}
+			
 			if = {
 				limit = {
 					original_tag = BUL
@@ -2831,15 +2813,7 @@ political_actions = {
 					has_idea = SPR_political_violence
 				}
 			}
-			if = {
-				limit = {
-					tag = TUR
-					has_dlc = "Battle for the Bosporus"
-				}
-				NOT = {
-					has_completed_focus = TUR_privatize_the_anadolu_agency
-				}
-			}
+			
 			if = {
 				limit = {
 					original_tag = BUL
@@ -2889,27 +2863,7 @@ political_actions = {
 				NOT = { has_completed_focus = FIN_the_lone_wolf }
 				neutrality < 0.85
 			}
-			modifier = {
-				add = 1
-				has_dlc = "No Compromise, No Surrender"
-				original_tag = CHI
-				NOT = { has_completed_focus = CHI_end_military_primacy }
-				fascism > 0.1
-			}
-			modifier = {
-				add = 1.5
-				has_dlc = "No Compromise, No Surrender"
-				original_tag = CHI
-				NOT = { has_completed_focus = CHI_end_military_primacy }
-				communism > 0.1
-			}
-			modifier = {
-				add = 2.5
-				has_dlc = "No Compromise, No Surrender"
-				original_tag = CHI
-				NOT = { has_completed_focus = CHI_end_military_primacy }
-				communism > 0.25
-			}
+			
 		}
 	}
 }

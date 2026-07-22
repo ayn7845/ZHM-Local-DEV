@@ -3989,48 +3989,8 @@ country_event = { #Germany makes us a volkskommissariat
 
 	is_triggered_only = yes
 
-	option = { #For the workers we will!
-		name = wuw_GER_diplomacy.71.a
-		ai_chance = {
-			base = 10
-		}
+	option = { 
 
-		FROM = {
-			set_autonomy = {
-				target = ROOT
-				autonomy_state = autonomy_volkskommissariat
-				end_wars = no 
-				end_civil_wars = no 
-			}
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_completed_focus = GER_instill_german_discipline
-				}
-
-				NOT = {
-					has_idea = GER_volkskommissariat_military
-				}
-			}
-
-			add_ideas = GER_volkskommissariat_military
-		}
-
-		IF = {
-			limit = {
-				FROM = {
-					has_completed_focus = GER_integrate_subjects_economies
-				}
-
-				NOT = {
-					has_idea = GER_volkskommissariat_economic_integration
-				}
-			}
-
-			add_ideas = GER_volkskommissariat_economic_integration
-		}
 	}
 }
 
@@ -14090,94 +14050,7 @@ country_event = {
 				name = AUS_fascism_vaterlandische_front
 			}
 
-			hidden_effect = {
-				IF = {
-					limit = {
-						NOT = {
-							has_completed_focus = AUS_legacy_of_the_empire
-						}
-					}
-					IF = {
-						limit = {
-							has_country_leader = {
-								ruling_only = yes # default = yes
-								character = HUN_otto_von_habsburg
-							}
-						}
-
-						add_dynamic_modifier = {
-							modifier = AUS_habsburg_monarchy_restored
-						}
-					}
-
-					ELSE = {
-						add_dynamic_modifier = {
-							modifier = AUS_austrian_monarchy_restored
-						}
-					}
-
-					add_to_variable = { AUS_habsburg_monarchy_restored_neutrality_drift = 0.02 tooltip = neutrality_drift_tt }
-					add_to_variable = { AUS_habsburg_monarchy_restored_drift_defence_factor = 0.3 tooltip = drift_defence_factor_tt }
-					add_to_variable = { AUS_habsburg_monarchy_restored_war_support_factor = 0.05 tooltip = war_support_factor_tt }
-
-
-					IF = {
-						limit = {
-							HUN = {
-								exists = yes
-							}
-						}
-						HUN = {
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = AUS_imperilalist_sentiments
-							}
-						}		
-					}
-
-					IF = {
-						limit = {
-							CZE = {
-								exists = yes
-							}
-						}
-						CZE = {
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = AUS_imperilalist_sentiments
-							}
-						}		
-					}
-
-					IF = {
-						limit = {
-							YUG = {
-								exists = yes
-							}
-						}
-						YUG = {
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = AUS_imperilalist_sentiments
-							}
-						}		
-					}
-
-					IF = {
-						limit = {
-							ROM = {
-								exists = yes
-							}
-						}
-						ROM = {
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = AUS_imperilalist_sentiments
-							}
-						}		
-					}
-				}
-			}
+			
 
 			IF = {
 				limit = {

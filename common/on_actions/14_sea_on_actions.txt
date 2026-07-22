@@ -380,60 +380,7 @@ on_actions = {
 						}
 					}
 				}
-				ROOT = {
-					if = {
-						limit = {
-							has_completed_focus = CHI_the_hump_sea
-							NOT = { 
-								has_idea = CHI_the_hump_sea_hidden 
-								any_enemy_country = {
-									controls_state = 601
-									controls_state = 434
-									controls_state = 747
-								}		
-							}
-
-						}
-
-						add_ideas = CHI_the_hump_sea_hidden
-					}
-
-					if = {
-						limit = {
-							has_completed_focus = CHI_the_hanoi_route
-							NOT = { 
-								has_idea = CHI_the_hanoi_route_hidden 
-								any_enemy_country = {
-									controls_state = 325
-									controls_state = 671
-								}
-							}
-						}
-						
-						add_ideas = CHI_the_hanoi_route_hidden	
-					}
-
-					if = {
-						limit = {
-							has_completed_focus = CHI_the_burma_road
-							NOT = { 
-								has_idea = CHI_the_burma_road_hidden 
-								any_enemy_country = {
-									controls_state = 995
-									controls_state = 640
-									controls_state = 998
-									controls_state = 434
-									controls_state = 990
-									controls_state = 432
-									controls_state = 288
-									controls_state = 997
-									controls_state = 996	
-								}
-							}
-						}
-						add_ideas = CHI_the_burma_road_hidden
-					}
-				}
+			
 			}
 			else_if = {
 				limit = {
@@ -459,21 +406,7 @@ on_actions = {
 
 						}
 
-						if = {
-							limit = {
-								has_completed_focus = CHI_the_northwest_highway
-								NOT = { has_idea = CHI_northwest_highway_hidden }
-							}
-							add_ideas = CHI_northwest_highway_hidden
-						}
-
-						if = {
-							limit = {
-								has_completed_focus = CHI_facilitate_operation_zet
-								NOT = { has_idea = CHI_operation_zet_hidden }
-							}
-							add_ideas = CHI_operation_zet_hidden
-						}
+					
 
 						set_variable = { CHI_soviet_support_army_armor_attack_factor = CHI_soviet_support_army_armor_attack_factor_default }
 						set_variable = { CHI_soviet_support_army_armor_speed_factor = CHI_soviet_support_army_armor_speed_factor_default }
@@ -728,49 +661,9 @@ on_actions = {
 			}
 				
 
-			if = {
-				limit = {
-					FROM = { 
-						original_tag = CHI
-						has_completed_focus = CHI_appoint_sympathetic_judges 
-					}
+		
 
-					ROOT = {
-						is_chinese_warlord = yes
-						NOT = { has_idea = idea_CHI_sympathetic_judges }
-					}
-				}
-
-				ROOT = {
-					add_ideas = idea_CHI_sympathetic_judges
-				}
-			}
-
-			if = {
-				limit = {
-					FROM = { 
-						original_tag = CHI
-						has_completed_focus = CHI_take_control_of_the_executive_yuan 
-					}
-
-					ROOT = {
-						is_chinese_warlord = yes
-					}
-				}
-
-				every_subject_country = {
-					limit = {
-						is_chinese_warlord = yes
-						NOT = { tag = ROOT }
-					}
-
-					add_autonomy_ratio = { 
-						value = var:CHI.executive_yuan_autonomy_ratio
-						localization = CHI_take_control_of_the_executive_yuan
-					}
-				}
-
-			}
+			
 		}
 
 		effect = { #Adding 
@@ -1469,8 +1362,8 @@ on_actions = {
 								AND = {
 									is_core_of = WST
 									OR = {
-										owner = ENG
-										owner = HOL
+										is_owned_by = ENG
+										is_owned_by = HOL
 									}
 								}
 								#is_core_of = VIN
@@ -2395,12 +2288,7 @@ on_actions = {
 						modifier = CHI_soviet_support
 					}
 				}
-				IF = {
-					limit = {
-						has_completed_focus = CHI_sell_lend_lease
-					}
-					add_cic = var:CHI_soviet_support_cic_amount
-				}
+			
 			}
 			IF = {
 				limit = {
@@ -2463,57 +2351,7 @@ on_actions = {
 
 		}
 
-		effect = {
-			IF = {
-				limit = {
-					has_completed_focus = CHI_continue_the_ding_xian_experiment
-					any_core_state = {
-						NOT = { 
-							has_dynamic_modifier = { modifier = CHI_electrification_and_mass_education_modifier }
-						}
-					}
-				}
-
-				IF = {
-					limit = {
-						check_variable = { CHI_electrification_cooldown > 0 }
-					}
-					set_variable = { CHI_electrification_cooldown = 0 }
-
-					random_core_state = {
-						limit = {
-							has_dynamic_modifier = { modifier = CHI_electrification_and_mass_education_modifier }
-							NOT = {
-								OR = {
-									is_island_state = yes
-									has_state_category = large_island
-									has_state_category = small_island
-									has_state_category = tiny_island
-								}
-							}
-						}
-						random_neighbor_state = {
-							limit = {
-								NOT = {
-									has_dynamic_modifier = { modifier = CHI_electrification_and_mass_education_modifier }
-								}
-								is_core_of = ROOT
-								OWNER = {
-									is_literally_china = yes
-									NOT = {
-										has_war_with = CHI
-									}
-								}
-							}
-							add_dynamic_modifier = { modifier = CHI_electrification_and_mass_education_modifier }
-						}
-					}
-				}
-				ELSE = {
-					add_to_variable = { CHI_electrification_cooldown = 1 }
-				}	
-			}
-		}
+		
 
 	}
 
@@ -2869,14 +2707,7 @@ on_actions = {
 	on_peaceconference_ended = {
 
         effect = {
-            FROM = {
-                IF = {    #This prevents the country capping again after just having been puppeted
-                    limit = {
-                        has_idea = BEL_surrender_ns
-                    }
-                    remove_ideas = BEL_surrender_ns
-                }
-            }
+           
         }
 
         effect = {

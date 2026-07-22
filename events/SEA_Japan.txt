@@ -152,10 +152,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		unlock_decision_tooltip = {
-			decision = MEN_request_initiation_of_the_suiyuan_campaign_decision
-			show_effect_tooltip = no 
-		}	
+		
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1256,10 +1253,10 @@ country_event = {
 			base = 100
 		}
 		
-		add_timed_idea = {
-			idea = JAP_japanese_influence_growing_tibet
-			days = 180
-		}	
+		#add_timed_idea = {
+		#	idea = JAP_japanese_influence_growing_tibet
+		#	days = 180
+		#}	
 
 	}
 
@@ -1270,10 +1267,10 @@ country_event = {
 			base = 0
 		}
 		
-		add_timed_idea = {
-			idea = JAP_smaller_japanese_influence_growing_tibet
-			days = 180
-		}	
+	#	add_timed_idea = {
+		#	idea = JAP_smaller_japanese_influence_growing_tibet
+		#	days = 180
+	#	}	
 
 	}
 }
@@ -1296,16 +1293,8 @@ country_event = {
 			base = 100
 		}
 		
+	
 		IF = {
-			limit = {
-				original_tag = TIB
-			}
-			add_timed_idea = {
-				idea = JAP_japanese_influence_growing_tibet_2
-				days = 176
-			}	
-		}
-		ELSE_IF = {
 			limit = {
 				original_tag = MON
 			}

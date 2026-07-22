@@ -217,11 +217,7 @@ country_event = {
 					has_country_flag = NORDIC_requesting_through_NORDIC_shared
 				}
 			}
-			modifier = {
-				factor = 2
-				original_tag = SOV
-				FROM = { has_completed_focus = NOR_join_the_comintern }
-			}
+			
 			modifier = {
 				factor = 5
 				original_tag = SOV 
@@ -232,11 +228,7 @@ country_event = {
 				original_tag = SOV 
 				FROM = { has_completed_focus = wuw_HUN_join_the_comintern }
 			}
-			modifier = {
-				factor = 10
-				original_tag = SOV 
-				FROM = { has_completed_focus = PER_soviet_alignment }
-			}
+			
 		}
 		add_to_faction = FROM
 		FROM = { country_event = { id = generic.3 hours = 6 } }
@@ -399,16 +391,7 @@ country_event = {
 				}
 			}
 
-			modifier = { # It ruins the entire path if SOV says no so just don't
-				factor = 0
-				FROM = {
-					original_tag = SIA
-					OR = {
-						has_completed_focus = SIA_join_the_allies
-						has_completed_focus = SIA_unseat_the_government
-					}
-				}
-			}
+			
 
 			modifier = {
 				FROM = {
@@ -729,12 +712,7 @@ country_event = {
 		}
 		ai_chance = {
 			base = 100
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				is_in_faction_with = POL
-				POL = { has_completed_focus = POL_morges_pact }
-			}
+			
 		}
 		FROM = {
 			faction_leader = {
@@ -804,12 +782,7 @@ country_event = {
 		}
 		ai_chance = {
 			base = 100
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				is_in_faction_with = POL
-				POL = { has_completed_focus = POL_morges_pact }
-			}
+			
 		}
 		FROM = { 
 			add_to_faction = ROOT
@@ -880,12 +853,7 @@ country_event = {
 				}
 			}
 			
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				is_in_faction_with = POL
-				POL = { has_completed_focus = POL_morges_pact }
-			}
+			
 		}
 		FROM = { 
 			faction_leader = {

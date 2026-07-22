@@ -613,10 +613,7 @@ strike_phi = {
 		}
 	}
 
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 78 # Philippine Sea 
-	}
+	
 
 	ai_strategy = {
 		type = strike_force_home_base

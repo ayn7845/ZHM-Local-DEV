@@ -41,35 +41,9 @@ on_actions = {
 
 	on_release_as_puppet = {
 		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = RAJ
-						has_completed_focus = RAJ_princely_autonomy
-					}
+			
 
-					ROOT = {
-						is_raj_releasable = yes
-					}
-				}
-
-				add_ideas = idea_RAJ_princely_autonomy
-			}
-
-			if = {
-				limit = {
-					FROM = {
-						original_tag = RAJ
-						has_completed_focus = RAJ_funnel_british_investments_into_princely_states
-					}
-
-					ROOT = {
-						NOT = { has_country_flag = has_recieved_civ_from_funnel_british_investments }
-						is_raj_releasable = yes
-					}
-				}
-				FROM = { build_civ_in_indian_releasables_once = yes } 
-			}
+			
 		}
 	}
 
@@ -343,45 +317,10 @@ on_actions = {
 			}
 
 
-			if = {
-				limit = {
-					OR = {
-						ROOT = {
-							original_tag = RAJ
-							has_completed_focus = RAJ_revolt_of_the_princes
-						}
-						FROM = {
-							original_tag = RAJ
-							has_completed_focus = RAJ_revolt_of_the_princes
-						}
-					}
-
-					OR = {
-						ROOT = {
-							tag = event_target:UK_INDIA
-						}
-						FROM = {
-							tag = event_target:UK_INDIA
-						}
-					}
-				}
-
-				every_possible_country = { 
-
-				}
-			}
-			if = { 
-
-			}
-
-			if = { 
-				
-			}
+		
 			# Will tidy this up with scripted effects someday (TM)
 			#It was in fact, not tidied up
-			IF = { 
-
-			}
+			
 
 			if = {
 				limit = {
@@ -695,30 +634,7 @@ on_actions = {
 	#ROOT is sender, FROM is receiver.
 	on_send_volunteers = {
 		effect = {
-			if = {
-				limit = {
-					ROOT = { 
-						has_completed_focus = RAJ_a_private_military 
-						NOT = { 
-							is_in_array = {
-							 	array = pmc_recievers
-							 	value = FROM
-							 } 
-						}
-					}
-					
-				}
-
-				ROOT = { 
-					add_to_array = { pmc_recievers = FROM }
-					log = "[FROM.GetName]"
-					add_to_array = { pmc_timer = 77 } #in weeks 
-					add_offsite_building = {
-						type = industrial_complex
-						level = 1
-					}
-				}
-			}
+		
 		}
 	}
 

@@ -7615,7 +7615,7 @@ SOV_start_civil_war = {
 		}
 
 		# Remove ideas 
-		remove_ideas = SOV_the_fourth_international_idea
+		#remove_ideas = SOV_the_fourth_international_idea
 
 		# Rally the Red Army!
 		IF = {

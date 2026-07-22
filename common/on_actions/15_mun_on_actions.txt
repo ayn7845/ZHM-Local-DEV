@@ -202,41 +202,7 @@ on_actions = {
 	}
 
 	on_release_as_puppet = {
-    	effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = CZE
-						has_completed_focus = CZE_negotiations_with_the_autonomous_bloc
-						NOT = {
-							has_completed_focus = CZE_form_a_federation
-						}
-					}
-				}
-				ROOT = {
-					set_cosmetic_tag = CZE_puppet
-				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = CZE
-						has_completed_focus = CZE_form_a_federation
-					}
-				}
-				ROOT = {
-					set_cosmetic_tag = CZE_CEF_puppet
-					if = {
-						limit = {
-							NOT = {
-								has_idea = CZE_federalization_agreement_puppets
-							}
-						}
-						add_ideas = CZE_federalization_agreement_puppets
-					}
-				}
-			}
-		}
+    	
 	}
 
 	on_war_relation_added = {
@@ -245,9 +211,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = CZE
-						NOT = {
-							has_completed_focus = CZE_lessons_of_war
-						}
+						
 					}
 					FROM = {
 						is_major = yes
@@ -261,9 +225,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = CZE
-						NOT = {
-							has_completed_focus = CZE_lessons_of_war
-						}
+						
 					}
 					ROOT = {
 						is_major = yes

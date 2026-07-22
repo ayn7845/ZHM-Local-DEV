@@ -11311,7 +11311,7 @@ BEL = {
 				GFX_BEL_gwtank_medium
 			}
 			models = {
-				BEL_iw_armor_entity #Renault FT
+				BEL_light_armor_0_entity #Renault FT
 			}
 		}
 	}

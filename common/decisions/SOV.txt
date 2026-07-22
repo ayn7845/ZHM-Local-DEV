@@ -12379,7 +12379,7 @@ SOV_soviet_civil_war_dec_cat = {
 		visible = {
 			SOV_display_civil_war_start_state = yes
 			566 = { is_owned_by = ROOT }
-			has_game_rule = { rule = sov_fragmentation_status option = SOV_UTTERLY_FRAGMENTED }
+			always = no
 		}
 
 		cost = 10
@@ -15049,7 +15049,7 @@ SOV_polish_territory = {
 			POL = {
 				exists = yes
 				is_subject_of = ROOT
-				NOT = { has_completed_focus = POL_surrender_the_east }
+				
 			}
 			any_owned_state = {
 				is_core_of = POL
