@@ -100,7 +100,7 @@ RAJ_GOE_india_indivisible_cat = {
 	visible = {
 		OR = {
 			has_completed_focus = RAJ_india_indivisible
-			has_completed_focus = RAJ_trade_federation_of_india
+			
 			has_completed_focus = RAJ_integrate_the_princes
 			has_completed_focus = RAJ_integrate_the_princes2
 		}
@@ -177,7 +177,7 @@ RAJ_GOE_eic_hostile_takeover_cat = {
 	}
 
 	visible = {
-		has_completed_focus = RAJ_hostile_takeover
+		always = no
 	}		
 }
 
