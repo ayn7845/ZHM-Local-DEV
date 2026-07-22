@@ -919,54 +919,6 @@ defined_text = { # Country
 	}
 }
 
-defined_text = { # Country
-	name = GetFrenchCoronationCity
-	text = {
-		trigger = {
-			FRA = { has_completed_focus = FRA_the_legitimate_heir }
-		}
-		localization_key = LaR_France_Reims
-	}
-	text = {
-		trigger = {
-			FRA = { 
-				OR = {
-					has_completed_focus = FRA_proclaim_the_third_empire
-					has_completed_focus = FRA_orleanist_restoration
-				}
-			}
-		}
-		localization_key = LaR_France_Paris
-	}
-}
-
-defined_text = { # Country
-	name = GetFrenchRoyalTitle
-	text = {
-		trigger = {
-			FRA = {
-				has_completed_focus = FRA_the_legitimate_heir
-			}
-		}
-		localization_key = LaR_France_King
-	}
-	text = {
-		trigger = {
-			FRA = {
-				has_completed_focus = FRA_orleanist_restoration
-			}
-		}
-		localization_key = LaR_France_King_of_The_French
-	}
-	text = {
-		trigger = {
-			FRA = { 
-				has_completed_focus = FRA_proclaim_the_third_empire
-			}
-		}
-		localization_key = LaR_France_Emperor
-	}
-}
 
 defined_text = {
 	name = GetIberianSummitReceiverName

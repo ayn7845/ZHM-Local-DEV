@@ -69,19 +69,7 @@ check_has_focus_tree_to_switch_to_fascism = {
 	NOT = { tag = GER }
 	NOT = { tag = MAN }
 	NOT = { tag = ITA }
-	OR = {
-		NOT = {
-			AND = {
-				tag = SAF
-				has_dlc = "Together for Victory"
-			}
-		}
-		AND = {
-			tag = SAF
-			has_dlc = "Together for Victory"
-			has_completed_focus = SAF_south_africa_first
-		}
-	}
+	
 	NOT = {
 		AND = {
 			tag = RAJ
@@ -181,8 +169,7 @@ check_has_focus_tree_to_switch_to_democratic = {
 }
 
 check_has_focus_tree_to_switch_to_communism = {
-	#NOT = { tag = PRC }
-	#NOT = { tag = SIK }
+	
 	NOT = { tag = MAN }
 	NOT = { tag = SOV }
 	NOT = {

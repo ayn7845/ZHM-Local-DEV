@@ -63,19 +63,11 @@ defined_text = {
 	text = {
 		trigger = {
 			original_tag = GRE
-			NOT = {
-				has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-			}
+			
 		}
 		localization_key = GRE_PROTECTORS_MEDITERRANEAN_FOCUS_NAME_STANDARD
 	}
-	text = {
-		trigger = {
-			original_tag = GRE
-			has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-		}
-		localization_key = GRE_PROTECTORS_MEDITERRANEAN_FOCUS_NAME_MONARCHIST
-	}
+	
 }
 
 defined_text = {
@@ -83,19 +75,11 @@ defined_text = {
 	text = {
 		trigger = {
 			original_tag = GRE
-			NOT = {
-				has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-			}
+			
 		}
 		localization_key = GRE_PROTECTORS_MEDITERRANEAN_FOCUS_DESCRIPTION_STANDARD
 	}
-	text = {
-		trigger = {
-			original_tag = GRE
-			has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-		}
-		localization_key = GRE_PROTECTORS_MEDITERRANEAN_FOCUS_DESCRIPTION_MONARCHIST
-	}
+	
 }
 
 defined_text = { 
@@ -103,19 +87,11 @@ defined_text = {
 	text = {
 		trigger = {
 			original_tag = GRE
-			NOT = {
-				has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-			}
+			
 		}
 		localization_key = GRE_PROTECTORS_MEDITERRANEAN_SPIRIT_NAME_STANDARD
 	}
-	text = {
-		trigger = {
-			original_tag = GRE
-			has_completed_focus = GRE_realign_ourselves_with_the_central_powers
-		}
-		localization_key = GRE_PROTECTORS_MEDITERRANEAN_SPIRIT_NAME_MONARCHIST
-	}
+	
 }
 
 defined_text = { 

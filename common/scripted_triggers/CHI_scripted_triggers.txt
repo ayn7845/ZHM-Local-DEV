@@ -17,7 +17,7 @@
 is_independent_china_or_warlord = { #Does not include sinkiang
 	OR = {
 		original_tag = CHI
-		#original_tag = PRC
+	
 	}
 	is_subject = no
 }
@@ -60,7 +60,7 @@ has_hyper_inflation = {
 is_literally_china = {
 	OR = {
 		original_tag = CHI
-		#original_tag = PRC
+		
 	}
 }
 is_literally_china_tooltip = {

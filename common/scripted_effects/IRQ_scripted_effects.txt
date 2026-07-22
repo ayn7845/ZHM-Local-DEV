@@ -64,7 +64,7 @@ IRQ_modify_army_modifier_version = {
 				has_dynamic_modifier = {
 					modifier = IRQ_royal_army_modifier_KUR
 				}
-				has_completed_focus = IRQ_kurdish_revolt
+				
 			}
 		}
 		custom_effect_tooltip = IRQ_royal_army_KUR_intro_tt
@@ -81,7 +81,7 @@ IRQ_modify_navy_modifier_version = {
 				has_dynamic_modifier = {
 					modifier = IRQ_navy_modifier_KUR
 				}
-				has_completed_focus = IRQ_kurdish_revolt
+			
 			}
 		}
 		custom_effect_tooltip = IRQ_navy_modifier_KUR_intro_tt
@@ -98,7 +98,7 @@ IRQ_modify_air_force_modifier_version = {
 				has_dynamic_modifier = {
 					modifier = IRQ_air_force_modifier_KUR
 				}
-				has_completed_focus = IRQ_kurdish_revolt
+				
 			}
 		}
 		custom_effect_tooltip = IRQ_royal_air_force_KUR_intro_tt
