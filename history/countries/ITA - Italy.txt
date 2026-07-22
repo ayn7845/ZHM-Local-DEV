@@ -483,7 +483,7 @@ if = {
 		target = ETH
 		type = annex_everything
 	}
-	give_guarantee = ALB
+	
 }
 
 1939.1.1 = {
