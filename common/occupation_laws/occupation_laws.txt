@@ -527,11 +527,7 @@ colonial_police = {
 					}
 				}
 			}
-			AND = {
-				original_tag = BEL
-				has_completed_focus = CONGO_force_publique
-				FROM = { capital_scope = { is_on_continent = africa } }
-			}
+			
 		}
 		
 	}
@@ -679,9 +675,7 @@ secretaries_general = {
 
 	visible = {
 		has_dlc = "Gotterdammerung"
-		BEL = {
-			has_completed_focus = BEL_secretaries_general
-		}
+		
 		FROM = { original_tag = BEL }
 		NOT = {
 			has_global_flag = BEL_no_secretaries_general
