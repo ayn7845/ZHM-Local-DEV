@@ -13476,6 +13476,8 @@ focus_tree = {
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
+			add_political_power = -50
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = { 
 				idea = zhm_war_bonds
 				days = 180
