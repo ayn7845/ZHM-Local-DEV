@@ -13,10 +13,7 @@ mobile_infantry = {
 
     ai_will_do = { 
         base = 1
-        modifier = {
-            factor = 95
-            original_tag = GER
-        }
+        
         modifier = {
             factor = 0.5
             is_major = no
@@ -178,6 +175,10 @@ large_unit_tactics = {
                 original_tag = CHI
                 original_tag = JAP
             }
+        }
+        modifier = {
+            factor = 100
+            tag = GER
         }
         modifier = {
             factor = 0.5

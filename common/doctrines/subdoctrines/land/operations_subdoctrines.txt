@@ -13,7 +13,7 @@ mission_type_tactics = {
         modifier = {
             factor = 50
             OR = {
-                original_tag = GER
+                #original_tag = GER
                 original_tag = FIN
             }
         }
@@ -100,8 +100,15 @@ last_stand = {
     ai_will_do = {
 
         base = 0
-
+        modifier = {
+            factor = 100
+            tag = GER
         }
+        modifier = {
+            factor = 100
+            tag = SOV
+        }
+    }
 
     rewards = {
         werwolf_groups = {

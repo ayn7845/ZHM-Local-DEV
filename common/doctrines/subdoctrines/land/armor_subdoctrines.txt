@@ -17,10 +17,7 @@ armored_spearhead = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            original_tag = GER
-        }
+        
         modifier = {
             factor = 0.5
             is_major = no
@@ -102,8 +99,8 @@ armored_spearhead_no_lar = {
 
         base = 1
         modifier = {
-            factor = 25
-            original_tag = GER
+            factor = 10
+            tag = GER
         }
         modifier = {
             factor = 0.5
@@ -178,6 +175,10 @@ armored_infantry_support = {
                original_tag = ENG
                original_tag = FRA
             }
+        }
+        modifier = {
+            factor = 100
+            tag = GER
         }
         modifier = {
             factor = 0.5

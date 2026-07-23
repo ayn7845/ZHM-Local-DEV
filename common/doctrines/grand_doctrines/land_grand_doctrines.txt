@@ -18,6 +18,10 @@ new_mobile_warfare = {
             factor = 0
             is_major = no
         }
+        modifier = {
+            factor = -10
+            tag = GER
+        }
     }
 
     tracks = {
@@ -136,6 +140,10 @@ superior_firepower = {
         modifier = {
             factor = 0
             is_major = no
+        }
+        modifier = {
+            factor = 100
+            tag = GER
         }
     }
 

@@ -19,6 +19,10 @@ fire_concentration = {
             original_tag = SOV
         }
         modifier = {
+            factor = 100
+            tag = GER
+        }
+        modifier = {
             factor = 75
             original_tag = ENG
         }
@@ -380,10 +384,7 @@ mobile_recon_and_assault = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 75
-            original_tag = GER
-        }
+       
         modifier = {
             factor = 75
             original_tag = USA
