@@ -70,7 +70,7 @@ st_country_powers = {
 			owner = {
 				set_temp_variable = { ROOT.marks = this}
 				var:marks = {
-					declare_war_on = { target = VEN type = annex_everything }
+					declare_war_on = { target = TUR type = annex_everything }
 					every_enemy_country = { white_peace = PREV }
 				}
 			}
