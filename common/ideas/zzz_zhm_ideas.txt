@@ -13,7 +13,8 @@ ideas = {
 			name = "War Bonds"
 			picture = generic_foreign_capital
 			removal_cost = -1
-			modifier = { 
+			modifier = {
+				stability_factor = -0.05
 				consumer_goods_factor = -0.15
 			}
 		}
