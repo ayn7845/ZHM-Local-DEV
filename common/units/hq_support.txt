@@ -36,7 +36,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -91,7 +91,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -151,7 +151,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -208,7 +208,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -260,7 +260,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -316,7 +316,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -371,7 +371,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -426,7 +426,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -477,7 +477,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -529,7 +529,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -580,7 +580,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 0 #1
+		deployment_cost = 999 #1
 		training_time = 120
 
 		#Misc Abilities
@@ -627,7 +627,7 @@ sub_units = {
 		max_organisation = 60
 		default_morale = 0.3
 		manpower = 600
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		training_time = 90
 
 		#Misc Abilities
@@ -670,7 +670,7 @@ sub_units = {
 		max_organisation = 60
 		default_morale = 0.3
 		manpower = 600
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		training_time = 90
 
 		transport = motorized_equipment
@@ -745,7 +745,7 @@ sub_units = {
 		max_organisation = 70
 		default_morale = 0.4
 		manpower = 600
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		training_time = 150
 
 		#Misc Abilities
@@ -783,7 +783,7 @@ sub_units = {
 		combat_width = 2
 		allow_in_army_hq = yes
 		allow_in_non_army_hq = no
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		required_dlc = { "Thunder at Our Gates" }
 
 		need = {
@@ -865,7 +865,7 @@ sub_units = {
 		max_organisation = 35
 		default_morale = 0.1
 		manpower = 600
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		training_time = 180
 		max_strength = 10
 		weight = 1
@@ -928,7 +928,7 @@ sub_units = {
 
 		allow_in_army_hq = yes
 		allow_in_non_army_hq = no
-		deployment_cost = 0 #3
+		deployment_cost = 999 #3
 		required_dlc = { "Thunder at Our Gates" }
 
 		forest = {
