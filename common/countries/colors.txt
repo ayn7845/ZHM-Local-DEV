@@ -82,7 +82,7 @@ GRE = {
 	color_ui = rgb { 121 235 255 }
 }
 ALB = {
-	color = rgb { 0 0 0 } # was 149 45 102
+	color = rgb { 149 45 102 } # was 149 45 102
 	color_ui = rgb { 194 59 133 }
 }
 NOR = {
