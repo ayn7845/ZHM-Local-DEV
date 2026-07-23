@@ -157,7 +157,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				support_tech = -0.25
+				
 			}
 
 			modifier = {
@@ -391,9 +391,7 @@ ideas = {
 			}
 
 			modifier = {
-				air_ace_generation_chance_factor = -0.25
-				air_mission_efficiency = -0.15
-				air_maximum_speed_factor = -0.1
+				
 			}
 		}
 

@@ -31,9 +31,9 @@ hmm_capitulations_on_actions = {
 			}
 		}
 		
-		GER = {
-			country_event = france.69420
-		}
+		#GER = { # ZHM idk what this does?
+		#	country_event = france.69420
+		#}
 		set_global_flag = fall_of_france
 		every_country = {
 			limit = {
