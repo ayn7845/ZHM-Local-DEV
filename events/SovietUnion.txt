@@ -2319,16 +2319,7 @@ country_event = {
 	
 	trigger = {
 		tag = SOV
-		NOT = { country_exists = UKR }
-		NOT = { country_exists = BLR }
-		NOT = { country_exists = GEO }
-		NOT = { country_exists = AZR }
-		NOT = { country_exists = ARM }
-		NOT = { country_exists = UZB }
-		NOT = { country_exists = TAJ }
-		NOT = { country_exists = KYR }
-		NOT = { country_exists = TMS }
-		NOT = { country_exists = KAZ }
+	
 		NOT = {
 			any_state = {
 				is_core_of = SOV
