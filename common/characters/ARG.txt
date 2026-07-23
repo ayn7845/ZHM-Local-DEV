@@ -307,12 +307,12 @@ characters={
 			}
 		}
 		field_marshal = {
-				traits = { career_officer brilliant_strategist }
-				skill = 3
+				traits = { career_officer brilliant_strategist panzer_leader infantry_leader cavalry_leader organizer }
+				skill = 6
 				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
+				defense_skill = 4
+				planning_skill = 3
+				logistics_skill = 4
 				legacy_id = -1 
 				visible = {
 					NOT = {
@@ -1017,12 +1017,12 @@ characters={
 				}
 			}
 			corps_commander = {
-				traits = { urban_assault_specialist fortress_buster }
-				skill = 3
-				attack_skill = 1
-				defense_skill = 2
+				traits = { urban_assault_specialist fortress_buster panzer_leader infantry_leader cavalry_leader commando }
+				skill = 6
+				attack_skill = 4
+				defense_skill = 4
 				planning_skill = 4
-				logistics_skill = 3
+				logistics_skill = 4
 				legacy_id = -1
 			}
 		}
@@ -1036,12 +1036,12 @@ characters={
 				}
 			}
 			corps_commander = {
-				traits = { urban_assault_specialist fortress_buster }
-				skill = 3
-				attack_skill = 1
-				defense_skill = 2
+				traits = { urban_assault_specialist fortress_buster panzer_leader infantry_leader cavalry_leader commando }
+				skill = 6
+				attack_skill = 4
+				defense_skill = 4
 				planning_skill = 4
-				logistics_skill = 3
+				logistics_skill = 4
 				legacy_id = -1
 			}
 		}
