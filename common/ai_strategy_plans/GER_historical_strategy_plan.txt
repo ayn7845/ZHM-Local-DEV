@@ -29,10 +29,10 @@ German_historical = {
 		 	#AUG 36
 		GER_remilitarize_the_rhineland			#35 	MAR 36
 		GER_fuhrerprinzip						#35
-		GER_ascension_of_speer					#14		# was Bormann
+		GER_ascension_of_todt					#14		# was Bormann
 		GER_party_chancellor_hess				#14		# do this before goebels
 		GER_ascension_of_goebbels				#14
-		
+		GER_ascension_of_speer # replace todt ASAP 
 		GER_reorganize_the_wehrmacht			#35 	# was JAN-FEB 38		
 		GER_anschluss							#70 	# was MAR 38
 		GER_the_four_year_plan					#35
@@ -100,7 +100,8 @@ German_historical = {
 		#GER_second_vienna_award				#35 	AUG/SEP 40 - This is now an event but is kept here to know when it should trigger
 		
 		GER_form_rome_berlin_axis				#35 	MAY 39 - is usually BYPASSED
-
+		GER_reintegrate_luxemburg_and_alsace_lorraine # 70
+		GER_improve_the_logistics_system # 35
 		#1941
 		GER_aerodynamic_research_institute		#35
 		#GER_befriend_japan						#35 	(alliance in SEP 40) #TODO_Danne is it possible to remove this?
@@ -127,7 +128,7 @@ German_historical = {
 		#1943
 		
 		GER_totaler_krieg						#35		FEB 43 - but comes after Rüstingsstab in the focus tree
-		GER_ascension_of_himmler				#14 	(Replaces Bormann)
+		#GER_ascension_of_himmler				#14 	(Replaces Bormann)
 		
 		GER_army_indoctrination					#35
 		GER_strafbataillon						#35
@@ -149,6 +150,7 @@ German_historical = {
 	ideas = {
 		hjalmar_schacht = 10
 		war_economy = 100
+		tot_economic_mobilisation = 100
 	}
 
 	traits = {
