@@ -640,16 +640,16 @@ on_actions = {
 					add_to_faction = FROM
 				}
 			}
-			if = {
-                limit = {
-                    FROM = {
-                        tag = ALB
-                    }
-                }
-                ALB = {
-                    load_oob = "ALB_CHROM_SPAWN"
-                }
-            }
+		   # if = {
+           #     limit = {
+           #         FROM = {
+           #             tag = ALB
+           #         }
+           #     }
+           #     ALB = {
+           #         load_oob = "ALB_CHROM_SPAWN"
+           #   }
+           #  }
             if = {
                 limit = {
                     FROM = {
