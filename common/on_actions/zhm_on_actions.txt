@@ -340,10 +340,10 @@ on_actions = {
 					type = industrial_complex
 					level = 4
 				}
-				add_offsite_building = {
-					type = arms_factory
-					level = 4
-				}
+				#add_offsite_building = {
+				#	type = arms_factory
+				#	level = 4
+				#}
 			}
 		}
 		if = { 

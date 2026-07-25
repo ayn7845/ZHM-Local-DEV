@@ -26,7 +26,7 @@
 
  # ZHM EVENTS
   #zhm.1.a:0 "Annex Portugal?" # Title?
-  zhm.1.b:0 "You received 4 Civilian Factories and 4 Military Factories because Portugal is not a player."
+  zhm.1.b:0 "You received 4 Civilian Factories because Portugal is not a player."
   zhm.2.b:0 "You received 4 Civilian Factories because Argentina is not a player."
  
 
