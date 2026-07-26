@@ -1113,30 +1113,7 @@ on_actions = {
 
 						
 					}
-					IF = {
-						limit = {
-							has_country_leader = {
-								ruling_only = yes
-								character = CHI_chiang_kaishek
-							}
-						}
-						every_other_country = {
-							limit = {
-								is_in_array = {
-									array = CHI.nine_power_treaty_signatories
-									value = THIS
-								}
-								NOT = {
-									has_war_with = CHI
-								}
-							}
-							country_event = {
-								id = SEA_china.19
-								days = 2
-								random_hours = 36
-							}
-						}
-					}
+				
 				}
 			}
 		}

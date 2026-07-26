@@ -3230,6 +3230,10 @@ country_event = {
 
 		ai_chance = {
 			base = 2
+			modifier = { 
+				factor = 0
+				tag = YUG
+			}
 			modifier = {
 				factor = 1.5
 				has_opinion = {
@@ -3343,6 +3347,10 @@ country_event = {
 
 		ai_chance = {
 			base = 0
+			modifier = { 
+				factor = 0
+				tag = YUG
+			}
 		}
 
 		trigger = {
@@ -3376,14 +3384,8 @@ country_event = {
 			base = 10
 
 			modifier = {
-				factor = 0.1
-				FROM = {
-					original_tag = ITA
-					NOT = {
-						has_government = ROOT
-					}
-				}
-				is_in_faction = no
+				factor = 10
+				tag = YUG
 			}
 		}
 

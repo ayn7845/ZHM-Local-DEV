@@ -1307,23 +1307,7 @@ on_actions = {
 		}
 
 		# Jan Zumbach flees to the UK if in faction with them when Poland caps
-		effect = {
-			IF = {
-				limit = {
-					original_tag = POL
-					is_in_faction_with = ENG
-					NOT = {
-						has_global_flag = jan_zumbach_fled_to_britain
-					}
-				}
-				country_event = {
-					id = ww_congo.70
-					hours = 2
-					random_hours = 4
-				}	
-				set_global_flag = jan_zumbach_fled_to_britain
-			}
-		}
+		
 
 		effect = { #If a Reichskommissariat has capitulated, make Alfred Rosenberg suck a bit
 			IF = {
