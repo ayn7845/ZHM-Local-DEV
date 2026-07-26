@@ -61,7 +61,7 @@ operations = {
                 factor = 100
             }
             available = {
-               
+               always = no # ZHM removed since Ethiopia doesnt exist day 1.
             }
             targets = {
                 ETH
