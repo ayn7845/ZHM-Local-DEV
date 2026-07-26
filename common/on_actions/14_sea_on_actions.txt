@@ -1401,21 +1401,7 @@ on_actions = {
 
 	on_annex = {
 		effect = {
-			IF = {
-				limit = {
-					is_in_array = {
-						array = CHI.nine_power_treaty_signatories
-						value = FROM
-					}
-				}
-				CHI = {
-					country_event = {
-						id = SEA_china.24
-						hours = 8 	
-						random_hours = 8 
-					}
-				}
-			}
+			
 		}
 	}
 
@@ -2519,21 +2505,7 @@ on_actions = {
 
 		# Remove nine-power treaty signatory
 		effect = {
-			IF = {
-				limit = {
-					is_in_array = {
-						array = CHI.nine_power_treaty_signatories
-						value = ROOT
-					}
-				}
-				CHI = {
-					country_event = {
-						id = SEA_china.24
-						hours = 8 	
-						random_hours = 8 
-					}
-				}
-			}
+			
 		}
 
 		#ACHIEVEMENTS
