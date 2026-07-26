@@ -2157,7 +2157,7 @@ characters = {
 				popular_figurehead 
 			}
 			ai_will_do = {
-				base = 0.5
+				base = 10
 			}
 		}
 	}
@@ -2243,7 +2243,7 @@ characters = {
 				captain_of_industry 
 			}
 			ai_will_do = {
-				base = 1
+				base = 100
 			}
 		}
 	}

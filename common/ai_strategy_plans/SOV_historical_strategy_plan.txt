@@ -28,6 +28,8 @@ SOV_historical_plan = {
 	ai_national_focuses = {
 		#Things to do ASAP
 		SOV_desperate_measures #35 (DO THIS ASAP)
+		SOV_the_bloc_of_rights_and_trotskyites #35 -> Early 1938
+		
 		SOV_baltic_security #35 -> 1939
 		SOV_claims_in_baltic #70 -> 1940 # DO THESE ASAP
 		SOV_smersh
@@ -49,18 +51,16 @@ SOV_historical_plan = {
 		SOV_the_anti_soviet_trotskyist_center #35 -> Early 1937
 		
 		SOV_the_workers_dictatorship
-		SOV_pc_of_mechanical_engineering #35 -> Aug 1937
 		SOV_the_military_conspiracy #35 -> Mid 1937
 		SOV_finish_the_five_year_plan # -> Dec 1937
 		SOV_foreign_experts #35
 		SOV_develop_the_urals #35
 		SOV_eastern_development #35
 		SOV_the_ussr_academy_of_sciences
-		
+		SOV_the_comintern #35
 
 		#1938
-		SOV_the_bloc_of_rights_and_trotskyites #35 -> Early 1938
-		SOV_the_comintern #35
+	
 		
 		
 	
@@ -139,7 +139,8 @@ SOV_historical_plan = {
 	}
 
 	ideas = {
-
+		war_economy = 100
+		tot_economic_mobilisation = 100
 	}
 	traits = {
 		iron_lazar = 10

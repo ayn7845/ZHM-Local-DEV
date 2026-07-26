@@ -13316,8 +13316,33 @@ focus_tree = {
 		
 		search_filters = {}
 
-		completion_reward = { 
-
+		completion_reward = {
+			
+			# Estonia
+			custom_effect_tooltip = SOV_estonian_claimed_states_tt
+			
+			# Latvia
+			custom_effect_tooltip = SOV_latvian_claimed_states_tt
+			
+			# Lithuania
+			custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
+			
+			hidden_effect = { 
+				191 = { add_claim_by = SOV }
+				813 = { add_claim_by = SOV }
+				13 = { add_claim_by = SOV }
+				811 = {add_claim_by = SOV }
+				812 = { add_claim_by = SOV}
+				809 = { add_claim_by = SOV}
+				190 = { add_claim_by = SOV}
+				810 = { add_claim_by = SOV}
+				808 = { add_claim_by = SOV}
+				12 = { add_claim_by = SOV}
+				11 = { add_claim_by = SOV}
+				815 = { add_claim_by = SOV}
+				814 = { add_claim_by = SOV}
+				189 = { add_claim_by = SOV}
+			}
 		}
 	}
 
@@ -13392,33 +13417,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			# Estonia
-			custom_effect_tooltip = SOV_estonian_claimed_states_tt
 			
-			# Latvia
-			custom_effect_tooltip = SOV_latvian_claimed_states_tt
-			
-			# Lithuania
-			custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
-			hidden_effect = {
-				hidden_effect = { 
-				191 = { add_claim_by = SOV }
-				813 = { add_claim_by = SOV }
-				13 = { add_claim_by = SOV }
-				811 = {add_claim_by = SOV }
-				812 = { add_claim_by = SOV}
-				809 = { add_claim_by = SOV}
-				190 = { add_claim_by = SOV}
-				810 = { add_claim_by = SOV}
-				808 = { add_claim_by = SOV}
-				12 = { add_claim_by = SOV}
-				11 = { add_claim_by = SOV}
-				815 = { add_claim_by = SOV}
-				814 = { add_claim_by = SOV}
-				189 = { add_claim_by = SOV}
-			}
-				
-			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_category_tooltip = SOV_diplomacy_baltic_decision_category
 			custom_effect_tooltip = generic_skip_one_line_tt

@@ -513,6 +513,9 @@ political_actions = {
 				has_global_flag = scw_over
 			}
 		}
+        ai_will_do = { 
+            base = 1
+        }
 		complete_effect = {
 			SOV = {
 				army_experience = 300

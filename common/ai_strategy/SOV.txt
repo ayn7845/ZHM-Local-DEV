@@ -190,6 +190,78 @@ SOV_unit_production = {
 	}
 }
 
+SOV_annex_the_fucking_baltics = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites
+	}
+	abort = { 
+		AND = { 
+			has_country_flag = SOV_annexed_est
+			has_country_flag = SOV_annexed_lat
+			has_country_flag = SOV_annexed_lit
+		}
+	}
+
+	#ai_strategy = { # dont burn PP on decisions and other shit when we are desparate for manpower laws
+	#	type = pp_spend_priority
+	#	id = decision
+	#	value = -100
+	#}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -200
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = relation
+		value = -200
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = navy_chief
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = army_chief
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = air_chief
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = theorist
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = high_command
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = political_advisor
+		value = -200 
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = admiral
+		value = -200 
+	}
+	ideas = {
+		extensive_conscription = -9999
+		service_by_requirement = -9999
+	}
+	
+}
+
 SOV_later_unit_roles = {
 	
 	allowed = {
@@ -1848,12 +1920,8 @@ SOV_unit_buffer_for_asian_threat = {
 		original_tag = SOV
 	}
 	enable = {
-		OR = { #Always have a small unit buffer along the railway, just in case asian fronts get dangerous
-			has_war = no
-			AND = {
-				has_war = yes
-				surrender_progress < 0.35
-			}
+		NOT = { 
+			has_war_with = GER
 		}
 	}
 
@@ -1966,7 +2034,7 @@ SOV_defend_blitzkrieg_2  = {#Only perform careful attacks, we want to defend for
 
 }
 
-SOV_wants_civ = {
+SOV_wants_civ = { # Civ greed uraaa
 	allowed = {
 		original_tag = SOV
 	}
@@ -1977,7 +2045,22 @@ SOV_wants_civ = {
 	ai_strategy = {
 		type = building_target
 		id = industrial_complex
-		value = 85
+		value = 100
+	}
+}
+
+SOV_wants_mils = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		date < 1938.9.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 100
 	}
 }
 

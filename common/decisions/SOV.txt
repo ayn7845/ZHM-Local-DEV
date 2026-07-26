@@ -2594,18 +2594,7 @@ SOV_propaganda_campaigns = {
 
 		ai_will_do = {
 			base = 10
-			modifier = {
-				factor = 0.1
-				check_variable = { SOV_propaganda_high_yield_cost > 30 } #Less likely to do it a third time
-			}
-			modifier = {
-				factor = 0.1
-				check_variable = { SOV_propaganda_high_yield_cost > 45 } #Even less likely to do it a fourth time
-			}
-			modifier = {
-				factor = 0
-				check_variable = { SOV_propaganda_high_yield_cost > 90 } #Shouldn't even considered doing it a fifth time
-			}
+			
 		}
 
 		allowed = {
@@ -4284,7 +4273,7 @@ SOV_gosproyektstroy_decision_category = {
 		icon = hol_attract_foreign_investors
 
 		ai_will_do = {
-			base = 10
+			base = 100
 		}
 
 		targets = { USA ENG GER JAP }
@@ -4384,20 +4373,8 @@ SOV_gosproyektstroy_decision_category = {
 
 		icon = generic_construction
 
-		ai_will_do = {
-			base = 0.75
-			modifier = {
-				factor = 0
-				OR = {
-					has_war = yes
-					any_other_country = {
-						OR ={
-							is_justifying_wargoal_against = ROOT
-							ROOT = { is_justifying_wargoal_against = PREV }
-						}
-					}
-				}
-			}
+		ai_will_do = { 
+			base = 100
 		}
 
 		allowed = {
@@ -5260,7 +5237,7 @@ SOV_diplomacy_baltic_decision_category = {
 		name = "Send Ultimatum to Estonia"
 
 		ai_will_do = {
-			base = 200
+			base = 9999
 			
 		}
 		
@@ -5335,7 +5312,7 @@ SOV_diplomacy_baltic_decision_category = {
 		icon = GFX_decision_LAT_claim_state_4
 			
 		ai_will_do = {
-			base = 200
+			base = 9999
 			
 		}
 
@@ -5419,7 +5396,7 @@ SOV_diplomacy_baltic_decision_category = {
 
 			
 		ai_will_do = {
-			base = 200
+			base = 9999
 			
 		}
 		
