@@ -16,7 +16,6 @@ SPR = "countries/Spain.txt"
 ITA = "countries/Italy.txt"
 ROM = "countries/Romania.txt"
 YUG = "countries/Yugoslavia.txt"
-SWI = "countries/Switzerland.txt" # tag cannot be removed
 TUR = "countries/Turkey.txt"
 GRE = "countries/Greece.txt"
 ALB = "countries/Albania.txt"
