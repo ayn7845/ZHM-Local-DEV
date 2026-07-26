@@ -615,10 +615,6 @@ strike_phi = {
 
 	
 
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 75 # South China Sea 
-	}
 
 	ai_strategy = {
 		type = invade
