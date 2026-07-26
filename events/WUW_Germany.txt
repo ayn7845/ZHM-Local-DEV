@@ -16902,12 +16902,7 @@ country_event = {
 
 		ai_chance = {
 			base = 1
-			modifier = { #Himmler should replace Bormann on Historical when he ascends
-				factor = 100
-				GER_is_historical_ai = yes
-				check_variable = { GER_ascending_advisor = 4 } #Himmler Ascending
-				check_variable = { GER_ascended_advisor_2 = 7 } #Bormann ascended in this slot
-			}
+			
 		}
 
 		GER_remove_replaced_advisor_2_effects = yes
@@ -16929,12 +16924,7 @@ country_event = {
 
 		ai_chance = {
 			base = 1
-			modifier = { #Himmler should replace Bormann on Historical when he ascends
-				factor = 100
-				GER_is_historical_ai = yes
-				check_variable = { GER_ascending_advisor = 4 } #Himmler Ascending
-				check_variable = { GER_ascended_advisor_3 = 7 } #Bormann ascended in this slot
-			}
+			
 		}
 
 		GER_remove_replaced_advisor_3_effects = yes
