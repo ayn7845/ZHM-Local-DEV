@@ -2486,40 +2486,7 @@ on_actions = {
 		}
 
 		effect = { # Trigger the dissolutuion of the HBC event
-			IF = {
-				limit = {
-					ROOT = {
-						#original_tag = HBC
-						is_ally_with = CHI
-					}
-
-					FROM = {
-						#has_war_with = HBC
-						has_war_with = CHI
-						OR = {
-							original_tag = JAP
-							AND = { 
-
-							}
-							AND = {
-								original_tag = MAN
-								is_ally_with = JAP
-							}
-							AND = { 
-
-							}
-						}
-					}
-					
-					NOT = { has_global_flag = hbc_has_been_dissolved }
-				}
-				CHI = {
-					country_event = {
-						id = SEA_warlords.69 
-						hours = 6
-					}
-				}
-			}
+		
 		}
 
 		#PRC capitulates

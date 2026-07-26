@@ -8953,12 +8953,6 @@ focus_tree = {
 		
 			news_event = { hours = 6 id = news.36 }
 
-			BEL = {
-				country_event = {
-					id = AUS_political_events.63
-					hours = 12
-					}
-				}
 		
 			}
 		}

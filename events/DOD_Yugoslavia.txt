@@ -749,12 +749,6 @@ country_event = {
 
 		add_stability = -0.03
 
-		IF = {
-			limit = {
-				has_idea = anti_german_military
-			}
-			remove_ideas = anti_german_military
-		}
 
 		add_popularity = {
 			ideology = FROM
