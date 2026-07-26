@@ -40,7 +40,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = { 
-			remove_ideas = anti_german_military 
+			
 			ENG = { set_country_flag = has_already_decided_yugo_coup_flag }
 			YUG = { set_country_flag = has_already_decided_yugo_coup_flag }
 		}
@@ -74,9 +74,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		hidden_effect = { remove_ideas = anti_german_military }
-	}
+	
 
 	option = {
 		name = yugoslavia.2.a
