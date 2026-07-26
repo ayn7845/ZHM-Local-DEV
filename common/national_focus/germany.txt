@@ -10777,13 +10777,13 @@ focus_tree = {
 						}
 						remove_ideas = SPA_recovering_from_civil_war
 					}
-					if = {
+					else_if = {
 						limit = {
 							has_idea = SPA_recovering_from_civil_war_2
 						}
 						remove_ideas = SPA_recovering_from_civil_war_2
 					}
-					if = {
+					else_if = {
 						limit = {
 							has_idea = SPA_recovering_from_civil_war_3
 						}
