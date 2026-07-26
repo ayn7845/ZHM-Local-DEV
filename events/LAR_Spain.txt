@@ -267,6 +267,10 @@ country_event = {
 							}
 						}
 					}
+					add_offsite_building = {
+						type = industrial_complex
+						level = 10
+					}
 				}
 				# Switch the tag alias for the player's country - the player goes from SPR to SPA
 				set_country_flag = SPR_nationalist_spain_flag

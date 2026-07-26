@@ -225,7 +225,9 @@ news_event = {
 				}
 				every_state = {
 					limit = {
-						OR = {
+						AND = {
+							has_state_flag = SPR_unplanned_offensive_flag
+							OR = {
 							state = 41
 							state = 165
 							state = 166
@@ -246,6 +248,7 @@ news_event = {
 							state = 792
 							state = 793
 							state = 794
+							}
 						}
 					}
 					remove_dynamic_modifier = {
