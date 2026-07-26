@@ -485,11 +485,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = GER
-			AND = {
-				tag = LIT
-				is_ai = no
-				has_global_flag = LIT_occupies_POL
-			}
+			
 		}
 		has_global_flag = sov_yes_pact
 		SOU = { exists = yes }
