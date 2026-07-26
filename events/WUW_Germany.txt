@@ -11708,38 +11708,7 @@ country_event = {
 			add_state_claim = 96
 			add_state_claim = 95
 
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }	
-					}
-				}
-				set_temp_variable = { occupied_state_num_factory = 0 }
-				for_each_scope_loop = {
-					array = LIT.core_states
-					if = {
-						limit = {
-							is_fully_controlled_by = ROOT
-						}
-						add_to_temp_variable = { occupied_state_num_factory = arms_factory_level }
-						add_to_temp_variable = { occupied_state_num_factory = industrial_complex_level }
-						add_to_temp_variable = { occupied_state_num_factory = building_level@dockyard }
-						log = "[THIS.GetName] was plundered"
-						set_state_flag = GER_seize_gold_reserves_state_flag
-					}
-				}
-				log = "[?occupied_state_num_factory] number of Factories"
-				divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single 		factory will increase the occupied_state_num_factory number to 1, which in turn translates to 		-100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, 		which is more like what we want.
-				multiply_temp_variable = { occupied_state_num_factory = -1 }
-
-				custom_effect_tooltip = lithuania_mefo_bills_tt
-
-				add_to_variable = {
-					GER_industrial_consumer_goods_factor = occupied_state_num_factory
-				}
-				GER_reduce_mefo_bills_penalty = yes
-			}
+		
 		}
 		ELSE_IF = {
 			limit = {
