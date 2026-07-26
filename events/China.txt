@@ -47,71 +47,7 @@ country_event = {
 
 	}
 
-	option = { # Make more concessions
-		name = china.1.b
-		ai_chance = { 
-			base = 10 
-			
-		}
-
-		JAP = {
-
-			set_truce = { target = ROOT days = 180 }
-			effect_tooltip = {
-				IF = {
-					limit = {
-						ROOT = { controls_state = 608 }
-					}
-					transfer_state = 608
-				}
-				IF = {
-					limit = {
-						ROOT = { controls_state = 597 }
-					}
-					transfer_state = 597
-				}
-				IF = {
-					limit = {
-						ROOT = { controls_state = 1038 }
-					}
-					transfer_state = 1038
-				}
-				IF = {
-					limit = {
-						ROOT = { controls_state = 614 }
-					}
-					transfer_state = 614
-				}
-				IF = {
-					limit = {
-						ROOT = { controls_state = 743 }
-					}
-					transfer_state = 743
-				}
-				IF = { 
-
-				}
-				ELSE_IF = { 
-
-				}
-				add_state_claim = 613
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			if = { 
-
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = { 
-
-			}
-
-									
-			country_event = { id = japan.2 }
-		}
-
-	}
+	
 
 }
 
