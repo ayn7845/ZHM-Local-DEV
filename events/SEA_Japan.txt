@@ -12914,7 +12914,7 @@ country_event = {
 		custom_effect_tooltip = if_they_back_down_or_lose_a_border_conflict_tt 
 
 		effect_tooltip = {
-			add_ideas = MON_income_from_hulunbuir_idea 
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -12957,38 +12957,7 @@ country_event = {
 		activate_mission = JAP_tauran_border_incident_forgotten_1
 
 	}
-	option = {
-		name = SEA_border_incidents_events.2.b
-		ai_chance = {
-			base = 25
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-		
-		add_political_power = -25
-		add_war_support = -0.02
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		MON = {
-			country_event = {
-				id = SEA_border_incidents_events.8
-				hours = 6
-			}	
-			effect_tooltip = {
-				add_ideas = MON_income_from_hulunbuir_idea 
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				761 = {
-					add_core_of = PREV
-				}
-			}
-		}
-
-	}
+	
 }
 
 # The Tauran Incident - event for MAN if overlord JAP decided to engage in the conflict 
@@ -13101,7 +13070,7 @@ country_event = {
 			original_tag = MON
 		}
 
-		add_ideas = MON_income_from_hulunbuir_idea 
+	
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -13161,7 +13130,7 @@ country_event = {
 	option = {
 		name = SEA_border_incidents_events.8.a
 		
-		add_ideas = MON_income_from_hulunbuir_idea 
+	
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
