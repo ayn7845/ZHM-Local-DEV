@@ -445,7 +445,7 @@ JAP_push_hbc_hard_initially = {
 				is_historical_focus_on = yes
 				date > 1937.1.1
 			}
-			has_war_with = HBC
+			
 		}
 		date < 1939.1.1
 	}

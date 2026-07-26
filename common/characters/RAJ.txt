@@ -1197,7 +1197,7 @@ characters={
 			idea_token = RAJ_GOE_muhammad_ayub_khan
 			allowed = {
 				OR = {
-					#original_tag = PAK
+					
 					AND = {
 						original_tag = RAJ
 						always = no
@@ -1245,7 +1245,7 @@ characters={
 			idea_token = RAJ_GOE_yahya_khan
 			allowed = {
 				OR = {
-					#original_tag = PAK
+					
 					AND = {
 						original_tag = RAJ
 						always = no
@@ -1291,7 +1291,7 @@ characters={
 			idea_token = RAJ_GOE_muhammad_musa
 			allowed = {
 				OR = {
-					#original_tag = PAK
+				
 					original_tag = RAJ
 				}
 			}

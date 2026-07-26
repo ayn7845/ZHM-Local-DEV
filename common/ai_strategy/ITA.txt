@@ -1645,22 +1645,6 @@ ITA_prepare_british_invasion = {
 	}
 }
 
-ITA_dont_die_in_mountains = {
-	allowed = {
-		original_tag = ITA
-	}
-	enable = {
-		country_exists = SWI
-		NOT = { has_war_with = SWI }
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = ignore
-		id = SWI
-		value = 1000
-	}
-}
 
 ITA_ignore_vichy_we_will_annex_them_later = {
 	allowed = {

@@ -55,9 +55,7 @@ ETH_is_in_exile = { #Add any more stuff needed here
 
 ITA_is_italian_colony = { #State scope
 	OR = {
-		is_core_of = ERI
-		is_core_of = LBA
-		is_core_of = SOM
+	
 		is_core_of = ETH
 	}
 }

@@ -1977,7 +1977,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-							#original_tag = PER
+						
 							original_tag = IRQ
 							original_tag = RAJ
 						}
@@ -2081,7 +2081,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-							#original_tag = PER
+							
 							original_tag = IRQ
 							original_tag = RAJ
 						}

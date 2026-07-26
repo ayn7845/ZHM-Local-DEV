@@ -2451,18 +2451,7 @@ focus_tree = {
 
             }
             hidden_effect = {
-               RAJ = { 
-                    RAJ_GOE_muhammad_ali_jinnah = {
-                       # set_nationality = PAK
-                        add_country_leader_role = {
-                            promote_leader = yes
-                            country_leader = {
-                                ideology = centrism
-                                traits = { father_of_pakistan } 
-                            }
-                        }
-                    }
-               }
+            
                ENG = {
                    add_opinion_modifier = {
                        target = RAJ
@@ -18091,7 +18080,7 @@ focus = {
         }
 
         available = {
-           # NOT = { has_war_with = PAK }
+       
             controls_state = 437
             controls_state = 991
         }

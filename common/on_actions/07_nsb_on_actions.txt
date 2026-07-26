@@ -1124,28 +1124,12 @@ on_actions = {
 		}
 
 		#SINKIANG counter
-		effect = {
-			if = {
-				limit = {
-					tag = SIK
-					FROM = { original_tag = SOV }
-				}
-				FROM = { set_country_flag = SOV_sinkiang_joined_comintern_counter_flag }
-			}
-		}
+	
 	}
 
 	#FROM is country getting invited.
 	on_offer_join_faction = {
-		effect = {
-			if = {
-				limit = {
-					FROM = { tag = SIK }
-					original_tag = SOV
-				}
-				SOV = { set_country_flag = SOV_sinkiang_joined_comintern_counter_flag }
-			}
-		}
+		
 	}
 
 	on_release_as_puppet = { 

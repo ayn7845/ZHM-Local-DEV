@@ -3745,7 +3745,7 @@ country_event = {
 			factor = 0.5
 			date > 1940.06.01
 			any_controlled_state = {
-				is_core_of = LBA
+				state = 448
 				any_neighbor_state = {
 					controller = { has_war_with = ROOT }
 				}
@@ -8668,21 +8668,7 @@ country_event = {
 
 		custom_effect_tooltip = ITA_release_colonies_west_africa_tt
 		hidden_effect = {
-			release_on_controlled = MRT
-			release_on_controlled = SEN
-			release_on_controlled = GAM
-			release_on_controlled = GNB
-			release_on_controlled = GNA
-			release_on_controlled = MLI
-			release_on_controlled = SIE
-			release_on_controlled = LIB
-			release_on_controlled = IVO
-			release_on_controlled = GHA
-			release_on_controlled = VOL
-			release_on_controlled = TOG
-			release_on_controlled = DAH
-			release_on_controlled = NGA
-			release_on_controlled = NGR
+			
 		}
 	}
 }

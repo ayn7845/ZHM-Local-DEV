@@ -648,8 +648,7 @@
  CHI_autonomy_reichsprotectorate_DEF:0 "the Chinese Protectorate"
  CHI_autonomy_supervised_state:0 "$OVERLORDADJ$ China"
  CHI_autonomy_supervised_state_DEF:0 "$OVERLORDADJ$ China"
- CHI_PRC_subject:0 "Province of Central and East China"
- CHI_PRC_subject_DEF:0 "the Province of Central and East China"
+
  # For specific Japanese Puppet names, see countries_cosmetic
 
  IRQ_fascism:0 "Al-Muthanna Iraq"

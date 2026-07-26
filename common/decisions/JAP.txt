@@ -4386,19 +4386,7 @@ JAP_kwantung_army_decisions = {
 
 		visible = { 
 			always = no
-		#	OR = {
-		#		#has_subject = RNG
-		#		has_subject = CHI
-		#		AND = {
-		#			has_completed_focus = JAP_subdue_the_kwantung_army
-		#			owns_state = 613 # Shanghai
-		#		}
-		#	}
-		#	has_completed_focus = JAP_reorganized_national_government
-		#	OR = {
-		#		has_government = neutrality
-		#		has_government = fascism
-		#	}
+	
 		}
 	
 		available = {

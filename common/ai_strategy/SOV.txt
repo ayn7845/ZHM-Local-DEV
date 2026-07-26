@@ -255,10 +255,6 @@ SOV_annex_the_fucking_baltics = {
 		id = admiral
 		value = -200 
 	}
-	ideas = {
-		extensive_conscription = -9999
-		service_by_requirement = -9999
-	}
 	
 }
 

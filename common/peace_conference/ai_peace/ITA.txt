@@ -59,9 +59,7 @@ peace_ai_desires = {
                     is_core_of = ITA # Italian Core Territory
                     state = 164 # Dodecanese
                     state = 163 # Zara
-                    is_core_of = LBA # Libyan Core Territory
-                    is_core_of = ERI # Eritrean Core Territory
-                    is_core_of = SOM # Somalian Core Territory
+                  
                 }
             }  
         }
@@ -79,9 +77,7 @@ peace_ai_desires = {
                     is_core_of = ITA # Italian Core Territory
                     state = 164 # Dodecanese
                     state = 163 # Zara
-                    is_core_of = LBA # Libyan Core Territory
-                    is_core_of = ERI # Eritrean Core Territory
-                    is_core_of = SOM # Somalian Core Territory
+                    
                 }
             }  
         }

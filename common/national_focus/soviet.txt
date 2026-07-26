@@ -14455,7 +14455,7 @@ focus_tree = {
 		historical_ai = { # Setting this so that they can actually go down the Gobi gambit if CHI doesn't exist.
 			OR = {
 				country_exists = CHI
-				#NOT = { has_subject = SIK }
+				
 			}
 		}
 		

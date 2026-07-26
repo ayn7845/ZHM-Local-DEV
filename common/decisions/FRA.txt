@@ -354,11 +354,7 @@ category_test_decisions = {
 						is_controlled_by = ROOT
 						OR = {
 							is_on_continent = africa
-							#is_core_of = VIN
-							#is_core_of = CAM
-							#is_core_of = LAO
-							#is_core_of = LEB
-							#is_core_of = SYR
+							
 						}
 					}
 					event_target:france_vichy = { transfer_state = PREV }

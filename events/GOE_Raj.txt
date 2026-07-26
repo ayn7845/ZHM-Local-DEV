@@ -2645,34 +2645,10 @@ country_event = {
 				}
 			}
 
-				#if = {
-				#	limit = {
-				#		ROOT = { has_completed_focus = RAJ_united_bengal }
-				#	}
-				#	release_puppet = BAN
-				#	release_puppet = PAK
-				#}
-				#else = {
-				#	release_puppet = PAK 
-				#}
-
 
 			
 
 			hidden_effect = {
-
-				RAJ_GOE_muhammad_ali_jinnah = {
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader={
-							ideology=liberalism
-							expire="1965.1.1.1"
-							traits = { father_of_pakistan }
-						}
-					}
-				}
-
-				
 
 				if = {
 					limit = {

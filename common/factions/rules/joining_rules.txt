@@ -638,9 +638,7 @@ joining_rule_islamic_only = {
 	type = joining_rules
 	visible = {
 		OR = {
-			original_tag = SAU
-			original_tag = OMA
-			original_tag = YEM
+		
 			original_tag = IRQ
 			original_tag = TUR
 		}
@@ -660,9 +658,7 @@ joining_rule_islamic_only = {
 		custom_trigger_tooltip = {
 			tooltip = is_islamic_country_tt
 			OR = {
-			original_tag = SAU
-			original_tag = OMA
-			original_tag = YEM
+			
 			original_tag = IRQ
 			original_tag = TUR
 			}
