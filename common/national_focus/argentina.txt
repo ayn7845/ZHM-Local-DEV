@@ -3404,7 +3404,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = ARG_reinforced_alliance
 		mutually_exclusive = { focus = ARG_bastion_of_democracy focus = ARG_maintain_neutrality }
-		cost = 10
+		cost = 1
 		available = {
 			date > 1940.1.1
 		}
