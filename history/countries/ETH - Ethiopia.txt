@@ -137,7 +137,6 @@ set_technology = {
 recruit_character = ETH_haile_selassie
 
 
-set_global_flag = second_italo_ethiopian_war_flag
 1936.05.05 = { clr_global_flag = second_italo_ethiopian_war_flag }
 
 set_convoys = 5
