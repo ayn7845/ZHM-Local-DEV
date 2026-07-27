@@ -99,13 +99,13 @@ last_stand = {
 
     ai_will_do = {
 
-        base = 0
+        base = 1
         modifier = {
-            factor = 100
+            factor = 0
             tag = GER
         }
         modifier = {
-            factor = 100
+            factor = 999
             tag = SOV
         }
     }
@@ -370,11 +370,7 @@ deep_battle = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 50
-            original_tag = SOV
-        }
-
+       
         modifier = {
             factor = 0.5
             is_major = no
@@ -503,10 +499,7 @@ deep_battle_no_lar = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 50
-            original_tag = SOV
-        }
+        
 
         modifier = {
             factor = 0.5
@@ -918,10 +911,7 @@ dispersed_operations = {
 
     ai_will_do = {
         base = 1
-        modifier = {
-            factor = 40
-            original_tag = SOV
-        }
+        
     }
 
     # EFFECTS

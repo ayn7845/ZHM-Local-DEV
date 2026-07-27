@@ -738,11 +738,7 @@ peoples_war = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 95
-           
-        }
-
+       
         modifier = {
             factor = 2
             is_major = no

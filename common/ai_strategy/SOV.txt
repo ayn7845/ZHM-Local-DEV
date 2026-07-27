@@ -195,7 +195,7 @@ SOV_annex_the_fucking_baltics = {
 		original_tag = SOV
 	}
 	enable = {
-		has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites
+		date > 1937.8.1
 	}
 	abort = { 
 		AND = { 

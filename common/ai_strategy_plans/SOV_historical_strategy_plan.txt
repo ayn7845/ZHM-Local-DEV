@@ -33,6 +33,7 @@ SOV_historical_plan = {
 		SOV_baltic_security #35 -> 1939
 		SOV_claims_in_baltic #70 -> 1940 # DO THESE ASAP
 		SOV_smersh
+		SOV_steel_casting_industry # Important focus thanks
 		
 
 		#1936
@@ -141,6 +142,7 @@ SOV_historical_plan = {
 	ideas = {
 		war_economy = 100
 		tot_economic_mobilisation = 100
+		#extensive_conscription = 2
 	}
 	traits = {
 		iron_lazar = 10
