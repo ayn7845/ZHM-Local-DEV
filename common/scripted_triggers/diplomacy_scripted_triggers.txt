@@ -1632,20 +1632,6 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 		limit = {
 			has_dlc = "Arms Against Tyranny"
 			ROOT = {
-				original_tag = ICE
-				has_idea = neutrality_idea
-				is_subject = yes 
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_JOIN
-			always = no
-		}
-	}
-	if = { 
-		limit = {
-			has_dlc = "Arms Against Tyranny"
-			ROOT = {
 				original_tag = DEN
 				has_country_flag = DEN_is_protectorate_flag
 				is_subject = yes 
@@ -1682,20 +1668,6 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 		}
 		custom_trigger_tooltip = {
 			tooltip = RULE_NON_GIE_CALL
-			always = no
-		}
-	}
-	if = { 
-		limit = {
-			has_dlc = "Arms Against Tyranny"
-			FROM = {
-				original_tag = ICE
-				has_idea = neutrality_idea
-				is_subject = yes 
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_CALL
 			always = no
 		}
 	}

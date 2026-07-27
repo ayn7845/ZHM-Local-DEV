@@ -9,7 +9,7 @@ country_groups = {
         NOR
         FIN
         DEN
-        ICE
+        
     }
 
     continental_europe_1936 = {

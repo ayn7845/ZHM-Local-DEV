@@ -858,18 +858,7 @@ on_actions = {
 				set_global_flag = germany_lost_the_war
 			}
 
-			if = {
-				limit= {
-					ROOT = {
-						original_tag = ENG
-					}
-					FROM = {
-						original_tag = ICE
-					}
-				}
-
-				set_global_flag = achivement_ice_capitulated_eng
-			}
+			
 		}
 
 		#GERMANY - Set Flag in capitulated countries and add them to array for Seize Gold Reserves Decision purposes

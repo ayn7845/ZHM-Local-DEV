@@ -3879,8 +3879,7 @@ faction_goal_control_iceland = {
 			NOT = {
 				original_tag = DEN
 				is_in_faction_with = DEN
-				original_tag = ICE
-				is_in_faction_with = ICE
+				
 			}
 		}
 		any_collection_element = {

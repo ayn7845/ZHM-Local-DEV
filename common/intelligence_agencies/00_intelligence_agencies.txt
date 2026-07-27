@@ -422,15 +422,6 @@ intelligence_agency = {
 
 intelligence_agency = {
 	
-	picture = GFX_intelligence_agency_logo_ICE_logreglan
-	names = { "Lögreglan" }
-
-	default = { tag = ICE }
-	available = { original_tag = ICE }
-}
-
-intelligence_agency = {
-	
 	picture = GFX_intelligence_agency_logo_CAN_royal_canadian_mounted_police
 	names = { "Royal Canadian Mounted Police" }
 

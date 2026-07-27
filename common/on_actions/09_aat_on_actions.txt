@@ -558,17 +558,7 @@ on_actions = {
 		}
 
 		effect = { # Iceland declaring independence
-			if = {
-				limit = { 
-					FROM = { original_tag = DEN }
-					
-				}
-				set_variable = { ICE.overlord_attacker = ROOT}
-				ICE = {
-					set_country_flag = declared_independence_flag
-					
-				}
-			}
+			
 		}
 
 		effect = { #manpower gain from train the sheltered focus
@@ -1262,20 +1252,7 @@ on_actions = {
 	#ROOT is subject FROM is previous overlord
 	on_subject_free = {
 		effect = {
-			IF = {
-				limit = {
-					original_tag = ICE
-					has_dlc = "Arms Against Tyranny"
-					has_country_flag = ICE_republicanism_flag
-				}
-				ROOT = {
-					country_event = {
-						id = iceland_events.45
-						hours = 16
-						random_hours = 32 
-					}
-				}
-			}
+			
 			IF = {
 				limit = {
 					original_tag = SWE
@@ -2608,16 +2585,7 @@ on_actions = {
 								}
 							}
 						}
-						ICE = {
-							all_core_state = {
-								OR = {
-									is_controlled_by = ROOT
-									controller = {
-										is_in_faction_with = ROOT
-									}
-								}
-							}
-						}
+						
 						
 					}
 					if = {

@@ -1956,7 +1956,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = ICE original_tag = DEN }
+						OR = { original_tag = DEN }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
@@ -2060,7 +2060,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = FIN original_tag = ICE original_tag = SWE }
+						OR = { original_tag = FIN original_tag = SWE }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
