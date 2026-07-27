@@ -316,22 +316,7 @@ country_event = {
 			}
 		}
 		
-		if = {
-			limit = {
-				original_tag = BEL
-				has_country_flag = GER_trading_proposal_flag
-			}
-			effect_tooltip = {
-				COG = {
-					add_ideas = GER_german_trade_ns
-
-					add_opinion_modifier = {
-						target = FROM
-						modifier = GER_trading_partners
-					}
-				}
-			}
-		}
+		
 		custom_effect_tooltip = war_will_cancel_deal_tt
 		FROM = {
 			country_event = { id = wuw_GER_diplomacy.2 hours = 5 random_hours = 5 }
@@ -387,21 +372,7 @@ country_event = { #FROM accepts our trade deal
 			set_country_flag = GER_getting_offshore_civ_flag
 		}
 		
-		if = {
-			limit = {
-				FROM = {
-					original_tag = BEL
-					has_country_flag = GER_trading_proposal_flag
-				}
-			}
-			COG = {
-				add_ideas = GER_german_trade_ns
-				add_opinion_modifier = {
-					target = GER
-					modifier = GER_trading_partners
-				}
-			}
-		}
+		
 		custom_effect_tooltip = war_will_cancel_deal_tt
 		hidden_effect = {
 			add_offsite_building = { type = industrial_complex level = 1 }
@@ -4616,7 +4587,6 @@ country_event = { #Germany demands integration
 					} 
 				}
 
-				release_puppet = SLO 
 			}
 		}
 
@@ -6799,239 +6769,12 @@ country_event = {
 
 	is_triggered_only = yes
 
-	option = { # It is a mutually beneficial deal
-		name = wuw_GER_weltpolitik.4.a
-		ai_chance = {
-			base = 75
-			modifier = {
-				factor = 2
-				ROOT = {
-					has_opinion = {
-						target = FROM
-						value > 55
-					}	
-				}
-			}
-			modifier = {
-				factor = 2
-				FROM = {
-					has_added_tension_amount > 10
-				}
-			}
-			modifier = {
-				factor = 0.02
-				FROM = {
-					has_added_tension_amount > 29
-				}
-			}
-		}	
+	option = { 
 
-		IF = {
-			limit = {
-				295 = {
-					OWNER = {
-						NOT = {
-							OR = {
-								original_tag = COG
-								original_tag = BEL
-							}
-						}
-					}
-				}
-				889 = {
-					OWNER = {
-						NOT = {
-							OR = {
-								original_tag = COG
-								original_tag = BEL
-							}
-						}
-					}
-				}
-				718 = {
-					OWNER = {
-						NOT = {
-							OR = {
-								original_tag = COG
-								original_tag = BEL
-							}
-						}
-					}
-				}
-				890 = {
-					OWNER = {
-						NOT = {
-							OR = {
-								original_tag = COG
-								original_tag = BEL
-							}
-						}
-					}
-				}
-				768 = {
-					OWNER = {
-						NOT = {
-							OR = {
-								original_tag = COG
-								original_tag = BEL
-							}
-						}
-					}
-				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 769
-						state = 768
-						state = 295
-						state = 538
-						state = 890
-						state = 718
-					}
-				}
-				add_claim_by = GER
-			}
-			every_country = {
-				limit = {
-					OR = {
-						owns_state = 769 
-						owns_state = 768
-						owns_state = 295
-						owns_state = 538
-						owns_state = 890
-						owns_state = 718
-					}
-					NOT = {
-						OR = {
-							is_subject_of = GER
-							is_in_faction_with = GER
-						}
-					}
-				}
-				GER = {
-					create_wargoal = {
-						type = take_claimed_state
-						target = PREV
-					}	
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_state = {
-				limit = {
-					OR = {
-						state = 889
-						state = 888
-					}
-				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					OR = {
-						owns_state = 889 
-						owns_state = 888
-					}
-					NOT = {
-						OR = {
-							is_subject_of = ROOT
-							is_in_faction_with = ROOT
-						}
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = take_claimed_state
-						target = PREV
-					}	
-				}
-			}
-		}	
-		ELSE_IF = {
-			limit = {
-				OR = {
-					295 = {
-						is_owned_and_controlled_by = BEL
-					}
-					COG = {
-						exists = yes
-						OR = {
-							is_subject_of = BEL
-							is_in_faction_with = BEL
-						}
-					}
-				}
-			}
-			BEL = {
-				# England demands we give up the Congo
-				country_event = { 
-					id = wuw_GER_weltpolitik.5
-					days = 1
-					random_days = 2 
-				}
-			}
-
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				every_state = {
-					limit = {
-						OR = {
-							state = 888
-							state = 889
-						}
-						OR = {
-							is_fully_controlled_by = BEL
-							is_fully_controlled_by = COG
-						}
-					}
-					transfer_state_to = ENG
-				}
-				every_state = {
-					limit = {
-						OR = {
-							state = 295
-							state = 538
-							state = 718
-							state = 890
-							state = 768
-							state = 769
-						}
-						OR = {
-							is_fully_controlled_by = BEL
-							is_fully_controlled_by = COG
-						}
-					}
-					transfer_state_to = GER
-				}
-			}
-		}
 	}
 
-	option = { # We will not sponsor this aggression
-		name = wuw_GER_weltpolitik.4.b
-		ai_chance = {
-			base = 25
-			modifier = {
-				factor = 0.5
-				ROOT = {
-					has_opinion = {
-						target = FROM
-						value > 55
-					}	
-				}
-			}
-		}		
+	option = { 
 
-		FROM = {
-			# FROM rejects the deal 。：゜(；´∩｀；)゜：。
-			country_event = { 
-				id = wuw_GER_weltpolitik.6
-				days = 1
-				random_days = 2 
-			}
-		}
 	}
 }
 
@@ -7055,211 +6798,10 @@ country_event = {
 				}
 			}
 		}	
-		
-		ENG = {
-			# Belgium decides to give up the Congo
-			country_event = { 
-				id = wuw_GER_weltpolitik.8
-				days = 1
-			}
-		}
-		GER = {
-			# Belgium decides to give up the Congo
-			country_event = { 
-				id = wuw_GER_weltpolitik.8
-				days = 1
-			}
-		}
-		IF = {
-			limit = {
-				COG = {
-					exists = no
-				}
-			}
-			effect_tooltip = {
-				ROOT = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								state = 888
-								state = 889
-							}
-						}
-						transfer_state_to = FROM
-					}
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-				ROOT = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								state = 295
-								state = 538
-								state = 718
-								state = 890
-								state = 768
-								state = 769
-							}
-						}
-						transfer_state_to = GER
-					}
-				}
-			}
-		}
-
-		IF = {
-			limit = {
-				COG = {
-					exists = yes
-				}
-			}
-			COG = {
-				# Belgium decides to split us
-				country_event = { 
-					id = wuw_GER_weltpolitik.7
-					days = 2
-				}
-			}
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				COG = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								state = 888
-								state = 889
-							}
-						}
-						transfer_state_to = FROM
-					}
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-				COG = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								state = 295
-								state = 538
-								state = 718
-								state = 890
-								state = 768
-								state = 769
-							}
-						}
-						transfer_state_to = GER
-					}
-				}
-			}
-		}
+	
 	}
 
-	option = { # We can not accept this
-		name = wuw_GER_weltpolitik.5.b
-		ai_chance = {
-			base = 10
-		}	
-
-		ENG = {
-			# Belgium decides NOT to give up the Congo
-			country_event = { 
-				id = wuw_GER_weltpolitik.9
-				days = 1
-			}
-		}
-		GER = {
-			# Belgium decides NOT to give up the Congo
-			country_event = { 
-				id = wuw_GER_weltpolitik.9
-				days = 1
-			}
-		}	
-		effect_tooltip = {
-
-			every_state = {
-				limit = {
-					OR = {
-						state = 888
-						state = 889
-					}
-					OR = {
-						is_fully_controlled_by = BEL
-						is_fully_controlled_by = COG
-					}
-				}
-				add_claim_by = ENG
-			}
-		
-		
-			every_state = {
-				limit = {
-					OR = {
-						state = 295
-						state = 538
-						state = 718
-						state = 890
-						state = 768
-						state = 769
-					}
-					OR = {
-						is_fully_controlled_by = BEL
-						is_fully_controlled_by = COG
-					}
-				}
-				add_claim_by = GER
-			}
-			
-			
-			IF = {
-				limit = {
-					COG = {
-						exists = yes
-					}
-				}
-				every_country = {
-					limit = {
-						OR = {
-							original_tag = ENG
-							original_tag = GER
-						}
-					}
-					create_wargoal = {
-						type = take_claimed_state
-						target = COG
-					}
-				}	
-			}
-			IF = {
-				limit = {
-					any_state = {
-						OR = {
-							state = 888
-							state = 889
-							state = 295
-							state = 538
-							state = 718
-							state = 890
-							state = 768
-							state = 769
-						}
-						is_fully_controlled_by = ROOT
-					}
-				}
-				every_country = {
-					limit = {
-						OR = {
-							original_tag = ENG
-							original_tag = GER
-						}
-					}
-					create_wargoal = {
-						type = take_claimed_state
-						target = ROOT
-					}
-				}	
-			}
-		}
+	option = { 
 
 	}
 }
@@ -7281,39 +6823,7 @@ country_event = {
 
 		add_threat = 3
 		
-		every_state = {
-			limit = {
-				OR = {
-					is_core_of = COG
-					
-				}
-			}
-			add_claim_by = ROOT
-		}
-
-		IF = {
-			limit = {
-				COG = {
-					exists = yes
-					owns_state = 295
-				}
-			}
-			create_wargoal = {
-				type = take_claimed_state
-				target = COG
-			}	
-		}
-		ELSE_IF = {
-			limit = {
-				BEL = {
-					owns_state = 295
-				}
-			}
-			create_wargoal = {
-				type = take_claimed_state
-				target = BEL
-			}	
-		}
+		
 		
 	}
 
@@ -7520,17 +7030,7 @@ country_event = {
 			}
 		}
 		
-		IF = {
-			limit = {
-				COG = {
-					exists = yes
-				}
-			}
-			create_wargoal = {
-				type = take_claimed_state
-				target = COG
-			}	
-		}
+	
 		IF = {
 			limit = {
 				any_state = {
@@ -7624,17 +7124,7 @@ country_event = {
 			}
 		}
 		
-		IF = {
-			limit = {
-				COG = {
-					exists = yes
-				}
-			}
-			create_wargoal = {
-				type = take_claimed_state
-				target = COG
-			}	
-		}
+	
 
 	}
 	option = { # Today is a good day (OBS: "CONGO SAID YES")
@@ -7748,76 +7238,7 @@ country_event = {
 
 	immediate = {
 
-		hidden_effect = {
-
-			IF = {
-				limit = {
-					COG = {
-						is_subject_of = ROOT
-					}
-				}
-				ROOT = {
-					set_autonomy = {
-						target = COG
-						autonomy_state = autonomy_free
-						freedom_level = 1
-						end_wars  = no
-						end_civil_wars = no
-					}
-				}
-			}
-			IF = {
-				limit = {
-					COG = {
-						has_cosmetic_tag = COG_belgian_congo
-					}
-				}
-				COG = {
-					drop_cosmetic_tag = yes
-					set_politics = {
-						ruling_party = democratic
-						elections_allowed = yes
-					}	
-					add_popularity = {
-						ideology = democratic
-						popularity = 0.25
-					}	
-					add_popularity = {
-						ideology = communism
-						popularity = 0.1
-					}	 
-				}
-				
-			}
-
-			IF = {
-				limit = {
-					COG = {
-						has_idea = BEL_albert_de_vleeschauwer
-					}
-				}
-				COG = {
-					remove_ideas = BEL_albert_de_vleeschauwer
-				}
-			}
-
-			COG = {
-				set_party_name = {
-					ideology = neutrality
-					long_name = house_of_agua_rosada_long
-					name = house_of_agua_rosada
-				}
-
-				add_country_leader_role = {
-					character =  COG_pedro_vii_alfonso
-					promote_leader = yes
-					country_leader = {
-						ideology = despotism
-						expire = "1969.1.1.1"
-						traits = { manikongo_of_kongo } 
-					}
-				}
-			}
+		hidden_effect = { 
 
 		}
 
@@ -7829,10 +7250,6 @@ country_event = {
 			base = 75
 		}
 
-		create_wargoal = {
-			type = puppet_wargoal_focus
-			target = COG
-		}	
 		
 	}
 

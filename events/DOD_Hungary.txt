@@ -3311,17 +3311,6 @@ country_event = {
 		}
 	}
 
-	option = { # Appeal to Germany
-		name = DOD_hungary.80.c
-		ai_chance = {
-			base = 25
-		}
-		trigger = {
-			tag = SLO
-			is_puppet_of = GER
-		}
-		GER = { country_event = DOD_hungary.83 }
-	}
 	option = {# Refuse outright
 		name = DOD_hungary.80.d
 		HUN = { country_event = DOD_hungary.84 }
@@ -3445,12 +3434,7 @@ country_event = {
 		name = DOD_hungary.84.b
 		ai_chance = {
 			factor = 90
-			modifier = {
-				country_exists = SLO
-				SLO = { is_puppet = no }
-				SLO = { is_in_faction = no }
-				factor = 10
-			}
+		
 		}
 
 		add_war_support = 0.05
@@ -3504,19 +3488,7 @@ country_event = {
 				generator = { 664 }
 			}
 		}
-		if = {
-			limit = { 
-				SLO = {
-					owns_state = 664
-				}
-			}
-
-			create_wargoal = {
-				type = take_state_focus
-				target = SLO
-				generator = { 664 }
-			}
-		}
+		
 	}
 }
 
@@ -4179,10 +4151,7 @@ country_event = {
 		name = DOD_hungary.101.a
 		ai_chance = {
 			factor = 70
-			modifier = {
-				country_exists = SLO
-				factor = 0
-			}
+			
 		}
 		HUN = {
 			transfer_state = 70
@@ -4217,85 +4186,6 @@ country_event = {
 		}
 	}
 
-	option = {# puppet
-		name = DOD_hungary.101.b
-		ai_chance = {
-			factor = 30
-		}
-		if = {
-			limit = {
-				70 = {
-					is_owned_by = CZE
-				}
-			}
-			SLO = { transfer_state = 70 }
-		}
-		if = {
-			limit = {
-				71 = {
-					is_owned_by = CZE	
-				}
-			}
-			SLO = { transfer_state = 71 }
-		}
-		if = {
-			limit = {
-				72 = {
-					is_owned_by = CZE	
-				}
-			}
-			SLO = { transfer_state = 72 }
-		}
-		if = {
-			limit = {
-				154 = { is_owned_by = HUN }
-				73 = {
-					is_owned_by = CZE
-				}
-			}
-			HUN = { transfer_state = 73 }
-		}
-		if = {
-			limit = {
-				664 = {
-					is_owned_by = CZE
-				}
-			}
-			HUN = { transfer_state = 664 }
-		}
-		every_state = {
-			limit = {
-				is_owned_by = SLO
-			}
-			add_core_of = SLO
-		}
-		hidden_effect = {
-			SLO = {
-				load_oob = SLO_1939
-				add_manpower = 9876
-			}
-		}
-		puppet = SLO
-		if = {
-			limit = {
-				country_exists = CZE
-				CZE = {
-					NOT = {
-						OR = {
-							has_cosmetic_tag = CZE_union
-							has_cosmetic_tag = CZE_second_republic
-							has_cosmetic_tag = CZE_union_expanded
-							has_cosmetic_tag = CZE_fall_of_the_republic
-							has_cosmetic_tag = CZE_CEF
-						}
-					}
-				}
-			}
-			CZE = {
-				set_cosmetic_tag = CZE_ONLY
-			}
-		}
-	}
 }
 
 #Demand Overlordship over Slovakia - CZE refuses to hand over Slovakia
@@ -4464,15 +4354,10 @@ country_event = {
 	desc = {
 		text = DOD_hungary.107.desc_SLO_independent
 		trigger = { 
-			SLO = { is_subject = no }
+			
 		}
 	}
-	desc = {
-		text = DOD_hungary.107.desc_SLO_puppet
-		trigger = { 
-			SLO = { is_subject = yes }
-		}
-	}
+
 	picture = GFX_report_event_lithuania_army
 	
 	is_triggered_only = yes
@@ -4520,7 +4405,7 @@ country_event = {
 
 	option = {# good
 		name = DOD_hungary.108.a
-		puppet = SLO
+		
 	}
 
 	
@@ -4537,10 +4422,7 @@ country_event = {
 
 	option = {# war!
 		name = DOD_hungary.109.a
-		create_wargoal = {
-				type = puppet_wargoal_focus
-				target = SLO
-		}
+		
 		hidden_effect = {
 			news_event = { id = news.311 days = 1 }
 		}
@@ -5261,13 +5143,7 @@ country_event = {
 				transfer_state = 71
 				transfer_state = 72
 			}
-			SLO = {
-				add_state_core = 70
-				add_state_core = 71
-				add_state_core = 72
-				add_state_core = 73
-				add_state_core = 664
-			}
+			
 		}
 	}
 	option = {# refuse

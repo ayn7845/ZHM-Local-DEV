@@ -1250,25 +1250,9 @@ country_event = {
 			HUN = {
 				transfer_state = 664 #might as well throw them a bone
 			}
-			else = { #Need to get rid of everything
-				SLO = { transfer_state = 664 }
-			}
+			
 		}
-		SLO = {
-			transfer_state = 70
-			transfer_state = 71
-			transfer_state = 72
-			transfer_state = 73
-			add_state_core = 70
-			add_state_core = 71
-			add_state_core = 72
-			add_state_core = 73
-
-		}
-		ROM = {
-			puppet = SLO
-			annex_country = { target = CZE } #cleanup
-		}
+		
 	}
 	option = {# refuse
 		name = DOD_romania.114.b

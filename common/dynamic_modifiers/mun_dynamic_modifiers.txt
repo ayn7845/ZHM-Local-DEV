@@ -331,7 +331,7 @@ CZE_central_bohemia_modifier = { #State Modifier
 				OWNER = {
 					OR = {
 						original_tag = CZE
-						original_tag = SLO
+						
 					} 
 				} 
 			}
@@ -353,7 +353,6 @@ CZE_balance_industrial_development = { #State Modifier
 				OWNER = {
 					OR = {
 						original_tag = CZE
-						original_tag = SLO
 						
 					} 
 				} 
@@ -374,9 +373,7 @@ CZE_industrial_subsidies = { #State Modifier
 			NOT = { 
 				OWNER = {
 					OR = {
-						original_tag = CZE
-						original_tag = SLO
-						
+						original_tag = CZE		
 					} 
 				} 
 			}

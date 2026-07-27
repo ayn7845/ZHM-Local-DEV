@@ -12043,23 +12043,9 @@ news_event = {
 	title = news.309.t
 	desc = {
 		text = news.309.desc.a
-		trigger = { 
-			OR = {
-				NOT = { country_exists = SLO }
-				AND = {
-					country_exists = SLO
-					SLO = { is_subject = yes }
-				}
-			}
-		}
+		
 	}
-	desc = {
-		text = news.309.desc.b
-		trigger = { 
-			country_exists = SLO
-			SLO = { is_subject = no }
-		}
-	}
+	
 	picture = GFX_news_event_hungary_refused
 	
 	major = yes
@@ -12076,22 +12062,7 @@ news_event = {
 		name = news.309.b
 		trigger = { 
 			TAG = CZE
-			OR = {
-				NOT = { country_exists = SLO }
-				AND = {
-					country_exists = SLO
-					SLO = { is_subject = yes }
-				}
-			}
-		}
-	}
-	option = {
-		name = news.309.c
-		trigger = { 
-			AND = {
-				TAG = SLO
-				SLO = { is_subject = no }
-			}
+			
 		}
 	}
 	option = {
@@ -12100,10 +12071,7 @@ news_event = {
 			NOT = {
 				TAG = HUN
 				TAG = CZE
-				AND = {
-					TAG = SLO
-					SLO = { is_subject = yes }
-				}
+				
 			}
 		}
 	}
@@ -12115,23 +12083,9 @@ news_event = {
 	title = news.310.t
 	desc = {
 		text = news.310.desc.a
-		trigger = { 
-			OR = {
-				NOT = { country_exists = SLO }
-				AND = {
-					country_exists = SLO
-					SLO = { is_subject = yes }
-				}
-			}
-		}
+		
 	}
-	desc = {
-		text = news.310.desc.b
-		trigger = { 
-			country_exists = SLO
-			SLO = { is_subject = no }
-		}
-	}
+	
 	picture = GFX_news_event_generic_sign_treaty1
 	
 	major = yes
@@ -12167,22 +12121,7 @@ news_event = {
 	title = news.311.t
 	desc = {
 		text = news.311.desc.a
-		trigger = { 
-			OR = {
-				NOT = { country_exists = SLO }
-				AND = {
-					country_exists = SLO
-					SLO = { is_subject = yes }
-				}
-			}
-		}
-	}
-	desc = {
-		text = news.311.desc.b
-		trigger = { 
-			country_exists = SLO
-			SLO = { is_subject = no }
-		}
+		
 	}
 	picture = GFX_news_event_hungarian_soldiers
 	
@@ -12201,7 +12140,7 @@ news_event = {
 		trigger = { 
 			OR = {
 				TAG = CZE
-				TAG = SLO
+				
 			}
 		}
 	}
@@ -12211,7 +12150,7 @@ news_event = {
 			NOT = {
 				TAG = HUN
 				TAG = CZE
-				TAG = SLO
+				
 			}
 		}
 	}
