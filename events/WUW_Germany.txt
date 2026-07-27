@@ -16874,13 +16874,8 @@ country_event = {
 		name = GER_inner_circle.01.a
 
 		ai_chance = {
-			base = 1
-			modifier = { #Himmler should replace Bormann on Historical when he ascends
-				factor = 100
-				GER_is_historical_ai = yes
-				check_variable = { GER_ascending_advisor = 4 } #Himmler Ascending
-				check_variable = { GER_ascended_advisor_1 = 7 } #Bormann ascended in this slot
-			}
+			base = 100
+			
 		}
 		
 		GER_remove_replaced_advisor_1_effects = yes
@@ -16901,7 +16896,7 @@ country_event = {
 		name = GER_inner_circle.01.b
 
 		ai_chance = {
-			base = 1
+			base = 0
 			
 		}
 
@@ -16923,7 +16918,7 @@ country_event = {
 		name = GER_inner_circle.01.c
 
 		ai_chance = {
-			base = 1
+			base = 0
 			
 		}
 

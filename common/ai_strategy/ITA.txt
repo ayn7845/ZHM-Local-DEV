@@ -729,34 +729,43 @@ ITA_be_careful_transporting_through_the_med = {
 	}
 }
 
-ITA_dont_take_claims_on_yug = {
+ITA_take_claims_on_yug = {
 	allowed = {
 		original_tag = ITA
 	}
 	enable = {
-		country_exists = YUG
-		is_historical_focus_on = yes
-		date < 1941.4.30
-
+		date > 1936.5.1
 	}
 
 	abort = {
-		OR = {
-			NOT = { country_exists = YUG }
-			date > 1941.5.1 #If Germany won't invade Yugoslavia, then we will!
-		}
+		NOT = { country_exists = YUG }
+		
 	}
 
 	ai_strategy = {
 		type = declare_war
 		id = YUG
-		value = -200
+		value = 9999
 	}
-
 	ai_strategy = {
-		type = ignore_claim
+		type = conquer
 		id = YUG
-		value = 1
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = YUG
+		value = 9999
+	}
+	ai_strategy = {
+		type = invade
+		id = YUG
+		value = 9999
+	}
+	ai_strategy = {
+		type = antagonize
+		id = YUG
+		value = 9999
 	}
 }
 
