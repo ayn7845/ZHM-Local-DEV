@@ -1928,12 +1928,33 @@ on_actions = {
 
 		# Sends Raoul van Overstraeten back to Belgium
 		effect = {
-			
+			IF = {
+				limit = {
+					ROOT = {
+						original_tag = COG
+						has_character = BEL_raoul_van_overstraeten
+					}
+				}
+				ROOT = {
+					country_event = {
+						id = ww_congo.4
+						hours = 2
+					}	
+				}
+			}
 		}
 
 		# If the Belgian Congo is freed, they are no longer Belgian
-		effect = { 
-
+		effect = {
+			IF = {
+				limit = {
+					original_tag = COG
+					has_cosmetic_tag = COG_belgian_congo
+				}
+				COG = {
+					drop_cosmetic_tag = yes
+				}
+			}
 		}
 
 		effect = { #If a Reichskommissariat is freed, make Alfred Rosenberg suck a bit
@@ -1960,7 +1981,20 @@ on_actions = {
 	on_peaceconference_ended = {
 
 		# Drop Belgian Congo cosmetic tag to set correct flag and name
-		
+		effect = {
+			IF = {
+				limit = {
+					original_tag = COG
+					has_cosmetic_tag = COG_belgian_congo
+					NOT = {
+						is_subject_of = BEL
+					}
+				}
+				COG = {
+					drop_cosmetic_tag = yes
+				}
+			}
+		}
 
 	}
 
@@ -1984,7 +2018,31 @@ on_actions = {
 	on_monthly_ENG = {
 
 		# Jan Zumbach heads on over to the Congo
-		
+		effect = {
+			IF = {
+				limit = {
+					original_tag = ENG
+					COG = {
+						exists = yes
+						NOT = {
+							has_war_with = ENG
+						}
+					}
+					has_global_flag = jan_zumbach_fled_to_britain
+					NOT = {
+						has_global_flag = jan_zumbach_wanted_to_go_to_the_congo
+					}
+					date > 1943.01.01
+				}
+				country_event = {
+					id = ww_congo.71
+					hours = 2
+					random_hours = 4
+				}	
+				set_global_flag = jan_zumbach_wanted_to_go_to_the_congo
+			}
+		}
+
 	}
 
 	on_ruling_party_change = {

@@ -1380,7 +1380,7 @@ if = {
 		traits = { operative_linguist operative_infiltrator }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { SOV GER HUN ROM CZE }
+		nationalities = { SOV GER HUN ROM CZE SLO }
 	}
 
 }

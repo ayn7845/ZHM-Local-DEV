@@ -61,6 +61,10 @@ focus_tree = {
 		}
 		modifier = {
 			add = 1000000
+			tag = COG
+		}
+		modifier = {
+			add = 1000000
 			tag = POL
 		}
 		

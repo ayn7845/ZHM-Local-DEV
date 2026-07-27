@@ -1523,7 +1523,17 @@ country_event = {
 			country_event = lar_align_belgium.2
 		}
 		effect_tooltip = {
-			
+			FROM = {
+				puppet = PREV
+				IF = {
+					limit = {
+						ROOT = {
+							has_subject = COG
+						}
+					}
+					puppet = COG 
+				}
+			}
 		}
 	}
 
@@ -1557,7 +1567,16 @@ country_event = {
 			factor = 100
 		}
 
-	
+		IF = {
+			limit = {
+				FROM = {
+					has_subject = COG
+				}
+			}
+			puppet = COG
+		}
+
+		puppet = FROM
 
 	}
 }
@@ -1611,7 +1630,19 @@ country_event = {
 			country_event = lar_split_belgium.2
 		}
 		effect_tooltip = {
-			
+			FRA = {
+				puppet = PREV
+				IF = {
+					limit = {
+						ROOT = {
+							has_subject = COG
+						}
+					}
+					puppet = COG 
+				}
+				transfer_state = 34
+				transfer_state = 980
+			}
 		}
 	}
 
@@ -1644,7 +1675,14 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		
+		IF = {
+			limit = {
+				FROM = {
+					has_subject = COG
+				}
+			}
+			puppet = COG
+		}
 		puppet = FROM
 		transfer_state = 34
 		transfer_state = 980

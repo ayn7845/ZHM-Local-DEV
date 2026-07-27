@@ -52,7 +52,7 @@ war_measures = {
 			}
 			AND = {
 				OR = {
-					
+					original_tag = COG
 					original_tag = BEL
 				}
 				has_global_flag = CONGO_independence_war_ongoing

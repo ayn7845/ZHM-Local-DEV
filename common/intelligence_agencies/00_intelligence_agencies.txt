@@ -544,6 +544,34 @@ intelligence_agency = {
 
 intelligence_agency = {
 
+	picture = GFX_intelligence_agency_logo_COG_snip
+	names = { "Service National d'Identification et de Protection" }
+	
+	default = { 
+		tag = COG 
+		is_subject = yes
+	} 
+	available = { 
+		original_tag = COG 
+	}
+}
+
+intelligence_agency = {
+	
+	picture = GFX_intelligence_agency_logo_COG_anr
+	names = { "Service National d'Intelligence et de Protection" }
+	
+	default = { 
+		tag = COG 
+		is_subject = no
+	} 
+	available = { 
+		original_tag = COG 
+	}
+}
+
+intelligence_agency = {
+
 	picture = GFX_intelligence_agency_logo_IRQ_DGS # TODO_ASD: should be intelligence_agency_logo_IRQ_DGS !!!
 	names = { "Mudiria al-Amn al-'Amm" } # The Directorate of General Security (DGS)
 	

@@ -133,7 +133,7 @@ operations = {
     annex_CONGO = {
             # icon = generic_operation
             allowed = {
-                always = no # Unused COG off the map.
+                tag = FRA
             }
             fire_only_once = yes
             cost = 0
@@ -141,13 +141,39 @@ operations = {
                 factor = 100
             }
             available = {
-                always = no
+                FRA = {has_capitulated = yes}
+                }
+            targets = {
+                COG
             }
-            targets = { 
-
-            }
-            complete_effect = { 
-
+            complete_effect = {
+                COG = {
+                    transfer_units_fraction = {
+                        target = FRA
+                        size = 1
+                        stockpile_ratio = 1
+                        army_ratio = 1
+                        navy_ratio = 1
+                        air_ratio = 1
+                        keep_unit_leaders_trigger = {
+                            always = no
+                        }
+                    }
+                }
+                FRA = {
+                    annex_country = {
+                        target = COG
+                        transfer_troops = yes
+                    }
+                }
+				every_state = {
+					limit = {
+						is_core_of = COG
+						is_controlled_by = FRA
+					}
+					add_compliance = 100
+				}
+                
             }
 
         }

@@ -155,7 +155,32 @@ on_actions = {
 					 }
 				set_cosmetic_tag = USA_SAF_EDW
 			}
-		
+			
+			if = {
+				limit = {
+					AND = {
+						TAG = CZE
+						SLO = { exists = yes }
+					}
+					NOT = {
+						AND = {
+							OR = {
+								has_cosmetic_tag = CZE_union
+								has_cosmetic_tag = CZE_second_republic
+								has_cosmetic_tag = CZE_union_expanded
+								has_cosmetic_tag = CZE_fall_of_the_republic
+								has_cosmetic_tag = CZE_CEF
+								has_cosmetic_tag = EUR_UNIFIED
+							}
+							SLO = {
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+			}
 			if = {
 				limit = {
 					tag = CAN
@@ -220,7 +245,31 @@ on_actions = {
 				set_cosmetic_tag = USA_UK
 			}
 			
-			
+			if = {
+				limit = {
+					AND = {
+						TAG = CZE
+						SLO = { exists = yes }
+					}
+					NOT = {
+						AND = {
+							OR = {
+								has_cosmetic_tag = CZE_union
+								has_cosmetic_tag = CZE_second_republic
+								has_cosmetic_tag = CZE_union_expanded
+								has_cosmetic_tag = CZE_fall_of_the_republic
+								has_cosmetic_tag = CZE_CEF
+								has_cosmetic_tag = EUR_UNIFIED
+							}
+							SLO = {
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+			}
 			if = {
 				limit = {
 					tag = CAN
@@ -274,7 +323,31 @@ on_actions = {
 				}
 				abandon_colony_tag = yes
 			}
-			
+			if = {
+				limit = {
+					AND = {
+						TAG = CZE
+						SLO = { exists = yes }
+					}
+					NOT = {
+						AND = {
+							OR = {
+								has_cosmetic_tag = CZE_union
+								has_cosmetic_tag = CZE_second_republic
+								has_cosmetic_tag = CZE_union_expanded
+								has_cosmetic_tag = CZE_fall_of_the_republic
+								has_cosmetic_tag = CZE_CEF
+								has_cosmetic_tag = EUR_UNIFIED
+							}
+							SLO = {
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+				CZE = { set_cosmetic_tag = CZE_ONLY } #cosmetic tag for CZE if Slovakia exists
+				#CZE = { CZE_get_rid_of_the_auto_blok = yes } #get's rid of SLO related political party name
+			}
 			if = {
 				limit = {
 					tag = CAN

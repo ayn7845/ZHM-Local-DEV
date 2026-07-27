@@ -109,6 +109,7 @@ ai_annex = {
 		
 		tag = AUS
 		tag = CZE
+		tag = COG
 		tag = MON
 		tag = TAN	
 	}

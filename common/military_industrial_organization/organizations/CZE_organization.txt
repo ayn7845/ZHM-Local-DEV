@@ -1048,6 +1048,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 		has_dlc = "Peace For Our Time"
 		OR = {
 			tag = CZE
+			tag = SLO
 			tag = GER
 			tag = POL
 		}
@@ -1118,6 +1119,7 @@ CZE_skoda_armor_organization = {
 	allowed = {	
 		OR = {
 			tag = CZE
+			tag = SLO
 			
 		}
 	}

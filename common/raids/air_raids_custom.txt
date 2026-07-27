@@ -818,6 +818,7 @@ types = {
 				original_tag = HUN
 				original_tag = ROM
 				original_tag = BUL
+				original_tag = SLO
 				original_tag = SPR
 				original_tag = DEN
 				original_tag = CRO

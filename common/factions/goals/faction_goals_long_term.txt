@@ -539,6 +539,10 @@ faction_goal_eastern_european_security = {
 				is_subject_of = ROOT
 				is_in_faction_with = ROOT
 			}
+			SLO = {
+				is_subject_of = ROOT
+				is_in_faction_with = ROOT
+			}
 			BUL = {
 				is_subject_of = ROOT
 				is_in_faction_with = ROOT

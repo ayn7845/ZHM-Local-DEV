@@ -1484,6 +1484,8 @@ GER_setup_SOV_sphere_of_influence_array = { #REMEMBER to update the focus toolti
 					is_on_continent = europe
 					OR = {
 						is_core_of = FIN
+					
+						is_core_of = SLO
 						is_core_of = ROM
 						is_core_of = YUG
 						is_core_of = BUL

@@ -8719,6 +8719,7 @@ country_event = {
 		custom_effect_tooltip = ITA_release_colonies_central_africa_tt
 		hidden_effect = {
 			
+			release_on_controlled = COG
 			
 		}
 	}

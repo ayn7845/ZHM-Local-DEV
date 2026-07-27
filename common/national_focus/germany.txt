@@ -11150,6 +11150,10 @@ focus_tree = {
 		available = {
 			is_subject = no
 			OR = {
+				SLO = {
+					exists = yes
+					is_in_faction_with = GER
+				}
 				owns_state = 70
 			}
 			NOT = { owns_state = 85 }
@@ -25574,15 +25578,71 @@ focus_tree = {
 		y = 2
 		relative_position_id = GER_re_ratify_the_locarno_treaty
 		cost = 5
-		available = { 
-
+		available = {
+			OR = {
+				AND = {
+					NOT = {	has_wargoal_against = HOL }
+					NOT = {	has_war_with = HOL }
+					#HOL = { has_subject = INS }
+				}
+				AND = {
+					NOT = {	has_wargoal_against = BEL }
+					NOT = {	has_war_with = BEL }
+					BEL = { has_subject = COG }		
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNATIONAL_TRADE }
 
 		completion_reward = {
 
-		
+			IF = { 
+
+			}
+
+			IF = {
+				limit = {
+					NOT = {	has_wargoal_against = BEL }
+					NOT = {	has_war_with = BEL }
+					COG = {
+						is_subject_of = BEL
+					}
+				}
+				BEL = {
+					country_event = { id = wuw_GER_diplomacy.1 days = 2 }
+					set_country_flag = GER_trading_proposal_flag
+					add_ai_strategy = {
+						type = befriend
+						id = GER		
+						value = 100
+					}
+					add_ai_strategy = {
+						type = alliance
+						id = GER		
+						value = 50
+					}					
+				}
+
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					BEL = {
+						add_ideas = GER_german_trade_ns
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = GER_trading_partners
+						}
+					}
+					COG = {
+						add_ideas = GER_german_trade_subject_ns
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = GER_trading_partners
+						}
+					}
+					custom_effect_tooltip = war_will_cancel_deal_tt
+				}
+			}
 			
 		}
 	}
@@ -29438,6 +29498,7 @@ focus_tree = {
 					
 						
 						original_tag = CZE
+						original_tag = SLO
 						
 						original_tag = ROM
 						original_tag = HUN
@@ -31269,15 +31330,40 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_accept_british_naval_dominance_ww
 		cost = 10
-		available = { 
-
+		available = {
+			is_subject = no
+			has_added_tension_amount > 4
+			has_added_tension_amount < 25
+			NOT = {
+				has_war_with = ENG
+			}
+			ENG = { is_subject = no }
+			NOT = {
+				COG = {
+					has_idea = GER_german_trade_ns
+				}
+				has_war_with = COG
+			}
 		}
 
-		bypass = { 
-
+		bypass = {
+			OR = {
+				COG = {	has_idea = GER_german_trade_ns }
+				has_war_with = COG
+				AND = {
+					295 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					538 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					718 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					888 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					890 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					768 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					769 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					889 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+				}
+			}
 		}
 
-	
+		will_lead_to_war_with = COG
 		will_lead_to_war_with = BEL
 
 		continue_if_invalid = yes
@@ -31285,14 +31371,57 @@ focus_tree = {
 		cancel = {
 			OR = {
 				has_war_with = ENG
-				
+				has_war_with = COG
 			}
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = { 
-			
+		completion_reward = {
+
+			ENG = {
+				country_event = {
+					id = wuw_GER_weltpolitik.4
+					hours = 12
+					random_hours = 24
+				}	
+			}
+			add_named_threat = { threat = 5 name = GER_carve_up_congo }
+
+			custom_effect_tooltip = if_they_accept_tt
+
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 888
+							state = 889
+						}
+						OR = {
+							is_fully_controlled_by = BEL
+							is_fully_controlled_by = COG
+						}
+					}
+					transfer_state_to = ENG
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 295
+							state = 538
+							state = 718
+							state = 890
+							state = 768
+							state = 769
+						}
+						OR = {
+							is_fully_controlled_by = BEL
+							is_fully_controlled_by = COG
+						}
+					}
+					transfer_state_to = GER
+				}
+			}
 		}
 	}
 
@@ -32541,6 +32670,7 @@ focus_tree = {
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = FRA
 		will_lead_to_war_with = BEL
+		will_lead_to_war_with = COG
 		
 	
 		will_lead_to_war_with = SAF
@@ -33483,6 +33613,7 @@ focus_tree = {
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = SPR
 		will_lead_to_war_with = POR
+		will_lead_to_war_with = COG
 		will_lead_to_war_with = BEL
 		will_lead_to_war_with = SAF
 		will_lead_to_war_with = ETH

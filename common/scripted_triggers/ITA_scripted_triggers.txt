@@ -245,6 +245,7 @@ ITA_is_valid_free_states_of_europe_target = {
 				original_tag = ROM
 				original_tag = HUN
 				original_tag = CZE
+				original_tag = SLO
 			
 				original_tag = LUX
 				original_tag = BEL
