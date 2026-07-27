@@ -5,9 +5,12 @@ state={
 	state_category = wasteland
 
 	history={
-		owner = WST
-		buildings = { 
-			
+		owner = POR
+		buildings = {
+			infrastructure = 1
+			13015 ={
+				naval_base = 1
+			}
 		}
 	}
 
