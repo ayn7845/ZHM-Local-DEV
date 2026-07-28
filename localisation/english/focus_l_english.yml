@@ -2580,3 +2580,14 @@
  upgrades_design_company: "§GUpgrades§! §YDesign Company§!"
  either_tt: "We will get the option of either: "
  or_tt: "or"
+
+ wuw_HUN_demand_southern_slovakia: "Demand [664.GetName]"
+ wuw_HUN_demand_southern_slovakia_desc: "The ethnic [ROOT.GetAdjective] minority in [664.GetName] is currently being mistreated and taken advantage of by the occupying government, and as such, we must see to it that the [ROOT.GetAdjective]s and the region they reside in is brought under our control once more."
+ 
+ wuw_HUN_claim_overlordship_over_slovakia: "Claim Overlordship Over Slovakia"
+ wuw_HUN_claim_overlordship_over_slovakia_desc: "The remainder of Slovakia must also be re-integrated into the Hungarian state, either directly or by becoming a dependency. We will send another ultimatum."
+ 
+ wuw_HUN_demand_the_return_of_slovakia: "Demand Slovakian Integration"
+ wuw_HUN_demand_the_return_of_slovakia_desc: "For a very long time, Slovakia was a part of Greater Hungary, and now that we are once again pursuing our place in the world, we should assert our ownership over the region."
+WW_hungary.11.t: "[FROM.GetNameDefCap] Demands Control of our Slovakian Territories"
+ITA_develop_libya_tt: "Adds §Y1 $infrastructure$§! and §G1§! Building Slot in up to §Y3§! Libyan states controlled by §Y[ROOT.GetFlag][ROOT.GetNameDef]§! or an §Y[ROOT.GetAdjective] subject§!."

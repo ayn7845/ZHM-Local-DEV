@@ -572,28 +572,6 @@ country_event = {
 
 	}
 
-	# Then come and get it!
-	option = { 
-		name = WW_hungary.11.b
-		ai_chance = {
-			factor = 40
-			
-			modifier = {
-				strength_ratio = { tag = HUN ratio > 1 }
-				factor = 2
-			}
-		}
-
-		# They reject - event for HUN
-		FROM = { 
-			country_event = {
-				id = WW_hungary.13
-				days = 2
-				random_days = 3
-			}
-		} 
-
-	}
 }
 
 # FROM hands over their Slovakian territories - event for HUN

@@ -7442,7 +7442,7 @@ focus_tree = {
 		icon = GFX_focus_HUN_carrying_on_arpads_legacy
 		prerequisite = { focus = wuw_HUN_the_turul_association }
 		#mutually_exclusive = { focus = wuw_HUN_government_of_national_unity }
-		x = 0
+		x = 2
 		y = 2
 		relative_position_id = wuw_HUN_the_turul_association
 
@@ -8960,7 +8960,6 @@ focus_tree = {
 				}
 			}
 
-			has_army_manpower = { size > 180000 }
 
 		}
 
