@@ -5,7 +5,7 @@ hmm_capitulations_on_actions = {
 			ITA = { has_war_with = ALB }
 		} 
 		ITA = {
-			threat = 2
+			add_threat = 1.5
 			annex_country = {
 				target = ALB
 				transfer_troops = no
