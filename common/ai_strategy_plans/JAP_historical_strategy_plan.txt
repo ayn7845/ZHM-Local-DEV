@@ -42,6 +42,8 @@ JAP_historical_plan = {
 		JAP_the_war_has_not_necessarily_developed_focus # 35 
 		JAP_the_surrender_broadcast # 70
 
+		JAP_strike_the_southern_road # 70
+
 		# 1936
 		JAP_ministry_of_commerce_and_industry # 35
 		JAP_increase_armament_spending # 35
@@ -107,7 +109,7 @@ JAP_historical_plan = {
 		JAP_occupy_indochina # 35
 		JAP_sea_pressure_siam # 35
 		JAP_occupy_siam # 35 IF Siam is in a faction blocking pressure Siam, they will instead attempt to invade Siam  
-		JAP_strike_the_southern_road # 70
+		
 
 		# 1942
 		JAP_expand_navy_technical_department # 70
