@@ -368,7 +368,7 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
-			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
+			visible = {  }
 		}
 		advisor = {
 			slot = high_command
@@ -2235,9 +2235,7 @@ characters = {
 			}
 			
 			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
-				}
+				
 			}
 			traits = {
 				captain_of_industry 
