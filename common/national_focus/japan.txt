@@ -104,13 +104,13 @@ focus_tree = {
 	inlay_window = {
 		id = jap_imperial_influence_inlay_window
 		
-		position = { X = 10000 y = 1300 }
+		position = { X = 5500 y = 1100 }
 
 	}
 
 	default = no
 
-	continuous_focus_position = { x = 8750 y = 1400 }
+	continuous_focus_position = { x = 4550 y = 1200 }
 
 
 	focus = {
