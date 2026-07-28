@@ -2726,12 +2726,7 @@ operations = {
 
 		allowed = { always = no } #Activated from effect
 		visible = { 
-			hidden_trigger = { 
-				NOT = { 
-					has_border_war_with = JAP 
-					has_border_war_with = MAN 
-				} 
-			} 
+			
 		}
 		cancel_if_not_visible = yes 
 
