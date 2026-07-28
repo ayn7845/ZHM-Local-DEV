@@ -13317,15 +13317,15 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			
+			custom_effect_tooltip = ZHM_baltic_claims
 			# Estonia
-			custom_effect_tooltip = SOV_estonian_claimed_states_tt
+			#custom_effect_tooltip = SOV_estonian_claimed_states_tt
 			
 			# Latvia
-			custom_effect_tooltip = SOV_latvian_claimed_states_tt
+			#custom_effect_tooltip = SOV_latvian_claimed_states_tt
 			
 			# Lithuania
-			custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
+			#custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
 			
 			hidden_effect = { 
 				191 = { add_claim_by = SOV }
@@ -13419,7 +13419,8 @@ focus_tree = {
 		completion_reward = {
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_category_tooltip = SOV_diplomacy_baltic_decision_category
+			#unlock_decision_category_tooltip = SOV_diplomacy_baltic_decision_category
+			custom_effect_tooltip = ZHM_baltic_decisions
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_named_threat = { threat = 1 name = SOV_claims_in_baltic }

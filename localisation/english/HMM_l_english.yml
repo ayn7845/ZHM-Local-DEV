@@ -23,6 +23,8 @@
  ZHM_SOV_send_ultimatum_lat_TT:0 "§YSend Ultimatum to §YLatvia§!"
  ZHM_SOV_send_ultimatum_lit_TT:0 "§YSend Ultimatum to §YLithuania§!"
  ZHM_ITA_Ultimatum_alb:0 "§YItaly§W annexes §YKingdom of Albania§!"
+ ZHM_baltic_claims:0 "The §YSoviet Union§W gains claim on all §YBaltic States§W"
+ ZHM_baltic_decisions:0 "Unlocks §Ydecisions§W to annex the §YBaltic States§W"
 
  # ZHM EVENTS
   #zhm.1.a:0 "Annex Portugal?" # Title?
