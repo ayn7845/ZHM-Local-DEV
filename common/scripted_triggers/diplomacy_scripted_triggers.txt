@@ -205,64 +205,6 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 		}
 	}
 	
-	IF = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = allow_release_nations
-					option = FREE
-				}
-				has_game_rule = {
-					rule = allow_release_nations
-					option = PEACE_ONLY
-				}
-			}
-			OR = {
-				original_tag = HUN
-				original_tag = CZE
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_RELEASE_NATIONS_NO_SLOVAKIA_TOOLTIP
-			if = {
-				limit = {
-					original_tag = CZE
-				}
-				if = {
-					limit = {
-						OR = {
-							if = {
-								limit = {
-									has_dlc = "Peace For Our Time"
-								}
-								has_country_flag = CZE_cant_release_SLO_anymore_flag #set in MUN_czech_bop.1 event
-							}
-							else = {
-								date > 1936.1.7
-							}
-						}
-					}
-					NOT = {
-						FROM = {
-							tag = SLO 
-						}
-					}
-				}
-			}
-			else = {
-				NOT = {
-					FROM = {
-						tag = SLO 
-					}
-				}
-			}
-		}
-	}
-	
-
-	
-	
-	
 	if = {
 		limit = {
 			OR = {

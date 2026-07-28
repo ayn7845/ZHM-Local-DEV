@@ -3086,7 +3086,7 @@ characters = {
 			allowed = {
 				OR = {
 					original_tag = GER
-					original_tag = COG
+					
 				}
 				has_dlc = "Waking the Tiger"
 			}
@@ -3144,7 +3144,6 @@ characters = {
 			allowed = {
 				OR = {
 					original_tag = GER
-					original_tag = COG
 				}
 				has_dlc = "Waking the Tiger"
 			}

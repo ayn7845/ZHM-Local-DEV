@@ -29,7 +29,7 @@ every_possible_country = {
 		}
 		IF = {
 			limit = { has_dlc = "Gotterdammerung" }
-			NOT = { tag = HUN tag = AUS tag = COG tag = BEL }
+			NOT = { tag = HUN tag = AUS tag = BEL }
 		}
 		IF = {
 			limit = { has_dlc = "Graveyard of Empires" }
@@ -95,7 +95,7 @@ every_possible_country = {
 
 		IF = {
 			limit = { has_dlc = "Gotterdammerung"}
-			NOT = { OR = { tag = AUS tag = COG tag = BEL }}
+			NOT = { OR = { tag = AUS tag = BEL }}
 		}
 		IF = {
 			limit = { has_dlc = "Graveyard of Empires" }
@@ -168,7 +168,7 @@ every_possible_country = {
 		}
 		IF = {
 			limit = { has_dlc = "Gotterdammerung" }
-			NOT = { tag = HUN tag = AUS tag = COG }
+			NOT = { tag = HUN tag = AUS }
 		}
 		IF = {
 			limit = { has_dlc = "Graveyard of Empires" }

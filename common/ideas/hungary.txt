@@ -2049,7 +2049,6 @@ ideas = {
 			allowed = {
 				OR = {
 					original_tag = HUN
-					original_tag = COG
 				}
 			}
 			picture = generic_air_research

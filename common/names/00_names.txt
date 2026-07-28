@@ -1337,17 +1337,6 @@ HUN = {
 	callsigns = { }
 }
 
-SLO = {
-	male = {
-		names = { "Karol" "Jozef" "Slavomír" "Jaroslav" "Ján" "Vladimír" "Alojz" "Matúš" "Vojtech" }
-		surnames = { "Nemec" "Horváth" "Majer" "Kocian" "Chalupa" "Ferko" "Horňák" }
-	}
-	female = {
-		names = { "Maria" "Anna" "Hana" "Božena" "Alžbeta" "Marta" }
-		surnames = { "Nemcová" "Horváthová" "Majerová" "Kocianová" "Chalupová" "Ferková" "Horňáková" }
-	}
-}
-
 
 POL = {
 	male = {
@@ -2050,21 +2039,6 @@ ETH = {
 	}
 	surnames = {
 			Abate Abebe Aberra Abiye Ademe Admassu Afawarq Aklilu Amare Amde Anbassu Asfawossen Asrate Atikam Ayalew Balambaras Beine Bekele Belew Berhanu Berihun Beshah Bezibibeh Birru Damtew Debebe Demissie Desta Emmanual Endelkachew Gessesse Getachew Geteye Girma Haile Hailemariam Hapte Kass Kassa Kebbede Kelile Makonnen Mariam Melekot Mengesha Merid Mikael Nasibu Negasi Saleh Sebhat Seged Selassie Seyum Sileshi Tedeamme Wasane Wondosson Wossen Zeamanuel Zelleka Zewde "Ali Nur" "Walda Samayat" "Wolde Malakot" Gebre-Igziabiher "Zera Yacob"
-	 }
-	callsigns = { }
-}
-
-COG = {
-	male = {
-		names = {
-			 Mobutu Joseph Patrice Antoine Laurent Albert Moise Etienne Nzimbi Ngbale Jérôme
-		   }
-	}
-	female = {
-		names = { Ana Sarah Alexandrine Maria Nzinga Jetta Vandana Zody }
-	}
-	surnames = {
-	  	 Kasavubu Lumumba Gizenga Delvaux Mbariko Tshombo Kimba Mobutu Ileo Adoula Anany Bamba Mahamba Bangala Efomi Kasa-Vubu
 	 }
 	callsigns = { }
 }

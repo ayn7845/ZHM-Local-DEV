@@ -197,7 +197,6 @@ HABSBURG_is_a_habsburg_viable_nation = {
 			}
 		}
 		original_tag = CZE
-		original_tag = SLO
 	
 		original_tag = ALB
 	}

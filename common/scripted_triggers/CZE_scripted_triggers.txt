@@ -136,29 +136,3 @@ CZE_has_a_skoda_naval_focus_focus = {
         }
     }
 }
-
-CZE_SLO_is_not_its_own_thing = { #An exists check but extra safe
-    SLO = {
-        exists = no
-    }
-    hidden_trigger = {
-        any_country_with_original_tag = {
-            original_tag_to_check = SLO
-            exists = no
-            NOT = {
-                is_subject_of = ROOT
-            }
-            OR = {
-                AND = {
-                    num_of_controlled_states > 0
-                    NOT = {
-                        any_core_state = {
-                            is_controlled_by = SLO 
-                        }
-                    }
-                }
-                is_government_in_exile = no
-            }
-        }
-    }
-}
