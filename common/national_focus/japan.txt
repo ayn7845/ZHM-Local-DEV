@@ -12853,7 +12853,7 @@ allow_branch = {
 
 		prerequisite = { focus = JAP_occupy_siam focus = JAP_sea_pressure_siam }
 
-		cost = 10
+		cost = 0
 
 		ai_will_do = {
 			factor = 1
@@ -12874,6 +12874,7 @@ allow_branch = {
 					has_army_manpower = { size > 999999 }
 				}
 			}
+			date > 1941.1.1
 		}
 
 		bypass = {
