@@ -24,3 +24,5 @@ D22		= "countries/D02.txt"
 D23		= "countries/D03.txt"
 D24		= "countries/D04.txt"
 D25		= "countries/D05.txt"
+D26		= "countries/D06.txt"
+D27		= "countries/D07.txt" # Can't go lower for now, Civil wars crash game outside of SCW
