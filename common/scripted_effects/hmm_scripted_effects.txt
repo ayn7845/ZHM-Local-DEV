@@ -1,4 +1,17 @@
 hmm_capitulations_on_actions = {
+	if = { # Albania
+		limit = { 
+			original_tag = ALB
+			ITA = { has_war_with = ALB }
+		} 
+		ITA = {
+			threat = 2
+			annex_country = {
+				target = ALB
+				transfer_troops = no
+			}
+		}
+	}
 	if = {
 		limit = {
 			original_tag = POL
