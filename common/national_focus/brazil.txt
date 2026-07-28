@@ -90,7 +90,7 @@ focus_tree = {
 		id = BRA_ensure_continued_military_support
 		icon = GFX_focus_generic_military_dictatorship
 		prerequisite = { focus = BRA_tribunal_de_seguranca_nacional }
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 5
@@ -129,6 +129,9 @@ focus_tree = {
 		cost = 5
 		ai_will_do = {
 			factor = 5
+		}
+		allow_branch = { 
+			always = no
 		}
 		available = {
 			NOT = {
@@ -292,7 +295,7 @@ focus_tree = {
 		id = BRA_cohen_plan
 		icon = GFX_focus_BRA_cohen_plan 
 		prerequisite = { focus = BRA_ensure_continued_military_support focus = BRA_work_with_the_integralists }
-		x = 0
+		x = 2
 		y = 2
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 10
@@ -2069,7 +2072,7 @@ focus_tree = {
 			focus = BRA_cooperation_in_the_americas 
 			#focus = BRA_the_international_crisis
 		}
-		x = 0
+		x = 3
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
 		cost = 10
@@ -2452,7 +2455,7 @@ focus_tree = {
 		prerequisite = { 
 			focus = BRA_cooperation_in_the_americas 
 		}
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
 		cost = 5
