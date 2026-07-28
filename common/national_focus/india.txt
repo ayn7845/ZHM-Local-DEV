@@ -403,71 +403,8 @@ focus_tree = {
 			custom_effect_tooltip = RAJ_indian_peoples_army_effect
 		}
 
-		completion_reward = {
-			custom_effect_tooltip = RAJ_indian_peoples_army_effect
-			if = {
-				limit = {
-					has_global_flag = RAJ_seek_help_from_soviet_promised
-					SOV_can_help_against_ENG = yes
-				}
-				custom_effect_tooltip = RAJ_indian_peoples_army_support
-			}
-			hidden_effect = {
-				random_owned_controlled_state = {
-					prioritize = { 429 425 }
-					RAJ = { set_capital = { state = PREV } }
-				}
-				if = {
-					set_temp_variable = { ideology_val = party_popularity@communism }
-					#scale_var_civil_war_size_by_autonomy_and_var_ideology_val = yes
-					start_civil_war = {
-						ruling_party = communism
-						ideology = neutrality
-						size = civil_war_size
-						capital = 439
-					}
-					#Scaled by autonomy and party support - Don't add these before
-				}
-				if = {
-					limit = {
-						has_global_flag = RAJ_seek_help_from_soviet_promised
-						SOV_can_help_against_ENG = yes
-					}
-					SOV = {
-						add_to_faction = RAJ
-						add_popularity = {
-							ideology = communism
-							popularity = 0.35
-						}
-					}
-					retire_country_leader = yes
-					add_country_leader_role = {
-						character = RAJ_subhas_chanda_bose
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = stalinism
-							traits = {
-								indomitable_perseverance
-							}
-						}
-						promote_leader = yes
-					}
-				}
-				random_other_country = {
-					limit = {
-						original_tag = RAJ
-						has_government = neutrality
-					}
-					add_popularity = {
-						ideology = neutrality
-						popularity = 0.15
-					}
-					set_variable = { RAJ_agrarian_society_increment = RAJ.RAJ_agrarian_society_increment }
-					set_variable = { RAJ_agrarian_society_value = RAJ.RAJ_agrarian_society_value }
-					add_dynamic_modifier = { modifier = RAJ_agrarian_society_dynamic }
-					ENG = { add_to_faction = PREV }
-				}						
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -882,60 +819,8 @@ focus_tree = {
 				}
 				custom_effect_tooltip = RAJ_indian_national_army_support
 			}
-			hidden_effect = {
-				random_owned_controlled_state = {
-					prioritize = { 429 425 }
-					RAJ = { set_capital = { state = PREV } }
-				}
-				if = {
-					set_temp_variable = { ideology_val = party_popularity@fascism }
-					#scale_var_civil_war_size_by_autonomy_and_var_ideology_val = yes
-					start_civil_war = {
-						ruling_party = fascism
-						ideology = neutrality
-						size = civil_war_size
-						capital = 439
-					}
-					#Don't add support before this
-				}
-				if = {
-					limit = {
-						has_global_flag = RAJ_seek_help_from_germany_promised
-						GER_can_help_against_ENG = yes
-					}
-					GER = {
-						add_to_faction = RAJ
-						add_popularity = {
-							ideology = fascism
-							popularity = 0.35
-						}
-					}
-					add_country_leader_role = {
-						character = RAJ_subhas_chanda_bose
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = nazism
-							traits = {
-								indomitable_perseverance
-							}
-						}
-						promote_leader = yes
-					}
-				}
-				random_other_country = {
-					limit = {
-						original_tag = RAJ
-						has_government = neutrality
-					}
-					add_popularity = {
-						ideology = neutrality
-						popularity = 0.15
-					}
-					set_variable = { RAJ_agrarian_society_increment = RAJ.RAJ_agrarian_society_increment }
-					set_variable = { RAJ_agrarian_society_value = RAJ.RAJ_agrarian_society_value }
-					add_dynamic_modifier = { modifier = RAJ_agrarian_society_dynamic }
-					ENG = { add_to_faction = PREV }
-				}					
+			hidden_effect = { 
+				
 			}
 		}
 	}

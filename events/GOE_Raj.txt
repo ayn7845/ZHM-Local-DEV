@@ -1776,38 +1776,8 @@ country_event = {
 		}
 	}
 
-	option = {
-		name = GOE_RAJ.46.a
-		trigger = {
-			num_of_controlled_states > 1
-		}
-		ai_chance = { 
-			factor = 100
-		}
-		set_country_flag = had_raj_civil_war_flag
-		start_civil_war = {
-			ideology = communism
-			size = raj_total_com_size
-		}
-		every_other_country = {
-			limit = {
-				original_tag = ROOT
-				has_government = communism
-			}
-			FROM = {
-				set_autonomy = {
-					target=PREV
-					autonomy_state = autonomy_puppet
-					freedom_level = 0.1
-					end_wars = no
-					end_civil_wars = no
-				}
-			}
-		}
-
-		ai_chance = {
-			base = 5
-		}
+	option = { 
+		
 	}
 
 

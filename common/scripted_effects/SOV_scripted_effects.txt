@@ -7543,50 +7543,7 @@ SOV_start_civil_war = {
 	}
 
 	# Launch The Civil War
-	start_civil_war = {
-		ideology = communism
-		ruling_party = var:temp_ideology
-		capital = var:ROOT.SOV_stalinist_civil_war_start_state
-		states = all
-		states_filter = {
-			IF= {
-				limit = { SOV_is_left_opposition = yes }
-				NOT = { has_state_flag = SOV_left_opposition_state }
-				is_fully_controlled_by = ROOT
-			}
-			ELSE_IF= {
-				limit = { SOV_is_right_opposition = yes }
-				NOT = { has_state_flag = SOV_right_opposition_state }
-				is_fully_controlled_by = ROOT
-			}
-			ELSE_IF= {
-				limit = { SOV_is_exiles = yes }
-				NOT = { has_state_flag = SOV_exiles_state }
-				is_fully_controlled_by = ROOT
-			}
-		}
-
-		size = 0.75
-		army_ratio = var:temp_centre_army
-		navy_ratio = var:temp_centre_navy
-		air_ratio = var:temp_centre_air
-
-		keep_political_leader = yes
-		keep_unit_leaders_trigger = {
-			IF = {
-				limit = { SOV_is_left_opposition = yes }
-				has_trait = trait_SOV_trotskyist
-			}
-			ELSE_IF = {
-				limit = { SOV_is_right_opposition = yes }
-				has_trait = trait_SOV_bukharinist
-			}
-			ELSE_IF = {
-				limit = { SOV_is_exiles = yes }
-				has_trait = trait_SOV_monarchist_sympathizer
-			}
-		}
-	}
+	
 
 	# Set Up Stalinist Soviet Union ( tag = SOS )
 	random_country = {

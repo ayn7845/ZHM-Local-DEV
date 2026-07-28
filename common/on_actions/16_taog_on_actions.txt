@@ -5,66 +5,8 @@
  	}
 
 	on_daily_AST = { #Veterans_civil_war
-		effect = {
-			if = {
-				limit = {
-					has_country_flag = AST_veterans_revolt_active
-					has_stability < 0.40
-					NOT = { 
-						has_country_flag = AST_revolt_triggered_early
-						has_government = communism 
-					}
-				}
-				set_country_flag = AST_revolt_triggered_early
-				set_country_flag = AST_veterans_revolt_fired
-				clr_country_flag = AST_veterans_revolt_active
-				custom_override_tooltip = {
-					tooltip = AST_peace_out_all_wars_tt
-					every_enemy_country = {
-						white_peace = PREV
-					}
-				}	
-				if = {
-				    limit = {
-				        check_variable = { AST.AST_seize_leadership_states^num = 0 }
-				    }
-				    start_civil_war = {
-				        ruling_party = communism
-				        ideology = ROOT
-				        size = 0.5
-				        states = { 518 517 285 521 872 520 870 522 871 674 873 523 979 737 1070 1073 1074 1075 }
-				    }
-				    set_capital = { state = 519 }
-				    else = {
-				        start_civil_war = {
-				            ruling_party = communism
-				            ideology = ROOT
-				            size = 0.5
-				            states = all
-				            states_filter = {
-				                NOT = {
-				                    is_in_array = { AST.AST_seize_leadership_states = THIS }
-				                }
-				            }
-				        }
-				    }
-				}
-				set_capital = { state = 285 }
-			custom_effect_tooltip = generic_skip_one_line_tt
-				add_ideas = idea_AST_civil_war_on_their_own
-				every_enemy_country = {
-					limit = { civilwar_target = ROOT }
-					hidden_effect = {
-						save_event_target_as = AST_revolter_country
-						every_enemy_country = {
-							limit = {
-								NOT = { original_tag = ROOT }
-							}
-							white_peace = event_target:AST_revolter_country
-						}
-					}
-				}
-			}
+		effect = { 
+			
 		}
 	}
 

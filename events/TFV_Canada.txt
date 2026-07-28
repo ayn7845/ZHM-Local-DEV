@@ -276,80 +276,11 @@ country_event = {
 		}
 	}
 	
-	option = { # Support Nationalists
-		name = tfv_canada.30.a
-		trigger = { is_ai = no }
-		hidden_effect = {
-			start_civil_war = {
-				ruling_party = fascism
-				ideology = neutrality
-				size = 0.5
-			}
-			random_other_country = {
-				limit = {
-					original_tag = MEX
-					has_government = neutrality
-				}
-				set_equipment_fraction = 0.3
-				set_stability = 0.9
-				set_war_support = 0.8
-				add_popularity = {
-					ideology = democratic
-					popularity = 0.35
-				}
-			}
-			news_event = { hours = 6 id = news.250 }
-			
-			set_equipment_fraction = 0.3
-			set_stability = 0.9
-			set_war_support = 0.8
-			
-			add_popularity = {
-				ideology = fascism
-				popularity = 1
-			}
-			
-			remove_ideas = synarchist_support_surge
-		}
-		custom_effect_tooltip = mex_nationalists_chosen
+	option = { 
+
 	}
-	option = { # Support Republicans
-		name = tfv_canada.30.b
-		hidden_effect = {
-			start_civil_war = {
-				ideology = fascism
-				size = 0.5
-			}
-			random_other_country = {
-				limit = {
-					original_tag = MEX
-					has_government = fascism
-				}
-				set_equipment_fraction = 0.3
-				set_stability = 0.9
-				set_war_support = 0.8
-			}
-			news_event = { hours = 6 id = news.250 }
-			
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-			}
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.5
-			}
-			add_popularity = {
-				ideology = fascism
-				popularity = -1
-			}
-			set_equipment_fraction = 0.3
-			set_stability = 0.9
-			set_war_support = 0.8
-			
-			remove_ideas = synarchist_support_surge
-		}
-		custom_effect_tooltip = mex_republicans_chosen
+	option = { 
+		
 	}
 	
 	option = {

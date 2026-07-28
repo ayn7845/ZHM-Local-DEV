@@ -56,89 +56,8 @@ country_event = {
 	}  
 
 	# Resist the coup
-	option = {
-		name = ARG_political_events.1.b 
-		ai_chance = {
-			base = 0
-		} 
+	option = { 
 
-			set_party_name = {
-				ideology = fascism
-				long_name = ARG_militarist_party_long
-				name = ARG_militarist_party
-			}
-	
-			start_civil_war = {
-				ideology = fascism
-				size = 0.1
-				army_ratio = 0.1
-			    navy_ratio = 0
-			    air_ratio = 0.5
-			    states = all
-			    states_filter = {
-
-			    	is_capital = no
-			    	is_controlled_by = ARG
-			    	
-			    	NOT = {
-		    				state = 960
-		    				state = 956
-		    				state = 958
-		    				state = 511
-		    				state = 512
-		    				state = 955
-		    				state = 954
-		    				state = 953
-		    			}
-			    }
-	
-			    keep_all_characters = yes
-	
-			   #PREV.PREV = {
-			   #	retire_country_leader = yes
-			   #}
-				effect_tooltip = {
-					retire_character = ARG_edelmiro_julian_farrell
-					retire_character = ARG_arturo_rawson
-					retire_character = ARG_juan_peron
-				}
-
-			   hidden_effect = {
-			   		PREV = {  # Original country
-		            ARG_pedro_pablo_ramirez = { # Character
-		                set_nationality = PREV.PREV
-		                add_country_leader_role = {
-							country_leader = {
-								ideology = fascism_ideology
-								expire = "1965.1.1.1"
-								traits = {
-									#war_industrialist
-								}
-							}
-						}
-						promote_leader = yes
-		                # Transfers to breakaway
-		            }
-	
-		            PREV = {
-		            	retire_country_leader = yes
-		            }
-	
-		            ARG_edelmiro_julian_farrell = { # Character
-		                set_nationality = PREV.PREV
-		                # Transfers to breakaway
-		            }
-		            ARG_arturo_rawson = { # Character
-		                set_nationality = PREV.PREV
-		                # Transfers to breakaway
-		            }
-		            ARG_juan_peron = { # Character
-		                set_nationality = PREV.PREV
-		                # Transfers to breakaway
-		            }
-		        }
-			}	
-		}
 	}   
 }
 
@@ -424,64 +343,6 @@ country_event = {
 			name = ARG_militarist_party
 		}
 
-		start_civil_war = {
-			ideology = fascism
-			size = 0.1
-			army_ratio = 0.1
-		    navy_ratio = 0
-		    air_ratio = 0.5
-		    states = all
-		    states_filter = {
-		    	has_dynamic_modifier = {
-		    		modifier = ARG_military_owned_state
-		    	}
-		    	is_capital = no
-		    	is_controlled_by = ROOT
-		    }
-
-		    keep_all_characters = yes
-
-		   #PREV.PREV = {
-		   #	retire_country_leader = yes
-		   #}
-
-		   hidden_effect = {
-		   		PREV = {  # Original country
-	            ARG_pedro_pablo_ramirez = { # Character
-	                set_nationality = PREV.PREV
-	                add_country_leader_role = {
-						country_leader = {
-							ideology = fascism_ideology
-							expire = "1965.1.1.1"
-							traits = {
-								#war_industrialist
-							}
-						}
-					}
-					promote_leader = yes
-	                # Transfers to breakaway
-	            }
-
-	            PREV = {
-	            	retire_country_leader = yes
-	            }
-
-	            ARG_edelmiro_julian_farrell = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	            ARG_arturo_rawson = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	            ARG_juan_peron = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	        }
-		}	
-	}
-
 		hidden_effect = {
 			set_global_flag = military_coup_attempt_happened	
 		}	
@@ -530,62 +391,8 @@ country_event = {
 			name = ARG_militarist_party
 		}
 
-		start_civil_war = {
-			ideology = fascism
-			size = 0.1
-			army_ratio = 0.1
-		    navy_ratio = 0
-		    air_ratio = 0.5
-		    states = all
-		    states_filter = {
-		    	has_dynamic_modifier = {
-		    		modifier = ARG_military_owned_state
-		    	}
-		    	is_capital = no
-		    	is_controlled_by = ROOT
-		    }
-
-		    keep_all_characters = yes
-
-		    hidden_effect = {
-		   		PREV = {  # Original country
-	            ARG_pedro_pablo_ramirez = { # Character
-	                set_nationality = PREV.PREV
-	                add_country_leader_role = {
-						country_leader = {
-							ideology = fascism_ideology
-							expire = "1965.1.1.1"
-							traits = {
-								#war_industrialist
-							}
-						}
-					}
-					promote_leader = yes
-	                # Transfers to breakaway
-	            }
-
-	            PREV = {
-	            	retire_country_leader = yes
-	            }
-
-	            ARG_edelmiro_julian_farrell = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	            ARG_arturo_rawson = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	            ARG_juan_peron = { # Character
-	                set_nationality = PREV.PREV
-	                # Transfers to breakaway
-	            }
-	        }
-		}
-	}
-
 		hidden_effect = {
-			set_global_flag = military_coup_attempt_happened	
+		
 		}	
 	}
 }

@@ -2116,21 +2116,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -2169,43 +2156,8 @@ ENG_appeal_to_imperial_loyalists = {
 			
 		}
 
-		timeout_effect = {
-			if = {
-				limit = {
-					ENG = { has_government = neutrality }
-					CAN = { NOT = { has_government = neutrality } }
-				}
-				CAN = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = CAN
-						has_government = neutrality
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_canada
-				}
-				CAN = { hidden_effect = { news_event = { id = mtg_news.26 days = 1 } } }
-			}
-			if = {
-				limit = {
-					ENG = { has_government = fascism }
-					CAN = { NOT = { has_government = fascism } }
-				}
-				CAN = { start_civil_war = { ideology = fascism size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = CAN
-						has_government = fascism
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_canada
-				}
-			}
-			ENG = { clr_country_flag = ENG_prepare_coup_in_CAN }
-			CAN = {
-				hidden_effect = { news_event = { id = mtg_news.26 days = 1 } }
-				set_country_flag = ENG_imperialist_civil_war
-			}
+		timeout_effect = { 
+
 		}
 	}
 
@@ -2392,21 +2344,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						CAN = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -2495,21 +2434,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -2547,43 +2473,8 @@ ENG_appeal_to_imperial_loyalists = {
 			
 		}
 
-		timeout_effect = {
-			if = {
-				limit = {
-					ENG = { has_government = neutrality }
-					SAF = { NOT = { has_government = neutrality } }
-				}
-				SAF = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = SAF
-						has_government = neutrality
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_south_africa
-				}
-				SAF = { hidden_effect = { news_event = { id = mtg_news.26 days = 1 } } }
-			}
-			if = {
-				limit = {
-					ENG = { has_government = fascism }
-					SAF = { NOT = { has_government = fascism } }
-				}
-				SAF = { start_civil_war = { ideology = fascism size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = SAF
-						has_government = fascism
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_south_africa
-				}
-				SAF = {
-					hidden_effect = { news_event = { id = mtg_news.26 days = 1 } }
-					set_country_flag = ENG_imperialist_civil_war
-				}
-			}
-			ENG = { clr_country_flag = ENG_prepare_coup_in_SAF }
+		timeout_effect = { 
+
 		}
 	}
 
@@ -2767,35 +2658,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = SAF
-							has_government = neutrality
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = SAF
-							has_government = fascism
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -2884,21 +2748,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-				}
+			effect_tooltip = { 
+				
 			}
 		}
 
@@ -2936,53 +2787,8 @@ ENG_appeal_to_imperial_loyalists = {
 			
 		}
 
-		timeout_effect = {
-			if = {
-				limit = {
-					ENG = { has_government = neutrality }
-					AST = { NOT = { has_government = neutrality } }
-				}
-				AST = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = AST
-						has_government = neutrality
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_australia
-					create_country_leader = {
-						name = "William Birdwood"
-						desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
-						picture = GFX_portrait_William_Birdwood
-						expire = "1965.1.1"
-						ideology = centrism
-						traits = {
-							
-						}
-					}
-				}
-				AST = { hidden_effect = { news_event = { id = mtg_news.26 days = 1 } } }
-			}
-			if = {
-				limit = {
-					ENG = { has_government = fascism }
-					AST = { NOT = { has_government = fascism } }
-				}
-				AST = { start_civil_war = { ideology = fascism size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = AST
-						has_government = fascism
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_australia
-				}
-				AST = {
-					hidden_effect = { news_event = { id = mtg_news.26 days = 1 } }
-					set_country_flag = ENG_imperialist_civil_war
-				}
-			}
-			ENG = { clr_country_flag = ENG_prepare_coup_in_AST }
+		timeout_effect = { 
+
 		}
 	}
 
@@ -3166,35 +2972,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = AST
-							has_government = neutrality
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = AST
-							has_government = fascism
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -3283,35 +3062,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = NZL
-							has_government = neutrality
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.4 } }
-					random_other_country = {
-						limit = {
-							original_tag = NZL
-							has_government = fascism
-						}
-						add_opinion_modifier = { target = ROOT modifier = ENG_imperial_loyalist }
-					}
-				}
+			effect_tooltip = { 
+
 			}
 		}
 
@@ -3349,43 +3101,8 @@ ENG_appeal_to_imperial_loyalists = {
 			
 		}
 
-		timeout_effect = {
-			if = {
-				limit = {
-					ENG = { has_government = neutrality }
-					NZL = { NOT = { has_government = neutrality } }
-				}
-				NZL = { start_civil_war = { ideology = neutrality size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = NZL
-						has_government = neutrality
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_new_zealand
-				}
-				NZL = { hidden_effect = { news_event = { id = mtg_news.26 days = 1 } } }
-			}
-			if = {
-				limit = {
-					ENG = { has_government = fascism }
-					NZL = { NOT = { has_government = fascism } }
-				}
-				NZL = { start_civil_war = { ideology = fascism size = 0.4 } }
-				random_other_country = {
-					limit = {
-						original_tag = NZL
-						has_government = fascism
-					}
-					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
-					set_cosmetic_tag = ENG_imperialist_new_zealand
-				}
-				NZL = {
-					hidden_effect = { news_event = { id = mtg_news.26 days = 1 } }
-					set_country_flag = ENG_imperialist_civil_war
-				}
-			}
-			ENG = { clr_country_flag = ENG_prepare_coup_in_NZL }
+		timeout_effect = { 
+
 		}
 	}
 
@@ -3569,21 +3286,8 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		remove_effect = {
-			effect_tooltip = {
-				if = {
-					limit = {
-						ROOT = { has_government = neutrality }
-						FROM = { NOT = { has_government = neutrality } }
-					}
-					FROM = { start_civil_war = { ideology = neutrality size = 0.5 } }
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						FROM = { NOT = { has_government = fascism } }
-					}
-					FROM = { start_civil_war = { ideology = fascism size = 0.5 } }
-				}
+			effect_tooltip = { 
+				
 			}
 		}
 

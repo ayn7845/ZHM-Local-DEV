@@ -1530,36 +1530,8 @@ AST_conscription_level_scripted_effect = {
 }
 
 
-AST_instigate_civil_war_in_target = {
-	start_civil_war = {
-		ideology = communism
-		size = civil_war_size_var
-		set_country_flag = AST_instigated_communist_civil_war
-		for_each_scope_loop = {
-			array = PREV.owned_controlled_core_states_cw_start
-			add_to_array = {
-				array = PREV.owned_controlled_core_states_cw_start
-				value = THIS
-			}
-		}
-		save_event_target_as = AST_instigated_communist_civil_war_country
-		set_variable = {
-			var = AST_communist_civil_war_enemy_country
-			value = PREV
-		}
-		PREV = {
-			set_variable = {
-				var = AST_communist_civil_war_enemy_country
-				value = PREV
-			}
-		}
-		ROOT = {
-			add_to_array = {
-				array = AST_union_control_target_array
-				value = event_target:AST_instigated_communist_civil_war_country
-			}
-		}
-	}
+AST_instigate_civil_war_in_target = { 
+	
 }
 
 # Resolves a union-control civil war where the faction-protected loyalist capitulates but is never annexed. Runs on the loyalist.

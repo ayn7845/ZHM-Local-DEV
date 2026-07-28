@@ -2791,54 +2791,8 @@ focus_tree = {
 		relative_position_id = POR_nationalize_industry
 		cost = 10
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY}
-		completion_reward = {
-			SOV = {
-				if = {
-					limit = { has_government = communism }
-					add_opinion_modifier = {
-					    target = POR
-					    modifier = POR_neutrality_opinion_communism
-					}
-				}					
-			}
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = POR_bento_de_jesus_caraca
-			remove_ideas = POR_unstable_republic 
-			if = {
-				limit = {
-					NOT = { has_government = communism }
-				}
-				set_politics = {
-					ruling_party = communism
-				}
+		completion_reward = { 
 
-				if = { #Low Stability triggers a Civil War
-					limit = {
-						has_stability < 0.4
-					}
-					set_temp_variable = { POR_communist_cw_opposition = party_popularity@neutrality }
-					multiply_temp_variable = { POR_communist_cw_opposition = 0.8 }
-					add_to_temp_variable = { POR_communist_cw_opposition = party_popularity@democratic }
-					add_to_temp_variable = { POR_communist_cw_opposition = party_popularity@fascism }
-					start_civil_war = {	
-						ideology = neutrality
-						size = POR_communist_cw_opposition
-						capital = 180
-						states = { 181 }
-					}
-				}
-				else = {
-					add_stability = -0.1
-				}
-				custom_effect_tooltip = POR_potential_civil_war_low_requirement_tt
-			}
-			else = {
-				add_political_power = 120
-				add_popularity = {
-				    ideology = communism
-				    popularity = 0.05
-				}
-			}
 		}
 	}
 
@@ -3157,124 +3111,8 @@ focus_tree = {
 		relative_position_id = POR_support_the_spanish_republic
 		cost = 10
 		search_filters = {FOCUS_FILTER_POLITICAL}
-		completion_reward = {
-			# Event that add NS to POR and SPD
-			hidden_effect = {				
-				country_event = {
-					id = lar_portugal_iberian_workers_united.1
-					hours = 6
-				}
-				SPD = {
-					country_event = {
-						id = lar_portugal_iberian_workers_united.1
-						hours = 6
-					}
-				}
-			}
-			custom_effect_tooltip = POR_iberian_workers_effect_tooltip_tt
-			#Trigger civil war
-			if = {
-				limit = {
-					NOT = { has_government = communism }
-				}
-				set_politics = {
-					ruling_party = communism
-				}
-			}
-			if = {
-				limit = {
-					has_civil_war = no
-				}
-				set_temp_variable = { POR_communist_cw_opposition = party_popularity@democratic }
-				multiply_temp_variable = { POR_communist_cw_opposition = 0.8 }
-				add_to_temp_variable = { POR_communist_cw_opposition = party_popularity@neutrality }
-				add_to_temp_variable = { POR_communist_cw_opposition = party_popularity@fascism }
-				hidden_effect = {
-					start_civil_war = {	
-						ideology = neutrality
-						size = POR_communist_cw_opposition
-						capital = 180
-						states = { 181 }
-					}
-				}
-				custom_effect_tooltip = POR_workers_of_iberia_unite_civil_war_tt				
-			}
-			else = {
-				add_stability = -0.2
-			}
-			hidden_effect = {
-				set_country_flag = supports_SPD_flag
-			}
-			#Communist Portugal joins SPD
-			if = {
-				limit = { country_exists = SPA }
-				add_to_war = { targeted_alliance = SPD enemy = SPA hostility_reason = asked_to_join }
-			}
-			if = {
-				limit = { country_exists = SPC }
-				add_to_war = { targeted_alliance = SPD enemy = SPC hostility_reason = asked_to_join }
-			}
-			if = {
-				limit = { country_exists = SPB }
-				add_to_war = { targeted_alliance = SPD enemy = SPB hostility_reason = asked_to_join }
-			}
-			effect_tooltip = {
-				give_military_access = SPD
-				SPD = { give_military_access = ROOT }
-			}
-			hidden_effect = {
-				#Grant military access
-				diplomatic_relation = {
-					country = SPD
-					relation = military_access
-					active = yes
-				}
-				SPD = {
-					diplomatic_relation = {
-						country = POR
-						relation = military_access
-						active = yes
-					}
-				}
-			}
-			#Non-Aligned Portugal joins SPA
-			hidden_effect = {
-				random_country = {
-					limit = {
-						original_tag = POR
-						has_government = neutrality
-					}
-					set_country_flag = POR_non_aligned_portugal_supports_SPA_flag
-					if = {
-						limit = { country_exists = SPA }
-						add_to_war = { targeted_alliance = SPA enemy = SPD hostility_reason = asked_to_join }
-						if = {
-							limit = { country_exists = SPC }
-							add_to_war = { targeted_alliance = SPA enemy = SPC hostility_reason = asked_to_join }
-						}
-						if = {
-							limit = { country_exists = SPB }
-							add_to_war = { targeted_alliance = SPA enemy = SPB hostility_reason = asked_to_join }
-						}
-					}
-				}
-			}
-			custom_effect_tooltip = POR_fascist_portugal_joins_scw_tt
+		completion_reward = { 
 
-			hidden_effect = {
-				add_ai_strategy = {
-					type = befriend
-					id = SPD
-					value = 100
-				}
-				SPD = {
-					add_ai_strategy = {
-						type = befriend
-						id = ROOT
-						value = 100
-					}
-				}
-			}
 		}
 	}
 
@@ -4205,93 +4043,8 @@ focus_tree = {
 		relative_position_id = POR_british_industrial_investments
 		cost = 10
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY}
-		completion_reward = {
-			every_other_country = {
-				limit = {
-					has_government = democratic
-				}
-					 								
-				add_opinion_modifier = {
-				    target = POR
-				    modifier = POR_election_opinion_democratic
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			remove_ideas = POR_unstable_republic
-			if = {
-				limit = {
-					has_idea = internationalism
-				}
-				remove_ideas = internationalism
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = POR_jaime_cortesao
-			custom_effect_tooltip = available_theorist
-			show_ideas_tooltip = POR_jose_manuel_sarmento_de_beires
-			if = {
-				limit = {
-					has_completed_focus = POR_limited_self_rule
-				}
-				custom_effect_tooltip = available_political_advisor
-				show_ideas_tooltip = POR_francisco_da_cunha_leal
-			}
-			create_corps_commander = {
-				name = "José Mendes dos Reis"
-				portrait_path = GFX_portrait_Jose_Mendes_dos_Reis
-				traits = { war_hero infantry_officer }
-				skill = 3
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 3
-			}
-			create_navy_leader = {
-				name = "Armando Pereira de Castro Agatão Lança"
-				portrait_path = GFX_portrait_Armando_Pereira_de_Castro_Agatao_Lanca
-				traits = { spotter bold }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 4
-				maneuvering_skill = 3
-				coordination_skill = 2
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					NOT = { has_government = democratic }
-				}
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
+		completion_reward = { 
 
-				if = { #Low Stability triggers a Civil War
-					limit = {
-						has_stability < 0.4
-					}
-					set_temp_variable = { POR_democratic_cw_opposition = party_popularity@neutrality }
-					multiply_temp_variable = { POR_democratic_cw_opposition = 0.6 }
-					add_to_temp_variable = { POR_democratic_cw_opposition = party_popularity@fascism }
-					start_civil_war = {	
-						ideology = fascism
-						size = POR_democratic_cw_opposition
-						capital = 180
-						states = { 181 }
-					}
-				}
-				else = {
-					add_stability = -0.1
-				}
-				custom_effect_tooltip = POR_potential_civil_war_low_requirement_tt
-			}
-			else = {
-				add_political_power = 120
-				add_popularity = {
-				    ideology = democratic
-				    popularity = 0.05
-				}
-			}
 		}
 	}
 
@@ -5205,41 +4958,13 @@ focus_tree = {
 				    modifier = fascism_leanings_good
 				}
 			}
-			if = {
-				limit = {
-					NOT = { has_government = fascism }
-				}
-				set_politics = {
-					ruling_party = fascism
-				}	
-				
-				if = { #Low Stability triggers a Civil War
-					limit = {
-						has_stability < 0.6
-					}
-					set_temp_variable = { POR_fascist_cw_opposition = party_popularity@neutrality }
-					multiply_temp_variable = { POR_fascist_cw_opposition = 0.6 }
-					add_to_temp_variable = { POR_fascist_cw_opposition = party_popularity@democratic }
-					add_to_temp_variable = { POR_fascist_cw_opposition = party_popularity@communism }
-					start_civil_war = {	
-						ideology = neutrality
-						size = POR_fascist_cw_opposition
-						capital = 180
-						states = { 181 }
-					}
-				}
-				else = {
-					add_stability = -0.2
-				}
-				custom_effect_tooltip = POR_potential_civil_war_high_requirement_tt
-			}
-			else = {
+			
 				add_political_power = 120
 				add_popularity = {
 				    ideology = fascism
 				    popularity = 0.05
 				}
-			}
+			
 		}
 	}
 
@@ -6487,23 +6212,10 @@ focus_tree = {
 				remove_idea = POR_unstable_republic
 				add_idea = POR_unstable_monarchy
 			}
-			if = { #Low Stability triggers a Civil War
-				limit = {
-					has_stability < 0.4
-				}
-				set_temp_variable = { POR_monarchist_cw_opposition = party_popularity@fascism }
-				add_to_temp_variable = { POR_monarchist_cw_opposition = party_popularity@communism }
-				add_to_temp_variable = { POR_monarchist_cw_opposition = party_popularity@democratic }
-				start_civil_war = {	
-					ideology = fascism
-					size = POR_monarchist_cw_opposition
-					capital = 180
-					states = { 181 }
-				}
-			}
-			else = {
+			
+			
 				add_stability = -0.1
-			}
+			
 			set_country_flag = KOP_kingdom_of_portugal_flag
 			set_cosmetic_tag = KOP_kingdom_portugal
 			create_country_leader = {
