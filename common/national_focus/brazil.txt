@@ -582,8 +582,66 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL}
 
-		completion_reward = { 
-
+		completion_reward = {
+			IF = {
+				limit = {
+					fascism > 0.4
+				}
+				start_civil_war = {
+					ideology = fascism #SPLITTING TAG
+					size = party_popularity@fascism
+				}
+				hidden_effect = {
+					set_popularities = {
+						fascism = 0
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					communism > 0.4
+				}
+				start_civil_war = {
+					ideology = communism #SPLITTING TAG
+					size = party_popularity@communism
+				}
+				hidden_effect = {
+					set_popularities = {
+						communism = 0
+					}				
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					democratic > 0.4
+				}
+				start_civil_war = {
+					ideology = democratic #SPLITTING TAG
+					size = party_popularity@democratic
+				}
+				hidden_effect = {
+					set_popularities = {
+						democratic = 0
+					}				
+				}
+			}
+			custom_effect_tooltip = BRA_modify_estado_novo_ns_intro
+			add_to_variable = {
+				BRA_estado_novo_fascism_factor = -0.2
+				tooltip = fascism_drift_factor_tt
+			}
+			add_to_variable = {
+				BRA_estado_novo_democratic_factor = -0.2
+				tooltip = democratic_drift_factor_tt
+			}
+			add_to_variable = {
+				BRA_estado_novo_communism_factor = -0.2
+				tooltip = communism_drift_factor_tt
+			}
+			add_to_variable = {
+				BRA_estado_novo_stability_factor = 0.1
+				tooltip = stability_factor_tt
+			}
 		}
 	}
 
@@ -5505,8 +5563,23 @@ allow_branch = {
 					communism < 0.6
 				}
 				custom_effect_tooltip = BRA_launch_the_revolution_tt
-				hidden_effect = { 
-					
+				hidden_effect = {
+					set_capital = {
+						state = 499 #Salvador, the old capital, giving them 2nd biggest city, Sao Paolo, leads to being WAY too 	close to Rio de Janeiro, they could rush the capital and win.
+						remember_old_capital = yes 
+					}
+					start_civil_war = {
+						ruling_party = communism #the part the player controls
+						ideology = democratic #the opposing part
+						size = BRA_total_anti_com_size # Opposing strength, variable combines all other parties' popularity 
+						states = { 500 501 496 943 505 280 504 944 503 502} #Dem's controlled states, Southern Brazil, Massive
+						IF = {
+							limit = {  PREV = { has_completed_focus = BRA_radio_nacional } }
+							add_ideas = BRA_radio_nacional_idea
+						} 	
+					}
+					BRA_communist_cw_transfer_chars = yes
+					news_event = { id = JUNO_brazil_news.5 hours = 1 }
 				}
 			}
 			ELSE_IF = {

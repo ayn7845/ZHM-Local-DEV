@@ -4078,12 +4078,116 @@ country_event = { #The Civil War broke out
 
 	is_triggered_only = yes
 
-	option = { 
+	option = { #we are communist now!
+		name = wuw_GER_diplomacy.75.a
+		ai_chance = {
+			base = 10
+		}
 
+		hidden_effect = {
+			IF = {
+				limit = {
+					GER = {
+						has_completed_focus = GER_the_proletarian_legion
+						NOT = {
+							has_idea = GER_proletarian_legion_ns
+						}
+					}
+				}
+				GER = {
+					 add_ideas = GER_proletarian_legion_ns
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+				}
+				random_owned_controlled_state = {
+					limit = { is_on_continent = europe }
+					set_variable = { ROOT.temp_capital = THIS.id }
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					set_variable = { ROOT.temp_capital = THIS.id }
+				}
+			}
+		}
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = communism
+			size = 0.5 #since this triggers when the country goes over 50% communism
+			capital = var:ROOT.temp_capital
+		}
+
+		every_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = communism
+			}
+
+			add_to_array = { GER.started_communist_cw_here = THIS }
+			log = "[THIS.GetName] was added to cw array"
+
+			set_country_flag = GER_spurred_communist_cw_flag
+		}
 	}
 
-	option = { 
-		
+	option = { #Fight back the red menace!
+		name = wuw_GER_diplomacy.75.b
+		ai_chance = {
+			base = 2
+		}
+
+		hidden_effect = {
+			IF = {
+				limit = {
+					GER = {
+						has_completed_focus = GER_the_proletarian_legion
+						NOT = {
+							has_idea = GER_proletarian_legion_ns
+						}
+					}
+				}
+				GER = {
+					 add_ideas = GER_proletarian_legion_ns
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+				}
+				random_owned_controlled_state = {
+					limit = { is_on_continent = europe }
+					set_variable = { ROOT.temp_capital = THIS.id }
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					set_variable = { ROOT.temp_capital = THIS.id }
+				}
+			}
+		}
+
+		start_civil_war = {
+			ideology = communism
+			ruling_party = ROOT
+			size = 0.5 #since this triggers when the country goes over 50% communism
+			capital = var:ROOT.temp_capital
+		}
+
+		every_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = communism
+			}
+
+			add_to_array = { GER.started_communist_cw_here = THIS }
+			log = "[THIS.GetName] was added to cw array"
+
+			set_country_flag = GER_spurred_communist_cw_flag
+		}
 	}
 }
 
@@ -8558,8 +8662,190 @@ country_event = { #Communist civil war starts
 
 	fire_only_once = yes
 
-	option = { 
+	option = { #For the workers
+		name = wuw_GER_civil_war.6.a
+		ai_chance = {
+			base = 10
+		}
 
+		hidden_effect = { 
+			IF = {
+				limit = {
+					61 = {
+						has_dynamic_modifier = {
+							modifier = GER_proletariat_uprising_modifier
+						}
+					}
+				}
+
+				set_capital =  {
+					state = 61
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					60 = {
+						has_dynamic_modifier = {
+							modifier = GER_proletariat_uprising_modifier
+						}
+					}
+				}
+
+				set_capital =  {
+					state = 60
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					65 = {
+						has_dynamic_modifier = {
+							modifier = GER_proletariat_uprising_modifier
+						}
+					}
+				}
+
+				set_capital =  {
+					state = 65
+				}
+			}
+			else = {
+				random_core_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						has_dynamic_modifier = {
+							modifier = GER_proletariat_uprising_modifier
+						}
+					}
+
+					prioritize = { 909 61 54 58 } #schleswig, Mecklenburg, Franken and holstein
+
+				}
+				set_capital =  {
+					state = PREV
+				}
+			}
+		}
+
+		set_variable = {
+			var = GER_total_anti_com_size #used to calculate how big portion of the army that is NOT supporting the communists
+			value = party_popularity@democratic #democratic support
+		}
+		
+		add_to_variable = {
+			var = GER_total_anti_com_size
+			value = party_popularity@fascism #adds fascist support to variable
+		}
+		
+		add_to_variable = {
+			var = GER_total_anti_com_size
+			value = party_popularity@neutrality #adds non-aligned support to variable
+		}
+
+		start_civil_war = {
+			ideology = neutrality
+			ruling_party = communism
+			size = GER_total_anti_com_size
+			states = all  #these will be filtered, not to worry!
+			states_filter = { #only states that do not have this modifier goes to non-communist
+				OR = {
+					#state = 64
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = GER_proletariat_uprising_modifier
+						}
+					}
+				}	
+			}
+			hidden_effect = {
+				add_political_power = 250
+			}
+			if = {
+				limit = {
+					NOT = { has_completed_focus = GER_reorganize_nationale_volksarmee }
+				}
+				PREV = {# Original country
+					GER_maximilian_von_weichs = { # Character
+					    set_nationality = PREV.PREV
+					    # Transfers to breakaway	
+					}
+				}
+				PREV = {# Original country
+					GER_ewald_von_kleist = { # Character
+					    set_nationality = PREV.PREV
+					    # Transfers to breakaway	
+					}
+				}
+			}
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		add_political_power = 50
+		if = {
+			limit = {
+				check_variable = {
+					var = GER_communist_stability_influence
+					value > 0.01
+				}
+			}
+			add_stability = GER_communist_stability_influence
+			add_war_support = GER_communist_stability_influence
+		}
+
+		if = { #Just to ensure that Communist generals stay Communist
+			limit = {
+				has_completed_focus = GER_reorganize_nationale_volksarmee
+			}
+			GER_vincenz_muller = {
+				set_nationality = ROOT
+			}
+			GER_hans_kahle = {
+				set_nationality = ROOT
+			}
+			GER_hans_marchwitza = {
+				set_nationality = ROOT
+			}
+			GER_arno_von_lenski = {
+				set_nationality = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				has_completed_focus = GER_ressurect_the_red_front_fighters_league
+			}
+			every_core_state = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_proletariat_uprising_modifier }
+						AND = {
+							controller = {
+								has_government = communism
+								original_tag = GER
+							}
+						}
+					}
+				}
+				random_select_amount = 3
+
+				create_unit = {
+					division = "division_template =\"Roter Frontkämpferbund Division\" start_experience_factor = 0.2 start_equipment_factor = 0.7"
+					owner = PREV
+					count = 2
+				}
+			}
+		}
+
+		every_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = GER_proletariat_uprising_modifier }
+			}
+			remove_dynamic_modifier = { modifier = GER_proletariat_uprising_modifier }
+		}
+
+		hidden_effect = {
+			set_country_flag = GER_communist_civil_war_flag
+		}
 	}
 
 	#option = { #go back, this was not what we wanted!
@@ -12253,11 +12539,52 @@ country_event = { #The Civil War broke out (Monarchist)
 
 	is_triggered_only = yes
 
-	option = {  
+	option = { #we are monarchist now!
+		name = wuw_GER_realpolitik.27.a
+		ai_chance = {
+			base = 10
+		}
 
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = neutrality
+			size = 0.4 # since this triggers when the country goes over 50% neutrality
+			capital = var:ROOT.temp_capital
+		}
 	}
 
-	option = { 
+	option = { #Fight back the white menace!
+		name = wuw_GER_realpolitik.27.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				factor = 0
+				check_variable = {
+					num_owned_states < 2
+				}
+			}
+		}
+
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = neutrality
+			ruling_party = ROOT
+			size = 0.5 # since this triggers when the country goes over 50% neutrality
+			capital = var:ROOT.temp_capital
+		}
 
 	}
 }
@@ -12270,12 +12597,53 @@ country_event = { #The Civil War broke out (Democratic)
 
 	is_triggered_only = yes
 
-	option = { 
+	option = { #we are a republic now!
+		name = wuw_GER_realpolitik.28.a
+		ai_chance = {
+			base = 10
+		}
 
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = democratic
+			size = 0.4 # since this triggers when the country goes over 50% democratic
+			capital = var:ROOT.temp_capital
+		}
 	}
 
-	option = { 
+	option = { #Fight back the azure menace!
+		name = wuw_GER_realpolitik.28.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				factor = 0
+				check_variable = {
+					num_owned_states < 2
+				}
+			}
+		}
 
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = democratic
+			ruling_party = ROOT
+			size = 0.5 # since this triggers when the country goes over 50% democratic
+			capital = var:ROOT.temp_capital
+		}
+		
 	}
 }
 
@@ -12287,11 +12655,52 @@ country_event = { #The Civil War broke out (Fascist)
 
 	is_triggered_only = yes
 
-	option = { 
+	option = { #we are a bad place now!
+		name = wuw_GER_realpolitik.29.a
+		ai_chance = {
+			base = 10
+		}
 
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = fascism
+			size = 0.4 # since this triggers when the country goes over 50% fascism
+			capital = var:ROOT.temp_capital
+		}
 	}
 
-	option = { 
+	option = { #Fight back the brown menace!
+		name = wuw_GER_realpolitik.29.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				factor = 0
+				check_variable = {
+					num_owned_states < 2
+				}
+			}
+		}
+
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		start_civil_war = {
+			ideology = fascism
+			ruling_party = ROOT
+			size = 0.5 # since this triggers when the country goes over 50% fascism
+			capital = var:ROOT.temp_capital
+		}
 		
 	}
 }

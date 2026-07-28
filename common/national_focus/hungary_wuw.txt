@@ -10044,8 +10044,448 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_MANPOWER }
 
-		completion_reward = { 
-			
+		completion_reward = {
+
+				custom_effect_tooltip = wuw_HUN_reviving_the_spirit_of_1848_tt
+				hidden_effect = {
+
+					IF = {
+						limit = {
+							has_idea = HUN_gombos_trade_treaty
+						}
+						remove_ideas = HUN_gombos_trade_treaty
+					}
+
+					start_civil_war = {
+					    ideology = neutrality
+					    ruling_party = democratic
+					    size = 0.5
+					    army_ratio = 0.4
+					    navy_ratio = 0.5
+					    air_ratio = 0.5
+					    keep_all_characters = yes
+					    states = all
+					    states_filter = {
+					        OR = {
+					        	state = 43
+					        	state = 154
+					        }
+					        is_controlled_by = ROOT
+					    }
+
+				    	PREV = {  # Original country
+				            HUN_miklos_horthy_jr = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_miklos_horthy = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_istvan_horthy = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_magdolna_purgly = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_dezso_laszlo = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_ferenc_feketehalmyczeydner = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_jeno_oszkar_ruszkay = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_karoly_beregfy = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_dome_sztojay = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_gyula_gombos_de_jakfa = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_jusztinian_seredi = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_fidel_palffy = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+				            HUN_kalman_daranyi = { # Character
+				                set_nationality = PREV.PREV
+				                # Transfers to breakaway
+				            }
+			        	}
+			        	IF = {
+			        		limit = {
+			        			PREV.PREV = {
+			        				NOT = {
+			        					has_country_leader = {
+			        						ruling_only = yes
+			        						character = HUN_miklos_horthy
+			        					}
+			        				}
+			        				has_civil_war = yes
+			        			}
+			        		}
+			        		PREV.PREV = {
+			        			promote_character = {
+			        				character = HUN_miklos_horthy
+			        				ideology = oligarchism
+			        			}
+			        		}
+			        	}
+
+				        IF = {
+				        	limit = {
+				        		NOT = {
+				        			ROOT = {
+				        				has_country_flag = HUN_revolutinaries_undermined_the_volksbund_flag
+				        			}
+				        		}
+				        	}
+				        	PREV.PREV = {
+
+				        		delete_unit_template_and_units = {
+				        			division_template = "Volksbund Militia"
+				        			disband = yes #if yes, will refund equipment/manpower.
+				        		}
+
+				        		division_template = {
+				        		    name = "Volksbund Militia"
+				        		    is_locked = yes
+				        		    division_names_group = GER_INF_01
+									role = garrison
+				        		    priority = 0
+				        		    regiments = {
+				        		        militia = { x = 0 y = 0 }
+				        		        militia = { x = 0 y = 1 }
+				        		        militia = { x = 0 y = 2 }
+				        		        militia = { x = 0 y = 3 }
+				        		        militia = { x = 1 y = 0 }
+				        		        militia = { x = 1 y = 1 }
+				        		        militia = { x = 1 y = 2 }
+				        		        militia = { x = 1 y = 3 }
+				        		    }
+				        		}
+				        		random_state = {
+				        			limit = {
+				        				OR = {
+				        					state = 43
+				        					state = 154
+				        				}
+				        			}
+				        			create_unit = {
+				        			    division = "name = \"Erste Volksbundmiliz\" division_template = \"Volksbund Militia\" start_experience_factor = 0.5 start_equipment_factor = 0.7"
+				        			    owner = PREV
+				        			}
+				        			create_unit = {
+				        			    division = "name = \"Zweite Volksbundmiliz\" division_template = \"Volksbund Militia\" start_experience_factor = 0.5 start_equipment_factor = 0.7"
+				        			    owner = PREV
+				        			}
+				        		}
+				        	}
+				        }
+
+				        IF = {
+				        	limit = {
+				        		NOT = {
+				        			ROOT = {
+				        				has_country_flag = HUN_revolutinaries_sliced_some_salami_flag
+				        			}
+				        		}
+				        	}
+				        	PREV.PREV = {
+
+				        		delete_unit_template_and_units = {
+				        			division_template = "Horthysta Gyalogdándar"
+				        			disband = yes #if yes, will refund equipment/manpower.
+				        		}
+
+				        		division_template = {
+				        		    name = "Horthysta Gyalogdándar"
+				        		    is_locked = yes
+				        		    division_names_group = HUN_INF_01
+									role = infantry
+				        		    priority = 0
+				        		    regiments = {
+				        		        infantry = { x = 0 y = 0 }
+				        		        infantry = { x = 0 y = 1 }
+				        		        infantry = { x = 0 y = 2 }
+				        		        infantry = { x = 0 y = 3 }
+				        		        infantry = { x = 1 y = 0 }
+				        		        infantry = { x = 1 y = 1 }
+				        		    }
+				        		    support = {
+				        		    	engineer = { x = 0 y = 0 }
+				        		    	artillery = { x = 0 y = 1 }
+				        		    }
+				        		}
+				        		random_state = {
+				        			limit = {
+				        				state = 43
+				        			}
+				        			create_unit = {
+				        			    division = "name = \"Horthysta Gyalogdándar\" division_template = \"Horthysta Gyalogdándar\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+				        			    owner = PREV
+				        			}
+				        		}
+				        	}
+				        }
+
+				        PREV.PREV = {
+
+				        	delete_unit_template_and_units = {
+				        		division_template = "Fasiszta Milícia"
+				        		disband = yes #if yes, will refund equipment/manpower.
+				        	}
+
+				        	division_template = {
+				        	    name = "Fasiszta Milícia"
+				        	    is_locked = yes
+				        	    division_names_group = HUN_INF_01
+								role = garrison
+				        	    priority = 0
+				        	    regiments = {
+				        	        militia = { x = 0 y = 0 }
+				        	        militia = { x = 0 y = 1 }
+				        	        militia = { x = 0 y = 2 }
+				        	        militia = { x = 0 y = 3 }
+				        	        militia = { x = 1 y = 0 }
+				        	        militia = { x = 1 y = 1 }
+				        	        militia = { x = 1 y = 2 }
+				        	        militia = { x = 1 y = 3 }
+				        	    }
+				        	}
+				        	random_state = {
+				        		limit = {
+				        			state = 43
+				        		}
+				        		create_unit = {
+				        		    division = "name = \"Fasiszta Milícia\" division_template = \"Fasiszta Milícia\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+				        		    owner = PREV
+				        		}
+				        	}
+
+				        	delete_unit_template_and_units = {
+				        		division_template = "Monarchista Milícia"
+				        		disband = yes #if yes, will refund equipment/manpower.
+				        	}
+
+				        	division_template = {
+				        	    name = "Monarchista Milícia"
+				        	    is_locked = yes
+				        	    division_names_group = HUN_INF_01
+								role = garrison
+				        	    priority = 0
+				        	    regiments = {
+				        	        militia = { x = 0 y = 0 }
+				        	        militia = { x = 0 y = 1 }
+				        	        militia = { x = 0 y = 2 }
+				        	        militia = { x = 0 y = 3 }
+				        	        militia = { x = 1 y = 0 }
+				        	        militia = { x = 1 y = 1 }
+				        	        militia = { x = 1 y = 2 }
+				        	        militia = { x = 1 y = 3 }
+				        	    }
+				        	}
+				        	random_state = {
+				        		limit = {
+				        			state = 43
+				        		}
+				        		create_unit = {
+				        		    division = "name = \"Monarchista Milícia\" division_template = \"Monarchista Milícia\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+				        		    owner = PREV
+				        		}
+				        	}
+				        }
+
+				        IF = {
+				        	limit = {
+				        		ROOT = {
+				        			NOT = {
+				        				has_country_flag = HUN_revolutinaries_secured_levente_loyalty_flag
+				        			}
+				        			has_idea = HUN_levente_associations
+				        		}
+				        	}
+				        	PREV.PREV = {
+				        		add_ideas = HUN_levente_associations
+				        	}
+				        	ROOT = {
+				        		remove_ideas = HUN_levente_associations
+				        	}
+				        }
+				        ELSE_IF = {
+				        	limit = {
+				        		ROOT = {
+				        			NOT = {
+				        				has_country_flag = HUN_revolutinaries_secured_levente_loyalty_flag
+				        			}
+				        			has_idea = HUN_levente_associations_secret_rearmament
+				        		}
+				        	}
+				        	PREV.PREV = {
+				        		add_ideas = HUN_levente_associations_secret_rearmament
+				        	}
+				        	ROOT = {
+				        		remove_ideas = HUN_levente_associations_secret_rearmament
+				        	}
+				        }
+				        ELSE_IF = {
+				        	limit = {
+				        		ROOT = {
+				        			has_country_flag = HUN_revolutinaries_secured_levente_loyalty_flag
+				        			has_idea = HUN_levente_associations
+				        		}
+				        	}
+				        	PREV.PREV = {
+				        		remove_ideas = HUN_levente_associations
+				        	}
+				        }
+				        ELSE_IF = {
+				        	limit = {
+				        		ROOT = {
+				        			has_country_flag = HUN_revolutinaries_secured_levente_loyalty_flag
+				        			has_idea = HUN_levente_associations_secret_rearmament
+				        		}
+				        	}
+				        	PREV.PREV = {
+				        		remove_ideas = HUN_levente_associations_secret_rearmament
+				        	}
+				        }
+
+				        PREV.PREV = {
+				        	add_ideas = HUN_hungarian_national_defense_association
+				        }
+
+				        IF = {
+				        	limit = {
+				        		ROOT = {
+				        			is_ai = yes 
+				        		}
+				        	}
+				        	PREV.PREV = {
+				        		add_ideas = HUN_low_popular_support
+				        	}
+				        }
+
+
+					}
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_country_leader_role = {
+				    character = HUN_mihaly_karolyi
+				    promote_leader = yes
+				    country_leader = {
+				        ideology = conservatism
+				        expire = "1965.1.1.1"
+				        traits = { HUN_veteran_president }
+				    }
+				}
+
+				set_party_name = {
+				    ideology = democratic
+				    long_name = HUN_48part_democratic_party_long
+				    name = HUN_48part_democratic_party
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				IF = {
+					limit = {
+						has_country_flag = HUN_revolutinaries_undermined_the_volksbund_flag
+					}
+					add_war_support = 0.15
+					add_political_power = 75
+					custom_effect_tooltip = generic_skip_one_line_tt
+				}
+
+				IF = {
+					limit = {
+						has_country_flag = HUN_revolutinaries_secured_levente_loyalty_flag
+					}
+					add_manpower = 8000
+				}
+
+				hidden_effect = {
+					delete_unit_template_and_units = {
+						division_template = "Kommunista Milícia"
+						disband = yes #if yes, will refund equipment/manpower.
+					}
+
+					division_template = {
+					    name = "Kommunista Milícia"
+					    is_locked = no
+					    division_names_group = HUN_INF_01
+						role = garrison
+					    priority = 0
+					    regiments = {
+					        militia = { x = 0 y = 0 }
+					        militia = { x = 0 y = 1 }
+					        militia = { x = 0 y = 2 }
+					        militia = { x = 0 y = 3 }
+					        militia = { x = 1 y = 0 }
+					        militia = { x = 1 y = 1 }
+					    }
+					    support = {
+					    }
+					}
+					random_state = {
+						limit = {
+							state = 973
+						}
+						create_unit = {
+						    division = "name = \"Kommunista Milícia\" division_template = \"Kommunista Milícia\" start_experience_factor = 0.5 start_equipment_factor = 0.6"
+						    owner = PREV
+						}
+					}
+
+					delete_unit_template_and_units = {
+						division_template = "Szocialista Milícia"
+						disband = yes #if yes, will refund equipment/manpower.
+					}
+
+					division_template = {
+					    name = "Szocialista Milícia"
+					    is_locked = no
+					    division_names_group = HUN_INF_01
+						role = garrison
+					    priority = 0
+					    regiments = {
+					        militia = { x = 0 y = 0 }
+					        militia = { x = 0 y = 1 }
+					        militia = { x = 0 y = 2 }
+					        militia = { x = 0 y = 3 }
+					        militia = { x = 1 y = 0 }
+					    }
+					    support = {
+					    }
+					}
+					random_state = {
+						limit = {
+							state = 155
+						}
+						create_unit = {
+						    division = "name = \"Szocialista Milícia\" division_template = \"Szocialista Milícia\" start_experience_factor = 0.5 start_equipment_factor = 0.6"
+						    owner = PREV
+						}
+					}
+				}
+
 		}
 	}
 

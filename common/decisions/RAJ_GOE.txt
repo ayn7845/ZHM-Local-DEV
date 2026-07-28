@@ -2611,9 +2611,25 @@ RAJ_GOE_communism_infiltration_cat = {
 	    	remove_mission = RAJ_communist_unions_promised_worker_safety_mission
 	    	set_country_flag = RAJ_hide_communist_infiltration
 	    }
-	    timeout_effect = { 
-
-		}
+	    timeout_effect = {
+	    	add_stability = -0.2
+	    	add_popularity = {
+	    		ideology = communism 
+	    		popularity = -0.2
+	    	}
+	    	start_civil_war = {
+	    		ideology = neutrality
+	    		ruling_party = communism
+	    		size = 0.1 
+	    		army_ratio = 0.1
+	    		navy_ratio = 0
+	    		air_ratio = 0
+	    		keep_all_characters = yes
+	    		keep_political_leader = yes 
+	    		keep_political_party_members = no
+	    	}
+	    	set_country_flag = RAJ_hide_communist_infiltration
+	    }
 	}
 
 	RAJ_communist_unions_promised_minimum_wage_mission = {
@@ -2645,9 +2661,26 @@ RAJ_GOE_communism_infiltration_cat = {
 	    	remove_mission = RAJ_communist_unions_promised_minimum_wage_mission
 	    	set_country_flag = RAJ_hide_communist_infiltration
 	    }
-	    timeout_effect = { 
-			
-		}
+	    timeout_effect = {
+	    	set_country_flag = RAJ_hide_communist_infiltration
+	    	add_stability = -0.2
+	    	add_popularity = {
+	    		ideology = communism 
+	    		popularity = -0.2
+	    	}
+
+	    	start_civil_war = {
+	    		ideology = neutrality
+	    		ruling_party = communism
+	    		size = 0.1 
+	    		army_ratio = 0.1
+	    		navy_ratio = 0
+	    		air_ratio = 0
+	    		keep_all_characters = yes
+	    		keep_political_leader = yes #
+	    		keep_political_party_members = no 
+	    	}
+	    }
 	}
 	#
 

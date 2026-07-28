@@ -813,12 +813,36 @@ country_event = {
 	is_triggered_only = yes
 	
 	#side with government
-	option = { 
-
+	option = {
+		ai_chance = {
+			factor = 100
+			modifier = {
+				has_government = fascism
+				factor = 0
+			}
+		}
+		name = britain.23.a
+		start_civil_war = {
+				ideology = fascism
+				size = 0.5
+		}
 	}
 	#side with fascists
-	option = { 
-		
+	option = {
+		name = britain.23.b
+		start_civil_war = {
+				ruling_party = fascism
+				ideology = neutrality
+				size = 0.5
+		}
+		random_other_country = {
+			limit = {
+				original_tag = RAJ
+				has_government = neutrality
+				is_puppet_of = ENG
+			}
+			set_cosmetic_tag = RAJ_UK
+		}
 	}
 }
 

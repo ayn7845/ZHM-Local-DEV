@@ -652,6 +652,16 @@ country_event = {
 		}
 	}
 
+	option = {
+		name = election.11.b
+		ai_chance = {
+			base = 35
+		}
+		start_civil_war = {
+			ideology = fascism
+			size = 0.5
+		}
+	}
 }
 
 # Communist Majority
@@ -698,6 +708,16 @@ country_event = {
 		}
 	}
 
+	option = {
+		name = election.12.b
+		ai_chance = {
+			base = 35			
+		}
+		start_civil_war = {
+			ideology = communism
+			size = 0.5
+		}
+	}
 }
 
 # Magnate Favors Fascism

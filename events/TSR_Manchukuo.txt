@@ -220,7 +220,62 @@ country_event = {
 	}
 }
 
+country_event = { 
+	id = tsr_manchukuo.5
+	title = tsr_manchukuo.5.t
+	desc = tsr_manchukuo.5.desc
+	picture = GFX_report_event_generic_communist_militia
 
+	is_triggered_only = yes
+
+	option = { #we are communist now!
+		name = tsr_manchukuo.5.a
+		ai_chance = {
+			base = 98
+		}
+
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				set_variable = { ROOT.temp_capital = THIS.id }
+			}
+		}
+
+		add_popularity = {
+			ideology = communism
+			popularity = 0.4
+		}	
+
+		start_civil_war = {
+			ideology = ROOT
+			ruling_party = communism
+			size = 0.5 
+			states = all
+			states_filter = {
+				OR = {
+					state = 611
+					state = 1043
+				}
+			    is_controlled_by = ROOT
+			}
+		}
+
+		random_country = { 
+			
+		}
+
+		hidden_effect = { 
+
+		}
+
+	}
+
+	option = { 
+		
+	}
+}
 
 country_event = {
 	id = tsr_manchukuo.6

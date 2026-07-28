@@ -72,8 +72,38 @@ AST_union_control_1_cat = {
 			clr_country_flag = AST_veterans_revolt_active
 		}
 
-		timeout_effect = { 
-			
+		timeout_effect = {
+			custom_override_tooltip = {
+				tooltip = AST_peace_out_all_wars_tt
+				every_enemy_country = {
+					white_peace = PREV
+				}
+			}
+			start_civil_war = {
+				ruling_party = communism
+				ideology = ROOT
+				states = all
+				states_filter = {
+					NOT = {
+						is_in_array = { AST.AST_seize_leadership_states = THIS }
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = idea_AST_civil_war_on_their_own
+			every_enemy_country = {
+				limit = { civilwar_target = ROOT }
+				hidden_effect = {
+					save_event_target_as = AST_revolter_country
+					every_enemy_country = {
+						limit = { 
+							NOT = { original_tag = ROOT }
+						}
+						white_peace = event_target:AST_revolter_country
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
