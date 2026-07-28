@@ -413,8 +413,17 @@ on_actions = {
 					keep_unit_leaders_trigger = {
 						always = yes
 						}
+					}
+					add_offsite_building = { # From COG being gone
+						type = industrial_complex
+						level = 4
+					}
+					add_offsite_building = {
+						type = arms_factory 
+						level = 3
 					}					
 				}
+				
 			}
 
 			#VP System
