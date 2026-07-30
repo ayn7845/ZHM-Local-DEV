@@ -2016,7 +2016,7 @@ focus_tree = {
 		id = SOV_transformation_of_nature_alt
 
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = SOV_fourth_five_year_plan }
+
 		prerequisite = { focus = SOV_national_academies_of_sciences }
 		x = 2
 		y = 0
