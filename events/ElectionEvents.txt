@@ -112,6 +112,7 @@ country_event = {
 			any_allied_country = {
 				has_war = yes
 			}
+			tag = FRA
 		}
 		OR = {
 			has_idea = low_economic_mobilisation
@@ -150,14 +151,6 @@ country_event = {
 			add_ideas = volunteer_only
 		}
 		add_war_support = 0.05
-	}
-
-	option = {
-		name = election.3.b
-		ai_chance = {
-			base = 0
-		}
-		add_stability = -0.05
 	}
 }
 
@@ -256,7 +249,9 @@ country_event = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
 			}
-			
+			AND = { 
+				tag = FRA
+			}
 		}
 		DEN_aat = no #Denmark has custom election events
 		NOR_AAT = no
