@@ -5,7 +5,11 @@ state={
 	manpower = 1
 	state_category = wasteland
 	history={
-		
+		owner = WST
+		buildings = { 
+			
+		}
+		add_core_of = WST
 	}
 	provinces={
 		636 9587 3612 9618  
