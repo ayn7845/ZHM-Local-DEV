@@ -245,6 +245,7 @@ on_actions = {
 				every_country = {
 					limit = {
 						axis = yes
+						has_trait = no_grind
 					}
 					every_army_leader = {
 						remove_unit_leader_trait = no_grind
@@ -376,6 +377,11 @@ on_actions = {
 			if = {
 				limit = {
 					date > 1939.4.31
+					GER = { 
+						NOT = { 
+							has_military_access_to = SWE
+						}
+					}
 				}
 				SWE = {
 					give_military_access = GER
@@ -629,6 +635,7 @@ on_actions = {
 				every_country = {
 					limit = {
 						allies = yes
+						has_trait = no_grind
 					}
 					every_army_leader = {
 						remove_unit_leader_trait = no_grind

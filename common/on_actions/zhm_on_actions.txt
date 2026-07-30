@@ -318,27 +318,27 @@ on_actions = {
 		#	}
 			180 = { 
 				add_manpower = -1904599
-				set_state_category = wasteland
+				#set_state_category = wasteland
 				add_core_of = WST
 			}
 			181 = { 
 				add_manpower = -964699
-				set_state_category = wasteland
+				#set_state_category = wasteland
 				add_core_of = WST
 			}
 			112 = { 
 				add_manpower = -1995799
-				set_state_category = wasteland
+				#set_state_category = wasteland
 				add_core_of = WST
 			}
 			795 = { 
 				add_manpower = -729711
-				set_state_category = wasteland
+				#set_state_category = wasteland
 				add_core_of = WST
 			}
 			179 = { 
 				add_manpower = -777894
-				set_state_category = wasteland
+				#set_state_category = wasteland
 				add_core_of = WST
 			}
 			ITA = { 
