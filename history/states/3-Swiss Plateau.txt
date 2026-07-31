@@ -8,7 +8,11 @@ state={
 
 
 	history={
-		
+		owner = WST
+		buildings = { 
+			
+		}
+		add_core_of = WST
 	}
 
 	provinces={
