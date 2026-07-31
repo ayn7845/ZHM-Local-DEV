@@ -1227,6 +1227,17 @@ faction_goal_industrial_expansion = {
 			}
 			buildings = { industrial_complex }
 			size > 49
+			
+		}
+		if = { 
+			limit = { 
+				OR = { 
+					tag = JAP
+					tag = MAN
+					tag = SIA # incase i want to add Siam back
+				}
+			}
+			always = no
 		}
 	}
 	completed = {
@@ -1238,6 +1249,75 @@ faction_goal_industrial_expansion = {
 			}
 			buildings = { industrial_complex }
 			size > 149
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 200
+		custom_effect_tooltip = generic_skip_one_line_tt
+		every_faction_member = {
+			tooltip = AT_LEAST_50_CIVS
+			visible_when_empty = yes
+			limit = {
+				num_of_civilian_factories > 49
+			}
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_industrial_expansion } }
+				add_tech_bonus = {
+					name = industrial_expansion_tech_bonus
+					bonus = 0.5
+					uses = 2
+					category = industry
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 1 # If already big it's easy to grow
+			is_major = yes
+		}
+		modifier = {
+			add = 1 # If already big it's easy to grow
+			is_major = yes
+		}
+		modifier = {
+			add = 1 # Prioritize more earlier on - more pay-off
+			date < 1938.1.1
+		}
+	}
+}
+
+faction_goal_industrial_expansion_JAP = {
+	name = "Industrial Expansion"
+	description = industrial_expansion_goal_desc
+	category = medium_term
+	group = FOCUS_FILTER_INDUSTRY
+	visible = {
+		count_in_collection = {
+			collection = {
+				input = game:scope
+				operators = { faction_members }
+				name = FACTION_NAME
+			}
+			buildings = { industrial_complex }
+			size > 49
+		}
+		OR = { 
+			tag = JAP
+			tag = MAN
+			tag = SIA # incase i want to add Siam back
+		}
+	}
+	completed = {
+		count_in_collection = {
+			collection = {
+				input = game:scope
+				operators = { faction_members }
+				name = FACTION_NAME
+			}
+			buildings = { industrial_complex }
+			size > 119
 		}
 	}
 	complete_effect = {
