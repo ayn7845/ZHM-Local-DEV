@@ -46,6 +46,8 @@ NDefines.NMilitary.UNIT_LEADER_MODIFIER_COOLDOWN_ON_REDEPLOY = 0		-- time in day
 NDefines.NMilitary.UNIT_LEADER_MODIFIER_COOLDOWN_ON_WITHDRAW = 0		-- base time in days for withdrawing a deployed unit leader. Instantaneous if 0. Scaled by HQ template manpower.
 NDefines.NMilitary.UNIT_LEADER_MODIFIER_COOLDOWN_ON_WITHDRAW_MIN = 0		-- minimum cooldown in days for withdrawing a unit leader, even for very small HQ templates
 
+NDefines.NAI.MAX_DEPLOYED_ARMY_HQS = 0 -- vanilla is 5, disable the AI trying to even deploy HQs in the first place because we disabled them outright anyway
+NDefines.NAI.ARMY_LEADER_MIN_DIVISIONS_FOR_HQ = 999 -- vanilla is 10, disable the AI trying to even deploy HQs in the first place, just in case
 
 --AI no lend lease
 NDefines.NAI.LENDLEASE_FRACTION_OF_PRODUCTION = 0
@@ -260,9 +262,6 @@ NDefines.NAI.CONSTRUCTION_PRIO_FACTOR_OWNED_NONCORE = 0.10
 --THANKS THRASHY
 NDefines.NAir.ACE_WING_SIZE_MAX_BONUS = 1                       -- biggest bonus we can get from having a small wing with an ace on
 NDefines.NNavy.INITIAL_ALLOWED_DOCKYARD_RATIO_FOR_REPAIRS = 1.0				-- initially countries will allocate this ratio of dockyards for repairs
-NDefines.NNavy.RESOURCE_EXPORT_PRIORITY = 3 --swapped prio so imports go first
-NDefines.NNavy.RESOURCE_LENDLEASE_PRIORITY = 3
-NDefines.NNavy.RESOURCE_ORIGIN_PRIORITY = 3
 NDefines.NCountry.COUNTRY_SCORE_MULTIPLIER = 0				-- Weight of the country score.
 NDefines.NCountry.ARMY_SCORE_MULTIPLIER = 0					-- Based on number of armies.
 NDefines.NCountry.NAVY_SCORE_MULTIPLIER = 0					-- Based on number of navies.
@@ -289,7 +288,6 @@ NDefines.NAir.STRATEGIC_BOMBING_RAILWAY_PRIORITY_SCALE = 0					-- The scale of e
 NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 4.9
 NDefines.NAir.AIR_WING_BOMB_DAMAGE_FACTOR = 0.5 --Vanilla 2
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 0
-NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.09 -- Vanilla 0.07
 NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = 0 --Vanilla -0.12
 --NDefines_Graphics.NAirGfx.MAX_MISSILE_BOMBING_SCENARIOS = 0
 --NDefines_Graphics.NAirGfx.MAX_BOMBING_SCENARIOS = 0

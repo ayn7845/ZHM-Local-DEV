@@ -89,6 +89,23 @@ axis = {
 		tag = POR
 	}
 }
+
+can_grind_generals = {
+	if = {
+		limit = { axis = yes }
+		has_global_flag = axis_grind_allowed
+		OR = {
+			has_war_with = ENG
+			tag = SPR
+		}
+	}
+	else_if = {
+		limit = { allies = yes }
+		has_global_flag = allies_grind_allowed
+		has_war_with = GER
+	}
+}
+
 ai_manpower = {
 	OR = {
 		tag = BEL

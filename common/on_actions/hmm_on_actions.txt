@@ -2,93 +2,81 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				limit = {
-					is_playable_country = yes
-				}
-				add_ideas = {
-					peace_training
-				}
-			}
-			every_country = {
 				every_army_leader = {
+					limit = { NOT = { has_trait = no_grind } }
+					add_unit_leader_trait = no_grind
+				}
+				if = { 
+					limit = { NOT = { has_idea = Spies_no_capture } }
+					add_ideas = { Spies_no_capture }
+				}
+				if = {
+					limit = { is_playable_country = yes }
+					if = {
+						limit = { NOT = { has_idea = peace_training } }
+						add_ideas = { peace_training }
+					}
+					if = {
+						limit = {
+							NOT = { tag = SPR }
+							NOT = { has_idea = novols }
+						}
+						add_ideas = { novols }
+					}
+				}
+				if = {
 					limit = {
-						NOT = { 
-							has_trait = no_grind
+						OR = {
+							ai_annex = yes
+							ai_rk = yes
+							ai_manpower = yes
+							ai_black = yes
+							tag = SWE
+							tag = POR
+							tag = TUR
 						}
 					}
-				add_unit_leader_trait = no_grind
-				}
-			}
-			every_country = {
-				limit = {
-					OR = {
-						ai_annex = yes
-						ai_rk = yes
-						ai_manpower = yes
-						ai_black = yes
-						tag = SWE
-						#tag = POR # Portugal no longer Black nation
-						tag = TUR
+					country_lock_all_division_template = yes
+					if = {
+						limit = { NOT = { has_idea = ai_tradelaw } }
+						add_ideas = { ai_tradelaw }
+					}
+					if = {
+						limit = { ai_black = yes }
+						if = {
+							limit = { NOT = { has_idea = ai_annex } }
+							add_ideas = { ai_annex }
+						}
+						if = {
+							limit = { NOT = { has_idea = no_faction } }
+							add_ideas = { no_faction }
+						}
+					}
+					else_if = {
+						limit = {
+							ai_annex = yes
+							NOT = { has_idea = ai_annex }
+						}
+						add_ideas = { ai_annex }
+					}
+					if = {
+						limit = {
+							ai_manpower = yes
+							NOT = { has_idea = ai_war }
+						}
+						add_ideas = { ai_war }
 					}
 				}
-				country_lock_all_division_template = yes
-				add_ideas = {
-					ai_tradelaw
-				}
 			}
+			
 			SOV = { 
 				country_event = {
 					id = mexico.21 # Mexico returns trotsky
 					days = 396 # Feb 37
 				}
 			}
-			every_country = {
-				limit = {
-					OR = {
-						ai_annex = yes
-						ai_black = yes
-					}
-				}
-				add_ideas = {
-					ai_annex
-				}
-			}
-			every_country = {
-				limit = {
-					OR = {
-						ai_manpower = yes
-					}
-				}
-				add_ideas = {
-					ai_war
-				}
-			}
 
-			every_country = {
-				limit = {
-					AND = {
-						is_playable_country = yes
-						NOT = {
-							tag = SPR
-						}
-					}
-
-				}
-				add_ideas = {
-					novols
-				}
-			}
 			SPR = {
-				add_ideas = {
-					no_faction
-				}
-			}
-			WST = {
-				add_ideas = {
-					no_faction
-				}
-			}
-			TUR = {
 				add_ideas = {
 					no_faction
 				}
@@ -96,21 +84,12 @@ on_actions = {
 			HOL = {
 				add_ideas = {
 					noresistance
-				}
-			}
-			HOL = {
-				add_ideas = {
 					ai_conscription_laws
 				}
 			}
 			GER = {
 				add_ideas = {
 					axis_fuel
-				}
-			}
-			every_country = {
-				add_ideas = {
-					Spies_no_capture
 				}
 			}
 			GER = {
@@ -195,32 +174,21 @@ on_actions = {
 			}
 		}
 	}
-	on_monthly_WST = { # Courtesy of AMSB
+
+	on_unit_leader_created = { # More performant than only adding no_grind through monthly checks
 		effect = {
 			if = {
 				limit = {
-				date > 1941.8.31
-				NOT = { GER = {has_war_with = SOV}}
-			}
-				GER = {
-					declare_war_on = {
-					target = SOV
-					type = annex_everything
-					}
+					is_army_leader = yes
+					NOT = { has_trait = no_grind }
+					FROM = { can_grind_generals = no }
 				}
+				add_unit_leader_trait = no_grind
 			}
-			if = {
-				limit = {
-					date > 1941.8.31
-					NOT = { JAP = {has_war_with = USA}}
-				}
-				JAP = {
-					declare_war_on = {
-					target = USA
-					type = annex_everything
-					}
-				}
-			}
+		}
+	}
+	on_monthly = {
+		effect = {
 			if = {
 				limit = {
 						BEL = {
@@ -276,86 +244,28 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					HOL = {
-						has_equipment = {
-							convoy_1 < 1000
-						}
-						has_capitulated = yes
-					}
+					can_grind_generals = no
+					any_army_leader = { NOT = { has_trait = no_grind } }
 				}
-				HOL = {
-					add_equipment_to_stockpile = {
-						type = convoy
-						amount = 1000
-					}
+				every_army_leader = {
+					limit = { NOT = { has_trait = no_grind } }
+					add_unit_leader_trait = no_grind
 				}
 			}
+		}
+	}
+	on_monthly_GER = { 
+		effect = { 
 			if = {
 				limit = {
-					OR={
-						BEL = {
-							has_capitulated = no
-						}
-						HOL = {
-							has_capitulated = no
-						}
-						LUX = {
-							has_capitulated = no
-						}
-						DEN = {
-							has_capitulated = no
-						}
-						NOR = {
-							has_capitulated = no
-						}
-						POL = {
-							has_capitulated = no
-						}
-					}
-				}
-				every_country = {
-					limit = {
-						axis = yes
-						NOT = {
-							has_global_flag = grind_allowed
-						}
-					}
-					every_army_leader = {
-						limit = {
-							NOT = { 
-								has_trait = no_grind
-							}
-						}
-						add_unit_leader_trait = no_grind
-					}
-				}
+				date > 1941.8.31
+				NOT = { GER = {has_war_with = SOV}}
 			}
-			if = {
-				limit = {
-					GER = {has_war = no }
-				}
-				every_country = {
-					limit = {
-						allies = yes
+				GER = {
+					declare_war_on = {
+					target = SOV
+					type = annex_everything
 					}
-					every_army_leader = {
-						limit = {
-							NOT = { 
-								has_trait = no_grind
-							}
-						}
-						add_unit_leader_trait = no_grind
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = no_spain
-                	has_country_flag = no_finland
-				}
-				BUL = {
-					remove_country_leader_trait = bul_caudillo
-					add_country_leader_trait = bul_caudillo_2
 				}
 			}
 			if = {
@@ -374,28 +284,154 @@ on_actions = {
 					}
 				}
 			}
+		}
+	}
+
+	on_monthly_JAP = { 
+		effect = { 
 			if = {
 				limit = {
-					date > 1939.4.31
-					GER = { 
-						NOT = { 
-							has_military_access_to = SWE
-						}
-					}
+					date > 1941.8.31
+					NOT = { JAP = {has_war_with = USA}}
 				}
-				SWE = {
-					give_military_access = GER
+				JAP = {
+					declare_war_on = {
+					target = USA
+					type = annex_everything
+					}
 				}
 			}
 		}
 	}
+
+	on_monthly_BUL = { 
+		effect = { 
+			if = {
+				limit = {
+					has_country_flag = no_spain
+                	has_country_flag = no_finland
+				}
+				BUL = {
+					remove_country_leader_trait = bul_caudillo
+					add_country_leader_trait = bul_caudillo_2
+				}
+			}
+		}
+	}
+
+	on_monthly_HOL = {
+		effect = {
+			if = {
+				limit = {
+					has_capitulated = yes
+					has_equipment = {
+						convoy_1 < 1000
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 1000
+				}
+			}
+		}
+	}
+	on_monthly_SWE = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { gives_military_access_to = GER }
+					date > 1939.4.31
+				}
+				give_military_access = GER
+			}
+		}
+	}
+
 	on_capitulation = {
 		effect = {
 			hmm_capitulations_on_actions = yes
 
-			
+			if = {
+				limit = { tag = BEL }
+				if = {
+					limit = {
+						HOL = { has_capitulated = yes }
+						LUX = { has_capitulated = yes }
+						DEN = { has_capitulated = yes }
+						NOR = { has_capitulated = yes }
+						POL = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
+			else_if = {
+				limit = { tag = HOL }
+				if = {
+					limit = {
+						BEL = { has_capitulated = yes }
+						LUX = { has_capitulated = yes }
+						DEN = { has_capitulated = yes }
+						NOR = { has_capitulated = yes }
+						POL = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
+			else_if = {
+				limit = { tag = LUX }
+				if = {
+					limit = {
+						BEL = { has_capitulated = yes }
+						HOL = { has_capitulated = yes }
+						DEN = { has_capitulated = yes }
+						NOR = { has_capitulated = yes }
+						POL = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
+			else_if = {
+				limit = { tag = DEN }
+				if = {
+					limit = {
+						BEL = { has_capitulated = yes }
+						HOL = { has_capitulated = yes }
+						LUX = { has_capitulated = yes }
+						NOR = { has_capitulated = yes }
+						POL = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
+			else_if = {
+				limit = { tag = NOR }
+				if = {
+					limit = {
+						BEL = { has_capitulated = yes }
+						HOL = { has_capitulated = yes }
+						LUX = { has_capitulated = yes }
+						DEN = { has_capitulated = yes }
+						POL = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
+			else_if = {
+				limit = { tag = POL }
+				if = {
+					limit = {
+						BEL = { has_capitulated = yes }
+						HOL = { has_capitulated = yes }
+						LUX = { has_capitulated = yes }
+						DEN = { has_capitulated = yes }
+						NOR = { has_capitulated = yes }
+					}
+					allow_axis_grind = yes
+				}
+			}
 		}
 	}
+
 	on_state_control_changed = {
 		effect = {
 			if = {
