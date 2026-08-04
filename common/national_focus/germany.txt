@@ -9931,31 +9931,20 @@ focus_tree = {
 
 		allow_branch = {
 			has_dlc = "Peace For Our Time"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_oppose_hitler
-					has_completed_focus = GER_oppose_hitler_ww
-				}
-			}
+			
 		}
 
 		available = {
-				AND = {
-					has_game_rule = { 
-					rule = Germany_czech_manufacturers
-					option = allowed
-					}
-				9 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-			}
+		9 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
 		}
+		NOT = { 
+			has_game_rule = { 
+				rule = Germany_czech_manufacturers
+				option = banned
+			}
+		}	
+	}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
@@ -9972,32 +9961,96 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				unlock_military_industrial_organization_tooltip = mio:CZE_skoda_works_german_organization
-				mio:CZE_skoda_works_german_organization = {
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.25
+
+				if = { 
+					limit = { 
+						OR = { 
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = allowed
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = skoda_works
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = td_mio
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = air_mio
+							}
+						}
+					}
+					unlock_military_industrial_organization_tooltip = mio:CZE_skoda_works_german_organization
+
+					mio:CZE_skoda_works_german_organization = {
+						add_mio_size = 2
+						add_mio_funds_gain_factor = 0.25
+					}
+
+					custom_effect_tooltip = generic_skip_one_line_tt
 				}
 
+				if = { 
+					limit = { 
+						OR = { 
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = allowed
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = air_mio
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = production_mio
+							}
+						}
+					}
+					
+					unlock_military_industrial_organization_tooltip = mio:CZE_bohmische_mahrische_maschinenfabrik_ag_german_organization
+
+					mio:CZE_bohmische_mahrische_maschinenfabrik_ag_german_organization = {
+						add_mio_size = 2
+						add_mio_funds_gain_factor = 0.25
+					}
+
+					custom_effect_tooltip = generic_skip_one_line_tt
+				}
+
+				if = { 
+					limit = { 
+						OR = { 
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = allowed
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = td_mio
+							}
+							has_game_rule = { 
+								rule = Germany_czech_manufacturers
+								option = production_mio
+							}
+						}
+					}
+					unlock_military_industrial_organization_tooltip = mio:CZE_avia_german_organization
+					
+					mio:CZE_avia_german_organization = {
+						add_mio_size = 2
+						add_mio_funds_gain_factor = 0.25
+					}
+					
 				custom_effect_tooltip = generic_skip_one_line_tt
+				}
+
 
 				unlock_military_industrial_organization_tooltip = mio:CZE_ceska_zbrojovka_uhersky_brod_organization
 				mio:CZE_ceska_zbrojovka_uhersky_brod_organization = {
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.25
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				unlock_military_industrial_organization_tooltip = mio:CZE_bohmische_mahrische_maschinenfabrik_ag_german_organization
-				mio:CZE_bohmische_mahrische_maschinenfabrik_ag_german_organization = {
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.25
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				unlock_military_industrial_organization_tooltip = mio:CZE_avia_german_organization
-				mio:CZE_avia_german_organization = {
 					add_mio_size = 2
 					add_mio_funds_gain_factor = 0.25
 				}
@@ -28814,8 +28867,6 @@ focus_tree = {
 			add_war_support = 0.05
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_country = {}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			

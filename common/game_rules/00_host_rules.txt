@@ -223,18 +223,38 @@ Brasil_AC_rule = {
 }
 
 Germany_czech_manufacturers = {
-	name = "German Czech MIO"
+	name = "German Czech Manufacturers"
 	group = "HMM Rules"
 	icon = "GFX_decision_generic_GER_flag"
-	default = {
+	option = {
 		name = allowed
 		text = "Allowed"
-		desc = ""
+		desc = "Every Czech MIO gained from 'Integrate Czech Manufacturers' is allowed"
+	}
+	default = { 
+		name = skoda_works
+		text = "Skoda Works allowed"
+		desc = "Skoda Works(Tank Production) allowed, Czech Tank Destroyer and Aircraft MIOs are banned"
+	}
+	option = { 
+		name = td_mio
+		text = "Czech TD MIO banned"
+		desc = "Only Czech Tank Destroyer MIO is banned"
+	}
+	option = { 
+		name = air_mio
+		text = "Czech Aircraft MIO banned"
+		desc = "Only Czech Aircraft MIO is banned"
+	}
+	option = { 
+		name = production_mio
+		text = "Skoda Works banned"
+		desc = "Skoda Works banned, TD & Aircraft MIO allowed"
 	}
 	option = {
 		name = banned
 		text = "Banned"
-		desc = ""
+		desc = "Every Czech MIO gained from 'Integrate Czech Manufacturers' is banned"
 	}
 
 }
