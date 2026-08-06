@@ -307,7 +307,6 @@ hmm_capitulations_on_actions = {
 			remove_ideas = {
 				ai_war
 			}
-			delete_unit = {}
 		}	
 	}
 }
