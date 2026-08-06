@@ -13434,7 +13434,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_respect_baltic_self_determination
-		cost = 1
+		cost = 0
 		
 		ai_will_do = {
 			factor = 1
@@ -13476,12 +13476,13 @@ focus_tree = {
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-			add_political_power = -50
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_timed_idea = { 
-				idea = zhm_war_bonds
-				days = 180
-			}
+				army_experience = 50
+			#add_political_power = -50
+			#custom_effect_tooltip = generic_skip_one_line_tt
+			#add_timed_idea = { 
+			#	idea = zhm_war_bonds
+			#	days = 180
+			#}
 		}
 	}
 
@@ -13915,7 +13916,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 1
+		cost = 0
 
 		ai_will_do = {
 			factor = 2.5
