@@ -65,7 +65,7 @@ ideas = {
 					limit = { has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag }
 					clr_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
 				}
-				country_lock_all_division_template = no
+				#country_lock_all_division_template = no
 				clear_rule = {
 					can_not_declare_war = yes
 				}
@@ -123,7 +123,7 @@ ideas = {
 					limit = { has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag }
 					clr_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
 				}
-				country_lock_all_division_template = no
+				#country_lock_all_division_template = no
 				clear_rule = {
 					can_not_declare_war = yes
 				}
