@@ -32,7 +32,6 @@ on_actions = {
 							ai_manpower = yes
 							ai_black = yes
 							tag = SWE
-							tag = POR
 							tag = TUR
 						}
 					}
