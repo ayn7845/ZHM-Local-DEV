@@ -2057,7 +2057,6 @@ focus_tree = {
 					free_building_slots = {
 						building = synthetic_refinery
 						size > 0
-						include_locked = yes
 					}
 				}
 				prioritize = { 65 }
@@ -2165,7 +2164,6 @@ focus_tree = {
 					free_building_slots = {
 						building = synthetic_refinery
 						size > 0
-						include_locked = yes
 					}
 				}
 				prioritize = { 57 }
@@ -2251,7 +2249,6 @@ focus_tree = {
 					free_building_slots = {
 						building = synthetic_refinery
 						size > 0
-						include_locked = yes
 					}
 				}
 				prioritize = { 65 }
