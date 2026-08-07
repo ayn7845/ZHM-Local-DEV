@@ -5,7 +5,7 @@ ideas = {
 			removal_cost = -1
 			picture = MEX_politicised_army
 			modifier = {
-				conscription = 0.05
+				conscription = 0.025
 			}
 		}
 
