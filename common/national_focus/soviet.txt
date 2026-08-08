@@ -1865,7 +1865,7 @@ focus_tree = {
 		cost = 5
 
 		available = {
-
+			always = no
 		}
 		
 		search_filters = {FOCUS_FILTER_RESEARCH}
@@ -1887,7 +1887,7 @@ focus_tree = {
 		id = SOV_transformation_of_nature
 
 		icon = GFX_SOV_transformation_of_nature_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_fourth_five_year_plan }
+		
 		prerequisite = { focus = SOV_national_academies_of_sciences }
 		x = 2
 		y = 0
@@ -11909,6 +11909,7 @@ focus_tree = {
 			
 		}
 		available = {
+			always = no # maybe in the future
 			any_allied_country = {
 				capital_scope = { is_on_continent = asia }
 				is_major = no
