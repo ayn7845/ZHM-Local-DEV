@@ -102,7 +102,7 @@ can_grind_generals = {
 	else_if = {
 		limit = { allies = yes }
 		has_global_flag = allies_grind_allowed
-		#has_war_with = GER
+		has_war_with = GER
 	}
 }
 

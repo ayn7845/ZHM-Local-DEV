@@ -742,6 +742,95 @@ on_actions = {
             }
 		}
 	}
+	
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = allies_grind_allowed
+						has_global_flag = axis_grind_allowed
+					}
+					OR = {
+						tag = GER
+						tag = ENG
+						FROM = {
+							OR = {
+								tag = GER
+								tag = ENG
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						axis = yes
+						FROM = { allies = yes }
+					}
+					if = {
+						limit = {
+							has_global_flag = allies_grind_allowed
+							tag = GER
+						}
+						FROM = {
+							if = {
+								limit = { any_army_leader = { has_trait = no_grind } }
+								every_army_leader = {
+									limit = { has_trait = no_grind }
+									remove_unit_leader_trait = no_grind
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = axis_grind_allowed
+							FROM = { tag = ENG }
+							any_army_leader = { has_trait = no_grind }
+						}
+						every_army_leader = {
+							limit = { has_trait = no_grind }
+							remove_unit_leader_trait = no_grind
+						}
+					}
+				}
+				# Attacker should always be Axis and defender should always be Allies, but check for the other way around as well, just in case
+				else_if = {
+					limit = {
+						allies = yes
+						FROM = { axis = yes }
+					}
+					if = {
+						limit = {
+							has_global_flag = allies_grind_allowed
+							FROM = { tag = GER }
+							any_army_leader = { has_trait = no_grind }
+						}
+						every_army_leader = {
+							limit = { has_trait = no_grind }
+							remove_unit_leader_trait = no_grind
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = axis_grind_allowed
+							tag = ENG
+						}
+						FROM = {
+							if = {
+								limit = { any_army_leader = { has_trait = no_grind } }
+								every_army_leader = {
+									limit = { has_trait = no_grind }
+									remove_unit_leader_trait = no_grind
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	on_startup = {
 		effect = {
 			if = {
