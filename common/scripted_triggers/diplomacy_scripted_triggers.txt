@@ -694,6 +694,11 @@ DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
 				rule = allow_lend_lease
 				option = FREE
 			}
+			NOT = { 
+				original_tag = ARG
+				original_tag = POR
+				original_tag = MEX
+			}
 		}
 		always = yes
 	}
@@ -702,6 +707,11 @@ DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
 			has_game_rule = {
 				rule = allow_lend_lease
 				option = LIMITED
+			}
+			NOT = { 
+				original_tag = ARG
+				original_tag = POR
+				original_tag = MEX
 			}
 		}
 		always = yes #handled by game logic, see above
@@ -744,6 +754,18 @@ DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
+	if = { # ZHM No LL requesting from arg, por, or mex
+		limit = { 
+			is_playable_country = yes 
+		}
+		FROM = { 
+			NOT = { 
+				original_tag = ARG
+				original_tag = POR
+				original_tag = MEX
+			}
+		}
+	}
 	if = {
 		limit = {
 			has_game_rule = {
