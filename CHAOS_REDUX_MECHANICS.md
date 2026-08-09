@@ -1,0 +1,973 @@
+# Chaos Redux: Complete Mechanics Guide
+
+## Table of Contents
+
+1. [Core Event System](#core-event-system)
+2. [Dynamic Timer System](#dynamic-timer-system)
+3. [Event Classification](#event-classification)
+4. [Chaos Meter System](#chaos-meter-system)
+5. [World End Scenario Mechanic](#world-end-scenario-mechanic)
+6. [Event Evolution and Event Logs](#event-evolution-and-event-logs)
+7. [Event Clusters](#event-clusters)
+8. [Configuration and Settings](#configuration-and-settings)
+9. [Triggerable Scenarios](#triggerable-scenarios)
+10. [Multiplayer Compatibility](#multiplayer-compatibility)
+11. [Debug and Monitoring](#debug-and-monitoring)
+12. [Chemical and Biological Warfare](#chemical-and-biological-warfare)
+13. [Camps and Genocide Mechanics](#camps-and-genocide-mechanics)
+14. [Chaos Warfare](#chaos-warfare)
+
+---
+
+## Core Event System
+
+### Overview
+
+Chaos Redux implements an adaptive event system that responds to player actions, world state, and previous events. The system uses weight-based probability, dynamic timing, and chaos-driven escalation to create an unpredictable and challenging experience.
+
+Complete event documentation: <https://docs.google.com/spreadsheets/d/1A-N5TvU9Ed_xDW4YFG75RvzTIhdA5Hc0f5YyO3qi0Ik/edit?usp=sharing>
+
+### Core Principles
+
+- **Dynamic Adaptation**: Event frequency and selection adapt to current world state
+- **Historical Memory**: System tracks all fired events and adjusts future probabilities
+- **Escalating Difficulty**: Higher chaos levels increase event frequency and severity (evolution)
+- **Player Agency**: Settings allow customization of system behavior
+
+---
+
+## Dynamic Timer System
+
+### Timer Mechanics
+
+The system uses a dynamic timer that replaces traditional fixed monthly intervals:
+
+- **Daily Updates**: Timer decreases by 1 each day
+- **Event Trigger**: When timer reaches 0, event selection begins
+- **Base Range**: 45-60 days between events (configurable)
+- **Initial Timer**: 7-30 days on game start
+
+### Timer Acceleration
+
+#### Minor Event Effects
+
+Each minor event that fires:
+
+- Increases daily decrement by +1 (maximum: 35)
+- Makes subsequent events fire sooner
+- Effect accumulates across multiple minor events
+
+#### Compression Mechanism
+
+Every 3 minor events:
+
+- Reduces maximum timer by 1 day (maximum reduction: 13 days)
+- Compresses the overall timer range
+- Creates faster event cycles during active periods
+
+| Minor events since last major | Daily decrement | Max timer reduction before roll | Possible next timer at `1.0x` |
+| --- | --- | --- | --- |
+| `0` | `0` | `0` | `45-60` days |
+| `1` | `1` | `0` | `44-59` days |
+| `2` | `2` | `0` | `43-58` days |
+| `3` | `3` | `1` | `42-56` days |
+| `6` | `6` | `2` | `39-52` days |
+| `9` | `9` | `3` | `36-48` days |
+| `12` | `12` | `4` | `33-44` days |
+| `15+` | `15` | `5` | `30-40` days |
+
+#### Major Event Reset
+
+When a major event fires:
+
+- Resets both decrement and compression to 0
+- Returns timer to standard 45-60 day range
+- Provides breathing room after significant events
+
+### Timer Examples
+
+**Standard Progression:**
+
+- Event 1: 45-60 days
+- After minor event: 44-59 days (decrement +1)
+- After 2nd minor: 43-58 days (decrement +2)
+- After 3rd minor: 42-56 days (decrement +3, max -1)
+
+**Maximum Acceleration:**
+
+- Base range: 45-60 days
+- Maximum decrement: -35 days
+- Maximum compression: -13 days
+- Effective range: 10-12 days
+
+| Chaos tier | Timer multiplier | Speed vs calm | Max-acceleration range with current defaults |
+| --- | --- | --- | --- |
+| **Calm World** | `1.0x` | baseline | `30-40` days |
+| **Gathering Storm** | `0.8x` | `20%` faster | `24-32` days |
+| **Rising Chaos** | `0.7x` | `30%` faster | `21-28` days |
+| **Chaos Tier** | `0.6x` | `40%` faster | `18-24` days |
+| **Totalen Chaos** | `0.5x` | `50%` faster | `15-20` days |
+| **World Collapse** | `0.5x` | `50%` faster | `15-20` days |
+
+---
+
+## Event Classification
+
+### Country-Specific Target Gates
+
+Events that require a specific country or small set of country tags must have a reusable valid-target trigger before they can be selected or manually fired. If no valid target exists, the event is treated as unavailable, shows `N/A` in the event list, and is not queued against a nonexistent country.
+
+The Holy Realm uses this rule directly: Tibet is the normal host; if Tibet no longer exists, Bhutan or Nepal can host; if all three are gone or invalid, event ID `3` has no live weight.
+
+### Fire-Once Events
+
+- **Initial State**: Weight starts at 1000
+- **Frequency**: Trigger exactly once per campaign
+- **Weight After Firing**: Permanently set to 0
+- **Purpose**: Events that have a minor impact on the world at first, usually regional, but can become global.
+
+### Repeatable Events
+
+- **Initial State**: Weight starts at 1000
+- **Frequency**: Can fire multiple times with diminishing returns
+- **Weight Recovery**: +20 per month after firing
+- **Cap Reduction**: Maximum weight reduced by 50% each firing
+- **Weight Progression**: 1000 → 500 → 250 → 125 → 63 → 32 → 16 → 8 → 4 → 2 → 1
+- **Purpose**: Events that have a minor impact on the world and can be fired multiple times during a game.
+
+### Major Events
+
+- **Initial State**: Weight starts at 0 (inactive)
+- **Activation**: Weight increases by the current dynamic major gain after each minor pacing event. The configured baseline is 150 at 90 active non-major events and 10 active major events.
+- **Firing Condition**: Compete with other events based on accumulated weight
+- **Weight After Firing**: Permanently set to 0 for the fired event and all unfired major events reset to 0 weight
+- **Purpose**: Events that have a major impact on the world right away
+- **Super Events**: Major events are displayed as Super Events
+
+| Event type | Default start weight | Repeat behavior | Recovery / growth | System effect after firing |
+| --- | --- | --- | --- | --- |
+| **Fire-Once** | `1000` | Fires once per campaign | None | Event is marked fired permanently and removed from future selection; still adds minor-event timer pressure |
+| **Repeatable** | `1000` | Can fire repeatedly | `+20` weight per month up to current cap | Weight cap is halved each firing; still adds minor-event timer pressure |
+| **Major** | `0` | Fires once per campaign | Current dynamic major gain per minor pacing event | Fired major resets major weights and resets timer acceleration state |
+
+### Super Event Example
+
+<img width="910" height="595" alt="super_event_preview" src="https://github.com/user-attachments/assets/ac4d2961-ee6b-4ea3-8d06-1e668bbf0fe0" />
+
+---
+
+## Chaos Meter System
+
+### Chaos Meter Overview
+
+A global meter (0-1000+) that tracks world instability and drives system behavior.
+
+<img width="480" height="80" alt="chaos_meter_0" src="https://github.com/user-attachments/assets/315ecf14-8e84-4e42-9f85-1cfccbf78a9f" />
+
+### Chaos Meter Window
+
+The Chaos Meter details window has five tabs:
+
+1. **Status**: Current chaos value, current tier, and a short mechanics explanation.
+2. **History**: Scrollable chaos change log with filters and sorting.
+3. **Air Cleanliness**: Global air quality, contamination pressure, and threshold status.
+4. **Condemnation**: Country-by-country responsibility for unconventional warfare use.
+5. **Deaths**: Total deaths, civilian/military split, and a recent death log.
+
+<!-- IMAGE PLACEHOLDER: Chaos Meter window with all five tabs visible -->
+
+### Chaos Tiers
+
+- **Calm World** (0-199): Normal event frequency, stable conditions
+- **Gathering Storm** (200-399): Slightly increased event frequency, some evolutions available
+- **Rising Chaos** (400-599): Moderately increased frequency, more evolutions available
+- **Chaos Tier** (600-799): High frequency, a lot event evolutions
+- **Totalen Chaos** (800-999): Very high frequency, most evolutions available
+- **World Collapse** (1000+): Maximum chaos, system prepares end-game scenarios
+
+| Tier | Chaos range | Timer multiplier | Relative event speed |
+| --- | --- | --- | --- |
+| **Calm World** | `0-199` | `1.0x` | baseline |
+| **Gathering Storm** | `200-399` | `0.8x` | `20%` faster |
+| **Rising Chaos** | `400-599` | `0.7x` | `30%` faster |
+| **Chaos Tier** | `600-799` | `0.6x` | `40%` faster |
+| **Totalen Chaos** | `800-999` | `0.5x` | `50%` faster |
+| **World Collapse** | `1000+` | `0.5x` | `50%` faster |
+
+### Chaos Sources
+
+| System | Lower / minor change | Higher / major change |
+| --- | --- | --- |
+| War | `+1` | `+5` |
+| Peace | `-1` | `-3` |
+| Annexation | `+2` | `+10` |
+| Puppeting | `+1` | `+3` |
+| Liberation | `-2` | `-5` democratic liberation |
+| Freeing countries | `-3` | n/a |
+| Faction joining | `+1` | `+3` |
+| Faction leaving | `-1` | `-3` |
+| Ideology change | `+1` minor non-democratic / `-2` minor democratic | `+5` major non-democratic / `-5` major democratic |
+| Nuclear or thermonuclear use | shared ladder: `+10`, `+5`, `+3`, `+2`, then `+1` | thermonuclear uses stronger fallout/condemnation effects, but shares the same direct chaos ladder |
+| Monthly world decay | `-1` | n/a |
+
+| Scaling rule | Exact threshold |
+| --- | --- |
+| World tension rise | `+1` chaos per percentage-point rise |
+| Military buildup | `+1` chaos per `100` military factories |
+| Division buildup | `+1` chaos per `100` divisions |
+| Deaths | `+1` chaos per `1,000,000` tracked deaths |
+| Air contamination | `+1` chaos per net `+1%` contamination, `-1` chaos per net `-1%` recovery |
+
+Chaos changes can also happen from events.
+
+### Air Cleanliness (Contamination) System
+
+Air cleanliness is a global pressure system shown in the Chaos Meter window.
+
+- Chemical contamination in one state adds **+0.01%**.
+- One outbreak state adds about **+0.02%** (lower/higher by outbreak intensity).
+- A normal nuke adds **+0.2%**.
+- A thermonuclear strike adds **+1.5%**.
+- Natural recovery scales by contamination level while still reversible:
+  - below **25%**: **-0.03%** monthly
+  - **25%+**: **-0.02%** monthly
+  - **50%+**: **-0.01%** monthly
+  - **75%+**: **-0.005%** monthly
+
+Threshold behavior:
+
+- **25%**: contamination and outbreak spread becomes easier.
+- **50%**: mild nuclear-winter periods can begin.
+- **75%**: stronger nuclear-winter periods can begin, with harsher global penalties.
+- **100%**: contamination becomes irreversible and states begin a long decline toward wasteland.
+
+For chaos synchronization:
+
+- Every **+1%** contamination change adds **+1 chaos**.
+- Every **-1%** contamination recovery removes **1 chaos**.
+
+The tab uses a single current status line for stage/state, plus a short mechanics overview on the side.
+The tab also includes an enable/disable checkbox for the air cleanliness system.
+
+| Source | Basis points | Percent |
+| --- | --- | --- |
+| Chemical contamination in one state | `+1 bp` | `+0.01%` |
+| One outbreak state, low intensity | `+1 bp` | `+0.01%` |
+| One outbreak state, base intensity | `+2 bp` | `+0.02%` |
+| One outbreak state, high intensity | `+3 bp` | `+0.03%` |
+| Normal nuke | `+20 bp` | `+0.20%` |
+| Thermonuclear strike | `+150 bp` | `+1.50%` |
+
+| Monthly recovery band | Basis points | Percent |
+| --- | --- | --- |
+| Below `25%` | `-3 bp` | `-0.03%` |
+| `25%+` | `-2 bp` | `-0.02%` |
+| `50%+` | `-1 bp` | `-0.01%` |
+| `75%+` | `-0.5 bp` | `-0.005%` |
+
+| Threshold | Basis points | Result |
+| --- | --- | --- |
+| `25%` | `2500 bp` | Spread becomes easier |
+| `50%` | `5000 bp` | Mild nuclear-winter periods can begin |
+| `75%` | `7500 bp` | Stronger nuclear-winter periods can begin |
+| `100%` | `10000 bp` | Contamination becomes irreversible |
+| `1000%` | `100000 bp` | Fallout world-end scenario can trigger |
+
+<!-- IMAGE PLACEHOLDER: Air Cleanliness tab with thresholds and status line -->
+
+### Condemnation System
+
+Condemnation is diplomatic blame for unconventional weapon use.
+
+What increases condemnation:
+
+- Chemical units actively used in combat
+- Chemical and biological attack use
+- Nuclear strike use, with larger strikes on more populated states causing heavier condemnation
+- Some decisions as well
+
+The **Condemnation** tab shows your value and a sortable country list.  
+The list updates instantly when condemnation changes.
+
+<!-- IMAGE PLACEHOLDER: Condemnation tab with sortable country list -->
+
+### Deaths System
+
+Strategic bombing, chemical and biological attacks, outbreaks, nuclear strikes, genocide-crisis site processing, and military casualties all feed a shared global deaths tracker.
+
+- Death sources reduce real state population, not only recruitable manpower.
+- Population losses are scaled by state population, local conditions, and the kind of attack, so dense and poorly protected areas suffer more heavily.
+- Outbreak and contamination deaths happen gradually over time for as long as the state remains affected.
+- Nuclear strikes cause a heavy immediate death spike and can leave behind radioactive fallout that keeps killing civilians over time.
+- The **Deaths** tab shows total deaths, civilian deaths, military deaths, latest change, and a scrollable death log.
+- Death log entries show the affected country, death type as **Civilian** or **Military**, and can be filtered by type.
+- The tab includes an enable/disable checkbox for the deaths system.
+- Every **1,000,000** total deaths adds **+1 chaos**.
+
+<!-- IMAGE PLACEHOLDER: Deaths tab with totals and recent log -->
+
+### Chaos Effects on Timing
+
+Each chaos tier applies a multiplier to event timers:
+
+- **Calm World**: 1.0x (no change)
+- **Gathering Storm**: 0.8x (20% faster)
+- **Rising Chaos**: 0.7x (30% faster)
+- **Chaos Tier**: 0.6x (40% faster)
+- **Totalen Chaos**: 0.5x (50% faster)
+- **World Collapse**: 0.5x (events prepare for end-game)
+
+---
+
+## World End Scenario Mechanic
+
+When the **Chaos Meter** exceeds 1000, the system triggers a **World End Scenario**.  
+This represents the logical conclusion of the campaign and prevents indefinite gameplay.
+
+<img width="480" height="80" alt="chaos_meter_max" src="https://github.com/klimPaskov/Chaos-Redux/blob/master/gfx/interface/chaos_meter/chaos_meter_max.png" />
+
+### Key Rules
+
+- **Trigger Condition**: Chaos > 1000  
+- **Scenario Selection**: Based on world state (e.g., zombie apocalypse if outbreak dominates, or other endgame disasters depending on conditions).  
+- **Event Freeze**: Automatic event firing stops across the world.
+- **Purpose**: Ensures campaigns reach a dramatic, conclusive end and prevents late-game slowdown.
+- **Super Event**: Each world end scenario has a custom super event.
+
+---
+
+## Event Evolution and Event Logs
+
+### Event Evolution
+
+Events can transform into more dangerous versions when chaos levels are sufficient:
+
+- **Chaos Requirements**: Different events evolve at different chaos thresholds
+- **Progressive Escalation**: Higher chaos enables more severe event variants
+- **Prerequisite Events**: Some evolutions require specific previous events
+
+### Event Logs Window
+
+The event logs window tracks what has happened and what can still happen.
+
+- Tabs: **Status**, **History**, **Evolutions**, **Events**, **Clusters**
+- **Events** tab lists all available events.
+- **Clusters** tab lists cluster firings and member skip/fired reasons.
+- You can filter events by **All / Enabled / Disabled**.
+- You can sort by **Event ID**, **Fired count**, or **Weight** (ascending/descending).
+- Each event row has a quick toggle button to enable/disable that event.
+
+Any row in **History**, **Evolutions**, **Events**, or **Clusters** can be clicked to open a separate detail window.
+
+<!-- IMAGE PLACEHOLDER: Events tab with filter/sort/toggle controls -->
+<!-- IMAGE PLACEHOLDER: Multiple event detail windows opened at once -->
+
+---
+
+## Event Clusters
+
+Event clusters are linked groups of normal events. The random-event picker still selects one event first; if that event belongs to a cluster, the cluster can roll to fire the wider incident instead of only the selected event.
+
+Cluster firing counts as one global pacing event. Member events still apply their effects, log entries, repeatable cap changes, fire-once removal, fired history, and event details, but they do not each advance the event timer or apply the dynamic major-event gain.
+
+The settings UI has an Event Clusters view for selecting a cluster ID, checking availability, and manually triggering a cluster. Fired clusters appear in the event log **Clusters** tab with the cluster actor, tier, fired/skipped counts, and member reasons.
+
+---
+
+## Configuration and Settings
+
+### Event Trigger Settings
+
+- **Event System Toggle**: Enable/disable per country
+- **Force Trigger Mode**: Bypass normal restrictions
+- **Event Filtering**: View by type (All/Major/Repeatable/Fire-Once)
+- **Manual Triggering**: Direct event selection and firing
+- **Random Event**: Random selection with filters
+
+<https://github.com/user-attachments/assets/c60e12a0-5fee-424d-8768-2b89a261ccfe>
+
+### Timer System and Tag Management Settings
+
+- **Timer**: Adjust the timer range
+- **Timer Window**: Optional display of countdown
+- **Bulk Operations**: Enable/disable for selected countries
+- **Country Filtering**: All/Enabled Only/Disabled Only
+- **Continent Sorting**: All countries or by continent
+- **Auto-Enable on Switch**: Automatically enable for new player countries
+- **Disable for the previous country**: Automatically disables the event system for the previous country on tag switch.
+
+<https://github.com/user-attachments/assets/d23b0a7b-de94-4f8e-aedb-99ad13a3d887>
+
+### Chaos Meter Configuration
+
+- **Value Adjustment**: Direct manipulation of chaos level
+- **Tier Selection**: Jump to specific chaos tiers
+- **System Toggle**: Enable/disable chaos meter effects
+
+<https://github.com/user-attachments/assets/83ccc354-9396-4341-bfe2-dc9a066ad1ab>
+
+### Advanced Settings
+
+- **Recovery Rate**: 0-10000 weight recovery per month (default: 20)
+- **Cap Reduction Factor**: 0-100% weight cap reduction per firing (default: 50%)
+- **Baseline Major Gain**: 0-10000 configured baseline gain (default: 150). At 90 active non-major events and 10 active major events, the current dynamic major gain equals this value.
+- **Timer Modifiers**: 0.1x-2.0x chaos tier multipliers
+
+<https://github.com/user-attachments/assets/cd4a3168-5f4f-47c8-96d0-e968a3007138>
+
+---
+
+## Triggerable Scenarios
+
+The settings UI can open a separate movable Triggerable Scenarios window. This window uses generated log-style entries, and the list can be sorted by ID or name in either direction.
+
+Each scenario has a type control and a four-stop intensity slider. The selected values are stored before launch and are read by the scenario effects when the player presses **Launch Scenario**.
+
+All current entries can be found in the event catalog spreadsheet.
+
+TODO: add more detailed info on scenarios
+
+---
+
+## Multiplayer Compatibility
+
+### Shared Systems
+
+- **Event Pool**: All players share the same global event system
+- **Chaos Meter**: Single global chaos value affects all players
+
+### Individual Systems
+
+- **Timers**: Each player has their own event timer
+- **Settings**: Players can configure their own local settings
+- **Event Targeting**: Events can target specific players or be global
+
+---
+
+## Debug and Monitoring
+
+Debug and monitoring are split between live UI inspection and optional log output.
+
+### Live Inspection
+
+- **Event Logs window**: opened with the settings log button or keyboard shortcuts, and organized into **Status**, **History**, **Evolutions**, **Events**, and **Clusters** tabs.
+- **Status tab**: shows current event-system counters and live tuning values, including current calculated major gain, baseline major gain, accumulated major weight, recovery rate, cap reduction, default event weight, and timer modifier.
+- **History tab**: records fired automatic events with event ID, type, date, actor context when available, and a clickable detail window.
+- **Evolutions tab**: records evolution milestones separately from normal event history, including tier, stage, type, and actor where the evolution belongs to a country.
+- **Events tab**: shows the current event catalogue with live weight, fired count, event type, unique/repeatable state, and enable/disable controls.
+- **Clusters tab**: shows cluster availability, roll chance, enabled state, fired count, and member status/danger. Cluster details can open member event details without closing the cluster window.
+- **Chaos Meter window**: exposes current chaos value, chaos tier, history, air cleanliness, condemnation, and deaths tracking.
+- **Timer window**: optionally shows the current event countdown.
+
+### Manual Controls
+
+The settings UI is also the main manual testing surface:
+
+1. Select an event ID directly or use the random-event selector to pick a valid ID.
+2. Use category filters to narrow event selection by event type.
+3. Enable **Force Trigger Mode** when a manual test needs to bypass normal trigger restrictions.
+4. Enable or disable individual events from the event list.
+5. Enable or disable whole event clusters from the cluster list or cluster detail window.
+6. Open triggerable scenarios for sandbox or challenge setups that are separate from the automatic event timer.
+
+### Log Output
+
+Event-fire log output is opt-in.
+
+- The small log button in the settings window runs one manual event-system snapshot.
+- The Trigger Events page has a checkbox for automatic logic log lines.
+- Automatic logging is disabled by default.
+- When enabled, event-fire summaries include the fired event ID, name, type, unique events left, minor events since the last major, total fired count, and remaining counts per category.
+- Daily full debug dumps are gated behind the same setting so normal saves do not spam logs.
+
+Supporting documentation:
+
+- `docs/systems/events_log_window.md`
+- `docs/systems/events_log_evolutions_and_clusters.md`
+- `docs/systems/chaosx_event_logging_controls.md`
+- `docs/systems/settings_miscellaneous_menu.md`
+- `docs/systems/settings_numeric_manual_inputs.md`
+
+---
+
+## Chemical and Biological Warfare
+
+Chaos Redux adds high-risk warfare tools that trade short-term battlefield power for long-term consequences. These systems reward preparation and timing, and they can backfire if used recklessly.
+
+<!-- IMAGE PLACEHOLDER: Chemical and biological warfare overview (UI entry points) -->
+
+### Chemical Warfare
+
+Standard chemical weapons are unlocked through research, and more advanced and special chemical weapons are developed through special research projects.
+
+### Chemical Cylinder Abilities
+
+Chemical attacks appear as special abilities on your generals once you research them. Each chemical type has its own ability.
+
+What it is:
+
+- A short, controlled chemical release that boosts your army for a limited time.
+- Powered by command power and your stored chemical cylinders.
+
+How it works in play:
+
+- You activate the ability on a general.
+- It affects every division under that general for a set duration.
+- The ability’s power depends on how many cylinders you have available compared to how many your army needs.
+- While active, your troops become slower overall, but they fight better when attacking in cities for example.
+- Weather, terrain, and wind can change the result. Bad conditions can greatly reduce the value of the attack. You can research special wind techs to get more favorable wind forecasts.
+- You cannot chain different chemical abilities on the same general at the same time.
+
+What the player does:
+
+1. Research a chemical type.
+2. Produce and stockpile cylinders for that chemical.
+3. Choose the right general and timing, then activate the ability.
+4. Watch the forecast and battlefield conditions before committing.
+
+What changes in outcomes:
+
+- With good preparation and good conditions, chemical abilities can create breakthroughs.
+- With low stockpiles or bad conditions, the attack is much weaker and may cause heavy self-inflicted disruption.
+
+<!-- IMAGE PLACEHOLDER: Example chemical ability tooltip showing stockpile, forecast, and final effects -->
+
+#### Wind Forecast (Weekly)
+
+Chemical attacks are heavily affected by wind. The game provides a wind forecast that updates each week.
+
+How it works in play:
+
+- Most of the time the wind is neutral and changes nothing.
+- Sometimes the wind is favorable and your chemical attack becomes stronger.
+- Sometimes the wind is against you and the attack becomes weaker and more harmful to your own troops.
+- There is also a small chance the forecast is wrong, causing an unpleasant surprise after you commit.
+
+What the player does:
+
+- Use wind detection research to improve the odds of favorable wind and reduce forecast mistakes.
+- Prefer using chemical attacks when the forecast is favorable and the terrain is suitable.
+
+<!-- IMAGE PLACEHOLDER: Wind forecast bar (Against / Neutral / Favorable / Strong) -->
+
+#### Weather
+
+- Colder conditions preserve effects longer.
+- Hotter conditions shorten persistence.
+
+#### Frontline Contamination (Temporary State Effects)
+
+While a chemical ability is active, chemical contamination can build up in areas where your affected divisions are operating near the enemy.
+
+How it works in play:
+
+- Contamination builds gradually over the duration.
+- The longer you keep pressure up in the same region, the worse the contamination becomes.
+- Contamination affects everyone in the area, not just one side.
+
+What the player does:
+
+- Decide whether the short-term gains are worth making a region harder to fight in for everyone.
+
+<!-- IMAGE PLACEHOLDER: State modifier icon and a state view showing contamination effects -->
+
+### Support Companies
+
+#### Tanks
+
+Chemical tank support companies and provide chemical battlefield pressure through tank-supported delivery.
+
+Each chemical tank support company needs:
+
+- normal tank chassis equipment (by its class),
+- matching chemical payload stock.
+
+#### Livens Projector
+
+Each Livens chemical support company needs:
+
+- Livens projector equipment,
+- matching chemical payload stock.
+
+#### Contamination
+
+Support companies can contribute to contamination when they are actively participating in combat. They are also weather-sensitive.
+
+#### Diplomacy and Condemnation
+
+Using chemical supports in combat increases international condemnation.
+
+Heavy repeated use can trigger escalating diplomatic fallout.
+
+Condemnation is based on real use of unconventional weapons in combat, not on just being at war or owning stockpiles.
+
+You can track who is responsible in the Chaos Meter **Condemnation** tab.
+
+<!-- IMAGE PLACEHOLDER: Condemnation tab showing countries and updated totals -->
+
+### Chemical Planes
+
+You can apply chemical air bomb modules to your planes. The planes behave as CAS, but cause more damage and add contamination to states.
+This feature is part of the chemical warfare system and expands high-impact air operations.
+
+### Raids
+
+You can create raids with chemical weapons, similar to nuke raids.
+
+### Gas Masks and Protection
+
+Gas masks reduce how much your troops suffer from chemical attacks. Better protection means fewer losses and less disruption during chemical fighting.
+Research gas mask improvements if you plan to use chemicals often, or if you expect the enemy to do so.
+There's also dimercaprol, which reduces the effects of blister agents.
+
+<!-- IMAGE PLACEHOLDER: Gas mask research and its effect on chemical attacks -->
+
+### Doomsday Protocols (Chemical Release)
+
+When a fascist country is close to capitulation, it can unlock a desperate last-resort decision to release its entire chemical stockpile at once.
+
+How it works in play:
+
+- It harms armies in all states you control, including allies and friendly troops present.
+- It leaves widespread contamination that can severely damage your ability to fight and supply your forces.
+- It consumes your entire stockpile.
+
+What the player does:
+
+- Use only as a last resort when collapse is imminent, and you want to trade long-term damage for one final chance. (or you are just a madman)
+
+<!-- IMAGE PLACEHOLDER: Doomsday Protocol decision and its warning tooltip -->
+
+### Biological Warfare
+
+Bioweapons are developed through special research projects.
+
+- Completing a bioweapon project unlocks new bioweapon stockpiles you can build up.
+- Some development choices are safer but slower.
+- Riskier choices can speed things up, but can also cause serious accidents at home.
+
+<!-- IMAGE PLACEHOLDER: Biowarfare special projects screen -->
+
+### Bioweapon Strikes (Raids)
+
+Once unlocked, bioweapons can be delivered through special strike missions.
+
+How it works in play:
+
+- You select a target and launch a strike if you have the required aircraft and bioweapon stockpiles.
+- A strike can fail, partially succeed, or succeed.
+- Successful strikes contaminate the target area and can trigger international backlash.
+
+What the player does:
+
+- Use strikes to cripple key enemy regions and war effort (or mostly just kill population), but plan for consequences and retaliation.
+
+<!-- IMAGE PLACEHOLDER: Bioweapon raid selection and target map -->
+
+### Outbreaks and Spread
+
+Contamination is not always contained to one place.
+
+How it works in play:
+
+- Some bioweapons can spread from one area to neighboring areas over time.
+- Spread is more likely when conditions are chaotic and containment is weak.
+- The most dangerous diseases can escalate into large outbreaks if not contained.
+
+What the player does:
+
+- Treat bioweapons as more than a one-time strike: a successful hit can become an ongoing crisis.
+
+<!-- IMAGE PLACEHOLDER: Multiple neighboring states showing a spreading outbreak -->
+
+#### Countermeasures (Hospitals, Quarantine, Medicine, Vaccination)
+
+Biowarfare has dedicated defensive tools.
+
+How it works in play:
+
+- You can deploy emergency measures to reduce the damage of contamination.
+- Medical programs can reduce long-term harm and slow the spread.
+- Some threats require long-term national programs to fully remove.
+
+What the player does:
+
+- Use containment decisions quickly when an outbreak begins.
+- Maintain defensive programs if you expect repeated attacks.
+
+<!-- IMAGE PLACEHOLDER: Containment decisions (field hospitals, quarantine) and active effects -->
+
+#### Stockpile Accidents and Containment Safety
+
+Holding large bioweapon stockpiles is dangerous.
+
+How it works in play:
+
+- The more bioweapons you store, the higher the risk of accidents.
+- Accidents can cause outbreaks in your own territory.
+- Containment safety research reduces this risk, and the highest level can prevent stockpile accidents entirely.
+
+What the player does:
+
+- Balance “more stockpile” against “more risk”.
+- Invest in containment safety through research if you want large reserves.
+
+<!-- IMAGE PLACEHOLDER: Containment safety research and an example accident warning -->
+
+### Doomsday Protocols (Biological Release)
+
+Like chemical warfare, biological warfare also has a last-resort “unleash everything” decision for desperate situations.
+
+How it works in play:
+
+- It consumes your entire bioweapon stockpile.
+- It causes immediate harm across your controlled territory and can trigger widespread outbreaks.
+
+What the player does:
+
+- Use only in extreme desperation when conventional defense is collapsing. (or you are a complete madman)
+
+<!-- IMAGE PLACEHOLDER: Bioweapon doomsday decision and the resulting news popup -->
+
+---
+
+## Camps and Genocide Mechanics
+
+The camp and genocide crisis system models state repression, forced labor, extermination sites, gulag networks, experiment-linked atrocity sites, restricted chemical site escalation, evidence destruction, discovery, foreign response, and tribunal pressure.
+
+The key rule is separation between hidden internal damage and external condemnation:
+
+- Camp systems reduce real state population through the Chaos Meter Deaths system.
+- Responsible countries accumulate hidden crisis variables such as `genocide_escalation`, `genocide_visibility`, `genocide_deaths`, `genocide_resistance_pressure`, `genocide_foreign_pressure`, `genocide_coverup_effort`, and `genocide_discovered_sites`.
+- Foreign condemnation does not rise passively while the responsible regime still controls the evidence.
+- Condemnation rises when enemy forces occupy or liberate a state containing undiscovered camp, gulag, or destroyed atrocity-site evidence.
+
+### Buildings and State Tracking
+
+The system uses three state buildings:
+
+- `concentration_camp`: detention, forced labor, deportation processing, and repression.
+- `extermination_camp`: systematic killing and the highest discovery condemnation.
+- `gulag_labor_camp_network`: Soviet forced labor and mass repression.
+
+Concentration camps are available in the normal construction interface at a low construction cost. Historical Germany, Japan, and the Soviet Union can begin with quiet concentration camp infrastructure already present, but those sites do not enter the active death or discovery loop until later escalation. Extermination camps and gulag networks are created through decisions and effects. Scripted creation stores `genocide_responsible_country` on the state, so discovery targets the country that built or operated the site instead of the country that finds it.
+
+### Crisis Decisions and AI
+
+The generic crisis category covers upgrades from existing concentration camps into extermination camps. It is the lowest-priority decision category and appears only when a country has an eligible existing camp and an actual special decision available beyond the show/hide controls.
+
+The generic category no longer builds concentration camps by decision. Most operational genocide behavior is AI-driven or handled by country-specific categories, while the player-facing generic category reveals or hides eligible extermination-camp, Germany, and restricted chemical site decisions.
+
+Foreign-observer evidence pressure depends on context: occupied foreign territory, non-core target populations, diplomatic visibility, or discoveries. Domestic repression inside a closed authoritarian state does not automatically create foreign-observer pressure.
+
+Country-specific categories handle:
+
+- Germany: wartime camp administration, occupied Poland escalation, extermination camps, Mengele-linked experiment sites, deportation logistics, and retreat cover-ups.
+- Japan: forced labor camps, anti-partisan reprisals, prisoner experimentation, occupation evidence destruction, and biological warfare links during the China war.
+- Soviet Union: gulag expansion, deportations, famine pressure, camp-administrator purges, forced-labor quotas, evidence destruction, and a mechanical Soviet Collapse bridge.
+
+Restricted chemical site escalation uses existing sarin/soman tech, special-project, stockpile, contamination, Deaths, and discovery systems. It creates hidden camp evidence and delayed condemnation instead of firing public chemical-attack condemnation immediately.
+
+AI weights make fascist Germany, imperial Japan, and communist Soviet Union the primary users under historical or radicalized conditions. A separate AI strategy package adjusts broad behavior for active and exposed crisis regimes.
+
+---
+
+## Chaos Warfare
+
+Chaos Warfare is a land grand doctrine for countries that want to turn chemical, biological, and contamination tools into a full military system instead of a set of isolated weapons.
+
+Selecting the grand doctrine:
+
+- costs army XP like the other land doctrines,
+- grants baseline bonuses to chemical support companies,
+- unlocks the stronger `tactic_chemical_barrage` combat tactic,
+- improves chemical cylinder ability output through doctrine multipliers,
+- improves chemical air-bomb contamination dose and duration,
+- opens four visible subdoctrine tracks that are only selectable while `chaos_warfare` is active.
+
+These options increase short-term military pressure, but they also raise long-term costs through condemnation, civilian harm, state contamination, and possible outbreak escalation.
+
+<!-- IMAGE PLACEHOLDER: Chaos Warfare doctrine path and key effects -->
+
+### Infantry Track: Extermination Columns
+
+`extermination_columns` turns infantry into contamination-heavy assault formations.
+
+Activation effects:
+
+- improves infantry soft attack, breakthrough, defense, and recovery,
+- improves light-infantry organization and reliability,
+- improves special-forces attack and breakthrough.
+
+#### Mastery 1: Contagion Assault Drills
+
+- Adds stronger infantry attack, breakthrough, and defense.
+- Improves night attack and army organization.
+- Makes ordinary infantry more useful in aggressive contaminated fighting.
+
+#### Mastery 2: Sacrificial March Columns
+
+- Reduces infantry supply use.
+- Improves infantry recovery and reinforcement.
+- Improves light-infantry organization and reliability.
+
+#### Mastery 3: Chaos Battalion
+
+- Unlocks the `chaos_battalion` special sub-unit through `chaos_battalion_tech`.
+- Sets the `chaos_battalion_unlocked` country flag.
+- Chaos battalions are high-lethality shock formations with severe equipment demands and survivability drawbacks.
+- Their combat behavior hooks into the chemical contamination pipeline and can add strong state contamination while actively fighting.
+
+#### Mastery 4: Ruinwave Battlecells
+
+- Adds more infantry and special-forces assault power.
+- Increases enemy attrition.
+- Adds a general army attack factor bonus.
+
+#### Mastery 5: Terminal Contagion Offensive
+
+- Further increases infantry combat power and organization.
+- Directly improves chaos battalion soft attack and breakthrough.
+- Improves planning speed and coordination.
+- Sets `chaos_battalion_terminal_contagion_unlocked`, escalating chaos battalion contamination, casualty, and condemnation pressure.
+
+### Armor Track: Chemical Suppression
+
+`chemical_suppression` turns armored forces and chemical tank support into occupation and breakthrough tools.
+
+Activation effects:
+
+- improves tank breakthrough and suppression,
+- improves infantry suppression and defense.
+
+#### Mastery 1: Adamsite Emission Cells
+
+- Increases tank and chemical-tank support suppression.
+- Improves infantry suppression and defense.
+- Reduces resistance damage to garrisons.
+- Sets `chaos_adamsite_emission_unlocked`.
+
+#### Mastery 2: Armored Chemical Liaison Teams
+
+- Improves chemical tank support organization and recovery.
+- Adds coordination.
+- Improves infantry organization and soft attack.
+
+#### Mastery 3: Zyklon B Saturation Drills
+
+- Sharply increases chemical tank support suppression.
+- Increases infantry suppression.
+- Sets `concentration_occupation_law_unlocked`, enabling the **Concentration** occupation law.
+
+#### Mastery 4: Sealed Pressure Logistics
+
+- Reduces armor supply consumption and improves armor breakthrough.
+- Reduces chemical tank support supply consumption and improves reliability.
+- Reduces infantry supply consumption and improves infantry defense.
+
+#### Mastery 5: Catastrophic Shock Breakthrough
+
+- Improves planning speed, coordination, initiative, and army recovery.
+- Improves tank breakthrough, soft attack, and hard attack.
+- Improves chemical tank support initiative and reliability.
+
+### Combat Support Track: Contaminant Firebases
+
+`contaminant_firebases` focuses on artillery, Livens/projector-style chemical support, chemical raid damage, and longer-lasting contamination.
+
+Activation effects:
+
+- improves chemical support company attack, breakthrough, and defense,
+- improves line artillery soft attack,
+- improves support artillery soft attack and breakthrough.
+
+#### Mastery 1: Livens Fire Control Cells
+
+- Improves chemical support soft attack and organization.
+- Improves support artillery soft attack.
+
+#### Mastery 2: Counterbattery Gas Synchronization
+
+- Improves line artillery soft attack and breakthrough.
+- Improves support artillery soft attack.
+- Improves chemical support defense.
+
+#### Mastery 3: Raid Targeting Teams
+
+- Adds coordination.
+- Sets `contaminant_firebases_raid_targeting_teams_unlocked`.
+- Increases chemical nerve raid unit damage.
+
+#### Mastery 4: Persistent Agent Distribution
+
+- Improves line artillery soft attack.
+- Sets `contaminant_firebases_persistent_agent_distribution_unlocked`.
+- Increases chemical attack contamination strength and duration.
+
+#### Mastery 5: Deep Contamination Fireplans
+
+- Adds more chemical support and support artillery combat power.
+- Keeps the prior raid-targeting and persistent-agent flags aligned.
+- Sets `contaminant_firebases_deep_contamination_fireplans_unlocked`.
+- Further increases chemical nerve raid damage and state contamination potency.
+
+### Operations Track: Integrated Chemical Operations
+
+`integrated_chemical_operations` makes chemical warfare more deliberate: better recon, better planning, stronger raid/air/biological integration, and lower condemnation growth.
+
+Activation effects:
+
+- improves planning speed, reinforce rate, recon, and coordination,
+- improves chemical support defense and breakthrough.
+
+#### Mastery 1: Operational Recon Grids
+
+- Improves recon and planning speed.
+- Sets `integrated_chemical_operations_operational_recon_grids_unlocked`.
+- Reduces chemical attack condemnation gain and biological strike condemnation impact.
+
+#### Mastery 2: Signal Intelligence Fusion
+
+- Improves chemical support defense and breakthrough.
+- Improves chemical tank support reliability.
+- Adds army intel and combat-intel gains.
+- Sets `integrated_chemical_operations_signal_intelligence_fusion_unlocked`.
+- Improves chemical raid impact, chemical contamination delivery, biological outbreak strike potency, outbreak contamination duration, and outbreak strike command-power efficiency.
+
+#### Mastery 3: Counter-Contamination Routing
+
+- Reduces chemical support supply consumption.
+- Reduces chemical tank support supply consumption and improves chemical tank support reliability.
+- Reduces attrition during sustained contaminated operations.
+
+#### Mastery 4: Air-Surface Chemical Link
+
+- Improves chemical support soft attack.
+- Sets `integrated_chemical_operations_air_surface_chemical_link_unlocked`.
+- Improves chemical raid and contamination scaling.
+- Improves chemical air-bomb dose and duration.
+- Further reduces biological strike condemnation and improves outbreak strike potency and efficiency.
+
+#### Mastery 5: Theater Intelligence Overmatch
+
+- Improves army organization, reinforce rate, and recon.
+- Improves chemical support and chemical tank support soft attack, breakthrough, and defense.
+- Keeps previous integrated-operations flags aligned.
+- Sets `integrated_chemical_operations_theater_intelligence_overmatch_unlocked`.
+- Applies the final integrated-operations scaling: lower condemnation growth, stronger chemical raid impact, stronger contamination, stronger air-bomb contamination, stronger biological outbreak strikes, and the largest outbreak strike command-power refund.
+
+### Doctrine Visibility and AI
+
+- All four Chaos Warfare subdoctrines remain visible in the doctrine interface.
+- They are only selectable when the country has the `chaos_warfare` grand doctrine.
+- AI weight is forced to `0` for countries without `chaos_warfare`.
+- Once Chaos Warfare is active, the AI can evaluate the branches normally, with existing major-country preference modifiers.
+
+Supporting documentation:
+
+- `docs/chemical_warfare/chaos_warfare_grand_doctrine_update.md`
+- `docs/chemical_warfare/chaos_warfare_extermination_columns.md`
+- `docs/chemical_warfare/chaos_warfare_chemical_suppression.md`
+- `docs/chemical_warfare/chaos_warfare_combat_support.md`
+- `docs/chemical_warfare/chaos_warfare_integrated_chemical_operations.md`
+- `docs/chemical_warfare/chaos_warfare_subdoctrine_visibility_and_ai.md`
