@@ -113,10 +113,10 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ desert_fox panzer_leader cavalry_leader }
+			traits={ panzer_leader cavalry_leader }
 			skill=4
-			attack_skill=4
-			defense_skill=4
+			attack_skill=3
+			defense_skill=3
 			planning_skill=4
 			logistics_skill=1
 			legacy_id=-1
