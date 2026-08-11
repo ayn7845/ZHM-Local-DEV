@@ -29,7 +29,10 @@ state = {
 			#158 = { dam = 1 }
 		
 		}
-		
+		1936.1.1.13 = {
+			owner = WST
+			add_core_of = WST
+		}
 	}
 
 
