@@ -31,6 +31,10 @@ state = {
 		victory_points = {
 			4965 3
 		}
+		1936.1.1.13 = {
+			owner = BRA
+			add_core_of = BRA
+		}
 	}
 
 	provinces = {
