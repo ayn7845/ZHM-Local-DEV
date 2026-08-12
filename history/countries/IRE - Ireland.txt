@@ -2,7 +2,7 @@
 
 oob = "IRE_1936"
 
-set_research_slots = 3
+set_research_slots = 0
 
 set_technology = {
 	infantry_weapons = 1
@@ -97,13 +97,4 @@ set_popularities = {
 	democratic = 98
 	fascism = 1
 	communism = 1
-}
-
-1939.1.1 = {
-	set_politics = {
-		ruling_party = democratic
-		last_election = "1938.6.17"
-		election_frequency = 48
-		elections_allowed = yes
-	}
 }
