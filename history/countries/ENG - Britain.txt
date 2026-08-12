@@ -1555,17 +1555,6 @@ if = {
 			icon = "GFX_ENG_heavy_fighter1_medium"
 		}
 	}
-
-	1936.1.1.13 = {
-		ENG = { 
-			set_autonomy = {
-			target = AST
-			autonomy_state = autonomy_free
-			}
-		} 
-	}
-
-
 1939.1.1 = {
 	if = {
 		limit = {

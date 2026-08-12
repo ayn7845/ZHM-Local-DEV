@@ -9,15 +9,6 @@ ideas = {
 			}
 		}
 
-		zhm_raj_ast_manpower = {
-			name = "Australian Conscription"
-			removal_cost = -1
-			picture = AST_forging_australias_future
-			modifier = {
-				conscription_factor = 0.20
-			}
-		}
-
 		zhm_war_bonds = { 
 			name = "War Bonds"
 			picture = generic_foreign_capital

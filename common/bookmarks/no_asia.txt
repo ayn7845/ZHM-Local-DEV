@@ -1,9 +1,9 @@
 bookmarks = {
 	bookmark = {
-		name = "SCRAPING_NAME_ASIA"
-		desc = "SCRAPING_NAME_ASIA_DESC"
+		name = "NO_ASIA_NAME"
+		desc = "NO_ASIA_DESC"
 		date = 1936.1.1.13
-		picture = "GFX_select_date_scrap"
+		picture = "GFX_no_asia_bookmark"
 		default_country = "GER"
 		default = yes
 
@@ -272,6 +272,22 @@ bookmarks = {
 				#HUN_proclaim_the_restoration_of_austria_hungary
 				HUN_secret_rearmament
 				HUN_renounce_the_treaty_of_trianon
+			}
+		}
+
+		"ROM"={
+			minor = yes
+			history = "ROM_GATHERING_STORM_DESC"
+			ideology = neutrality
+			version = base_game
+			ideas = {
+				ROM_king_carol_ii_hedonist
+				neutrality_idea
+			}
+			focuses = {
+				ROM_force_abdication
+				ROM_institute_royal_dictatorship
+				ROM_preserve_greater_romania
 			}
 		}
 		
