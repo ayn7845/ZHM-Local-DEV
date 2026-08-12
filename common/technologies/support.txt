@@ -180,6 +180,7 @@ technologies = {
 				PROJECT = sp_land_military_engineering_vehicles
 			}
 
+			
 		}
 	}
 
@@ -746,6 +747,7 @@ technologies = {
 				has_war = yes
 			}
 		}
+
 	}
 
 	tech_military_police2 = {
@@ -1343,16 +1345,7 @@ technologies = {
 			}
 		}
 	}
-	}
 
-	NORDIC_supportCollaboration_tech = { # For the Army Capston in the Nordic JFT
-		allow = { always = no } #Only obtained through Focus
-		category_support_battalions = {
-			max_organisation = 10
-			soft_attack = 0.25
-			experience_loss_factor = -0.05
-		}
-	}
 
 	tech_logistics_company = {
 
