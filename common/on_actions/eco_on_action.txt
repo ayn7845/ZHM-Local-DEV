@@ -54,12 +54,7 @@ on_actions = {
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -555,14 +550,14 @@ on_actions = {
 					level = 2
 					instant_build = yes
 				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
+				#add_building_construction = {
+				#	type = industrial_complex
+				#	level = 2
+				#	instant_build = yes
+				#}
 			}
 
-			977 = { # Antwerpen
+			 977 = { # Antwerpen
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -572,30 +567,30 @@ on_actions = {
 				
 			}
 
-			6 = { # Flanders
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
+			#6 = { # Flanders
+			#	add_extra_state_shared_building_slots = 4
+			#	add_building_construction = {
+			#		type = arms_factory
+			#		level = 2
+			#		instant_build = yes
+			#	}
+			#	add_building_construction = {
+			#		type = industrial_complex
+			#		level = 2
+			#		instant_build = yes
+			#	}
+			#}
 
 			7 = { # Holland
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
