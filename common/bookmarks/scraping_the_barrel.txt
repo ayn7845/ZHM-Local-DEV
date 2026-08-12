@@ -206,40 +206,7 @@ bookmarks = {
 				CAN_the_plan
 			}
 		}
-		"AST"={
-			minor = yes
-			history = "AST_GATHERING_STORM_DESC"
-			available = {  NOT = { has_dlc = "Thunder at Our Gates" } }
-			version = base_game
-			assume_not_played_if_missing_data = yes
-			ideology = democratic
-			ideas = {
-				AST_great_depression_1
-			}
-			focuses = {
-				AST_fight_work_or_perish
-				AST_allied_works_council
-				AST_rats_of_tobruk
-			}
-		}
-		"AST"={
-			minor = yes
-			history = "AST_GATHERING_STORM_DESC"
-			required_dlc = { "Thunder at Our Gates" }
-			version = thunder_at_our_gates
-			assume_not_played_if_missing_data = yes
-			ideology = democratic
-			ideas = {
-				AST_poor_population_growth
-				AST_great_depression_taog_spirit_fake
-				AST_citizen_army_spirit_fake
-			}
-			focuses = {
-				AST_war_is_coming
-				AST_overseas_loyalties
-				AST_anzac_spirit
-			}
-		}
+
 		"SAF"={
 			minor = yes
 			history = "SAF_GATHERING_STORM_DESC"
@@ -255,8 +222,6 @@ bookmarks = {
 				SAF_suppress_the_stormjaers
 			}
 		}
-
-
 
 		HUN = {
 			minor = yes
@@ -314,36 +279,6 @@ bookmarks = {
 			}
 		}
 
-		FIN = {
-			minor = yes
-			history = FIN_GATHERING_STORM_DESC
-			ideology = neutrality
-			available = {  NOT = { has_dlc = "Arms Against Tyranny" } }
-			version = base_game
-			ideas = {
-				FIN_sisu_2
-			}
-			focuses = {
-				FIN_winter_warfare
-				FIN_greater_finland
-				FIN_oy_alkoholiliike
-			}
-		}
-		FIN = {
-			minor = yes
-			history = FIN_GATHERING_STORM_DESC
-			ideology = neutrality
-			required_dlc = { "Arms Against Tyranny" }
-			version = arms_against_tyranny
-			ideas = {
-				FIN_sisu_2
-			}
-			focuses = {
-				FIN_found_pohjolan_voima
-				FIN_winter_warfare
-				FIN_greater_finland
-			}
-		}
 		BRA = {
 			minor = yes
 			history = BRA_GATHERING_STORM_DESC

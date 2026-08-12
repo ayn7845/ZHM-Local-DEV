@@ -8849,6 +8849,9 @@ focus_tree = {
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
+					NOT = { 
+						has_global_flag = zhm_scraping_the_barrel
+					}
 				}
 				GER_add_or_modify_military_intelligence_service = yes
 				add_to_variable = { 
@@ -8856,6 +8859,22 @@ focus_tree = {
 					tooltip = operative_slot_tt
 				}
 				GER_create_operative_otto_skorzeny = yes
+			}
+			else = { 
+				if = {
+					limit = {
+						AND = { 
+							has_dlc = "La Resistance"
+							has_global_flag = zhm_scraping_the_barrel
+						}
+					}
+					GER_add_or_modify_military_intelligence_service = yes
+					add_to_variable = { 
+						GER_military_intelligence_service_operative_slot = 2
+						tooltip = operative_slot_tt
+					}
+					GER_create_operative_otto_skorzeny = yes
+				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 				

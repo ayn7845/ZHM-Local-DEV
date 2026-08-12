@@ -167,7 +167,7 @@ on_actions = {
 					limit = { 
 						has_start_date > 1936.1.1.12
 					}
-					
+					set_global_flag = zhm_scraping_the_barrel
 					AST = { 
 						set_cosmetic_tag = AST_RAJ_union
 						
@@ -204,12 +204,12 @@ on_actions = {
 						#	level = 2
 						#}
 					}
-					521 = { 
-						remove_building = {
-							type = industrial_complex
-							level = 1
-						}
-					}
+					# 521 = { 
+					#	remove_building = {
+					#		type = industrial_complex
+					#		level = 1
+					#	}
+					#}
 					ENG = { 
 						set_autonomy = { 
 							target = RAJ
@@ -273,7 +273,7 @@ on_actions = {
 						}
 						add_ideas = zhm_scraping_the_barrel_allies
 					}
-					ITA = { # Portuguese Event Simulation
+					ITA = { # Portuguese Event Simulation & Finland not being a player
 						add_offsite_building = {
 							type = industrial_complex
 							level = 4
@@ -293,6 +293,12 @@ on_actions = {
 							type = arms_factory
 							level = 3
 							instant_build = yes
+						}
+					}
+					84 = { # Romanian Steel
+						add_resource = { 
+							type = steel
+							amount = 24
 						}
 					}
 					81 = { # HUN ECO
