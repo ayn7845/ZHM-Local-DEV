@@ -1,45 +1,197 @@
 
-form_greater_german_reich_category = {
+	form_greater_german_reich_category = {
 
-	form_greater_german_reich = {
+		form_greater_german_reich = {
 
-		icon = generic_form_nation
+			icon = generic_form_nation
 
-		allowed = {
-			original_tag = GER
-			has_dlc = "Waking the Tiger"
-		}
-
-		cost = 0
-
-		available = {
-			is_subject = no
-			
-		}
-
-		visible = {
-			AND = {
+			allowed = {
 				original_tag = GER
-				has_government = fascism
-				# Should be formable by other Nazis as well
-				#has_country_leader = { 
-				#	ruling_only = yes 
-				#	character = GER_adolf_hitler 
-				#}
+				has_dlc = "Waking the Tiger"
 			}
-			NOT = { has_global_flag = form_greater_german_reich_flag }
-			has_global_flag = fall_of_france
-		}
 
-		complete_effect = { # Zeny's Request
-            set_cosmetic_tag = GER_greater_german_reich
-            hidden_effect = {
-				set_global_flag = form_greater_german_reich_flag
+			cost = 0
+
+			available = {
+			is_subject = no
+
 			}
-        }
 
-		ai_will_do = {
-			factor = 200
+			visible = {
+				AND = {
+					original_tag = GER
+					has_government = fascism
+					# Should be formable by other Nazis as well
+					#has_country_leader = { 
+					#	ruling_only = yes 
+					#	character = GER_adolf_hitler 
+					#}
+				}
+				NOT = { has_global_flag = form_greater_german_reich_flag }
+				has_global_flag = fall_of_france
+			}
+
+			complete_effect = { # Zeny's Request
+        	    set_cosmetic_tag = GER_greater_german_reich
+        	    hidden_effect = {
+					set_global_flag = form_greater_german_reich_flag
+				}
+        	}
+
+			ai_will_do = {
+				factor = 200
+			}
 		}
 	}
-}
+
+	ZHM_host = { 
+
+		ZHM_scw_nat_victory = { # For the moron that can't win SCW
+			name = "Force Nationalist Spain Victory"	
+			icon = GFX_decision_category_generic
+			fire_only_once = yes
+			available = {
+				SPR_scw_in_progress = yes
+			}
+			complete_effect = {
+				SPA = { 
+					if = {
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_a_great_spain 
+								} 
+							}
+						complete_national_focus = SPA_a_great_spain
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_consolidate_the_north 
+								} 
+							}
+						complete_national_focus = SPA_consolidate_the_north
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_foment_a_carlist_split 
+								} 
+							}
+						complete_national_focus = SPA_foment_a_carlist_split
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_banish_the_party_leaders 
+								} 
+							}
+						complete_national_focus = SPA_banish_the_party_leaders
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_fuse_the_parties 
+								} 
+							}
+						complete_national_focus = SPA_fuse_the_parties
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_save_the_alcazar 
+								} 
+							}
+						unlock_national_focus = SPA_save_the_alcazar
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_caudillo_of_spain 
+								} 
+							}
+						complete_national_focus = SPA_caudillo_of_spain
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_martyrdom_for_primo_de_rivera 
+								} 
+							}
+						complete_national_focus = SPA_martyrdom_for_primo_de_rivera
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_extol_the_martyrs_of_the_war 
+								} 
+							}
+						complete_national_focus = SPA_extol_the_martyrs_of_the_war
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_safeguard_the_freedom_of_worship 
+								} 
+							}
+						complete_national_focus = SPA_safeguard_the_freedom_of_worship
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_the_condor_legion
+								} 
+							}
+						complete_national_focus = SPA_the_condor_legion
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							has_global_flag = SPR_carlist_uprising_flag
+							}
+						complete_national_focus = SPA_integrate_the_requetes
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_idea = tot_economic_mobilisation 
+								} 
+							}
+						add_ideas = tot_economic_mobilisation
+						add_political_power = -150 # IDGAF, you'll pay even if you're shit
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_country_flag = SPA_save_the_alcazar_completed 
+								} 
+							}
+						add_war_support = 0.1
+						add_stability = 0.1
+						add_political_power = 100
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					every_other_country = {
+						limit = { original_tag = SPR }
+						SPA = { annex_country = { target = PREV transfer_troops = no } } 
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_global_flag = nationalist_victory
+				set_global_flag = scw_over
+
+				country_event = { id = lar_news.1 }
+			}
+		}
+	}
