@@ -28,5 +28,29 @@ country_event = {
 	option = {
 		name = "Okay"
 	}
+}
+
+country_event = {
+	id = zhm.3
+	title = "Scraping the Barrel Raj"
+	desc = "Don't become independent or you will lose Australia as a Personal Union."
+    picture = GFX_report_event_generic_peaceful_annexation
+	fire_for_sender = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+
+		hidden_effect = { 
+			every_state = { 
+				limit = {
+					is_core_of = WST 
+					is_owned_by = RAJ # have to because of the switching party BS!
+				}
+				set_compliance = 70
+			}
+		}
+	}
 	
 }

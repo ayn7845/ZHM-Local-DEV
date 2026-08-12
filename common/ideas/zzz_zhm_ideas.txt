@@ -18,6 +18,26 @@ ideas = {
 			}
 		}
 
+		zhm_scraping_the_barrel_allies = {
+			name = "Scraping the Barrel Allies"
+			removal_cost = -1
+			picture = soviet_german_friendship
+			modifier = {
+				max_command_power = 50
+				max_command_power_mult = 0.10
+			}
+		}
+
+		zhm_scraping_the_barrel_axis = {
+			name = "Scraping the Barrel Axis"
+			removal_cost = -1
+			picture = soviet_german_friendship
+			modifier = {
+				max_command_power = 75
+				max_command_power_mult = 0.10
+			}
+		}
+
 		zhm_war_bonds = { 
 			name = "War Bonds"
 			picture = generic_foreign_capital
