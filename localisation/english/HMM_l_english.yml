@@ -13,35 +13,10 @@
  HMM_axis_only: "Axis Only"
  HMM_allies_only: "Allies Only"
 
- ZHM_game_rule:0 "UK, USA, & France will have some pregrinded traits §RTRAITS WILL NOT SPAWN IF CAS DOCTRINES ARE ALLOWED§!"
- ZHM_anchluss:0 "§YGerman Reich§W annexes §YAustria§!"
- ZHM_fate_of_czech:0 "§YGerman Reich§W annexes §YCzechoslovakia§!"
- ZHM_SOV_ultimatum_lit:0 "§YSoviet Union§W annexes §YLithuania§!"
- ZHM_SOV_ultimatum_lat:0 "§YSoviet Union§W annexes §YLatvia§!"
- ZHM_SOV_ultimatum_est:0 "§YSoviet Union§W annexes §YEstonia§!"
- ZHM_SOV_send_ultimatum_est_TT:0 "§YSend Ultimatum to §YEstonia§!"
- ZHM_SOV_send_ultimatum_lat_TT:0 "§YSend Ultimatum to §YLatvia§!"
- ZHM_SOV_send_ultimatum_lit_TT:0 "§YSend Ultimatum to §YLithuania§!"
- ZHM_ITA_Ultimatum_alb:0 "§YItaly§W annexes §YKingdom of Albania§!"
- ZHM_baltic_claims:0 "The §YSoviet Union§W gains claim on all §YBaltic States§W"
- ZHM_baltic_decisions:0 "Unlocks §Ydecisions§W to annex the §YBaltic States§W"
-
- # ZHM EVENTS
-  #zhm.1.a:0 "Annex Portugal?" # Title?
-  zhm.1.b:0 "You received 4 Civilian Factories because Portugal is not a player."
-  zhm.2.b:0 "You received 4 Civilian Factories because Argentina is not a player."
- 
 
  ## HMM'S ALTERNED VANILLA TOOLTIPS
 
  HMM_seize_gold_modify_economy_of_conquest_modifier_tt: "Modify §Y$GER_economy_of_conquest_modifier$§! by up to (less than if country is not fully occupied or has already had its reserves seized before):"
-
-
-
-
-
- NO_ASIA_NAME:0 "No-Asia(not balanced)"
- NO_ASIA_DESC:0 "Made for low playercount games\nBalance should be fine, but could need some more testing/refining
 
 
 ## Victory System Localisation

@@ -32,7 +32,10 @@ state={
 		victory_points = {
 			12604 1 # New Plymouth
 		}
-		
+		1936.1.1.13 = {
+			owner = AST
+			add_core_of = AST
+		}
 		
 	}
 

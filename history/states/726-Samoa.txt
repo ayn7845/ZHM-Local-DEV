@@ -25,6 +25,9 @@ state = {
 		victory_points = {
 			13412 1 # Safotulafai  
 		}
+		1936.1.1.13 = {
+			owner = AST
+		}
 	}
 
 	provinces = {
