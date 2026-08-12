@@ -256,7 +256,8 @@ GER_henschel_organization = {
 	
 	allowed = {	
 		OR = {
-			original_tag = GER 
+			original_tag = GER
+			original_tag = POR 
 			AND = {
 				original_tag = BUL
 				has_dlc = "Battle for the Bosporus"
