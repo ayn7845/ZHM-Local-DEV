@@ -158,7 +158,152 @@ on_actions = {
 				651 = { 
 					add_resource = { 
 						type = coal
-						amount = 78
+						amount = 70
+					}
+				}
+
+
+				if = { # ZHM SCRAPING THE BARREL SCENARIO
+					limit = { 
+						has_start_date > 1936.1.1.12
+					}
+					AST = { 
+						set_cosmetic_tag = AST_RAJ_union
+						
+					}
+					
+					# ECO BALANCE FOR RAJ. RAJ WAY TOO OP LOL }:
+					284 = { 
+						remove_building = {
+							type = industrial_complex
+							level = 2
+						}
+					}
+					284 = { 
+						remove_building = {
+							type = industrial_complex
+							level = 2
+						}
+						remove_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+					285 = { 
+						remove_building = {
+							type = industrial_complex
+							level = 4
+						}
+						#remove_building = {
+						#	type = arms_factory
+						#	level = 2
+						#}
+					}
+					517 = { 
+						remove_building = {
+							type = industrial_complex
+							level = 5
+						}
+						#remove_building = {
+						#	type = arms_factory
+						#	level = 2
+						#}
+					}
+					 521 = { 
+						remove_building = {
+							type = industrial_complex
+							level = 1
+						}
+					}
+					RAJ = {
+						set_autonomy = {
+							target = AST
+							autonomy_state = autonomy_personal_union
+						}
+						add_ideas = zhm_raj_ast_manpower
+						# Australian Starting Stockpile
+						add_equipment_to_stockpile = { 
+							type = train_equipment
+							amount = 18
+						}
+						add_equipment_to_stockpile = {
+							type = infantry_equipment_1
+							amount = 2000
+						}
+						add_equipment_to_stockpile = {
+							type = support_equipment_1
+							amount = 20
+						}
+						add_equipment_to_stockpile = {
+							type = motorized_equipment_1
+							amount = 70
+						}
+						add_equipment_to_stockpile = {
+							type = convoy
+							amount = 250
+						}
+					}
+					BRA = { # Mexican Starting Stockpile
+						add_equipment_to_stockpile = {
+							type = infantry_equipment_0
+							amount = 2100
+						}
+						add_offsite_building = {
+							type = industrial_complex
+							level = 4
+						}
+					}
+					ITA = { # Portuguese Event Simulation
+						add_offsite_building = {
+							type = industrial_complex
+							level = 4
+						}
+					}
+					46 = { # HUN ECO
+						add_extra_state_shared_building_slots = 3
+						add_building_construction = {
+							type = industrial_complex
+							level = 3
+							instant_build = yes
+						}
+					}
+					79 = { # HUN ECO
+						add_extra_state_shared_building_slots = 3
+						add_building_construction = {
+							type = arms_factory
+							level = 3
+							instant_build = yes
+						}
+					}
+					81 = { # HUN ECO
+						add_extra_state_shared_building_slots = 3
+						add_building_construction = {
+							type = industrial_complex
+							level = 3
+							instant_build = yes
+						}
+					}
+					HUN = { # Romanian Starting Stockpile
+						add_equipment_to_stockpile = {
+							type = train_equipment
+							amount = 18
+						}
+						add_equipment_to_stockpile = {
+							type = infantry_equipment_1
+							amount = 9600
+						}
+						add_equipment_to_stockpile = {
+							type = support_equipment_1
+							amount = 303
+						}
+						add_equipment_to_stockpile = {
+							type = motorized_equipment_1
+							amount = 70
+						}
+						add_equipment_to_stockpile = {
+							type = artillery_equipment_1
+							amount = 87
+						}
 					}
 				}
 			}

@@ -205,6 +205,10 @@ if = {
 add_to_tech_sharing_group = commonwealth_research
 add_ideas = AST_unratified_westminster_act_idea
 
+1936.1.1.13 = { 
+	set_cosmetic_tag = AST_RAJ_union_bookmark
+}
+
 1939.1.1 = {
 	add_political_power = 1198
 	add_command_power = 100

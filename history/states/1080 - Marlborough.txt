@@ -23,7 +23,10 @@ state = {
 		victory_points = {
 			12632 1 # Nelson
 		}
-		
+		1936.1.1.13 = {
+			owner = AST
+			add_core_of = AST
+		}
 	}
 	provinces = {
 		12632 10650 4819 8204 7839 

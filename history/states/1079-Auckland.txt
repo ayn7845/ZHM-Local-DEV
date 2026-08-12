@@ -24,7 +24,7 @@ state = {
 				naval_base = 3
 			}
 
-		}
+		}	
 		
 		victory_points = {
 			4543 5 # Auckland 
@@ -38,7 +38,10 @@ state = {
 			4718 1 # Tauranga 
 		}
 
-		
+		1936.1.1.13 = {
+			owner = AST
+			add_core_of = AST
+		}
 	}
 
 	provinces = {

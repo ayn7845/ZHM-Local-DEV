@@ -1477,3 +1477,15 @@ SIA_great_thai_empire = { #Mandate 1, Phibun, historical
 	color = rgb { 252 253 254 } 
 	color_ui = rgb { 252 253 254 }
 }
+
+# ZHM
+
+AST_RAJ_union_bookmark = { 
+	color = rgb { 170  10  10 }
+	color_ui = rgb { 200  10  10 }
+}
+
+AST_RAJ_union = { 
+	color = rgb { 170  10  10 }
+	color_ui = rgb { 200  10  10 }
+}
