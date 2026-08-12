@@ -295,7 +295,6 @@ on_actions = {
 			limit = {
 				POR = { 
 					is_ai = yes
-					exists = yes
 				}
 			}
 			WST = {
@@ -360,7 +359,6 @@ on_actions = {
 			limit = { 
 				ARG = { 
 					is_ai = yes
-					exists = yes
 				}
 			}
 			WST = {
