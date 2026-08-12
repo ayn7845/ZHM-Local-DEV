@@ -1,9 +1,9 @@
 NDefines.NGraphics.COUNTRY_COLOR_SATURATION_MODIFIER = 0.75 -- Vanilla 0.6   HFU 0.9
 NDefines.NGraphics.COUNTRY_COLOR_BRIGHTNESS_MODIFIER = 0.85 -- Vanilla 0.8   HFU 0.9
-NDefines.NGraphics.NAVAL_MINES_DISTANCE_CUTOFF = 600
-NDefines.NGraphics.NAVAL_MINES_CLUMPING = 1 -- The higher value, the more likely the 3d naval mines will clamp together
-NDefines.NGraphics.NAVAL_MINES_CLUMP_NEAR_TERRITORY = 25 -- Higher chance to spawn 3d naval mine near our territory
-NDefines.NGraphics.NAVAL_MINES_COUNT_TO_VISUAL_ASPECT = 0.1 -- How many in-game-naval-mines is one visual 3d naval mine?
+--why would you add this??NDefines.NGraphics.NAVAL_MINES_DISTANCE_CUTOFF = 600
+--NDefines.NGraphics.NAVAL_MINES_CLUMPING = 1 -- The higher value, the more likely the 3d naval mines will clamp together
+--NDefines.NGraphics.NAVAL_MINES_CLUMP_NEAR_TERRITORY = 25 -- Higher chance to spawn 3d naval mine near our territory
+--NDefines.NGraphics.NAVAL_MINES_COUNT_TO_VISUAL_ASPECT = 0.1 -- How many in-game-naval-mines is one visual 3d naval mine?
 
 NDefines.NInterface.MINIMAP_PING_DELAY_BETWEEN_PINGS = 0.5 --vanilla 0.30 -- delay between consecative pings
 NDefines_Graphics.NGraphics.COMMANDGROUP_PRESET_COLORS_HSV = {
@@ -90,8 +90,8 @@ NDefines_Graphics.NGraphics.DRAW_FOW_CUTOFF = 0 --475 lennard
 NDefines_Graphics.NGraphics.DRAW_FOW_FADE_LENGTH = 0
 
 
-NDefines_Graphics.NGraphics.SUN_HEIGHT_WATER  = 1000 
-NDefines_Graphics.NGraphics.SUN_INTENSITY = 1.20
+--NDefines_Graphics.NGraphics.SUN_HEIGHT_WATER  = 1000 
+--NDefines_Graphics.NGraphics.SUN_INTENSITY = 1.20
 NDefines.NMapMode.SUPPLY_MAP_MODE_REACH_COLOR = {
 		0.0,   0.45, 0.00, 0.20, 1.0, 		-- #990066 dark purple
 		0.02,  0.35, 0.12, 0.45, 1.0, 		-- #332B85 dark purple blue
