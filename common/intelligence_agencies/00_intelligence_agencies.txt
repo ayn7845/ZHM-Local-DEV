@@ -248,12 +248,6 @@ intelligence_agency = {
 	}
 }
 
-intelligence_agency = {
-
-	picture = GFX_intelligence_agency_logo_sov
-	names = { "NKVD" }
-	
-}
 
 intelligence_agency = {
 	
