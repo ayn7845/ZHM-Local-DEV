@@ -13469,10 +13469,7 @@ focus_tree = {
 				146 = {
 					controller = {
 						set_country_flag = SOV_ultimatum_sent_flag #Add it for AI strats reasons
-						add_timed_idea = {
-							idea = communist_pressure
-							days = 365
-						}
+						
 						country_event = { id = finland.1 hours = 16 random_hours = 8 }
 					}
 				}
