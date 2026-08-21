@@ -20,7 +20,7 @@ if = {
 starting_train_buffer = 1.5
 
 set_research_slots = 4
-set_stability = 0.7 # ZHM was 0.6, adjusted for Ethiopia war events.
+set_stability = 0.6
 IF = {
 	limit = {
 		has_dlc = "Gotterdammerung"

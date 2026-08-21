@@ -179,6 +179,10 @@ technologies = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_land_military_engineering_vehicles
 			}
+
+			if = { 
+
+			}
 		}
 	}
 
@@ -304,7 +308,7 @@ technologies = {
 
 		light_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -312,7 +316,7 @@ technologies = {
 		}
 		medium_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -320,7 +324,7 @@ technologies = {
 		}
 		heavy_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -381,7 +385,7 @@ technologies = {
 		assault_engineer = {
 			breakthrough = 0.1
 			urban = {
-				attack = 0.1
+				attack = 0.15
 			}
 		}
 
@@ -395,7 +399,7 @@ technologies = {
 
 		light_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -403,7 +407,7 @@ technologies = {
 		}
 		medium_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -411,7 +415,7 @@ technologies = {
 		}
 		heavy_flame_tank = {
 			urban = {
-				attack = 0.05
+				attack = 0.1
 			}
 			fort = {
 				attack = 0.1
@@ -743,6 +747,12 @@ technologies = {
 			modifier = {
 				factor = 2
 				has_war = yes
+			}
+		}
+
+		on_research_complete = {
+			if = { 
+
 			}
 		}
 	}
@@ -1169,14 +1179,18 @@ technologies = {
 				date > "1939.1.1"
 			}
 		}
+
+		on_research_complete = {
+			if = { 
+				
+			}
+		}
 	}
 
 	tech_field_hospital2 = {
-
 		allow = {
 			always = no
 		}
-
 		field_hospital = {
 			casualty_trickleback = 0.10
 			experience_loss_factor = -0.10
@@ -1347,6 +1361,18 @@ technologies = {
 		}
 	}
 
+
+	
+
+	NORDIC_supportCollaboration_tech = { # For the Army Capston in the Nordic JFT
+		allow = { always = no } #Only obtained through Focus
+		category_support_battalions = {
+			max_organisation = 10
+			soft_attack = 0.25
+			experience_loss_factor = -0.05
+		}
+	}
+
 	tech_logistics_company = {
 
 		enable_subunits = {
@@ -1442,7 +1468,7 @@ technologies = {
 		}
 
 		helicopter_transport = {
-			supply_consumption_factor = -0.15
+			supply_consumption_factor = -0.12
 		}
 
 		path = {
@@ -1497,7 +1523,7 @@ technologies = {
 		}
 
 		helicopter_transport = {
-			supply_consumption_factor = -0.15
+			supply_consumption_factor = -0.12
 		}
 
 		helicopter_brigade = {
@@ -1841,11 +1867,9 @@ technologies = {
 		enable_equipments = {
 			railway_gun_equipment_1
 		}
-
 		allow = { 
 			always = no
 		}
-		
 		enable_equipment_modules = {
 			lc_hull_mounted_railway_gun #Module for Land Cruiser
 		}
