@@ -93,10 +93,15 @@ on_actions = {
 				}
 			}
 			35 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 9
 				add_building_construction = {
 					type = dockyard
 					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 6
 					instant_build = yes
 				}
 			}
@@ -246,14 +251,6 @@ on_actions = {
 					instant_build = yes
 				}
 			}
-			35 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-			}
 			36 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -279,10 +276,15 @@ on_actions = {
 				}
 			}
 			99 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = industrial_complex
 					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -295,6 +297,14 @@ on_actions = {
 				}
 			}
 			110 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			920 = { # Norway
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -447,10 +457,15 @@ on_actions = {
 				}
 			}
 			980 = {
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = arms_factory
 					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -550,11 +565,11 @@ on_actions = {
 					level = 2
 					instant_build = yes
 				}
-				#add_building_construction = {
-				#	type = industrial_complex
-				#	level = 2
-				#	instant_build = yes
-				#}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
 			}
 
 			 977 = { # Antwerpen
