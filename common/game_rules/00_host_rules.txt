@@ -144,6 +144,21 @@ allied_pre_grind = {
 		desc= ""
 	}
 }
+axis_fuel_spirit = { 
+	name = "Axis Fuel Spirit"
+	group = "HMM Rules"
+	icon = "GFX_decision_category_eng_imperial_conference"
+	default = { 
+		name = on
+		text = "On"
+		desc = "Axis fuel is simulated"
+	}
+	option = { 
+		name = off
+		text = "Off"
+		desc= "Axis fuel is vanilla"
+	}
+}
 italy_alt_hist = {
 	name = "Italy Alt-Hist Paths"
 	group = "HMM Rules"

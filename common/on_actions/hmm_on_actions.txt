@@ -87,11 +87,6 @@ on_actions = {
 				}
 			}
 			GER = {
-				add_ideas = {
-					axis_fuel
-				}
-			}
-			GER = {
 				country_event = {
 					id = DOD_yugoslavia.20
 					days = 912
@@ -852,13 +847,48 @@ on_actions = {
 			}
 		}
 	}
+
 	on_weekly = {
-			effect = {
-				add_daily_mastery = {
-					amount = 1
-					days = 7
-					name = Mastery
-				}
+		effect = {
+			add_daily_mastery = {
+				amount = 1
+				days = 7
+				name = Mastery
 			}
+		}
+	}
+
+	on_send_volunteers = { 
+		effect = { 
+			if = { 
+				limit = { 
+					has_idea = peace_training
+				}
+				remove_ideas = peace_training
+			}
+		}
+	}
+	
+	on_recall_volunteers = { 
+		effect = { 
+			if = { 
+				limit = { 
+					is_playable_country = yes
+					has_war = no
+					NOT = { 
+						any_country = { 
+							has_volunteers_amount_from = { 
+								tag = PREV
+								count > 0
+							}
+						}
+					}
+					NOT = { 
+						has_idea = peace_training
+					}
+				}
+				add_ideas = peace_training
+			}
+		}
 	}
 }

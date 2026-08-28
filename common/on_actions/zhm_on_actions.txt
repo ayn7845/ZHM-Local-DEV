@@ -127,8 +127,48 @@ on_actions = {
 				}
 			}
 					
-					
-				    
+			if = { 
+				limit = { 
+					has_game_rule = { 
+						rule = axis_fuel_spirit
+						option = on
+					}
+				}
+				GER = {
+					add_ideas = {
+						german_fuel
+					}
+				}
+				ITA = {
+					add_ideas = {
+						italian_fuel
+					}
+				}
+				BUL = { 
+					add_ideas = axis_dispersed_fuel
+				}
+				SPR = { 
+					add_ideas = { 
+						axis_dispersed_fuel
+					}
+				}
+			}		
+
+			if = { 
+				limit = { 
+					has_game_rule = {
+						rule = axis_fuel_spirit
+						option = off
+					}
+				}
+				46 = { # Muntenia
+					add_resource = { 
+						type = oil
+						amount = 65
+					}
+				}
+			}
+
 			if = { 
 				limit = { 
 					has_game_rule = { 
