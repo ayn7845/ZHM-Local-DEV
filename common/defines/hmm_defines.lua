@@ -152,7 +152,7 @@ NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 90			-- how many divisions a fi
 NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 10				-- how many armies a field marshall is limited to. 0 = inf, < 0 = blocked
 
 -- Regimental Support Company Fix
-NDefines.NMilitary.REGIMENTAL_SUPPORT_REQUIRED_BATTALIONS = { 3 } -- For each regimental support row, how many battalions are required in the regiment to be able to place a support in that row.
+NDefines.NMilitary.REGIMENTAL_SUPPORT_REQUIRED_BATTALIONS = { 1 } -- For each regimental support row, how many battalions are required in the regiment to be able to place a support in that row.
 
 
 -- License Stuff
