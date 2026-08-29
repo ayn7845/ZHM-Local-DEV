@@ -39,7 +39,7 @@ ideas = {
 			name = "Axis Dispersed Fuel"
             picture = generic_stockpile_fuel
             modifier = {
-                base_fuel_gain = 150
+                base_fuel_gain = 160
             }
         }
 

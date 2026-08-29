@@ -8211,6 +8211,15 @@ focus_tree = {
 				}
 				mark_focus_tree_layout_dirty = yes
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			2 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
