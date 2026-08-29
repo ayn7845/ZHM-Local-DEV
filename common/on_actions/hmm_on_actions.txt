@@ -27,12 +27,9 @@ on_actions = {
 				if = {
 					limit = {
 						OR = {
-							ai_annex = yes
-							ai_rk = yes
+							ai_conquer = yes
 							ai_manpower = yes
 							ai_black = yes
-							tag = SWE
-							tag = TUR
 						}
 					}
 					country_lock_all_division_template = yes
@@ -53,7 +50,7 @@ on_actions = {
 					}
 					else_if = {
 						limit = {
-							ai_annex = yes
+							ai_conquer = yes
 							NOT = { has_idea = ai_annex }
 						}
 						add_ideas = { ai_annex }

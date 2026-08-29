@@ -166,9 +166,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_goods_red_bonus
 			modifier = {
-				trade_laws_cost_factor = 10000
-				conversion_cost_civ_to_mil_factor = 100
-				conversion_cost_mil_to_civ_factor = 100
+				trade_laws_cost_factor = 1000
 				ai_license_acceptance = -1000
 			}
 			
@@ -190,7 +188,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_goods_red_bonus
 			modifier = {
-				consumer_goods_factor = 100
+				consumer_goods_expected_value = 1
 				industrial_capacity_factory = -10
 				production_factory_max_efficiency_factor = -10
 				industrial_capacity_dockyard = -10
