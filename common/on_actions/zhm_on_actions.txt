@@ -311,6 +311,17 @@ on_actions = {
 				set_compliance = 100
 			}
 
+			276 = { # Some Canadian Oil and Aluminium Spawned in day 1
+				add_resource = { 
+					type = oil
+					amount = 35
+				}
+				add_resource = { 
+					type = aluminium
+					amount = 21
+				}
+			}
+
 			AST = { # Manpower to Australia to defend Africa!
 				add_manpower = 450000
 			}
