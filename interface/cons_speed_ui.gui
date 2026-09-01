@@ -127,7 +127,7 @@ guiTypes = {
 			name = "energy_infrastructure_speed"   
 			position = { x = 442 y = -33 } 
 			font = "cg_16b"              
-			text = "[?modifier@production_speed_energy_infrastructure_factor|%0=+]"	   
+			text = "[?modifier@production_speed_industrial_infrastructure_factor|%0=+]"	   
 			maxWidth = 50  
 			maxHeight = 20
 			format = right
