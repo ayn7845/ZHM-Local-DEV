@@ -648,7 +648,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ career_officer harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster combined_arms_expert ambusher camouflage_expert}
+			traits = { trait_reckless harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster camouflage_expert ambusher offensive_doctrine combined_arms_expert no_leader_promotion_trait pre_grind }
 			skill = 6
 			attack_skill = 5
 			defense_skill = 5
@@ -667,7 +667,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ career_officer harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster combined_arms_expert ambusher camouflage_expert}
+			traits = { trait_reckless harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster camouflage_expert ambusher offensive_doctrine combined_arms_expert no_leader_promotion_trait pre_grind }
 			skill = 6
 			attack_skill = 5
 			defense_skill = 5
@@ -822,11 +822,11 @@ characters={
 				cost = 100
 			}
 
-			corps_commander={
-				traits={ brilliant_strategist trait_reckless trait_SPA_nationalist_sympathies panzer_leader cavalry_leader infantry_leader organizer trickster commando }
+			field_marshal = {
+				traits={ brilliant_strategist old_guard infantry_leader organizer trickster commando }
 				skill = 8
 				attack_skill = 4
-				defense_skill = 5
+				defense_skill = 4
 				planning_skill = 2
 				logistics_skill = 5
 				legacy_id=1112
@@ -955,7 +955,7 @@ characters={
 			}
 			
 			corps_commander={
-				traits={ career_officer harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster combined_arms_expert ambusher camouflage_expert}
+				traits = { trait_reckless harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster camouflage_expert ambusher offensive_doctrine combined_arms_expert no_leader_promotion_trait pre_grind }
 				skill = 6
 				attack_skill = 5
 				defense_skill = 5
@@ -1060,7 +1060,7 @@ characters={
 			}
 
 			corps_commander={
-				traits={ career_officer harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster combined_arms_expert ambusher camouflage_expert}
+				traits = { trait_reckless harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster camouflage_expert ambusher offensive_doctrine combined_arms_expert no_leader_promotion_trait pre_grind }
 				skill = 6
 				attack_skill = 5
 				defense_skill = 5
@@ -1250,7 +1250,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ career_officer harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster combined_arms_expert ambusher camouflage_expert}
+			traits = { trait_reckless harsh_leader trait_SPA_nationalist_sympathies organizer panzer_leader cavalry_leader infantry_leader commando skilled_staffer trickster camouflage_expert ambusher offensive_doctrine combined_arms_expert no_leader_promotion_trait pre_grind }
 			skill = 6
 			attack_skill = 5
 			defense_skill = 5
