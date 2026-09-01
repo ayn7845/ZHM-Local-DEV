@@ -598,7 +598,6 @@ country_event = {
 		HUN = {
 			transfer_state = 70
 			transfer_state = 71
-			transfer_state = 72
 			transfer_state = 73
 		}
 
