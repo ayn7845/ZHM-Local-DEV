@@ -727,7 +727,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		level_cap = {
 			state_max = 1
-			shares_slots = yes
+			shares_slots = no
 			group_by = infrastructure_keystone
 		}
 		state_modifiers = {
@@ -746,7 +746,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		level_cap = {
 			state_max = 1
-			shares_slots = yes
+			shares_slots = no
 			group_by = infrastructure_keystone
 		}
 		state_modifiers = {
