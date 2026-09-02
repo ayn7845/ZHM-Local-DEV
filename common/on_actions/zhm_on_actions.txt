@@ -29,43 +29,92 @@ on_actions = {
 					USA_dwight_d_eisenhower = {
 						#add_attack = 2
 
-						add_trait = { trait = panzer_leader }
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 						#add_unit_leader_trait = infantry_leader
-						add_trait = { trait = pre_grind }
 					}
 					USA_george_s_patton = {
 						#add_planning = 1
 
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = infantry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					USA_omar_bradley = {
 						#add_attack = 1
 						#add_defense = -1
 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = infantry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					USA_courtney_hodges = {
 						add_skill_level = 1
 						add_planning = 1
 
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = infantry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					USA_mark_clark = { 
-						add_skill_level = 1
-						add_defense = -1
-						add_attack = -1
+						add_skill_level = 1 # 
+						#add_defense = -1
+						#add_attack = -1
+						add_planning = -3 # have to remove pips since adding skill adds pips
 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = infantry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 				}
 				FRA = { # FRENCH GENS
@@ -74,55 +123,115 @@ on_actions = {
 						#add_attack = -2
 						#add_planning = -2
 
-						add_trait = { trait = panzer_leader }
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
 					}
-					FRA_alphonse_juin = { 
+					#FRA_alphonse_juin = { 
 						#add_skill_level = 1
 						#add_attack = -1
 						#add_planning = -2
-					}
+					#}
 				}
 				ENG = {
 					ENG_bernard_montgomery = { 
-						add_trait = { trait = infantry_leader } 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						} 
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					ENG_jock_campbell = {
 						#add_skill_level = 1
 						#add_attack = 1
 
-						add_trait = { trait = infantry_leader } 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					ENG_claude_auchinleck = {
 						#add_attack = 2
 						#add_defense = -2
 
-						add_trait = { trait = infantry_leader } 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					ENG_harold_alexander = {
 						#add_attack = 1
 						
-						add_trait = { trait = infantry_leader } 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 					ENG_alan_cunningham = { 
 						add_skill_level = 1
 						add_defense = 3
 						add_attack = -1
 
-						add_trait = { trait = infantry_leader } 
-						add_trait = { trait = panzer_leader }
-						add_trait = { trait = cavalry_leader }
-						add_trait = { trait = pre_grind }
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
 					}
 				}
 			}
