@@ -823,7 +823,7 @@ characters={
 			}
 
 			field_marshal = {
-				traits={ brilliant_strategist old_guard infantry_leader organizer trickster commando }
+				traits={ brilliant_strategist old_guard panzer_leader infantry_leader organizer trickster commando }
 				skill = 8
 				attack_skill = 4
 				defense_skill = 4
