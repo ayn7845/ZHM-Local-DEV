@@ -32,9 +32,6 @@ state = {
                     }
                 }
             }
-			9794 = {
-				land_facility = 1
-			}
 		}
 		add_core_of = ITA
 		add_core_of = WST
