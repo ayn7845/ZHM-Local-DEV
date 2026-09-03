@@ -7618,7 +7618,7 @@ allow_branch = {
 		icon = GFX_focus_BRA_father_of_the_poor
 		prerequisite = { focus = BRA_reward_army_loyalty focus = BRA_reinvigorate_the_navy }
 		mutually_exclusive = { focus = BRA_support_the_landowners }
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = BRA_reinvigorate_the_navy
 		cost = 10

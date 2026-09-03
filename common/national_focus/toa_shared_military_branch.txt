@@ -2323,14 +2323,7 @@ shared_focus = {
 	ai_will_do = {
 			factor = 20
 		}
-allow_branch = {
-        NOT = {
-			has_game_rule = {
-				rule = Brasil_AC_rule
-				option = Brasil_no_AC
-			}
-		}
-    }
+
 	available = {
 
 	}
@@ -2396,7 +2389,14 @@ shared_focus = {
 	available = {
 
 	}
-
+	allow_branch = {
+        NOT = {
+			has_game_rule = {
+				rule = Brasil_AC_rule
+				option = Brasil_no_AC
+			}
+		}
+    }
 	bypass = {
 		
 	}
@@ -2429,7 +2429,14 @@ shared_focus = {
 	available = {
 
 	}
-
+	allow_branch = {
+        NOT = {
+			has_game_rule = {
+				rule = Brasil_AC_rule
+				option = Brasil_no_AC
+			}
+		}
+    }
 	bypass = {
 		
 	}
@@ -2466,7 +2473,14 @@ shared_focus = {
 	available = {
 
 	}
-
+	allow_branch = {
+        NOT = {
+			has_game_rule = {
+				rule = Brasil_AC_rule
+				option = Brasil_no_AC
+			}
+		}
+    }
 	bypass = {
 		
 	}
