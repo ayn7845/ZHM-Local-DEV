@@ -73,14 +73,19 @@ on_actions = {
 			}
 
 			SPR = {
-				add_ideas = {
-					no_faction
+				if = {
+					limit = { NOT = { has_idea = no_faction } }
+					add_ideas = no_faction
 				}
 			}
 			HOL = {
-				add_ideas = {
-					noresistance
-					ai_conscription_laws
+				if = {
+					limit = { NOT = { has_idea = noresistance } }
+					add_ideas = noresistance
+				}
+				if = {
+					limit = { NOT = { has_idea = ai_conscription_laws } }
+					add_ideas = ai_conscription_laws
 				}
 			}
 			GER = {

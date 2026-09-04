@@ -44,7 +44,7 @@ shared_focus = {
 
 	}
 	offset = {
-		x = -16
+		x = -7
 		y = 0
 		trigger = {
 			 tag = MAN 

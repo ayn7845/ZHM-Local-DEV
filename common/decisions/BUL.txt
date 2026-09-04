@@ -5194,6 +5194,9 @@ BUL_the_fatherland_front_dec_cat = {
 			random_unit_leader = {
 				limit = {
 					has_trait = trait_BUL_zveno_member
+					NOT =  { 
+						has_trait = trait_BUL_ff_sympathizer
+					}
 				}
 				add_unit_leader_trait = trait_BUL_ff_sympathizer
 			}

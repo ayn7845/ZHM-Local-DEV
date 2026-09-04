@@ -24,7 +24,7 @@ focus_tree = {
 
 	default = no
 
-	continuous_focus_position = { x = 50 y = 2500 }
+	continuous_focus_position = { x = 1000 y = 2500 }
 
 	initial_show_position = {
 		x = 33
@@ -128,8 +128,12 @@ focus_tree = {
 		icon = GFX_focus_generic_concessions
 		x = -15
 		y = 1
-		offset = { 
-
+		offset = {
+			x = 15
+			y = 0
+			trigger = {
+				has_global_flag = spanish_civil_war
+			}
 		}
 		relative_position_id = SPA_a_great_spain
 		cost = 1

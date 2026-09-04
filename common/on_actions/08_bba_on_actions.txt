@@ -86,6 +86,7 @@ on_actions = {
 							tag = SOV
 							
 						}
+						NOT = { has_idea = league_of_nations_member_idea }
 					}
 					add_ideas = league_of_nations_member_idea
 				}
@@ -244,6 +245,7 @@ on_actions = {
 				limit = {
 					original_tag = ETH
 					has_idea = ETH_chitet_law
+					NOT = { has_idea = ETH_chitet_law_peace_time }
 				}
 				swap_ideas = {
 					remove_idea = ETH_chitet_law

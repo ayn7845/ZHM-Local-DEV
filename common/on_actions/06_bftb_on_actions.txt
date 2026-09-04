@@ -190,7 +190,7 @@ on_actions = {
 					limit = {
 						IRQ = { NOT = { has_idea = nationalism } }
 					}
-					add_ideas = nationalism
+					IRQ = { add_ideas = nationalism }
 				}
 			}
 		}
@@ -742,6 +742,7 @@ on_actions = {
 					limit = {
 						has_government = communism
 						has_country_flag = BUL_player_formed_fatherland_front_flag
+						NOT = { has_idea = BUL_fatherland_front_positive }
 					}
 					add_ideas = BUL_fatherland_front_positive
 					clr_country_flag = BUL_player_formed_fatherland_front_flag
@@ -750,6 +751,7 @@ on_actions = {
 					limit = {
 						has_government = fascism
 						has_idea = BUL_bogdan_filov
+						NOT = { has_idea = BUL_bogdan_filov_fascism }
 					}
 					remove_ideas = BUL_bogdan_filov
 					add_ideas = BUL_bogdan_filov_fascism
@@ -758,6 +760,7 @@ on_actions = {
 					limit = {
 						has_government = neutrality
 						has_idea = BUL_bogdan_filov_fascism
+						NOT = { has_idea = BUL_bogdan_filov }
 					}
 					remove_ideas = BUL_bogdan_filov_fascism
 					add_ideas = BUL_bogdan_filov
