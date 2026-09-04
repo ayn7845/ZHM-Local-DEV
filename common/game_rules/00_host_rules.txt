@@ -322,6 +322,31 @@ Germany_Fate_of_yugo= {
 	}
 
 }
+jet_engines = {
+	name = "Jet Engines"
+	group = "HMM Rules"
+	icon = "GFX_decision_generic_air"
+	option = {
+		name = banned
+		text = "RBanned"
+		desc = "Jet engines cannot be researched or built."
+	}
+	option = {
+		name = axis
+		text = "OAxis Only"
+		desc = "Jet engines can only be researched or built by Axis countries."
+	}
+	default = {
+		name = allies
+		text = "CAllies Only"
+		desc = "Jet engines can only be researched or built by Allied countries."
+	}
+	option = {
+		name = allowed
+		text = "GAllowed"
+		desc = "Jet engines can be researched and built as normal."
+	}
+}
 urban_assault_vechile= {
 	name = "Urban Assault Vehicle"
 	group = "HMM Rules"
