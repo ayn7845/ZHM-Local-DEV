@@ -2,7 +2,11 @@ state = {
 	id = 276
 	name = "STATE_276" # Southern Ontario
 	manpower = 3117017
-	
+	resources={
+		oil=40 
+		aluminium=40 
+		coal = 2 
+	}
 	state_category = large_city
 	
 	history = {
