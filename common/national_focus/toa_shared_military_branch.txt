@@ -2390,13 +2390,12 @@ shared_focus = {
 
 	}
 	allow_branch = {
-        NOT = {
-			has_game_rule = {
-				rule = Brasil_AC_rule
-				option = Brasil_no_AC
-			}
+        has_game_rule = {
+			rule = allies_ac_rule
+			option = brazil_ac
 		}
     }
+	
 	bypass = {
 		
 	}
@@ -2430,11 +2429,9 @@ shared_focus = {
 
 	}
 	allow_branch = {
-        NOT = {
-			has_game_rule = {
-				rule = Brasil_AC_rule
-				option = Brasil_no_AC
-			}
+        has_game_rule = {
+			rule = allies_ac_rule
+			option = brazil_ac
 		}
     }
 	bypass = {
@@ -2474,11 +2471,9 @@ shared_focus = {
 
 	}
 	allow_branch = {
-        NOT = {
-			has_game_rule = {
-				rule = Brasil_AC_rule
-				option = Brasil_no_AC
-			}
+        has_game_rule = {
+			rule = allies_ac_rule
+			option = brazil_ac
 		}
     }
 	bypass = {

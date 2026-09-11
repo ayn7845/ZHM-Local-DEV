@@ -235,7 +235,22 @@ on_actions = {
 					}
 				}
 			}
-					
+
+			if = { 
+				limit = { 
+					has_game_rule = { 
+						rule = allies_ac_rule
+						option = uk_ac
+					}
+				}
+				ENG = { 
+					if = {
+						limit = { NOT = { has_idea = uk_ac_idea_2 } }
+						add_ideas = uk_ac_idea_2
+					}
+				}
+			}
+
 			if = { 
 				limit = { 
 					has_game_rule = { 
@@ -321,8 +336,16 @@ on_actions = {
   		  ##        ##      ##  ##      ##        ##          ##          ##      ##  ##    ####  ##      ##  ##      ##      ##      
   		  ##        ##      ##  ##      ##        ##          ##          ##      ##  ##    ####  ##      ##  ##      ##      ##      
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##      
-		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##      
+		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##    
 
+
+			ENG = { 
+				add_equipment_to_stockpile = {
+               		type = convoy_1
+                	amount = 1000
+					producer = ENG
+          	  	}
+			}
 			SOV = { 
 				country_event = {
 					id = lar_spain.53 # Spanish Gold

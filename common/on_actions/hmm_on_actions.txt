@@ -686,8 +686,8 @@ on_actions = {
 					if = {
 						limit = {
 							has_game_rule = {
-								rule = Brasil_AC_rule
-								option = Brasil_AC
+								rule = allies_ac_rule
+								option = brazil_ac
 							}
 						}
 						ENG = {
