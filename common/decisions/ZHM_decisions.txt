@@ -127,7 +127,7 @@ ZHM_host = {
 		available = {
 			SPR_scw_in_progress = yes
 		}
-
+		#days_remove = 1
 		#visible = { 
 		#	NOT = { 
 		#		has_global_flag = scw_over
@@ -192,6 +192,42 @@ ZHM_host = {
 						unlock_national_focus = SPA_save_the_alcazar
 						custom_effect_tooltip = generic_skip_one_line_tt
 					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_martyrdom_for_primo_de_rivera
+								} 
+							}
+						complete_national_focus = SPA_martyrdom_for_primo_de_rivera
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_caudillo_of_spain
+								} 
+							}
+						complete_national_focus = SPA_caudillo_of_spain
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_extol_the_martyrs_of_the_war
+								} 
+							}
+						complete_national_focus = SPA_extol_the_martyrs_of_the_war
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_safeguard_the_freedom_of_worship
+								} 
+							}
+						complete_national_focus = SPA_safeguard_the_freedom_of_worship
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
 				}
 			}
 			SPA = { 
@@ -220,12 +256,13 @@ ZHM_host = {
 						limit = { original_tag = SPR }
 						SPA = { annex_country = { target = PREV transfer_troops = no } } 
 					}
+					country_event = { id = lar_news.1 }
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				set_global_flag = nationalist_victory
 				set_global_flag = scw_over
 
-				country_event = { id = lar_news.1 }
+				
 			}
 		}
 
