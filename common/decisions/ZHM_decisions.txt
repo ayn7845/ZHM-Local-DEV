@@ -43,3 +43,394 @@ form_greater_german_reich_category = {
 		}
 	}
 }
+
+operations = { 
+	
+	annex_romania = { 
+		name = "Annex Romania"
+		fire_only_once = yes
+		cost = 0
+
+		available = { 
+			ROM = { is_ai = yes } 
+		}
+
+		ai_will_do = { 
+			factor = 0
+		}
+		
+		allowed = { tag = HUN }
+
+		targets = { ROM }
+
+		complete_effect = {
+			if = { 
+				limit = { 
+					has_game_rule = { 
+						rule = axis_fuel_spirit
+						option = off
+					}
+				}
+				46 = { # Muntenia
+					add_resource = { 
+						type = oil
+						amount = 30
+					}
+				}
+			}
+                ROM = {
+                    transfer_units_fraction = {
+                        target = HUN
+                        size = 1
+                        stockpile_ratio = 1
+                        army_ratio = 1
+                        navy_ratio = 1
+                        air_ratio = 1
+                        keep_unit_leaders_trigger = {
+                            always = no
+                        }
+                    }
+                }
+                HUN = {
+                    annex_country = {
+                        target = ROM
+                        transfer_troops = yes
+                    }
+					if = { limit = { NOT = { has_idea = zhm_command_power } }
+						add_ideas = zhm_command_power
+					}
+                }
+                every_state = {
+                    limit = {
+                        is_core_of = ROM
+                        is_controlled_by = HUN
+                    }
+                add_core_of = HUN
+            }
+        }
+	}
+}
+
+ZHM_host = { 
+
+	ZHM_scw_nat_victory = { # For the moron that can't win SCW
+		name = "Force Nationalist Spain Victory"	
+		icon = spr_the_inevitable_civil_war
+		fire_only_once = yes
+		cost = 0
+
+		
+
+		ai_will_do = { 
+			factor = 0
+		}
+		available = {
+			SPR_scw_in_progress = yes
+		}
+
+		#visible = { 
+		#	NOT = { 
+		#		has_global_flag = scw_over
+		#	}
+		#}
+		complete_effect = {
+			custom_effect_tooltip = ZHM_scw_autocomp_focus
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = { 
+				SPA = { 
+					if = {
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_a_great_spain 
+								} 
+							}
+						complete_national_focus = SPA_a_great_spain
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_consolidate_the_north 
+								} 
+							}
+						complete_national_focus = SPA_consolidate_the_north
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_foment_a_carlist_split 
+								} 
+							}
+						complete_national_focus = SPA_foment_a_carlist_split
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_banish_the_party_leaders 
+								} 
+							}
+						complete_national_focus = SPA_banish_the_party_leaders
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_fuse_the_parties 
+								} 
+							}
+						complete_national_focus = SPA_fuse_the_parties
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+					if = { 
+						limit = { 
+							NOT = { 
+								has_completed_focus = SPA_save_the_alcazar 
+								} 
+							}
+						unlock_national_focus = SPA_save_the_alcazar
+						custom_effect_tooltip = generic_skip_one_line_tt
+					}
+				}
+			}
+			SPA = { 
+				if = { 
+					limit = { 
+						NOT = { 
+							has_idea = tot_economic_mobilisation 
+							} 
+						}
+					add_ideas = tot_economic_mobilisation
+					add_political_power = -150 # IDGAF, you'll pay even if you're shit
+					custom_effect_tooltip = generic_skip_one_line_tt
+				}
+				if = { 
+					limit = { 
+						NOT = { 
+							has_country_flag = SPA_save_the_alcazar_completed 
+							} 
+						}
+						add_war_support = 0.1
+						add_stability = 0.1
+						add_political_power = 100
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					every_other_country = {
+						limit = { original_tag = SPR }
+						SPA = { annex_country = { target = PREV transfer_troops = no } } 
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_global_flag = nationalist_victory
+				set_global_flag = scw_over
+
+				country_event = { id = lar_news.1 }
+			}
+		}
+
+		zhm_change_ger_cg_Positive = {
+			name = "Change German CG Positive"
+			
+			cost = 0
+
+			icon = ger_mefo_bills
+
+			ai_will_do = { 
+				factor = 0
+			}
+			
+			days_remove = 1
+
+			visible = {
+				
+			}
+
+			available = {
+				GER = { 
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+			}
+
+			complete_effect = {
+				news_event = { 
+					id = zhm.3
+				} 
+				GER = { 
+					if = {
+						limit = {
+							OR = {
+								has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+								has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+							}
+						}
+						custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+						add_to_variable = { 
+							GER_industrial_consumer_goods_factor = 0.1
+							tooltip = consumer_goods_factor_tt
+						}
+					GER_reduce_mefo_bills_penalty = yes
+					}
+				}	
+			}
+		}
+
+		zhm_change_ger_cg_negative = {
+			name = "Change German CG Negative"
+			
+			cost = 0
+
+			icon = ger_mefo_bills
+
+			ai_will_do = { 
+				factor = 0
+			}
+
+			days_remove = 1
+
+			visible = {
+				
+			}
+
+			available = {
+				GER = { 
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+			}
+
+			complete_effect = {
+				news_event = { 
+					id = zhm.4
+				} 
+				GER = { 
+					if = {
+						limit = {
+							OR = {
+								has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+								has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+							}
+						}
+						custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+						add_to_variable = { 
+							GER_industrial_consumer_goods_factor = -0.1
+							tooltip = consumer_goods_factor_tt
+						}
+					GER_reduce_mefo_bills_penalty = yes
+					}
+				}	
+			}
+		}
+
+		zhm_swap_uk_ac_idea_1 = { 
+			name = "Remove UK AC COOP Idea"
+			icon = GFX_decision_category_generic
+			fire_only_once = no
+			cost = 0
+
+			
+
+			ai_will_do = { 
+				factor = 0
+			}
+			available = { 
+				ENG = { has_idea = uk_ac_idea_2 NOT = { has_idea = uk_ac_idea_1 } }
+			}
+
+			complete_effect = {
+				ENG = { 
+					swap_ideas = { 
+						remove_idea = uk_ac_idea_2
+						add_idea = uk_ac_idea_1
+					}
+				}
+			}
+		}
+
+		zhm_swap_uk_ac_idea_2 = { 
+			name = "Add Solo UK AC Idea"
+			icon = GFX_decision_category_generic
+			fire_only_once = no
+			cost = 0
+
+			
+
+			ai_will_do = { 
+				factor = 0
+			}
+			available = { 
+				ENG = { has_idea = uk_ac_idea_1 NOT = { has_idea = uk_ac_idea_2 } }
+			}
+
+			complete_effect = {
+				ENG = { 
+					swap_ideas = { 
+						remove_idea = uk_ac_idea_1
+						add_idea = uk_ac_idea_2
+					}
+				}
+			}	
+		}
+
+		restore_ENG_navy = { 
+			name = "Restore UK Navy"
+			icon = GFX_decision_generic_naval
+			fire_only_once = yes
+			cost = 0 
+
+			
+
+			days_remove = 1
+
+			available = { 
+				ENG = { 
+					has_navy_size = {
+						size < 40
+					}
+				}
+			}
+			
+			complete_effect = { 
+				news_event = { 
+					id = zhm.5
+				} 
+				ENG = { 
+					load_oob = "ZHM_1936_ENG_navy"
+				}
+			}
+		}
+
+		restore_GER_navy = { 
+			name = "Restore German Navy"
+			icon = GFX_decision_generic_naval
+			fire_only_once = yes
+			cost = 0 
+
+			
+
+			days_remove = 1
+
+			available = { 
+				GER = { 
+					has_navy_size = {
+						size < 10
+					}
+				}
+			}
+			
+			complete_effect = {
+				news_event = { 
+					id = zhm.6
+				} 
+				GER = { 
+					load_oob = "ZHM_GER_1936_naval_mtg"
+				}
+			}
+		}
+
+	}

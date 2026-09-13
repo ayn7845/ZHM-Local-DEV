@@ -30,3 +30,55 @@ country_event = {
 	}
 	
 }
+
+news_event = { 
+	id = zhm.3
+	title = "Host Changed German Consumer Goods"
+	desc = zhm.3.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.4
+	title = "Host Changed German Consumer Goods"
+	desc = zhm.4.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.5
+	title = "Host Restored UK Navy"
+	desc = zhm.5.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.6
+	title = "Host Restored German Navy"
+	desc = zhm.6.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}

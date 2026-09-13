@@ -19,6 +19,26 @@ ideas = {
 			}
 		}
 
+		zhm_scraping_the_barrel_allies = {
+			name = "Scraping the Barrel Allies"
+			removal_cost = -1
+			picture = soviet_german_friendship
+			modifier = {
+				max_command_power = 50
+				max_command_power_mult = 0.10
+			}
+		}
+
+		zhm_command_power = {
+			name = "Extra Command Power"
+			removal_cost = -1
+			picture = soviet_german_friendship
+			modifier = {
+				max_command_power = 230
+				max_command_power_mult = 0.10
+			}
+		}
+
 		uk_ac_idea_1 = { # tuned down version if a UK coop joins
 			name = "AC Spirit" 
 			picture = generic_air_fighter
@@ -32,7 +52,7 @@ ideas = {
 		}
 
 		uk_ac_idea_2 = { # Deversus AC moment
-			name = "AC Spirit" 
+			name = "No AC Spirit" 
 			picture = generic_air_fighter
 			removal_cost = -1
 			modifier = {
