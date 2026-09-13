@@ -52,7 +52,7 @@ ideas = {
 		}
 
 		uk_ac_idea_2 = { # Deversus AC moment
-			name = "No AC Spirit" 
+			name = "No AC COOP Spirit" 
 			picture = generic_air_fighter
 			removal_cost = -1
 			modifier = {
