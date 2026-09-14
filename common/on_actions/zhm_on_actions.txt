@@ -338,7 +338,13 @@ on_actions = {
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##      
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##    
 
-
+			FRA = { 
+				add_tech_bonus = {
+					name = "AT3 Rush"
+					bonus = 0.75
+					technology = antitank5
+				}
+			}
 			ENG = { 
 				add_equipment_to_stockpile = {
                		type = convoy_1
