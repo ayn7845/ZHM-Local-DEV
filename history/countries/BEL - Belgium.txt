@@ -202,13 +202,6 @@ IF = {
 	}
 }
 
-
-
-1939.1.1 = { 
-	
-}
-
-
 set_politics = {
 	ruling_party = democratic
 	last_election = "1936.1.1" #Was 1932.11.27 but changed to allow for Government Resigns focus to simulate this election.
@@ -221,21 +214,7 @@ set_popularities = {
 	fascism = 11
 	communism = 6
 }
-
-1939.1.1 = {
-	set_politics = {
-		ruling_party = democratic
-		last_election = "1939.4.2"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-	set_popularities = {
-		democratic = 87
-		fascism = 8
-		communism = 5
-	}
-}
-
+set_research_slots = 0
 set_convoys = 80
 set_stability = 0.75
 
