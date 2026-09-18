@@ -2663,6 +2663,7 @@ on_actions = {
                 IF = {    # This prevents Japan from having a non-allowed eco modifier after being puppeted etc 
                     limit = {
                         has_idea = national_defense_state
+						NOT = { has_idea = partial_economic_mobilisation }
                     }
                     swap_ideas = {
                     	remove_idea = national_defense_state

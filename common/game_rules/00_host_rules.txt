@@ -104,6 +104,7 @@ horst_host_country = {
 		desc = ""
 	}
 }
+
 cas_doctrines_status = {
 	name = "Ground Support doctrines are..."
 	group = "HMM Rules"
@@ -129,6 +130,7 @@ cas_doctrines_status = {
 		desc = "All grand doctrines and air subdoctrines can be taken by anyone."
 	}
 }
+
 allied_pre_grind = { 
 	name = "Allies Pre-Grind"
 	group = "HMM Rules"
@@ -144,6 +146,44 @@ allied_pre_grind = {
 		desc= ""
 	}
 }
+
+allies_ac_rule = {
+	name = "Allies AC Status"
+	group = "HMM Rules"
+	icon = "GFX_decision_SWE_set_air_budget"
+	option = {
+		name = brazil_ac
+		text = "Brazil Air Controller"
+		desc = "Brazil will be the Allies Air Controller"
+	} 
+	default = {
+		name = canada_ac
+		text = "Canada Air Controller"
+		desc = "Canada will be the Allies Air Controller"
+	}
+	option = {
+		name = uk_ac
+		text = "United Kingdom Air Controller"
+		desc = "United Kingdom will be the Allies Air Controller"
+	}
+}
+
+axis_fuel_spirit = { 
+	name = "Axis Fuel Spirit"
+	group = "HMM Rules"
+	icon = "GFX_decision_oil"
+	default = { 
+		name = on
+		text = "On"
+		desc = "Axis fuel is simulated"
+	}
+	option = { 
+		name = off
+		text = "Off"
+		desc= "Axis fuel is vanilla"
+	}
+}
+
 italy_alt_hist = {
 	name = "Italy Alt-Hist Paths"
 	group = "HMM Rules"
@@ -159,6 +199,7 @@ italy_alt_hist = {
 		desc = ""
 	}
 }
+
 soviet_research_slot = {
 	name = "Soviet 4th Research Slot"
 	group = "HMM Rules"
@@ -175,6 +216,7 @@ soviet_research_slot = {
 	}
 
 }
+
 soviet_collectivized_economy = {
 	name = "Soviet Collectivized Economy"
 	group = "HMM Rules"
@@ -204,22 +246,6 @@ soviet_eradicate_western_fascism_rule = {
 		text = "Banned"
 		desc = ""
 	}
-}
-Brasil_AC_rule = {
-	name = "Brazil AC"
-	group = "HMM Rules"
-	icon = "GFX_volunteers"
-	option = {
-		name = Brasil_AC
-		text = "Allowed"
-		desc = ""
-	} 
-	default = {
-		name = Brasil_no_AC
-		text = "Banned"
-		desc = ""
-	}
-
 }
 
 Germany_czech_manufacturers = {
@@ -258,6 +284,7 @@ Germany_czech_manufacturers = {
 	}
 
 }
+
 Germany_Wirtschaftswunder = {
 	name = "German Prioritize Economic Growth "
 	group = "HMM Rules"
@@ -291,6 +318,7 @@ Germany_Cancel_Mefo= {
 	}
 
 }
+
 Germany_Fate_of_yugo= {
 	name = "Fate of Yugoslavia"
 	group = "HMM Rules"
@@ -307,6 +335,7 @@ Germany_Fate_of_yugo= {
 	}
 
 }
+
 urban_assault_vechile= {
 	name = "Urban Assault Vehicle"
 	group = "HMM Rules"
@@ -322,6 +351,7 @@ urban_assault_vechile= {
 		desc = ""
 	}
 }
+
 railway_gun= {
 	name = "Railway Gun"
 	group = "HMM Rules"
@@ -337,6 +367,7 @@ railway_gun= {
 		desc = "###"
 	}
 }
+
 super_heavy_railway_gun= {
 	name = "Super Heavy Railway Gun"
 	group = "HMM Rules"
@@ -352,6 +383,7 @@ super_heavy_railway_gun= {
 		desc = "###"
 	}
 }
+
 multi_charge_large_caliber_gun= {
 	name = "Multi Charge LCG"
 	group = "HMM Rules"
@@ -367,6 +399,7 @@ multi_charge_large_caliber_gun= {
 		desc = "###"
 	}
 }
+
 max_submarine_tech= {
 	name = "Submarine 3 and 4"
 	group = "HMM Rules"
@@ -387,6 +420,7 @@ max_submarine_tech= {
 		desc = "###"
 	}
 }
+
 sov_boost = {
 	name = "Soviet Civ Boost"
 	group = "HMM Rules"
@@ -437,7 +471,8 @@ ger_boost = {
 		text = "ROn-12"
 		desc = "Germany get 12 Civilian factories (Not Recommmended)"
 	}
-} 
+}
+
 jap_boost = {
 	name = "Japan Civ Boost"
 	group = "HMM Rules"
@@ -462,7 +497,8 @@ jap_boost = {
 		text = "ROn-12"
 		desc = "Japan receives 12 Civilian factories"
 	}
-}          
+}  
+
 eng_boost = {
 	name = "Britain Civ Boost"
 	group = "HMM Rules"
@@ -488,6 +524,7 @@ eng_boost = {
 		desc = "Britain receives 12 Civilian factories"
 	}
 }
+
 ita_boost = {
 	name = "Italy Civ Boost"
 	group = "HMM Rules"
@@ -513,6 +550,7 @@ ita_boost = {
 		desc = "Italy receives 12 Civilian factories"
 	}
 }
+
 fra_boost = {
 	name = "French Civ Boost"
 	group = "HMM Rules"
@@ -538,6 +576,7 @@ fra_boost = {
 		desc = "France receives 12 Civilian factories"
 	}
 }
+
 usa_boost = {
 	name = "USA Civ Boost"
 	group = "HMM Rules"
@@ -558,6 +597,7 @@ usa_boost = {
 		desc = "USA receives 8 Civilian factories"
 	}
 }
+
 playable_iraq = {
 	name = "Playable Iraq"
 	group = "HMM Rules"
@@ -573,6 +613,7 @@ playable_iraq = {
 		desc = "Iraq is playable"
 	}
 }
+
 strat_bombing = {
 	name = "Strategic Bombing"
 	group = "HMM Rules"
@@ -593,6 +634,7 @@ strat_bombing = {
 		desc = "Strategic Bombers banned and German Eco Unnerfed"
 	}
 }
+
 spanish_production = {
 	name = "Spanish Production"
 	group = "HMM Rules"
@@ -618,6 +660,7 @@ spanish_production = {
 		desc = "No DDAY wall"
 	}
 }
+
 finish_production = {
 	name = "Finnish Production"
 	group = "HMM Rules"
@@ -633,6 +676,7 @@ finish_production = {
 		desc = "Use if Finland has a player on it"
 	}
 }
+
 tradebacks = {
 	name = "No Tradebacks Idea"
 	group = "HMM Rules"

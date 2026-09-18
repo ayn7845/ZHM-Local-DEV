@@ -54,7 +54,7 @@
 	focus = {
 		id = MAN_tsr_pacify_the_countryside
 		icon = GFX_goal_generic_major_war
-		x = 9
+		x = 14
 		y = 0
 
 		cost = 5

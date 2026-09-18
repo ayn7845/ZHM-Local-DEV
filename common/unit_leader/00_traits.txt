@@ -1904,7 +1904,11 @@ leader_traits = {
 			cas_damage_reduction = 0.5
 			air_superiority_bonus_in_combat = -0.5
 		}
-		
+		allowed = { 
+			NOT = { 
+				FROM = { original_tag = ITA }
+			}
+		}
 		ai_will_do = {
 			factor = 1
 		}

@@ -1,9 +1,9 @@
 bookmarks = {
 	bookmark = {
-		name = "SCRAPING_NAME_ASIA"
-		desc = "SCRAPING_NAME_ASIA_DESC"
+		name = "NO_ASIA_NAME"
+		desc = "NO_ASIA_DESC"
 		date = 1936.1.1.13
-		picture = "GFX_select_date_scrap"
+		picture = "GFX_no_asia_bookmark"
 		default_country = "GER"
 		default = yes
 
@@ -206,7 +206,40 @@ bookmarks = {
 				CAN_the_plan
 			}
 		}
-
+		"AST"={
+			minor = yes
+			history = "AST_GATHERING_STORM_DESC"
+			available = {  NOT = { has_dlc = "Thunder at Our Gates" } }
+			version = base_game
+			assume_not_played_if_missing_data = yes
+			ideology = democratic
+			ideas = {
+				AST_great_depression_1
+			}
+			focuses = {
+				AST_fight_work_or_perish
+				AST_allied_works_council
+				AST_rats_of_tobruk
+			}
+		}
+		"AST"={
+			minor = yes
+			history = "AST_GATHERING_STORM_DESC"
+			required_dlc = { "Thunder at Our Gates" }
+			version = thunder_at_our_gates
+			assume_not_played_if_missing_data = yes
+			ideology = democratic
+			ideas = {
+				AST_poor_population_growth
+				AST_great_depression_taog_spirit_fake
+				AST_citizen_army_spirit_fake
+			}
+			focuses = {
+				AST_war_is_coming
+				AST_overseas_loyalties
+				AST_anzac_spirit
+			}
+		}
 		"SAF"={
 			minor = yes
 			history = "SAF_GATHERING_STORM_DESC"
@@ -223,6 +256,8 @@ bookmarks = {
 			}
 		}
 
+
+
 		HUN = {
 			minor = yes
 			history = "HUN_GATHERING_STORM_DESC"
@@ -237,6 +272,22 @@ bookmarks = {
 				#HUN_proclaim_the_restoration_of_austria_hungary
 				HUN_secret_rearmament
 				HUN_renounce_the_treaty_of_trianon
+			}
+		}
+
+		"ROM"={
+			minor = yes
+			history = "ROM_GATHERING_STORM_DESC"
+			ideology = neutrality
+			version = base_game
+			ideas = {
+				ROM_king_carol_ii_hedonist
+				neutrality_idea
+			}
+			focuses = {
+				ROM_force_abdication
+				ROM_institute_royal_dictatorship
+				ROM_preserve_greater_romania
 			}
 		}
 		
@@ -279,6 +330,36 @@ bookmarks = {
 			}
 		}
 
+		FIN = {
+			minor = yes
+			history = FIN_GATHERING_STORM_DESC
+			ideology = neutrality
+			available = {  NOT = { has_dlc = "Arms Against Tyranny" } }
+			version = base_game
+			ideas = {
+				FIN_sisu_2
+			}
+			focuses = {
+				FIN_winter_warfare
+				FIN_greater_finland
+				FIN_oy_alkoholiliike
+			}
+		}
+		FIN = {
+			minor = yes
+			history = FIN_GATHERING_STORM_DESC
+			ideology = neutrality
+			required_dlc = { "Arms Against Tyranny" }
+			version = arms_against_tyranny
+			ideas = {
+				FIN_sisu_2
+			}
+			focuses = {
+				FIN_found_pohjolan_voima
+				FIN_winter_warfare
+				FIN_greater_finland
+			}
+		}
 		BRA = {
 			minor = yes
 			history = BRA_GATHERING_STORM_DESC

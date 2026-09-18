@@ -179,8 +179,6 @@ technologies = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_land_military_engineering_vehicles
 			}
-
-			
 		}
 	}
 
@@ -747,7 +745,6 @@ technologies = {
 				has_war = yes
 			}
 		}
-
 	}
 
 	tech_military_police2 = {
@@ -1176,6 +1173,10 @@ technologies = {
 
 	tech_field_hospital2 = {
 
+		allow = {
+			always = no
+		}
+
 		field_hospital = {
 			casualty_trickleback = 0.10
 			experience_loss_factor = -0.10
@@ -1345,7 +1346,6 @@ technologies = {
 			}
 		}
 	}
-
 
 	tech_logistics_company = {
 
@@ -1843,9 +1843,9 @@ technologies = {
 		}
 
 		allow = { 
-			always = no # TODO_ZHM game rule this
+			always = no
 		}
-
+		
 		enable_equipment_modules = {
 			lc_hull_mounted_railway_gun #Module for Land Cruiser
 		}

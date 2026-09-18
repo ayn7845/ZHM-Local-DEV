@@ -699,15 +699,6 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
-
-			modifier = {
-				factor = 0.5
-
-				OR = {
-					tag = CHI
-				
-				}
-			}
 			modifier = {
 				factor = 2
 				date > "1937.1.1"
@@ -1089,15 +1080,7 @@ technologies = {
 
 		ai_will_do = {
 			base = 1
-
-			modifier = {
-				factor = 0.2
-
-				OR = {
-					tag = CHI
-				
-				}
-			}
+			
 			modifier = {
 				tag = JAP
 				not = {

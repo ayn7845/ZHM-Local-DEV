@@ -482,7 +482,10 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			has_game_rule = { 
+				rule = axis_fuel_spirit
+				option = on
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -963,7 +966,10 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			has_game_rule = { 
+				rule = axis_fuel_spirit
+				option = on
+			}
 		}
 
 		cancel_if_invalid = yes

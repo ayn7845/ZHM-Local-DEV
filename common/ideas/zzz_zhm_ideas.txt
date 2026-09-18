@@ -9,12 +9,13 @@ ideas = {
 			}
 		}
 
-		zhm_raj_ast_manpower = {
-			name = "Australian Conscription"
+		zhm_war_bonds = { 
+			name = "War Bonds"
+			picture = generic_foreign_capital
 			removal_cost = -1
-			picture = AST_forging_australias_future
 			modifier = {
-				conscription_factor = 0.20
+				stability_factor = -0.05
+				consumer_goods_factor = -0.15
 			}
 		}
 
@@ -28,27 +29,72 @@ ideas = {
 			}
 		}
 
-		zhm_scraping_the_barrel_axis = {
-			name = "Scraping the Barrel Axis"
+		zhm_command_power = {
+			name = "Extra Command Power"
 			removal_cost = -1
 			picture = soviet_german_friendship
 			modifier = {
-				max_command_power = 75
+				max_command_power = 230
 				max_command_power_mult = 0.10
 			}
 		}
 
-		zhm_war_bonds = { 
-			name = "War Bonds"
-			picture = generic_foreign_capital
+		uk_ac_idea_1 = { # tuned down version if a UK coop joins
+			name = "AC Spirit" 
+			picture = generic_air_fighter
 			removal_cost = -1
 			modifier = {
-				stability_factor = -0.05
-				consumer_goods_factor = -0.15
+				air_superiority_efficiency = 0.10
+				air_ace_generation_chance_factor = 0.10
+				max_command_power = 40
+				base_fuel_gain = 2700
 			}
 		}
 
-		POR_is_ai = {
+		uk_ac_idea_2 = { # Deversus AC moment
+			name = "No AC COOP Spirit" 
+			picture = generic_air_fighter
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_ace_generation_chance_factor = 0.10
+				air_night_penalty = -0.2
+				air_weather_penalty = -0.15
+				air_accidents_factor = -0.15
+				experience_gain_air_factor = 0.15
+				naval_strike_attack_factor = 0.05
+				naval_strike_targetting_factor = 0.05
+				naval_strike_agility_factor = 0.05
+				max_command_power = 40
+				base_fuel_gain = 2700
+			}
+		}
+
+		german_fuel = {
+			name = "German Fuel"
+            picture = generic_stockpile_fuel
+            modifier = {
+                base_fuel_gain = 1000
+            }
+        }
+
+		italian_fuel = {
+			name = "Italian Fuel"
+            picture = generic_stockpile_fuel
+            modifier = {
+                base_fuel_gain = 600
+            }
+        }
+
+		axis_dispersed_fuel = {
+			name = "Axis Dispersed Fuel"
+            picture = generic_stockpile_fuel
+            modifier = {
+                base_fuel_gain = 160
+            }
+        }
+
+		POR_is_ai = { # Unused
 			name = "Portuguese Integrated Economy"
 			allowed = {
 				always = no
@@ -73,7 +119,7 @@ ideas = {
 			}
 		}
 
-		POR_and_SPA_is_ai = {
+		POR_and_SPA_is_ai = { # Unused
 			name = "Portuguese Integrated Economy"
 			allowed = {
 				always = no
@@ -95,7 +141,7 @@ ideas = {
 			}
 		}
 		
-		ARG_is_ai = {
+		ARG_is_ai = { # Unused
 			name = "Argentinian Integrated Economy"
 			allowed = {
 				always = no
@@ -122,7 +168,7 @@ ideas = {
 			}
 		}
 
-		ARG_and_BRA_is_ai = {
+		ARG_and_BRA_is_ai = { # Unused
 			name = "Argentinian Integrated Economy"
 			allowed = {
 				always = no

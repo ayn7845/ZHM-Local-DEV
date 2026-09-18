@@ -1012,7 +1012,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { brilliant_strategist skilled_staffer infantry_officer infantry_leader organizer naval_invader commando  trickster trait_engineer trait_mountaineer jungle_rat }
+			traits = { brilliant_strategist skilled_staffer infantry_officer infantry_leader organizer naval_invader commando  trickster trait_engineer  jungle_rat }
 			skill = 6
 			attack_skill = 4
 			defense_skill = 5
@@ -1762,7 +1762,7 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { career_officer infantry_officer commando trait_engineer infantry_leader naval_invader skilled_staffer ranger hill_fighter trait_mountaineer }
+			traits = { career_officer infantry_officer commando trait_engineer infantry_leader naval_invader skilled_staffer hill_fighter  }
 			skill = 7
 			attack_skill = 5
 			defense_skill = 5
@@ -6007,7 +6007,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { JAP_communist_sympathizer trait_mountaineer trait_cautious }
+			traits = { JAP_communist_sympathizer  trait_cautious }
 			skill = 2
 			attack_skill = 2
 			defense_skill = 2

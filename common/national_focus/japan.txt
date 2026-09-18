@@ -26325,7 +26325,12 @@ allow_branch = {
 				limit = {
 					has_character = JAP_hisaichi_terauchi
 					JAP_hisaichi_terauchi = {
-						is_field_marshal = no
+						AND = { 
+							is_field_marshal = no
+							NOT = { 
+								has_trait = offensive_doctrine
+							}	
+						}
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -26811,7 +26816,12 @@ allow_branch = {
 				limit = {
 					has_character = JAP_shunroku_hata
 					JAP_shunroku_hata = {
-						is_field_marshal = no
+						AND = { 
+							is_field_marshal = no
+							NOT = { 
+								has_trait = offensive_doctrine
+							}	
+						}
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt

@@ -33,7 +33,10 @@ on_actions = {
 			Root = {
 				every_army_leader = {
 					limit = { is_exiled_leader_from = Root }
-					remove_unit_leader_trait = exiled_leader
+					if = {
+						limit = { has_trait = exiled_leader }
+						remove_unit_leader_trait = exiled_leader
+					}
 					remove_exile_tag = yes
 				}
 			}
@@ -43,7 +46,10 @@ on_actions = {
 	on_unit_leader_created = {
 		effect = {
 			if = {
-				limit = { is_exiled_leader = yes }
+				limit = {
+					is_exiled_leader = yes
+					NOT = { has_trait = exiled_leader }
+				}
 				From.From = { save_event_target_as = exile_nation }
 				add_unit_leader_trait = exiled_leader
 				

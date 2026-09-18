@@ -27,9 +27,7 @@ state={
 		victory_points = { #Viipuri
 			9206 3 
 		}
-		1936.1.1.13 = {
-			owner = WST
-		}
+		
 
 	}
 

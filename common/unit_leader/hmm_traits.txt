@@ -79,4 +79,21 @@ leader_traits = {
         }
 	}
 
+	no_leader_promotion_trait = { # no abusing LS/FA gens ): SADGE
+		type = land
+		trait_type = basic_terrain_trait
+		
+		gain_xp = {
+			always = no # not gainable
+		}
+
+		non_shared_modifier = { 
+			promote_cost_factor = 5000
+		}
+		
+		new_commander_weight = {
+            factor = 0
+        }
+	}
+
 }

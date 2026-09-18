@@ -28,29 +28,57 @@ country_event = {
 	option = {
 		name = "Okay"
 	}
+	
 }
 
-country_event = {
+news_event = { 
 	id = zhm.3
-	title = "Scraping the Barrel Raj"
-	desc = "Don't become independent or you will lose Australia as a Personal Union."
+	title = "Host Changed German Consumer Goods"
+	desc = zhm.3.b
     picture = GFX_report_event_generic_peaceful_annexation
-	fire_for_sender = yes
-	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
 		name = "Okay"
-
-		hidden_effect = { 
-			every_state = { 
-				limit = {
-					is_core_of = WST 
-					is_owned_by = RAJ # have to because of the switching party BS!
-				}
-				set_compliance = 70
-			}
-		}
 	}
+}
+
+news_event = { 
+	id = zhm.4
+	title = "Host Changed German Consumer Goods"
+	desc = zhm.4.b
+    picture = GFX_report_event_generic_peaceful_annexation
 	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.5
+	title = "Host Restored UK Navy"
+	desc = zhm.5.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.6
+	title = "Host Restored German Navy"
+	desc = zhm.6.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
 }

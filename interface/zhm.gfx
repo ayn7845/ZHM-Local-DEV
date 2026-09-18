@@ -4,8 +4,5 @@ spriteTypes = {
 		name = "GFX_no_asia_bookmark"
 		texturefile = "gfx/interface/no_asia.dds"
 	}
-	spriteType = {
-        name = "GFX_select_date_scrap"
-        texturefile = "gfx/interface/select_date_scrap.dds"
-    }
+	
 }

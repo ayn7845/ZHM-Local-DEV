@@ -2826,37 +2826,37 @@ SOV_clear_hidden_targeted_ns_effect = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_ENG
 		}
-		add_ideas = SOV_targeted_bonus_against_ENG
+		remove_ideas = SOV_targeted_bonus_against_ENG
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_FRA
 		}
-		add_ideas = SOV_targeted_bonus_against_FRA
+		remove_ideas = SOV_targeted_bonus_against_FRA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_GER
 		}
-		add_ideas = SOV_targeted_bonus_against_GER
+		remove_ideas = SOV_targeted_bonus_against_GER
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_ITA
 		}
-		add_ideas = SOV_targeted_bonus_against_ITA
+		remove_ideas = SOV_targeted_bonus_against_ITA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_USA
 		}
-		add_ideas = SOV_targeted_bonus_against_USA
+		remove_ideas = SOV_targeted_bonus_against_USA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_JAP
 		}
-		add_ideas = SOV_targeted_bonus_against_JAP
+		remove_ideas = SOV_targeted_bonus_against_JAP
 	}
 }
 

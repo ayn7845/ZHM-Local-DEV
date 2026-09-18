@@ -1437,6 +1437,7 @@
 				every_country = {
 					limit = {
 						has_idea = AST_faction_training_initiative_idea_2
+							NOT = { has_idea = AST_faction_training_initiative_idea_1 }
 					}
 					swap_ideas = {
 						remove_idea = AST_faction_training_initiative_idea_2
@@ -1519,13 +1520,19 @@
 						}
 					}
 					FROM = {
-						add_ideas = AST_faction_training_initiative_idea_1
+						if = {
+							limit = { NOT = { has_idea = AST_faction_training_initiative_idea_1 } }
+							add_ideas = AST_faction_training_initiative_idea_1
+						}
 					}
 				}
 
 				ELSE = {
 					FROM = {
-						add_ideas = AST_faction_training_initiative_idea_2
+						if = {
+							limit = { NOT = { has_idea = AST_faction_training_initiative_idea_2 } }
+							add_ideas = AST_faction_training_initiative_idea_2
+						}
 					}
 				}	
 			}
@@ -1551,6 +1558,7 @@
 				every_country = {
 					limit = {
 						has_idea = AST_faction_training_initiative_idea_1
+						NOT = { has_idea = AST_faction_training_initiative_idea_2 }
 					}
 					swap_ideas = {
 						remove_idea = AST_faction_training_initiative_idea_1
@@ -1647,13 +1655,19 @@
 						}
 					}
 					FROM = {
-						add_ideas = AST_faction_training_initiative_idea_1
+						if = {
+							limit = { NOT = { has_idea = AST_faction_training_initiative_idea_1 } }
+							add_ideas = AST_faction_training_initiative_idea_1
+						}
 					}
 				}
 
 				ELSE = {
 					FROM = {
-						add_ideas = AST_faction_training_initiative_idea_2
+						if = {
+							limit = { NOT = { has_idea = AST_faction_training_initiative_idea_2 } }
+							add_ideas = AST_faction_training_initiative_idea_2
+						}
 					}
 				}	
 			}
@@ -1679,6 +1693,7 @@
 				every_country = {
 					limit = {
 						has_idea = AST_faction_training_initiative_idea_1
+						NOT = { has_idea = AST_faction_training_initiative_idea_2 }
 					}
 					swap_ideas = {
 						remove_idea = AST_faction_training_initiative_idea_1
