@@ -29,7 +29,13 @@ recruit_character = LUX_joseph_bech
 recruit_character = LUX_charles_marx
 recruit_character = LUX_damian_kratzenberg
 
-set_research_slots = 0
+
+
+# 1939 Scenario
+1939.1.1 = { 
+
+}
+
 set_politics = {
 	ruling_party = democratic
 	last_election = "1934.6.3"
@@ -44,3 +50,13 @@ set_popularities = {
 	communism = 3
 }
 
+1939.1.1 = {
+
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1937.6.6"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+
+}
