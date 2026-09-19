@@ -7367,45 +7367,11 @@ focus_tree = {
 		icon = GFX_focus_HUN_the_turul_association
 		prerequisite = { focus = wuw_HUN_absolute_rule_of_the_national_unity_party focus = wuw_HUN_government_of_national_unity focus = wuw_HUN_spur_on_the_trianon_trauma focus = wuw_HUN_elect_a_fascist_king }
 		#mutually_exclusive = { focus = wuw_HUN_government_of_national_unity }
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = wuw_HUN_government_of_national_unity
 
-		offset = {
-			x = -8
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = wuw_HUN_abide_by_the_little_ententes_stipulations
-			}
-		}
-
-		offset = {
-			x = -4
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = wuw_HUN_elect_a_fascist_king
-			}
-		}
-
-		offset = {
-			x = 2
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = wuw_HUN_strengthen_horthys_reign
-			}
-		}
+		
 
 		cost = 5
 
