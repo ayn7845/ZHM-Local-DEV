@@ -10045,10 +10045,10 @@ focus = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = RAJ_GOE_tara_singh
+		#custom_effect_tooltip = available_political_advisor
+		#show_ideas_tooltip = RAJ_GOE_tara_singh
 
-		custom_effect_tooltip = generic_skip_one_line_tt
+		#custom_effect_tooltip = generic_skip_one_line_tt
 
 		show_unit_leaders_tooltip = RAJ_GOE_ishar_singh
 		show_unit_leaders_tooltip = RAJ_GOE_parkash_singh

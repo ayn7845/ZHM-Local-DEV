@@ -1877,16 +1877,18 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
-				OR = {
-					has_completed_focus = RAJ_the_punjab_accord
-					has_completed_focus = RAJ_sikh_religious_guarantees
-				}
+				always = no
+				#OR = {
+				#	has_completed_focus = RAJ_the_punjab_accord
+				#	has_completed_focus = RAJ_sikh_religious_guarantees
+				#}
 			}
 			available = {
-				OR = {
-					has_completed_focus = RAJ_the_punjab_accord
-					has_completed_focus = RAJ_sikh_religious_guarantees
-				}
+				always = no
+				#OR = {
+				#	has_completed_focus = RAJ_the_punjab_accord
+				#	has_completed_focus = RAJ_sikh_religious_guarantees
+				#}
 			}
 			traits = {
 				sikh_activist 
