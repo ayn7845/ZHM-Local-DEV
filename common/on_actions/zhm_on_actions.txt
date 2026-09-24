@@ -118,14 +118,20 @@ on_actions = {
 					}
 				}
 				FRA = { # FRENCH GENS
-					FRA_jean_de_lattre_de_tassigny = {
+					FRA_jean_de_lattre_de_tassigny = { # FIELD MARSHAL
 						#add_skill_level = 1
 						#add_attack = -2
 						#add_planning = -2
 
+						promote_leader = yes
+						
 						if = { 
 							limit = { NOT = { has_trait = panzer_leader } }
 							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = ranger } }
+							add_trait = { trait = ranger }
 						}
 					}
 					#FRA_alphonse_juin = { 
