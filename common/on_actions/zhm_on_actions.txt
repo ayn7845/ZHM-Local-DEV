@@ -240,6 +240,38 @@ on_actions = {
 						}
 					}
 				}
+				CAN = {
+
+					CAN_charles_foulkes = { 
+						if = { 
+							limit = { NOT = { has_trait = infantry_leader } }
+							add_trait = { trait = infantry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
+					}
+					
+					CAN_bert_hoffmeister = {
+						if = { 
+							limit = { NOT = { has_trait = panzer_leader } }
+							add_trait = { trait = panzer_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = cavalry_leader } }
+							add_trait = { trait = cavalry_leader }
+						}
+						if = { 
+							limit = { NOT = { has_trait = pre_grind } }
+							add_trait = { trait = pre_grind }
+						}
+					}
+				}
 			}
 
 			if = { 
@@ -253,6 +285,21 @@ on_actions = {
 					if = {
 						limit = { NOT = { has_idea = uk_ac_idea_2 } }
 						add_ideas = uk_ac_idea_2
+					}
+				}
+			}
+			
+			if = { 
+				limit = { 
+					has_game_rule = { 
+						rule = allies_ac_rule
+						option = canada_ac
+					}
+				}
+				CAN = { 
+					if = {
+						limit = { NOT = { has_idea = default_ac_idea } }
+						add_ideas = default_ac_idea
 					}
 				}
 			}

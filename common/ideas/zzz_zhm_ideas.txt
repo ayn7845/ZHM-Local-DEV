@@ -39,6 +39,15 @@ ideas = {
 			}
 		}
 
+		default_ac_idea = { 
+			name = "AC idea"
+			picture = generic_air_fighter
+			removal_cost = -1
+			modifier = { 
+				air_fuel_consumption_factor = -0.5
+			}
+		}
+		
 		uk_ac_idea_1 = { # tuned down version if a UK coop joins
 			name = "AC Spirit" 
 			picture = generic_air_fighter
@@ -48,6 +57,7 @@ ideas = {
 				air_ace_generation_chance_factor = 0.10
 				max_command_power = 40
 				base_fuel_gain = 2700
+				air_fuel_consumption_factor = -0.5
 			}
 		}
 
@@ -67,6 +77,7 @@ ideas = {
 				naval_strike_agility_factor = 0.05
 				max_command_power = 40
 				base_fuel_gain = 2700
+				air_fuel_consumption_factor = -0.5
 			}
 		}
 
