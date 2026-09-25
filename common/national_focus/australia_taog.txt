@@ -1306,7 +1306,10 @@ focus_tree = {
 					compare = greater_than_or_equals
 				}
 			}
-			has_country_leader = { ruling_only = yes character = AST_john_curtin }
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_john_curtin }
+				has_country_flag = AST_has_natunity_flag
+			}	
 		}
 
 		bypass = {
@@ -2921,9 +2924,10 @@ focus_tree = {
 					compare = greater_than_or_equals
 				}
 			}
-
-			has_country_leader = { ruling_only = yes character = AST_robert_menzies }
-
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_robert_menzies }
+				has_country_flag = AST_has_natunity_flag
+			}
 			NOT = {
 				is_subject_of = ENG
 			}
