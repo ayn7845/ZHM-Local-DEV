@@ -6,3 +6,12 @@ ZHM_host = {
 		has_country_flag = host
 	}
 }
+
+easy_LL = {
+	icon = GFX_decision_categ
+
+	allowed = {
+		always = yes
+	}
+	priority = 100
+}

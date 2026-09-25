@@ -111,6 +111,401 @@ operations = {
 	}
 }
 
+easy_LL = {
+
+	start_LL_eng = {
+
+		name = "Start Lend lease to United Kingdom"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_eng }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = uk_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = ENG } }
+
+		available = {
+			date > 1936.1.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_eng
+		}
+	}
+
+    active_LL_eng_1 = {
+
+		name = "Sending Air to United Kingdom 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_eng
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_eng 
+			NOT = { has_active_mission = active_LL_eng_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = ENG }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = ENG }	
+			}
+			activate_mission = active_LL_eng_2
+		}			
+    }
+
+	active_LL_eng_2 = {
+
+		name = "Sending Air to United Kingdom 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_eng
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = ENG }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = ENG }	
+			}
+			activate_mission = active_LL_eng_1
+		}			
+    }
+
+	close_LL_eng = {
+
+		name = "Close Air Lend Lease to United Kingdom"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_eng
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_eng
+		}
+	}
+
+
+
+##################################################################################################################
+##################################################################################################################
+##################################################################################################################
+
+
+	start_LL_CAN = {
+
+		name = "Start Lend lease to Canada"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_CAN }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = canada_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = CAN } }
+
+		available = {
+			date > 1936.1.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_CAN
+		}
+	}
+
+    active_LL_CAN_1 = {
+
+		name = "Sending Air to Canada 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_CAN
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_CAN 
+			NOT = { has_active_mission = active_LL_CAN_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = CAN }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = CAN }	
+			}
+			activate_mission = active_LL_CAN_2
+		}			
+    }
+
+	active_LL_CAN_2 = {
+
+		name = "Sending Air to Canada 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_CAN
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = CAN }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = CAN }	
+			}
+			activate_mission = active_LL_CAN_1
+		}			
+    }
+
+	close_LL_CAN = {
+
+		name = "Close Air Lend Lease to Canada"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_CAN
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_CAN
+		}
+	}
+
+
+##################################################################################################################
+##################################################################################################################
+##################################################################################################################
+
+
+	start_LL_BRA = {
+
+		name = "Start Lend lease to Brazil"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_BRA }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = brazil_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = BRA } }
+
+		available = {
+			date > 1936.1.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_BRA
+		}
+	}
+
+    active_LL_BRA_1 = {
+
+		name = "Sending Air to Brazil 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_BRA
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_BRA 
+			NOT = { has_active_mission = active_LL_BRA_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = BRA }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = BRA }	
+			}
+			activate_mission = active_LL_BRA_2
+		}			
+    }
+
+	active_LL_BRA_2 = {
+
+		name = "Sending Air to Brazil 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_BRA
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = BRA }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = BRA }	
+			}
+			activate_mission = active_LL_BRA_1
+		}			
+    }
+
+	close_LL_BRA = {
+
+		name = "Close Air Lend Lease to Brazil"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_BRA
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_BRA
+		}
+	}
+
+}	
+
 ZHM_host = { 
 
 	ZHM_scw_nat_victory = { # For the moron that can't win SCW
