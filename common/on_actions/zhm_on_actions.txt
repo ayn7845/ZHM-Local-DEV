@@ -346,6 +346,27 @@ on_actions = {
 				}
 			}		
 
+			if = { # If spain is ai & spain sim is on
+				limit = {
+					AND = { 
+						NOT = { 
+							has_game_rule = {
+								rule = spanish_production
+								option = off
+							}
+						}
+						has_game_rule = { 
+							rule = axis_fuel_spirit
+							option = on
+						}
+					}
+				}
+				BUL = { 
+					add_ideas = italian_fuel
+				}
+			}
+
+
 			if = { 
 				limit = { 
 					has_game_rule = {
@@ -394,7 +415,7 @@ on_actions = {
 					}
 				}
 			}
-
+			
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##  ##      ##  
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##  ##      ##  
       		  ##    ##      ##  ####  ####        ##          ##          ##      ##  ####    ##  ##      ##  ####  ####    ##  ##    

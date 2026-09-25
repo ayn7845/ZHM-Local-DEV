@@ -103,6 +103,12 @@ ideas = {
             modifier = {
                 base_fuel_gain = 160
             }
+			cancel = { 
+				OR = { 
+					has_idea = italian_fuel
+					has_idea = german_fuel
+				}
+			}
         }
 
 		POR_is_ai = { # Unused
