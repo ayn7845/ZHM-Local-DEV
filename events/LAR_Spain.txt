@@ -4495,7 +4495,7 @@ country_event = {
 	
 	option = { # Option for Nationalists - Franco
 		name = lar_spain.2.a
-		trigger = { has_completed_focus = SPA_con_paquito }
+		trigger = { has_completed_focus = SPA_a_great_spain }
 		ai_chance = {
 			base = 40
 			modifier = {
