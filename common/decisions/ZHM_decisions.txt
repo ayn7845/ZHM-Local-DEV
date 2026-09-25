@@ -135,7 +135,7 @@ easy_LL = {
 		target_trigger = { FROM = { original_tag = ENG } }
 
 		available = {
-			date > 1939.9.1 # Danzig or War
+			date > 1940.5.1 # Danzig or War
 			
 		}
 
@@ -268,7 +268,7 @@ easy_LL = {
 		target_trigger = { FROM = { original_tag = CAN } }
 
 		available = {
-			date > 1939.9.1 # Danzig or War
+			date > 1940.5.1 # Danzig or War
 			
 		}
 
@@ -400,7 +400,7 @@ easy_LL = {
 		target_trigger = { FROM = { original_tag = BRA } }
 
 		available = {
-			date > 1939.9.1 # Danzig or War
+			date > 1940.5.1 # Danzig or War
 			
 		}
 

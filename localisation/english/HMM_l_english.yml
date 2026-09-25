@@ -29,7 +29,7 @@
  ZHM_baltic_claims:0 "The §YSoviet Union§W gains claim on all §YBaltic States§W"
  ZHM_baltic_decisions:0 "Unlocks §Ydecisions§W to annex the §YBaltic States§W"
 
- easy_LL_activation:0 "Will start an Cycling §GLend Lease§W to §Y[FROM.GetNameDefCap]§W"
+ easy_LL_activation:0 "Will start a Cycling §GLend Lease§W to §Y[FROM.GetNameDefCap]§W"
 
   # DECISION CATEGORIES #
  ZHM_host:0 "Host Decisions"
