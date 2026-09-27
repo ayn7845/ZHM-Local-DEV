@@ -171,10 +171,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_national_housing_act_IC
-				}
+			276 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
@@ -200,14 +197,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
-				}
+			276 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
@@ -305,14 +295,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-				}
-
+			468 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -320,14 +303,7 @@ focus_tree = {
 				}
 			}
 
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-				}
-
+			682 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1615,7 +1591,6 @@ focus_tree = {
 
 		available = {
 			num_of_factories > 50
-			is_subject = no
 		}
 		
 		bypass = {
@@ -2207,18 +2182,6 @@ focus_tree = {
 				bonus = 1.0
 				uses = 1
 				category = motorized_equipment
-				technology = tech_field_hospital
-				technology = tech_field_hospital2
-				technology = tech_field_hospital3
-				technology = tech_field_hospital4
-				technology = tech_logistics_company
-				technology = tech_logistics_company2
-				technology = tech_logistics_company3
-				technology = tech_logistics_company4
-				technology = tech_signal_company
-				technology = tech_signal_company2
-				technology = tech_signal_company3
-				technology = tech_signal_company4
 			}
 		}
 	}
