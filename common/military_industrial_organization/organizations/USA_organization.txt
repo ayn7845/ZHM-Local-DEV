@@ -291,7 +291,7 @@ USA_army_ordnance_department_organization = {
 
 USA_detroit_arsenal_organization = {
 	name = detroit_arsenal
-	include = generic_tank_organization
+	include = generic_infantry_tank_organization
 	icon = GFX_idea_generic_industrial_concern_1
 	allowed = {	
 		OR = {
@@ -358,122 +358,6 @@ USA_detroit_arsenal_organization = {
 			production_efficiency_gain_factor = 0.1
 		}
 	}
-
-	add_trait = { 
-		token = USA_mio_trait_arsenal_of_democracy
-		name = USA_mio_trait_arsenal_of_democracy
-		icon = GFX_generic_mio_department_icon_tank_medium_tank_line_efficiency
-		special_trait_background = yes
-
-		visible = {
-			FROM = { 
-				original_tag = USA
-			}
-		}
-
-		position = { x=-1 y=1 }
-		relative_position_id = generic_mio_trait_standardized_components
-
-		all_parents = { generic_mio_trait_standardized_components }
-		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-		}
-	}
-
-	add_trait = {
-		token = PHI_mio_trait_ethanol_fuel_adaptations
-		name = PHI_mio_trait_ethanol_fuel_adaptations
-		icon = GFX_generic_mio_trait_icon_fuel_consumption
-		special_trait_background = yes
-
-		position = { x = 9 y = 0 }  
-		
-		visible = {
-			FROM = { original_tag = PHI }
-		}
-
-		available = {
-		}
-
-		on_complete = {
-		}
-
-		equipment_bonus = {
-			fuel_consumption = -0.05
-		}
-
-		ai_will_do = {
-			base = 2
-		}
-	}
-
-	add_trait = {
-		token = PHI_mio_trait_coconut_fuel_adaptations
-		name = PHI_mio_trait_coconut_fuel_adaptations
-		icon = GFX_generic_mio_trait_icon_fuel_consumption
-		special_trait_background = yes
-
-		position = { x = 0 y = 1 }  
-		
-		visible = {
-			FROM = { original_tag = PHI }
-		}
-
-		available = {
-			FROM = {
-				PHI_vicente_lava = {
-					is_hired_as_advisor = yes
-				}
-			}
-		}
-
-		relative_position_id = PHI_mio_trait_ethanol_fuel_adaptations
-		any_parent = { PHI_mio_trait_ethanol_fuel_adaptations }
-
-		on_complete = {
-		}
-
-		equipment_bonus = {
-			fuel_consumption = -0.10
-			reliability = -0.05
-		}
-
-		ai_will_do = {
-			base = 2
-		}
-	}
-
-	add_trait = {
-		token = PHI_mio_trait_widened_tracks
-		name = PHI_mio_trait_widened_tracks
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		special_trait_background = yes
-
-		position = { x = 0 y = 1 }  
-		
-		visible = {
-			FROM = { original_tag = PHI }
-		}
-
-		available = {
-		}
-
-		relative_position_id = generic_mio_trait_improved_tracks
-		any_parent = { generic_mio_trait_improved_tracks }
-
-		on_complete = {
-		}
-
-		equipment_bonus = {
-			reliability = 0.07
-			maximum_speed = 0.03
-		}
-
-		ai_will_do = {
-			base = 2
-		}
-	}
-
 }
 
 USA_tank_destroyer_board_organization = {
