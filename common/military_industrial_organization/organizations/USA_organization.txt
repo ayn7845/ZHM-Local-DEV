@@ -307,13 +307,6 @@ USA_detroit_arsenal_organization = {
 			FROM = { NOT = { has_war_with = USA } }
 		}
 
-		IF = {
-			limit = {
-				FROM = { original_tag = USA } 
-			}
-			FROM = { has_completed_focus = USA_main_battle_tanks }
-		}
-
 		if = {
 			limit = {
 				FROM = {
@@ -341,6 +334,44 @@ USA_detroit_arsenal_organization = {
 			limit = {
 				FROM = { original_tag = PHI } 
 			}
+			USA = { has_completed_focus = USA_main_battle_tanks }
+		}
+	}
+
+	override_trait = {
+		token = generic_mio_trait_single_engine
+
+		position = { x=0 y=0 }
+
+		mutually_exclusive = { generic_mio_trait_dual_engine_redundancy }
+		
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+
+		available = {
+			USA = { has_completed_focus = USA_main_battle_tanks }
+		}
+	}
+
+
+
+	override_trait = {
+		token = generic_mio_trait_dual_engine_redundancy
+
+		position = { x=2 y=0 }
+
+		available = {
+			USA = { has_completed_focus = USA_main_battle_tanks }
+		}
+	}
+
+	override_trait = {
+		token = generic_mio_trait_adaptable_turret_ring
+
+		position = { x=-3 y=1 }
+		
+		available = {
 			USA = { has_completed_focus = USA_main_battle_tanks }
 		}
 	}
