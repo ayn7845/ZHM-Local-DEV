@@ -5212,6 +5212,9 @@ focus_tree = {
 				show_mio_tooltip = USA_detroit_arsenal_organization
 				mio:USA_detroit_arsenal_organization = {
 					add_mio_size = 2
+					unlock_mio_trait_tooltip = generic_mio_trait_single_engine
+					unlock_mio_trait_tooltip = generic_mio_trait_dual_engine_redundancy
+					unlock_mio_trait_tooltip = generic_mio_trait_adaptable_turret_ring
 				}
 			}
 			ELSE = {
