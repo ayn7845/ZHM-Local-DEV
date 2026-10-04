@@ -865,4 +865,32 @@ ZHM_host = {
 			}
 		}
 
+		ROM_barb_wall_fix = { 
+			name = "Fix Romanian Barb Wall"
+			icon = GFX_decision_category_generic
+			fire_only_once = no
+			cost = 0 
+
+			
+			days_remove = 1
+
+			available = { 
+				date > 1941.4.1
+				ROM = { 
+					NOT = { 
+						has_war_with = SOV
+					}
+				}
+			}
+			
+			complete_effect = { 
+				#news_event = { 
+				#	id = zhm.5
+				#} 
+				ROM = { 
+					load_oob = "ZHM_ROM_barb_fix"
+				}
+			}
+		}
+
 	}
