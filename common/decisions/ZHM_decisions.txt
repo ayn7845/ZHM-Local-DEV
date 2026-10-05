@@ -884,9 +884,9 @@ ZHM_host = {
 			}
 			
 			complete_effect = { 
-				#news_event = { 
-				#	id = zhm.5
-				#} 
+				news_event = { 
+					id = zhm.7
+				} 
 				ROM = { 
 					load_oob = "ZHM_ROM_barb_fix"
 				}
@@ -912,9 +912,9 @@ ZHM_host = {
 			}
 			
 			complete_effect = { 
-				#news_event = { 
-				#	id = zhm.5
-				#} 
+				news_event = { 
+					id = zhm.8
+				} 
 				HUN = { 
 					load_oob = "ZHM_HUN_barb_fix"
 				}

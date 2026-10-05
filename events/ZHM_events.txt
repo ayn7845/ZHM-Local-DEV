@@ -82,3 +82,29 @@ news_event = {
 		name = "Okay"
 	}
 }
+
+news_event = { 
+	id = zhm.7
+	title = "Host Fixed Romanian Army"
+	desc = zhm.7.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
+
+news_event = { 
+	id = zhm.8
+	title = "Host Fixed Hungarian Army"
+	desc = zhm.8.b
+    picture = GFX_report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Okay"
+	}
+}
