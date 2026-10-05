@@ -10970,17 +10970,29 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			kill_country_leader = yes
-			create_country_leader = {
-				name = "Military Junta"
-				desc = "POLITICS_MILITARY_JUNTA_DESC"
-				picture = "GFX_portrait_SPA_military_junta"
-				expire = "1965.1.1"
-				ideology = despotism
-				traits = {
-					divided_interests
+			if = { 
+				limit = { 
+					NOT = { 
+						has_country_leader = {
+							character = SPA_francisco_franco
+							ruling_only = yes
+						}
+					}
+				}
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Military Junta"
+					desc = "POLITICS_MILITARY_JUNTA_DESC"
+					picture = "GFX_portrait_SPA_military_junta"
+					expire = "1965.1.1"
+					ideology = despotism
+					
+					traits = {
+						divided_interests
+					}
 				}
 			}
+			
 		}
 	}
 	

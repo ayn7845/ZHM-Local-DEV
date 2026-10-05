@@ -1,5 +1,29 @@
 ideas = { 
     country = { 
+
+		zhm_scw_idea = {
+			name = "Spanish Civil War Early End"
+
+			removal_cost = -1
+			picture = SPR_nationalist_remnants
+
+			cancel = { 
+				date > 1938.1.1
+			}
+			modifier = {
+				political_power_gain = -1
+			}
+		}
+
+		zhm_temp_ws = {
+			name = "Temporary War Support"
+			removal_cost = -1
+			picture = MEX_politicised_army
+			modifier = {
+				add_war_support = 0.10
+			}
+		}
+
         zhm_manpower = {
 			name = "Colonial Manpower"
 			removal_cost = -1

@@ -35,6 +35,8 @@
  ZHM_host:0 "Host Decisions"
  easy_LL:0 "Easy Lend lease"
 
+ zhm_scw_idea_desc:0 "Gets §Rremoved§W §YJan 1st, 1938§W \n Added to prevent §YSpain§W from continuing the focuses it would not normally be able to do"
+
  # ZHM EVENTS
   #zhm.1.a:0 "Annex Portugal?" # Title?
   zhm.1.b:0 "You received 4 Civilian Factories because Portugal is not a player."

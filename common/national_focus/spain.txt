@@ -866,6 +866,9 @@ focus_tree = {
 	focus = {
 		id = SPA_utilize_the_intellectuals
 		available = {
+			NOT = { 
+				has_idea = zhm_scw_idea
+			}
 		}
 		bypass = {
 		}
@@ -4638,6 +4641,9 @@ focus_tree = {
 		id = SPA_the_national_and_popular_army_of_spain
 		available = {
 			has_global_flag = scw_over
+			NOT = { 
+				has_idea = zhm_scw_idea
+			}
 		}
 		bypass = {
 		}
@@ -4932,7 +4938,9 @@ focus_tree = {
 		id = SPA_join_the_axis
 		available = {
 			has_global_flag = scw_over
-			
+			NOT = { 
+				has_idea = zhm_scw_idea
+			}
 		}
 		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
 
@@ -5305,6 +5313,9 @@ focus_tree = {
 		id = SPA_national_recovery
 		available = {
 			has_global_flag = scw_over
+			NOT = { 
+				has_idea = zhm_scw_idea
+			}
 		}
 		bypass = {
 		}
@@ -6166,6 +6177,9 @@ focus_tree = {
 		id = SPA_adopt_the_26_points
 		available = {
 			has_global_flag = scw_over
+			NOT = { 
+				has_idea = zhm_scw_idea
+			}
 		}
 		bypass = {
 		}

@@ -657,6 +657,76 @@ ZHM_host = {
 				set_global_flag = nationalist_victory
 				set_global_flag = scw_over
 
+				add_ideas = zhm_scw_idea
+				
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				if = { 
+					limit = { 
+						date < 1936.8.1
+					}
+					army_experience = 200
+				}
+				else_if = { 
+					limit = { 
+						date < 1936.10.1
+					}
+					army_experience = 175
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.1.1
+					}
+					army_experience = 150
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.3.1
+					}
+					army_experience = 125
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.6.1
+					}
+					army_experience = 100
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.9.1
+					}
+					army_experience = 75
+				}
+				else_if = { 
+					limit = { 
+						date < 1938.1.1
+					}
+					army_experience = 50
+				}
+				else = { 
+					army_experience = 25
+				}
+				
+				every_state = { 
+					limit = { 
+						has_state_flag = SPR_sided_with_republicans_flag
+						NOT = { 
+							OR = { 
+								state = 792
+								state = 790
+								state = 171
+								state = 174
+								state = 788
+								state = 791
+								state = 176
+								state = 166
+								state = 172
+							}
+						}
+					}
+					remove_core_of = SPA
+					start_resistance = yes
+				}
 				
 			}
 		}
@@ -908,6 +978,9 @@ ZHM_host = {
 					NOT = { 
 						has_war_with = SOV
 					}
+				}
+				ROM = { 
+					exists = yes
 				}
 			}
 			
