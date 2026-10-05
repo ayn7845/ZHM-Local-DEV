@@ -62,6 +62,32 @@
 				send_equipment = { equipment = support_equipment amount = 1000000 target = WST }	
 			}
 
+		transfer_units_fraction = { # Cancels training queue
+			target = WST 
+			size = 1
+			#stockpile_ratio = 1
+			#army_ratio = 1
+			#navy_ratio = 1
+			#air_ratio = 1
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+		
+
+		add_equipment_to_stockpile = { 
+			type = convoy_1
+			amount = 100
+			producer = ROM
+		}
+
+		add_equipment_to_stockpile = { 
+			type = train_equipment_1
+			amount = 120 
+			producer = ROM
+		}
+
+		add_fuel = 10000
 
 		if = { 
 			limit = { NOT = { has_idea = logistical_focus_spirit } }

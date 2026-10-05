@@ -868,7 +868,7 @@ ZHM_host = {
 		ROM_barb_wall_fix = { 
 			name = "Fix Romanian Barb Wall"
 			icon = GFX_decision_category_generic
-			fire_only_once = no
+			fire_only_once = yes
 			cost = 0 
 
 			
@@ -889,6 +889,34 @@ ZHM_host = {
 				#} 
 				ROM = { 
 					load_oob = "ZHM_ROM_barb_fix"
+				}
+			}
+		}
+
+		HUN_barb_wall_fix = { 
+			name = "Fix Hungarian Barb Wall"
+			icon = GFX_decision_category_generic
+			fire_only_once = yes
+			cost = 0 
+
+			
+			days_remove = 1
+
+			available = { 
+				date > 1941.4.1
+				HUN = { 
+					NOT = { 
+						has_war_with = SOV
+					}
+				}
+			}
+			
+			complete_effect = { 
+				#news_event = { 
+				#	id = zhm.5
+				#} 
+				HUN = { 
+					load_oob = "ZHM_HUN_barb_fix"
 				}
 			}
 		}

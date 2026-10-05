@@ -1,0 +1,1207 @@
+﻿division_template = {
+	name = "HUN BARB TEMPLATE FIX"
+
+	division_names_group = HUN_Arm_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
+
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		infantry = { x = 2 y = 4 }
+
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		infantry = { x = 3 y = 3 }
+
+		infantry = { x = 4 y = 0 }
+		infantry = { x = 4 y = 1 }
+		infantry = { x = 4 y = 2 }
+		infantry = { x = 4 y = 3 }
+		
+	}
+
+	regimental_support = { #Various field pieces operated by the division at the regeniment level
+		anti_tank_battery = { x = 0 y = 0 }
+		fire_support = { x = 1 y = 0 }
+		fire_support = { x = 2 y = 0 }
+		fire_support = { x = 3 y = 0 }
+		fire_support = { x = 4 y = 0 }
+	}
+
+	support = {
+		rangers_support = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1  }
+		field_hospital ={ x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		#signal_company = { x = 0 y = 4  }
+	}
+}
+
+#####################
+	instant_effect = {
+
+		delete_unit = { scope = HUN }
+
+		 if = { # Reset their stockpile because they are fucking morons
+				send_equipment = { equipment = infantry_equipment amount = 1000000 target = WST }
+				send_equipment = { equipment = anti_tank_equipment amount = 1000000 target = WST }	
+				send_equipment = { equipment = support_equipment amount = 1000000 target = WST }	
+			}
+
+	
+		transfer_units_fraction = { # Cancels training queue
+			target = WST 
+			size = 1
+			#stockpile_ratio = 1
+			#army_ratio = 1
+			#navy_ratio = 1
+			#air_ratio = 1
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+		
+
+		add_equipment_to_stockpile = { 
+			type = convoy_1
+			amount = 100
+			producer = HUN
+		}
+
+		add_equipment_to_stockpile = { 
+			type = train_equipment_1
+			amount = 120 
+			producer = HUN
+		}
+
+		add_fuel = 10000
+
+		if = { 
+			limit = { NOT = { has_idea = logistical_focus_spirit } }
+			add_ideas = logistical_focus_spirit
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = grand_battleplan } }
+			set_grand_doctrine = grand_battleplan
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = special_forces_quality } }
+			set_grand_doctrine = special_forces_quality
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = mountaineers_1 } }
+			set_sub_doctrine = mountaineers_1
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = large_unit_tactics } }
+			set_sub_doctrine = large_unit_tactics
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = anti_tank_frontline } }
+			set_sub_doctrine = anti_tank_frontline
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = mission_type_tactics } }
+			set_sub_doctrine = mission_type_tactics
+		}
+
+		if = { 
+			limit = { NOT = { has_doctrine = armored_cavalry } }
+			set_sub_doctrine = armored_cavalry
+		}
+
+		add_mastery = { 
+			amount = 500
+		}
+
+		add_command_power = 200
+
+		if = { 
+			limit = { has_manpower < 100000 }
+			add_manpower = 350000
+		}
+		else_if = { 
+			limit = { has_manpower < 200000 }
+			add_manpower = 250000
+		}
+		else_if = { 
+			limit = { has_manpower < 300000 }
+			add_manpower = 150000
+		}
+		else = { 
+			limit = { has_manpower < 400000 }
+			add_manpower = 50000
+		}
+
+		if = { 
+			limit = { NOT = { has_completed_focus = wuw_HUN_invest_in_ludovica_academy } }
+			complete_national_focus = wuw_HUN_invest_in_ludovica_academy
+			activate_advisor = HUN_ferenc_szombathelyi
+		}
+		else = { 
+			if = {
+				limit = { HUN_ferenc_szombathelyi = { is_hired_as_advisor = no } }
+				activate_advisor = HUN_ferenc_szombathelyi
+			}
+		}
+
+		if = { 
+			limit = { NOT = { has_completed_focus = wuw_HUN_light_infantry_divisions_doctrine } }
+			complete_national_focus = wuw_HUN_light_infantry_divisions_doctrine
+			activate_advisor = HUN_jeno_ratz
+		}
+		else = { 
+			if = {
+				limit = { HUN_jeno_ratz = { is_hired_as_advisor = no } }
+				activate_advisor = HUN_jeno_ratz
+			}
+		}
+		
+		if = { 
+			limit = { NOT = { has_completed_focus = wuw_HUN_award_military_promotions } }
+			complete_national_focus = wuw_HUN_award_military_promotions
+			activate_advisor = HUN_dezso_laszlo
+		}
+		else = { 
+			if = {
+				limit = { HUN_dezso_laszlo = { is_hired_as_advisor = no } }
+				activate_advisor = HUN_dezso_laszlo
+			}
+		}
+
+		if = { 
+			limit = { NOT = { has_completed_focus = wuw_HUN_make_the_magyar_legiero_known } }
+			complete_national_focus = wuw_HUN_make_the_magyar_legiero_known
+			activate_advisor = HUN_laszlo_hary
+		}
+		else = { 
+			if = {
+				limit = { HUN_laszlo_hary = { is_hired_as_advisor = no } }
+				activate_advisor = HUN_laszlo_hary
+			}
+		}
+
+		if = {
+			limit = { HUN_sandor_magyarossy = { is_hired_as_advisor = no } }
+			activate_advisor = HUN_sandor_magyarossy
+		}
+		
+		if = { # Force SBR
+			limit = { NOT = { has_idea = service_by_requirement } }
+			add_ideas = service_by_requirement
+		}
+
+		if = { limit = { NOT = { has_tech = improved_infantry_weapons } }
+			set_technology = { improved_infantry_weapons = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = improved_infantry_weapons_2 } }
+			set_technology = { improved_infantry_weapons_2 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = advanced_infantry_weapons } }
+			set_technology =  { advanced_infantry_weapons = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = support_weapons } }
+			set_technology = { support_weapons = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = support_weapons2 } }
+			set_technology = { support_weapons2 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = tech_logistics_company } }
+			set_technology = { tech_logistics_company = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = tech_logistics_company2 } }
+			set_technology = { tech_logistics_company2 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = tech_logistics_company3 } }
+			set_technology = { tech_logistics_company3 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = interwar_antitank } }
+			set_technology = { interwar_antitank = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = antitank1 } }
+			set_technology = { antitank1 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = antitank2 } }
+			set_technology = { antitank2 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = antitank3 } }
+			set_technology = { antitank3 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = antitank4 } }
+			set_technology = { antitank4 = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = sp_advance_sabot_shells } }
+			set_technology = { sp_advance_sabot_shells = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = radio } }
+			set_technology = { radio = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = improved_radio } }
+			set_technology = { improved_radio = 1 }
+		}
+
+		if = { limit = { NOT = { has_tech = advanced_radio } }
+			set_technology = { advanced_radio = 1 }
+		}
+
+		create_equipment_variant = {
+			name = "HUN GUN2 FIX"
+			type = infantry_equipment_2
+			design_team = mio:HUN_femaru_fegyver_es_gepgyar_organization
+			parent_version = 0
+			#obsolete = no
+		}
+
+		create_equipment_variant = {
+			name = "HUN GUN3 FIX"
+			type = infantry_equipment_3
+			design_team = mio:HUN_femaru_fegyver_es_gepgyar_organization
+			parent_version = 0
+			#obsolete = no
+		}
+
+		if = { 
+			limit = { date < 1941.4.1 }
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_3
+				amount = 1
+				producer = HUN
+				variant_name = "HUN GUN3 FIX"
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = 1
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = anti_tank_equipment_2
+				amount = 1
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 100
+				producer = HUN
+			}
+		}
+		else_if = { 
+			limit = { date < 1941.5.1 }
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_3
+				amount = 5000
+				producer = HUN
+				variant_name = "HUN GUN3 FIX"
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = 13000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = anti_tank_equipment_2
+				amount = 400
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 300
+				producer = HUN
+			}
+		}
+		else_if = { 
+			limit = { date < 1941.6.1 }
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_3
+				amount = 15000
+				producer = HUN
+				variant_name = "HUN GUN3 FIX"
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = 14000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = anti_tank_equipment_2
+				amount = 600
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 500
+				producer = HUN
+			}
+		}
+		else = { 
+			limit = { date < 1941.7.1 }
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_3
+				amount = 23000
+				producer = HUN
+				variant_name = "HUN GUN3 FIX"
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = 15500
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = anti_tank_equipment_2
+				amount = 1200
+				producer = HUN
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 700
+				producer = HUN
+			}
+		}
+			
+	}	
+	units = { # half gun 2 half gun 3 divs
+
+
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9660
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_2 = { owner = HUN creator = HUN version_name = "HUN GUN2 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			} # 50
+
+
+			############ END GUn 2 ############
+			
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			}
+			division = {
+				name = "HUN BARB WALL"
+				location = 9690
+				division_template = "HUN BARB TEMPLATE FIX"
+				force_equipment_variants = { infantry_equipment_3 = { owner = HUN creator = HUN version_name = "HUN GUN3 FIX" } }
+				start_equipment_factor = 1
+				start_experience_factor = 0.30
+			} # 50
+
+
+			#### END GUn 3 DIVS ####
+			
+	}
