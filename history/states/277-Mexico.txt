@@ -17,6 +17,10 @@ state={
 			arms_factory = 2
 			industrial_complex = 4
 			air_base = 3
+
+			2008 = { 
+				land_facility = 1
+			}
 		}
 		add_core_of = MEX
 		victory_points = {

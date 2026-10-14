@@ -25,6 +25,10 @@ state = {
 				naval_base = 6
 			}
 
+			993 = { 
+				land_facility = 1
+			}
+			
 			1182 = {
 				landmark_tokyo_imperial_palace = {
 				    level = 1

@@ -24,6 +24,10 @@ state={
                     }
                 }
 			}
+			
+			5172 = { 
+				land_facility = 1
+			}
 		}
 		victory_points = {
 			10980 10
