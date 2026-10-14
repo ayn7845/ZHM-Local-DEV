@@ -706,7 +706,13 @@ siege_artillery = {
             defense = 0.1
         }
     }
-
+    self_propelled_super_heavy_artillery = { 
+        battalion_mult = {
+            category = category_army
+            soft_attack = 0.1
+            defense = 0.1
+        }
+    }
     equipment_bonus = {
         railway_gun_equipment = {
             railway_gun_attack = 0.25
