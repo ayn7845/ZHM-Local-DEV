@@ -307,8 +307,8 @@ characters={
 			}
 		}
 		field_marshal = {
-				traits = { career_officer brilliant_strategist panzer_leader infantry_leader cavalry_leader organizer }
-				skill = 6
+				traits = { career_officer brilliant_strategist panzer_leader organizer }
+				skill = 4
 				attack_skill = 3
 				defense_skill = 4
 				planning_skill = 3
@@ -1017,8 +1017,8 @@ characters={
 				}
 			}
 			corps_commander = {
-				traits = { urban_assault_specialist fortress_buster panzer_leader infantry_leader cavalry_leader commando }
-				skill = 6
+				traits = { fortress_buster panzer_leader infantry_leader cavalry_leader commando }
+				skill = 4
 				attack_skill = 4
 				defense_skill = 4
 				planning_skill = 4
