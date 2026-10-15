@@ -652,12 +652,12 @@ ZHM_host = {
 						SPA = { annex_country = { target = PREV transfer_troops = no } } 
 					}
 					country_event = { id = lar_news.1 }
+
+					add_ideas = zhm_scw_idea
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				set_global_flag = nationalist_victory
 				set_global_flag = scw_over
-
-				add_ideas = zhm_scw_idea
 				
 				custom_effect_tooltip = generic_skip_one_line_tt
 
