@@ -26,19 +26,19 @@ on_actions = {
 					}
 				} 
 				USA = { # USA 2x Panzer Leaders, 1 Infantry Expert, & Patton Calvary Leader
-					USA_dwight_d_eisenhower = {
+					#USA_dwight_d_eisenhower = {
 						#add_attack = 2
 
-						if = { 
-							limit = { NOT = { has_trait = panzer_leader } }
-							add_trait = { trait = panzer_leader }
-						}
-						if = { 
-							limit = { NOT = { has_trait = pre_grind } }
-							add_trait = { trait = pre_grind }
-						}
+						#if = { 
+						#	limit = { NOT = { has_trait = panzer_leader } }
+						#	add_trait = { trait = panzer_leader }
+						#}
+						#if = { 
+						#	limit = { NOT = { has_trait = pre_grind } }
+						#	add_trait = { trait = pre_grind }
+						#}
 						#add_unit_leader_trait = infantry_leader
-					}
+					#}
 					USA_george_s_patton = {
 						#add_planning = 1
 
@@ -141,20 +141,20 @@ on_actions = {
 					#}
 				}
 				ENG = {
-					ENG_bernard_montgomery = { 
-						if = { 
-							limit = { NOT = { has_trait = infantry_leader } }
-							add_trait = { trait = infantry_leader }
-						} 
-						if = { 
-							limit = { NOT = { has_trait = panzer_leader } }
-							add_trait = { trait = panzer_leader }
-						}
-						if = { 
-							limit = { NOT = { has_trait = pre_grind } }
-							add_trait = { trait = pre_grind }
-						}
-					}
+					#ENG_bernard_montgomery = { 
+						#if = { 
+						#	limit = { NOT = { has_trait = infantry_leader } }
+						#	add_trait = { trait = infantry_leader }
+						#} 
+						#if = { 
+						#	limit = { NOT = { has_trait = panzer_leader } }
+						#	add_trait = { trait = panzer_leader }
+						#}
+						#if = { 
+						#	limit = { NOT = { has_trait = pre_grind } }
+						#	add_trait = { trait = pre_grind }
+						#}
+					#}
 					ENG_jock_campbell = {
 						#add_skill_level = 1
 						#add_attack = 1
