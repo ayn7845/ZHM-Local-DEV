@@ -911,7 +911,7 @@ set_variable = { AST_citizen_army_spirit_army_non_core_attack_factor = -0.25 }
 set_variable = { AST_citizen_army_spirit_army_non_core_defence_factor = -0.25 }
 
 #Australian Military Forces
-set_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 }
+set_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.00 } # was 0.05
 set_variable = { AST_australian_military_forces_spirit_coordination_bonus = 0 }
 set_variable = { AST_australian_military_forces_spirit_army_org_regain = 0 }
 set_variable = { AST_australian_military_forces_spirit_army_defence_factor = 0 }
