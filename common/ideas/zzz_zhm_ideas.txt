@@ -20,7 +20,7 @@ ideas = {
 			removal_cost = -1
 			picture = MEX_politicised_army
 			modifier = {
-				add_war_support = 0.10
+				war_support_factor = 0.10
 			}
 		}
 
