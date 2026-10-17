@@ -109,7 +109,7 @@ ideas = {
 			name = "German Fuel"
             picture = generic_stockpile_fuel
             modifier = {
-                base_fuel_gain = 1000
+                base_fuel_gain = 1300
             }
         }
 
