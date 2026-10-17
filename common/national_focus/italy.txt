@@ -8919,7 +8919,7 @@ focus_tree = {
 		cost = 5
 
 		offset = {
-			x = 8
+			x = 0
 			y = 0
 			trigger = {
 				has_game_rule = {
