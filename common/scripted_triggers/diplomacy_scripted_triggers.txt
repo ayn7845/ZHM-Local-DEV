@@ -478,8 +478,28 @@ DIPLOMACY_MILACC_ENABLE_TRIGGER = {
 				option = FREE
 			}
 		}
-		always = yes
+		if = { # allies cannot get mil access to soviet
+			limit = { 
+				allies = yes
+				has_game_rule = { 
+					rule = soviet_collectivized_economy
+					option = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_MIL_ACCESS_SOV_DIPLO_TT #RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+				FROM = {
+					NOT = {
+						tag = SOV
+					}
+				}
+			}
+		}
+		else = { 
+			always = yes
+		}	
 	}
+	
 	if = {
 		limit = {
 			has_game_rule = {
@@ -513,7 +533,27 @@ DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
 				option = FREE
 			}
 		}
-		always = yes
+		if = { # allies cannot get mil access to soviet
+			limit = { 
+				tag = SOV
+				has_game_rule = { 
+					rule = soviet_collectivized_economy
+					option = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_MIL_ACCESS_SOV_DIPLO_TT #RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+				FROM = {
+					NOT = {
+						allies = yes
+					}
+				}
+			}
+		}
+		else = { 
+			always = yes
+		}
+		
 	}
 	if = {
 		limit = {
