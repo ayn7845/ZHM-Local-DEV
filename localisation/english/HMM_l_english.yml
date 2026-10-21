@@ -32,6 +32,7 @@
  easy_LL_activation:0 "Will start a Cycling Aircraft §GLend Lease§W to §Y[FROM.GetNameDefCap]§W"
 
  NO_MIL_ACCESS_SOV_DIPLO_TT:0 "§RMilitary Access to the §YSoviet Union§R is not allowed§W"
+ zhm_opinion_modifier_temp_ally:0 "Temporary Alliance"
  #NO_OFFER_MIL_ACCESS_SOV_TO_ALLIES_DIPLO_TT:0 "Military Access to the §YSoviet Union§W is not §Rallowed§W"
   # DECISION CATEGORIES #
  ZHM_host:0 "Host Decisions"

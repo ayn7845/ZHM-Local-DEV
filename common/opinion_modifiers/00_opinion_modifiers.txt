@@ -10,6 +10,10 @@
 
 opinion_modifiers = {
 
+	zhm_opinion_modifier_temp_ally = { 
+		value = 50
+	}
+
 	cheat_opinion_modifier_good = {
 		value = 200
 	}

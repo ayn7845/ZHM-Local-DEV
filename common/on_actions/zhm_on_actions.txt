@@ -2,6 +2,29 @@ on_actions = {
 	on_startup = {
 		effect = {
 
+			# Nonsense
+
+			if = { 
+				limit = { 
+					has_game_rule = { 
+					rule = soviet_collectivized_economy 
+					option = on 
+					}	 
+				}
+				USA = { 
+					add_opinion_modifier = { 
+						target = SOV
+						modifier = zhm_opinion_modifier_temp_ally
+					}
+				}
+				SOV = { 
+					add_opinion_modifier = { 
+						target = USA
+						modifier = zhm_opinion_modifier_temp_ally
+					}
+				}
+			}
+
   			  ######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
   			  ######      ######    ##      ##  ##########        ########    ##      ##  ##          ##########    ########  
 			##          ##      ##  ####  ####  ##                ##      ##  ##      ##  ##          ##          ##          
