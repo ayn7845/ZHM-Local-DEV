@@ -483,7 +483,7 @@ DIPLOMACY_MILACC_ENABLE_TRIGGER = {
 				allies = yes
 				has_game_rule = { 
 					rule = soviet_collectivized_economy
-					option = yes
+					option = on
 				}
 			}
 			custom_trigger_tooltip = {
@@ -538,7 +538,7 @@ DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
 				tag = SOV
 				has_game_rule = { 
 					rule = soviet_collectivized_economy
-					option = yes
+					option = on
 				}
 			}
 			custom_trigger_tooltip = {
