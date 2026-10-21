@@ -467,7 +467,49 @@ on_actions = {
   		  ##        ##      ##  ##      ##        ##          ##          ##      ##  ##    ####  ##      ##  ##      ##      ##      
   		  ##        ##      ##  ##      ##        ##          ##          ##      ##  ##    ####  ##      ##  ##      ##      ##      
 		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##      
-		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##    
+		##########  ##      ##  ##      ##        ##########    ######      ######    ##      ##    ######    ##      ##      ##   
+
+		SWE = {
+			if = { limit = { ENG = { exists = yes } } diplomatic_relation = { country = ENG relation = embargo active = yes } }
+			if = { limit = { FRA = { exists = yes } } diplomatic_relation = { country = FRA relation = embargo active = yes } }
+			if = { limit = { CAN = { exists = yes } } diplomatic_relation = { country = CAN relation = embargo active = yes } }
+			if = { limit = { BRA = { exists = yes } } diplomatic_relation = { country = BRA relation = embargo active = yes } }
+			if = { limit = { MEX = { exists = yes } } diplomatic_relation = { country = MEX relation = embargo active = yes } }
+			if = { limit = { NZL = { exists = yes } } diplomatic_relation = { country = NZL relation = embargo active = yes } }
+			if = { limit = { USA = { exists = yes } } diplomatic_relation = { country = USA relation = embargo active = yes } }
+			if = { limit = { RAJ = { exists = yes } } diplomatic_relation = { country = RAJ relation = embargo active = yes } }
+			if = { limit = { SAF = { exists = yes } } diplomatic_relation = { country = SAF relation = embargo active = yes } }
+			if = { limit = { IRE = { exists = yes } } diplomatic_relation = { country = IRE relation = embargo active = yes } }
+			if = { limit = { SOV = { exists = yes } } diplomatic_relation = { country = SOV relation = embargo active = yes } }
+			if = { limit = { NOR = { exists = yes } } diplomatic_relation = { country = NOR relation = embargo active = yes } }
+			if = { limit = { HOL = { exists = yes } } diplomatic_relation = { country = HOL relation = embargo active = yes } }
+			if = { limit = { BEL = { exists = yes } } diplomatic_relation = { country = BEL relation = embargo active = yes } }
+			if = { limit = { LUX = { exists = yes } } diplomatic_relation = { country = LUX relation = embargo active = yes } }
+			if = { limit = { POL = { exists = yes } } diplomatic_relation = { country = POL relation = embargo active = yes } }
+			if = { limit = { DEN = { exists = yes } } diplomatic_relation = { country = DEN relation = embargo active = yes } }
+			if = { limit = { ARG = { exists = yes } } diplomatic_relation = { country = ARG relation = embargo active = yes } }
+		}
+
+		TUR = {
+			if = { limit = { ENG = { exists = yes } } diplomatic_relation = { country = ENG relation = embargo active = yes } }
+			if = { limit = { FRA = { exists = yes } } diplomatic_relation = { country = FRA relation = embargo active = yes } }
+			if = { limit = { CAN = { exists = yes } } diplomatic_relation = { country = CAN relation = embargo active = yes } }
+			if = { limit = { BRA = { exists = yes } } diplomatic_relation = { country = BRA relation = embargo active = yes } }
+			if = { limit = { MEX = { exists = yes } } diplomatic_relation = { country = MEX relation = embargo active = yes } }
+			if = { limit = { NZL = { exists = yes } } diplomatic_relation = { country = NZL relation = embargo active = yes } }
+			if = { limit = { USA = { exists = yes } } diplomatic_relation = { country = USA relation = embargo active = yes } }
+			if = { limit = { RAJ = { exists = yes } } diplomatic_relation = { country = RAJ relation = embargo active = yes } }
+			if = { limit = { SAF = { exists = yes } } diplomatic_relation = { country = SAF relation = embargo active = yes } }
+			if = { limit = { IRE = { exists = yes } } diplomatic_relation = { country = IRE relation = embargo active = yes } }
+			#if = { limit = { SOV = { exists = yes } } diplomatic_relation = { country = SOV relation = embargo active = yes } }
+			if = { limit = { NOR = { exists = yes } } diplomatic_relation = { country = NOR relation = embargo active = yes } }
+			if = { limit = { HOL = { exists = yes } } diplomatic_relation = { country = HOL relation = embargo active = yes } }
+			if = { limit = { BEL = { exists = yes } } diplomatic_relation = { country = BEL relation = embargo active = yes } }
+			if = { limit = { LUX = { exists = yes } } diplomatic_relation = { country = LUX relation = embargo active = yes } }
+			if = { limit = { POL = { exists = yes } } diplomatic_relation = { country = POL relation = embargo active = yes } }
+			if = { limit = { DEN = { exists = yes } } diplomatic_relation = { country = DEN relation = embargo active = yes } }
+			if = { limit = { ARG = { exists = yes } } diplomatic_relation = { country = ARG relation = embargo active = yes } }
+		} 
 
 			FRA = { 
 				add_tech_bonus = {
