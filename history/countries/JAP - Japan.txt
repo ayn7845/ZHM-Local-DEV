@@ -378,48 +378,48 @@ add_ideas = {
 # Heian-Koukai
 527 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
 # Kankyou
 1028 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
 # Keiki 
 525 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
 # Kougen 
 1029 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
 # Keishou 
 1030 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
 # Chuusei-Zenra 
 1031 = {
 	start_resistance = yes
-	set_compliance = 5
-	set_resistance = 5
+	set_compliance = 40
+	set_resistance = 0
 	set_garrison_strength = 1.0
 }
 
