@@ -564,6 +564,48 @@ Technologies = {
         }
     }
 
+    auto_amtrac = {
+        # icon = generic_operation
+        allowed = {
+        }
+        fire_only_once = no
+        cost = 0
+        ai_will_do = {
+            factor = 0
+        }
+        visible = {
+            NOT = {
+                    tag = HOL
+                }
+        }
+        available = {
+            if = { 
+                limit = { 
+                    allies = yes
+                }
+                date > 1939.1.1
+            }
+            else = { 
+                limit = { 
+                    axis = yes
+                }
+                date > 1939.9.1
+            }
+         }
+        complete_effect = {
+            SWE = {
+                create_production_license = {
+                    target = ROOT
+                    equipment = {
+                        type = amphibious_mechanized_equipment_1
+                        version = 1
+                    }
+                    cost_factor = 0
+                }
+            }
+        }
+    }
+
      auto_basic_med= {
         # icon = generic_operation
         allowed = {

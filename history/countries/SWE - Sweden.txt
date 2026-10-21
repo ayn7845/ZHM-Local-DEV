@@ -98,6 +98,18 @@ set_technology = {
 
 }
 
+if = { 
+	limit = { NOT = { has_doctrine = special_forces_quality } }
+	set_grand_doctrine = special_forces_quality
+}
+
+if = { 
+	limit = { NOT = { has_doctrine = marines_1 } }
+	set_sub_doctrine = marines_1
+}
+
+add_mastery = { amount = 500 }
+
 create_equipment_variant = {
 	name = "Cheap Mechanised"
 	type = mechanized_equipment_1
