@@ -1085,7 +1085,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_darzhavna_voenna_fabrika
-			    bonus = 1
+			    bonus = 0.5
 			    uses = 2
 				category = infantry_weapons
 				category = support_tech
