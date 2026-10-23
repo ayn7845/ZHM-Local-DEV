@@ -110,4 +110,4 @@ NDefines.NMapMode.SUPPLY_MAP_MODE_REACH_COLOR = {
 	}
 	
 	
-NDefines_Graphics.NGraphics.MAX_MESHES_LOADED_PER_FRAME = 0  -- vanilla 10 zhm specific
+NDefines_Graphics.NGraphics.MAX_MESHES_LOADED_PER_FRAME = 10  -- vanilla 10 zhm specific
