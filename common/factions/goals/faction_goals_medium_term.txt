@@ -1302,7 +1302,7 @@ faction_goal_industrial_expansion_JAP = {
 				name = FACTION_NAME
 			}
 			buildings = { industrial_complex }
-			size > 119
+			size > 129
 		}
 	}
 	complete_effect = {
