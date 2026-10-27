@@ -1,0 +1,774 @@
+@RULE_ICON_X = 10
+@RULE_NAME_X = 55
+@RULE_STATUS_X = 240
+
+guiTypes = {
+@STATUS_TEXT_X = 240
+@GAMERULE_ICONS_X = 10
+@GAMERULE_NAMES_X = 55
+# changes for icons are +35
+# changes for names etc are +45
+    containerWindowType = {
+        name = "check_non_default_rules_ui_window"
+        position = { x = 0 y = 0 }
+        size = { width = 100% height = 500 }
+        verticalScrollbar = "right_vertical_slider"
+        margin = { top = 10 bottom = 10 }
+
+        background = {
+            name = "Background"
+            quadTextureSprite = "GFX_tiled_window_transparent"
+        }
+
+        # Select Country For Host Tool (changed)
+        iconType = {
+            name = "horst_host_country_icon_changed"
+            spriteType = "GFX_volunteers"
+            position = { x = @GAMERULE_ICONS_X y = 30 }
+            visible = { NOT = { has_game_rule = { rule = horst_host_country option = GER } } }
+        }
+        instantTextBoxType = {
+            name = "horst_host_country_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 40 }
+            font = "hoi_18mbs"
+            text = "Select Country For Host Tool"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = horst_host_country option = GER } } }
+        }
+        instantTextBoxType = {
+            name = "horst_host_country_status_changed"
+            position = { x = @STATUS_TEXT_X y = 40 }
+            font = "hoi_18mbs"
+            text = "[GetHorstHostCountryStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = horst_host_country option = GER } } }
+        }
+
+        # Ground Support doctrines are... (changed)
+        iconType = {
+            name = "cas_doctrines_status_icon_changed"
+            spriteType = "GFX_decision_generic_air"
+            position = { x = @GAMERULE_ICONS_X y = 75 }
+            visible = { NOT = { has_game_rule = { rule = cas_doctrines_status option = banned } } }
+        }
+        instantTextBoxType = {
+            name = "cas_doctrines_status_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 85 }
+            font = "hoi_18mbs"
+            text = "Ground Support doctrines are..."
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = cas_doctrines_status option = banned } } }
+        }
+        instantTextBoxType = {
+            name = "cas_doctrines_status_status_changed"
+            position = { x = @STATUS_TEXT_X y = 85 }
+            font = "hoi_18mbs"
+            text = "[GetCasDoctrinesStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = cas_doctrines_status option = banned } } }
+        }
+
+        # Allies Pre-Grind (changed)
+        iconType = {
+            name = "allied_pre_grind_icon_changed"
+            spriteType = "GFX_decision_category_eng_imperial_conference"
+            position = { x = @GAMERULE_ICONS_X y = 120 }
+            visible = { NOT = { has_game_rule = { rule = allied_pre_grind option = on } } }
+        }
+        instantTextBoxType = {
+            name = "allied_pre_grind_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 130 }
+            font = "hoi_18mbs"
+            text = "Allies Pre-Grind"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = allied_pre_grind option = on } } }
+        }
+        instantTextBoxType = {
+            name = "allied_pre_grind_status_changed"
+            position = { x = @STATUS_TEXT_X y = 130 }
+            font = "hoi_18mbs"
+            text = "[GetAlliedPreGrindStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = allied_pre_grind option = on } } }
+        }
+
+        # Allies AC Status (changed)
+        iconType = {
+            name = "allies_ac_rule_icon_changed"
+            spriteType = "GFX_decision_SWE_set_air_budget"
+            position = { x = @GAMERULE_ICONS_X y = 165 }
+            visible = { NOT = { has_game_rule = { rule = allies_ac_rule option = canada_ac } } }
+        }
+        instantTextBoxType = {
+            name = "allies_ac_rule_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 175 }
+            font = "hoi_18mbs"
+            text = "Allies AC Status"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = allies_ac_rule option = canada_ac } } }
+        }
+        instantTextBoxType = {
+            name = "allies_ac_rule_status_changed"
+            position = { x = @STATUS_TEXT_X y = 175 }
+            font = "hoi_18mbs"
+            text = "[GetAlliesAcRuleStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = allies_ac_rule option = canada_ac } } }
+        }
+
+        # Axis Fuel Spirit (changed)
+        iconType = {
+            name = "axis_fuel_spirit_icon_changed"
+            spriteType = "GFX_decision_oil"
+            position = { x = @GAMERULE_ICONS_X y = 210 }
+            visible = { NOT = { has_game_rule = { rule = axis_fuel_spirit option = on } } }
+        }
+        instantTextBoxType = {
+            name = "axis_fuel_spirit_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 220 }
+            font = "hoi_18mbs"
+            text = "Axis Fuel Spirit"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = axis_fuel_spirit option = on } } }
+        }
+        instantTextBoxType = {
+            name = "axis_fuel_spirit_status_changed"
+            position = { x = @STATUS_TEXT_X y = 220 }
+            font = "hoi_18mbs"
+            text = "[GetAxisFuelSpiritStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = axis_fuel_spirit option = on } } }
+        }
+
+        # Italy Alt-Hist Paths (changed)
+        iconType = {
+            name = "italy_alt_hist_icon_changed"
+            spriteType = "GFX_decision_ITA_claim_yugo_4"
+            position = { x = @GAMERULE_ICONS_X y = 255 }
+            visible = { NOT = { has_game_rule = { rule = italy_alt_hist option = on } } }
+        }
+        instantTextBoxType = {
+            name = "italy_alt_hist_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 265 }
+            font = "hoi_18mbs"
+            text = "Italy Alt-Hist Paths"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = italy_alt_hist option = on } } }
+        }
+        instantTextBoxType = {
+            name = "italy_alt_hist_status_changed"
+            position = { x = @STATUS_TEXT_X y = 265 }
+            font = "hoi_18mbs"
+            text = "[GetItalyAltHistStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = italy_alt_hist option = on } } }
+        }
+
+        # Soviet 4th Research Slot (changed)
+        iconType = {
+            name = "soviet_research_slot_icon_changed"
+            spriteType = "GFX_decision_SOV_secure_the_administration"
+            position = { x = @GAMERULE_ICONS_X y = 300 }
+            visible = { NOT = { has_game_rule = { rule = soviet_research_slot option = off } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_research_slot_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 310 }
+            font = "hoi_18mbs"
+            text = "Soviet 4th Research Slot"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = soviet_research_slot option = off } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_research_slot_status_changed"
+            position = { x = @STATUS_TEXT_X y = 310 }
+            font = "hoi_18mbs"
+            text = "[GetSovietResearchSlotStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = soviet_research_slot option = off } } }
+        }
+
+        # Soviet Collectivized Economy (changed)
+        iconType = {
+            name = "soviet_collectivized_economy_icon_changed"
+            spriteType = "GFX_decision_SOV_secure_the_administration"
+            position = { x = @GAMERULE_ICONS_X y = 345 }
+            visible = { NOT = { has_game_rule = { rule = soviet_collectivized_economy option = on } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_collectivized_economy_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 355 }
+            font = "hoi_18mbs"
+            text = "Soviet Collectivized Economy"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = soviet_collectivized_economy option = on } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_collectivized_economy_status_changed"
+            position = { x = @STATUS_TEXT_X y = 355 }
+            font = "hoi_18mbs"
+            text = "[GetSovietCollectivizedEconomyStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = soviet_collectivized_economy option = on } } }
+        }
+
+        # Soviet Eradicate Western Fascism (changed)
+        iconType = {
+            name = "soviet_eradicate_western_fascism_rule_icon_changed"
+            spriteType = "GFX_decision_SOV_secure_the_administration"
+            position = { x = @GAMERULE_ICONS_X y = 390 }
+            visible = { NOT = { has_game_rule = { rule = soviet_eradicate_western_fascism_rule option = no } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_eradicate_western_fascism_rule_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 400 }
+            font = "hoi_18mbs"
+            text = "Soviet Eradicate Western Fascism"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = soviet_eradicate_western_fascism_rule option = no } } }
+        }
+        instantTextBoxType = {
+            name = "soviet_eradicate_western_fascism_rule_status_changed"
+            position = { x = @STATUS_TEXT_X y = 400 }
+            font = "hoi_18mbs"
+            text = "[GetSovietEradicateWesternFascismRuleStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = soviet_eradicate_western_fascism_rule option = no } } }
+        }
+
+        # German Czech Manufacturers (changed)
+        iconType = {
+            name = "Germany_czech_manufacturers_icon_changed"
+            spriteType = "GFX_decision_generic_GER_flag"
+            position = { x = @GAMERULE_ICONS_X y = 435 }
+            visible = { NOT = { has_game_rule = { rule = Germany_czech_manufacturers option = skoda_works } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_czech_manufacturers_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 445 }
+            font = "hoi_18mbs"
+            text = "German Czech Manufacturers"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = Germany_czech_manufacturers option = skoda_works } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_czech_manufacturers_status_changed"
+            position = { x = @STATUS_TEXT_X y = 445 }
+            font = "hoi_18mbs"
+            text = "[GetGermanyCzechManufacturersStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = Germany_czech_manufacturers option = skoda_works } } }
+        }
+
+        # German Prioritize Economic Growth (changed)
+        iconType = {
+            name = "Germany_Wirtschaftswunder_icon_changed"
+            spriteType = "GFX_decision_ger_mefo_bills"
+            position = { x = @GAMERULE_ICONS_X y = 480 }
+            visible = { NOT = { has_game_rule = { rule = Germany_Wirtschaftswunder option = Germany_wirtschaftswunder } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Wirtschaftswunder_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 490 }
+            font = "hoi_18mbs"
+            text = "German Prioritize Economic Growth"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = Germany_Wirtschaftswunder option = Germany_wirtschaftswunder } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Wirtschaftswunder_status_changed"
+            position = { x = @STATUS_TEXT_X y = 490 }
+            font = "hoi_18mbs"
+            text = "[GetGermanyWirtschaftswunderStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = Germany_Wirtschaftswunder option = Germany_wirtschaftswunder } } }
+        }
+
+        # Cancel MEFO Bills (changed)
+        iconType = {
+            name = "Germany_Cancel_Mefo_icon_changed"
+            spriteType = "GFX_decision_ger_mefo_bills"
+            position = { x = @GAMERULE_ICONS_X y = 525 }
+            visible = { NOT = { has_game_rule = { rule = Germany_Cancel_Mefo option = Germany_no_cancel_MEFO_Bills } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Cancel_Mefo_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 535 }
+            font = "hoi_18mbs"
+            text = "Cancel MEFO Bills"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = Germany_Cancel_Mefo option = Germany_no_cancel_MEFO_Bills } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Cancel_Mefo_status_changed"
+            position = { x = @STATUS_TEXT_X y = 535 }
+            font = "hoi_18mbs"
+            text = "[GetGermanyCancelMefoStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = Germany_Cancel_Mefo option = Germany_no_cancel_MEFO_Bills } } }
+        }
+
+        # Fate of Yugoslavia (changed)
+        iconType = {
+            name = "Germany_Fate_of_yugo_icon_changed"
+            spriteType = "GFX_decision_generic_GER_flag"
+            position = { x = @GAMERULE_ICONS_X y = 570 }
+            visible = { NOT = { has_game_rule = { rule = Germany_Fate_of_yugo option = Germany_no_fate_of_yugo } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Fate_of_yugo_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 580 }
+            font = "hoi_18mbs"
+            text = "Fate of Yugoslavia"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = Germany_Fate_of_yugo option = Germany_no_fate_of_yugo } } }
+        }
+        instantTextBoxType = {
+            name = "Germany_Fate_of_yugo_status_changed"
+            position = { x = @STATUS_TEXT_X y = 580 }
+            font = "hoi_18mbs"
+            text = "[GetGermanyFateOfYugoStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = Germany_Fate_of_yugo option = Germany_no_fate_of_yugo } } }
+        }
+
+        # Urban Assault Vehicle (changed)
+        iconType = {
+            name = "urban_assault_vechile_icon_changed"
+            spriteType = "GFX_decision_generic_tank"
+            position = { x = @GAMERULE_ICONS_X y = 615 }
+            visible = { NOT = { has_game_rule = { rule = urban_assault_vechile option = on } } }
+        }
+        instantTextBoxType = {
+            name = "urban_assault_vechile_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 625 }
+            font = "hoi_18mbs"
+            text = "Urban Assault Vehicle"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = urban_assault_vechile option = on } } }
+        }
+        instantTextBoxType = {
+            name = "urban_assault_vechile_status_changed"
+            position = { x = @STATUS_TEXT_X y = 625 }
+            font = "hoi_18mbs"
+            text = "[GetUrbanAssaultVechileStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = urban_assault_vechile option = on } } }
+        }
+
+        # Railway Gun (changed)
+        iconType = {
+            name = "railway_gun_icon_changed"
+            spriteType = "GFX_decision_generic_ignite_civil_war"
+            position = { x = @GAMERULE_ICONS_X y = 660 }
+            visible = { NOT = { has_game_rule = { rule = railway_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "railway_gun_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 670 }
+            font = "hoi_18mbs"
+            text = "Railway Gun"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = railway_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "railway_gun_status_changed"
+            position = { x = @STATUS_TEXT_X y = 670 }
+            font = "hoi_18mbs"
+            text = "[GetRailwayGunStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = railway_gun option = off } } }
+        }
+
+        # Super Heavy Railway Gun (changed)
+        iconType = {
+            name = "super_heavy_railway_gun_icon_changed"
+            spriteType = "GFX_decision_generic_ignite_civil_war"
+            position = { x = @GAMERULE_ICONS_X y = 705 }
+            visible = { NOT = { has_game_rule = { rule = super_heavy_railway_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "super_heavy_railway_gun_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 715 }
+            font = "hoi_18mbs"
+            text = "Super Heavy Railway Gun"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = super_heavy_railway_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "super_heavy_railway_gun_status_changed"
+            position = { x = @STATUS_TEXT_X y = 715 }
+            font = "hoi_18mbs"
+            text = "[GetSuperHeavyRailwayGunStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = super_heavy_railway_gun option = off } } }
+        }
+
+        # Multi Charge LCG (changed)
+        iconType = {
+            name = "multi_charge_large_caliber_gun_icon_changed"
+            spriteType = "GFX_decision_generic_ignite_civil_war"
+            position = { x = @GAMERULE_ICONS_X y = 750 }
+            visible = { NOT = { has_game_rule = { rule = multi_charge_large_caliber_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "multi_charge_large_caliber_gun_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 760 }
+            font = "hoi_18mbs"
+            text = "Multi Charge LCG"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = multi_charge_large_caliber_gun option = off } } }
+        }
+        instantTextBoxType = {
+            name = "multi_charge_large_caliber_gun_status_changed"
+            position = { x = @STATUS_TEXT_X y = 760 }
+            font = "hoi_18mbs"
+            text = "[GetMultiChargeLargeCaliberGunStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = multi_charge_large_caliber_gun option = off } } }
+        }
+
+        # Submarine 3 and 4 (changed)
+        iconType = {
+            name = "max_submarine_tech_icon_changed"
+            spriteType = "GFX_decision_generic_ignite_civil_war"
+            position = { x = @GAMERULE_ICONS_X y = 795 }
+            visible = { NOT = { has_game_rule = { rule = max_submarine_tech option = sub2 } } }
+        }
+        instantTextBoxType = {
+            name = "max_submarine_tech_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 805 }
+            font = "hoi_18mbs"
+            text = "Submarine 3 and 4"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = max_submarine_tech option = sub2 } } }
+        }
+        instantTextBoxType = {
+            name = "max_submarine_tech_status_changed"
+            position = { x = @STATUS_TEXT_X y = 805 }
+            font = "hoi_18mbs"
+            text = "[GetMaxSubmarineTechStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = max_submarine_tech option = sub2 } } }
+        }
+
+        # Soviet Civ Boost (changed)
+        iconType = {
+            name = "sov_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 840 }
+            visible = { NOT = { has_game_rule = { rule = sov_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "sov_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 850 }
+            font = "hoi_18mbs"
+            text = "Soviet Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = sov_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "sov_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 850 }
+            font = "hoi_18mbs"
+            text = "[GetSovBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = sov_boost option = off } } }
+        }
+
+        # German Civ Boost (changed)
+        iconType = {
+            name = "ger_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 885 }
+            visible = { NOT = { has_game_rule = { rule = ger_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "ger_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 895 }
+            font = "hoi_18mbs"
+            text = "German Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = ger_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "ger_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 895 }
+            font = "hoi_18mbs"
+            text = "[GetGerBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = ger_boost option = off } } }
+        }
+
+        # Japan Civ Boost (changed)
+        iconType = {
+            name = "jap_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 930 }
+            visible = { NOT = { has_game_rule = { rule = jap_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "jap_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 940 }
+            font = "hoi_18mbs"
+            text = "Japan Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = jap_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "jap_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 940 }
+            font = "hoi_18mbs"
+            text = "[GetJapBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = jap_boost option = off } } }
+        }
+
+        # Britain Civ Boost (changed)
+        iconType = {
+            name = "eng_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 975 }
+            visible = { NOT = { has_game_rule = { rule = eng_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "eng_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 985 }
+            font = "hoi_18mbs"
+            text = "Britain Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = eng_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "eng_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 985 }
+            font = "hoi_18mbs"
+            text = "[GetEngBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = eng_boost option = off } } }
+        }
+
+        # Italy Civ Boost (changed)
+        iconType = {
+            name = "ita_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 1020 }
+            visible = { NOT = { has_game_rule = { rule = ita_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "ita_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1030 }
+            font = "hoi_18mbs"
+            text = "Italy Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = ita_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "ita_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1030 }
+            font = "hoi_18mbs"
+            text = "[GetItaBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = ita_boost option = off } } }
+        }
+
+        # French Civ Boost (changed)
+        iconType = {
+            name = "fra_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 1065 }
+            visible = { NOT = { has_game_rule = { rule = fra_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "fra_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1075 }
+            font = "hoi_18mbs"
+            text = "French Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = fra_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "fra_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1075 }
+            font = "hoi_18mbs"
+            text = "[GetFraBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = fra_boost option = off } } }
+        }
+
+        # USA Civ Boost (changed)
+        iconType = {
+            name = "usa_boost_icon_changed"
+            spriteType = "GFX_decision_generic_merge_plant_materiel"
+            position = { x = @GAMERULE_ICONS_X y = 1110 }
+            visible = { NOT = { has_game_rule = { rule = usa_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "usa_boost_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1120 }
+            font = "hoi_18mbs"
+            text = "USA Civ Boost"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = usa_boost option = off } } }
+        }
+        instantTextBoxType = {
+            name = "usa_boost_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1120 }
+            font = "hoi_18mbs"
+            text = "[GetUsaBoostStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = usa_boost option = off } } }
+        }
+
+        # Playable Iraq (changed)
+        iconType = {
+            name = "playable_iraq_icon_changed"
+            spriteType = "GFX_decision_category_usa_intervention_mandate"
+            position = { x = @GAMERULE_ICONS_X y = 1155 }
+            visible = { NOT = { has_game_rule = { rule = playable_iraq option = no } } }
+        }
+        instantTextBoxType = {
+            name = "playable_iraq_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1165 }
+            font = "hoi_18mbs"
+            text = "Playable Iraq"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = playable_iraq option = no } } }
+        }
+        instantTextBoxType = {
+            name = "playable_iraq_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1165 }
+            font = "hoi_18mbs"
+            text = "[GetPlayableIraqStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = playable_iraq option = no } } }
+        }
+
+        # Strategic Bombing (changed)
+        iconType = {
+            name = "strat_bombing_icon_changed"
+            spriteType = "GFX_decision_generic_air"
+            position = { x = @GAMERULE_ICONS_X y = 1200 }
+            visible = { NOT = { has_game_rule = { rule = strat_bombing option = allowed } } }
+        }
+        instantTextBoxType = {
+            name = "strat_bombing_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1210 }
+            font = "hoi_18mbs"
+            text = "Strategic Bombing"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = strat_bombing option = allowed } } }
+        }
+        instantTextBoxType = {
+            name = "strat_bombing_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1210 }
+            font = "hoi_18mbs"
+            text = "[GetStratBombingStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = strat_bombing option = allowed } } }
+        }
+
+        # Spanish Production (changed)
+        iconType = {
+            name = "spanish_production_icon_changed"
+            spriteType = "GFX_decision_generic_industry"
+            position = { x = @GAMERULE_ICONS_X y = 1245 }
+            visible = { NOT = { has_game_rule = { rule = spanish_production option = off } } }
+        }
+        instantTextBoxType = {
+            name = "spanish_production_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1255 }
+            font = "hoi_18mbs"
+            text = "Spanish Production"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = spanish_production option = off } } }
+        }
+        instantTextBoxType = {
+            name = "spanish_production_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1255 }
+            font = "hoi_18mbs"
+            text = "[GetSpanishProductionStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = spanish_production option = off } } }
+        }
+
+        # Finnish Production (changed)
+        iconType = {
+            name = "finish_production_icon_changed"
+            spriteType = "GFX_decision_generic_industry"
+            position = { x = @GAMERULE_ICONS_X y = 1290 }
+            visible = { NOT = { has_game_rule = { rule = finish_production option = off } } }
+        }
+        instantTextBoxType = {
+            name = "finish_production_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1300 }
+            font = "hoi_18mbs"
+            text = "Finnish Production"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = finish_production option = off } } }
+        }
+        instantTextBoxType = {
+            name = "finish_production_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1300 }
+            font = "hoi_18mbs"
+            text = "[GetFinishProductionStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = finish_production option = off } } }
+        }
+
+        # No Tradebacks Idea (changed)
+        iconType = {
+            name = "tradebacks_icon_changed"
+            spriteType = "GFX_decision_category_generic_trade"
+            position = { x = @GAMERULE_ICONS_X y = 1335 }
+            visible = { NOT = { has_game_rule = { rule = tradebacks option = off } } }
+        }
+        instantTextBoxType = {
+            name = "tradebacks_name_text_changed"
+            position = { x = @GAMERULE_NAMES_X y = 1345 }
+            font = "hoi_18mbs"
+            text = "No Tradebacks Idea"
+            maxWidth = 180
+            visible = { NOT = { has_game_rule = { rule = tradebacks option = off } } }
+        }
+        instantTextBoxType = {
+            name = "tradebacks_status_changed"
+            position = { x = @STATUS_TEXT_X y = 1345 }
+            font = "hoi_18mbs"
+            text = "[GetTradebacksStatus]"
+            format = center
+            maxwidth = 110
+            visible = { NOT = { has_game_rule = { rule = tradebacks option = off } } }
+        }
+
+    }
+}

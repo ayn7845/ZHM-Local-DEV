@@ -1,0 +1,6 @@
+scripted_gui = {
+    check_non_default_rules_ui = {
+        context_type = decision_category
+        window_name = "check_non_default_rules_ui_window"
+    }
+}
