@@ -121,7 +121,13 @@ characters={
 					has_completed_focus = PHI_anti_hacendados 
 				}
 			}
-			
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 0
+					has_completed_focus = PHI_slippery_slope 
+				}
+			}
 			traits  = {
 				PHI_hacendado
 			}
@@ -289,7 +295,10 @@ characters={
 			cost = 150
 			ai_will_do = {
 				base = 1
-				
+				modifier = {
+					factor = 5
+					has_completed_focus = PHI_slippery_slope 
+				}
 			}
 			available = {
 				is_country_leader = no
@@ -346,7 +355,7 @@ characters={
 			coordination_skill = 2
 			legacy_id = -1
 			visible = {
-				always = no
+				has_completed_focus = PHI_royal_exiles
 			}
 		}
 		# country_leader = {	#added by focus
@@ -429,16 +438,16 @@ characters={
 				has_dlc = "No Compromise, No Surrender"
 			}
 			available = {
-				always = no
-			}
-			visible = { 
-				always = no
+				has_completed_focus = PHI_align_with_japan
 			}
 			idea_token = PHI_benigno_ramos
 
 			ai_will_do = {
 				base = 1
-				
+				modifier = {
+					factor = 5
+					has_completed_focus = PHI_rebuild_sakdalistas 
+				}
 			}
 
 			traits  = {
@@ -630,6 +639,50 @@ characters={
 		}
 	}
 
+	PHI_tan_malaka = {
+		name = PHI_tan_malaka
+
+		portraits = {
+			civilian = {
+				small = GFX_portrait_PHI_tan_malaka_small
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			allowed  = {
+				has_dlc = "No Compromise, No Surrender"
+				has_dlc = "La Resistance"
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+					}
+					NOT = {
+						INS = {
+							has_completed_focus = INS_the_declaration_of_independence
+						}
+					}
+				}
+			}
+			available = {
+				has_completed_focus = PHI_return_of_the_exiles
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+					}
+					NOT = {
+						INS = {
+							has_completed_focus = INS_the_declaration_of_independence
+						}
+					}
+				}
+			}
+			idea_token = PHI_tan_malaka
+			traits  = {
+				PHI_indonesian_communist_exile 
+			}
+		}
+	}
 
 	PHI_courtney_whitney = {
 		name = PHI_courtney_whitney

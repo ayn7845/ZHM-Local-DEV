@@ -2116,11 +2116,26 @@ economy_decisions = {
 						value > 49
 					}
 				}
-				if = { 
-
+				if = {
+					limit = {
+						INS = {
+							is_subject_of = HOL
+						}
+					}
+					HOL = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
 				}
-				else = { 
-					
+				else = {
+					INS = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
 				}
 			}
 		}
@@ -2400,9 +2415,8 @@ economy_decisions = {
 
 PHI_relations_with_spanish_america = {
 	PHI_propose_treaty_of_mutual_assistance = {
-		targets = { ARG MEX SPR SPA SPD SPB SPC }	#Spanish America + Spain
+		targets = { ARG URG PAR BOL PRU ECU COL CHL VEN PAN COS DOM CUB NIC HON ELS GUA BLZ MEX YUC RIG SPR PUE EGQ SPA SPD SPB SPC }	#Spanish America + Spain
 		target_trigger = {
-			always = no
 			FROM = {
 				NOT = {
 					has_war_with = ROOT
@@ -2410,14 +2424,23 @@ PHI_relations_with_spanish_america = {
 				is_in_faction = no
 				is_subject = no
 				has_civil_war = no
-				
+				if = {
+					limit =  {
+						original_tag = SPR
+					}
+					ROOT = {
+						has_completed_focus = PHI_reconciliation_with_spain
+					}
+				}
 			}
 		}
 		target_root_trigger = {
-			always = no
+			has_completed_focus = PHI_hispanic_overtures
 			OR = {
 				is_faction_leader = yes
-				
+				NOT = {
+					has_completed_focus = PHI_war_of_independence
+				}
 			}
 		}
 		available = {	#these need to be updated more often than daily
@@ -2430,7 +2453,10 @@ PHI_relations_with_spanish_america = {
 		}
 		ai_will_do = {
 			factor = 100
-			
+			modifier = {	#you have obtained support for indepence, other important things may now take priority
+				has_completed_focus = PHI_war_of_independence
+				add = -97
+			}
 			modifier = {
 				FROM = {
 					OR = {
@@ -2465,7 +2491,7 @@ PHI_relations_with_spanish_america = {
 		}
 	}
 	PHI_propose_unification = {
-		targets = { ARG MEX SPR SPA SPD SPB SPC  }	#Spanish America + Spain
+		targets = { ARG URG PAR BOL PRU ECU COL CHL VEN PAN COS DOM CUB NIC HON ELS GUA BLZ MEX YUC RIG SPR PUE EGQ SPA SPD SPB SPC  }	#Spanish America + Spain
 		target_trigger = {
 			FROM = {
 				is_in_faction_with = ROOT
@@ -2476,7 +2502,7 @@ PHI_relations_with_spanish_america = {
 			}
 		}
 		target_root_trigger = {
-			always = no
+			has_completed_focus = PHI_reino_de_filipinas
 		}
 		available = {
 			NOT = {
@@ -2540,9 +2566,9 @@ PHI_relations_with_spanish_america = {
 		}
 	}
 	PHI_force_unification = {
-		targets = { ARG MEX SPR SPA SPD SPB SPC }	#Spanish America + Spain
+		targets = { ARG URG PAR BOL PRU ECU COL CHL VEN PAN DOM HAI JAM CUB NIC HON ELS GUA BLZ MEX RAP YUC RIG SPR PUE SPA SPD SPB SPC }	#Spanish America + Spain
 		target_root_trigger = {
-			always = no
+			has_completed_focus = PHI_reino_de_filipinas
 		}
 		target_trigger = {
 			FROM = {

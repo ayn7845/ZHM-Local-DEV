@@ -54,7 +54,7 @@
 	focus = {
 		id = MAN_tsr_pacify_the_countryside
 		icon = GFX_goal_generic_major_war
-		x = 14
+		x = 9
 		y = 0
 
 		cost = 5
@@ -347,7 +347,7 @@
 				all_state = {
 					OR = {
 						NOT = { is_core_of = CHI }
-					
+						NOT = { is_core_of = PRC }
 						OR = {
 							is_controlled_by = ROOT
 							CONTROLLER = { is_in_faction_with = ROOT }
@@ -1730,9 +1730,7 @@
 		ai_will_do = {
 			factor = 1
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 			NOT = {
 				has_country_leader = {
@@ -1833,11 +1831,22 @@
 		available = {
 			is_subject_of = JAP
 			NOT = { has_war_with = JAP }
-			
+			NOT = { has_war_with = MEN }
+			MEN = {
+				exists = yes
+				is_subject_of = JAP
+			}
 		}
 
-		bypass = { 
-
+		bypass = {
+			MEN = {
+				OR = {
+					exists = no
+					NOT = {
+						is_subject_of = JAP
+					}
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -1847,8 +1856,13 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		
 
-		completion_reward = { 
-
+		completion_reward = {
+			MEN = {
+				every_army_leader = {
+					set_nationality = MAN
+				}
+			}
+			annex_country = { target = MEN transfer_troops = yes }
 		}
 	}
 
@@ -1972,7 +1986,7 @@
 				}
 			}
 		}
-		
+
 		bypass = {
 
 		}
@@ -2190,9 +2204,7 @@
 		ai_will_do = {
 			factor = 4
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 
 		}
@@ -2880,8 +2892,40 @@
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = MAN_li_zhaolin_high_command
 			hidden_effect = {
-				IF = { 
-
+				IF = {
+					limit = {
+						KOR = {
+							OR = {
+								exists = no
+								NOT = {
+									has_government = communism
+								}
+							}
+						}
+					}
+					KOR = {
+						KOR_kim_il_sung = {
+							set_nationality = MAN
+							add_corps_commander_role = { 
+								traits = { harsh_leader }
+								skill = 3
+								attack_skill = 3
+								defense_skill = 2
+								planning_skill = 3
+								logistics_skill = 2
+							}
+						}
+						KOR_pak_hon_yong = {
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = stalinism
+									expire = "1952.1.1.1"
+									traits = { JAP_socialist_revolutionary } 
+								}
+							}
+						}
+					}	
 				}
 				division_template = {
 					name = "Northeast Counter-Japanese Division"
@@ -2954,7 +2998,16 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			
+			MEN = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+				country_event = {
+					id = tsr_manchukuo.12
+					hours = 6
+				}
+			}
 			custom_effect_tooltip = MAN_tsr_persuade_the_IMPRP_tt
 		}
 	}
@@ -2997,8 +3050,17 @@
 			}
 			remove_ideas = MAN_kwantung_veto
 
-			IF = { 
-				
+			IF = {
+				limit = {
+					KOR = {
+						exists = yes
+						is_ally_with = JAP
+					}
+				}
+				add_timed_idea = {
+					idea = MAN_korean_liberation_army
+					days = 365
+				}
 			}
 			ELSE = {
 				add_timed_idea = {
@@ -3048,8 +3110,16 @@
 					}
 				}
 			}
-			IF = { 
-
+			IF = {
+				limit = {
+					has_completed_focus = MAN_tsr_persuade_the_IMPRP
+				}
+				MEN = {
+					country_event = {
+						id = tsr_manchukuo.5
+						hours = 2 
+					}
+				}
 			}
 			hidden_effect = {
 				news_event = { id = tsr_manchukuo_news.1 days = 2 }
@@ -3146,8 +3216,21 @@
 				add_idea = MAN_rival_government
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			IF = { 
-
+			IF = {
+				limit = {
+					MEN = {
+						is_subject_of = ROOT
+					}
+				}
+				MEN = {
+					every_army_leader = {
+						set_nationality = ROOT
+					}
+				}
+				annex_country = {
+					target = MEN
+					transfer_troops = yes
+				}	
 			}
 			hidden_effect = {
 				614 = { add_core_of = ROOT }
@@ -3495,8 +3578,21 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			IF = { 
-				
+			IF = {
+				limit = {
+					MEN = {
+						is_subject_of = ROOT
+					}
+				}
+				MEN = {
+					every_army_leader = {
+						set_nationality = ROOT
+					}
+				}
+				annex_country = {
+					target = MEN
+					transfer_troops = yes
+				}	
 			}
 			set_politics = {
 				ruling_party = communism
@@ -3533,8 +3629,15 @@
 
 		}
 
-		bypass = { 
-
+		bypass = {
+			PRC = {
+				OR = {
+					NOT = {
+						has_government = communism
+					}
+					exists = no
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -3603,8 +3706,12 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
-			IF = { 
-				
+			IF = {
+				limit = {
+					is_in_faction_with = PRC
+				}
+				add_to_tech_sharing_group = MAN_PRC_technology_sharing_group
+				PRC = { add_to_tech_sharing_group = MAN_PRC_technology_sharing_group }
 			}
 		}
 	}
@@ -3720,9 +3827,16 @@
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			
+			PRC = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			
+			create_wargoal = {
+				type = annex_everything
+				target = TIB
+			}
 		}
 	}
 
@@ -4617,7 +4731,18 @@
 			1045 = { is_fully_controlled_by = ROOT }
 			1044 = { is_fully_controlled_by = ROOT }
 			756 = { is_fully_controlled_by = ROOT }
-			
+			XSM = {
+				exists = no
+			}
+			GSM = {
+				exists = no
+			}
+			NXM = {
+				exists = no
+			}
+			KHM = {
+				exists = no
+			}
 		}
 
 		bypass = {
@@ -4631,19 +4756,111 @@
 		
 
 		completion_reward = {
-			IF = { 
-				
+			IF = {
+				limit = {
+					KHM = {
+						has_character = XSM_ma_hongbin
+					}
+				}
+				KHM = {
+					XSM_ma_hongbin = {
+						set_nationality = ROOT
+						clr_character_flag = yes
+						remove_trait = {
+							trait = XSM_dubious_loyalty
+						}
+					}
+				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					NXM = {
+						has_character = XSM_ma_hongbin
+					}
+				}
+				NXM = {
+					XSM_ma_hongbin = {
+						set_nationality = ROOT
+						clr_character_flag = yes
+						remove_trait = {
+							trait = XSM_dubious_loyalty
+						}
+					}
+				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					XSM = {
+						has_character = XSM_ma_hongbin
+					}
+				}
+				XSM = {
+					XSM_ma_hongbin = {
+						set_nationality = ROOT
+						clr_character_flag = yes
+						remove_trait = {
+							trait = XSM_dubious_loyalty
+						}
+					}
+				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					GSM = {
+						has_character = XSM_ma_hongbin
+					}
+				}
+				GSM = {
+					XSM_ma_hongbin = {
+						set_nationality = ROOT
+						clr_character_flag = yes
+						remove_trait = {
+							trait = XSM_dubious_loyalty
+						}
+					}
+				}
 			}
-			
+			XSM = {
+				XSM_ma_bufang = {
+					set_nationality = ROOT
+				}
+				IF = {
+					limit = {
+						XSM_ma_bufang = {
+							is_corps_commander = no
+						}
+					}
+					XSM_ma_bufang = {
+					 	add_corps_commander_role = {
+						traits = { }
+						attack_skill = 4
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 2
+						skill = 3
+						legacy_id=-1
+						}
+					}
+				}
+			}
+			KHM = {
+				KHM_ma_hushan = {
+					set_nationality = ROOT
+				}
+				KHM_ma_zhancang = {
+					set_nationality = ROOT
+				}
+			}
+			NXM = {
+				XSM_ma_hongkui = {
+					set_nationality = ROOT
+				}
+			}
+			GSM = {
+				XSM_ma_buqing = {
+					set_nationality = ROOT
+				}
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				delete_unit_template_and_units = {
@@ -4653,7 +4870,7 @@
 
 				division_template = {
 					name = "Gansu Braves"
-					division_names_group = MAN_CAV_01
+					division_names_group = XSM_CAV_01
 					role = garrison
 					template_counter = 5
 					is_locked = no

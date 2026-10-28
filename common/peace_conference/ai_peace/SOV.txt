@@ -20,7 +20,8 @@ peace_ai_desires = {
         peace_action_type = { take_states }
         enable = {
             tag = SOV  # Negotiatior is soviet union
-          
+            NOT = { LIT = { is_subject_of = ROOT } }
+            FROM = { tag = ROOT }  # And the negotiator is also taking for themselves
             FROM.FROM.FROM = { state = 188 }  # Memel
         }
 
@@ -32,7 +33,8 @@ peace_ai_desires = {
         peace_action_type = { take_states }
         enable = {
             tag = SOV  # Negotiatior is soviet union
-           
+            LIT = { pc_is_puppeted_by = ROOT }
+            FROM = { tag = LIT }  # And the negotiator is also taking for themselves
             FROM.FROM.FROM = { state = 188 }  # Memel
         }
 
@@ -77,10 +79,60 @@ peace_ai_desires = {
     }
 
     # Create a Korean puppet in North Korea.
-   
+    SOV_puppet_n_korea = {
+        peace_action_type = { puppet }
+        enable = {
+            FROM.FROM.FROM = {
+                state = 527
+                state = 1028
+            }
+            FROM = {
+                original_tag = KOR
+            }
+            ROOT = {
+                original_tag = SOV
+                has_government = communism
+            }
+        }
+        ai_desire = 100 
+    }
 
     # The 38th parallell - don't take South Korea if the US are on the same side
-   
+    SOV_not_puppet_s_korea = {
+        peace_action_type = { puppet take_states liberate force_government}
+        enable = {
+            OR = {
+                is_historical_focus_on = yes
+                ROOT = {
+                    has_country_leader = {
+                        ruling_only = yes
+                        character = SOV_iosif_stalin
+                    }   
+                }
+            }
+            FROM.FROM.FROM = {
+                state = 525
+                state = 1029
+                state = 1031
+                state = 1030
+            }
+            FROM = {
+                original_tag = KOR
+            }
+            ROOT = {
+                original_tag = SOV
+                has_government = communism
+            }
+            USA = {
+                OR = {
+                    has_war_with = JAP
+                    has_war_with = KOR
+                }
+                NOT = { has_war_with = ROOT }
+            }
+        }
+        ai_desire = -100
+    }
 
     # Take the historical claims from Japan at the end of a war 
     SOV_take_sakhalin_and_the_kurils = {

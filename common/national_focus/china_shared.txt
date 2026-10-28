@@ -40,11 +40,15 @@ shared_focus = {
 	icon = GFX_focus_generic_concessions
 	x = 40
 	y = 0
-	offset = { 
-
+	offset = {
+		x = -6
+		y = 0
+		trigger = {
+			tag = PRC
+		}
 	}
 	offset = {
-		x = -7
+		x = -16
 		y = 0
 		trigger = {
 			 tag = MAN 
@@ -302,8 +306,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -342,8 +347,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-			
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -594,8 +600,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -686,23 +693,137 @@ shared_focus = {
 					}
 				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = PRC
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = PRC_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = YUN
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = YUN_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = GXC
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = GXC_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-				
+			if = {
+				limit = {
+					tag = SHX
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = SHX_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = XSM
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = XSM_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = SIK
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = SIK_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -794,8 +915,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -837,8 +959,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -893,8 +1016,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -928,8 +1052,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -1041,8 +1166,9 @@ shared_focus = {
 
 	ai_will_do = {
 		base = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			original_tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -1105,8 +1231,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -1254,8 +1381,9 @@ shared_focus = {
 				has_tech = tech_mountaineers # Wait for the full benefit
 			}
 		}
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -1323,8 +1451,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -1652,8 +1781,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC			
 		}
 	}
 
@@ -1708,23 +1838,71 @@ shared_focus = {
 				}
 			}
 		}
-		if = { 
-
+		if = {
+			limit = { NOT = { original_tag = PRC } }
+			PRC = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
-		if = { 
-
+		if = {
+			limit = { NOT = { original_tag = GXC } }
+			GXC = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
-		if = { 
-
+		if = {
+			limit = { NOT = { original_tag = YUN } }
+			YUN = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
-		if = { 
-
+		if = {
+			limit = { NOT = { original_tag = SHX } }
+			SHX = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
-		if = { 
-
+		if = {
+			limit = { NOT = { original_tag = XSM } }
+			XSM = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
-		if = { 
-			
+		if = {
+			limit = { NOT = { original_tag = SIK } }
+			SIK = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
 		}
 	}
 
@@ -1780,11 +1958,13 @@ shared_focus = {
 	}
 
 	available = {
-		
+		NOT = { is_in_faction_with = TIB }
+		is_subject = no
 	}
 
 	bypass = {
-		
+		NOT = { country_exists = TIB }
+		TIB = { is_subject_of = ROOT }
 	}
 
 	cancel_if_invalid = yes
@@ -1792,7 +1972,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		
+		TIB = { country_event = wtt_china.10 }
 	}
 }
 
@@ -1809,7 +1989,13 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		
+		modifier = {
+			any_country = {
+				is_major = yes
+				is_in_faction_with = TIB
+			}
+			factor = 0
+		}
 	}
 
 	available = {
@@ -1817,15 +2003,38 @@ shared_focus = {
 	}
 
 	bypass = {
-		
+		OR = {
+			NOT = { country_exists = TIB }	
+			has_war_with = TIB
+			has_wargoal_against = TIB
+		}
 	}
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
 
-	completion_reward = { 
-		
+	completion_reward = {
+		if = {
+			limit = {
+				322 = { is_owned_and_controlled_by = TIB }
+			}
+			ROOT = {
+				create_wargoal = {
+					type = take_state_focus
+					target = TIB
+					expire = 0
+					generator = { 322 }
+				}
+			}
+		}
+		else = {
+			create_wargoal = {
+				type = annex_everything
+				target = TIB				
+				expire = 0
+			}
+		}
 	}
 }
 
@@ -2018,7 +2227,90 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = CHI_commit_to_korean_independence
+	icon = GFX_goal_generic_national_unity
+	prerequisite = { focus = CHI_guidance_and_support }
+	x = 1
+	y = 2
+	relative_position_id = CHI_anti_imperialism
 
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+	}
+
+	bypass = {
+		OR = {
+		country_exists = KOR
+			527 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			525 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				OR = {
+					527 = { is_owned_and_controlled_by = ROOT }
+					525 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
+			activate_mission_tooltip = CHI_release_korea
+		}
+		else = {
+			527 = {
+				CONTROLLER = {
+					ROOT = {
+						create_wargoal = {
+							type = take_state_focus
+							target = PREV
+							expire = 0
+							generator = { 527 }
+						}
+					}
+				}
+			}
+			#Don't give wargoal on same country twice
+			if = {
+				limit = {
+					NOT = { 525 = { CONTROLLER = { controls_state = 527 } } }
+				}
+				525 = {
+					CONTROLLER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_state_focus
+								target = PREV
+								expire = 0
+								generator = { 525 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 shared_focus = {
 	id = CHI_indian_cooperation
@@ -2199,7 +2491,7 @@ shared_focus = {
 					controls_state = 1069 
 				}
 			}
-			#custom_effect_tooltip = CHI_overlordship_over_indochina_tt
+			custom_effect_tooltip = CHI_overlordship_over_indochina_tt
 			hidden_effect = {
 				ROOT = {
 					create_wargoal = {
@@ -2211,7 +2503,7 @@ shared_focus = {
 				}
 			}
 		}
-		#activate_mission_tooltip = CHI_overlordship_over_indochina
+		activate_mission_tooltip = CHI_overlordship_over_indochina
 		hidden_effect = {
 			news_event = { id = wtt_news.47 days = 3}
 		}
@@ -3402,7 +3694,7 @@ shared_focus = {
 			uses = 2
 			category = cv_tech
 		}
-		#activate_mission_tooltip = CHI_build_a_carrier
+		activate_mission_tooltip = CHI_build_a_carrier
 	}
 }
 

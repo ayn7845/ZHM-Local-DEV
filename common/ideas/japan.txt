@@ -805,6 +805,41 @@ ideas = {
 				defense_bonus_against = -0.05
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.05
+			}
 		}
 
 		JAP_intervene_in_china_2 = {
@@ -829,6 +864,41 @@ ideas = {
 				defense_bonus_against = -0.10
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.10
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.10
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.10
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.10
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.10
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.1
+			}
 		}
 
 		JAP_intervene_in_china_3 = {
@@ -853,6 +923,41 @@ ideas = {
 				defense_bonus_against = -0.15
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.15
+			}
 		}
 
 		JAP_intervene_in_china_4 = {
@@ -877,6 +982,41 @@ ideas = {
 				defense_bonus_against = -0.20
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.20
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.20
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.20
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.20
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.20
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = -0.4
+				defense_bonus_against = -0.2
+			}
 		}
 
 		JAP_intervene_in_china_5 = {
@@ -901,6 +1041,41 @@ ideas = {
 				defense_bonus_against = -0.25
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = -0.5
+				defense_bonus_against = -0.25
+			}
 		}
 
 		JAP_ichi_go = {		
@@ -923,6 +1098,41 @@ ideas = {
 				defense_bonus_against = 0.05
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
 
 		}
 
@@ -948,6 +1158,89 @@ ideas = {
 				defense_bonus_against = 0.05
 			}
 
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SND
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = GDC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = HBC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = XIC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = KHM
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = NXM
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = GSM
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SIC
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.05
+			}
 
 		}
 
@@ -1490,7 +1783,33 @@ ideas = {
 
 		}
 
-	
+		MEN_true_mongol_state = {
+
+			picture = MEN_true_mongol_state
+
+			allowed = {
+				original_tag = MEN
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = 0.1
+				cavalry_attack_factor = 0.1
+				cavalry_defence_factor = 0.1
+			}
+
+			targeted_modifier = {
+				tag = MON
+				attack_bonus_against = -0.05
+				breakthrough_bonus_against = -0.05
+			}
+
+		}
 
 		senbu_occupation_law_fake_idea = { #Used for tooltip purposes
 			#name = JAP_senbu_idea
@@ -1552,7 +1871,79 @@ ideas = {
 			}
 		}
 
-		
+		JAP_japanese_influence_growing_tibet = {
+
+			picture = JAP_japanese_influence_growing
+
+			allowed = {
+				original_tag = TIB
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				fascism_drift = 0.08
+			}
+
+			targeted_modifier = {
+				tag = JAP
+				defense_bonus_against = -0.05
+			}
+
+		}
+
+		JAP_smaller_japanese_influence_growing_tibet = {
+
+			picture = JAP_japanese_influence_growing
+
+			allowed = {
+				original_tag = TIB
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				fascism_drift = 0.05
+				stability_factor = -0.05
+			}
+
+		}
+
+		JAP_japanese_influence_growing_tibet_2 = {
+
+			name = JAP_japanese_influence_growing_tibet
+
+			picture = JAP_japanese_influence_growing
+
+			allowed = {
+				original_tag = TIB
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				fascism_drift = 0.12
+			}
+
+			targeted_modifier = {
+				tag = JAP
+				defense_bonus_against = -0.05
+				attack_bonus_against = -0.05
+			}
+
+		}
 
 		JAP_new_order_in_east_asia_idea = {
 
@@ -1612,7 +2003,7 @@ ideas = {
 			picture = chi_wargaming_division
 
 			allowed = {
-				always = no
+				original_tag = SHX
 			}
 
 			allowed_civil_war = {
@@ -2166,8 +2557,8 @@ ideas = {
 				OR = {
 					original_tag = JAP
 					original_tag = MAN
-					#original_tag = MEN
-					#original_tag = KOR
+					original_tag = MEN
+					original_tag = KOR
 				}
 			}
 
@@ -2564,9 +2955,9 @@ ideas = {
 			allowed = {
 				OR = {
 					original_tag = MAN
-				#	original_tag = MEN
-				#	original_tag = KOR
-				#	original_tag = FOR
+					original_tag = MEN
+					original_tag = KOR
+					original_tag = FOR
 				}
 			}
 
@@ -3591,7 +3982,21 @@ ideas = {
 				war_support_factor = 0.05
 			}
 
-			
+			targeted_modifier = {
+				tag = PLU
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = FOR
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = KOR
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.1
+			}
 
 		}
 
@@ -3783,8 +4188,8 @@ ideas = {
 				OR = {
 					original_tag = JAP
 					original_tag = MAN
-				#	original_tag = MEN
-				#	original_tag = KOR
+					original_tag = MEN
+					original_tag = KOR
 				}
 			}
 
@@ -3804,9 +4209,17 @@ ideas = {
 				compliance_gain = 0.01
 			}
 
-			
+			targeted_modifier = {
+				tag = BYA
+				attack_bonus_against = 0.1
+				compliance_gain = 0.01
+			}
 
-			
+			targeted_modifier = {
+				tag = MEN
+				attack_bonus_against = 0.1
+				compliance_gain = 0.01
+			}
 
 			targeted_modifier = {
 				tag = TAN
@@ -3814,7 +4227,11 @@ ideas = {
 				compliance_gain = 0.01
 			}
 
-			
+			targeted_modifier = {
+				tag = KUM
+				attack_bonus_against = 0.1
+				compliance_gain = 0.01
+			}
 
 		}
 
@@ -5861,8 +6278,21 @@ ideas = {
 				}
 			}
 
-			available = { 
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 			
 			research_bonus = {
@@ -5918,8 +6348,27 @@ ideas = {
 				}
 			}
 			
-			available = { 
-
+			available = {
+				if = {
+					limit = {
+						original_tag = JAP
+					}
+					has_completed_focus = JAP_develop_new_fighters
+				}
+				else_if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 			
 			research_bonus = {
@@ -6437,8 +6886,21 @@ ideas = {
 				}
 			}
 
-			available = { 
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 			
 			research_bonus = {
@@ -6457,8 +6919,21 @@ ideas = {
 				}
 			}
 
-			available = { 
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 						
 			research_bonus = {
@@ -6479,8 +6954,21 @@ ideas = {
 				}
 			}
 
-			available = { 
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 			
 			cost = 150
@@ -6633,8 +7121,21 @@ ideas = {
 				}
 			}
 
-			available = { 
-				
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					has_completed_focus = PHI_align_with_japan
+					if = {	#Easter egg so dont always show the requirement
+						limit = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
 			}
 
 			research_bonus = {

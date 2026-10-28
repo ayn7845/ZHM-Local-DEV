@@ -18,8 +18,51 @@
 
 transfer_advisors_to_vichy = {
 
-	FRA = { 
+	FRA = {
+		FRA_jean_romatet = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
+		FRA_pierre_pucheu = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
+		FRA_gaston_henry_haye = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
+		FRA_philippe_henriot = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
 		
+		FRA_marcel_bucard = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
+		FRA_marcel_deat = {
+			set_nationality = event_target:vichy_france	
+		}
+
+
+		FRA_charles_maurras = {
+			set_nationality = event_target:vichy_france	
+		}
+
+		FRA_emile_laure = {
+			set_nationality = event_target:vichy_france	
+		}
+
+		FRA_joseph_doumenc = {
+			set_nationality = event_target:vichy_france	
+		}
+		
+
 	}
 
 }
@@ -212,8 +255,17 @@ FRA_communism_riot_effect = {
 }
 
 FRA_transfer_indochina_effect = {
-	if = { 
-
+	if = {
+		limit = {
+			VIN = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = VIN
 	}
 	else_if = {
 		limit = {
@@ -227,8 +279,17 @@ FRA_transfer_indochina_effect = {
 		transfer_state = 1017
 		transfer_state = 1066
 	}
-	if = { 
-
+	if = {
+		limit = {
+			CAM = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = CAM
 	}
 	else_if = {
 		limit = { 
@@ -238,8 +299,17 @@ FRA_transfer_indochina_effect = {
 		transfer_state = 741
 		transfer_state = 1067
 	}
-	if = { 
-
+	if = {
+		limit = {
+			LAO = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = LAO
 	}
 	else_if = {
 		limit = { 
@@ -254,15 +324,33 @@ FRA_transfer_indochina_effect = {
 }
 
 FRA_transfer_syria_effect = {
-	if = { 
-
+	if = {
+		limit = {
+			LEB = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = LEB
 	}
 	else_if = {
 		limit = { 553 = { CONTROLLER = { original_tag = FRA } } }
 		transfer_state = 553
 	}
-	if = { 
-
+	if = {
+		limit = {
+			SYR = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = SYR
 	}
 	else_if = {
 		limit = {
@@ -277,8 +365,17 @@ FRA_transfer_syria_effect = {
 }
 
 FRA_transfer_north_africa_effect = {
-	if = { 
-
+	if = {
+		limit = {
+			TUN = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = TUN
 	}
 	else_if = {
 		limit = { 
@@ -288,8 +385,17 @@ FRA_transfer_north_africa_effect = {
 		transfer_state = 458
 		transfer_state = 665
 	}
-	if = { 
-
+	if = {
+		limit = {
+			MOR = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = MOR
 	}
 	else_if = {
 		limit = { 
@@ -299,8 +405,17 @@ FRA_transfer_north_africa_effect = {
 		transfer_state = 461
 		transfer_state = 462
 	}
-	if = { 
-
+	if = {
+		limit = {
+			ALG = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}	
+		}
+		puppet = ALG
 	}
 	else_if = {
 		limit = {
@@ -315,8 +430,17 @@ FRA_transfer_north_africa_effect = {
 }
 
 FRA_transfer_central_africa_effect = {
-	if = { 
-
+	if = {
+		limit = {
+			RCG = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = RCG
 	}
 	else_if = {
 		limit = { 
@@ -324,8 +448,17 @@ FRA_transfer_central_africa_effect = {
 		}
 		transfer_state = 772
 	}
-	if = { 
-
+	if = {
+		limit = {
+			GAB = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = GAB
 	}
 	else_if = {
 		limit = { 
@@ -333,8 +466,17 @@ FRA_transfer_central_africa_effect = {
 		}
 		transfer_state = 539
 	}
-	if = { 
-
+	if = {
+		limit = {
+			CAR = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = CAR
 	}
 	else_if = {
 		limit = {
@@ -342,8 +484,17 @@ FRA_transfer_central_africa_effect = {
 		}
 		transfer_state = 660
 	}
-	if = { 
-
+	if = {
+		limit = {
+			CMR = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = CMR
 	}
 	else_if = {
 		limit = {
@@ -351,8 +502,17 @@ FRA_transfer_central_africa_effect = {
 		}
 		transfer_state = 773
 	}
-	if = { 
-		
+	if = {
+		limit = {
+			CHA = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = CHA
 	}
 	else_if = {
 		limit = {
@@ -362,8 +522,17 @@ FRA_transfer_central_africa_effect = {
 	}
 }
 FRA_transfer_western_africa_effect = {
-	if = { 
-		
+	if = {
+		limit = {
+			NGR = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = NGR
 	}
 	else_if = {
 		limit = { 
@@ -371,8 +540,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 781
 	}
-	if = { 
-
+	if = {
+		limit = {
+			DAH = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = DAH
 	}
 	else_if = {
 		limit = { 
@@ -380,8 +558,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 776
 	}
-	if = { 
-
+	if = {
+		limit = {
+			TOG = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = TOG
 	}
 	else_if = {
 		limit = {
@@ -389,8 +576,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 777
 	}
-	if = { 
-
+	if = {
+		limit = {
+			VOL = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = VOL
 	}
 	else_if = {
 		limit = {
@@ -398,8 +594,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 778
 	}
-	if = { 
-
+	if = {
+		limit = {
+			IVO = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = IVO
 	}
 	else_if = {
 		limit = {
@@ -407,8 +612,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 779
 	}
-	if = { 
-
+	if = {
+		limit = {
+			MLI = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = MLI
 	}
 	else_if = {
 		limit = {
@@ -420,8 +634,17 @@ FRA_transfer_western_africa_effect = {
 		transfer_state = 898
 		transfer_state = 899
 	}
-	if = { 
-
+	if = {
+		limit = {
+			GNA = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = GNA
 	}
 	else_if = {
 		limit = {
@@ -429,8 +652,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 780
 	}
-	if = { 
-
+	if = {
+		limit = {
+			SEN = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = SEN
 	}
 	else_if = {
 		limit = {
@@ -438,8 +670,17 @@ FRA_transfer_western_africa_effect = {
 		}
 		transfer_state = 272
 	}
-	if = { 
-		
+	if = {
+		limit = {
+			MRT = {
+				exists = yes
+				is_subject = yes
+				OVERLORD = {
+					original_tag = FRA
+				}
+			}
+		}
+		puppet = MRT
 	}
 	else_if = {
 		limit = {

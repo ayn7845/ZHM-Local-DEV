@@ -53,21 +53,17 @@ focus_tree = {
 		available = {
 		}
 
-		#allow_branch = {
-		#	IF = {
-		#		limit = {
-		#			has_game_rule = {
-		#				rule = obsolete_focus_branches_visibility
-		#				option = HIDE
-		#			}
-		#		}
-		#		NOT = { has_completed_focus = ARG_the_clean_election }
-		#		NOT = { has_completed_focus = ARG_a_call_to_reform }
-		#	}
-		#}
-
 		allow_branch = {
-			always = no
+			IF = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ARG_the_clean_election }
+				NOT = { has_completed_focus = ARG_a_call_to_reform }
+			}
 		}
 
 		ai_will_do = {
@@ -1930,13 +1926,22 @@ focus_tree = {
 		mutually_exclusive = { focus = ARG_paraguayan_ultimatum }
 		cost = 10
 		available = {
-			
+			PAR = {
+				exists = yes
+			}
 		}
 
 
 
 		bypass = {
-			
+			PAR = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -1946,7 +1951,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = { 
-				
+				create_wargoal = {
+					type = annex_everything
+					target = PAR
+				}
 			}
 		}
 
@@ -1960,7 +1968,9 @@ focus_tree = {
 		mutually_exclusive = { focus = ARG_conquer_paraguay }
 		cost = 10
 		available = {
-			
+			PAR = {
+				exists = yes
+			}
 		}
 
 		ai_will_do = {
@@ -1968,15 +1978,27 @@ focus_tree = {
 		}
 
 		bypass = {
-			
+			PAR = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		search_filters = { }
 
 		completion_reward = { 
 
-		hidden_effect = { 
-
+		hidden_effect = {
+			PAR = {
+				country_event = {
+					id = ARG_political_events.15
+					hours = 1
+				}
+			}
 		}
 			custom_effect_tooltip = ARG_paraguayan_ultimatum.tt
 		}
@@ -1996,23 +2018,42 @@ focus_tree = {
 				is_in_faction_with = ROOT
 			}
 
-			
+			URG = {
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				} 
+			}
 		}
 
 		ai_will_do = {
 			factor = 10
 		}
 
-		bypass = { 
-
+		bypass = {
+			URG = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		search_filters = { }
 
 		completion_reward = { 
 
-		hidden_effect = { 
-
+		hidden_effect = {
+			URG = {
+				country_event = {
+					id = ARG_political_events.19
+					hours = 1
+				}
+			}
 		}
 			custom_effect_tooltip = ARG_uraguayan_ultimatum.tt
 		}
@@ -2027,12 +2068,21 @@ focus_tree = {
 		relative_position_id = ARG_cut_ties_with_britain
 		mutually_exclusive = { focus = ARG_revive_the_colonial_plan }
 		cost = 10
-		available = { 
-
+		available = {
+			URG = {
+				exists = yes
+			}
 		}
 
-		bypass = { 
-
+		bypass = {
+			URG = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -2042,8 +2092,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = { 
-
-		}
+			create_wargoal = {
+					type = annex_everything
+					target = URG
+				}
+			}
 		}
 
 	focus = { #DOMINATION
@@ -2055,12 +2108,34 @@ focus_tree = {
 		relative_position_id = ARG_paraguayan_ultimatum
 		mutually_exclusive = { focus = ARG_chilean_ultimatum }
 		cost = 10
-		available = { 
-
+		available = {
+			ARG = {
+				is_faction_leader = yes
+			}
+			CHL = {
+				NOT = {
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				} 
+			}
+			954 = {
+				is_owned_and_controlled_by = ARG
+			}
+			953 = {
+				is_owned_and_controlled_by = ARG
+			}
 		}
 
-		bypass = { 
-
+		bypass = {
+			CHL = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -2071,6 +2146,15 @@ focus_tree = {
 
 		completion_reward = { 
 
+			CHL = {
+				country_event = {
+					id = ARG_political_events.24
+					hours = 1
+				}
+			}
+			custom_effect_tooltip = ARG_reach_out_to_chile_tt
+			custom_effect_tooltip = CHL_skip_one_line_tt
+			custom_effect_tooltip = ARG_reach_out_to_chile_2_tt
 		}
 	}
 
@@ -2083,24 +2167,42 @@ focus_tree = {
 		relative_position_id = ARG_dominate_the_south
 		mutually_exclusive = { focus = ARG_reach_out_to_chile }
 		cost = 10
-		available = { 
-
+		available = {
+			CHL = {
+				NOT = {
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				} 
+			}
 		}
 
 		ai_will_do = {
 			factor = 10
 		}
 
-		bypass = { 
-
+		bypass = {
+			CHL = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
 		}
 
 		search_filters = { }
 
 		completion_reward = { 
 
-			hidden_effect = { 
-				
+			hidden_effect = {
+				CHL = {
+					country_event = {
+						id = ARG_political_events.27
+						hours = 1
+					}
+				}
 			}
 
 			custom_effect_tooltip = ARG_chilean_ultimatum.tt
@@ -2580,7 +2682,7 @@ focus_tree = {
 		id = ARG_the_clean_election
 		icon = GFX_focus_ARG_the_clean_election
 		#prerequisite = { focus = ARG_preparation_for_the_elections }
-		x = 20
+		x = 0
 		y = 0
 		#relative_position_id = ARG_preparation_for_the_elections
 		cost = 10
@@ -3404,9 +3506,15 @@ focus_tree = {
 		y = 3
 		relative_position_id = ARG_reinforced_alliance
 		mutually_exclusive = { focus = ARG_bastion_of_democracy focus = ARG_maintain_neutrality }
-		cost = 1
+		cost = 10
 		available = {
-			date > 1940.1.1
+			any_country = {
+				is_major = yes
+				has_government = democratic 
+				is_faction_leader = yes 
+			}
+			is_in_faction = no
+			is_subject = no
 		}
 
 		bypass = {
@@ -3428,10 +3536,10 @@ focus_tree = {
 					is_major = yes
 					has_government = democratic 
 					is_faction_leader = yes 
-					#OR ={
+					OR ={
 						original_tag = ENG
-					#	original_tag = USA
-					#}
+						original_tag = USA
+					}
 				}
 				country_event = generic.2
 			}
@@ -3451,9 +3559,7 @@ focus_tree = {
 			is_subject = no
 			is_in_faction = no
 		}
-		allow_branch = {
-			always = no
-		}
+
 		bypass = {
 			is_in_faction = yes
 		}
@@ -3571,9 +3677,18 @@ focus_tree = {
 
 					NOT = {
 						OR = {
-						
+							original_tag = GYA
+							original_tag = SUR
+							original_tag = CAY
+							original_tag = HAI
+							original_tag = BAH
+							original_tag = JAM
+							original_tag = GDL
+							original_tag = BAS
+							original_tag = TRI
+							original_tag = ELS
 							original_tag = MEX
-						
+							original_tag = DOM
 						}
 					}
 				}
@@ -3869,16 +3984,14 @@ focus_tree = {
 				has_government = fascism
 				NOT = {
 					OR = {
-						
+						original_tag = ELS
 						original_tag = MEX
-						
+						original_tag = DOM
 					}
 				}
 			}
 		}
-		allow_branch = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 10
 		}
@@ -3898,9 +4011,9 @@ focus_tree = {
 					has_government = fascism
 					NOT = {
 						OR = {
-						
+							original_tag = ELS
 							original_tag = MEX
-							
+							original_tag = DOM
 						}
 					}
 				}
@@ -4108,16 +4221,12 @@ focus_tree = {
 				has_government = communism
 				NOT = {
 					OR = {
-					
+						original_tag = ELS
 						original_tag = MEX
-					
+						original_tag = DOM
 					}
 				}
 			}
-		}
-
-		allow_branch = {
-			always = no
 		}
 
 		ai_will_do = {
@@ -4165,20 +4274,17 @@ focus_tree = {
 		available = {
 		}
 
-		#allow_branch = {
-		#	IF = {
-		#		limit = {
-		#			has_game_rule = {
-		#				rule = obsolete_focus_branches_visibility
-		#				option = HIDE
-			#		}
-			#	}
-		#		NOT = { has_completed_focus = ARG_roberto_maria_ortiz }
-		#		NOT = { has_completed_focus = ARG_the_clean_election }
-		#	}
-		#}
 		allow_branch = {
-			always = no
+			IF = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ARG_roberto_maria_ortiz }
+				NOT = { has_completed_focus = ARG_the_clean_election }
+			}
 		}
 
 		ai_will_do = {
@@ -5032,9 +5138,9 @@ focus_tree = {
 				}
 				NOT = {
 					OR = {
-					
+						original_tag = ELS
 						original_tag = MEX
-						
+						original_tag = DOM
 					}
 					has_government = communism
 				}
@@ -5059,9 +5165,9 @@ focus_tree = {
 					}
 					NOT = {
 					OR = {
-						
+						original_tag = ELS
 						original_tag = MEX
-					
+						original_tag = DOM
 					}
 					has_government = communism
 					}
@@ -5166,9 +5272,18 @@ focus_tree = {
 
 					NOT = {
 						OR = {
-					
+							original_tag = GYA
+							original_tag = SUR
+							original_tag = CAY
+							original_tag = HAI
+							original_tag = BAH
+							original_tag = JAM
+							original_tag = GDL
+							original_tag = BAS
+							original_tag = TRI
+							original_tag = ELS
 							original_tag = MEX
-						
+							original_tag = DOM
 						}
 					}
 				}
@@ -5397,7 +5512,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 0
+			x = -22
 			y = 0
 			trigger = {
 				has_game_rule = {

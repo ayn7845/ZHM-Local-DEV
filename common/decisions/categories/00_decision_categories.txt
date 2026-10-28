@@ -52,7 +52,7 @@ war_measures = {
 			}
 			AND = {
 				OR = {
-					
+					original_tag = COG
 					original_tag = BEL
 				}
 				has_global_flag = CONGO_independence_war_ongoing
@@ -92,7 +92,13 @@ political_actions = {
 	}
 
 	visible = {
-		
+		if = {
+			limit = {
+				has_dlc = "By Blood Alone"
+			}
+			NOT = { original_tag = SWI }
+			NOT = { has_country_flag = SWI_can_use_political_actions }
+		}
 		if = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
@@ -127,14 +133,16 @@ fascism_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}
 			AND = {
 				has_dlc = "By Blood Alone"
 				OR = {
-					
+					original_tag = SWI
 					original_tag = ITA
 				}
 			}
@@ -156,6 +164,13 @@ fascism_on_the_rise = {
 				}
 			}
 			AND = {
+				has_dlc = "Graveyard of Empires"
+				OR = {
+					original_tag = PER
+					original_tag = AFG
+				}
+			}
+			AND = {
 				has_dlc = "Thunder at Our Gates"
 				OR = {
 					original_tag = AST
@@ -165,7 +180,13 @@ fascism_on_the_rise = {
 	}
 	
 	visible = {
-	
+		NOT = {
+			AND = {
+				original_tag = FIN
+				is_ai = yes
+				EST = { has_completed_focus = EST_national_pride_in_finland }
+			}
+		}
 		NOT = {
 			AND = {
 				has_dlc = "La Resistance"
@@ -190,7 +211,9 @@ democratic_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}
@@ -198,7 +221,7 @@ democratic_on_the_rise = {
 			AND = {
 				has_dlc = "By Blood Alone"
 				OR = {
-					
+					original_tag = SWI
 					original_tag = ITA
 				}
 			}
@@ -220,7 +243,13 @@ democratic_on_the_rise = {
 					original_tag = GER
 				}
 			}
-			
+			AND = {
+				has_dlc = "Graveyard of Empires"
+				OR = {
+					original_tag = PER
+					original_tag = AFG
+				}
+			}
 		}
 	}
 	
@@ -246,7 +275,9 @@ communism_on_the_rise = {
 			AND = {
 				has_dlc = "No Step Back"
 				OR = {
-					
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
 					original_tag = POL
 				}
 			}
@@ -278,7 +309,13 @@ communism_on_the_rise = {
 					original_tag = GER
 				}
 			}
-			
+			AND = {
+				has_dlc = "Graveyard of Empires"
+				OR = {
+					original_tag = PER
+					original_tag = AFG
+				}
+			}
 			AND = {
 				has_dlc = "Thunder at Our Gates"
 				OR = {
@@ -349,7 +386,9 @@ governments_in_exile = {
 	}
 
 	visible = {
-		
+		NOT = {
+			has_completed_focus = NOR_the_kings_no 
+		}
 	}
 
 	priority = 7
@@ -445,7 +484,11 @@ lar_local_recruitment = {
 			}
 			NOT = {
 				tag = RAJ
-				
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 		}
 	}
@@ -472,7 +515,11 @@ lar_local_recruitment = {
 			OR = {
 				has_country_flag = india_recruitment_unlocked
 				tag = RAJ
-			
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 		}
 	}
@@ -533,17 +580,29 @@ generic_purchase_old_ships_category = {
 				original_tag = BRA
 				has_dlc = "Trial of Allegiance"
 			}
-			
+			AND = {
+				original_tag = CHL
+				has_dlc = "Trial of Allegiance"
+			}
 			AND = {
 				original_tag = ARG
 				has_dlc = "Trial of Allegiance"
 			}
 
-		
+			AND = {
+				original_tag = URG
+				has_dlc = "Trial of Allegiance"
+			}
 
-			
+			AND = {
+				original_tag = PAR
+				has_dlc = "Trial of Allegiance"
+			}
 
-			
+			AND = {
+				original_tag = PER
+				has_dlc = "Graveyard of Empires"
+			}
 			AND = {
 				original_tag = RAJ
 				has_dlc = "Graveyard of Empires"
@@ -552,7 +611,11 @@ generic_purchase_old_ships_category = {
 				original_tag = IRQ
 				has_dlc = "Graveyard of Empires"
 			}
-			
+			AND = {
+				original_tag = AFG
+				has_dlc = "Graveyard of Empires"
+			}
+			original_tag = CHI
 			original_tag = NZL
 		}
 	}
@@ -576,7 +639,7 @@ generic_refit_civilian_ships_category = {
 				OR = {
 					original_tag = DEN
 					original_tag = FIN
-					
+					original_tag = ICE
 				}
 				has_dlc = "Arms Against Tyranny"
 			}

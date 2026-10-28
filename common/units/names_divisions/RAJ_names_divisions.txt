@@ -815,7 +815,7 @@ RAJ_SIKH_01 =
 {
 	name = "Sikh Division"
 
-	for_countries = { RAJ }
+	for_countries = { RAJ PAK BAN }
 
 	can_use = { always = yes }
 

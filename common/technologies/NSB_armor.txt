@@ -1279,9 +1279,7 @@ technologies = {
 	}
 
 	super_heavy_tank_chassis = { #Maus
-		allow = {
-			always = no
-		}		
+
 		enable_equipments = {
 			super_heavy_tank_chassis_1
 			super_heavy_tank_destroyer_chassis_1

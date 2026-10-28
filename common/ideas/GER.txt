@@ -1126,11 +1126,11 @@ ideas = {
 
 			picture = generic_acquire_tanks
 
-			#targeted_modifier = {
-			#	tag = SOV
-			#	breakthrough_bonus_against = 0.15
-			#	defense_bonus_against = 0.05
-			#}
+			targeted_modifier = {
+				tag = SOV
+				breakthrough_bonus_against = 0.15
+				defense_bonus_against = 0.05
+			}
 
 		}
 
@@ -2462,6 +2462,34 @@ ideas = {
 			}
 		}
 
+		GER_fernostliche_legion_prc_ns = {
+			name = GER_fernostliche_legion_ns
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+				
+			allowed = {
+				original_tag = GER
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				PRC = { has_war = no }
+			}
+
+			modifier = {
+				send_volunteer_divisions_required = -0.15
+				experience_gain_army_factor = 0.15
+				experience_gain_air_factor = 0.15
+				send_volunteer_size = 2
+				air_volunteer_cap = 1
+				send_volunteers_tension = -0.2
+			}
+		}
+
 		#REICHSKOMMISSARIATS
 		GER_german_controlled_reichskommissariat = {
 			
@@ -2789,7 +2817,11 @@ ideas = {
 			modifier = {
 			}
 
-			
+			targeted_modifier = {
+				tag = SWI
+				attack_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
 		}
 
 		GER_recieving_payments_for_protection_fake_idea = {

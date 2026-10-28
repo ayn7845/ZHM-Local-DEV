@@ -1623,7 +1623,6 @@ BUL_add_hidden_targeted_ns = {
 	if = {
 		limit = {
 			original_tag = ENG
-			NOT = { has_idea = BUL_anti_capitalism_eng }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_eng
@@ -1632,7 +1631,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = FRA
-			NOT = { has_idea = BUL_anti_capitalism_fra }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_fra
@@ -1641,7 +1639,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = GER
-			NOT = { has_idea = BUL_anti_capitalism_ger }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_ger
@@ -1650,7 +1647,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = ITA
-			NOT = { has_idea = BUL_anti_capitalism_ita }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_ita
@@ -1659,7 +1655,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = SOV
-			NOT = { has_idea = BUL_anti_capitalism_sov }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_sov
@@ -1668,7 +1663,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = POR
-			NOT = { has_idea = BUL_anti_capitalism_por }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_por
@@ -1677,7 +1671,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = SPR
-			NOT = { has_idea = BUL_anti_capitalism_spr }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_spr
@@ -1686,7 +1679,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = IRE
-			NOT = { has_idea = BUL_anti_capitalism_ire }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_ire
@@ -1695,7 +1687,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = HOL
-			NOT = { has_idea = BUL_anti_capitalism_hol }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_hol
@@ -1704,7 +1695,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = BEL
-			NOT = { has_idea = BUL_anti_capitalism_bel }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_bel
@@ -1713,17 +1703,22 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = LUX
-			NOT = { has_idea = BUL_anti_capitalism_lux }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_lux
 		}
 	}
-
+	else_if = {
+		limit = {
+			original_tag = SWI
+		}
+		ROOT = {
+			add_ideas = BUL_anti_capitalism_swi
+		}
+	}
 	else_if = {
 		limit = {
 			original_tag = AUS
-			NOT = { has_idea = BUL_anti_capitalism_aus }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_aus
@@ -1732,7 +1727,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = CZE
-			NOT = { has_idea = BUL_anti_capitalism_cze }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_cze
@@ -1741,7 +1735,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = HUN
-			NOT = { has_idea = BUL_anti_capitalism_hun }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_hun
@@ -1750,7 +1743,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = YUG
-			NOT = { has_idea = BUL_anti_capitalism_yug }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_yug
@@ -1759,7 +1751,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = ALB
-			NOT = { has_idea = BUL_anti_capitalism_alb }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_alb
@@ -1768,7 +1759,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = GRE
-			NOT = { has_idea = BUL_anti_capitalism_gre }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_gre
@@ -1777,7 +1767,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = TUR
-			NOT = { has_idea = BUL_anti_capitalism_tur }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_tur
@@ -1786,7 +1775,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = ROM
-			NOT = { has_idea = BUL_anti_capitalism_rom }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_rom
@@ -1795,17 +1783,38 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = POL
-			NOT = { has_idea = BUL_anti_capitalism_pol }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_pol
 		}
 	}
-	
+	else_if = {
+		limit = {
+			original_tag = EST
+		}
+		ROOT = {
+			add_ideas = BUL_anti_capitalism_est
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = LAT
+		}
+		ROOT = {
+			add_ideas = BUL_anti_capitalism_lat
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = LIT
+		}
+		ROOT = {
+			add_ideas = BUL_anti_capitalism_lit
+		}
+	}
 	else_if = {
 		limit = {
 			original_tag = SWE
-			NOT = { has_idea = BUL_anti_capitalism_swe }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_swe
@@ -1814,7 +1823,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = FIN
-			NOT = { has_idea = BUL_anti_capitalism_fin }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_fin
@@ -1823,7 +1831,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = NOR
-			NOT = { has_idea = BUL_anti_capitalism_nor }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_nor
@@ -1832,7 +1839,6 @@ BUL_add_hidden_targeted_ns = {
 	else_if = {
 		limit = {
 			original_tag = DEN
-			NOT = { has_idea = BUL_anti_capitalism_den }
 		}
 		ROOT = {
 			add_ideas = BUL_anti_capitalism_den

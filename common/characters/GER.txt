@@ -309,12 +309,12 @@ characters = {
 		}
 		
 		corps_commander = { 
-			traits = { brilliant_strategist panzer_leader trickster trait_engineer skilled_staffer cavalry_leader pre_grind }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 6
-			planning_skill = 5
-			logistics_skill = 6
+			traits = { trait_cautious brilliant_strategist old_guard }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
 			legacy_id = 1
 		}
 	}
@@ -557,12 +557,12 @@ characters = {
 		
 		corps_commander = {
 			visible = { has_completed_focus = GER_adopt_new_panzer_doctrine }
-			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader pre_grind }
-			skill = 6
-			attack_skill = 6
-			defense_skill = 6
-			planning_skill = 6
-			logistics_skill = 6
+			traits = { trait_reckless media_personality armor_officer war_hero trickster }
+			skill = 4
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
 			legacy_id = 4
 		}
 	}
@@ -589,12 +589,12 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { brilliant_strategist panzer_leader trickster trait_engineer skilled_staffer cavalry_leader ranger urban_assault_specialist pre_grind }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 7
-			planning_skill = 6
-			logistics_skill = 6
+			traits = { brilliant_strategist armor_officer trickster trait_engineer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
 			legacy_id = 5
 		}
 	}
@@ -624,15 +624,13 @@ characters = {
 		}
 		
 		corps_commander = {
-			visible = {
-				# has_completed_focus = GER_adopt_new_panzer_doctrine
-				}
-			traits = { brilliant_strategist career_officer panzer_leader trickster skilled_staffer cavalry_leader organizer trait_engineer pre_grind }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 7
-			planning_skill = 6
-			logistics_skill = 6
+			visible = { has_completed_focus = GER_adopt_new_panzer_doctrine }
+			traits = { brilliant_strategist career_officer armor_officer trickster panzer_leader }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
 			legacy_id = 6
 		}
 	}
@@ -703,12 +701,12 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = {cavalry_officer panzer_leader trickster trait_engineer skilled_staffer cavalry_leader ranger commando urban_assault_specialist camouflage_expert pre_grind }
-			skill = 6
-			attack_skill = 6
-			defense_skill = 7
-			planning_skill = 7
-			logistics_skill = 6
+			traits = { cavalry_officer }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
 			legacy_id = 11
 		}
 	}
@@ -923,12 +921,12 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { panzer_leader trickster trait_engineer skilled_staffer cavalry_leader pre_grind }
-			skill = 6
-			attack_skill = 6
-			defense_skill = 6
-			planning_skill = 6
-			logistics_skill = 6
+			traits = { inflexible_strategist trait_cautious war_hero }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
 			legacy_id = 32
 		}
 	}
@@ -1340,157 +1338,6 @@ characters = {
 			visible = {
 				has_completed_focus = GER_reorganize_nationale_volksarmee
 			}
-		}
-	}
-
-	# ZHM Austrian Generals from Anchluss.
-
-	AUS_franz_bohme = {
-		instance = {
-			allowed = {
-				has_dlc = "Gotterdammerung"
-			}
-
-			
-			name = AUS_franz_bohme
-			portraits = {
-				army = {
-					large = "GFX_portrait_AUS_franz_bohme"
-					small = "GFX_portrait_AUS_franz_bohme_small"
-				}
-			}
-	
-			field_marshal = {
-				traits = { brilliant_strategist harsh_leader offensive_doctrine }
-				skill = 2
-				attack_skill = 3
-				defense_skill = 1
-				planning_skill = 3
-				logistics_skill = 2
-				legacy_id = -1
-				
-			}
-		}
-	}
-
-	AUS_eugen_beyer = {
-		instance = {
-			allowed = {
-				has_dlc = "Gotterdammerung"
-			}
-
-			advisor = {	
-				slot = high_command
-				idea_token = AUS_eugen_beyer
-				ledger = army
-				allowed = {
-					original_tag = GER
-				}
-				
-				traits = {
-					army_commando_2
-				}
-				cost = 100
-				ai_will_do = {
-					base= 1
-				}
-			}
-			name = AUS_eugen_beyer
-			portraits = { 
-				army = {
-					large = "GFX_portrait_AUS_eugen_beyer"
-					small = "GFX_portrait_AUS_eugen_beyer_small"
-
-				}
-			}
-	
-			field_marshal = {
-				traits = { offensive_doctrine commando career_officer}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 2
-				legacy_id = -1
-				
-			}
-		}
-
-		instance = {
-			allowed = {
-				NOT = { has_dlc = "Gotterdammerung"}
-			}
-			
-			advisor = {	
-				slot = high_command
-				idea_token = AUS_eugen_beyer
-				ledger = army
-				allowed = {
-					original_tag = GER
-				}
-				traits = {
-					army_commando_2
-				}
-				cost = 100
-				ai_will_do = {
-					base = 1
-				}
-			}
-			name = AUS_eugen_beyer
-			portraits = {
-				army = {
-					small = "GFX_idea_generic_army_europe_5"
-				}
-			}
-	
-		}
-	}
-
-	AUS_lothar_rendulic = {
-		instance = {
-			allowed = {
-				has_dlc = "Gotterdammerung"
-			}
-
-			corps_commander = {
-				traits = { infantry_officer infantry_leader }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 2
-				legacy_id = -1
-				
-			}
-			name = AUS_lothar_rendulic
-			portraits = { #add new art here
-				army = {
-					large = "GFX_portrait_AUS_lothar_rendulic"
-					small = "GFX_portrait_AUS_lothar_rendulic_small"
-				}
-			}
-		}
-
-	}
-
-	AUS_karl_eglseer = {
-		name = AUS_karl_eglseer
-		portraits = {
-			army = {
-				large = "GFX_portrait_AUS_karl_eglseer"
-				small = "GFX_portrait_AUS_karl_eglseer_small"
-				
-			}
-		}
-		corps_commander = {
-			traits = { trickster trait_mountaineer }
-			skill = 3
-			attack_skill = 2
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = -1
-			
 		}
 	}
 
@@ -3086,7 +2933,7 @@ characters = {
 			allowed = {
 				OR = {
 					original_tag = GER
-					
+					original_tag = COG
 				}
 				has_dlc = "Waking the Tiger"
 			}
@@ -3114,7 +2961,7 @@ characters = {
 				ELSE = {
 					OR = {
 						has_completed_focus = GER_revive_the_kaiserreich_ww  
-						
+						has_completed_focus = COG_invite_german_kasierist_exiles 
 					}
 				}
 			}
@@ -3144,6 +2991,7 @@ characters = {
 			allowed = {
 				OR = {
 					original_tag = GER
+					original_tag = COG
 				}
 				has_dlc = "Waking the Tiger"
 			}
@@ -3171,7 +3019,7 @@ characters = {
 				ELSE = {
 					OR = {
 						has_completed_focus = GER_revive_the_kaiserreich_ww  
-						
+						has_completed_focus = COG_invite_german_kasierist_exiles 
 						has_completed_focus = GER_strive_for_conservative_values 
 					}
 				}

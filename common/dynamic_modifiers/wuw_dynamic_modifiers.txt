@@ -236,6 +236,93 @@ AUS_aggression = {
 	production_factory_efficiency_gain_factor = AUS_agrression_production_factory_efficiency_gain_factor
 }
 
+AUS_austromarxism = {
+	enable = { always = yes}
+	icon = GFX_idea_AUS_austromarxism
+	communism_drift = AUS_austromarxism_communism_support
+	democratic_drift = AUS_austromarxism_democratic_support
+	industrial_capacity_factory = AUS_austromarxism_industrial_capacity_factory
+	theorist_cost_factor = AUS_austromarxism_theorist_cost_factor
+	high_command_cost_factor = AUS_austromarxism_high_command_cost_factor
+	party_popularity_stability_factor = AUS_austromarxism_party_popularity_stability_factor
+	production_speed_industrial_complex_factor = AUS_austromarxism_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = AUS_austromarxism_production_speed_arms_factory_factor
+	stability_factor = AUS_austromarxism_stability_factor
+	political_power_factor = AUS_austromarxism_political_power_factor
+	justify_war_goal_time = AUS_austromarxism_justify_war_goal_time
+	annex_cost_factor = AUS_austromarxism_annex_cost_factor
+	production_factory_efficiency_gain_factor = AUS_austromarxism_production_factory_efficiency_gain_factor
+	command_power_gain_mult = AUS_austromarxism_command_power_gain_mult
+	planning_speed = AUS_austromarxism_planning_speed
+	max_planning_factor = AUS_austromarxism_max_planning_factor
+	remove_trigger = {
+		AND = {
+			has_completed_focus = AUS_revolution
+			NOT = {
+				has_government = communism
+			}
+		}
+	}
+}
+
+AUS_austrostalinism = {
+	enable = { always = yes}
+	icon = GFX_idea_AUS_austromarxism
+	communism_drift = AUS_austromarxism_communism_support
+	democratic_drift = AUS_austromarxism_democratic_support
+	industrial_capacity_factory = AUS_austromarxism_industrial_capacity_factory
+	theorist_cost_factor = AUS_austromarxism_theorist_cost_factor
+	high_command_cost_factor = AUS_austromarxism_high_command_cost_factor
+	party_popularity_stability_factor = AUS_austromarxism_party_popularity_stability_factor
+	production_speed_industrial_complex_factor = AUS_austromarxism_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = AUS_austromarxism_production_speed_arms_factory_factor
+	stability_factor = AUS_austromarxism_stability_factor
+	political_power_factor = AUS_austromarxism_political_power_factor
+	justify_war_goal_time = AUS_austromarxism_justify_war_goal_time
+	annex_cost_factor = AUS_austromarxism_annex_cost_factor
+	production_factory_efficiency_gain_factor = AUS_austromarxism_production_factory_efficiency_gain_factor
+	command_power_gain_mult = AUS_austromarxism_command_power_gain_mult
+	planning_speed = AUS_austromarxism_planning_speed
+	max_planning_factor = AUS_austromarxism_max_planning_factor
+	remove_trigger = {
+		AND = {
+			has_completed_focus = AUS_revolution
+			NOT = {
+				has_government = communism
+			}
+		}
+	}
+}
+
+AUS_austrotrotskyism = {
+	enable = { always = yes}
+	icon = GFX_idea_AUS_austromarxism
+	communism_drift = AUS_austromarxism_communism_support
+	democratic_drift = AUS_austromarxism_democratic_support
+	industrial_capacity_factory = AUS_austromarxism_industrial_capacity_factory
+	theorist_cost_factor = AUS_austromarxism_theorist_cost_factor
+	high_command_cost_factor = AUS_austromarxism_high_command_cost_factor
+	party_popularity_stability_factor = AUS_austromarxism_party_popularity_stability_factor
+	production_speed_industrial_complex_factor = AUS_austromarxism_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = AUS_austromarxism_production_speed_arms_factory_factor
+	stability_factor = AUS_austromarxism_stability_factor
+	political_power_factor = AUS_austromarxism_political_power_factor
+	justify_war_goal_time = AUS_austromarxism_justify_war_goal_time
+	annex_cost_factor = AUS_austromarxism_annex_cost_factor
+	production_factory_efficiency_gain_factor = AUS_austromarxism_production_factory_efficiency_gain_factor
+	command_power_gain_mult = AUS_austromarxism_command_power_gain_mult
+	planning_speed = AUS_austromarxism_planning_speed
+	max_planning_factor = AUS_austromarxism_max_planning_factor
+	remove_trigger = {
+		AND = {
+			has_completed_focus = AUS_revolution
+			NOT = {
+				has_government = communism
+			}
+		}
+	}
+}
+
 AUS_peoples_army = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_communist_army
@@ -439,7 +526,6 @@ GER_economy_of_conquest_modifier = { #MEFO Bills and Economy of Conquest uses th
 	line_change_production_efficiency_factor = GER_industrial_line_change_production_efficiency_factor
 	equipment_conversion_speed = GER_industrial_equipment_conversion_speed
 	consumer_goods_expected_value = GER_industrial_consumer_goods_expected_value
-	global_building_slots = GER_global_building_slots
 }
 
 GER_recovering_economy_modifier = { #Recovering Economy NS #Aufrüstung and Recovering Economy/Wirtschaftswunder uses the same modifiers so that you can switch from Aufrüstung to Recovering Economy and keep the modifiers
@@ -470,7 +556,6 @@ GER_recovering_economy_modifier = { #Recovering Economy NS #Aufrüstung and Reco
 	production_factory_start_efficiency_factor = GER_industrial_production_factory_start_efficiency_factor
 	line_change_production_efficiency_factor = GER_industrial_line_change_production_efficiency_factor
 	equipment_conversion_speed = GER_industrial_equipment_conversion_speed
-	global_building_slots = GER_global_building_slots
 }
 
 GER_wirtschaftswunder_modifier = { #Wirtschaftswunder NS #Aufrüstung and Recovering Economy/Wirtschaftswunder uses the same modifiers so that you can switch from Aufrüstung to Recovering Economy and keep the modifiers
@@ -501,7 +586,6 @@ GER_wirtschaftswunder_modifier = { #Wirtschaftswunder NS #Aufrüstung and Recove
 	production_factory_start_efficiency_factor = GER_industrial_production_factory_start_efficiency_factor
 	line_change_production_efficiency_factor = GER_industrial_line_change_production_efficiency_factor
 	equipment_conversion_speed = GER_industrial_equipment_conversion_speed
-	global_building_slots = GER_global_building_slots
 }
 
 #REMINDER to always update the fake NS if these numbers are altered!
@@ -1489,10 +1573,204 @@ COG_belgian_congo_colonial_dynamic_modifier = {
 }
 
 # Colonial Returns
-
+BEL_belgian_congo_colonial_returns_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		COG = {
+			NOT = {
+				is_subject_of =  ROOT
+			}
+		}
+	}
+	icon = GFX_idea_BEL_belgian_congo_colonial_returns_dynamic_modifier
+	political_power_factor = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_political_power_factor
+	resource_trade_cost_bonus_per_factory = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_resource_trade_cost_bonus_per_factory
+	production_lack_of_resource_penalty_factor = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_production_lack_of_resource_penalty_factor
+	industrial_capacity_factory = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_industrial_capacity_factory 
+	industrial_capacity_dockyard = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_industrial_capacity_dockyard
+	autonomy_manpower_share = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_autonomy_manpower_share
+	consumer_goods_factor = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_consumer_goods_factor
+	air_training_xp_gain_factor = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_air_training_xp_gain_factor
+	production_speed_air_base_factor = BEL.BEL_belgian_congo_colonial_returns_dynamic_modifier_production_speed_air_base_factor
+}
 
 ### STATE MODIFIERS ###
 
+COG_rwandan_separatism_modifier = { 
+	enable = { always = yes } 
+
+	icon = GFX_modifiers_COG_rwandan_separatism
+
+	remove_trigger = {
+		OR = {
+			ROOT = { is_owned_and_controlled_by = RWA } # ROOT refers to the state on which the modifier is added
+			COG = {
+				has_completed_focus = COG_the_pro_german_mwami_focus
+				has_completed_focus = COG_the_umwami_of_rwanda_focus
+			}
+		}
+		
+	}
+
+	production_speed_buildings_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.01
+	local_manpower = -0.02
+}
+
+COG_burundian_separatism_modifier = { 
+	enable = { always = yes } 
+	
+	icon = GFX_modifiers_COG_burundian_separatism
+
+	remove_trigger = {
+		OR = {
+			ROOT = { is_owned_and_controlled_by = BRD } # ROOT refers to the state on which the modifier is added
+			COG = {
+				has_completed_focus = COG_the_mwami_of_burundi_focus
+			}
+		}
+	}
+
+	production_speed_buildings_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.01
+	local_manpower = -0.02
+}
+
+COG_kasai_separatism_modifier = { 
+	enable = { always = yes } 
+	
+	icon = GFX_modifiers_COG_kasai_separatism
+
+	remove_trigger = {
+		ROOT = { 
+			NOT = {
+				OR = {
+					is_owned_by = COG 
+					is_owned_by = BEL 
+				}
+			}
+		} # ROOT refers to the state on which the modifier is added # ROOT refers to the state on which the modifier is added
+	}
+
+	compliance_growth = -0.02
+	local_manpower = -0.1
+}
+
+COG_katanga_separatism_modifier = { 
+	enable = { always = yes } 
+	
+	icon = GFX_modifiers_COG_katanga_separatism
+
+	remove_trigger = {
+		ROOT = { is_owned_and_controlled_by = KAT } # ROOT refers to the state on which the modifier is added
+	}
+
+	compliance_growth = -0.03
+	local_manpower = -0.1
+
+}
+
+COG_state_loyal_to_belgium_modifier = { 
+	enable = { always = yes } 
+	
+	icon = GFX_modifiers_COG_state_loyal_to_belgium
+
+	remove_trigger = {
+		OR = {
+			ROOT = { # ROOT refers to the state on which the modifier is added
+				NOT = {
+					OR = {
+						is_owned_by = COG 
+						is_owned_by = BEL 
+					}
+				}
+			} 
+			has_global_flag = COG_uprising_happened_flag
+		}
+	}
+
+}
+
+COG_state_loyal_to_free_congo_modifier = { 
+	enable = { always = yes } 
+	
+	icon = GFX_modifiers_COG_state_loyal_to_free_congo
+
+	remove_trigger = {
+		OR = {
+			ROOT = { # ROOT refers to the state on which the modifier is added
+				NOT = {
+					OR = {
+						is_owned_by = COG 
+						is_owned_by = BEL 
+					}
+				}
+			} 
+			has_global_flag = COG_uprising_happened_flag
+		}
+	}
+
+}
+
+idea_COG_river_navy = { #STATE MODIFIER
+	remove_trigger = { 
+		COG = { has_capitulated = yes } 
+	}
+	icon = GFX_MODIFIER_NAVAL_INVASION_DIVISION_CAP
+	army_core_defence_factor = 0.1
+	resistance_target = 0.5
+	resistance_growth_on_our_occupied_states = 0.25
+	resistance_activity = 1
+	resistance_damage_to_garrison_on_our_occupied_states = 0.5
+	resistance_garrison_penetration_chance = 1
+}
+
+COG_urban_area_investments_modifier = { #STATE MODIFIER
+	remove_trigger = { 
+		NOT = { 
+			owner = { 
+				OR = {
+					original_tag = COG 
+					original_tag = KAT 
+				}
+			} 
+		} 
+	}
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+	local_manpower = 0.1
+	state_production_speed_buildings_factor = 0.1
+	state_resources_factor = 0.1
+	army_speed_factor_for_controller = 0.05
+}
+
+COG_the_echo_of_katanga_modifier = { #STATE MODIFIER
+	remove_trigger = { 
+		NOT = { 
+			owner = { 
+				OR = {
+					original_tag = COG 
+					original_tag = KAT 
+				}
+			} 
+		} 
+	}
+	icon = GFX_modifiers_ETH_state_development
+	local_manpower = 0.15
+	state_production_speed_buildings_factor = 0.05
+	state_resources_factor = 0.1
+}
+
+COG_state_supporting_resistance_modifier = {
+	enable = { always = yes  }
+	icon = GFX_modifiers_bul_macedonian_revolutionaries
+	resistance_damage_to_garrison = 0.15
+	resistance_activity = 0.2
+	resistance_growth = 0.5
+	resistance_target = 0.8
+	compliance_growth = -0.1
+}
 
 GER_lokot_autonomy_modifier = { 
 	enable = { always = yes } 

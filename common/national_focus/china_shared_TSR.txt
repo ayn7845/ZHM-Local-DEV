@@ -40,8 +40,12 @@ shared_focus = {
 	icon = GFX_focus_generic_concessions
 	x = 40
 	y = 0
-	offset = { 
-
+	offset = {
+		x = -6
+		y = 0
+		trigger = {
+			tag = PRC
+		}
 	}
 	offset = {
 		x = -8
@@ -109,8 +113,8 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			GER = { has_government = ROOT }
-			GER_will_support = yes
 		}
+		GER_will_support = yes
 		NOT = {
 			has_war_with = GER
 		}
@@ -309,8 +313,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -349,8 +354,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -601,8 +607,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -693,23 +700,137 @@ shared_focus = {
 					}
 				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = PRC
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = PRC_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = YUN
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = YUN_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = GXC
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = GXC_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = SHX
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = SHX_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = XSM
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = XSM_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
-			if = { 
-
+			if = {
+				limit = {
+					tag = SIK
+				}
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = SIK_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+			
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -801,8 +922,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-			
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -844,8 +966,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -900,8 +1023,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -935,8 +1059,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -949,9 +1074,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			SOV = { has_government = ROOT }
-			SOV_will_support = yes
 		}
-		not = {
+		SOV_will_support = yes
+		NOT = {
 			has_War_with = SOV
 		}
 		SOV = {
@@ -1048,8 +1173,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -1111,8 +1237,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 		modifier = {
 			factor = 4
@@ -1158,9 +1285,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			FRA = { has_government = ROOT }
-			FRA_will_support = yes
 		}
-		not = {
+		FRA_will_support = yes
+		NOT = {
 			has_war_with = FRA
 		}
 		FRA = {
@@ -1260,8 +1387,9 @@ shared_focus = {
 				has_tech = tech_mountaineers # Wait for the full benefit
 			}
 		}
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -1329,8 +1457,9 @@ shared_focus = {
 
 	ai_will_do = {
 		factor = 1
-		modifier = { 
-
+		modifier = {
+			factor = 4
+			tag = PRC
 		}
 	}
 
@@ -1654,8 +1783,9 @@ shared_focus = {
 
 	ai_will_do = {
 		base = 1
-		modifier = { 
-			
+		modifier = {
+			factor = 4
+			tag = PRC			
 		}
 	}
 
@@ -1714,6 +1844,1260 @@ shared_focus = {
 
 }
 
+shared_focus = {
+	id = CHI_sea_one_china_policy
+	icon = GFX_focus_chi_one_china_policy
+	prerequisite = { focus = CHI_sea_renegotiate_the_unequal_treaties }
+	x = -3
+	y = 1
+	relative_position_id = CHI_sea_renegotiate_the_unequal_treaties
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			num_of_factories < 50
+			factor = 0
+		}
+	}
+
+	available = {
+		is_subject = no
+	}
+
+	bypass = {
+		if = {
+			limit = { NOT = { original_tag = CHI } }
+			CHI = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = PRC } }
+			PRC = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = GXC } }
+			GXC = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = YUN } }
+			YUN = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = SHX } }
+			SHX = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = XSM } }
+			XSM = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { original_tag = SIK } }
+			SIK = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+					is_subject_of = ROOT
+					ROOT = { has_wargoal_against = PREV }
+				}
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+	
+		custom_effect_tooltip = CHI_sea_one_china_policy_tt
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		IF = {
+			limit = {
+				any_other_country = {
+					is_literally_china = yes
+					is_in_faction_with = ROOT
+				} 
+			} 
+			remove_from_faction = ROOT
+		}
+
+		hidden_effect = {
+			news_event = { id = wtt_news.46 days = 3 }
+		}
+
+		every_other_country = {
+			limit = {
+				is_literally_china = yes
+				NOT = { has_war_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+				NOT = { ROOT = { has_wargoal_against = PREV } }
+				NOT = { tag = ROOT }
+			}
+			ROOT = {
+				create_wargoal = {
+					type = annex_everything
+					target = PREV
+					expire = 0
+				}
+			}
+		}
+
+	}
+
+}
+
+shared_focus = {
+	id = CHI_ncns_request_handover_of_coastal_cities
+
+	icon = GFX_focus_PRC_dare_to_struggle
+
+	prerequisite = { focus = CHI_sea_one_china_policy }
+
+	x = -2
+	y = 2
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+
+		is_subject = no
+
+		OR = {
+			1033 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			592 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			593 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+
+		OR = {
+			NOT = {
+				is_in_faction_with = ENG
+			}
+			326 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			729 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			728 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			743 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+		}
+
+	}
+	
+	bypass = {
+		326 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		729 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		728 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		743 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+
+		every_other_country = {
+			limit = {
+				is_literally_china_tooltip = no
+				OR = {
+					controls_state = 326
+					controls_state = 729
+					controls_state = 728
+					controls_state = 743
+				}
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			display_individual_scopes = yes
+			country_event = { id = SEA_PRC_misc_events.18 days = 3 }
+		}
+
+	}
+
+}
+
+shared_focus = {
+	id = CHI_sea_integrate_tibet
+	icon = GFX_focus_PRC_reclaim_tibet
+	prerequisite = { focus = CHI_sea_one_china_policy }
+	mutually_exclusive = { focus = CHI_sea_conquer_tibet }
+	x = -1
+	y = 1
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		NOT = { is_in_faction_with = TIB }
+		is_subject = no
+		OR = {
+			controls_state = 747
+			controls_state = 752
+			controls_state = 604
+			controls_state = 1042
+		}
+	}
+
+	bypass = {
+		TIB = {
+			OR = {
+				exists = no
+				is_subject_of = ROOT
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		TIB = { country_event = wtt_china.10 }
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_conquer_tibet
+	icon = GFX_focus_CHI_empower_mtac
+	prerequisite = { focus = CHI_sea_one_china_policy }
+	mutually_exclusive = { focus = CHI_sea_integrate_tibet }
+	x = 1
+	y = 1
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			any_country = {
+				is_major = yes
+				is_in_faction_with = TIB
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			controls_state = 747
+			controls_state = 752
+			controls_state = 604
+			controls_state = 1042
+		}
+	}
+
+	bypass = {
+		OR = {
+			TIB = {
+				exists = no
+			}
+			has_war_with = TIB
+			has_wargoal_against = TIB
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				322 = { is_owned_and_controlled_by = TIB }
+			}
+			ROOT = {
+				create_wargoal = {
+					type = take_state_focus
+					target = TIB
+					expire = 0
+					generator = { 322 }
+				}
+			}
+		}
+		else = {
+			create_wargoal = {
+				type = annex_everything
+				target = TIB				
+				expire = 0
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_renounce_the_mcmahon_line
+	icon = GFX_focus_RAJ_clamp_down_on_corruption
+	prerequisite = { focus = CHI_sea_integrate_tibet focus = CHI_sea_conquer_tibet }
+	mutually_exclusive = { focus = CHI_sea_indian_cooperation }
+	x = 0
+	y = 2
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		OR = {
+			controls_state = 601
+			controls_state = 757
+		}
+	}
+
+	bypass = {
+		owns_state = 434
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_state_claim = 434
+		434 = {
+			OWNER = {
+				country_event = {
+					id = SEA_warlords.31
+					hours = 6
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_demand_mongolia
+	icon = GFX_focus_generic_attack_mongolia
+	prerequisite = { focus = CHI_sea_renounce_the_mcmahon_line }
+	x = 0
+	y = 3
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			any_country = {
+				is_major = yes
+				is_in_faction_with = MON
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		not = {
+			is_in_faction_with = MON
+		}
+		is_subject = no
+		OR = {
+			controls_state = 761
+			controls_state = 714
+			controls_state = 612
+			controls_state = 1043
+			controls_state = 621
+			controls_state = 1040
+			controls_state = 756
+			controls_state = 760
+			controls_state = 618
+		}
+	}
+
+	bypass = {
+		OR = {
+			NOT = { country_exists = MON }
+			has_war_with = MON
+			has_wargoal_against = MON
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				330 = { is_owned_and_controlled_by = MON }
+				817 = { is_owned_and_controlled_by = MON }
+				818 = { is_owned_and_controlled_by = MON }
+				819 = { is_owned_and_controlled_by = MON }
+				820 = { is_owned_and_controlled_by = MON }
+			}
+			ROOT = {
+				create_wargoal = {
+					type = take_state_focus
+					target = MON
+					expire = 0
+					generator = { 330 817 818 819 820 }
+				}
+			}
+		}
+		else = {
+			create_wargoal = {
+				type = annex_everything
+				target = MON				
+				expire = 0
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_annex_tuva
+	icon = GFX_focus_generic_annex_country_2
+	prerequisite = { focus = CHI_sea_demand_mongolia }
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_demand_mongolia
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			any_country = {
+				is_major = yes
+				is_in_faction_with = TAN
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		NOT = {
+			is_in_faction_with = TAN
+		}
+		329 = {
+			NOT = {
+				is_owned_by = ROOT
+			}
+		}
+		is_subject = no
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		329 = {
+			OWNER = {
+				ROOT = {
+					create_wargoal = {
+						type = take_state
+						target = PREV
+						generator = { 329 } 
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_anti_imperialism
+	icon = GFX_goal_generic_military_deal
+	prerequisite = { focus = CHI_sea_renegotiate_the_unequal_treaties }
+	mutually_exclusive = { focus = CHI_sea_imperial_legacy }
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_renegotiate_the_unequal_treaties
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		NOT = { has_government = fascism }
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_war_support = 0.1
+
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_guidance_and_support
+	icon = GFX_goal_generic_forceful_treaty
+	prerequisite = { focus = CHI_sea_anti_imperialism }
+	x = 1
+	y = 1
+	relative_position_id = CHI_sea_anti_imperialism
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			controls_state = 325
+			controls_state = 594
+			controls_state = 1033
+		}
+	}
+
+	bypass = {
+		country_exists = VIN
+		country_exists = CAM
+		country_exists = LAO
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		every_other_country = {
+			limit = {
+				OR = {
+					owns_state = 671
+					owns_state = 670
+					owns_state = 286
+					owns_state = 741
+					owns_state = 1017
+					owns_state = 1066 
+					owns_state = 1067 
+					owns_state = 1069 
+					owns_state = 1068 
+					controls_state = 671
+					controls_state = 670
+					controls_state = 286
+					controls_state = 741
+					controls_state = 1017
+					controls_state = 1066 
+					controls_state = 1067 
+					controls_state = 1069 
+					controls_state = 1068 
+				}
+			}
+			custom_effect_tooltip = CHI_overlordship_over_indochina_tt
+			hidden_effect = {
+				ROOT = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						expire = 0
+						generator = { 671 670 286 741 1017 1066 1067 1068 1069 } 
+					}
+				}
+			}
+		}
+		unlock_decision_tooltip = CHI_free_indochina_tsr
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_commit_to_korean_independence
+	icon = GFX_focus_JAP_build_up_korean_industries
+	prerequisite = { focus = CHI_sea_guidance_and_support }
+	x = 1
+	y = 2
+	relative_position_id = CHI_sea_anti_imperialism
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			controls_state = 716
+			controls_state = 328
+			controls_state = 717
+		}
+	}
+
+	bypass = {
+		OR = {
+			AND = {
+				KOR = {
+					exists = yes
+					is_subject = no
+				}
+			}
+			527 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			525 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1028 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1029 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1030 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1031 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				OR = {
+					527 = { is_owned_and_controlled_by = ROOT }
+					525 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
+			activate_mission_tooltip = CHI_release_korea
+		}
+		else = {
+			527 = {
+				CONTROLLER = {
+					ROOT = {
+						create_wargoal = {
+							type = take_state_focus
+							target = PREV
+							expire = 0
+							generator = { 527 }
+						}
+					}
+				}
+			}
+			#Don't give wargoal on same country twice
+			if = {
+				limit = {
+					NOT = { 525 = { CONTROLLER = { controls_state = 527 } } }
+				}
+				525 = {
+					CONTROLLER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_state_focus
+								target = PREV
+								expire = 0
+								generator = { 525 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_indian_cooperation
+	icon = GFX_focus_RAJ_a_congress_resurgent
+	prerequisite = { focus = CHI_sea_anti_imperialism }
+	mutually_exclusive = { focus = CHI_sea_renounce_the_mcmahon_line }
+	x = -1
+	y = 2
+	relative_position_id = CHI_sea_anti_imperialism
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		OR = {
+			is_faction_leader = yes
+			RAJ = { is_subject = yes }
+		}
+		RAJ = { NOT = { has_war_with = ROOT } }		
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				ROOT = { is_faction_leader = yes }
+				RAJ = { is_subject = no }
+			}
+			RAJ = { country_event = { id = generic.5 } }
+		}
+		else = {
+			RAJ = { country_event = wtt_china_shared.1 }
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_influence_mongolia
+	icon = GFX_goal_generic_neutrality_focus
+	prerequisite = { focus = CHI_sea_indian_cooperation }
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_indian_cooperation
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		OR = {
+			is_faction_leader = yes
+			MON = { is_subject = yes }
+		}
+		MON = { NOT = { has_war_with = ROOT } }	
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				ROOT = { is_faction_leader = yes }
+				MON = { is_subject = no }
+			}
+			MON = { country_event = { id = generic.5 } }
+		}
+		else = {
+			MON = { country_event = wtt_china_shared.1 }
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_imperial_legacy
+	icon = GFX_focus_CHI_the_southern_mandate
+	prerequisite = { focus = CHI_sea_renegotiate_the_unequal_treaties }
+	mutually_exclusive = { focus = CHI_sea_anti_imperialism }
+	x = 3
+	y = 1
+	relative_position_id = CHI_sea_renegotiate_the_unequal_treaties
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_stability = 0.1
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_overlordship_over_indochina
+	icon = GFX_focus_JAP_occupy_indochina
+	prerequisite = { focus = CHI_sea_imperial_legacy }
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_imperial_legacy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			controls_state = 325
+			controls_state = 594
+			controls_state = 1033
+		}
+	}
+
+	bypass = {
+		controls_state = 671
+		controls_state = 670
+		controls_state = 286
+		controls_state = 741
+		controls_state = 1066 
+		controls_state = 1067 
+		controls_state = 1068 
+		controls_state = 1069 
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		every_other_country = {
+			limit = {
+				OR = {
+					owns_state = 671
+					owns_state = 670
+					owns_state = 286
+					owns_state = 741
+					owns_state = 1017
+					owns_state = 1066 
+					owns_state = 1067 
+					owns_state = 1068 
+					owns_state = 1069 
+					controls_state = 671
+					controls_state = 670
+					controls_state = 286
+					controls_state = 741
+					controls_state = 1017
+					controls_state = 1066 
+					controls_state = 1067 
+					controls_state = 1068 
+					controls_state = 1069 
+				}
+			}
+			custom_effect_tooltip = CHI_overlordship_over_indochina_tt
+			hidden_effect = {
+				ROOT = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						expire = 0
+						generator = { 671 670 286 741 1017 1066 1067 1068 1069 } 
+					}
+				}
+			}
+		}
+		unlock_decision_tooltip = CHI_overlordship_over_indochina_tsr
+		hidden_effect = {
+			news_event = { id = wtt_news.47 days = 3}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_dominate_japan
+	icon = GFX_focus_AST_war_japan
+	prerequisite = { focus = CHI_sea_imperial_legacy }
+	x = 2
+	y = 1
+	relative_position_id = CHI_sea_imperial_legacy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		NOT = { has_war_with = JAP }
+		is_subject = no
+		#NOT = { is_subject_of = JAP }
+		JAP = {
+			is_subject = no
+		}
+	}
+
+	bypass = {
+		JAP = { is_subject_of = ROOT }
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		JAP = { country_event = { id = wtt_china.10 } }
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_secure_the_peninsula
+	icon = GFX_focus_generic_invade_korea
+	prerequisite = { focus = CHI_sea_overlordship_over_indochina }
+	x = 0
+	y = 2
+	relative_position_id = CHI_sea_imperial_legacy
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			527 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					NOT = { is_in_faction_with = ROOT }
+				}
+			}
+			525 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					NOT = { is_in_faction_with = ROOT }
+				}
+			}
+			1028 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1029 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1030 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+			1031 = {
+				CONTROLLER = {
+					NOT = { tag = ROOT }
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		OR = {
+			controls_state = 716
+			controls_state = 328
+			controls_state = 717
+		}
+	}
+
+	bypass = {
+		OR = {
+			KOR = {
+				is_subject_of = ROOT
+			}
+			AND = {
+				controls_state = 527
+				controls_state = 525
+				controls_state = 1028
+				controls_state = 1029
+				controls_state = 1030
+				controls_state = 1031
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		527 = {
+			CONTROLLER = {
+				ROOT = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						expire = 0
+						generator = { 527 }
+					}
+				}
+			}
+		}
+		#Don't give wargoal on same country twice
+		if = {
+			limit = {
+				NOT = {
+					525 = {
+						CONTROLLER = {
+							OR = {
+								controls_state = 527
+								tag = ROOT								
+							}
+						}
+					}
+				}
+			}
+			525 = {
+				CONTROLLER = {
+					ROOT = {
+						create_wargoal = {
+							type = take_state_focus
+							target = PREV
+							expire = 0
+							generator = { 525 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_push_into_manchuria
+	icon = GFX_focus_CHI_the_northern_mandate
+	prerequisite = { focus = CHI_sea_secure_the_peninsula }
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_secure_the_peninsula
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		OR = {
+			controls_state = 716
+			controls_state = 714
+			controls_state = 761
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		561 = { add_claim_by = ROOT }
+		560 = { add_claim_by = ROOT }
+		657 = { add_claim_by = ROOT }
+		409 = { add_claim_by = ROOT }
+		408 = { add_claim_by = ROOT }
+		every_other_country = {
+			limit = {
+				OR = {
+					controls_state = 561
+					controls_state = 560
+					controls_state = 657
+					controls_state = 409
+					controls_state = 408
+				}
+			}
+			ROOT = {
+				create_wargoal = {
+					type = annex_everything
+					target = PREV
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_sea_dominate_siam
+	icon = GFX_focus_generic_attack_siam
+	prerequisite = { focus = CHI_sea_overlordship_over_indochina }
+	x = 2
+	y = 1
+	relative_position_id = CHI_sea_overlordship_over_indochina
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		is_subject = no
+		SIA = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				has_war_with = ROOT
+			}
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		SIA = { country_event = {
+			id = wtt_china.10
+			hours = 6
+			}
+		}	
+	}
+}
 
 shared_focus = {
 	id = CHI_sea_british_cooperation
@@ -1742,9 +3126,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			ENG = { has_government = ROOT }
-			ENG_will_support = yes
 		}
-		not = {
+		ENG_will_support = yes
+		NOT = {
 			has_War_with = ENG
 		}
 		ENG = {
@@ -2480,10 +3864,10 @@ shared_focus = {
 
 	available = {
 		OR = {
-			USA_will_support = yes
 			has_government = neutrality
 			USA = { has_government = ROOT }
 		}
+		USA_will_support = yes
 		USA = {
 			has_capitulated = no
 			NOT = {
@@ -2777,7 +4161,7 @@ shared_focus = {
 			uses = 2
 			category = cv_tech
 		}
-		#activate_mission_tooltip = CHI_build_a_carrier
+		activate_mission_tooltip = CHI_build_a_carrier
 	}
 }
 

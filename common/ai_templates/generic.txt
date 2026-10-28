@@ -383,7 +383,13 @@ infantry_generic = {
 		SOV
 		HUN
 		CHI
-		
+		PRC
+		GXC
+		YUN
+		SHX
+		XSM
+		SIK
+		MEN
 		MAN
 		SIA
 		IRQ

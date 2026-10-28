@@ -1720,15 +1720,6 @@ early_ship_hull_carrier = {
 
 	improved_ship_hull_submarine = {
 
-		allow = {
-			NOT = {
-			has_game_rule = {
-				rule = max_submarine_tech
-				option = sub2
-			}
-		}
-		}
-
 		enable_equipments = {
 			ship_hull_submarine_3
 		}
@@ -1786,13 +1777,6 @@ early_ship_hull_carrier = {
 	}
 
 	advanced_ship_hull_submarine = {
-
-		allow = {
-			has_game_rule = {
-				rule = max_submarine_tech
-				option = sub4
-			}
-		}
 
 		enable_equipments = {
 			ship_hull_submarine_4
@@ -2147,7 +2131,7 @@ early_ship_hull_carrier = {
 
 	sp_naval_proximity_fuze_tech = {
 		#HIDDEN EFFECT FOR THE PROXIMITY FUZE 
-		navy_anti_air_attack_factor = 0.15
+		navy_anti_air_attack_factor = 0.25
 		research_cost = 1
 		start_year = 1940
 		

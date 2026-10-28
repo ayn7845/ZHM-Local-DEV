@@ -9,7 +9,7 @@ country_groups = {
         NOR
         FIN
         DEN
-        
+        ICE
     }
 
     continental_europe_1936 = {
@@ -17,6 +17,7 @@ country_groups = {
         SPR
         FRA
         ITA
+        SWI
         HOL
         BEL
         LUX
@@ -30,7 +31,9 @@ country_groups = {
         ROM
         POL
         GER
-       
+        LIT
+        LAT
+        EST
         FIN
         SWE
         NOR
@@ -39,21 +42,116 @@ country_groups = {
 
     literally_china = {
         CHI
-		
+		PRC
+		GXC
+		YUN
+		SHX
+		XSM
+		SIK
+		GDC
+		SND
+		SIC
+		NXM
+		GSM
+		XIC
+		KHM
+		KUM
+		RNG
     }
     
     chinese_warlords = {
-        
+        GXC
+        YUN
+        SHX
+        XSM
+        SIK
+        GDC
+        SND
+        SIC
+        NXM
+        GSM
+        XIC
+        KHM
+        KUM
+        HBC
     }
 
     islamic_world = {
-      
+        SAU
+        OMA
+        YEM
         IRQ
-       
+        PER
+        FSA
+        JOR
+        PAL
+        SYR
+        LEB
         TUR
-       
+        QAT
+        BHR
+        UAE
+        EGY
+        SUD
+        LBA
+        TUN
+        ALG
+        MOR
+        RIF
+        MAL
+        INS
+        MLD
+        BAN
+        PAK
+        WES
+        MRT
+        SOK
+        MLI
+        NGR
+        NGA
+        SOM
+        AFA
+        AZR
+        DAG
+        CIN
         ALB
-       
+        TAT
+        BSK
+        BUK
+        KHI
+        UZB
+        KAZ
+        TAJ
+        KYR
+        TMS
+        KKP
+        SIN
+        KAS                  
+        CRI              
+        KOS              
+        KUR      
+        BLC      
+        IMO      
+        KLT      
+        KBK      
+        DJI      
+        HAR      
+        SEN      
+        GAM      
+        GNB      
+        SIE      
+        VOL      
+        GNA      
+        XSM      
+        SIK
+        KHM
+        GSM
+        NXM
+        KUM
+        SAB
+        BRN
+        CHM  
+        AFG
     }
 
 }

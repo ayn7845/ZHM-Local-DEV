@@ -468,11 +468,15 @@ RAJ_GOE_india_indivisible_cat = {
 		state_target = yes
 		
 		visible = { 
-			always = no
+			has_completed_focus = RAJ_trade_federation_of_india
 		}
 		
 		available = {
-			always = no
+			FROM = { 
+				is_owned_and_controlled_by = ROOT 
+				compliance > 60
+			}
+			has_completed_focus = RAJ_trade_federation_of_india
 		}
 		
 		target_root_trigger = {
@@ -508,6 +512,7 @@ RAJ_GOE_famine_cat = {
 		icon = GFX_decision_generic_prepare_civil_war
 	
 		visible = { 
+			has_country_flag = RAJ_famine_has_started
 			hidden_trigger = {
 				NOT = { has_country_flag = reveal_true_famine_timeframe }
 			}
@@ -541,6 +546,7 @@ RAJ_GOE_famine_cat = {
 		icon = GFX_decision_generic_prepare_civil_war
 	
 		visible = { 
+			has_country_flag = RAJ_famine_has_started
 			NOT = { has_country_flag = RAJ_asked_for_famine_help }
 		}
 		
@@ -597,6 +603,7 @@ RAJ_GOE_famine_cat = {
 		icon = GFX_decision_generic_prepare_civil_war
 
 		visible = { 
+			has_country_flag = RAJ_famine_has_started
 		}
 		
 		available = {
@@ -633,6 +640,7 @@ RAJ_GOE_famine_cat = {
 			FROM = { has_dynamic_modifier = { modifier = idea_RAJ_famine_state } }
 		}
 		visible = { 
+			has_country_flag = RAJ_famine_has_started
 		}
 		
 		available = {
@@ -692,7 +700,7 @@ political_actions = {
 
 		visible = {
 			original_tag = RAJ 
-			always = no
+			has_completed_focus = RAJ_revisiting_inquities
 		}
 
 		available = {
@@ -1012,8 +1020,821 @@ RAJ_GOE_into_hiding_cat = {
 }
 
 
-RAJ_akhand_bharat_cat = { 
+RAJ_akhand_bharat_cat = {
+	RAJ_akhand_bharat_claim_afg = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				AFG = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
 
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = AFG
+			}
+		}
+		visible = {
+			AFG = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = AFG }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = AFG 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			AFG = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_ban = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				BAN = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+			NOT = { has_dynamic_modifier = { modifier = idea_RAJ_famine_country } }
+		}
+
+		visible = {
+			BAN = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = BAN }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = BAN 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			BAN = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_nep = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				NEP = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}	
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = NEP
+			}
+		}
+
+		visible = {
+			NEP = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = NEP }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = NEP 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			NEP = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_tib = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				TIB = {
+					all_core_state = {
+						OR = {
+							is_controlled_by = ROOT
+							state = 601
+						}
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
+
+		visible = {
+			TIB = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = TIB
+			}
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { 
+					is_core_of = TIB 
+				}
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = TIB 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			TIB = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_srl = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				SRL = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}	
+		}
+
+		visible = {
+			SRL = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = SRL
+			}
+		}
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = SRL }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = SRL 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			SRL = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_princely = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			RAJ = {
+				all_of_scopes = {
+					array = RAJ.owned_states_at_game_start
+
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = PAK
+								is_core_of = BAN
+							}
+						}
+						OR = {
+							is_controlled_by = RAJ
+							CONTROLLER = {
+								is_subject_of = RAJ
+							}
+						}
+						
+					}
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
+
+		visible = {
+			any_of_scopes = {
+				array = RAJ.owned_states_at_game_start
+				NOT = { is_core_of = RAJ }
+				NOT = {
+					is_core_of = PAK
+					is_core_of = BAN
+				}
+			}	
+		}
+		cost = 175
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				AND = {
+					is_in_array = { array = RAJ.owned_states_at_game_start value = THIS } 
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		complete_effect = {
+			every_state = {
+				limit = {
+					is_in_array = { array = RAJ.owned_states_at_game_start value = THIS }
+					NOT = {
+						is_core_of = PAK
+						is_core_of = BAN
+					}
+				}
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_in_array = { array = RAJ.owned_states_at_game_start value = THIS }
+						NOT = {
+							is_core_of = PAK
+							is_core_of = BAN
+						}
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			RAJ = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_pak = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		available = {
+			OR = {
+				PAK = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+			NOT = { has_dynamic_modifier = { modifier = idea_RAJ_famine_country } }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = PAK
+			}
+		}
+		visible = {
+			PAK = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = PAK }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = PAK 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			PAK = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_brm = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = BRM
+			}
+		}	
+		available = {
+			OR = {
+				BRM = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
+
+		visible = {
+			BRM = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = BRM }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = BRM 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			BRM = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_mld = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = MLD
+			}
+		}	
+		available = {
+			OR = {
+				MLD = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
+
+		visible = {
+			MLD = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = MLD }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = MLD 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			MLD = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_akhand_bharat_claim_bhu = {
+		icon = generic_civil_support
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = BHU
+			}
+		}	
+		available = {
+			OR = {
+				BHU = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = claimed_by_akhand_bharat 
+					is_controlled_by = ROOT
+					tooltip = RAJ_akhand_bharat_availability_tt 
+				}
+			}
+		}
+
+		visible = {
+			BHU = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 20
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = { is_core_of = BHU }
+				ROOT = { 
+					add_to_array = {
+						array = claimed_by_akhand_bharat
+						value = PREV #optional, if not defined adds scope
+					} 
+				}
+				add_core_of = ROOT
+			}
+ 			
+			for_each_scope_loop = { #transfer state if already subject since its not a core
+				array = claimed_by_akhand_bharat
+				if = {
+					limit = { 
+						is_core_of = BHU 
+						owner = { is_subject_of = ROOT }
+					}
+
+					ROOT = { transfer_state = PREV }
+				}
+			}
+
+			BHU = { custom_effect_tooltip = RAJ_akhand_bharat_annex_subject }
+		}	
+	}
+
+	RAJ_form_akhand_bharat = {
+		icon = GFX_decision_eng_install_government
+		allowed = { 
+			is_raj_or_raj_inheritor = yes
+		}
+
+		fire_only_once = yes
+
+		available = {
+			MLD = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+			BHU = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+			BRM = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+			PAK = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+			SRL = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+			AFG = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+			BAN = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+			
+			NEP = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+			TIB = {
+				all_core_state = {
+					OR = {
+						is_fully_controlled_by = ROOT
+						AND = {
+							state = 601
+							NOT = { is_controlled_by = ROOT }
+						}
+					}
+					OR = {
+						is_core_of = ROOT
+						AND = { 
+							state = 601 
+							NOT = { is_core_of = ROOT }
+						}
+					}
+				}
+			}
+
+			all_of_scopes = {
+				array = RAJ.owned_states_at_game_start
+				is_fully_controlled_by = ROOT
+				is_core_of = ROOT
+			}
+
+		}
+
+		visible = {
+			always = yes
+		}
+		cost = 0
+		days_re_enable = 0 
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = RAJ_akhand_bharat_tag
+			add_country_leader_trait = uniter_of_akhand_bharat
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = idea_RAJ_agrarian_society
+					}
+				}
+
+	            custom_effect_tooltip = RAJ_relax_agrarian_society_criteria_tt
+	            
+	            add_to_variable = { RAJ_agrarian_society_conscription_factor = 0.27 tooltip = conscription_factor_tt }
+	            add_to_variable = { RAJ_agrarian_society_mobilization_speed = 0.27  tooltip = mobilization_speed_tt }
+	            add_to_variable = { RAJ_agrarian_society_mobilization_laws_cost_factor = -0.81 tooltip = mobilization_laws_cost_factor_tt }
+	            remove_agrarian_society_if_void = yes
+			}
+
+			add_research_slot = 1
+		}
+	}
+
+	
 }
 
 RAJ_military_matters = { #removed
@@ -1114,8 +1935,445 @@ RAJ_GOE_campaign_against_agrarian_societys = {
 	}
 }
 
-RAJ_GOE_partition_cat = { 
-	
+RAJ_GOE_partition_cat = {
+	#AI only, players can just use guarantee as normal
+	RAJ_GOE_ai_protect_princely_state = {
+
+		state_target = yes
+		
+		visible = { 
+			is_ai = yes
+			has_global_flag = RAJ_GOE_partition_has_happened
+			NOT = { has_global_flag =  RAJ_GOE_partition_is_over }
+			NOT = {  FROM.owner = { is_guaranteed_by = ROOT } }
+			NOT = { has_completed_focus = RAJ_india_united }
+		}
+		
+		available = {
+			is_ai = yes
+			is_raj_or_raj_inheritor = yes
+
+			FROM.owner = {
+				is_neighbor_of = ROOT #doe say, Kashmir or Kalat, or Hyderabad
+			}
+			any_country = {
+				is_justifying_wargoal_against = FROM.owner 
+			}
+
+			#check_variable = { pressure_left > 0 tooltip = pressure_left_tt }
+		}
+		on_map_mode = map_only
+		target_root_trigger = {
+			is_raj_or_raj_inheritor = yes
+
+		}
+
+		target_array = RAJ.states_in_play_partition
+		target_trigger = {
+			FROM = { 
+				NOT = { 
+					is_controlled_by = PAK
+					is_controlled_by = RAJ
+					is_controlled_by = BAN 
+				}
+				controller = { 
+					has_war = no
+					exists = yes
+					has_capitulated = no
+				}
+			}
+		}
+
+		complete_effect = {
+			give_guarantee = FROM.owner
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	RAJ_GOE_princely_state_timeout = {
+	    activation = {
+			has_global_flag = RAJ_GOE_partition_has_happened
+			NOT = { has_global_flag =  RAJ_GOE_partition_is_over }
+			is_raj_or_raj_inheritor = yes
+			NOT = { has_completed_focus = RAJ_india_united }
+	    }
+	    available = {
+	    	hidden_trigger = {
+	    		always = no
+	    	}
+	    }
+	    cancel_trigger = {
+       		has_global_flag = RAJ_GOE_partition_is_over
+	    }
+	    fire_only_once = yes
+	    #icon = mission_icon     # For GFX_decision_mission_icon
+	    is_good = yes
+	    days_mission_timeout = 110
+	    selectable_mission = no
+	    complete_effect = {
+	    	
+	    }
+	    timeout_effect = {
+			set_global_flag = RAJ_GOE_partition_is_over
+			set_country_flag = RAJ_allow_release_states
+	    	if = {
+	    		limit = {
+	    			NOT = { has_variable = princely_state_timeout_count  }
+	    		}
+	    		set_variable = { princely_state_timeout_count = 0 }
+	    	}
+	    	add_to_variable = { princely_state_timeout_count = 1 } #The decision was to be repeated several times with increasing intervals. This varibble controls this but for now its just set to time out after one time, keeping functionality though in case we need to revert
+
+	    	custom_effect_tooltip = RAJ_GOE_princely_state_timeout_tt
+	    	for_each_scope_loop = { 
+	    		array =  RAJ.states_in_play_partition
+	    		if = {
+	    			limit = {
+	    				ROOT = { original_tag = RAJ } #only execute once, not for all 3
+		    			NOT = {
+	    					is_controlled_by = RAJ
+	    					is_controlled_by = PAK
+	    					is_controlled_by = BAN
+	    				}
+
+    					owner = {
+    						NOT = { has_war_with = ROOT }
+    					}
+	    			}
+	    			
+		    		set_temp_variable = { t_RAJ_pressure_scaled  = RAJ_pressure }
+		    		set_variable = { t_PAK_pressure_scaled  = PAK_pressure }
+		    		set_temp_variable = { t_BAN_pressure_scaled  = BAN_pressure }
+
+		    		multiply_temp_variable = { t_RAJ_pressure_scaled  = 1.25 }
+		    		multiply_variable = { t_PAK_pressure_scaled  = 1.25 }
+		    		multiply_temp_variable = { t_BAN_pressure_scaled  = 1.25 } #
+
+
+		    		if = {
+		    			limit = {
+		    				RAJ = {
+		    					exists = yes
+		    					#is_subject = no
+		    				}
+		    				check_variable = { RAJ_pressure > t_PAK_pressure_scaled }
+		    				check_variable = { RAJ_pressure > t_BAN_pressure_scaled }
+		    				check_variable = { RAJ_pressure > 0 }
+		    			}
+		    			RAJ = {
+		    				transfer_state = PREV
+		    			}
+		    			if = {
+		    				limit = {
+		    					NOT = { is_core_of = RAJ }
+		    				}
+		    				add_core_of = RAJ
+		    			}
+		    		}
+		    		else_if = {
+		    			limit = {
+		    				PAK = {
+		    					exists = yes
+		    					is_subject = no
+		    				}
+		    				check_variable = { PAK_pressure > t_RAJ_pressure_scaled }
+		    				check_variable = { PAK_pressure > t_BAN_pressure_scaled }
+		    				check_variable = { PAK_Pressure > 0 }
+		    			}
+		    			PAK = {
+		    				transfer_state = PREV
+		    			}
+
+		    			if = {
+		    				limit = {
+		    					NOT = { is_core_of = PAK }
+		    				}
+		    				add_core_of = PAK
+		    			}
+		    		}
+		    		else_if = {
+		    			limit = {
+		    				BAN = {
+		    					exists = yes
+		    					is_subject = no
+		    				}
+		    				check_variable = { BAN_pressure > t_RAJ_pressure_scaled }
+		    				check_variable = { BAN_pressure > t_PAK_pressure_scaled }
+		    				check_variable = { BAN_pressure > 0 }
+		    			}
+		    			BAN = {
+		    				transfer_state = PREV
+		    			}
+
+		    			if = {
+		    				limit = {
+		    					NOT = { is_core_of = BAN }
+		    				}
+		    				add_core_of = BAN
+		    			}
+		    		}
+		    	}
+    		}
+
+
+
+    		hidden_effect = {
+    			if = {
+    				limit = {
+    					NOT = { has_completed_focus = RAJ_i_am_death }
+    				}
+
+					set_rule = { can_declare_war_on_same_ideology = no }
+					set_rule = { can_only_justify_war_on_threat_country = yes }
+    			}
+    		}
+
+    		if = {
+    			limit = {
+    				has_idea = idea_RAJ_princely_state_aggression
+    			}
+    			remove_ideas = idea_RAJ_princely_state_aggression
+    		}
+			set_rule = { can_join_factions = yes }
+
+    		if = {
+    			limit = {
+    				PAK = {
+    					exists = yes
+    				}
+    			}
+
+    			if = {
+    				limit = {
+    					PAK = {
+    						has_idea = neutrality_idea	
+    					}
+    				}
+    				PAK = { remove_ideas = neutrality_idea }
+    			}
+
+    			PAK = { set_rule = { can_join_factions = yes } }
+    		}
+
+    		if = {
+    			limit = {
+    				BAN = {
+    					exists = yes
+    				}
+    			}
+
+    			if = {
+    				limit = {
+    					BAN = {
+    						has_idea = neutrality_idea	
+    					}
+    				}
+    				BAN = { remove_ideas = neutrality_idea }
+    			}
+
+    			BAN = { set_rule = { can_join_factions = yes } }
+    		}
+
+    		for_each_scope_loop = {
+    			array = RAJ.raj_releasables
+    			
+    			if = {
+    				limit = {
+					has_idea = neutrality_idea	
+    					
+    				}
+    				remove_ideas = neutrality_idea
+    			}
+    			set_rule = { can_join_factions = yes }
+    		}
+	    }
+	}
+
+	RAJ_GOE_eng_is_getting_involved_in_war = {
+		priority = 30
+	    activation = {
+	    	always = no #enabled by on_action
+	    }
+	    available = {
+			always = no
+	    }
+
+	    icon = GFX_decision_mission_icon     # For GFX_decision_mission_icon
+	    is_good = no
+	    days_mission_timeout = 40
+	    selectable_mission = no
+
+	    timeout_effect = {
+	    	if = {
+	    		limit = {
+	    			ENG = {
+	    				exists = yes
+	    				is_subject = no
+	    			}
+	    		}
+
+	    		ENG = { country_event = { id = GOE_RAJ_partition.10 } }
+	    	}
+	    }
+	}
+
+
+	RAJ_GOE_cease_hostilities = {
+		priority = 30
+
+	    available = {
+	    	has_war_with = PAK
+	    	
+	    }
+	    visible = {
+	    	
+	    	NOT = { has_completed_focus = RAJ_india_united }
+	    	NOT = { has_global_flag = RAJ_GOE_partition_is_over }
+	    }
+
+	    cost = 0
+
+	    complete_effect = {
+	    	every_other_country = {
+	    		limit = {
+		    		is_in_array = {
+		    			array = RAJ.raj_releasables
+		    			value = THIS
+		    		}
+
+		    		has_war_with = ROOT
+	    		}
+
+	    		white_peace = {
+	    			tag = ROOT
+	    		}
+
+	    		if = {
+	    			limit = {
+	    				has_active_mission = RAJ_GOE_eng_is_getting_involved_in_war
+	    			}
+	    			remove_mission = RAJ_GOE_eng_is_getting_involved_in_war	
+	    		}
+	    	}
+
+	    	remove_mission = RAJ_GOE_eng_is_getting_involved_in_war
+	    }
+	}
+
+
+	RAJ_GOE_vie_for_princes = {
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign
+		
+		state_target = yes
+		
+		visible = { 
+			has_global_flag = RAJ_GOE_partition_has_happened
+			NOT = { has_global_flag =  RAJ_GOE_partition_is_over }
+			NOT = { has_completed_focus = RAJ_india_united }
+		}
+		
+		available = {
+			check_variable = { pressure_left > 0 tooltip = pressure_left_tt }
+		}
+		on_map_mode = map_only
+		target_root_trigger = {
+			is_raj_or_raj_inheritor = yes
+		}
+
+		target_array = RAJ.states_in_play_partition
+		target_trigger = {
+			FROM = { 
+				NOT = { 
+					is_controlled_by = PAK
+					is_controlled_by = RAJ
+					is_controlled_by = BAN 
+				}
+				controller = { 
+					has_war = no
+					exists = yes
+					has_capitulated = no
+				}
+			}
+		}
+		
+		cost = 0
+		fire_only_once = no
+		days_remove = 8
+		ai_will_do = {
+			base = 1
+
+		}
+		complete_effect = {
+			FROM = { custom_effect_tooltip = RAJ_GOE_vie_for_princes_tt }
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = RAJ
+					}
+				}
+				ROOT = { subtract_from_variable = { pressure_left = 1 } }
+				FROM = {
+					if = {
+						limit = { has_state_flag = prefers_raj }
+						set_temp_variable = { t_pressure = 1 }
+						multiply_temp_variable = { t_pressure = preference }
+						add_to_variable = { RAJ_pressure = t_pressure }
+					}
+					else  = {
+						add_to_variable = { RAJ_pressure = 1 }
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = PAK
+					}
+				}
+				FROM = {
+
+					ROOT = { subtract_from_variable = { pressure_left = 1 } }
+					FROM = {
+						if = {
+							limit = { has_state_flag = prefers_pak }
+							set_temp_variable = { t_pressure = 1 }
+							multiply_temp_variable = { t_pressure = preference }
+							add_to_variable = { PAK_pressure = t_pressure }
+						}
+						else  = {
+							add_to_variable = { PAK_pressure = 1 }
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = BAN
+					}
+				}
+				FROM = {
+
+					ROOT = { subtract_from_variable = { pressure_left = 1 } }
+					FROM = {
+						if = {
+							limit = { has_state_flag = prefers_ban }
+							set_temp_variable = { t_pressure = 1 }
+							multiply_temp_variable = { t_pressure = preference }
+							add_to_variable = { BAN_pressure = t_pressure }
+						}
+						else  = {
+							add_to_variable = { BAN_pressure = 1 }
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 RAJ_GOE_eic_cat = {
@@ -1521,7 +2779,7 @@ RAJ_GOE_eic_hostile_takeover_cat = {
 			if = {
 				limit = {
 					is_ai = yes
-					
+					NOT = { has_completed_focus = RAJ_deathknell_to_the_raj }
 				}
 				is_in_array = {
 					array = RAJ.owned_states_at_game_start
@@ -1648,12 +2906,25 @@ RAJ_GOE_eic_hostile_takeover_cat = {
 				add = 10
 
 			}
-		
+			modifier = {
+
+				NOT = {
+					is_in_array = {
+						array = RAJ.owned_states_at_game_start
+						value = FROM
+					}
+				}
+				has_completed_focus = RAJ_deathknell_to_the_raj
+				num_of_owned_factories > 30
+
+				add = 10
+
+			}
 		}
 
 		state_target = yes
 		visible = {
-			always = no
+			has_completed_focus = RAJ_hostile_takeover
 		}
 		days_re_enable = 14
 
@@ -2084,8 +3355,20 @@ RAJ_GOE_mughal_independence_category = {
 				is_locked = no
 			}
 
-			hidden_effect = { 
-				
+			hidden_effect = {
+				every_state = {
+					limit = {
+						owner = { tag = BRM }
+					}
+					teleport_armies = { 
+						#only define one. if neither is defined will teleport to unit to their capital  
+						to_state = 988
+						to_province = 5105
+						limit = { 
+							tag = RAJ
+						}
+					}
+				}
 			}
 		}
 	}
@@ -3065,9 +4348,935 @@ RAJ_GOE_communism_infiltration_cat = {
 	}
 }
 
+RAJ_GOE_communism_border_clashes_cat = {
+	RAJ_secure_west_bengal_decision = {
+		icon = GFX_decision_infiltrate_state
+		visible = {
+			has_completed_focus = RAJ_strike_eastern_pakistan
+			PAK = {
+				exists = yes
+			}
+		}
+		available = {
+			PAK = {
+				controls_state = 431
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+			controls_state = 426
+			RAJ = { #scope for  tooltip
+				custom_trigger_tooltip = {
+					tooltip = TRIGGER_HAS_NOT_ANY_BORDER_WAR
+					has_border_war = no
+					NOT = { has_country_flag = RAJ_started_border_war }
+				}
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 431
+			}
+		}
+
+		
+		cost = 0
+		fire_only_once = yes
+		days_remove = 15
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			PAK = {
+				country_event = { id = GOE_RAJ.42 hours = 2 }
+			}
+			custom_effect_tooltip = RAJ_red_punjab_operation_decision_tt
+			hidden_effect = { set_country_flag = RAJ_started_border_war }
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = RAJ_started_border_war
+            }
+            start_border_war = {
+                change_state_after_war = no #overrides the transfer of state at the end of war
+                combat_width = 180 #combat width for border war
+                minimum_duration_in_days = 40 #minimum duration for combat
+                attacker = {
+                	on_win = GOE_RAJ.43
+                	on_lose = GOE_RAJ.49
+                    state = 426 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                    #on_win = <event_id> #effect to call if wins
+                    #on_lose = <event_id> #effect to call if loses
+                    
+                    leader_score = { # Optional score for selecting a leader 
+                        base = 1
+                        modifier = {
+                            skill > 2
+                            factor = 5
+                        }
+                        modifier = {
+                            skill > 3
+                            factor = 10
+                        }
+                    }
+                    
+                    dig_in_factor = 0 #dig in modifier factor (default value: 1.0)
+                    terrain_factor = 0 #terrain modifier factor(default value: 1.0)
+                    }
+                
+                defender = {
+                    state = 431 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                   # on_win = <event_id> #effect to call if wins
+                   on_lose = GOE_RAJ.43
+                   on_win = GOE_RAJ.49
+                   # on_cancel = <event_id> #effect to call if cancels
+                }
+            }
+		}
+	}
+
+	RAJ_secure_rajahsthan_decision = {
+		icon = GFX_decision_generic_reorganize_irregulars
+		visible = {
+			has_completed_focus = RAJ_secure_rajahsthan
+			PAK = {
+				exists = yes
+			}
+		}
+		available = {
+			PAK = {
+				controls_state = 433
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+			controls_state = 437
+			RAJ = { #scope for  tooltip
+				custom_trigger_tooltip = {
+					tooltip = TRIGGER_HAS_NOT_ANY_BORDER_WAR
+					has_border_war = no
+					NOT = { has_country_flag = RAJ_started_border_war }
+				}
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 433
+				state = 437
+			}
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		days_remove = 15
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			PAK = {
+				country_event = { id = GOE_RAJ.44 hours = 2 }
+			}
+			custom_effect_tooltip = RAJ_red_punjab_operation_decision_tt
+			hidden_effect = { set_country_flag = RAJ_started_border_war }
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = RAJ_started_border_war
+            }
+            start_border_war = {
+                change_state_after_war = no #overrides the transfer of state at the end of war
+                combat_width = 180 #combat width for border war
+                minimum_duration_in_days = 40 #minimum duration for combat
+                attacker = {
+                	on_win = GOE_RAJ.45
+                	on_lose = GOE_RAJ.50
+                    state = 437 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                    #on_win = <event_id> #effect to call if wins
+                    #on_lose = <event_id> #effect to call if loses
+                    
+                    leader_score = { # Optional score for selecting a leader 
+                        base = 1
+                        modifier = {
+                            skill > 2
+                            factor = 5
+                        }
+                        modifier = {
+                            skill > 3
+                            factor = 10
+                        }
+                    }
+                    
+                    dig_in_factor = 0 #dig in modifier factor (default value: 1.0)
+                    terrain_factor = 0 #terrain modifier factor(default value: 1.0)
+                    }
+                
+                defender = {
+                    state = 433 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                   # on_win = <event_id> #effect to call if wins
+                   on_lose = GOE_RAJ.45
+                   on_win = GOE_RAJ.50
+                   # on_cancel = <event_id> #effect to call if cancels
+                }
+            }
+		}
+	}
+	RAJ_red_punjab_operation_decision = {
+		icon = GFX_decision_hol_war_on_pacifism
+		visible = {
+			has_completed_focus = RAJ_red_punjab_operation
+			PAK = {
+				exists = yes
+			}
+		}
+		available = {
+			PAK = {
+				controls_state = 986
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+			controls_state = 439
+			RAJ = { #scope for  tooltip
+				custom_trigger_tooltip = {
+					tooltip = TRIGGER_HAS_NOT_ANY_BORDER_WAR
+					has_border_war = no
+					NOT = { has_country_flag = RAJ_started_border_war }
+				}
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 986
+				state = 439
+			}
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		days_remove = 15
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			PAK = {
+				country_event = { id = GOE_RAJ.40 hours = 2 }
+			}
+			custom_effect_tooltip = RAJ_red_punjab_operation_decision_tt
+			hidden_effect = { set_country_flag = RAJ_started_border_war }
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = RAJ_started_border_war
+            }
+            start_border_war = {
+                change_state_after_war = no #overrides the transfer of state at the end of war
+                combat_width = 180 #combat width for border war
+                minimum_duration_in_days = 40 #minimum duration for combat
+                attacker = {
+                	on_win = GOE_RAJ.41
+                	on_lose = GOE_RAJ.51
+                    state = 439 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                    #on_win = <event_id> #effect to call if wins
+                    #on_lose = <event_id> #effect to call if loses
+                    
+                    leader_score = { # Optional score for selecting a leader 
+                        base = 1
+                        modifier = {
+                            skill > 2
+                            factor = 5
+                        }
+                        modifier = {
+                            skill > 3
+                            factor = 10
+                        }
+                    }
+                    
+                    dig_in_factor = 0 #dig in modifier factor (default value: 1.0)
+                    terrain_factor = 0 #terrain modifier factor(default value: 1.0)
+                    }
+                
+                defender = {
+                    state = 986 # state to start border war
+                    num_provinces = 1 #number of provinces we want border war to be
+                   # on_win = <event_id> #effect to call if wins
+                   on_lose = GOE_RAJ.41
+                   on_win = GOE_RAJ.51
+                   # on_cancel = <event_id> #effect to call if cancels
+                }
+            }
+		}
+	}
+}
+
+RAJ_peasant_uprisings_cat = {
+
+	# Nepal
+	RAJ_instigate_in_nepal = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = NEP
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = NEP
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = NEP
+				exists = yes
+				NOT = {
+					NEP = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = NEP
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = NEP }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_tib = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = TIB
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = TIB
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = TIB
+				exists = yes
+				NOT = {
+					TIB = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = TIB
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = TIB }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_brm = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = TIB
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = BRM
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = BRM
+				exists = yes
+				NOT = {
+					BRM = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = BRM
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = BRM }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_afg = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = TIB
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = AFG
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = AFG
+				exists = yes
+				NOT = {
+					AFG = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = AFG
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = AFG }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_per = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = PER
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = PER
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = PER
+				exists = yes
+				NOT = {
+					PER = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = PER
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = PER }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_sia = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = SIA
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = SIA
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = SIA
+				exists = yes
+				NOT = {
+					SIA = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = SIA
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = SIA }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_instigate_in_ins = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = RAJ }
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = INS
+					has_government = communism
+				}
+			}
+			custom_trigger_tooltip = {
+			 	tooltip = RAJ_communist_coup_target_tt
+			 	NOT = { has_event_target = RAJ_communist_coup_target }
+			 }
+			 
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = INS
+			}
+		}
+		visible = {
+			original_tag = RAJ
+
+			any_country = {
+				original_tag = INS
+				exists = yes
+				NOT = {
+					INS = {
+						has_government = communism
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					original_tag = INS
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = { original_tag = INS }
+				save_global_event_target_as = RAJ_communist_coup_target
+				country_event = { id = GOE_RAJ.48 hours = 2 }
+				event_option_tooltip = GOE_RAJ.48.a
+			}
+			
+			hidden_effect = { set_country_flag = instigating_a_coup }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	RAJ_propaganda_in_target = {
+
+		icon = GFX_decision_POL_organize_strike_two
+
+		allowed = {
+			original_tag = RAJ
+		}
+		priority = 12
+		available = {
+			hidden_trigger = {
+				country_exists = event_target:RAJ_communist_coup_target
+			}
+			NOT = {
+				event_target:RAJ_communist_coup_target = {
+					OR = {
+						has_government = communism
+						has_idea = idea_RAJ_communist_propaganda
+					}
+				}
+			}
+		}
+		
+		visible = {
+			original_tag = RAJ
+			has_event_target = RAJ_communist_coup_target
+			event_target:RAJ_communist_coup_target = {
+				exists = yes
+				NOT = {
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = instigating_a_coup
+			}
+		}
+
+		cost = 25
+
+		modifier = {
+			political_power_gain = -0.05
+		}
+		days_remove = 70
+		
+		remove_effect = {}
+
+		complete_effect = {
+			effect_tooltip = {
+				event_target:RAJ_communist_coup_target = {
+					add_timed_idea = {
+						idea = idea_RAJ_communist_propaganda
+						days = 70
+					}
+				}
+			}
+
+			event_target:RAJ_communist_coup_target = {
+				country_event = { id = GOE_RAJ.47 }
+			}
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
 
 
+	RAJ_arm_communist_militants = {
 
+		icon = GFX_decision_POL_looming_peasants_strike
+
+		allowed = {
+			original_tag = RAJ
+		}
+		priority = 10
+		available = {
+			hidden_trigger = {
+				country_exists = event_target:RAJ_communist_coup_target
+			}
+			NOT = {
+				event_target:RAJ_communist_coup_target = {
+					OR = {
+						has_government = communism
+						has_idea = idea_RAJ_armed_communist_militants
+					}
+				}
+			}
+		}
+		
+		visible = {
+			original_tag = RAJ
+			has_event_target = RAJ_communist_coup_target
+			country_exists = event_target:RAJ_communist_coup_target
+			event_target:RAJ_communist_coup_target = {
+				NOT = {
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+					}
+				}
+			}
+		}
+		
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = instigating_a_coup
+			}
+		}
+
+		cost = 25
+
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 499 }
+		}
+		custom_cost_text = decision_cost_ie_500
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+		days_remove = 70
+		
+		remove_effect = {}
+
+		complete_effect = {
+
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+
+			event_target:RAJ_communist_coup_target = {
+				add_timed_idea = {
+					idea = idea_RAJ_armed_communist_militants
+					days = 180
+				}
+			}
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	RAJ_communist_coup = {
+
+		icon = decision_generic_agriculture
+
+		allowed = {
+			original_tag = RAJ
+		}
+		priority = 14
+
+		available = {
+			country_exists = event_target:RAJ_communist_coup_target
+			NOT = {
+				event_target:RAJ_communist_coup_target = {
+					has_government = communism
+				}
+			}
+			event_target:RAJ_communist_coup_target = {
+				communism > 0.3
+				has_stability < 0.35
+			}
+		}
+		
+		visible = {
+			original_tag = RAJ
+			has_event_target = RAJ_communist_coup_target
+			country_exists = event_target:RAJ_communist_coup_target
+			event_target:RAJ_communist_coup_target = {
+				NOT = {
+					OR = {
+						has_government = communism
+						has_country_flag = banned_communism_flag
+						has_country_flag = had_raj_civil_war_flag 
+					}
+				}
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			custom_effect_tooltip = RAJ_uprising_strength_tt
+			event_target:RAJ_communist_coup_target = {
+				country_event = { id = GOE_RAJ.46 }
+			}
+			hidden_effect = {
+				remove_decision_on_cooldown = RAJ_propaganda_in_target
+				remove_decision_on_cooldown = RAJ_arm_communist_militants
+				
+
+				clr_country_flag = instigating_a_coup
+				clear_global_event_target = RAJ_communist_coup_target
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				event_target:RAJ_communist_coup_target = {
+					communism < 0.4
+				}
+				factor = 0
+			}
+		}
+	}
+
+	RAJ_abandon_communist_effort = {
+
+		icon = GFX_decision_BOL_reintegrate_litoral_department
+
+		allowed = {
+			original_tag = RAJ
+		}
+		priority = 5
+		available = {
+
+		}
+		
+		visible = {
+			original_tag = RAJ
+			has_event_target = RAJ_communist_coup_target
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = RAJ_abandon_communist_effort_tt
+			hidden_effect = {
+				clear_global_event_target = RAJ_communist_coup_target
+				clr_country_flag = instigating_a_coup
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				NOT = {
+					event_target:RAJ_communist_coup_target = {
+						OR = {
+							has_country_flag = banned_communism_flag
+							has_government = communism
+						}
+					}
+				}
+				factor = 0
+			}
+		}
+	}
+}
 
 
 ### LOYALIST BRANCH ###

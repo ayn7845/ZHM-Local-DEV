@@ -50,7 +50,7 @@ initial_show_position = {
 		icon = GFX_focus_PHI_commonwealth_of_the_philippines
 				
 			
-		x = 33
+		x = 21
 		y = 0
 	
 		cost = 10
@@ -85,8 +85,9 @@ initial_show_position = {
 		prerequisite = { focus = PHI_commonwealth_of_the_philippines }								
 
 		relative_position_id = PHI_commonwealth_of_the_philippines		
+		mutually_exclusive = { focus = PHI_align_with_japan }					
 			
-		x = 0
+		x = -2
 		y = 1
 	
 		cost = 10
@@ -129,6 +130,68 @@ initial_show_position = {
 		}
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
 	}
+
+	focus = {
+		id = PHI_align_with_japan
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+
+		prerequisite = { focus = PHI_commonwealth_of_the_philippines }								
+
+		relative_position_id = PHI_commonwealth_of_the_philippines	
+		mutually_exclusive = { focus = PHI_align_with_the_usa }										
+			
+		x = 2
+		y = 1
+	
+		cost = 10
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			custom_effect_tooltip = PHI_modify_economy_dynamic_modifier_tt
+			add_to_variable = {
+				PHI_the_great_depression_political_power_gain = 0.20
+				tooltip = political_power_gain_tt
+			}
+			add_to_variable = {
+				PHI_the_great_depression_resource_gain = 0.10
+				tooltip = local_resources_factor_tt
+			}
+			add_to_variable = {
+				PHI_the_great_depression_join_faction_tension = -0.20
+				tooltip = join_faction_tension_tt
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			reduce_focus_completion_cost = {
+				focus = PHI_national_defense_act
+				cost = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = PHI_jap_equipment
+				else = {
+					custom_effect_tooltip = PHI_jap_equipment_non_aat
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = PHI_benigno_ramos
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL_CHARACTER }
+	}
 	
 
 	focus = {
@@ -136,12 +199,12 @@ initial_show_position = {
 		icon = GFX_focus_PHI_uncouple_the_peso_and_dollar
 		overlay = GFX_focus_fast_overlay_america 
 
-		prerequisite = { focus = PHI_align_with_the_usa }								
+		prerequisite = { focus = PHI_align_with_the_usa focus = PHI_align_with_japan }								
 
 		relative_position_id = PHI_align_with_the_usa		
-							
+		mutually_exclusive = { focus = PHI_leverage_the_peso }								
 			
-		x = 0
+		x = -4
 		y = 1
 	
 		cost = 10
@@ -178,16 +241,143 @@ initial_show_position = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
 	}
 
+	focus = {
+		id = PHI_leverage_the_peso
+		icon = GFX_focus_PHI_leverage_the_peso
+		overlay = GFX_focus_fast_overlay_japan  
+
+		prerequisite = { focus = PHI_align_with_japan focus = PHI_align_with_the_usa }								
+
+		relative_position_id = PHI_align_with_japan		
+		mutually_exclusive = { focus = PHI_peg_the_peso_to_the_dollar }									
+			
+		x = 4
+		y = 1
+	
+		cost = 10
+
+		available = {
+			327 = { #Manila
+				is_owned_and_controlled_by = ROOT
+			}
+			627 = { #Davao
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_temp_variable = { PHI_jap_alignment_value_change = 0.05 }	#lowered starting value to compensate, simplifies tooltip code
+
+			PHI_check_japanese_ideology_and_adapt = yes 
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					327 = { ## Manila
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}	
+					}
+				}
+				327 = { ## Manila
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}
+			IF = {
+				limit = {
+					627 = { ## Davao
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}	
+					}
+				}
+				627 = { ## Davao
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = PHI
+					is_fully_controlled_by = PHI
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			USA = {
+				add_opinion_modifier = {
+					target = PHI
+					modifier = PHI_decoupled_peso_from_dollar
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			reduce_focus_completion_cost = {
+			  focus = { PHI_national_fiscal_policy PHI_reduce_unneccessary_expenditure PHI_subsidies PHI_basic_welfare  }
+			  cost = 35
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			reduce_focus_completion_cost = {
+			  focus = PHI_national_defense_act
+			  cost = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_clock_tt
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+	}
 
 	focus = {
 		id = PHI_quezon_city
 		icon = GFX_focus_SWE_hygienic_housing
 
-		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar }						
+		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar focus = PHI_leverage_the_peso }						
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar		
 		
-		x = -2
+		x = 2
 		y = 1
 	
 		cost = 10
@@ -222,11 +412,11 @@ initial_show_position = {
 		id = PHI_unicameral_legislature
 		icon = GFX_focus_generic_improve_the_administration
 
-		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar }						
+		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar focus = PHI_leverage_the_peso }						
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar		
 		
-		x = 0
+		x = 4
 		y = 1
 	
 		cost = 10
@@ -263,11 +453,11 @@ initial_show_position = {
 		icon = GFX_focus_generic_currency_reforms
 		overlay = GFX_focus_fast_overlay_japan_clock
 
-		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar }						
+		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar focus = PHI_leverage_the_peso }						
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar		
 		
-		x = 2
+		x = 6
 		y = 1
 	
 		cost = 10
@@ -297,6 +487,10 @@ initial_show_position = {
 				category = industry
 				name = PHI_national_fiscal_policy
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -308,11 +502,11 @@ initial_show_position = {
 		id = PHI_agricultural_migrants_to_hawaii
 		icon = GFX_focus_PHI_agricultural_migrants_to_hawaii
 
-		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar }						
+		prerequisite = { focus = PHI_peg_the_peso_to_the_dollar focus = PHI_leverage_the_peso }						
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar		
 		
-		x = 4
+		x = 8
 		y = 1
 	
 		cost = 10
@@ -337,6 +531,195 @@ initial_show_position = {
 			}
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = PHI_encourage_foreign_investment
+		icon = GFX_focus_RAJ_issue_bonds_on_the_stock_market
+
+		prerequisite = { focus = PHI_leverage_the_peso }
+
+		relative_position_id = PHI_peg_the_peso_to_the_dollar		
+		
+		x = 10
+		y = 1
+	
+		cost = 10
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			custom_effect_tooltip = PHI_modify_economy_dynamic_modifier_tt
+			add_to_variable = {
+				PHI_the_great_depression_resource_gain = 0.1
+				tooltip = local_resources_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_opinion_modifier = { 
+				target = JAP
+				modifier = small_increase
+			}
+			JAP = {
+				add_opinion_modifier = {
+					target = PHI
+					modifier = medium_increase
+				}
+			}
+			hidden_effect = {
+				PHI_central_focuses_done_T1 = yes
+			}	
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+
+	focus = {
+		id = PHI_encourage_japanese_investment
+		icon = GFX_focus_PHI_encourage_japanese_investment
+
+		prerequisite = { focus = PHI_leverage_the_peso }
+
+		relative_position_id = PHI_leverage_the_peso		
+		
+		x = 2
+		y = 1
+	
+		cost = 5
+
+		available = {
+			623 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			JAP = {
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			if = {	#keep it a bit more of an easter egg
+				limit = {
+					has_country_flag = PHI_military_emergency_flag
+				}
+				NOT = {
+					has_country_flag = PHI_military_emergency_flag
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			IF = {
+				limit = {
+					623 = { ## Luzon
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}	
+					}
+				}
+				623 = { ## Luzon
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = PHI
+					is_fully_controlled_by = PHI
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_industrial_concern
+			custom_effect_tooltip = PHI_south_seas_development_company_tt
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = PHI_develop_japanese_trade_connections
+		icon = GFX_focus_PHI_develop_japanese_trade_connections
+
+		prerequisite = { focus = PHI_encourage_japanese_investment }
+
+		relative_position_id = PHI_encourage_japanese_investment		
+		
+		x = 0
+		y = 1
+	
+		cost = 5
+
+		available = {
+			JAP = {
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			if = {	#keep it a bit more of an easter egg
+				limit = {
+					has_country_flag = PHI_military_emergency_flag
+				}
+				NOT = {
+					has_country_flag = PHI_military_emergency_flag
+				}
+			}
+		}
+
+		# bypass = {	#no follow-ups or bypass effects, could be reactivated if that is changed
+		# 	JAP = {
+		# 		exists = no
+		# 	}
+		# }
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+
+			## Send event to Japan
+			JAP = {
+				country_event = {
+					id = SEA_PHI_political_events.1
+					hours = 3 
+					random_hours = 6
+				}
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = PHI_japanese_trade_connections
+					days = 365
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNATIONAL_TRADE }
 	}
 
 	focus = {
@@ -401,6 +784,10 @@ initial_show_position = {
 				PHI_the_great_depression_consumer_goods_factor = -0.10
 				tooltip = consumer_goods_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -435,6 +822,10 @@ initial_show_position = {
 				idea = PHI_subsidies_timed_idea
 				days = 365
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -475,6 +866,10 @@ initial_show_position = {
 				tooltip = monthly_population_tt
 			}
 			add_stability = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -483,17 +878,124 @@ initial_show_position = {
 	}
 
 	focus = {
+		id = PHI_encourage_asian_trade
+		icon = GFX_goal_generic_positive_trade_relations
+
+		prerequisite = { focus = PHI_encourage_foreign_investment }
+
+		relative_position_id = PHI_encourage_foreign_investment		
+		
+		x = 0
+		y = 1
+	
+		cost = 10
+
+		available = {
+			OR = {
+				SIA = {
+					exists = yes
+				}
+				INS = {
+					exists = yes
+				}
+				MAL = {
+						exists = yes
+				}
+			}
+		}
+
+		bypass = {
+			AND = {
+				SIA = {
+					exists = no
+				}
+				INS = {
+					exists = no
+				}
+				MAL = {
+					exists = no
+				}
+			}
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			if = {
+				limit = {
+					SIA = {
+						exists = yes
+					}
+				}
+				SIA = {
+					country_event = {
+						id = SEA_PHI_political_events.3
+						hours = 3 
+						random_hours = 6
+					}
+				}	
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					add_ideas = PHI_asian_trade_connections_siam
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt		
+			}
+			if = {
+				limit = {
+					INS = {
+						exists = yes
+					}
+				}
+				INS = {
+					country_event = {
+						id = SEA_PHI_political_events.3
+						hours = 3 
+						random_hours = 6
+					}
+				}
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					add_ideas = PHI_asian_trade_connections_dutch_east_india
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			if = {
+				limit = {
+					MAL = {
+						exists = yes
+					}
+				}
+				MAL = {
+					country_event = {
+						id = SEA_PHI_political_events.3
+						hours = 3 
+						random_hours = 6
+					}
+				}
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					add_ideas = PHI_asian_trade_connections_malaya
+				}
+			}
+			hidden_effect = {
+				PHI_central_focuses_done_T1 = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNATIONAL_TRADE }
+	}
+
+	focus = {
 		id = PHI_pro_hacendados
 		icon = GFX_focus_PHI_pro_hacendados
 #		focus_generic_land_owner
 		overlay = GFX_focus_fast_overlay_america 
 
-		prerequisite = { focus = PHI_quezon_city_campus focus = PHI_reduce_unneccessary_expenditure focus = PHI_subsidies focus = PHI_basic_welfare }
+		prerequisite = { focus = PHI_quezon_city_campus focus = PHI_reduce_unneccessary_expenditure focus = PHI_subsidies focus = PHI_basic_welfare focus = PHI_encourage_asian_trade }
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar	
 		mutually_exclusive = { focus = PHI_anti_hacendados }		
 		
-		x = -4
+		x = 0
 		y = 3
 	
 		cost = 10
@@ -578,13 +1080,13 @@ initial_show_position = {
 		icon = GFX_focus_PHI_anti_hacendados
 		overlay = GFX_focus_fast_overlay_japan 
 
-		prerequisite = { focus = PHI_quezon_city_campus focus = PHI_reduce_unneccessary_expenditure focus = PHI_subsidies focus = PHI_basic_welfare }
+		prerequisite = { focus = PHI_quezon_city_campus focus = PHI_reduce_unneccessary_expenditure focus = PHI_subsidies focus = PHI_basic_welfare focus = PHI_encourage_asian_trade }
 
-		relative_position_id = PHI_basic_welfare
+		relative_position_id = PHI_leverage_the_peso
 		mutually_exclusive = { focus = PHI_pro_hacendados }
 
 		x = 0
-		y = 1
+		y = 3
 	
 		cost = 10
 
@@ -678,7 +1180,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_pro_hacendados	
 		
-		x = 1
+		x = 2
 		y = 1
 	
 		cost = 10
@@ -775,7 +1277,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_pro_hacendados	
 		
-		x = 3
+		x = 4
 		y = 1
 	
 		cost = 10
@@ -814,6 +1316,10 @@ initial_show_position = {
 				}	
 				add_extra_state_shared_building_slots = 1
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -829,7 +1335,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_pro_hacendados	
 		
-		x = 5
+		x = 6
 		y = 1
 	
 		cost = 10
@@ -879,7 +1385,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_pro_hacendados	
 		
-		x = 7
+		x = 8
 		y = 1
 	
 		cost = 10
@@ -920,6 +1426,10 @@ initial_show_position = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_mindanao_transport_decision_unlock_tt
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -936,7 +1446,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_pro_hacendados	
 		
-		x = 9
+		x = 10
 		y = 1
 	
 		cost = 10
@@ -980,6 +1490,10 @@ initial_show_position = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = PHI_american_intervention_change_value_medium_increase_tt ## Only show the tooltip if have the decision, but add the variable regardless
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -995,10 +1509,10 @@ initial_show_position = {
 
 		relative_position_id = PHI_anti_hacendados
 		
-		x = 3
+		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 			NOT = {
@@ -1031,7 +1545,31 @@ initial_show_position = {
 					days = 180
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				effect_tooltip = { }
+				effect_tooltip = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							has_completed_focus = PHI_align_with_japan
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						every_military_industrial_organization = {
+							limit = {
+								OR = {
+									is_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization
+									is_military_industrial_organization = JAP_mitsubishi_kobe_shipyard_organization
+									is_military_industrial_organization = JAP_yokosuka_naval_arsenal_organization
+									is_military_industrial_organization = JAP_mitsubishi_organization
+									is_military_industrial_organization = JAP_kokura_arsenal_organization
+									is_military_industrial_organization = JAP_nissan_organization
+									is_military_industrial_organization = JAP_tokyo_automobile_industries_organization
+								}
+							}
+							add_mio_size = 1
+						}
+					}
+				}
 			}
 			else = {
 				add_timed_idea = {
@@ -1039,7 +1577,29 @@ initial_show_position = {
 					days = 180
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				
+				if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+						has_completed_focus = PHI_align_with_japan
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization
+								is_military_industrial_organization = JAP_mitsubishi_kobe_shipyard_organization
+								is_military_industrial_organization = JAP_yokosuka_naval_arsenal_organization
+								is_military_industrial_organization = JAP_mitsubishi_organization
+								is_military_industrial_organization = JAP_kokura_arsenal_organization
+								is_military_industrial_organization = JAP_nissan_organization
+								is_military_industrial_organization = JAP_tokyo_automobile_industries_organization
+							}
+						}
+						add_mio_size = 1
+					}
+				}
 			}
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MILITARY_CHARACTER }
@@ -1293,6 +1853,10 @@ initial_show_position = {
 			add_political_power = 75
 			add_war_support = 0.1
 			add_stability = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -1310,7 +1874,7 @@ initial_show_position = {
 		relative_position_id = PHI_pro_hacendados	
 		mutually_exclusive = { focus = PHI_open_borders }
 		
-		x = 1
+		x = 0
 		y = 3
 	
 		cost = 10
@@ -1374,7 +1938,7 @@ initial_show_position = {
 		relative_position_id = PHI_anti_hacendados	
 		mutually_exclusive = { focus = PHI_nationality_act }
 		
-		x = 1
+		x = 0
 		y = 3
 	
 		cost = 10
@@ -1739,6 +2303,9 @@ initial_show_position = {
 				tooltip = consumer_goods_factor_tt
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T3_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T3 = yes
 			}
@@ -1874,6 +2441,9 @@ initial_show_position = {
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T3_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T3 = yes
 			}
@@ -1890,10 +2460,10 @@ initial_show_position = {
 		relative_position_id = PHI_open_borders	
 		
 		
-		x = 5
+		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 			NOT = {
@@ -1927,7 +2497,29 @@ initial_show_position = {
 						days = 180
 					}
 					custom_effect_tooltip = generic_skip_one_line_tt
-					
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							has_completed_focus = PHI_align_with_japan
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						every_military_industrial_organization = {
+							limit = {
+								OR = {
+									is_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization
+									is_military_industrial_organization = JAP_mitsubishi_kobe_shipyard_organization
+									is_military_industrial_organization = JAP_yokosuka_naval_arsenal_organization
+									is_military_industrial_organization = JAP_mitsubishi_organization
+									is_military_industrial_organization = JAP_kokura_arsenal_organization
+									is_military_industrial_organization = JAP_nissan_organization
+									is_military_industrial_organization = JAP_tokyo_automobile_industries_organization
+								}
+							}
+							add_mio_size = 1
+						}
+					}
 				}
 			}
 			else = {
@@ -1936,7 +2528,29 @@ initial_show_position = {
 					days = 180
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				
+				if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+						has_completed_focus = PHI_align_with_japan
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization
+								is_military_industrial_organization = JAP_mitsubishi_kobe_shipyard_organization
+								is_military_industrial_organization = JAP_yokosuka_naval_arsenal_organization
+								is_military_industrial_organization = JAP_mitsubishi_organization
+								is_military_industrial_organization = JAP_kokura_arsenal_organization
+								is_military_industrial_organization = JAP_nissan_organization
+								is_military_industrial_organization = JAP_tokyo_automobile_industries_organization
+							}
+						}
+						add_mio_size = 1
+					}
+				}
 			}
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MILITARY_CHARACTER }
@@ -2010,6 +2624,8 @@ initial_show_position = {
 						has_cosmetic_tag = PHI_asean_tag
 						has_cosmetic_tag = PHI_reino_de_filipinas_tag
 						has_cosmetic_tag = PHI_hispanic_empire_tag
+						has_cosmetic_tag = PHI_hispanic_empire_tag_war
+						has_cosmetic_tag = PHI_reino_de_filipinas_tag_war
 					}
 				}
 				custom_effect_tooltip = PHI_manila_tag_tt
@@ -2542,9 +3158,7 @@ initial_show_position = {
 
 		available = {
 			is_ally_with = USA
-			always = no
 		}
-		allow_branch = { always = no}
 
 		bypass = {
 		}
@@ -3475,7 +4089,7 @@ initial_show_position = {
 
 		relative_position_id = PHI_peg_the_peso_to_the_dollar	
 		
-		x = -4
+		x = -2
 		y = 1
 	
 		cost = 5
@@ -4107,7 +4721,9 @@ initial_show_position = {
 					specialization = specialization_nuclear
 					value = 0.5
 				}
-			}			
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas =  PHI_sea_of_cobalt_idea  			
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	}
@@ -4294,7 +4910,10 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_ideas =  PHI_cobalt_supremacy_idea  
+			swap_ideas = {
+				remove_idea = PHI_sea_of_cobalt_idea
+				add_idea = PHI_cobalt_supremacy_idea
+			}
 		}
 	}
 
@@ -4309,7 +4928,7 @@ initial_show_position = {
 		icon = GFX_focus_generic_surrender
 
 		
-		x = 20
+		x = 11
 		y = 11
 	
 		cost = 10
@@ -4502,7 +5121,8 @@ initial_show_position = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.15 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_damage_to_garrison_on_our_occupied_states = 0.05 tooltip = resistance_damage_to_garrison_on_our_occupied_states_tt }
 			add_to_variable = { PHI_resistance_communism_drift = 0.02 tooltip = communism_drift_tt }
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4550,18 +5170,18 @@ initial_show_position = {
 					has_completed_focus = PHI_encourage_chinese_immigration
 				}
 				custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.2 tooltip = resistance_target_on_our_occupied_states_tt }
+				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
 			}
 			else = {
 				custom_effect_tooltip = PHI_if_chinese_immigration_tt
 				effect_tooltip = {
 					custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-					add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.2 tooltip = resistance_target_on_our_occupied_states_tt }
+					add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = generic_current_effects
 				custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.1 tooltip = resistance_target_on_our_occupied_states_tt }
+				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.05 tooltip = resistance_target_on_our_occupied_states_tt }
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4670,7 +5290,8 @@ initial_show_position = {
 			custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
 			add_to_variable = { PHI_resistance_special_forces_cap = 0.20 tooltip = special_forces_cap_tt }
 			add_to_variable = { PHI_resistance_terrain_trait_xp_gain_factor = 0.20 tooltip = terrain_trait_xp_gain_factor_tt }
-			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.1 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.05 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_damage_to_garrison_on_our_occupied_states = 0.05 tooltip = resistance_damage_to_garrison_on_our_occupied_states_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5151,16 +5772,1046 @@ initial_show_position = {
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 	}
 
+#######################################
+#######################################
+###### FASCIST AND REPUBLICAN #########
+#######################################
+#######################################
+
+
+	focus = {
+		id = PHI_rebuild_sakdalistas
+		icon = GFX_focus_PHI_rebuild_sakdalistas
+
+		prerequisite = { focus = PHI_leverage_the_peso }
+
+		relative_position_id = PHI_leverage_the_peso	
+
+		x = 9
+		y = 1
+	
+		cost = 5
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_timed_idea = {
+				idea = PHI_sakdalistas_timed_idea
+				days = 365
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+
+	focus = {
+		id = PHI_slippery_slope
+		icon = GFX_goal_support_fascism
+
+		prerequisite = { focus = PHI_rebuild_sakdalistas }
+		mutually_exclusive = { focus = PHI_the_red_sun_over_manila focus = PHI_election_overturned }
+		relative_position_id = PHI_rebuild_sakdalistas	
+
+		x = -3
+		y = 1
+	
+		cost = 10
+
+		available = {
+			fascism > 0.2
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_timed_idea = {
+				idea = PHI_slippery_slope_timed_idea
+				days = 365
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+
+
+	focus = {
+		id = PHI_assassination_of_quezon
+		icon = GFX_focus_PHI_assassination_of_quezon
+
+		prerequisite = { focus = PHI_slippery_slope }
+
+		relative_position_id = PHI_slippery_slope	
+
+		x = 0
+		y = 1
+	
+		cost = 10
+
+		available = {
+			fascism > 0.3
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			custom_effect_tooltip = PHI_assassination_of_quezon_tt
+			hidden_effect = {
+				country_event = {
+					id = SEA_PHI_political_events.40
+					days = 35
+					random_days = 70
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PHI_aguinaldos_coup
+		icon = GFX_focus_generic_conspiracy
+
+		prerequisite = { focus = PHI_makapili }
+		prerequisite = { focus = PHI_form_the_executive_commision }
+
+		relative_position_id = PHI_assassination_of_quezon	
+
+		x = 0
+		y = 2
+	
+		cost = 10
+
+		available = {
+			NOT = { 
+				has_country_leader = {
+					character  = PHI_manuel_luis_quezon
+					ruling_only = yes
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+				NOT = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			custom_effect_tooltip = PHI_resolve_interregnum_tt
+			country_event = {
+				id = SEA_PHI_political_events.42
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = PHI_makapili
+		icon = GFX_focus_PHI_makapili
+
+		prerequisite = { focus = PHI_assassination_of_quezon }
+
+		relative_position_id = PHI_assassination_of_quezon	
+
+		x = -1
+		y = 1
+	
+		cost = 5
+
+		available = {
+			has_country_flag = PHI_sakdalista_exiles_returned_flag
+			if = {
+				limit = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+				NOT = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_manpower = 25000
+			add_war_support = 0.075
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+		focus = {
+		id = PHI_form_the_executive_commision
+		icon = GFX_focus_generic_commission
+
+		prerequisite = { focus = PHI_assassination_of_quezon }
+
+		relative_position_id = PHI_assassination_of_quezon	
+
+		x = 1
+		y = 1
+	
+		cost = 5
+
+		available = {
+			has_country_flag = PHI_sakdalista_exiles_returned_flag
+			if = {
+				limit = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+				NOT = {
+					has_country_flag = PHI_eisenhower_steps_in_flag
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.075
+			add_political_power = 75
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+
+	focus = {
+		id = PHI_secure_japanese_guarantees
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+
+		prerequisite = { focus = PHI_aguinaldos_coup }
+
+		relative_position_id = PHI_aguinaldos_coup	
+
+		x = 0
+		y = 1
+	
+		cost = 5
+
+		available = {
+			OR = {
+				is_subject_of = USA
+				AND = {
+					is_subject = no
+					JAP = {
+						is_faction_leader = yes
+					}
+				}
+			}
+		}
+
+		bypass = {
+			OR = {
+				JAP = {
+					OR = {
+						exists = no
+						is_subject = yes
+						has_war_with = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				AND = {
+					is_subject_of = USA
+					JAP = {
+						is_in_faction_with = USA
+					}
+				}
+				AND = {
+					is_subject = no
+					JAP = {
+						is_faction_leader = no
+					}
+				}
+			}
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			if = {
+				limit = {
+					is_subject_of = USA
+				}
+				JAP = {
+					country_event = {
+						id = SEA_PHI_political_events.45
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					JAP = {
+						is_faction_leader = yes
+					}
+				}
+				JAP = {
+					country_event = {
+						id = generic.2
+					}
+				}
+			}
+
+			add_war_support = 0.10
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {
+		id = PHI_war_of_independence
+		icon = GFX_goal_generic_major_war
+
+		prerequisite = { focus = PHI_secure_japanese_guarantees focus = PHI_hispanic_overtures }
+
+		relative_position_id = PHI_secure_japanese_guarantees	
+
+		x = 3
+		y = 1
+	
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_completed_focus = PHI_hispanic_overtures
+				NOT = {
+					any_other_country = {
+						has_country_flag = PHI_agreed_to_ally
+					}
+				}
+			}
+			modifier = {	#AI is quite eager to do these decisions
+				factor = 5
+				has_completed_focus = PHI_hispanic_overtures
+				any_other_country = {
+					has_country_flag = PHI_agreed_to_ally
+				}
+			}
+		}
+
+		available = {
+			is_subject_of = USA
+		}
+
+		bypass = {
+			NOT = {
+				is_subject_of = USA
+			}
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			USA = {
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_free
+					end_wars = yes
+					end_civil_wars = no
+				}
+				leave_faction = yes
+				country_event = {
+					id = SEA_PHI_political_events.48
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = PHI_japan_independence_help
+					JAP = {
+						exists = yes
+						is_subject = no
+						NOT = {
+							is_in_faction_with = USA
+						}
+					}
+				}
+				JAP = {
+					give_guarantee = ROOT
+					if = {
+						limit = {
+							is_faction_leader = yes
+						}
+						add_to_faction = ROOT
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = PHI_hispanic_overtures
+				}
+				create_faction = PHI_hispanic_coalition
+				every_other_country = {
+					limit = {
+						has_country_flag = PHI_agreed_to_ally
+						NOT = {
+							has_war_with = ROOT
+						}
+						is_subject = no
+						is_in_faction = no
+					}
+					ROOT = {
+						add_to_faction = PREV
+					}
+				}
+			}
+
+			custom_effect_tooltip = if_they_refuse_tt
+			effect_tooltip = {
+				USA = {
+					create_wargoal = {
+						target = ROOT
+						type = puppet_wargoal_focus
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					unlock_decision_tooltip = PHI_peace_with_philippines
+					if = {
+						limit = {
+							is_ai = yes
+						}
+						custom_effect_tooltip = generic_skip_one_line_tt
+						custom_effect_tooltip = PHI_will_take_peace_decision
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_election_overturned
+		icon = GFX_focus_AUS_lawmaking_leniency
+
+		prerequisite = { focus = PHI_rebuild_sakdalistas }
+		mutually_exclusive = { focus = PHI_the_red_sun_over_manila focus = PHI_slippery_slope }
+
+		relative_position_id = PHI_rebuild_sakdalistas	
+
+		x = 3
+		y = 1
+	
+		cost = 10
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			country_event = SEA_PHI_political_events.60
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_hispanidad_filipina
+		icon = GFX_focus_PHI_hispanidad_filipina
+
+		prerequisite = { focus = PHI_election_overturned }
+
+		relative_position_id = PHI_election_overturned	
+
+		x = 0
+		y = 1
+	
+		cost = 5
+
+		ai_will_do = {
+			base = 4
+		}
+
+		available = {
+			has_global_flag = spanish_civil_war
+			if = {
+				limit = {
+					has_global_flag = spanish_civil_war
+					has_dlc = "La Resistance"				#then SPB and SPC could still be fighting
+				}
+				OR = {
+					country_exists = SPA
+					country_exists = SPD
+				}
+			}
+			NOT = {
+				has_global_flag = scw_over
+			}
+			has_government = neutrality
+		}
+
+		bypass = {
+			if = {
+				limit = {
+					has_global_flag = spanish_civil_war
+				}
+				OR = {
+					AND = {
+						NOT = { country_exists = SPA }
+						NOT = { country_exists = SPD }
+					}
+					has_global_flag = scw_over
+				}
+			}
+			else = {
+				has_global_flag = scw_over
+			}
+			has_government = neutrality
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			country_event = SEA_PHI_political_events.62
+		}
+	}
+
+	focus = {
+		id = PHI_spanish_refugees
+
+		prerequisite = { focus = PHI_hispanidad_filipina }
+
+		relative_position_id = PHI_hispanidad_filipina	
+
+		icon = GFX_focus_generic_immigration
+
+		x = -1
+		y = 1
+	
+		cost = 10
+
+		ai_will_do = {
+			base = 4
+		}
+
+		available = {
+			has_global_flag = scw_over
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					NOT = {		#no explosions in low-pop states
+						state = 626
+						state = 1025
+					}
+				}
+				add_manpower = 18000
+				add_extra_state_shared_building_slots = 1
+				ROOT = {
+					random_core_state = {
+						limit = {
+							is_owned_and_controlled_by = ROOT
+							NOT = {		#no explosions in low-pop states
+								state = 626
+								state = 1025
+								state = PREV.PREV
+							}
+						}
+						add_manpower = 42000
+						add_extra_state_shared_building_slots = 1
+					}
+				}
+			}
+
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_manpower = 15000
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					has_country_flag = PHI_support_scw_faction_lost
+				}
+				effect_tooltip = {
+					army_experience = 35
+				}
+				hidden_effect = {	#since army modifier actually removes 80% of that 35 by default, divide by 1-modifier to actually add the listed amount
+					set_temp_variable = { PHI_xp_factor = 1 }
+					add_to_temp_variable = { PHI_xp_factor = PHI_philippine_army_experience_gain_army_factor }
+					set_temp_variable = { PHI_xp_to_add = 35 }
+					divide_temp_variable = { PHI_xp_to_add = PHI_xp_factor }
+					army_experience = PHI_xp_to_add
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				division_template = {
+					name = "Spanish Veterans"
+					priority = 2
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }  # Spanish Arty Rgt/Bge had 2 Bn 105mm arty
+						engineer = { x = 0 y = 1 }   # Eng Bn
+					}
+				}
+
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Spanish Veterans\" division_template = \"Spanish Veterans\" start_experience_factor = 0.7"
+						count = 2
+						owner = ROOT
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = PHI_if_supported_scw_side_lost_tt
+				effect_tooltip = {
+					army_experience = 35
+
+					custom_effect_tooltip = generic_skip_one_line_tt
+
+					division_template = {
+						name = "Spanish Veterans"
+						priority = 2
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }  # Spanish Arty Rgt/Bge had 2 Bn 105mm arty
+							engineer = { x = 0 y = 1 }   # Eng Bn
+						}
+					}
+
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Spanish Veterans\" division_template = \"Spanish Veterans\" start_experience_factor = 0.7"
+							count = 2
+							owner = ROOT
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = PHI_if_supported_scw_side_wins_tt
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_XP }
+	}
+
+	focus = {
+		id = PHI_reconciliation_with_spain
+
+		prerequisite = { focus = PHI_spanish_refugees }
+
+		relative_position_id = PHI_spanish_refugees	
+
+		#When editing this, try to keep this somewhat in line with how the if/else block below works
+		icon = {
+			GFX_focus_generic_befriend_nationalist_spain_focus = {
+				OR = {
+					country_exists = SPA
+					country_exists = SPC
+				}
+			}
+			GFX_focus_generic_befriend_communist_spain_focus = {
+				country_exists = SPD
+				SPD = {
+					has_government = communism
+				}
+			}
+			GFX_focus_generic_befriend_republican_spain_focus = yes
+		}
+		dynamic = yes
+
+		x = 0
+		y = 1
+	
+		cost = 5
+
+		ai_will_do = {
+			base = 4
+		}
+
+		available = {
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SPA
+				}
+				if = {
+					limit = {
+						has_country_flag = PHI_support_scw_faction_won
+					}
+					add_ideas = PHI_ties_with_nationalist_spain_2
+				}
+				else = {
+					add_ideas = PHI_ties_with_nationalist_spain
+				}
+			}
+			else_if = {
+				limit = {
+					country_exists = SPD
+				}
+				if = {
+					limit = {
+						has_country_flag = PHI_support_scw_faction_won
+					}
+					add_ideas = PHI_ties_with_republican_spain_2
+				}
+				else = {
+					add_ideas = PHI_ties_with_republican_spain
+				}
+			}
+			else_if = {
+				limit = {
+					country_exists = SPB
+				}
+				add_ideas = PHI_ties_with_carlist_spain
+			}
+			else_if = {
+				limit = {
+					country_exists = SPC
+				}
+				add_ideas = PHI_ties_with_anarchist_spain
+			}
+			else = {	#should never be executed, only meant for tooltip purposes
+				add_ideas = PHI_ties_with_republican_spain
+			}
+
+			if = {
+				limit = {
+					has_completed_focus = PHI_hispanic_overtures
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = PHI_unlock_mutual_assistance_with_spain_tt
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_hispanic_overtures
+		icon = GFX_focus_CHL_promote_pan_hispanic_rhetoric
+
+		prerequisite = { focus = PHI_reconciliation_with_spain focus = PHI_royal_exiles }
+
+		relative_position_id = PHI_reconciliation_with_spain	
+
+		x = 1
+		y = 1
+	
+		cost = 10
+
+		ai_will_do = {
+			base = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			unlock_decision_category_tooltip = PHI_relations_with_spanish_america
+
+			if = {
+				limit = {
+					has_completed_focus = PHI_treaty_of_manila
+					is_in_faction = no
+					is_subject = no
+				}
+				create_faction = PHI_hispanic_coalition
+				every_other_country = {
+					limit = {
+						has_country_flag = PHI_agreed_to_ally
+						NOT = {
+							has_war_with = ROOT
+						}
+						is_subject = no
+						is_in_faction = no
+					}
+					ROOT = {
+						add_to_faction = PREV
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_revolutionary_regrets
+		icon = GFX_focus_spr_crush_the_revolution
+
+		prerequisite = { focus = PHI_hispanidad_filipina }
+
+		relative_position_id = PHI_hispanidad_filipina	
+
+		x = 1
+		y = 1
+	
+		cost = 10
+
+		ai_will_do = {
+			base = 3
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = PHI_reignited_independence_struggle
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_royal_exiles
+		icon = GFX_focus_generic_monarchy_2
+
+		prerequisite = { focus = PHI_revolutionary_regrets }
+
+		relative_position_id = PHI_revolutionary_regrets	
+
+		x = 0
+		y = 1
+	
+		cost = 10
+
+		ai_will_do = {
+			base = 3
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			every_unit_leader = {
+				random_select_amount = 2
+				gain_xp = 500
+			}
+
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+	
+				every_country_division = {
+					add_divisional_commander_xp = 80
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			show_unit_leaders_tooltip = PHI_infante_juan_iii
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			swap_ideas = {
+				add_idea = PHI_reignited_independence_struggle_2
+				remove_idea = PHI_reignited_independence_struggle
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = PHI_reino_de_filipinas
+		icon = GFX_focus_PHI_reino_de_filipinas
+
+		prerequisite = { focus = PHI_royal_exiles }
+		prerequisite = { focus = PHI_war_of_independence }
+
+		mutually_exclusive = { focus = PHI_second_philippine_republic }
+
+		relative_position_id = PHI_hispanic_overtures	
+
+		x = 1
+		y = 3
+	
+		cost = 10
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			PHI_infante_juan_iii = {
+				add_attack = 1
+				add_coordination = 1
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = despotism
+						expire = "1965.1.1.1"
+						traits = { ICE_the_navy_king }
+					}
+				}
+			}
+
+			set_politics = {
+				ruling_party = neutrality
+				long_name = PHI_bourbon_party_long
+				name = PHI_bourbon_party
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			set_cosmetic_tag = PHI_reino_de_filipinas_tag
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			swap_ideas = {
+				add_idea = PHI_reignited_independence_struggle_3
+				remove_idea = PHI_reignited_independence_struggle_2
+			}
+
+			#custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = PHI_unlock_unification_decision_tt
+			custom_effect_tooltip = PHI_unlock_conquer_decision_tt
+		}
+		search_filters = { FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = PHI_second_philippine_republic
+		icon = GFX_focus_PHI_second_philippine_republic
+
+#		prerequisite = { focus = PHI_aguinaldos_coup }
+		prerequisite = { focus = PHI_war_of_independence }
+		mutually_exclusive = { focus = PHI_reino_de_filipinas }
+
+		relative_position_id = PHI_aguinaldos_coup	
+
+		x = -1
+		y = 4
+	
+		cost = 10
+
+		available = {
+			327 = { #Manila
+				is_fully_controlled_by = PHI
+			}
+		}
+
+		bypass = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+
+			custom_effect_tooltip = PHI_second_republic_tag_tt
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_modify_economy_dynamic_modifier_tt
+			add_to_variable = {
+				PHI_ruling_ideology_ideology_drift = 0.05
+				tooltip = PHI_ruling_ideology_ideology_drift_tt_2
+			}
+			PHI_refresh_ruling_ideology_drift = yes
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_stability = 0.10
+
+			hidden_effect = {
+				set_cosmetic_tag = PHI_second_republic_tag
+				PHI_update_war_flag = yes
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
 
 	focus = {
 		id = PHI_war_for_the_oceans
 		icon = GFX_focus_PHI_war_for_the_oceans
 
-		prerequisite = { focus = PHI_treaty_of_manila }
+		prerequisite = { focus = PHI_second_philippine_republic focus = PHI_treaty_of_manila focus = PHI_pan_pacific_trade_union_secretariat focus = PHI_comitern focus = PHI_reino_de_filipinas }
 
-		relative_position_id = PHI_treaty_of_manila	
+		relative_position_id = PHI_second_philippine_republic	
 
-		x = 10
+		x = 4
 		y = 1
 	
 		cost = 10
@@ -5378,6 +7029,7 @@ initial_show_position = {
 			add_state_claim = 725 #Nauru
 			add_state_claim = 727 #Line Islands
 			add_state_claim = 737 #Bismark
+			add_state_claim = 1070 #Bougainville
 			add_state_claim = 634 #Solomon Islands
 			add_state_claim = 734 #Nendo
 
@@ -5424,6 +7076,7 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
+			add_state_claim = 1070 #Bougainville
 			add_state_claim = 634	#Solomon Islands
 			add_state_claim = 734	#Nendo
 			add_state_claim = 1024	#Sabah
@@ -5553,6 +7206,70 @@ initial_show_position = {
 		cost = 10
 
 		available = {
+			collection_size = {
+				input = {
+					input = game:all_states
+					operators = {
+						limit = {
+							OR = {
+								state = 543 #Madagascar
+								state = 708 #Comoro Islands
+								state = 706 #Reunion
+								state = 707 #Mauritius
+								state = 629 #Hawaii
+								state = 630 #Johnston Atoll
+								state = 631 #Midway
+								state = 632 #Wake
+								state = 633 #Marshall Islands
+								state = 638 #Guam
+								state = 639 #Gilbert Islands
+								state = 641 #Taihiti
+								state = 642 #Phoenix Island
+								state = 643 #Elice Islands
+								state = 646 #Saipan
+								state = 647 #Palau
+								state = 648 #Marcus
+								state = 684 #Caroline Islands
+								state = 725 #Nauru
+								state = 727 #Line Islands
+								state = 737 #Bismark
+								state = 1070 #Bougainville
+								state = 634 #Solomon Islands
+								state = 734 #Nendo
+								state = 734	#Nendo
+								state = 1024 #Sabah
+								state = 334	#Kalimantan
+								state = 333	#Sarawak
+								state = 673	#Sulawesi
+								state = 336	#Malaya
+								state = 672	#Sumatra
+								state = 335	#Java
+								state = 667	#Lesser Sunda Islands
+								state = 1023 #Brunei
+								state = 1021 #Singapore
+								state = 979	#Kaiser_wilhelmsland
+								state = 668	#Moluccas
+								state = 669	#West Papua
+								state = 1022 #Interior Borneo (inaccesible, cored by coring decisions of neighboring states instead)
+								state = 738	#Aru Islands
+								state = 721	#Portuguese Timor
+								state = 667 #Lesser Sunda Islands
+								state = 284 #NZ North Island
+								state = 723 #NZ South Island
+								state = 635 #New Caladonia
+								state = 636 #Fiji
+								state = 726 #Samoa
+								state = 645 #Iwo Jima
+								state = 526 #Okinawa
+								state = 524 #Taiwan
+							}
+							is_controlled_by = ROOT
+						}
+					}
+					name = COLLECTION_CONTROLLED_AUSTRONESIA_STATES
+				}
+				value > 24
+			}
 		}
 
 		bypass = {
@@ -5598,7 +7315,7 @@ initial_show_position = {
 
 		bypass = {
 		}
-		allow_branch = { always = no}
+
 		available_if_capitulated = no
 	
 		completion_reward = {
@@ -5638,6 +7355,17 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = PHI_hukbalahap
+					}
+				}
+				show_unit_leaders_tooltip = PHI_luis_taruc
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_popularity = {
 				ideology = communism
 				popularity = 0.05
@@ -5737,16 +7465,41 @@ initial_show_position = {
 	
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
-			
+			add_relation_rule_override = {
+				  	target = PRC
+				  	can_send_volunteers = yes
+				}	
 			add_ideas = BEL_volunteer_effort1_ns	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			## Send event to PRC
+			PRC = {
+				country_event = {
+					id = SEA_PHI_political_events.6
+					hours = 3 
+					random_hours = 6
+				}
+			}
 
 			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = { 
-				
+			effect_tooltip = {
+				add_manpower = -5000
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = -2500
+					producer = PHI
+				}
+				PRC = {
+					add_manpower = 5000
+				}
+				PRC = { 
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = 2500
+						producer = PHI
+					}
+				}
 			}	
 		}
 	}
@@ -5756,6 +7509,7 @@ initial_show_position = {
 		icon = GFX_focus_PHI_the_red_sun_over_manila
 
 		prerequisite = { focus = PHI_legalize_the_communist_party }
+		mutually_exclusive = { focus = PHI_slippery_slope focus = PHI_election_overturned }
 
 		relative_position_id = PHI_legalize_the_communist_party	
 		
@@ -6340,6 +8094,7 @@ initial_show_position = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
 			add_to_variable = { PHI_philippine_army_industrial_capacity_factory = 0.75 tooltip = industrial_capacity_factory_tt }
 			add_to_variable = { PHI_philippine_army_industrial_capacity_dockyard = 0.5 tooltip = industrial_capacity_dockyard_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_reduce_national_defense_act_cost_tt
@@ -6888,8 +8643,8 @@ focus = {
 					bonus = 0.1
 					days = 240
 					sub_doctrine = rangers_2
-				}
-			}
+					}
+				}			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_potential_special_forces_tree = yes
 		}
@@ -6982,7 +8737,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
-			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.20 tooltip = experience_gain_army_factor_tt }
 			add_to_variable = { PHI_philippine_army_max_planning_factor = 0.10 tooltip = max_planning_factor_tt }
 			add_to_variable = { PHI_philippine_army_command_power_gain_mult = 0.1 tooltip = command_power_gain_mult_tt }
 
@@ -7054,7 +8809,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
-			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.20 tooltip = experience_gain_army_factor_tt }
 			add_to_variable = { PHI_philippine_army_training_time_factor = -0.10 tooltip = training_time_factor_tt }
 			add_to_variable = { PHI_philippine_army_conscription_factor = 0.25 tooltip = conscription_factor_tt }
 			add_to_variable = { PHI_philippine_army_command_power_gain_mult = 0.1 tooltip = command_power_gain_mult_tt }
@@ -7450,8 +9205,21 @@ focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				
 				if = {
+					limit = {
+						has_completed_focus = PHI_align_with_japan
+						NOT = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+					every_military_industrial_organization = {
+						limit = {
+							is_military_industrial_organization = JAP_mitsubishi_organization
+						}
+						add_mio_size = 1
+					}
+				}
+				else_if = {
 					limit = {
 						OR = {
 							has_completed_focus = PHI_align_with_the_usa
@@ -7466,6 +9234,28 @@ focus = {
 							}
 						}
 						add_mio_size = 1
+					}
+				}
+				else = {
+					effect_tooltip = {
+						custom_effect_tooltip = PHI_if_align_with_japan_tt
+						every_military_industrial_organization = {
+							limit = {
+								is_military_industrial_organization = JAP_mitsubishi_organization
+							}
+							add_mio_size = 1
+						}
+						custom_effect_tooltip = generic_skip_one_line_tt
+						custom_effect_tooltip = PHI_if_align_with_the_usa_tt
+						every_military_industrial_organization = {
+							limit = {
+								OR = {
+									is_military_industrial_organization = USA_north_american_aviation_organization
+									is_military_industrial_organization = USA_lockheed_organization
+								}
+							}
+							add_mio_size = 1
+						}
 					}
 				}
 			}

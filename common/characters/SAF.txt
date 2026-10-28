@@ -95,28 +95,10 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ desert_fox panzer_leader }
+			traits={ desert_fox }
 			skill=4
 			attack_skill=4
 			defense_skill=4
-			planning_skill=4
-			logistics_skill=1
-			legacy_id=-1
-		}
-	}
-	
-	SAF_george_brink = {
-		name = "George Brink"
-		portraits = {
-			army = {
-				large = "gfx/leaders/SAF/r56_portrait_SAF_George_Brink.dds"
-			}
-		}
-		corps_commander={
-			traits={ panzer_leader cavalry_leader }
-			skill=4
-			attack_skill=3
-			defense_skill=3
 			planning_skill=4
 			logistics_skill=1
 			legacy_id=-1
@@ -175,7 +157,20 @@ characters={
 				original_tag = SAF
 			}
 			available = {
-				always = no
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = SAF_support_the_afrikaner_broederbond 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
 			}
 			traits = {
 				fascist_demagogue 
@@ -521,8 +516,21 @@ characters={
 			allowed = {
 				original_tag = SAF
 			}
-			available = { 
-				always = no
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = SAF_empower_the_workers 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
 			}
 			traits = {
 				communist_revolutionary 

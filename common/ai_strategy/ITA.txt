@@ -729,43 +729,34 @@ ITA_be_careful_transporting_through_the_med = {
 	}
 }
 
-ITA_take_claims_on_yug = {
+ITA_dont_take_claims_on_yug = {
 	allowed = {
 		original_tag = ITA
 	}
 	enable = {
-		date > 1936.5.1
+		country_exists = YUG
+		is_historical_focus_on = yes
+		date < 1941.4.30
+
 	}
 
 	abort = {
-		NOT = { country_exists = YUG }
-		
+		OR = {
+			NOT = { country_exists = YUG }
+			date > 1941.5.1 #If Germany won't invade Yugoslavia, then we will!
+		}
 	}
 
 	ai_strategy = {
 		type = declare_war
 		id = YUG
-		value = 9999
+		value = -200
 	}
+
 	ai_strategy = {
-		type = conquer
+		type = ignore_claim
 		id = YUG
-		value = 9999
-	}
-	ai_strategy = {
-		type = prepare_for_war
-		id = YUG
-		value = 9999
-	}
-	ai_strategy = {
-		type = invade
-		id = YUG
-		value = 9999
-	}
-	ai_strategy = {
-		type = antagonize
-		id = YUG
-		value = 9999
+		value = 1
 	}
 }
 
@@ -864,12 +855,22 @@ ITA_share_borders_with_GER_against_SOV = {
 
 	ai_strategy = {
 		type = force_defend_ally_borders
+		id = CRO
+		value = 100
+	}
+	ai_strategy = {
+		type = force_defend_ally_borders
 		id = ROM
 		value = 100
 	}
 	ai_strategy = {
 		type = force_defend_ally_borders
 		id = HUN
+		value = 100
+	}
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = SLO
 		value = 100
 	}
 	ai_strategy = {
@@ -1222,6 +1223,11 @@ ITA_let_germany_handle_polish_front_alone = {
 		id = "GER"
 		value = 100
 	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "SLO"
+		value = 100
+	}
 }
 
 ITA_commit_to_ethiopian_theatre = {
@@ -1349,7 +1355,7 @@ ITA_attack_north = {
 	}
 	enable = {
 		has_war_with = ETH
-		
+		has_active_mission = ITA_conquer_the_north_mission
 		ITA_is_communist_ai = no
 		ITA_is_socialist_ai = no
 	}
@@ -1374,7 +1380,7 @@ ITA_attack_south = {
 	}
 	enable = {
 		has_war_with = ETH
-		
+		has_active_mission = ITA_conquer_the_south_mission
 		ITA_is_communist_ai = no
 		ITA_is_socialist_ai = no
 	}
@@ -1399,7 +1405,7 @@ ITA_attack_addis = {
 	}
 	enable = {
 		has_war_with = ETH
-		
+		has_active_mission = ETH_conquer_addis_ababa_mission
 		ITA_is_communist_ai = no
 		ITA_is_socialist_ai = no
 	}
@@ -1424,7 +1430,7 @@ ITA_attack_harar = {
 	}
 	enable = {
 		has_war_with = ETH
-		
+		has_active_mission = ETH_conquer_harar_mission
 		ITA_is_communist_ai = no
 		ITA_is_socialist_ai = no
 	}
@@ -1443,7 +1449,22 @@ ITA_attack_harar = {
 	}
 }
 
-
+ITA_prepare_to_invade_afar = {
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		has_war_with = ETH
+		AFA = { exists = yes }
+		date < 1937.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = AFA
+		value = 200
+	}
+}
 
 ITA_communists_downplay_ethiopian_theatre = {
 	allowed = {
@@ -1644,6 +1665,22 @@ ITA_prepare_british_invasion = {
 	}
 }
 
+ITA_dont_die_in_mountains = {
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		country_exists = SWI
+		NOT = { has_war_with = SWI }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = SWI
+		value = 1000
+	}
+}
 
 ITA_ignore_vichy_we_will_annex_them_later = {
 	allowed = {

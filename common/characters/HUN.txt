@@ -3784,7 +3784,7 @@ characters = {
 			}
 
 			traits = {
-				HMM_innovative_weapons_designer
+				HUN_innovative_weapons_designer
 			}
 
 			ai_will_do = {

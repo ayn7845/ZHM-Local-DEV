@@ -711,7 +711,11 @@ lar_local_recruitment = {
 			}
 			NOT = {
 				tag = RAJ
-			
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 			NOT = { has_country_flag = asia_recruitment_in_process }
 		}
@@ -719,7 +723,11 @@ lar_local_recruitment = {
 			FROM = {
 				NOT = {
 					is_core_of = RAJ
-					
+					is_core_of = PAK
+					is_core_of = BAN
+					is_core_of = NEP
+					is_core_of = BHU
+					is_core_of = SRL
 				}
 				OR = {
 					AND = {
@@ -752,7 +760,11 @@ lar_local_recruitment = {
 			}
 			NOT = {
 				tag = RAJ
-			
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 			NOT = { has_country_flag = asia_recruitment_in_process }
 		}
@@ -928,23 +940,38 @@ lar_local_recruitment = {
 		visible = {
 			NOT = {
 				tag = RAJ
-				
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
 			}
 			OR = {
 				any_owned_state = {
 					OR = {
 						is_core_of = RAJ
-					
+						is_core_of = PAK
+						is_core_of = BAN
+						is_core_of = NEP
+						is_core_of = BHU
+						is_core_of = SRL
 					}
 				}
 				is_in_faction_with = RAJ
-				
+				is_in_faction_with = PAK
+				is_in_faction_with = BAN
+				is_in_faction_with = NEP
+				is_in_faction_with = BHU
+				is_in_faction_with = SRL
 				any_of_scopes = {
 					array = subjects
 					any_owned_state = {
 						OR = {
 							is_core_of = RAJ
-						
+							is_core_of = PAK
+							is_core_of = BAN
+							is_core_of = NEP
+							is_core_of = BHU
+							is_core_of = SRL
 						}
 					}
 				}
@@ -982,7 +1009,11 @@ lar_local_recruitment = {
 			OR = {
 				has_country_flag = india_recruitment_unlocked
 				tag = RAJ
-				
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 			NOT = { has_country_flag = india_recruitment_in_process }
 		}
@@ -990,7 +1021,11 @@ lar_local_recruitment = {
 			FROM = {
 				OR = {
 					is_core_of = RAJ
-					
+					is_core_of = PAK
+					is_core_of = BAN
+					is_core_of = NEP
+					is_core_of = BHU
+					is_core_of = SRL
 				}
 				OR = {
 					AND = {
@@ -1018,7 +1053,11 @@ lar_local_recruitment = {
 			OR = {
 				has_country_flag = india_recruitment_unlocked
 				tag = RAJ
-				
+				tag = PAK
+				tag = BAN
+				tag = NEP
+				tag = BHU
+				tag = SRL
 			}
 			NOT = { has_country_flag = india_recruitment_in_process }
 		}

@@ -14055,20 +14055,19 @@ political_actions = {
 		}
 
 		timeout_effect = {
-			add_stability = -0.3
-			#if = {
-			#	limit = {
-			#		num_of_controlled_states > 4
-			#	}
-			#	country_event = lar_spain.7
-			#}
-			#else = {
-			#	activate_mission = SPA_carlist_uprising_mission
-			#	add_days_mission_timeout = {
-			#		mission = SPA_carlist_uprising_mission
-			#		days = -316
-			#	}
-			#}
+			if = {
+				limit = {
+					num_of_controlled_states > 4
+				}
+				country_event = lar_spain.7
+			}
+			else = {
+				activate_mission = SPA_carlist_uprising_mission
+				add_days_mission_timeout = {
+					mission = SPA_carlist_uprising_mission
+					days = -316
+				}
+			}
 		}
 	}
 
@@ -14245,7 +14244,6 @@ political_actions = {
 		}
 
 		complete_effect = {
-			set_country_flag = SPA_save_the_alcazar_completed
 			add_war_support = 0.1
 			add_stability = 0.1
 			add_political_power = 100
@@ -14296,13 +14294,13 @@ SPA_reassert_american_dominance = {
 					original_tag = FRA
 					original_tag = ENG
 					original_tag = BRA
-					#original_tag = BOL
+					original_tag = BOL
 					original_tag = CAN
 					original_tag = ARG
-					#original_tag = CHL
-					#original_tag = PRU
+					original_tag = CHL
+					original_tag = PRU
 					original_tag = VEN
-					#original_tag = COL
+					original_tag = COL
 					original_tag = MEX
 					original_tag = USA
 				}

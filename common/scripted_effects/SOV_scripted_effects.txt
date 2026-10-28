@@ -2826,37 +2826,37 @@ SOV_clear_hidden_targeted_ns_effect = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_ENG
 		}
-		remove_ideas = SOV_targeted_bonus_against_ENG
+		add_ideas = SOV_targeted_bonus_against_ENG
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_FRA
 		}
-		remove_ideas = SOV_targeted_bonus_against_FRA
+		add_ideas = SOV_targeted_bonus_against_FRA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_GER
 		}
-		remove_ideas = SOV_targeted_bonus_against_GER
+		add_ideas = SOV_targeted_bonus_against_GER
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_ITA
 		}
-		remove_ideas = SOV_targeted_bonus_against_ITA
+		add_ideas = SOV_targeted_bonus_against_ITA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_USA
 		}
-		remove_ideas = SOV_targeted_bonus_against_USA
+		add_ideas = SOV_targeted_bonus_against_USA
 	}
 	if = {
 		limit = {
 			has_idea = SOV_targeted_bonus_against_JAP
 		}
-		remove_ideas = SOV_targeted_bonus_against_JAP
+		add_ideas = SOV_targeted_bonus_against_JAP
 	}
 }
 
@@ -2876,13 +2876,201 @@ SOV_foreign_politics_decision_cost_reduction_effect = { #Add more diplomacy vars
 	round_variable = SOV_sinkiang_proposal_cost
 }
 
-
+SOV_approach_sinkiang_diplomacy_effect = {
+	add_ai_strategy = {
+		type = befriend
+		id = SIK			
+		value = 15
+	}
+	add_ai_strategy = {
+		type = alliance
+		id = SIK		
+		value = 15
+	}
+	SIK = {
+		add_ai_strategy = {
+			type = befriend
+			id = SOV			
+			value = 10
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = CHI		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = PRC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = XSM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = SHX		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = YUN		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = GXC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = MEN		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = MAN		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = GDC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = XIC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = SND		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = KHM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = NXM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = GSM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = HBC		
+			value = -5
+		}
+	}
+}
 
 SOV_set_appropriate_national_academy_of_sciences_flag_effect = {
 	#log = "ROOT is [ROOT.GetName]"
 	#log = "FROM is [FROM.GetName]"
-	
 	if = {
+		limit = {
+			FROM = { tag = BLR }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_BLR_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = UKR }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_UKR_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = KAZ }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_KAZ_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = GEO }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_GEO_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = ARM }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_ARM_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = AZR }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_AZR_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = UZB }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_UZB_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = TMS }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_TMS_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = KYR }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_KYR_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = TAJ }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_TAJ_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = TAN }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_TAN_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = DON }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_DON_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = KUB }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_KUB_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = EST }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_EST_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = LAT }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_LAT_flag }
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = LIT }
+		}
+		ROOT = { set_country_flag = SOV_national_academy_of_sciences_built_LIT_flag }
+	}
+	else_if = {
 		limit = {
 			FROM = { tag = POL }
 		}
@@ -3327,6 +3515,19 @@ SOV_anglo_soviet_invasion_add_ai_strategies_effect = { #Soviet / Anglo-Soviet in
 			}
 		}
 	}
+	if = {
+		limit = {
+			PER = {
+				is_in_faction = no
+			}
+		}
+		PER = {
+			add_timed_idea = {
+				idea = SOV_shocked_by_surprise_attack
+				days = var:SOV.SOV_operation_countenance_mission_days
+			}
+		}
+	}
 }
 
 SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
@@ -3347,6 +3548,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				type = alliance
 				id = ENG		
 				value = 200
+			}
+			ENG = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
 			}
 		}
 	}
@@ -3371,6 +3579,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				id = GER		
 				value = 200
 			}
+			GER = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
+			}
 		}
 		else_if = {
 			limit = {
@@ -3391,6 +3606,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				type = alliance
 				id = ITA		
 				value = 200
+			}
+			ITA = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
 			}
 		}
 		else_if = {
@@ -3413,6 +3635,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				id = JAP		
 				value = 200
 			}
+			JAP = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
+			}
 		}
 		else_if = {
 			limit = {
@@ -3434,7 +3663,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				id = FRA		
 				value = 200
 			}
-			
+			FRA = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
+			}
 		}
 		else_if = {
 			limit = {
@@ -3456,7 +3691,13 @@ SOV_failed_anglo_soviet_invasion_ai_strategies_effect = {
 				id = USA		
 				value = 200
 			}
-			
+			USA = {
+				add_ai_strategy = {
+					type = alliance
+					id = PER		
+					value = 25
+				}
+			}
 		}
 	}
 }
@@ -6592,7 +6833,74 @@ SOV_upgrade_appropriate_materiel_designer_3_effect = {
 ##   # #  #  # #         ##  #  #  ##  #  #  ##  #  #     ##  #    ### #  # ###  #  ##
 
 
+SOV_increase_church_power = {
+	if = {
+		limit = { has_idea = SOV_church_power_4 }
+		add_political_power = 25
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_3 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_3
+			add_idea = SOV_church_power_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_2 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_2
+			add_idea = SOV_church_power_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_1 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_1
+			add_idea = SOV_church_power_2
+		}
+	}
+	else = {
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = SOV_church_power_1
+				add_idea = SOV_church_power_2
+			}
+		}
+	}
+}
 
+SOV_decrease_church_power = {
+	if = {
+		limit = { has_idea = SOV_church_power_1 }
+		add_political_power = -25
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_2 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_2
+			add_idea = SOV_church_power_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_3 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_3
+			add_idea = SOV_church_power_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = SOV_church_power_4 }
+		swap_ideas = {
+			remove_idea = SOV_church_power_4
+			add_idea = SOV_church_power_3
+		}
+	}
+	else = {
+		effect_tooltip = {
+			add_political_power = -25
+		}
+	}
+}
 
 ###########################################################################################################################
 
@@ -7615,7 +7923,7 @@ SOV_start_civil_war = {
 		}
 
 		# Remove ideas 
-		#remove_ideas = SOV_the_fourth_international_idea
+		remove_ideas = SOV_the_fourth_international_idea
 
 		# Rally the Red Army!
 		IF = {
@@ -8091,11 +8399,15 @@ SOV_left_opposition_civil_war_start = {
 	SOV_set_up_left_opposition_militia = yes
 
 	# Initiate Wreckers
-	
+	SOV_launch_wreckers = yes
 
 	# Check Foreign Funds
-	IF = { 
-
+	IF = {
+		limit = { has_completed_focus = SOV_funds_for_the_cause }
+		add_timed_idea = {
+			idea = SOV_foreign_funds_idea
+			days = 365
+		}
 	}
 
 }
@@ -8121,7 +8433,13 @@ SOV_right_opposition_civil_war_start = {
 	}
 
 	# Reverse the collectivisation process
-	
+	IF = {
+		limit = { has_completed_focus = SOV_reverse_the_collectivization_process }
+		add_timed_idea = {
+			idea = SOV_support_from_farmers
+			days = 365
+		}
+	}
 
 	### Set up special units
 	# The Support of the NKVD
@@ -8140,7 +8458,7 @@ SOV_right_opposition_civil_war_start = {
 	SOV_set_up_extras_from_concessions = yes
 
 	# Initiate Wreckers
-	
+	SOV_launch_wreckers = yes
 
 	# POUM brigades come to help (if has supported POUM and POUM won the SCW)
 	if = {
@@ -8410,7 +8728,7 @@ SOV_exiles_civil_war_start = {
 	SOV_set_up_extras_from_concessions = yes
 
 	# Initiate Wreckers
-	
+	SOV_launch_wreckers = yes
 
 	# Vasily Flug and Boris Shtefion
 	IF = {
@@ -8427,6 +8745,14 @@ SOV_exiles_civil_war_start = {
 		set_country_flag = SOV_flug_and_shteifon_are_ready_to_serve_flag
 		set_global_flag = SOV_flug_and_shteifon_went_to_russia_flag
 
+		YUG = {
+			SOV_vasily_flug = {
+				set_nationality = SOV
+			}
+			SOV_boris_shteifon = {
+				set_nationality = SOV
+			}
+		}
 
 	}
 
@@ -8444,15 +8770,103 @@ SOV_exiles_civil_war_start = {
 
 		set_country_flag = ETH_feodor_konovalov_went_to_rejoin_the_russian_whites_flag
 
-		
+		ETH = {
+			ETH_feodor_konovalov = {
+				set_nationality = SOV
+			}
+		}
+
 	}
 
-	
-	
+	# Vladimir Sidorin
+	IF = {
+		limit = {
+			DON = {
+				exists = no
+			}
+		}
+
+		set_country_flag = DON_vladimir_sidorin_went_to_rejoin_the_russian_whites_flag
+
+		DON = {
+			DON_vladimir_sidorin = {
+				demote_leader = yes
+				remove_country_leader_role = {
+				    ideology = fascism_ideology
+				}
+				remove_country_leader_role = {
+				    ideology = despotism
+				}
+				set_nationality = SOV
+			}
+		}
+
+	}
+
+	# Ivanis Vasily Nikolaevich
+	IF = {
+		limit = {
+			KUB = {
+				exists = no
+			}
+		}
+
+		set_country_flag = KUB_ivanis_vasily_nikolaevich_went_to_rejoin_the_russian_whites_flag
+
+		KUB = {
+			KUB_ivanis_vasily_nikolaevich = {
+				demote_leader = yes
+				remove_country_leader_role = {
+				    ideology = fascism_ideology
+				}
+				remove_country_leader_role = {
+				    ideology = despotism
+				}
+				set_nationality = SOV
+			}
+		}
+
+	}
+
+	# Ivan Belyaev
+	IF = {
+		limit = {
+			PAR = {
+				OR = {
+					exists = no
+					has_capitulated = yes
+					NOT = {
+						has_idea = PAR_ivan_belyaev
+					}
+				}
+			}
+		}
+
+		set_country_flag = PAR_ivan_belyaev_went_to_rejoin_the_russian_whites_flag
+
+		PAR = {
+			PAR_ivan_belyaev = {
+				set_nationality = SOV
+			}
+		}
+
+	}
 	
 }
 
-
+SOV_launch_wreckers = {
+	IF = {
+		limit = {
+			has_country_flag = SOV_organize_wreckers_flag
+		}
+		SOS = {
+			add_timed_idea = {
+				idea = SOV_organized_wreckers_idea
+				days = 365
+			}
+		}
+	}
+}
 
 SOV_the_eyes_fear_units = {
 	# Don't try to cheat ;)

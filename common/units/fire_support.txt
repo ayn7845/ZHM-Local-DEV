@@ -92,8 +92,7 @@ sub_units = {
 			support_equipment
 			infantry_equipment
 			motorized_equipment
-		}
-
+		}		
 		manpower = 240
 		training_time = 120
 		max_organisation = 30

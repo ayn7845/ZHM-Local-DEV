@@ -175,7 +175,7 @@ barbarossa_center = {
 
 	}
 	preferred_countries = {
-		GER
+		GER SLO
 	}
 	cancel = {
 		NOT = { has_war_with = SOV }
@@ -252,6 +252,8 @@ north_sea_region = {
 				has_war_with = ENG
 				original_tag = NOR
 				has_war_with = NOR
+				original_tag = ICE
+				has_war_with = ICE
 				original_tag = DEN
 				has_war_with = DEN
 			}

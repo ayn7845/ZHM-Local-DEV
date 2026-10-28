@@ -760,7 +760,8 @@ ideas = {
 				removal_cost = -1
 
 				targeted_modifier = {
-	   				
+	   				tag = MAL
+	  				trade_cost_for_target_factor = -0.15
 	   			}	
 			}
 
@@ -776,9 +777,10 @@ ideas = {
 
 				removal_cost = -1
 
-				targeted_modifier = { 
-					
-				}	   				
+				targeted_modifier = {
+	   				tag = INS
+	   				trade_cost_for_target_factor = -0.15
+	   			}	   				
 			}
 
 			PHI_asian_trade_connections_philippines = {
@@ -816,8 +818,7 @@ ideas = {
 			}
 
 			available = {
-				always = no
-				#has_completed_focus = PHI_encourage_japanese_investment
+				has_completed_focus = PHI_encourage_japanese_investment
 			}
 
 			visible = {

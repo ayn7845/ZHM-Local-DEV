@@ -626,10 +626,7 @@ focus_tree = {
 		search_filters = {  FOCUS_FILTER_INDUSTRY }
 		
 		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-			
-		}
+
 
 		available = {
 			any_controlled_state = {
@@ -1025,10 +1022,43 @@ focus_tree = {
 		}
 
 		ai_will_do = {
-			factor = 100
-		
-			
-			
+			factor = 3
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				factor = 6
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				OR = { 
+					# we dont want chinese minors to go crazy on slots early since they get eaten
+					tag = GXC 
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = BEL
+					tag = LUX
+					tag = HOL
+					tag = DEN
+
+					# we also dont want tiny nations to go crazy with slots right away
+					num_of_controlled_states < 2
+				}	
+				NOT = {
+					is_in_array = {
+						array = RAJ.raj_releasables
+						value = THIS
+					}
+				}			
+			}
 		}
 	}
 
@@ -1048,8 +1078,15 @@ focus_tree = {
 
 		
 		ai_will_do = {
-			factor = 100
-			
+			factor = 2
+			modifier = {
+				factor = 6
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
 		}
 
 		bypass = {
@@ -1123,8 +1160,19 @@ focus_tree = {
 
 
 		ai_will_do = {
-			factor = 100
-			
+			factor = 2
+				modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				factor = 5
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}	
 		}
 
 		bypass = {
@@ -1198,8 +1246,19 @@ focus_tree = {
 
 
 		ai_will_do = {
-			factor = 100
-			
+			factor = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				factor = 5
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
 		}
 
 		bypass = {
@@ -1273,7 +1332,19 @@ focus_tree = {
 
 
 		ai_will_do = {
-			factor = 100	
+			factor = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				factor = 5
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
 		}
 
 		bypass = {
@@ -1346,8 +1417,11 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		ai_will_do = {
-			factor = 100
-			
+			base = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
 		}
 
 		bypass = {
@@ -1448,8 +1522,19 @@ focus_tree = {
 
 
 		ai_will_do = {
-			factor = 100
-			
+			factor = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				factor = 5
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
 		}
 
 		bypass = {
@@ -1521,8 +1606,11 @@ focus_tree = {
 		
 		available_if_capitulated = yes
 		ai_will_do = {
-			factor = 100
-			
+			base = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
 		}
 		bypass = {
 			custom_trigger_tooltip = {
@@ -1622,8 +1710,18 @@ focus_tree = {
 
 
 		ai_will_do = {
-			factor = 100
-			
+			factor = 2
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
+			modifier = {
+				add = 5
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+			}
 		}
 
 		bypass = {
@@ -1758,7 +1856,10 @@ focus_tree = {
 		cost = 10
 		ai_will_do = {
 			base = 2
-			
+			modifier = {
+				factor = 6
+				original_tag = SIA
+			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH } 
 		
@@ -1856,7 +1957,10 @@ focus_tree = {
 					has_idea = neutrality_idea
 				}
 			}
-			
+			modifier = {
+				factor = 20
+				has_idea = SOV_russian_political_influence
+			}
 		}
 
 		completion_reward = {
@@ -1901,7 +2005,10 @@ focus_tree = {
 					NOT = { has_government = fascism }
 				}
 			}
-			
+			modifier = {
+				factor = 10
+				has_idea = SOV_russian_political_influence
+			}
 		}
 
 		completion_reward = {
@@ -1993,7 +2100,14 @@ focus_tree = {
 				is_historical_focus_on = yes
 				original_tag = SIA
 			}
-			
+			modifier = {
+				factor = 0.05
+				is_in_array = {
+					array = RAJ.raj_releasables
+					value = THIS
+				}
+				is_subject_of = RAJ
+			}
 			modifier = {
 				factor = 0.1
 				any_neighbor_country = {
@@ -2089,7 +2203,12 @@ focus_tree = {
 				factor = 0
 				original_tag = SIA
 			}
-			
+			modifier = {
+				factor = 0
+				tag = SAU
+				is_in_faction_with = SOV
+				SOV = { has_government = communism }
+			}
 		}
 
 		completion_reward = {

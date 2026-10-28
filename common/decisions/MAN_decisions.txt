@@ -2828,9 +2828,14 @@ MAN_china_matters = {
 	
 		available = {
 			is_subject_of = JAP
-			
+			RNG = {
+				exists = yes
+				is_subject_of = JAP
+			}
 			hidden_trigger = {
-				
+				RNG = {
+					is_ai = yes
+				}
 			}
 		}
 

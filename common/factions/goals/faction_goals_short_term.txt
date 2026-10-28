@@ -158,13 +158,92 @@ faction_goal_guerilla_expansion = {
 	}
 	ai_will_do = {
 		base = 3 # Pretty much everyone should want to do this
-		modifier = { 
-			
+		modifier = {
+			add = 2 # PRC cares more
+			original_tag = PRC
 		}
 	}
 }
 
+faction_goal_north_subjugated = {
+	name = faction_goal_north_subjugated_name
+	description = faction_goal_north_subjugated_desc
+	category = short_term
+	group = FOCUS_FILTER_ANNEXATION
+	visible = {
+		FROM = {
+			original_tag = CHI
+			has_faction_template = faction_template_chinese_united_front 
+			NOT = {
+				has_country_flag = CHI_tour_the_south_flag
+				has_country_flag = CHI_tour_the_west_flag
+			}
+		}
+	}
+	available = {
+		FROM = { has_completed_focus = CHI_tour_the_north }
+	}
+	completed = {
+		NXM = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		SHX = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		GSM = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		HBC = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		XIC = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		SND = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
 
+	}
+	complete_effect = {
+		add_faction_power_projection = 50
+		every_collection_element = {
+			input = {
+				input = game:scope
+				operators =  { 
+					faction_members
+					limit = {
+						is_subject = yes
+					}
+				}
+				
+				name = ALL_FACTION_MEMBERS
+			}
+			custom_effect_tooltip = ALL_FACTION_MEMBERS
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_north_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+	}
+}
 
 faction_goal_unlock_research = {
 	name = faction_goal_unlock_research_name
@@ -348,6 +427,139 @@ faction_goal_unlock_military = {
 			add = 1000
 			original_tag = GER
 		}
+	}
+}
+
+faction_goal_west_subjugated = {
+	name = faction_goal_west_subjugated_name
+	description = faction_goal_west_subjugated_desc
+	category = short_term
+	group = FOCUS_FILTER_ANNEXATION
+	visible = {
+		FROM = {
+			original_tag = CHI
+			has_faction_template = faction_template_chinese_united_front 
+			NOT = {
+				has_country_flag = CHI_tour_the_south_flag
+				has_country_flag = CHI_tour_the_north_flag
+			}
+		}
+	}
+	available = {
+		FROM = { has_completed_focus = CHI_tour_the_west }
+	}
+	completed = {
+		XSM = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		KHM = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		SIK = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		SIC = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 50
+		every_collection_element = {
+			input = {
+				input = game:scope
+				operators =  { 
+					faction_members
+					limit = {
+						is_subject = yes
+					}
+				}
+				
+				name = ALL_FACTION_MEMBERS
+			}
+			custom_effect_tooltip = ALL_FACTION_MEMBERS
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_west_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+	}
+}
+
+faction_goal_south_subjugated = {
+	name = faction_goal_south_subjugated_name
+	description = faction_goal_south_subjugated_desc
+	group = FOCUS_FILTER_ANNEXATION
+	category = short_term
+	visible = {
+		FROM = {
+			original_tag = CHI
+			has_faction_template = faction_template_chinese_united_front 
+			NOT = {
+				has_country_flag = CHI_tour_the_north_flag
+				has_country_flag = CHI_tour_the_west_flag
+			}
+		}
+	}
+	available = {
+		FROM = { has_completed_focus = CHI_tour_the_south }
+	}
+	completed = {
+		GDC = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		GXC = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+		YUN = {
+			all_core_state = {
+				is_owned_by = ROOT
+			}
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 50
+		every_collection_element = {
+			input = {
+				input = game:scope
+				operators =  { 
+					faction_members
+					limit = {
+						is_subject = yes
+					}
+				}
+				
+				name = ALL_FACTION_MEMBERS
+			}
+			custom_effect_tooltip = ALL_FACTION_MEMBERS
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_south_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
 	}
 }
 
@@ -593,122 +805,6 @@ faction_goal_spy_master = {
 				is_spymaster = no
 			}
 		}
-		if = { 
-			limit = { 
-				OR = { 
-					tag = JAP
-					tag = MAN
-					tag = SIA # incase i want to add Siam back
-				}
-			}
-			always = no
-		}
-	}
-	completed = {
-		OR = {
-			is_spymaster = yes
-			any_allied_country = {
-				is_spymaster = yes
-			}
-		}
-	}
-	complete_effect = {
-		add_faction_power_projection = 50
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = THE_SPY_MASTER
-		add_faction_initiative = 1
-		custom_effect_tooltip = generic_skip_one_line_tt
-		every_faction_member = {
-			limit = {
-				has_intelligence_agency = no
-			}
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				create_intelligence_agency = yes
-			}
-		}
-		every_faction_member = {
-			limit = {
-				has_intelligence_agency = yes
-				NOT = { has_done_agency_upgrade  = upgrade_form_department }
-			}
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				upgrade_intelligence_agency = upgrade_form_department
-			}
-		}
-		every_faction_member = {
-			limit = {
-				has_intelligence_agency = yes
-				has_done_agency_upgrade  = upgrade_form_department
-				NOT = { has_done_agency_upgrade = upgrade_crypto_strength }
-			}
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				upgrade_intelligence_agency = upgrade_crypto_strength
-			}
-		}
-		every_faction_member = {
-			limit = {
-				has_intelligence_agency = yes
-				has_done_agency_upgrade = upgrade_crypto_strength
-				has_tech = mechanical_computing
-				NOT = { has_done_agency_upgrade = upgrade_crypto_strength_2 }
-			}
-			add_faction_initiative = 1
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				upgrade_intelligence_agency = upgrade_crypto_strength_2
-			}
-		}
-		every_faction_member = {
-			limit = {
-				has_intelligence_agency = yes
-				NOT = { agency_upgrade_number > 30 }
-				OR = {
-					has_done_agency_upgrade = upgrade_crypto_strength_2
-					NOT = { has_tech = mechanical_computing }
-				}
-			}
-			add_faction_initiative = 1
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				gain_random_agency_upgrade = yes
-			}
-		}
-		every_faction_member = { # Fallback in case someone completed everything
-			visible_when_empty = no
-			limit = {
-				has_intelligence_agency = yes
-				agency_upgrade_number > 30
-			}
-			add_faction_initiative = 1
-			IF = {
-				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
-				add_political_power = 100
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-		modifier = {
-			add = 2
-			has_intelligence_agency = yes
-		}
-	}
-}
-
-faction_goal_spy_master_JAP = {
-	name = "Appoint a Spy Master"
-	description = spy_master_goal_desc
-	group = FOCUS_FILTER_POLITICAL_CHARACTER
-	category = short_term
-	allowed = {
-		has_dlc = "La Resistance"
-	}
-	visible = {
-		tag = JAP
-		is_spymaster = no
 	}
 	completed = {
 		OR = {
@@ -1157,7 +1253,6 @@ faction_goal_a_great_fortress = {
 	category = short_term
 	group = FOCUS_FILTER_CONSOLIDATION
 	visible = {
-		always = no
 	}
 	available = {
 		collection_size = {
@@ -1381,6 +1476,99 @@ faction_goal_war_on_democracy = {
 
 ### Units
 
+faction_goal_an_armored_fist = {
+	name = an_armored_fist_goal_name
+	description = an_armored_fist_goal_desc
+	category = short_term
+	group = FOCUS_FILTER_ARMY_XP
+	visible = {
+
+	}
+	completed = {
+		count_in_collection = {
+			collection = {
+			    input = game:scope
+			    operators = { faction_members }
+			    name = FACTION
+			}
+			unit = armor
+			equipment_ratio = 0.9
+			size > 49
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 200
+		custom_effect_tooltip = ALL_FACTION_MEMBERS
+		every_faction_member = {
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_an_armored_fist } }
+				army_experience = 50
+				random_character = {
+					tooltip = ONE_PANZER_GENERAL
+					visible_when_empty = yes
+					limit = {
+						is_unit_leader = yes
+						OR = {
+							has_trait = armor_officer
+							has_trait = panzer_leader
+							has_trait = panzer_expert
+						}
+					}
+					gain_xp = 400
+					add_attack = 1
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+	}
+}
+
+faction_goal_an_infantry_army = {
+	name = an_infantry_army_goal_name
+	description = an_infantry_army_goal_desc
+	category = short_term
+	group = FOCUS_FILTER_ARMY_XP
+	completed = {
+		count_in_collection = {
+		    collection = {
+		        input = game:scope
+		        operators = { faction_members }
+		        name = FACTION
+		    }
+		   unit = infantry
+		   size > 249
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 200
+		custom_effect_tooltip = ALL_FACTION_MEMBERS
+		every_faction_member = {
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_an_infantry_army } }
+				army_experience = 50
+				random_character = {
+					tooltip = ONE_INFANTRY_GENERAL
+					visible_when_empty = yes
+					limit = {
+						is_unit_leader = yes
+						OR = {
+							has_trait = infantry_officer
+							has_trait = infantry_leader
+							has_trait = infantry_expert
+						}
+					}
+					gain_xp = 400
+					add_logistics = 1
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+	}
+}
 
 ### Strategic Resources
 

@@ -282,8 +282,10 @@ USA_CV_HISTORICAL = {
 		"Lexington" "Saratoga" "Ranger" 
 		"Essex" "Intrepid" "Bunker Hill" "Franklin" "Ticonderoga" "Hancock" "Bennington" "Shangri-la" "Randolph" "Bon Homme Richard" "Antietam" "Boxer" "Lake Champlain" "Princeton" "Tarawa" 
 		"Kearsarge" "Leyte" "Valley Forge" "Philippine Sea" "Oriskany" "Reprisal" "Iwo Jima" "Midway" "Franklin D Roosevelt" "Coral Sea" 
+
 		# Cold War and Beyond  (WW2 era Gen/Adm names excluded)
 		"United States" "Forrestal" "Independence" "Kitty Hawk" "Constellation" "America" "Theodore Roosevelt" "Abraham Lincoln" "George Washington"
+		"Ever Given"
 	}
 }
 
@@ -480,9 +482,12 @@ USA_FISH = {
 CSA_DD_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_DESTROYERS
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_light destroyer }			
@@ -511,9 +516,12 @@ CSA_DD_CONFEDERATE = {
 CSA_CL_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_CL
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_light destroyer }			
@@ -539,9 +547,12 @@ CSA_CL_CONFEDERATE = {
 CSA_CA_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_CA
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_cruiser heavy_cruiser }
@@ -563,9 +574,12 @@ CSA_CA_CONFEDERATE = {
 USA_BB_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_BB
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_heavy battleship }
@@ -583,9 +597,12 @@ USA_BB_CONFEDERATE = {
 USA_BC_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_BC
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_heavy battle_cruiser }
@@ -603,9 +620,12 @@ USA_BC_CONFEDERATE = {
 USA_CV_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_CARRIERS
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_carrier carrier }
@@ -624,9 +644,12 @@ USA_CV_CONFEDERATE = {
 CSA_SS_CONFEDERATE = {
 	name = NAME_THEME_CONFEDERATE_SUBMARINES
 
-	for_countries = { USA }
+	for_countries = { CSA USA }
 	can_use = {
-		always = no
+		OR = {
+			tag = CSA
+			has_completed_focus = USA_honor_the_confederacy
+		}
 	}
 	type = ship
 	ship_types = { ship_hull_submarine submarine }

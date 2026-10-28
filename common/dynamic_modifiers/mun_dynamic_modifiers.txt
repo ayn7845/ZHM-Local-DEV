@@ -331,7 +331,7 @@ CZE_central_bohemia_modifier = { #State Modifier
 				OWNER = {
 					OR = {
 						original_tag = CZE
-						
+						original_tag = SLO
 					} 
 				} 
 			}
@@ -353,7 +353,8 @@ CZE_balance_industrial_development = { #State Modifier
 				OWNER = {
 					OR = {
 						original_tag = CZE
-						
+						original_tag = SLO
+						original_tag = RUT
 					} 
 				} 
 			}
@@ -373,7 +374,9 @@ CZE_industrial_subsidies = { #State Modifier
 			NOT = { 
 				OWNER = {
 					OR = {
-						original_tag = CZE		
+						original_tag = CZE
+						original_tag = SLO
+						original_tag = RUT
 					} 
 				} 
 			}
@@ -479,7 +482,7 @@ CZE_rut_comprise_agreement_modifier = { #State Modifier
 	enable = { always = yes }
 	icon = GFX_MODIFIER_MAX_PLANNING
 	remove_trigger = {
-	#	CZE_RUT_is_not_its_own_thing = yes
+		CZE_RUT_is_not_its_own_thing = yes
 		CZE = {
 			OR = {
 				has_capitulated = yes

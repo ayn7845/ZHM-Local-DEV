@@ -17,7 +17,21 @@
 is_independent_china_or_warlord = { #Does not include sinkiang
 	OR = {
 		original_tag = CHI
-	
+		original_tag = PRC
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = GDC
+		original_tag = SND
+		original_tag = SIC
+		original_tag = NXM
+		original_tag = GSM
+		original_tag = XIC
+		original_tag = KHM
+		original_tag = KUM
+		original_tag = RNG
+		original_tag = HBC
 	}
 	is_subject = no
 }
@@ -60,7 +74,22 @@ has_hyper_inflation = {
 is_literally_china = {
 	OR = {
 		original_tag = CHI
-		
+		original_tag = PRC
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = SIK
+		original_tag = GDC
+		original_tag = SND
+		original_tag = SIC
+		original_tag = NXM
+		original_tag = GSM
+		original_tag = XIC
+		original_tag = KHM
+		original_tag = KUM
+		original_tag = RNG
+		original_tag = HBC
 	}
 }
 is_literally_china_tooltip = {
@@ -74,11 +103,41 @@ is_literally_china_tooltip = {
 is_literally_china_not_prc = { ## Needed for SEA MIO reasons
 	OR = {
 		original_tag = CHI
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = SIK
+		original_tag = GDC
+		original_tag = SND
+		original_tag = SIC
+		original_tag = NXM
+		original_tag = GSM
+		original_tag = XIC
+		original_tag = KHM
+		original_tag = KUM
+		original_tag = RNG
+		original_tag = HBC
 	}
 }
 
 is_chinese_warlord = {
-	always = no
+	OR = {		
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = SIK
+		original_tag = GDC
+		original_tag = SND
+		original_tag = SIC
+		original_tag = NXM
+		original_tag = GSM
+		original_tag = XIC
+		original_tag = KHM
+		original_tag = KUM
+		original_tag = HBC
+	}
 }
 is_chinese_warlord_tooltip = {
 	custom_trigger_tooltip = {
@@ -323,5 +382,34 @@ CHI_greater_game_states = {
 		region = 269 # Samnarkand
 		region = 162 # North Afghanistan
 		region = 251 # Ngari
+	}
+}
+
+CHI_northern_warlords = {
+	OR = {
+		tag = GSM
+		tag = NXM
+		tag = SHX
+		tag = SND
+		tag = XIC
+		tag = HBC
+	}
+}
+
+CHI_western_warlords = {
+	OR = {
+		tag = XSM
+		tag = KHM
+		tag = SIK
+		tag = SIC
+		tag = KUM
+	}
+}
+
+CHI_southern_warlords = {
+	OR = {
+		tag = YUN
+		tag = GXC
+		tag = GDC
 	}
 }

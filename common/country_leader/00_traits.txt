@@ -2871,8 +2871,6 @@ leader_traits = {
 		high_command_cost_factor = -0.15
 		max_command_power = 20
 		command_power_gain_mult = 0.25
-		max_dig_in = 5
-		dig_in_speed_factor = 0.05
 	}
 
 	the_lion_of_the_rif = {

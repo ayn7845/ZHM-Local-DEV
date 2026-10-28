@@ -13,7 +13,7 @@ focus_tree = {
 		factor = 0
 		
 		modifier = {
-			add = 1000000
+			add = 10
 			tag = POR
 			has_dlc = "La Resistance"
 		}
@@ -26,13 +26,16 @@ focus_tree = {
 	focus = {
 		id = POR_colonial_assimilation_policy
 		available = {
-			
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }
+			}
 		}
+
 		bypass = {
 		}
 
 		icon = GFX_focus_generic_military_academy
-		x = 5
+		x = 2
 		y = 0
 
 		cost = 10
@@ -49,9 +52,7 @@ focus_tree = {
 				NOT = { is_core_of = ROOT }
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_colonial_assimilation_policy }
@@ -76,8 +77,18 @@ focus_tree = {
 	focus = {
 		id = POR_luso_tropicalism
 		available = {
-			
+			NOT = { has_government = fascism }
+			OR = {
+				has_full_control_of_state = 796 #North Angola
+				has_full_control_of_state = 540 #Luanda
+				has_full_control_of_state = 891 #South West Angola
+				has_full_control_of_state = 892 #Zambesi
+				has_full_control_of_state = 544 #Mozambique
+				has_full_control_of_state = 896 #Manica e Sofala
+				has_full_control_of_state = 897 #Zambeziá-Mozambique
+			}
 		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -103,11 +114,8 @@ focus_tree = {
 		cost = 5
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		completion_reward = {
-			
-			swap_ideas = { 
-				remove_idea = POR_colonial_assimilation_policy
-				add_idea = POR_colonial_assimilation_policy_3
-			}
+			unlock_decision_tooltip = POR_mozambique_overseas_territory
+			unlock_decision_tooltip = POR_angola_overseas_province
 		}
 	}
 
@@ -124,9 +132,7 @@ focus_tree = {
 				has_full_control_of_state = 897 #Zambezia
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -164,12 +170,97 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 120
 			add_manpower = 30000
-			
+			ANG = {
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 796 }
+					}
+					transfer_state = 796
+					POR = { set_country_flag = POR_released_angola_flag }
+				}
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 540 }
+					}
+					transfer_state = 540
+					POR = { set_country_flag = POR_released_angola_flag }
+				}
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 891 }
+					}
+					transfer_state = 891
+					POR = { set_country_flag = POR_released_angola_flag }
+				}	
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 892 }
+					}
+					transfer_state = 892
+					POR = { set_country_flag = POR_released_angola_flag }
+				}							
+			}
 
-			
+			MZB = {
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 544 }
+					}
+					transfer_state = 544
+					POR = { set_country_flag = POR_released_mozambique_flag }
+				}	
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 896 }
+					}
+					transfer_state = 896
+					POR = { set_country_flag = POR_released_mozambique_flag }
+				}
+				if = {
+					limit = { 
+						POR = { has_full_control_of_state = 897 }
+					}
+					transfer_state = 897
+					POR = { set_country_flag = POR_released_mozambique_flag }
+				}
+			}
 
-			
-			
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Together for Victory"
+						has_dlc = "Man the Guns"
+					}
+				}
+
+				POR = {
+					if = {
+						limit = { has_country_flag = POR_released_angola_flag }
+						set_autonomy = {
+						    target = ANG
+						    autonomy_state = autonomy_integrated_puppet
+						}
+					}
+					if = {
+						limit = { has_country_flag = POR_released_mozambique_flag }
+						set_autonomy = {
+						    target = MZB
+						    autonomy_state = autonomy_integrated_puppet
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = { has_country_flag = POR_released_angola_flag }
+					POR = { puppet = ANG }
+				}
+				if = {
+					limit = { has_country_flag = POR_released_mozambique_flag }
+					POR = { puppet = MZB }
+				}
+			}			
+
 			every_other_country = {
 				limit = { has_government = democratic }
 				add_opinion_modifier = {
@@ -191,11 +282,17 @@ focus_tree = {
 	focus = {
 		id = POR_haven_of_neutrality_macau
 		available = {
-		
+			has_war = no 
+			592 = {
+				OWNER = {
+					has_war = yes 
+				}
+			}
+			729 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_colonial_assimilation_policy }	
@@ -273,9 +370,7 @@ focus_tree = {
 				state_is_fully_controlled_by_ROOT_or_subject = yes
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_colonial_assimilation_policy }	
@@ -359,7 +454,7 @@ focus_tree = {
 
 		completion_reward = { 
 
-			
+			unlock_decision_tooltip = POR_timor_overseas_territory
 							
 		}
 
@@ -404,9 +499,7 @@ focus_tree = {
 				state_is_fully_controlled_by_ROOT_or_subject = yes
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_colonial_assimilation_policy }	
@@ -651,7 +744,7 @@ focus_tree = {
 		}
 			
 		icon = GFX_focus_generic_industry_2
-		x = 7
+		x = 12
 		y = 0
 
 		relative_position_id = POR_colonial_assimilation_policy
@@ -892,10 +985,10 @@ focus_tree = {
 		}
 		prerequisite = { focus = POR_instituto_superior_tecnico }	
 		icon = GFX_goal_generic_construct_infrastructure
-		x = -5
-		y = 2
+		x = 2
+		y = 0
 
-		relative_position_id = POR_instituto_superior_tecnico
+		relative_position_id = POR_infrastructure_in_angola
 		cost = 10
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = { 
@@ -1390,9 +1483,7 @@ focus_tree = {
 		id = POR_advanced_light_aircraft
 		available = {			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_light_aircraft_focus}
@@ -1688,6 +1779,7 @@ focus_tree = {
 					}
 				}
 			}
+			unlock_decision_tooltip = POR_buy_ships_britain
 			unlock_decision_tooltip = POR_buy_ships_italy	
 		}
 	}
@@ -2164,7 +2256,11 @@ focus_tree = {
 	focus = {
 		id = POR_endless_sea
 		available = {
-			
+			OR = {
+				has_full_control_of_state = 321
+				has_full_control_of_state = 729
+				has_full_control_of_state = 721
+			}
 		}
 
 		bypass = {
@@ -2302,8 +2398,6 @@ focus_tree = {
 				category = armor
 				category = artillery
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = zhm_manpower
 		}
 	}
 
@@ -2605,9 +2699,7 @@ focus_tree = {
 		id = POR_popular_front
 		available = {			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		mutually_exclusive = { focus = POR_estado_novo}
@@ -3500,7 +3592,16 @@ focus_tree = {
 			has_global_flag = scw_over
 			has_government = communism
 			OR = {
-				
+				country_exists = BRA country_exists = MEX
+				country_exists = COL country_exists = ARG
+				country_exists = PRU country_exists = VEN
+				country_exists = CHL country_exists = GUA
+				country_exists = ECU country_exists = CUB
+				country_exists = BOL country_exists = HAI
+				country_exists = DOM country_exists = HON
+				country_exists = PAR country_exists = ELS
+				country_exists = NIC country_exists = COS
+				country_exists = PAN country_exists = URG
 			}				
 		}
 
@@ -3517,7 +3618,16 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-					
+						TAG = BRA TAG = MEX
+						TAG = COL TAG = ARG
+						TAG = PRU TAG = VEN
+						TAG = CHL TAG = GUA
+						TAG = ECU TAG = CUB
+						TAG = BOL TAG = HAI
+						TAG = DOM TAG = HON
+						TAG = PAR TAG = ELS
+						TAG = NIC TAG = COS
+						TAG = PAN TAG = URG
 					}
 					has_government = communism
 				}
@@ -3529,7 +3639,16 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-					
+						TAG = BRA TAG = MEX
+						TAG = COL TAG = ARG
+						TAG = PRU TAG = VEN
+						TAG = CHL TAG = GUA
+						TAG = ECU TAG = CUB
+						TAG = BOL TAG = HAI
+						TAG = DOM TAG = HON
+						TAG = PAR TAG = ELS
+						TAG = NIC TAG = COS
+						TAG = PAN TAG = URG
 					}
 					NOT = { has_government = communism }
 				}
@@ -3553,7 +3672,16 @@ focus_tree = {
 			has_government = communism
 			any_country = {
 				OR = {
-								
+					TAG = BRA TAG = MEX
+					TAG = COL TAG = ARG
+					TAG = PRU TAG = VEN
+					TAG = CHL TAG = GUA
+					TAG = ECU TAG = CUB
+					TAG = BOL TAG = HAI
+					TAG = DOM TAG = HON
+					TAG = PAR TAG = ELS
+					TAG = NIC TAG = COS
+					TAG = PAN TAG = URG						
 				}
 				has_government = communism
 			}
@@ -3572,7 +3700,16 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-								
+						TAG = BRA TAG = MEX
+						TAG = COL TAG = ARG
+						TAG = PRU TAG = VEN
+						TAG = CHL TAG = GUA
+						TAG = ECU TAG = CUB
+						TAG = BOL TAG = HAI
+						TAG = DOM TAG = HON
+						TAG = PAR TAG = ELS
+						TAG = NIC TAG = COS
+						TAG = PAN TAG = URG						
 					}
 					has_government = communism			
 				}
@@ -3984,9 +4121,7 @@ focus_tree = {
 		available = {
 			SPR_scw_in_progress = yes			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {
 			has_global_flag = scw_over	
 		}
@@ -4093,7 +4228,9 @@ focus_tree = {
 		relative_position_id = POR_strict_neutrality_in_the_spanish_civil_war
 		cost = 10
 		completion_reward = { 
-			
+			unlock_decision_tooltip = POR_buy_aa_in_britain	
+			unlock_decision_tooltip = POR_buy_at_in_britain
+			unlock_decision_tooltip = POR_buy_artillery_in_britain
 		}
 	}
 
@@ -4474,9 +4611,7 @@ focus_tree = {
 				}				
 			}	
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_allow_free_elections focus = POR_send_assistance }	
@@ -4490,7 +4625,8 @@ focus_tree = {
 		relative_position_id = POR_allow_free_elections
 		cost = 10
 		completion_reward = { 
-		
+			unlock_decision_tooltip = POR_iberian_summit_pro_axis
+			unlock_decision_tooltip = POR_iberian_summit_pro_allies
 		}
 	}
 
@@ -4505,7 +4641,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		icon = GFX_focus_por_estado_novo
-		x = 0
+		x = 12
 		y = 0
 
 		relative_position_id = POR_popular_front
@@ -4771,9 +4907,7 @@ focus_tree = {
 				}
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {	
 			has_global_flag = scw_over
 			any_country = {
@@ -4790,7 +4924,7 @@ focus_tree = {
 		mutually_exclusive = { focus = POR_iberian_summit }
 
 		icon = GFX_goal_generic_major_war
-		x = 1	
+		x = 0	
 		y = 1
 
 		relative_position_id = POR_send_assistance
@@ -4884,7 +5018,30 @@ focus_tree = {
 	focus = {
 		id = POR_the_capital_of_espionage
 		available = {	
-		
+			owns_state = 112
+			has_war = no
+			OR = {
+				AND = {
+					ENG = { 
+						exists = yes
+						NOT = { has_war_with = ROOT }
+					}
+					any_country = {
+						is_major = yes
+						has_war_with = ENG
+					}
+				}
+				AND = {
+					GER = { 
+						exists = yes
+						NOT = { has_war_with = ROOT }
+					}
+					any_country = {
+						is_major = yes
+						has_war_with = GER
+					}
+				}
+			}
 		}
 
 		bypass = {		
@@ -4981,9 +5138,7 @@ focus_tree = {
 				has_war_with = ENG
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 
@@ -5023,7 +5178,29 @@ focus_tree = {
 	focus = {
 		id = POR_national_gold_reserves
 		available = {
-		
+			has_war = no
+			OR = {
+				AND = {
+					ENG = { 
+						exists = yes
+						NOT = { has_war_with = ROOT }
+					}
+					any_country = {
+						is_major = yes
+						has_war_with = ENG
+					}
+				}
+				AND = {
+					GER = { 
+						exists = yes
+						NOT = { has_war_with = ROOT }
+					}
+					any_country = {
+						is_major = yes
+						has_war_with = GER
+					}
+				}
+			}
 		}
 
 		bypass = {		
@@ -5038,6 +5215,32 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = { 
 			add_ideas = POR_national_gold_reserves
+			ENG = {
+				add_opinion_modifier = {
+					target = POR
+					modifier = POR_portuguese_trade
+				}
+			}
+			GER = {
+				add_opinion_modifier = {
+					target = POR
+					modifier = POR_portuguese_trade
+				}
+			}
+			every_other_country = {
+				limit = {
+					NOT = { tag = GER }
+					NOT = { tag = ENG }
+					OR = {
+						is_in_faction_with = ENG
+						is_in_faction_with = GER
+					}
+				}
+				add_opinion_modifier = {
+					target = POR
+					modifier = POR_portuguese_trade_minor
+				}
+			}
 		}
 	}
 
@@ -5045,6 +5248,7 @@ focus_tree = {
 		id = POR_proudly_alone
 		available = {	
 			has_government = neutrality
+			has_war = no
 		}
 
 		bypass = {		
@@ -5056,7 +5260,7 @@ focus_tree = {
 		mutually_exclusive = { focus = POR_honor_anglo_portuguese_alliance }
 
 		icon = GFX_focus_por_salazar
-		x = 1
+		x = 2
 		y = 1
 
 		relative_position_id = POR_concordat_with_the_holy_see
@@ -5083,9 +5287,7 @@ focus_tree = {
 				value = 100
 			}
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 			JAP = {
 				exists = yes
@@ -5138,9 +5340,7 @@ focus_tree = {
 		id = POR_national_syndicalism
 		available = {			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_portuguese_legion }
@@ -5170,7 +5370,7 @@ focus_tree = {
 			show_ideas_tooltip = POR_alberto_monsaraz
 		}
 	}
-	
+
 	focus = {
 		id = POR_ditadura_militar
 		available = {	
@@ -5857,9 +6057,7 @@ focus_tree = {
 
 		available = {			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {
 			owns_state = 500
 			owns_state = 501
@@ -5937,9 +6135,7 @@ focus_tree = {
 		id = POR_a_royal_wedding
 		available = {			
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		bypass = {		
 		}
 		prerequisite = { focus = POR_estado_novo }
@@ -5958,7 +6154,8 @@ focus_tree = {
 				news_event = { id = lar_news.25 days = 3 random_days = 5 }
 			}	
 			add_political_power = 120
-			
+			unlock_decision_tooltip = POR_stir_monarchist_sentiment_in_brazil
+			unlock_decision_tooltip = POR_stir_monarchist_sentiment_in_portugal
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = POR_joao_de_azevedo_coutinho
 			show_ideas_tooltip = POR_joao_francisco_de_barbosa_azevedo
@@ -6728,7 +6925,8 @@ focus_tree = {
 	focus = {
 		id = POR_latin_america
 
-		
+		will_lead_to_war_with = PAR
+		will_lead_to_war_with = URG
 		will_lead_to_war_with = ARG
 
 		select_effect = {
@@ -6846,9 +7044,7 @@ focus_tree = {
 				}
 			}
 		}
-			allow_branch = { 
-			always = no
-		}
+
 		available = {
 			any_country = {
 				has_government = communism

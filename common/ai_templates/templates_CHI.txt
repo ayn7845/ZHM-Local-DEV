@@ -3,7 +3,23 @@ infantry_CHI = {
 
 	available_for = {
 		CHI
-	
+		PRC 
+		GXC
+		YUN
+		SHX
+		XSM
+		SIK
+		MEN
+		MAN
+		GDC
+		SND
+		SIC
+		NXM
+		GSM
+		XIC
+		KHM
+		KUM
+		HBC
 	}
 
 	role = infantry

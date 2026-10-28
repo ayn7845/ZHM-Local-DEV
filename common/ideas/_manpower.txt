@@ -20,12 +20,28 @@ ideas = {
 
 			cancel_if_invalid = no
 			on_add = {
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_disarmed_nation
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > -1 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_manpower_law = -1 }
 				}
 			}
 		}
@@ -121,12 +137,28 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_volunteer_only
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 0 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_manpower_law = 0 }
 				}
 			}
 		}
@@ -227,6 +259,15 @@ ideas = {
 						}
 					}
 				}
+
+				if = {
+					limit = {
+						original_tag = ENG
+						has_dlc = "Man the Guns"
+						has_completed_focus = ENG_concessions_to_the_trade_unions
+					}
+					NOT = { has_country_flag = ENG_cannot_increase_conscription_law }
+				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -259,7 +300,21 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				
+				if = {
+					limit = {
+						original_tag = AUS
+					}
+					NOT = {
+						has_idea = AUS_treaty_of_saint_germain_en_laye
+					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}
 			}
 
 			modifier = {
@@ -326,12 +381,28 @@ ideas = {
 			}
 
 			on_add = {
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_limited_conscription
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 1 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_manpower_law = 1 }
 				}
 			}
 			cancel_if_invalid = no
@@ -344,8 +415,6 @@ ideas = {
 				OR = {
 					has_government = fascism
 					has_government = communism
-					original_tag = HUN # ZHM let them always go extensive since spawn in divs removed
-					original_tag = FIN
 					if = {
 						limit = {
 							PHI_SEA = yes
@@ -369,7 +438,7 @@ ideas = {
 					else = {
 						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
 					}
-					#SWE_rapid_mob_manpower_law_trigger = yes 
+					SWE_rapid_mob_manpower_law_trigger = yes 
 					if = {
 						limit = {
 							original_tag = DEN
@@ -493,8 +562,13 @@ ideas = {
 					}
 				}
 
-				if = { 
-
+				if = {
+					limit = {
+						original_tag = ENG
+						has_dlc = "Man the Guns"
+						has_completed_focus = ENG_concessions_to_the_trade_unions
+					}
+					NOT = { has_country_flag = ENG_cannot_increase_conscription_law }
 				}
 				if = {
 					limit = {
@@ -528,8 +602,21 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				
-								
+				if = {
+					limit = {
+						original_tag = AUS
+					}
+					NOT = {
+						has_idea = AUS_treaty_of_saint_germain_en_laye
+					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}				
 			}
 			ai_will_do = {
    				factor = 1
@@ -581,8 +668,13 @@ ideas = {
 					NOT = { has_idea = limited_conscription }
 				}
 
-				modifier = { 
-
+				modifier = {
+					factor = 100
+					OR = {
+						original_tag = URG
+						original_tag = PAR
+					}
+					has_completed_focus = GUAY_coup_detat
 				}
 
 				modifier = {
@@ -611,12 +703,28 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_extensive_conscription
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 2 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_manpower_law = 2 }
 				}
 			}
 		}
@@ -652,7 +760,7 @@ ideas = {
 					else = {
 						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
 					}
-				#	SWE_rapid_mob_manpower_law_trigger = yes
+					SWE_rapid_mob_manpower_law_trigger = yes
 					AND = {
 						has_war = yes
 						enemies_strength_ratio > 0.6
@@ -758,8 +866,13 @@ ideas = {
 					}
 				}
 
-				if = { 
-
+				if = {
+					limit = {
+						original_tag = ENG
+						has_dlc = "Man the Guns"
+						has_completed_focus = ENG_concessions_to_the_trade_unions
+					}
+					NOT = { has_country_flag = ENG_cannot_increase_conscription_law }
 				}
 				if = {
 					limit = {
@@ -793,7 +906,21 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				
+				if = {
+					limit = {
+						original_tag = AUS
+					}
+					NOT = {
+						has_idea = AUS_treaty_of_saint_germain_en_laye
+					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}
 			}
 
 			ai_will_do = {
@@ -850,8 +977,13 @@ ideas = {
 					NOT = { has_idea = extensive_conscription }
 				}
 
-				modifier = { 
-
+				modifier = {
+					factor = 100
+					OR = {
+						original_tag = URG
+						original_tag = PAR
+					}
+					has_completed_focus = GUAY_coup_detat
 				}
 
 				modifier = {
@@ -881,12 +1013,28 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_service_by_requirement
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 3 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_manpower_law = 3 }
 				}
 			}
 		}
@@ -998,8 +1146,13 @@ ideas = {
 					}
 				}
 
-				if = { 
-
+				if = {
+					limit = {
+						original_tag = ENG
+						has_dlc = "Man the Guns"
+						has_completed_focus = ENG_concessions_to_the_trade_unions
+					}
+					NOT = { has_country_flag = ENG_cannot_increase_conscription_law }
 				}
 				if = {
 					limit = {
@@ -1033,8 +1186,21 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				
-				
+				if = {
+					limit = {
+						original_tag = AUS
+					}
+					NOT = {
+						has_idea = AUS_treaty_of_saint_germain_en_laye
+					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}
 			}
 
 			ai_will_do = {
@@ -1097,12 +1263,28 @@ ideas = {
 					add_ideas = FIN_militarized_society
 				}
 
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_all_adults_serve
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 4 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_manpower_law = 4 }
 				}
 			}
 
@@ -1227,8 +1409,13 @@ ideas = {
 					}
 				}
 				
-				if = { 
-
+				if = {
+					limit = {
+						original_tag = ENG
+						has_dlc = "Man the Guns"
+						has_completed_focus = ENG_concessions_to_the_trade_unions
+					}
+					NOT = { has_country_flag = ENG_cannot_increase_conscription_law }
 				}
 				if = {
 					limit = {
@@ -1262,8 +1449,21 @@ ideas = {
 					}
 					NOT = { has_country_flag = DEN_cannot_increase_conscription_law }
 				}
-				
-					
+				if = {
+					limit = {
+						original_tag = AUS
+					}
+					NOT = {
+						has_idea = AUS_treaty_of_saint_germain_en_laye
+					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}	
 			}
 
 			ai_will_do = {
@@ -1312,12 +1512,28 @@ ideas = {
 					add_ideas = FIN_militarized_society
 				}
 
-				if = { 
-
+				if = {
+					limit = { SIA_should_add_national_savings_bond = yes }
+					SIA_refresh_nsb_spirit = yes
+					add_ideas = idea_SIA_nsb_scraping_the_barrel
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_manpower_law > 5 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_manpower_law = 5 }
 				}
 			}
 
@@ -1399,7 +1615,57 @@ ideas = {
 
 		### Swiss Citizen Militia ###
 
-		
+		SWI_citizen_militia_1 = {
+			cost = 200
+			picture = citizen_militia_1
+			removal_cost = -1
+			level = 6
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				has_completed_focus = SWI_professionalize_militias
+				has_completed_focus = SWI_join_the_allies
+				has_completed_focus = SWI_join_france
+				has_completed_focus = SWI_jump_into_action
+			}
+			ai_will_do = {
+				factor = 0
+			}
+
+			modifier = {
+				conscription = 0.1
+				custom_modifier_tooltip = SWI_army_limitations_TT
+				ai_desired_divisions_factor = 1
+			}
+		}
+
+		SWI_citizen_militia_2 = {
+			picture = citizen_militia_2
+			cost = 200
+			removal_cost = -1
+			level = 6
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+ 				has_completed_focus = SWI_professionalize_militias
+				has_completed_focus = SWI_join_the_allies
+				has_completed_focus = SWI_join_france
+				has_completed_focus = SWI_jump_into_action
+			}
+			ai_will_do = {
+				factor = 0
+			}
+
+			modifier = {
+				conscription = 0.2
+				custom_modifier_tooltip = SWI_army_limitations_TT
+				ai_desired_divisions_factor = 2
+			}
+		}
 	}
 
 

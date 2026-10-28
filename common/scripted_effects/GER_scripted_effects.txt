@@ -476,7 +476,20 @@ MR_pact_transfer_state_effect = {
 				}
 			}
 		}
-	
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = LIT_gets_vilnius
+					LIT = { is_in_faction_with = SOU }
+					LIT = { controls_state = 784 }
+				}
+				LIT = {
+					exists = yes
+					has_capitulated = no
+				}
+			}
+			LIT = { transfer_state = 784 }
+		}
 		else_if = {
 			limit = {
 				NOT = {
@@ -615,6 +628,19 @@ MR_pact_transfer_faction_state_effect = {
 					}
 				}
 			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = LIT_gets_vilnius
+					LIT = { controls_state = 784 }
+				}
+				LIT = {
+					exists = yes
+					has_capitulated = no
+				}
+			}
+			LIT = { transfer_state = 784 }
 		}
 		else = {
 			SOU = { transfer_state = 784 }
@@ -1484,6 +1510,10 @@ GER_setup_SOV_sphere_of_influence_array = { #REMEMBER to update the focus toolti
 					is_on_continent = europe
 					OR = {
 						is_core_of = FIN
+						is_core_of = EST
+						is_core_of = LAT
+						is_core_of = LIT
+						is_core_of = SLO
 						is_core_of = ROM
 						is_core_of = YUG
 						is_core_of = BUL
@@ -1624,9 +1654,20 @@ GER_setup_GER_asia_sphere_of_influence_array = {
 
 						is_core_of = AST
 						is_core_of = NZL
-						
+						is_core_of = MAL
+						is_core_of = INS
+						is_core_of = PAP
 						is_core_of = PHI
-						
+						is_core_of = GUM
+						is_core_of = FSM
+						is_core_of = HAW
+						is_core_of = SAM
+						is_core_of = SOL
+						is_core_of = TAH
+						is_core_of = FIJ
+						is_core_of = RAP
+						is_core_of = SRL
+						is_core_of = MLD
 					}
 				}
 
@@ -1646,10 +1687,18 @@ GER_setup_CHI_sphere_of_influence_array = {
 				limit = {
 					OR = {
 						is_core_of = SIA
-						
+						is_core_of = VIN
+						is_core_of = CAM
+						is_core_of = LAO
 						is_core_of = CHI
 						is_core_of = RAJ
-					
+						is_core_of = PAK
+						is_core_of = BAN
+						is_core_of = BRM
+						is_core_of = NEP
+						is_core_of = TIB
+						is_core_of = BHU
+						is_core_of = KOR
 						is_core_of = JAP
 						is_core_of = MON
 					}
@@ -1974,7 +2023,7 @@ GER_create_operative_norman_stewart = { #Operation Sea Lion
 		traits = { operative_natural_orator operative_tough }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ENG }
+		nationalities = { ENG SCO }
 		gender = male
 	}
 }
@@ -1998,7 +2047,7 @@ GER_create_operative_eleysa_bazna = { #Absorb the Abwehr / Expand SS Security Du
 		traits = { operative_infiltrator }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER TUR ALB }
+		nationalities = { GER TUR KOS ALB }
 		gender = male
 	}
 }
@@ -2022,7 +2071,7 @@ GER_create_operative_otto_von_bolschwing = { #Subversive Infiltrators
 		traits = { operative_natural_orator operative_well_groomed }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER ROM }
+		nationalities = { GER PAL ROM }
 		gender = male
 	}
 }
@@ -3043,7 +3092,7 @@ GER_set_up_colonial_resistance_states = {
 						OR = {
 							is_on_continent = africa 
 							is_on_continent = asia
-							#is_core_of = EGY
+							is_core_of = EGY
 						}	
 						has_resistance = yes
 						NOT = { # no point adding if already in there

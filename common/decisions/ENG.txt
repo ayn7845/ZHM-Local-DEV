@@ -1,4 +1,232 @@
 
+# The Narvik Crisis
+ENG_narvik_crisis_cat = {
+
+	# Launch Plan R4
+	ENG_narvik_crisis = {
+		icon = generic_operation
+		available = {
+			OR = {
+				GER = {
+					has_war_with = NOR
+				}
+				NOR = {
+					any_core_state = {
+						controller  = { original_tag = GER }
+					}
+				}
+			}
+
+			SWE = { 
+				NOT = { has_war_with = ROOT }
+				NOT = { has_war_with = NOR }
+				NOT = { has_war_with = GER }
+				exists = yes
+				is_subject = no
+			}
+
+			NOR = {
+				OR = {
+					is_in_faction_with = ROOT
+					has_capitulated = yes
+					exists = no
+				}
+			}
+
+			OR = {
+				144 = { is_controlled_by = ROOT }
+				any_allied_country = {
+					controls_state = 144
+				}
+			}
+
+			
+			divisions_in_state = {
+				state = 144
+				size > 3 
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+
+		complete_effect = {
+			SWE = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = SWE_ENG_invaded_swe
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = SWE_ENG_invaded_swe_opinion
+				}
+			}
+			declare_war_on = {
+				target = SWE
+				type = liberate_wargoal
+			}
+			144 = {
+				controller = {
+					if = {
+						limit = {
+							controller = { is_in_faction_with = ROOT } #needs to be here otherwise it throws errors
+						}
+
+						declare_war_on = {
+							target = SWE
+							type = liberate_wargoal
+						}
+
+						if = {
+							limit = { controller = { NOT = { has_war_with = SWE }}}
+							ROOT = { set_variable = { ENG_narvik_controller = PREV } }
+						}
+					}
+				}
+			}
+			GER = { country_event = { id = AAT_britain_narvik.2 hours = 1} }
+			SWE = { country_event = { id = AAT_britain_narvik.2 hours = 1 } }
+			activate_mission = ENG_explode_the_swedish_iron_ore_mine
+			hidden_effect = {
+				set_country_flag = ENG_activated_plan_rfour
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				OR = {
+					has_completed_focus = ENG_no_further_appeasement
+					has_completed_focus = uk_scandinavian_focus
+				}
+
+				NOR = { is_ai = yes }
+				add = 1
+			}
+		}
+	}
+
+	# Sabotage the Swedish Mines
+	ENG_narvik_crisis_blow_up_mines = {
+		icon = generic_operation
+		available = {
+			OR = {
+				controls_province = 3095
+				any_allied_country = {
+					controls_province = 3095
+				}
+			}
+			OR = {
+				controls_province = 11155
+				any_allied_country = {
+					controls_province = 11155
+				}
+			}
+			OR = {
+				has_active_mission = ENG_explode_the_swedish_iron_ore_mine
+				has_war_with = SWE
+			}
+		}
+
+		visible = {
+			NOT = {
+				666 = { 
+					has_dynamic_modifier = {
+						modifier = SWE_blown_up_mines
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				controls_province = 3095
+				controls_province = 11155
+				OR = {
+					has_active_mission = ENG_explode_the_swedish_iron_ore_mine 
+					has_war_with = SWE
+				}
+			}
+
+		}
+		days_remove = 12
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_explode_the_swedish_iron_ore_mine
+				days = 13
+			}
+		}
+		remove_effect = {
+			666 = {
+				add_dynamic_modifier = {
+					modifier = SWE_blown_up_mines
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = ENG_activated_plan_rfour
+				}
+				country_event = { id = AAT_britain_narvik.1 }
+				SWE = {
+					country_event = { id = AAT_britain_narvik.3 }
+				}
+				GER = {
+					country_event = { id = AAT_britain_narvik.3 }
+				}
+
+				hidden_effect = {
+					clr_country_flag = ENG_activated_plan_rfour
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+	# Plan R4 
+	ENG_explode_the_swedish_iron_ore_mine = { 
+
+		icon = eng_support_imperialist_coup
+		
+		available = {
+			666 = {
+				has_dynamic_modifier = {
+					modifier = SWE_blown_up_mines
+				}
+			}
+		}
+		activation = {
+			always = no
+		}
+		days_mission_timeout = 60
+		fire_only_once = yes
+
+		visible = {
+			always = yes
+		}
+
+		cancel_if_not_visible = no
+
+		is_good = no
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			white_peace = {
+				tag = SWE
+			}
+			add_war_support = -0.1
+			add_stability = -0.1
+			custom_effect_tooltip = ENG_explode_the_swedish_iron_ore_mine_tt
+		}
+	}
+}
+
 # Organize the Blackshirts
 ENG_organize_the_blackshirts = {
 
@@ -2157,8 +2385,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = CAN
-			ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+			hidden_trigger = {
+				tag = CAN
+				ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -2238,11 +2468,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
-				has_country_flag = CAN_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+					has_country_flag = CAN_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_CAN_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_CAN_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -2535,8 +2767,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = SAF
-			ENG = { has_country_flag = ENG_prepare_coup_in_SAF }
+			hidden_trigger = {
+				tag = SAF
+				ENG = { has_country_flag = ENG_prepare_coup_in_SAF }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -2615,11 +2849,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_SAF }
-				has_country_flag = SAF_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_SAF }
+					has_country_flag = SAF_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_SAF_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_SAF_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -2924,8 +3160,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = AST
-			ENG = { has_country_flag = ENG_prepare_coup_in_AST }
+			hidden_trigger = {
+				tag = AST
+				ENG = { has_country_flag = ENG_prepare_coup_in_AST }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -2950,14 +3188,22 @@ ENG_appeal_to_imperial_loyalists = {
 					}
 					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
 					set_cosmetic_tag = ENG_imperialist_australia
-					create_country_leader = {
-						name = "William Birdwood"
-						desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
-						picture = GFX_portrait_William_Birdwood
-						expire = "1965.1.1"
-						ideology = centrism
-						traits = {
-							
+					IF = {
+						limit = {
+							has_dlc = "Thunder at Our Gates"
+						}
+						#This will recruit default centrism leader, A. Hore-Ruthven
+					}
+					ELSE = {
+						create_country_leader = {
+							name = "William Birdwood"
+							desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
+							picture = GFX_portrait_William_Birdwood
+							expire = "1965.1.1"
+							ideology = centrism
+							traits = {
+								
+							}
 						}
 					}
 				}
@@ -3014,11 +3260,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_AST }
-				has_country_flag = AST_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_AST }
+					has_country_flag = AST_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_AST_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_AST_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -3337,8 +3585,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = NZL
-			ENG = { has_country_flag = ENG_prepare_coup_in_NZL }
+			hidden_trigger = {
+				tag = NZL
+				ENG = { has_country_flag = ENG_prepare_coup_in_NZL }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -3417,11 +3667,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_NZL }
-				has_country_flag = NZL_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_NZL }
+					has_country_flag = NZL_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_NZL_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_NZL_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -3686,7 +3938,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = canadian_focus keep_completed = yes }
-						#CAN_enforce_loyalty = yes
+						CAN_enforce_loyalty = yes
 					}
 				}	
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -3791,7 +4043,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = south_african_focus keep_completed = yes }
-						#SAF_enforce_loyalty = yes
+						SAF_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -3896,7 +4148,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = australian_focus keep_completed = yes }
-						#AST_enforce_loyalty = yes
+						AST_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -4001,7 +4253,7 @@ ENG_appeal_to_imperial_loyalists = {
 							has_dlc = "Together for Victory"
 						}
 						load_focus_tree = { tree = new_zealander_focus keep_completed = yes }
-						#NZL_enforce_loyalty = yes
+						NZL_enforce_loyalty = yes
 					}
 				}
 				hidden_effect = { country_event = { id = mtg_britain.112 days = 1 } }
@@ -5542,44 +5794,53 @@ ENG_concessions_to_the_trade_unions = {
 
 		activation = {
 			tag = ENG
-			OR = {
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_1
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_2
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_3
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_4
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_5
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_6
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_7
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_8
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_9
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_10
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_11
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_12
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_13
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_14
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_15
+
+			custom_trigger_tooltip = {
+				tooltip = ENG_trade_unions_demand_minister_appointment_1
+				OR = {
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_1
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_2
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_3
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_4
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_5
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_6
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_7
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_8
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_9
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_10
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_11
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_12
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_13
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_14
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_15
+				}
 			}
+			
+			
 			NOT = { has_country_flag = ENG_trade_unions_demand_minister_appointment }
 		}
 
 		visible = {
 			tag = ENG
-			OR = {
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_1
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_2
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_3
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_4
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_5
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_6
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_7
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_8
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_9
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_10
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_11
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_12
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_13
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_14
-				has_country_flag = ENG_trade_unions_demand_minister_appointment_15
+			custom_trigger_tooltip = {
+				tooltip = ENG_trade_unions_demand_minister_appointment_1
+				OR = {
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_1
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_2
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_3
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_4
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_5
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_6
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_7
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_8
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_9
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_10
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_11
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_12
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_13
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_14
+					has_country_flag = ENG_trade_unions_demand_minister_appointment_15
+				}
 			}
 			NOT = { has_country_flag = ENG_trade_unions_demand_minister_appointment }
 		}
@@ -7128,8 +7389,1510 @@ ENG_concessions_to_the_trade_unions = {
 	}
 }
 
-ENG_move_to_secure_the_dominions = { 
+ENG_move_to_secure_the_dominions = {
 	
+	ENG_impose_martial_law_on_canada = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 467 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 469 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 470 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 473 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 465 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 464 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 468 amount < 28800 } }
+			NOT = { army_manpower_in_state = { state = 276 amount < 48000 } }
+		}
+
+		targets = { CAN }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = CAN
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			if = {
+				limit = {
+					has_government = communism
+				}
+				NOT = { FROM = { has_government = communism } }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				NOT = { FROM = { has_government = fascism } }
+			}
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+		}
+
+		complete_effect = {
+			FROM = {
+				hidden_effect = { set_country_flag = { flag = ENG_cannot_leave_faction value = 1 days = 180 } }
+				custom_effect_tooltip = ENG_impose_martial_law_tt
+				country_event = { id = mtg_britain.63 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_propaganda_campaigns_in_canada = {
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 467 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 469 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 470 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 473 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 465 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 464 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 468 amount < 28800 } }
+			NOT = { army_manpower_in_state = { state = 276 amount < 48000 } }
+			FROM = { has_country_flag = ENG_cannot_leave_faction }
+		}
+
+		targets = { CAN }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = CAN
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			NOT = { has_country_flag = ENG_secure_the_dominions_backed_down_against_USA }
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_fascist_propaganda days = 90 } }
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_communist_propaganda days = 90 } }
+			}
+			FROM = { country_event = { id = mtg_britain.64 } }
+		}
+
+		remove_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_canada_fascism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 467 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 469 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 470 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 473 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 465 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 464 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 468 amount < 28800 } }
+			NOT = { army_manpower_in_state = { state = 276 amount < 48000 } }
+			FROM = { 
+				has_country_flag = ENG_cannot_leave_faction
+				fascism > 0.2
+			}
+		}
+
+		targets = { CAN }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = CAN
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_canada_communism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 467 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 469 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 470 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 473 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 465 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 464 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 468 amount < 28800 } }
+			NOT = { army_manpower_in_state = { state = 276 amount < 48000 } }
+			FROM = { 
+				has_country_flag = ENG_cannot_leave_faction
+				communism > 0.2
+			}
+		}
+		
+		targets = { CAN }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = CAN
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = communism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			NOT = { has_country_flag = ENG_secure_the_dominions_backed_down_against_USA }
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_impose_martial_law_on_south_africa = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 681 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 719 amount < 48000 } }
+			NOT = { army_manpower_in_state = { state = 275 amount < 48000 } }
+		}
+
+		targets = { SAF }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = SAF
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			if = {
+				limit = {
+					has_government = communism
+				}
+				NOT = { FROM = { has_government = communism } }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				NOT = { FROM = { has_government = fascism } }
+			}
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+		}
+
+		complete_effect = {
+			FROM = {
+				hidden_effect = { set_country_flag = { flag = ENG_cannot_leave_faction value = 1 days = 180 } }
+				custom_effect_tooltip = ENG_impose_martial_law_tt
+				country_event = { id = mtg_britain.63 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_propaganda_campaigns_in_south_africa = {
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 681 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 719 amount < 48000 } }
+			NOT = { army_manpower_in_state = { state = 275 amount < 48000 } }
+			FROM = { has_country_flag = ENG_cannot_leave_faction }
+		}
+
+		targets = { SAF }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = SAF
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_fascist_propaganda days = 90 } }
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_communist_propaganda days = 90 } }
+			}
+			FROM = { country_event = { id = mtg_britain.64 } }
+		}
+
+		remove_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_south_africa_fascism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 681 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 719 amount < 48000 } }
+			NOT = { army_manpower_in_state = { state = 275 amount < 48000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				fascism > 0.2
+			}
+		}
+
+		targets = { SAF }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = SAF
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_south_africa_communism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 681 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 719 amount < 48000 } }
+			NOT = { army_manpower_in_state = { state = 275 amount < 48000 } }
+			FROM = { 
+				has_country_flag = ENG_cannot_leave_faction
+				communism > 0.2
+			}
+		}
+
+		targets = { SAF }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = SAF
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = communism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_impose_martial_law_on_british_raj = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			if = {
+				limit = {
+					NOT = { country_exists = PAK }
+				}
+				NOT = { army_manpower_in_state = { state = 442 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 443 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 440 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 441 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 433 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 428 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 438 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 437 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 429 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 436 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 427 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 425 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 423 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 424 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 426 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 435 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 431 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BAN }
+				}
+				NOT = { army_manpower_in_state = { state = 430 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 432 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 434 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BRM }
+				}
+				NOT = { army_manpower_in_state = { state = 640 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 288 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 439 amount < 96000 } }
+		}
+
+		targets = { RAJ }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = RAJ
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			if = {
+				limit = {
+					has_government = communism
+				}
+				NOT = { FROM = { has_government = communism } }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				NOT = { FROM = { has_government = fascism } }
+			}
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+		}
+
+		complete_effect = {
+			FROM = {
+				hidden_effect = { set_country_flag = { flag = ENG_cannot_leave_faction value = 1 days = 180 } }
+				custom_effect_tooltip = ENG_impose_martial_law_tt
+				country_event = { id = mtg_britain.63 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_propaganda_campaigns_in_british_raj = {
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			if = {
+				limit = {
+					NOT = { country_exists = PAK }
+				}
+				NOT = { army_manpower_in_state = { state = 442 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 443 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 440 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 441 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 433 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 428 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 438 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 437 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 429 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 436 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 427 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 425 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 423 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 424 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 426 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 435 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 431 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BAN }
+				}
+				NOT = { army_manpower_in_state = { state = 430 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 432 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 434 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BRM }
+				}
+				NOT = { army_manpower_in_state = { state = 640 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 288 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 439 amount < 96000 } }
+			FROM = { has_country_flag = ENG_cannot_leave_faction }
+		}
+
+		targets = { RAJ }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = RAJ
+
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+				NOT = { has_country_flag = banned_fascism_flag }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_fascist_propaganda days = 90 } }
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_communist_propaganda days = 90 } }
+			}
+			FROM = { country_event = { id = mtg_britain.64 } }
+		}
+
+		remove_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_british_raj_fascism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			if = {
+				limit = {
+					NOT = { country_exists = PAK }
+				}
+				NOT = { army_manpower_in_state = { state = 442 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 443 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 440 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 441 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 433 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 428 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 438 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 437 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 429 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 436 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 427 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 425 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 423 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 424 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 426 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 435 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 431 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BAN }
+				}
+				NOT = { army_manpower_in_state = { state = 430 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 432 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 434 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BRM }
+				}
+				NOT = { army_manpower_in_state = { state = 640 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 288 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 439 amount < 96000 } }
+			FROM = { 
+				has_country_flag = ENG_cannot_leave_faction
+				fascism > 0.2
+				NOT = { has_country_flag = banned_fascism_flag }
+			}
+		}
+
+		targets = { RAJ }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = RAJ
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_british_raj_communism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			if = {
+				limit = {
+					NOT = { country_exists = PAK }
+				}
+				NOT = { army_manpower_in_state = { state = 442 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 443 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 440 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 441 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 433 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 428 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 438 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 437 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 429 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 436 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 427 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 425 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 423 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 424 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 426 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 435 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 431 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BAN }
+				}
+				NOT = { army_manpower_in_state = { state = 430 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 432 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 434 amount < 9600 } }
+			if = {
+				limit = {
+					NOT = { country_exists = BRM }
+				}
+				NOT = { army_manpower_in_state = { state = 640 amount < 9600 } }
+				NOT = { army_manpower_in_state = { state = 288 amount < 9600 } }
+			}
+			NOT = { army_manpower_in_state = { state = 439 amount < 96000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				communism > 0.2
+			}
+		}
+
+		targets = { RAJ }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = RAJ
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = communism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_impose_martial_law_on_australia = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 522 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 521 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 517 amount < 38400 } }
+			NOT = { army_manpower_in_state = { state = 285 amount < 48000 } }
+		}
+
+		targets = { AST }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = AST
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			if = {
+				limit = {
+					has_government = communism
+				}
+				NOT = { FROM = { has_government = communism } }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				NOT = { FROM = { has_government = fascism } }
+			}
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+		}
+
+		complete_effect = {
+			FROM = {
+				hidden_effect = { set_country_flag = { flag = ENG_cannot_leave_faction value = 1 days = 180 } }
+				custom_effect_tooltip = ENG_impose_martial_law_tt
+				country_event = { id = mtg_britain.63 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_propaganda_campaigns_in_australia = {
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 522 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 521 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 517 amount < 38400 } }
+			NOT = { army_manpower_in_state = { state = 285 amount < 48000 } }
+			FROM = { has_country_flag = ENG_cannot_leave_faction }
+		}
+
+		targets = { AST }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = AST
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_fascist_propaganda days = 90 } }
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_communist_propaganda days = 90 } }
+			}
+			FROM = { country_event = { id = mtg_britain.64 } }
+		}
+
+		remove_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_australia_fascism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 522 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 521 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 517 amount < 38400 } }
+			NOT = { army_manpower_in_state = { state = 285 amount < 48000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				fascism > 0.2
+			}
+		}
+
+		targets = { AST }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = AST
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_australia_communism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 522 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 521 amount < 19200 } }
+			NOT = { army_manpower_in_state = { state = 517 amount < 38400 } }
+			NOT = { army_manpower_in_state = { state = 285 amount < 48000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				communism > 0.2
+			}
+		}
+
+		targets = { AST }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = AST
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = communism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_impose_martial_law_on_new_zealand = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 723 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 284 amount < 48000 } }
+		}
+
+		targets = { NZL }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = NZL
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			if = {
+				limit = {
+					has_government = communism
+				}
+				NOT = { FROM = { has_government = communism } }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				NOT = { FROM = { has_government = fascism } }
+			}
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+		}
+
+		complete_effect = {
+			FROM = {
+				hidden_effect = { set_country_flag = { flag = ENG_cannot_leave_faction value = 1 days = 180 } }
+				custom_effect_tooltip = ENG_impose_martial_law_tt
+				country_event = { id = mtg_britain.63 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_propaganda_campaigns_in_new_zealand = {
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 723 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 284 amount < 48000 } }
+			FROM = { has_country_flag = ENG_cannot_leave_faction }
+		}
+
+		targets = { NZL }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = NZL
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_fascist_propaganda days = 90 } }
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				FROM = { add_timed_idea = { idea = ENG_dominion_communist_propaganda days = 90 } }
+			}
+			FROM = { country_event = { id = mtg_britain.64 } }
+		}
+
+		remove_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_new_zealand_fascism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 723 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 284 amount < 48000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				fascism > 0.2
+			}
+		}
+
+		targets = { NZL }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = NZL
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_replace_government_in_new_zealand_communism = {
+
+		icon = eng_install_government
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			NOT = { army_manpower_in_state = { state = 723 amount < 9600 } }
+			NOT = { army_manpower_in_state = { state = 284 amount < 48000 } }
+			FROM = {
+				has_country_flag = ENG_cannot_leave_faction
+				communism > 0.2
+			}
+		}
+
+		targets = { NZL }
+		targets_dynamic = yes
+
+		target_root_trigger = {
+			has_completed_focus = ENG_move_to_secure_the_dominions
+		}
+
+		target_trigger = {
+			FROM = {
+				original_tag = NZL
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_government = communism
+			has_completed_focus = ENG_move_to_secure_the_dominions
+			FROM = {
+				is_subject_of = ROOT
+				NOT = { has_country_flag = ENG_imperialist_civil_war }
+				NOT = { has_government = ROOT }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 }
 
 ENG_imperial_conference_decision = {
@@ -7219,34 +8982,8 @@ ENG_imperial_conference_decision = {
 		}
 
 		complete_effect = {
-			add_timed_idea = { idea = ENG_imperial_conference_defense_5
-			days = 365
-		 	}
-			SAF = {
-				add_timed_idea = { idea = ENG_imperial_conference_defense_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			RAJ = {
-				add_timed_idea = { idea = ENG_imperial_conference_defense_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			NZL = {
-				add_timed_idea = { idea = ENG_imperial_conference_defense_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			AST = {
-				add_timed_idea = { idea = ENG_imperial_conference_defense_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			CAN = {
-				add_timed_idea = { idea = ENG_imperial_conference_defense_dominion
-								days = 365}
-				add_political_power = -25
-			}
+			country_event = { id = mtg_britain.83 hours = 6 }
+			set_country_flag = ENG_imperial_conference_discussion_in_progress
 		}
 
 		ai_will_do = {
@@ -7307,34 +9044,8 @@ ENG_imperial_conference_decision = {
 		}
 
 		complete_effect = {
-			add_timed_idea = { idea = ENG_imperial_conference_economy_5
-								days = 365
-							 }
-			SAF = {
-				add_timed_idea = { idea = ENG_imperial_conference_economy_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			RAJ = {
-				add_timed_idea = { idea = ENG_imperial_conference_economy_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			AST = {
-				add_timed_idea = { idea = ENG_imperial_conference_economy_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			NZL = {
-				add_timed_idea = { idea = ENG_imperial_conference_economy_dominion
-								days = 365}
-				add_political_power = -25
-			}
-			CAN = {
-				add_timed_idea = { idea = ENG_imperial_conference_economy_dominion
-								days = 365}
-				add_political_power = -25
-			}
+			country_event = { id = mtg_britain.91 hours = 6 }
+			set_country_flag = ENG_imperial_conference_discussion_in_progress
 		}
 
 		ai_will_do = {
@@ -7365,27 +9076,8 @@ ENG_imperial_conference_decision = {
 		}
 
 		complete_effect = {
-			add_war_support = 0.15
-			SAF = {
-				add_war_support = 0.10 #POV: When developers add an extra 0 to thier code
-				add_political_power = -25
-			}
-			NZL = {
-				add_war_support = 0.10
-				add_political_power = -25
-			}			
-			AST = {
-				add_war_support = 0.10
-				add_political_power = -25
-			}
-			RAJ = {
-				add_war_support = 0.10
-				add_political_power = -25
-			}
-			CAN = {
-				add_war_support = 0.10
-				add_political_power = -25
-			}	
+			country_event = { id = mtg_britain.95 hours = 6 }
+			set_country_flag = ENG_imperial_conference_discussion_in_progress
 		}
 
 		ai_will_do = {
@@ -7403,7 +9095,16 @@ ENG_imperial_conference_decision = {
 
 		available = {
 			NOT = { has_country_flag = ENG_imperial_conference_discussion_in_progress }
-			
+			OR = {
+				CAN = { exists = yes }
+				SAF = { exists = yes }
+				AST = { exists = yes }
+				NZL = { exists = yes }
+				AND = {
+					RAJ = { is_subject_of = ENG }
+					has_completed_focus = ENG_indian_autonomy
+				}
+			}
 		}
 
 		cost = 100
@@ -7416,8 +9117,8 @@ ENG_imperial_conference_decision = {
 		}
 
 		complete_effect = {
-			country_event = {id = hmm.3}
-			
+			country_event = { id = mtg_britain.99 hours = 6 }
+			set_country_flag = ENG_imperial_conference_discussion_in_progress
 			if = {
 				limit = {
 					NOT = { has_completed_focus = ENG_indian_autonomy }
@@ -7643,7 +9344,113 @@ political_actions = {
 		}
 	}
 
+	macdonald_proposal = {
+	
+		allowed = {
+			tag = ENG
+		}
+		
+		available = {
+			tag = ENG
+			has_government = democratic
+			has_war_with = GER
+			NOT = {
+				has_war_with = IRE
+			}
+			IRE = { exists = yes }
+			NOT = { is_in_faction_with = IRE }
+			FRA = { has_capitulated = yes }
+			is_in_faction_with = FRA
+		}
 
+		cost = 50
+
+		fire_only_once = yes
+		
+		visible = {
+			tag = ENG
+			has_government = democratic
+			has_war_with = GER
+			IRE = { exists = yes }
+			NOT = { is_in_faction_with = IRE }
+		}
+		
+		complete_effect = {
+			IRE = { 
+				country_event = { 
+					id = wtt_britain.24 
+					hours = 6
+				} 
+			}
+			add_popularity = { 
+				ideology = democratic 
+				popularity = 0.03 
+			}
+			add_stability = -0.05
+		}
+
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	ENG_invoke_the_alliance_of_1373 = {
+
+		icon = generic_prepare_civil_war
+	
+		allowed = {
+			tag = ENG
+		}
+		
+		available = {
+			has_war = yes
+			has_government = democratic
+			POR = {
+				OR = {
+					has_government = ROOT
+					has_government = neutrality
+				}
+			}
+			POR = { is_in_faction = no }
+			is_faction_leader = yes
+		}
+
+		cost = 100
+		
+		visible = {
+			has_war = yes
+			NOT = { has_war_with = POR }
+			POR = { is_in_faction = no }
+		}
+		
+		complete_effect = {
+			ENG = {
+				hidden_effect = {
+					save_event_target_as = alliance_inviter
+				}
+			}
+
+			POR = {
+				country_event = generic.5
+				country_event = {
+					id = generic.5
+					hours = 6
+				}	
+			}
+		}
+
+		ai_will_do = {
+			base = 2
+			modifier = {
+				factor = 0
+				NOT = {
+					any_enemy_country = {
+						original_tag = SPR
+					}
+				}
+			}
+		}
+	}
 
 	ENG_request_azores_lease = {
 	
@@ -7664,6 +9471,7 @@ political_actions = {
 			POR = { is_in_faction = no }
 		}
 
+		cost = 50
 
 		fire_only_once = yes
 
@@ -8036,7 +9844,64 @@ political_actions = {
 
 operations = {
 
+	operation_fork = {
+
+		icon = generic_operation
 	
+		allowed = {
+			tag = ENG
+		}
+		
+		available = {
+			tag = ENG
+			has_government = democratic
+			has_war_with = GER
+			ICE = { exists = yes }
+			IF = {
+				limit = {
+					NOR = { has_government = democratic }
+				}
+				NOR = { has_capitulated = yes }
+				is_in_faction_with = NOR
+			}
+			ELSE = {
+				any_country_with_original_tag = {
+					original_tag_to_check = NOR 
+					has_capitulated = yes
+					is_in_faction_with = ROOT 
+				}
+			}
+		}
+
+		cost = 35
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 200 
+				ICE = {
+					has_completed_focus = ICE_declare_absolute_neutrality
+				}	
+			}
+		}
+		
+		visible = {
+			tag = ENG
+			has_war_with = GER
+			ICE = { exists = yes }
+			NOT = { ICE = { is_in_faction_with = ROOT } }
+			ICE = {
+				NOT = { has_completed_focus = ICE_united_we_stand }
+			}
+		}
+		
+		complete_effect = {
+			ICE = { country_event = { id = britain.25 days = 1} }
+			add_popularity = { ideology = democratic popularity = -0.05 }
+		}
+	}
 
 	# the Occupation of the Faroes
 	ENG_operation_valentine = {
@@ -8074,7 +9939,13 @@ operations = {
 					has_government = fascism
 				}
 			}
-			
+			modifier = {
+				# Iceland has gone their own path, so we can consolidate the North Sea
+				factor = 2 	
+				ICE = {
+					has_completed_focus = ICE_declare_absolute_neutrality
+				}
+			}
 			modifier = {
 				# Norway has already fallen, we are too late
 				factor = 6

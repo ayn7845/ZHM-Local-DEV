@@ -15,7 +15,11 @@ ITA_fiat_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = ITA
+			tag = ITA 
+			AND = {
+				tag = GRE 
+				has_dlc = "Battle for the Bosporus"
+			}
 			AND = {
 				tag = BUL 
 				has_dlc = "Battle for the Bosporus"
@@ -51,6 +55,13 @@ ITA_fiat_organization = {
 				controls_state = 158 #PIEMONT (Torino)
 			}
 			ITA_is_northern_designer = yes
+		}
+
+		IF = {
+			limit = { FROM = { original_tag = GRE } }
+			FROM = {
+				has_completed_focus = GRE_rapprochement_with_the_italians
+			}
 		}
 		IF = {
 			limit = { FROM = { original_tag = BUL } }

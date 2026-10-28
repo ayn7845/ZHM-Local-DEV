@@ -146,16 +146,10 @@ SOV_diplomacy_baltic_decision_category = {
 
 	visible = {
 		has_completed_focus = SOV_baltic_security
-		OR = { 
-			NOT = { 
-				has_country_flag = SOV_annexed_est
-			}
-			NOT = { 
-				has_country_flag = SOV_annexed_lat
-			}
-			NOT = { 
-				has_country_flag = SOV_annexed_lit
-			}
+		OR = {
+			country_exists = EST
+			country_exists = LAT
+			country_exists = LIT
 		}
 		is_subject = no
 	}
@@ -217,8 +211,9 @@ SOV_diplomacy_middle_east_decision_category = {
 		}
 		OR = {
 			country_exists = IRQ
-			
-			
+			country_exists = PER
+			country_exists = AFG
+			country_exists = SAU
 		}
 		is_subject = no
 	}
@@ -267,7 +262,7 @@ SOV_soviet_aid_decision_category = { #Dec cat for Sinkiang (mission dummies go h
 	icon = decision_category_generic_communism
 
 	allowed = {
-		always = no
+		original_tag = SIK
 	}
 }
 

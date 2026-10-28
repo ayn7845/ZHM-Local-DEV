@@ -1463,7 +1463,7 @@ ideas = {
 			picture = generic_tank_manufacturer_1
 			
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = FIN } }
+				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = FIN tag = SLO tag = RKH } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = tank_manufacturer limit = 1 }
 				}
@@ -1496,13 +1496,13 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = {  tag = ARG tag = BRA }
+						OR = { tag = CHL tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1537,7 +1537,7 @@ ideas = {
 			picture = generic_naval_manufacturer_1
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = SWE tag = HUN tag = CZE tag = FIN  } }
+				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = SWE tag = HUN tag = CZE tag = FIN tag = RKH } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = naval_manufacturer limit = 1 }
 				}
@@ -1549,7 +1549,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN  }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1573,14 +1573,14 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 
 				NOT = {
 					AND = {
-						OR = {  tag = ARG tag = BRA }
+						OR = { tag = CHL tag = ARG tag = BRA }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1592,7 +1592,12 @@ ideas = {
 					}
 				}
 
-				
+				NOT = {
+					AND = {
+						tag = INS
+						has_dlc = "Thunder at Our Gates"
+					}
+				}
 
 				PHI_SEA = no
 			}
@@ -1629,7 +1634,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1653,7 +1658,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
@@ -1672,7 +1677,12 @@ ideas = {
 					}
 				}
 
-				
+				NOT = {
+					AND = {
+						tag = INS
+						has_dlc = "Thunder at Our Gates"
+					}
+				}
 
 				PHI_SEA = no
 			}
@@ -1692,7 +1702,7 @@ ideas = {
 			picture = generic_air_manufacturer_3
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = ROM tag = FIN tag = CZE } }
+				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = ROM tag = FIN tag = SLO tag = CZE } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = medium_aircraft_manufacturer limit = 1 }
 				}
@@ -1704,7 +1714,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1728,14 +1738,14 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 
 				NOT = {
 					AND = {
-						OR = {  tag = ARG }
+						OR = { tag = CHL tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1747,7 +1757,12 @@ ideas = {
 					}
 				}
 
-				
+				NOT = {
+					AND = {
+						tag = INS
+						has_dlc = "Thunder at Our Gates"
+					}
+				}
 
 				PHI_SEA = no
 			}
@@ -1779,7 +1794,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						
 					}
 				}
@@ -1803,13 +1818,13 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = {  tag = ARG }
+						OR = { tag = CHL tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1823,7 +1838,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = {  tag = AST }
+						OR = { tag = INS tag = AST }
 						has_dlc = "Thunder at Our Gates"
 					}
 				}
@@ -1846,7 +1861,7 @@ ideas = {
 			picture = generic_naval_manufacturer_2
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = CAN tag = ROM tag = YUG tag = FIN tag = CZE  } }
+				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = CAN tag = ROM tag = YUG tag = FIN tag = CZE tag = SLO tag = RKH } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = naval_aircraft_manufacturer limit = 1 }
 				}
@@ -1855,7 +1870,7 @@ ideas = {
 						has_dlc = "Waking the Tiger"
 					}
 					NOT = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 					}
 				}
 				NOT = {
@@ -1878,14 +1893,14 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH  }
+						OR = { tag = ETH tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 
 				NOT = {
 					AND = {
-						OR = {  tag = ARG }
+						OR = { tag = CHL tag = ARG }
 						has_dlc = "Trial of Allegiance"
 					}
 				}
@@ -1897,7 +1912,12 @@ ideas = {
 					}
 				}
 
-			
+				NOT = {
+					AND = {
+						OR = { tag = INS tag = AST }
+						has_dlc = "Thunder at Our Gates"
+					}
+				}
 
 				PHI_SEA = no
 			}
@@ -1926,7 +1946,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = CHI original_tag = MAN  }
+						OR = { original_tag = CHI original_tag = PRC original_tag = MAN original_tag = SHX original_tag = XSM original_tag = GXC original_tag = YUN original_tag = SIK }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -1956,7 +1976,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = DEN }
+						OR = { original_tag = ICE original_tag = DEN }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
@@ -1969,7 +1989,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { original_tag = HUN original_tag = AUS original_tag = BEL }
+						OR = { original_tag = HUN original_tag = AUS original_tag = BEL original_tag = COG }
 						has_dlc = "Gotterdammerung"
 					}
 				}
@@ -1977,7 +1997,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-						
+							original_tag = PER
 							original_tag = IRQ
 							original_tag = RAJ
 						}
@@ -1989,7 +2009,15 @@ ideas = {
 					AND = {
 						OR = {
 							original_tag = PHI
-						
+							original_tag = SND
+							original_tag = HBC
+							original_tag = XIC
+							original_tag = GDC
+							original_tag = SIC
+							original_tag = NXM
+							original_tag = GSM
+							original_tag = KHM
+							original_tag = KUM
 						}
 						has_dlc = "No Compromise, No Surrender"
 					}
@@ -1999,7 +2027,7 @@ ideas = {
 						OR = {
 							original_tag = SIA
 							original_tag = AST
-							#original_tag = INS
+							original_tag = INS
 						}
 
 						has_dlc = "Thunder at Our Gates"
@@ -2054,13 +2082,13 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = ETH }
+						OR = { original_tag = ETH original_tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { original_tag = FIN original_tag = SWE }
+						OR = { original_tag = FIN original_tag = ICE original_tag = SWE }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
@@ -2073,7 +2101,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { original_tag = HUN original_tag = AUS original_tag = BEL }
+						OR = { original_tag = HUN original_tag = AUS original_tag = BEL original_tag = COG }
 						has_dlc = "Gotterdammerung"
 					}
 				}
@@ -2081,7 +2109,7 @@ ideas = {
 				NOT = {
 					AND = {
 						OR = {
-							
+							original_tag = PER
 							original_tag = IRQ
 							original_tag = RAJ
 						}
@@ -2102,7 +2130,7 @@ ideas = {
 					AND = {
 						OR = {
 							original_tag = AST
-							#original_tag = INS
+							original_tag = INS
 						}
 						has_dlc = "Thunder at Our Gates"
 					}
@@ -2135,7 +2163,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -2171,7 +2199,12 @@ ideas = {
 					}
 				}
 
-				
+				NOT = {
+					AND = {
+						tag = INS
+						has_dlc = "Thunder at Our Gates"
+					}
+				}
 			}
 			
 			cost = 150
@@ -2195,7 +2228,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI  tag = MAN }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -2253,7 +2286,7 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI  tag = MAN  }
+						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 						has_dlc = "Waking the Tiger"
 					}
 				}
@@ -2282,6 +2315,12 @@ ideas = {
 					}
 				}
 
+				NOT = {
+					AND = {
+						tag = CHL
+						has_dlc = "Trial of Allegiance"
+					}
+				}
 
 				NOT = {
 					AND = {

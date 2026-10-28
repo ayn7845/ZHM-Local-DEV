@@ -34,6 +34,42 @@ technology_sharing_group = {
 
 technology_sharing_group = {
 
+	id = EU_tech_sharing_group
+	name = EU_tech_sharing_group_name
+	desc = EU_tech_sharing_group_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.05
+
+	available = { 
+		AND = {
+			capital_scope = { is_on_continent = europe }
+			OR = {
+				BEL = { 
+					OR = {
+						has_completed_focus = BEL_european_community 
+						has_completed_focus = BEL_the_council_of_europe
+					}
+				}
+
+				#AUS = { If we make EU for AUS too
+
+				#}
+			}
+			OR = {
+				#original_tag = AUS
+				original_tag = BEL
+				#is_in_faction_with = AUS
+				is_in_faction_with = BEL
+				#is_subject_of = AUS
+				is_subject_of = BEL
+			}
+		}
+	}
+}
+
+technology_sharing_group = {
+
 	id = GER_JAP_naval_tech_sharing
 	name = GER_JAP_naval_tech_sharing_name
 	desc = GER_JAP_naval_tech_sharing_desc

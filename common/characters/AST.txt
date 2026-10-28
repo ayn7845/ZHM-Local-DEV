@@ -120,6 +120,7 @@ characters={
 			traits  = {
 				AST_wartime_soothsayer
 			}
+			always_show_on_actions_tooltip = yes
 			on_add = {
                	add_to_variable = {
                		var = AST_uap_votes_daily_var
@@ -244,7 +245,21 @@ characters={
 					small="GFX_idea_AST_ben_chifley" #small="GFX_idea_generic_political_advisor_europe_3"
 				}
 			}
-			
+			advisor={
+				slot = political_advisor
+				idea_token = AST_ben_chifley
+				allowed = {
+					original_tag = AST
+					has_dlc = "Together for Victory"
+				}
+				cost = 100.000
+				traits = {
+					smooth_talking_charmer 
+				}
+				available = {
+					has_completed_focus = AST_never_another_gallipoli 
+				}
+			}
 		}	
 	}
 
@@ -306,8 +321,23 @@ characters={
 				AST_motherland_advocate_pa
 			}
 			available = {
-				is_country_leader = no
-				has_completed_focus = AST_in_from_the_cold
+				IF = {
+					limit = {
+						OR = {
+							has_idea = AST_monarchist_intervention_spirit
+							has_completed_focus = AST_for_crown_and_empire
+						}
+					}
+					NOT = {
+						has_completed_focus = AST_for_crown_and_empire
+					}
+					is_country_leader = no
+					has_completed_focus = AST_in_from_the_cold
+				}
+				ELSE = {
+					is_country_leader = no
+					has_completed_focus = AST_in_from_the_cold
+				}
 			}
 		}
 	}
@@ -401,7 +431,7 @@ characters={
 		}		
 	}
 
-	AST_eric_campbell={ #BASEGAME ONLY
+	AST_eric_campbell={
 		name=AST_eric_campbell
 		portraits={
 			civilian={
@@ -683,7 +713,7 @@ characters={
 					has_completed_focus = AST_second_australian_imperial_force
 				}
 
-				traits={ infantry_leader expeditionary_leader_trait }
+				traits={ infantry_leader adaptable expeditionary_leader_trait }
 				skill=3
 				attack_skill=3
 				defense_skill=2
@@ -809,6 +839,7 @@ characters={
 				slot = high_command
 				cost = 50
 				idea_token = AST_john_northcott
+				ledger = army
 				allowed = {
 					original_tag = AST
 				}
@@ -873,6 +904,7 @@ characters={
 			slot = high_command
 			cost = 100
 			idea_token = AST_edward_milford
+			ledger = army
 			allowed = {
 				original_tag = AST
 			}
@@ -1738,7 +1770,19 @@ characters={
 				original_tag = AST
 			}
 			available = {
-				has_completed_focus = AST_australian_command
+				IF = {
+					limit = {
+						OR = {
+							has_idea = AST_monarchist_intervention_spirit
+							has_completed_focus = AST_for_crown_and_empire
+						}
+					}
+					has_completed_focus = AST_the_councils_advice
+					has_country_flag = AST_president_pankhurst_walsh_flag
+				}
+				ELSE = {
+					has_completed_focus = AST_australian_command
+				}
 			}
 			traits = {
 				navy_chief_naval_aviation_2
@@ -1817,6 +1861,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = AST_stanley_goble
+			ledger = air
 			allowed = {
 				original_tag = AST
 			}
@@ -1899,6 +1944,7 @@ characters={
 			advisor={
 				slot = high_command
 				idea_token = AST_charles_burnett
+				ledger = air
 				allowed = {
 					original_tag = AST
 				}
@@ -1935,7 +1981,7 @@ characters={
 					original_tag = AST
 				}
 				traits = {
-					air_air_combat_training_2
+					air_chief_old_guard
 				}
 				cost = 100
 				ai_will_do = {
@@ -1985,7 +2031,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = AST_peter_jeffrey
-			ledger = army
+			ledger = air
 			allowed = {
 				original_tag = AST
 			}
@@ -2355,6 +2401,7 @@ characters={
 			traits  = {
 				AST_tax_reformer
 			}
+			always_show_on_actions_tooltip = yes
 			on_add = {
                	add_to_variable = {
                		var = AST_alp_votes_daily_var
@@ -2848,7 +2895,40 @@ characters={
 					small="GFX_idea_AST_lance_sharkey" #small="GFX_idea_generic_communist_revolutionary_western_european_2d"
 				}
 			}
-				
+			advisor={
+				slot = political_advisor
+				idea_token = AST_lance_sharkey
+				allowed = {
+					original_tag = AST
+				}
+				available = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+						}
+						has_completed_focus = AST_empower_the_workers 
+					}
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+						}
+						NOT = {
+							has_autonomy_state = autonomy_supervised_state
+						}
+					}
+				}
+				traits = {
+					communist_revolutionary 
+				}
+				do_effect = {
+					NOT = {
+						has_government = communism 
+					}
+				}
+				ai_will_do = {
+					factor = 0.000
+				}
+			}	
 		}	
 	}
 
@@ -2865,8 +2945,21 @@ characters={
 			allowed = {
 				original_tag = AST
 			}
-			available = { 
-				always = no
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = AST_support_the_centre_party 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
 			}
 			traits = {
 				fascist_demagogue 
@@ -2901,7 +2994,7 @@ characters={
 						has_dlc = "Together for Victory"
 					}
 					or = {
-						#has_completed_focus = AST_protect_the_homeland 
+						has_completed_focus = AST_protect_the_homeland 
 						has_completed_focus = AST_support_the_policy_of_appeasement 
 					}
 				}

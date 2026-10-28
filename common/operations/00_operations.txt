@@ -36,7 +36,7 @@ operation_rescue_operative = { ### 0 1/35
 	equipment = {
 		
 	}
-	risk_chance = 0
+	risk_chance = 0.1
 	experience = 2
 	cost_multiplier = 0 # we dont scale in cost for rescues
 
@@ -238,8 +238,8 @@ operation_infiltrate_civilian = { ### 1 1/35
 	awarded_tokens = {
 		token_civilian
 	}
-	risk_chance = 0
-	outcome_extra_chance = 1.0
+	risk_chance = 0.1
+	outcome_extra_chance = 0.25
 	risk_modifiers = { operation_infiltrate_risk operation_risk }
 	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
 	cost_modifiers = { operation_infiltrate_cost operation_cost }
@@ -253,7 +253,20 @@ operation_infiltrate_civilian = { ### 1 1/35
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
 		random_list = {
-			100 = {
+			33 = {
+				ROOT = {
+					add_operation_token = {
+						tag = FROM
+						token = token_civilian
+					}
+					add_political_power = 25
+					add_intel = {
+						target = FROM
+						civilian_intel = 10
+					}
+				}
+			}
+			67 = {
 				ROOT = {
 					add_operation_token = {
 						tag = FROM
@@ -494,8 +507,8 @@ operation_capture_cipher = { ### 3 1/55
 	equipment = {
 		
 	}
-	risk_chance = 0
-	outcome_extra_chance = 1.0
+	risk_chance = 0.2
+	outcome_extra_chance = 0.25
 	outcome_execute = {
 		ROOT = {
 			add_decryption = {
@@ -506,7 +519,41 @@ operation_capture_cipher = { ### 3 1/55
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
 		random_list = {
-			100 = {
+			33 = {
+				ROOT = {
+					add_decryption = {
+						target = FROM
+						ratio = 0.5
+					}
+					random_list = {
+						25 = {
+							add_intel = {
+								target = FROM
+								civilian_intel = 10
+							}
+						}
+						25 = {
+							add_intel = {
+								target = FROM
+								army_intel = 10
+							}
+						}
+						25 = {
+							add_intel = {
+								target = FROM
+								navy_intel = 10
+							}
+						}
+						25 = {
+							add_intel = {
+								target = FROM
+								airforce_intel = 10
+							}
+						}
+					}
+				}
+			}
+			67 = {
 				ROOT = {
 					add_decryption = {
 						target = FROM
@@ -624,9 +671,9 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 		token_army
 	}
 
-	risk_chance = 0
+	risk_chance = 0.1
 	risk_modifiers = { operation_infiltrate_risk operation_risk }
-	outcome_extra_chance = 1.0
+	outcome_extra_chance = 0.25
 	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
 	cost_modifiers = { operation_infiltrate_cost operation_cost }
 	outcome_execute = {
@@ -639,7 +686,20 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
 		random_list = {
-			100 = {
+			33 = {
+				ROOT = {
+					add_operation_token = {
+						tag = FROM
+						token = token_army
+					}
+					army_experience = 10
+					add_intel = {
+						target = FROM
+						army_intel = 10
+					}
+				}
+			}
+			67 = {
 				ROOT = {
 					add_operation_token = {
 						tag = FROM
@@ -769,8 +829,8 @@ operation_infiltrate_armed_forces_navy = { ### 5 1/55
 	awarded_tokens = {
 		token_navy
 	}
-	risk_chance = 0
-	outcome_extra_chance = 1.0
+	risk_chance = 0.1
+	outcome_extra_chance = 0.25
 	risk_modifiers = { operation_infiltrate_risk operation_risk }
 	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
 	cost_modifiers = { operation_infiltrate_cost operation_cost }
@@ -784,7 +844,20 @@ operation_infiltrate_armed_forces_navy = { ### 5 1/55
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
 		random_list = {
-			100 = {
+			33 = {
+				ROOT = {
+					add_operation_token = {
+						tag = FROM
+						token = token_navy
+					}
+					navy_experience = 10
+					add_intel = {
+						target = FROM
+						navy_intel = 10
+					}
+				}
+			}
+			67 = {
 				ROOT = {
 					add_operation_token = {
 						tag = FROM
@@ -904,8 +977,8 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 	awarded_tokens = {
 		token_airforce
 	}
-	risk_chance = 0
-	outcome_extra_chance = 1.0
+	risk_chance = 0.1
+	outcome_extra_chance = 0.25
 	risk_modifiers = { operation_infiltrate_risk operation_risk }
 	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
 	cost_modifiers = { operation_infiltrate_cost operation_cost }
@@ -920,7 +993,20 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 
 	outcome_extra_execute = { # SCOPE_OPERATION
 		random_list = {
-			100 = {
+			33 = {
+				ROOT = {
+					add_operation_token = {
+						tag = FROM
+						token = token_airforce
+					}
+					air_experience = 10
+					add_intel = {
+						target = FROM
+						airforce_intel = 10
+					}
+				}
+			}
+			67 = {
 				ROOT = {
 					add_operation_token = {
 						tag = FROM
@@ -1015,7 +1101,6 @@ operation_coup_government = { ### 7 1/70
 	is_staged_coup = yes
 
 	visible = {
-		always = no
 		network_strength = {
 			target = FROM
 			value > 35
@@ -1277,7 +1362,6 @@ operation_boost_resistance = { ### 8 2/40
 	operatives = 2
 
 	visible = {
-		always = no
 		network_national_coverage = {
 			target = FROM
 			value > 0
@@ -1310,12 +1394,24 @@ operation_boost_resistance = { ### 8 2/40
 	outcome_modifiers = { boost_resistance_factor }
 	outcome_execute = {
 		FROM.FROM = {
-			
+			if = {
+				limit = {
+					ROOT = {
+						has_completed_focus = SWI_export_saboteurs
+					}
+				}
+				add_resistance_target = {
+					amount = 25
+					tooltip = intelligency_agency_resistance_boost_tt
+				}
+				add_compliance = -15
+			}
+			else = {
 				add_resistance_target = {
 					amount = 10
 					tooltip = intelligency_agency_resistance_boost_tt
 				}
-			
+			}
 			subtract_from_variable = { boost_resistance_chance = 10 }
 		}
 	}
@@ -1347,9 +1443,23 @@ operation_boost_resistance = { ### 8 2/40
 
 	outcome_potential = {
 		FROM.FROM = {
-			add_resistance_target = {
-				amount = 10
-				tooltip = intelligency_agency_resistance_boost_tt
+			if = {
+				limit = {
+					ROOT = {
+						has_completed_focus = SWI_export_saboteurs
+					}
+				}
+				add_resistance_target = {
+					amount = 25
+					tooltip = intelligency_agency_resistance_boost_tt
+				}
+				add_compliance = -15
+			}
+			else = {
+				add_resistance_target = {
+					amount = 10
+					tooltip = intelligency_agency_resistance_boost_tt
+				}
 			}
 		}
 	}
@@ -1407,7 +1517,6 @@ operation_make_resistance_contacts = { ### 9 2/40
 	operatives = 2
 
 	visible = {
-		always = no
 		network_national_coverage = {
 			target = FROM
 			value > 0
@@ -1615,14 +1724,14 @@ operation_collaboration_government = { ### 10 2/55
 			value < 1.0
 		}
 	}
-	risk_chance = 0
+	risk_chance = 0.1
 	experience = 1.5
 	outcome_extra_chance = 0.33
 	outcome_execute = { # SCOPE_OPERATION
 		ROOT = {
 			add_collaboration = {
 				target = FROM
-				value = 0.35
+				value = 0.3
 			}
 		}
 	}
@@ -1630,7 +1739,7 @@ operation_collaboration_government = { ### 10 2/55
 		ROOT = {
 			add_collaboration = {
 				target = FROM
-				value = 0.35
+				value = 0.45
 			}
 		}
 	}
@@ -1639,7 +1748,7 @@ operation_collaboration_government = { ### 10 2/55
 		ROOT = {
 			add_collaboration = {
 				target = FROM
-				value = 0.35
+				value = 0.3
 			}
 		}
 	}
@@ -1704,7 +1813,6 @@ operation_coordinated_strike = { ### 11 2/70
 	operatives = 2
 
 	visible = {
-		always = no
 		network_strength = {
 			target = FROM
 			value > 35
@@ -1815,8 +1923,7 @@ operation_steal_tech_civilian = { ### 12 3/35
 	operatives = 3
 	cost_multiplier = 0.05
 
-	visible = { #civi steal
-		always = no
+	visible = {
 		num_of_operatives > 0
 		network_national_coverage = {
 			target = FROM
@@ -1991,7 +2098,6 @@ operation_targeted_sabotage_industry = { ### 13 3/35
 	operatives = 3
 
 	visible = {
-		always = no
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM
@@ -2126,7 +2232,6 @@ operation_targeted_sabotage_infrastructure = { ### 14 3/35
 	operatives = 3
 
 	visible = {
-		always = no
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM
@@ -2258,7 +2363,6 @@ operation_targeted_sabotage_resources = { ### 15 3/35
 	operatives = 3
 
 	visible = {
-		always = no
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM
@@ -2389,8 +2493,7 @@ operation_steal_tech_army = { ### 16 3/55
 	operatives = 3
 	cost_multiplier = 0.05
 
-	visible = { #army steal
-		always = no
+	visible = {
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM
@@ -2479,7 +2582,7 @@ operation_steal_tech_army = { ### 16 3/55
 						}
 					}
 				}
-
+				
 				if = {
 					limit = {
 						NOT = {
@@ -2669,8 +2772,7 @@ operation_steal_tech_navy = { ### 17 3/55
 	operatives = 3
 	cost_multiplier = 0.05
 
-	visible = { #navy steal
-		always = no
+	visible = {
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM
@@ -2906,8 +3008,7 @@ operation_steal_tech_airforce = { ### 18 3/55
 	operatives = 3
 	cost_multiplier = 0.05
 
-	visible = { #air steal 
-		always = no
+	visible = {
 		num_of_operatives > 1
 		network_national_coverage = {
 			target = FROM

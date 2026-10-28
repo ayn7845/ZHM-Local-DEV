@@ -2,54 +2,26 @@ characters = {
 
 	# Hirohito
 	JAP_emperor_hirohito = {
-		instance = {
-			allowed = {
-				has_dlc = "No Compromise, No Surrender"
+
+		name = JAP_emperor_hirohito
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_JAP_emperor_hirohito
+				small = GFX_portrait_JAP_emperor_hirohito_civilian_small
 			}
-
-			name = JAP_emperor_hirohito
-
-			portraits = {
-				civilian = {
-					large = GFX_portrait_JAP_emperor_hirohito
-					small = GFX_portrait_JAP_emperor_hirohito_civilian_small
-				}
-				army = {
-					small = GFX_portrait_JAP_emperor_hirohito_military_small
-				}
+			army = {
+				small = GFX_portrait_JAP_emperor_hirohito_military_small
 			}
-
-			#country_leader = {
-			#	ideology = emperor_fascism # was fascism_ideology
-			#	traits = { warrior_code emperor_showa imperial_sanction }
-			#	expire = "1989.1.1.1"
-			#	id = 700
-			#}
-
 		}
-		instance = {
-			allowed = {
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-			}
 
-			name = JAP_emperor_hirohito
+		#country_leader = {
+		#	ideology = emperor_fascism # was fascism_ideology
+		#	traits = { warrior_code emperor_showa imperial_sanction }
+		#	expire = "1989.1.1.1"
+		#	id = 700
+		#}
 
-			portraits = {
-				civilian = {
-					large = GFX_portrait_JAP_emperor_hirohito
-				}
-			}
-
-			country_leader = {
-				ideology = emperor_fascism # was fascism_ideology
-				traits = { warrior_code emperor_showa imperial_sanction }
-				expire = "1989.1.1.1"
-				id = 700
-			}
-
-		}
 	}
 
 	# Empress Nagako
@@ -781,10 +753,10 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { brilliant_strategist politically_connected trickster trait_engineer infantry_leader organizer trickster skilled_staffer }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 6
+			traits = { brilliant_strategist politically_connected trickster trait_engineer }
+			skill = 5
+			attack_skill = 4
+			defense_skill = 5
 			planning_skill = 3
 			logistics_skill = 4
 			legacy_id = 0
@@ -942,12 +914,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { career_officer infantry_officer trickster infantry_leader organizer skilled_staffer }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 5
-			planning_skill = 5
-			logistics_skill = 5
+			traits = { career_officer infantry_officer trickster }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
 			legacy_id = 0
 		}
 
@@ -1012,12 +984,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { brilliant_strategist skilled_staffer infantry_officer infantry_leader organizer naval_invader commando  trickster trait_engineer  jungle_rat }
-			skill = 6
-			attack_skill = 4
-			defense_skill = 5
-			planning_skill = 4
-			logistics_skill = 5
+			traits = { brilliant_strategist infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 			legacy_id = 0
 		}
 
@@ -1080,12 +1052,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { inflexible_strategist trait_reckless JAP_samurai_lineage organizer infantry_leader skilled_staffer }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 4
-			planning_skill = 5
-			logistics_skill = 4
+			traits = { inflexible_strategist trait_reckless JAP_samurai_lineage }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
 			legacy_id = 0
 		}
 
@@ -1631,12 +1603,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { career_officer politically_connected fortress_buster organizer infantry_leader skilled_staffer }
-			skill = 6
-			attack_skill = 5
-			defense_skill = 5
-			planning_skill = 5
-			logistics_skill = 5
+			traits = { career_officer politically_connected fortress_buster }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
 			legacy_id = 0
 		}
 
@@ -1762,12 +1734,12 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { career_officer infantry_officer commando trait_engineer infantry_leader naval_invader skilled_staffer hill_fighter  }
-			skill = 7
-			attack_skill = 5
-			defense_skill = 5
-			planning_skill = 5
-			logistics_skill = 5
+			traits = { career_officer infantry_officer commando }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 3
 			legacy_id = 0
 		}
 
@@ -1887,7 +1859,9 @@ characters = {
 			coordination_skill = 6
 			legacy_id = 0
 			visible = {
-
+				NOT = {
+					has_country_flag = JAP_yamamoto_shot_down_flag
+				}
 			}
 		}
 
@@ -6007,7 +5981,7 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { JAP_communist_sympathizer  trait_cautious }
+			traits = { JAP_communist_sympathizer trait_mountaineer trait_cautious }
 			skill = 2
 			attack_skill = 2
 			defense_skill = 2

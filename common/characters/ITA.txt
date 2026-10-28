@@ -341,11 +341,11 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { armor_officer war_hero infantry_leader organizer commando trickster }
-			skill = 6
+			traits = { armor_officer war_hero }
+			skill = 4
 			attack_skill = 4
-			defense_skill = 4
-			planning_skill = 4
+			defense_skill = 3
+			planning_skill = 2
 			logistics_skill = 4
 			legacy_id = 0
 		}
@@ -396,12 +396,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { inflexible_strategist career_officer organizer cavalry_leader trait_engineer infantry_leader commando skilled_staffer }
-			skill = 6
-			attack_skill = 6
-			defense_skill = 6
-			planning_skill = 5
-			logistics_skill = 4
+			traits = { inflexible_strategist career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 			legacy_id = 0
 		}
 	}
@@ -416,12 +416,12 @@ characters = {
 		}
 
 		corps_commander = {
-			traits = { career_officer trait_cautious infantry_leader commando trickster }
-			skill = 5
-			attack_skill = 4
-			defense_skill = 4
-			planning_skill = 4
-			logistics_skill = 4
+			traits = { career_officer trait_cautious }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 			legacy_id = 0
 			visible = { has_government = fascism }
 		}
@@ -437,12 +437,12 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { infantry_officer career_officer infantry_leader commando trickster }
-			skill = 5
-			attack_skill = 4
-			defense_skill = 4
-			planning_skill = 4
-			logistics_skill = 4
+			traits = { infantry_officer career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 			legacy_id = 0
 			visible = { has_government = fascism }
 		}
@@ -681,12 +681,12 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { infantry_officer infantry_leader commando trickster }
-			skill = 5
-			attack_skill = 4
-			defense_skill = 4
-			planning_skill = 4
-			logistics_skill = 4
+			traits = { infantry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 			legacy_id = 0
 		}
 	}
@@ -891,7 +891,7 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { ascari_officer trickster guerilla_fighter reckless desert_fox } # Ascari
+			traits = { ascari_officer trickster guerilla_fighter trait_reckless desert_fox } # Ascari
 			skill = 2
 			attack_skill = 2
 			defense_skill = 2
@@ -3198,7 +3198,7 @@ characters = {
 							}
 						}
 					}
-					#SWE_refuge_for_revolutionaries_trigger = yes
+					SWE_refuge_for_revolutionaries_trigger = yes
 				}
 			}
 			
@@ -3336,7 +3336,7 @@ characters = {
 							}
 						}
 					}
-					#SWE_refuge_for_revolutionaries_trigger = yes
+					SWE_refuge_for_revolutionaries_trigger = yes
 				}
 			}
 			traits = {
@@ -3403,7 +3403,7 @@ characters = {
 							has_completed_focus = ITA_bring_back_exiled_intellectuals
 						}
 					}
-					#SWE_refuge_for_revolutionaries_trigger = yes
+					SWE_refuge_for_revolutionaries_trigger = yes
 				}
 			}
 			traits = {
@@ -3541,6 +3541,7 @@ characters = {
 					OR = {
 						has_completed_focus = ITA_meritocracy
 						has_completed_focus = ITA_bring_back_exiled_intellectuals
+						has_completed_focus = ITA_new_forms_of_weaponry
 					}
 				}
 			}

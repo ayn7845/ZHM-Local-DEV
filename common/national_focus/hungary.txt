@@ -183,9 +183,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 60
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 			has_government = neutrality
 		}
@@ -772,9 +770,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 20
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 
 		}
@@ -915,11 +911,48 @@ focus_tree = {
 		}
 
 		bypass = {
-			if = { 
-
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				OR = {
+					NOT = { has_idea = HUN_treaty_of_triannon_aat }
+					AND = {
+						ROM = {
+							OR = {
+								exists = no
+								is_puppet = yes
+							}
+						}
+						FRA = {
+							OR = {
+								exists = no
+								is_puppet = yes
+								NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
+							}
+						}
+					}
+				}
 			}
-			else = { 
-
+			else = {
+				OR = {
+					NOT = { has_idea = HUN_treaty_of_triannon }
+					AND = {
+						ROM = {
+							OR = {
+								exists = no
+								is_puppet = yes
+							}
+						}
+						FRA = {
+							OR = {
+								exists = no
+								is_puppet = yes
+								NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -928,11 +961,24 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			
+			if = {
+				limit = {
+					FRA = { 
+						exists = yes
+						is_subject = no
+						has_completed_focus = FRA_strengthen_the_little_entente 
+					}
+				}
+				FRA = { country_event = { id = DOD_hungary.30 } }
+			}
 			if = {
 				limit = {
 					country_exists = ROM
-				
+					OR = {
+						FRA = { NOT = { has_completed_focus = FRA_strengthen_the_little_entente } }
+						FRA = { exists = no }
+						FRA = { is_subject = yes }
+					}
 				}
 				ROM = { country_event = { id = DOD_hungary.30 } }
 			}
@@ -1331,10 +1377,27 @@ focus_tree = {
 
 		completion_reward = {
 			add_threat = 1
-		
-			 #Romania gets the event if France not engaged in Balkans
+			if = {
+				limit = { 
+					FRA = { 
+						has_completed_focus = FRA_strengthen_the_little_entente 
+						exists = yes
+						is_subject = no
+					} 
+
+				}
+				FRA = { country_event = { id = DOD_hungary.40 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						NOT = { FRA = { has_completed_focus = FRA_strengthen_the_little_entente } } 
+						FRA = { exists = no }
+						FRA = { is_subject = yes }
+					}
+				} #Romania gets the event if France not engaged in Balkans
 				ROM = { country_event = { id = DOD_hungary.40 } }	 
-			
+			}
 			
 			#make Horthy or King dude leader. depending on focus picked earlier
 			
@@ -1426,9 +1489,7 @@ focus_tree = {
                 is_historical_focus_on = yes
             }
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 			NOT = { has_war_with = ITA }
 			NOT = { has_war_with = AUS }
@@ -1903,6 +1964,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_reaffirm_territorial_claims
 		will_lead_to_war_with = CZE
+		will_lead_to_war_with = SLO
 		cost = 10
 
 		ai_will_do = {
@@ -1918,7 +1980,13 @@ focus_tree = {
 				}
 				strength_ratio = { tag = CZE ratio > 0.75 }
 			}
-			
+			if = {
+				limit = { 
+					country_exists = SLO 
+					664 = { is_owned_by = SLO }
+				}
+				strength_ratio = { tag = SLO ratio > 0.75 }
+			}
 				
 			
 			has_army_manpower = { size > 120000 }
@@ -1934,7 +2002,7 @@ focus_tree = {
 				}
 				AND = {
 					NOT = { CZE = { owns_state = 664 } }
-					
+					NOT = { SLO = { owns_state = 664 } }
 				}
 			}
 		}
@@ -1953,7 +2021,10 @@ focus_tree = {
 						exists = yes 
 						OR = {
 							owns_state = 664
-							
+							SLO = {
+								is_subject_of = PREV
+								owns_state = 664
+							}
 						}
 					}
 				}
@@ -1972,7 +2043,15 @@ focus_tree = {
 					}
 				}
 			}
-			
+			else_if = {
+				limit = {
+					SLO = { 
+						exists = yes 
+						owns_state = 664
+					}
+				}
+				SLO = { country_event = DOD_hungary.80 }
+			}
 			else_if = {
 				limit = {
 					664 = { is_owned_by = POL } #exchanged Danzig for Slovakia
@@ -2089,6 +2168,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = HUN_reaffirm_territorial_claims
+		will_lead_to_war_with = SLO
 		cost = 10
 
 		ai_will_do = {
@@ -2097,7 +2177,10 @@ focus_tree = {
 
 		available = {
 			OR = {
-				
+				SLO = {
+					exists = yes
+					NOT = { is_puppet_of = HUN }
+				}
 				any_other_country = {
 					owns_state = 70
 					owns_state = 71
@@ -2108,13 +2191,19 @@ focus_tree = {
 					}
 				}
 			}
-			
+			if = {
+				limit = { country_exists = SLO }
+				strength_ratio = { tag = SLO ratio > 0.75 }
+				NOT = { has_war_with = SLO }
+			}
 			has_army_manpower = { size > 175000 }
 		}
 
 		bypass = {
 			OR = {
-				
+				SLO = {
+					is_subject_of = HUN
+				}
 				AND = {
 					owns_state = 70
 					owns_state = 71
@@ -2141,7 +2230,7 @@ focus_tree = {
 							}
 						}
 					}
-					
+					SLO = { exists = no } 
 					any_other_country = {
 						NOT = {
 							owns_state = 70
@@ -2157,7 +2246,30 @@ focus_tree = {
 					}
 				}
 			}
-			
+			if = {
+				limit = {
+					SLO = {
+						exists = yes
+						is_puppet = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+				SLO = { country_event = { id = DOD_hungary.107 hours = 3 } }
+			}
+			if = {
+				limit = {
+					SLO = {
+						exists = yes
+						is_puppet = yes
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+				SLO = { OVERLORD = { country_event = { id = DOD_hungary.107 hours = 4 } } }
+			}
 			hidden_effect = {
 				news_event = { id = news.309 hours = 8 }
 			}
@@ -2230,9 +2342,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 30
 		}
-		allow_branch = { 
-			always = no
-		}
+
 		available = {
 
 		}
@@ -3446,6 +3556,7 @@ focus_tree = {
 					free_building_slots = {
 						building = synthetic_refinery
 						size > 0
+						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -3603,10 +3714,47 @@ focus_tree = {
 						NOT = { has_idea = HUN_treaty_of_triannon_2 }
 					}
 					has_idea = HUN_treaty_of_triannon_3
-					
+					AND = {
+						ROM = {
+							OR = {
+								exists = no
+								is_puppet = yes
+							}
+						}
+						FRA = {
+							OR = {
+								exists = no
+								is_puppet = yes
+								NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
+							}
+						}
+					}
 				}
 			}
-			
+			else = {		
+				OR = {
+					AND = {
+						NOT = { has_idea = HUN_treaty_of_triannon }
+						NOT = { has_idea = HUN_treaty_of_triannon_2 }
+					}
+					has_idea = HUN_treaty_of_triannon_3
+					AND = {
+						ROM = {
+							OR = {
+								exists = no
+								is_puppet = yes
+							}
+						}
+						FRA = {
+							OR = {
+								exists = no
+								is_puppet = yes
+								NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
+							}
+						}
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -3614,10 +3762,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			
-			
+			if = {
+				limit = {
+					FRA = { has_completed_focus = FRA_strengthen_the_little_entente }
+				}
+				FRA = { country_event = DOD_hungary.140 }
+			}
+			if = {
+				limit = {
+					NOT = { FRA = { has_completed_focus = FRA_strengthen_the_little_entente } }
+				}
 				ROM = { country_event = DOD_hungary.140 }
-			
+			}
 
 			custom_effect_tooltip = HUN_bled_agreement_custom_effect_tooltip
 		}

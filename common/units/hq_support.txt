@@ -36,7 +36,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -45,6 +45,10 @@ sub_units = {
 
 		need = {
 			infantry_equipment = 20
+		}
+
+		essential = {
+			infantry_equipment
 		}
 
 		division_3d_model_priority = 99999
@@ -91,7 +95,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -106,6 +110,11 @@ sub_units = {
 		need = {
 			infantry_equipment = 20
 			support_equipment = 10
+		}
+
+		essential = {
+			infantry_equipment
+			support_equipment
 		}
 	}
 
@@ -151,7 +160,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -167,6 +176,11 @@ sub_units = {
 		need = {
 			infantry_equipment = 20
 			support_equipment = 10
+		}
+
+		essential = {
+			infantry_equipment
+			support_equipment
 		}
 	}
 
@@ -208,7 +222,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -219,6 +233,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 	}
 
@@ -260,7 +278,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -272,6 +290,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 	}
 
@@ -316,7 +338,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -328,6 +350,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 	}
 
@@ -371,7 +397,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -382,6 +408,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 	}
 
@@ -426,7 +456,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -435,6 +465,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 	}
 
@@ -477,7 +511,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -486,6 +520,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 
 	}
@@ -529,7 +567,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -538,6 +576,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 
 	}
@@ -580,7 +622,7 @@ sub_units = {
 		max_organisation = 30
 		default_morale = 0.05
 		manpower = 200
-		deployment_cost = 999 #1
+		deployment_cost = 1
 		training_time = 120
 
 		#Misc Abilities
@@ -589,6 +631,10 @@ sub_units = {
 
 		need = {
 			support_equipment = 10
+		}
+
+		essential = {
+			support_equipment
 		}
 
 	}
@@ -627,7 +673,7 @@ sub_units = {
 		max_organisation = 60
 		default_morale = 0.3
 		manpower = 600
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		training_time = 90
 
 		#Misc Abilities
@@ -670,7 +716,7 @@ sub_units = {
 		max_organisation = 60
 		default_morale = 0.3
 		manpower = 600
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		training_time = 90
 
 		transport = motorized_equipment
@@ -678,6 +724,7 @@ sub_units = {
 		#Misc Abilities
 		weight = 0.75
 		suppression = 2.2
+		supply_consumption = 0.08
 
 		need = {
 			infantry_equipment = 60
@@ -708,6 +755,81 @@ sub_units = {
 		}
 		amphibious = {
 			attack = -0.2
+		}
+	}
+
+	hq_armored_car = {
+		abbreviation = "HCAR"
+		sprite = armored_car
+		map_icon_category = armored
+		priority = 0
+		ai_priority = 0
+		active = yes
+
+		type = {
+			motorized
+		}
+
+		group = mobile
+
+		categories = {
+			category_front_line
+			category_army
+			category_vehicle_infantry
+			category_mobile_and_mobile_combat_sup
+		}
+
+		combat_width = 2
+		allow_in_army_hq = yes
+		allow_in_non_army_hq = no
+		required_dlc = { "Thunder at Our Gates" "La Resistance" }
+
+		need = {
+			infantry_equipment = 50
+			armored_car_equipment = 30
+		}
+
+		#Size Definitions
+		max_strength = 15
+		max_organisation = 60
+		default_morale = 0.3
+		manpower = 600
+		deployment_cost = 3
+		training_time = 90
+
+		#Misc Abilities
+		weight = 0.75
+		supply_consumption = 0.14
+		suppression = 2.5
+
+		forest = {
+			attack = -0.2
+			movement = -0.4
+		}
+		mountain = {
+			attack = -0.1
+			movement = -0.1
+		}
+		jungle = {
+			attack = -0.3
+			movement = -0.5
+		}
+		marsh = {
+			attack = -0.1
+			movement = -0.2
+		}
+		desert = {
+			movement = 0.15
+		}
+		urban = {
+			attack = -0.3
+		}
+		river = {
+			attack = -0.2
+			movement = -0.2
+		}
+		amphibious = {
+			attack = -0.4
 		}
 	}
 
@@ -745,7 +867,7 @@ sub_units = {
 		max_organisation = 70
 		default_morale = 0.4
 		manpower = 600
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		training_time = 150
 
 		#Misc Abilities
@@ -783,7 +905,7 @@ sub_units = {
 		combat_width = 2
 		allow_in_army_hq = yes
 		allow_in_non_army_hq = no
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		required_dlc = { "Thunder at Our Gates" }
 
 		need = {
@@ -865,7 +987,7 @@ sub_units = {
 		max_organisation = 35
 		default_morale = 0.1
 		manpower = 600
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		training_time = 180
 		max_strength = 10
 		weight = 1
@@ -928,7 +1050,7 @@ sub_units = {
 
 		allow_in_army_hq = yes
 		allow_in_non_army_hq = no
-		deployment_cost = 999 #3
+		deployment_cost = 3
 		required_dlc = { "Thunder at Our Gates" }
 
 		forest = {
@@ -976,7 +1098,7 @@ sub_units = {
 		default_morale = 0.1
 		max_strength = 10
 		weight = 1.5
-		
+		training_time = 180
 		supply_consumption = 0.34
 
 		breakthrough = 0.15

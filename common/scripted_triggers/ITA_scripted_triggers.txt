@@ -55,7 +55,9 @@ ETH_is_in_exile = { #Add any more stuff needed here
 
 ITA_is_italian_colony = { #State scope
 	OR = {
-	
+		is_core_of = ERI
+		is_core_of = LBA
+		is_core_of = SOM
 		is_core_of = ETH
 	}
 }
@@ -140,14 +142,28 @@ ITA_is_protestant_or_orthodox_country_in_europe_for_pope = {
 		original_tag = FIN
 		original_tag = GER
 		original_tag = HOL
-	
+		original_tag = LAT
+		original_tag = LIT
+		#ORTHODOX / MUSLIM
+		original_tag = EST
 		original_tag = SOV
 		original_tag = ALB
 		original_tag = GRE
 		original_tag = ROM
 		original_tag = BUL
 		original_tag = YUG
-		
+		original_tag = SER
+		original_tag = MNT
+		original_tag = KOS
+		original_tag = BOS
+		original_tag = HRZ
+		original_tag = MAC
+		original_tag = TRA
+		original_tag = MOL
+		original_tag = UKR
+		original_tag = BLR
+		original_tag = CRI
+		original_tag = KAR
 	}
 }
 
@@ -231,10 +247,14 @@ ITA_is_valid_free_states_of_europe_target = {
 		original_tag = FRA
 		original_tag = SPR
 		original_tag = POR
-		
+		original_tag = SWI
 		original_tag = AUS
 		original_tag = YUG
-	
+		original_tag = SER
+		original_tag = CRO
+		original_tag = MNT
+		original_tag = BOS
+		original_tag = KOS
 		original_tag = GRE
 		original_tag = ALB
 		original_tag = TUR
@@ -245,7 +265,10 @@ ITA_is_valid_free_states_of_europe_target = {
 				original_tag = ROM
 				original_tag = HUN
 				original_tag = CZE
-			
+				original_tag = SLO
+				original_tag = SLV
+				original_tag = MAC
+				original_tag = TRA
 				original_tag = LUX
 				original_tag = BEL
 				original_tag = HOL

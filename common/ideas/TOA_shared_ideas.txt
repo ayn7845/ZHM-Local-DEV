@@ -172,7 +172,13 @@ ideas = {
                     			is_subject_of = ROOT
 							}
 						}
-						
+						CHL = {
+							OR = {
+								has_capitulated = yes
+                    			exists = no
+                    			is_subject_of = ROOT
+							}
+						}
 					}
 				}
 				IF = {
@@ -187,11 +193,35 @@ ideas = {
                     			is_subject_of = ROOT
 							}
 						}
-						
+						CHL = {
+							OR = {
+								has_capitulated = yes
+                    			exists = no
+                    			is_subject_of = ROOT
+							}
+						}
 					}
 				}
-				IF = { 
-					
+				IF = {
+					limit = {
+						tag = CHL
+					}
+					AND = {
+						BRA = {
+							OR = {
+								has_capitulated = yes
+                    			exists = no
+                    			is_subject_of = ROOT
+							}
+						}
+						ARG = {
+							OR = {
+								has_capitulated = yes
+                    			exists = no
+                    			is_subject_of = ROOT
+							}
+						}
+					}
 				}
 			}
 

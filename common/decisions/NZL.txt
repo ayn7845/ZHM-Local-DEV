@@ -14,11 +14,6 @@ economy_decisions = {
 			has_completed_focus = NZL_electrification
 		}
 		
-		# HMM: prioritize this so it's done before we get annexed
-		ai_will_do = {
-			base = 100000
-		}
-		
 		available = {
 			284 = {
 				is_owned_and_controlled_by = ROOT
@@ -78,11 +73,6 @@ economy_decisions = {
 		
 		visible = {
 			has_completed_focus = NZL_electrification
-		}
-		
-		# HMM: prioritize this so it's done before we get annexed
-		ai_will_do = {
-			base = 100000
 		}
 		
 		available = {

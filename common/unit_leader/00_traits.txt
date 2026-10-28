@@ -793,13 +793,13 @@ leader_traits = {
 			FROM = {
 				OR = {
 					original_tag = ITA
-				
+					original_tag = SWI
 					original_tag = SWE
 					original_tag = AUS
 					original_tag = BRA
 					original_tag = GER
 					original_tag = CHI # Intentionally not below 
-					
+					original_tag = PRC
 				}
 			}
 		}
@@ -813,12 +813,12 @@ leader_traits = {
 			owner = {
 				OR = {
 					original_tag = ITA
-					
+					original_tag = SWI
 					original_tag = SWE
 					original_tag = AUS
 					original_tag = BRA
 					original_tag = GER
-					 
+					original_tag = PRC 
 				}
 				NOT = {
 					OR = {
@@ -842,7 +842,7 @@ leader_traits = {
 				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
 					OR = {
 						original_tag = ITA
-						
+						original_tag = SWI
 					}
 				}
 			}
@@ -1319,9 +1319,6 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
-		}
-		allowed = {
-			always = no
 		}
 		
 		trait_type = assignable_terrain_trait
@@ -1904,11 +1901,7 @@ leader_traits = {
 			cas_damage_reduction = 0.5
 			air_superiority_bonus_in_combat = -0.5
 		}
-		allowed = { 
-			NOT = { 
-				FROM = { original_tag = ITA }
-			}
-		}
+		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3333,20 +3326,20 @@ leader_traits = {
 		type = all
 		trait_type = status_trait
 		
-		#non_shared_modifier = {
-		#	skill_bonus_factor = -0.5
-		#	cannot_use_abilities = 1
-		#}
+		non_shared_modifier = {
+			skill_bonus_factor = -0.5
+			cannot_use_abilities = 1
+		}
 	}
 
 	wounded = { 
 		type = all
 		trait_type = status_trait
 		
-		#non_shared_modifier = {
-		#	skill_bonus_factor = -0.5
-		#	cannot_use_abilities = 1
-		#}
+		non_shared_modifier = {
+			skill_bonus_factor = -0.5
+			cannot_use_abilities = 1
+		}
 	}
 
 	reassigned = { 
@@ -3405,10 +3398,10 @@ leader_traits = {
 		type = all
 		trait_type = status_trait
 		
-		#attack_skill = -1
-		#defense_skill = -1
-		#logistics_skill = -1
-		#planning_skill = -1
+		attack_skill = -1
+		defense_skill = -1
+		logistics_skill = -1
+		planning_skill = -1
 	}
 
 	motivated = { 
@@ -3450,10 +3443,10 @@ leader_traits = {
 		}
 		
 		modifier = {
-			#exiled_divisions_attack_factor = 0.1
-			#own_exiled_divisions_attack_factor = 0.05 
-			#exiled_divisions_defense_factor = 0.1
-			#own_exiled_divisions_defense_factor = 0.05			
+			exiled_divisions_attack_factor = 0.1
+			own_exiled_divisions_attack_factor = 0.05 
+			exiled_divisions_defense_factor = 0.1
+			own_exiled_divisions_defense_factor = 0.05			
 		}
 		
 		ai_will_do = {
@@ -3830,7 +3823,10 @@ leader_traits = {
 		}
 		
 		modifier = {
-
+			max_commander_army_size = -18
+			max_army_group_size = -4
+			army_non_core_attack_factor = 0.10
+			army_non_core_defence_factor = 0.10
 		}
 		
 		ai_will_do = {

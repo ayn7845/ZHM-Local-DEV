@@ -180,6 +180,68 @@ GER_democratic_nations_ai_strategies = {
 		value = -200
 	}
 	# Estonia
+	add_ai_strategy = {
+		type = protect
+		id = "EST"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = ignore
+		id = "EST"
+		value = 200
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = "EST"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = alliance
+		id = "EST"
+		value = -200
+	}
+	# Latvia
+	add_ai_strategy = {
+		type = protect
+		id = "LAT"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = ignore
+		id = "LAT"
+		value = 200
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = "LAT"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = alliance
+		id = "LAT"
+		value = -200
+	}
+	# Lithuania
+	add_ai_strategy = {
+		type = protect
+		id = "LIT"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = ignore
+		id = "LIT"
+		value = 200
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = "LIT"
+		value = -200
+	}
+	add_ai_strategy = {
+		type = alliance
+		id = "LIT"
+		value = -200
+	}
 	# Romania
 	add_ai_strategy = {
 		type = protect
@@ -869,11 +931,21 @@ abandon_colony_tag = {
 			}
 			set_cosmetic_tag = RAJ_UK
 		}
-		else_if = { 
-
+		else_if = {
+			limit = {
+				original_tag = MAL
+			}
+			set_cosmetic_tag = MAL_UK
 		}
-		else_if = { 
-
+		else_if = {
+			limit = {
+				original_tag = INS
+				NOT = {
+					has_cosmetic_tag = INS_HOL_FLAG
+					has_cosmetic_tag = INS_UNION
+				}
+			}
+			set_cosmetic_tag = INS_HOL
 		}
 	}
 	else = {
@@ -891,6 +963,10 @@ abandon_colony_tag = {
 					AND = {
 						has_dlc = "Graveyard of Empires" 
 						original_tag = RAJ 
+					}
+					AND = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = INS
 					}
 				} 
 			}
@@ -1201,7 +1277,31 @@ remove_communist_spirits_effect = {
 		limit = { has_idea = comintern_influence }
 		remove_ideas = comintern_influence
 	}
-	
+	if = {
+		limit = { has_idea = pan_slavic_propaganda }
+		remove_ideas = pan_slavic_propaganda
+	}
+	if = {
+		limit = { has_idea = agitated_peasants }
+		remove_ideas = agitated_peasants
+	}
+	if = {
+		limit = { has_idea = armed_communist_militants }
+		remove_ideas = armed_communist_militants
+	}
+	if = {
+		limit = { has_idea = BALTIC_communist_propaganda }
+		remove_ideas = BALTIC_communist_propaganda
+	}
+	if = {
+		limit = { has_idea = BALTIC_communist_militancy }
+		remove_ideas = BALTIC_communist_militancy
+	}
+
+	if = {
+		limit = { has_idea = SWE_foreign_communist_influence }
+		remove_ideas = SWE_foreign_communist_influence
+	}
 }
 
 #Should remove any and all democratic foreign influence
@@ -1736,14 +1836,7 @@ set_add_communist_weight_small = {
 
 leave_the_league_of_nations = {
 	custom_effect_tooltip = leave_the_league_of_nations_tt
-	hidden_effect = { 
-		if = { 
-			limit = { 
-				has_idea = league_of_nations_member_idea
-			}
-		remove_ideas = league_of_nations_member_idea
-		}
-	}
+	hidden_effect = { remove_ideas = league_of_nations_member_idea }
 }
 
 bba_get_fighter_GER_effect = { #creates a fighter design if necessary and exports a number of them to ROOT

@@ -2997,7 +2997,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = {  POL }
+		targets = { EST LAT LIT POL }
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes #Reusable
@@ -3066,7 +3066,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = { POL }
+		targets = { EST LAT LIT POL }
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes #Reusable
@@ -3145,7 +3145,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = { POL }
+		targets = { EST LAT LIT POL }
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes #Reusable
@@ -3228,7 +3228,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = { SWE NOR DEN }
+		targets = { SWE NOR DEN ICE SMI }
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes #Reusable
@@ -3297,7 +3297,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = { SWE NOR DEN }
+		targets = { SWE NOR DEN ICE SMI }
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes #Reusable
@@ -3376,7 +3376,7 @@ FIN_foreign_politics_decision_category = {
 			}
 		}
 
-		targets = { SWE NOR DEN }
+		targets = { SWE NOR DEN ICE SMI }
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes #Reusable
@@ -3575,5 +3575,602 @@ FIN_coup_preparations = {
    ##    ##     ## #### ########  ##     ## ########     ###  ###  ##     ## ##     ## 
 
 
+FIN_the_last_kinship_war = {
+	FIN_stir_anti_soviet_sentiment_in_karelia = {
+		priority = 50
+
+		icon = GFX_decision_POL_organize_strike_two
+
+		ai_will_do = {
+			base = 0.01
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		visible = {
+		}
+
+		available = {
+			KAR = {
+				any_core_state = {
+					controller = {
+						original_tag = SOV
+						NOT = { is_in_faction_with = ROOT }
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 30
+
+		remove_effect = {
+			KAR = {
+				every_core_state = {
+					limit = {
+						controller = {
+							original_tag = SOV
+							NOT = { is_in_faction_with = ROOT }
+						}
+					}
+					add_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment days = 365 }
+					hidden_effect = {
+						controller = {
+							set_country_flag = FIN_heimosodat_event_sent_flag
+							country_event = { id = AAT_finland_kinship_war.01 hours = 1 } #Event has a fire_only_once = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	FIN_instigate_a_new_karelian_uprising = {
+		priority = 50
+
+		icon = GFX_decision_generic_civil_support
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		visible = {
+			KAR = {
+				any_core_state = {
+					has_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+				}
+			}
+		}
+
+		available = {
+			KAR = {
+				any_core_state = {
+					controller = {
+						original_tag = SOV
+						NOT = { is_in_faction_with = ROOT }
+					}
+					has_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+				}
+			}
+		}
+
+		war_with_on_remove = SOV
+
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+			has_political_power > 69
+			has_equipment = {
+				infantry_equipment > 1499
+			}
+		}
+		custom_cost_text = FIN_crush_the_karelian_insurrection_decision_cost_ie_cp_pp #Intentional to be the same as Soviet dec
+
+		days_remove = 60
+
+		remove_effect = {
+			country_event = AAT_finland_kinship_war.02
+		}
+	}
+}
 
 #Soviet Decision to counter Finnish actions
+FIN_finno_soviet_kinship_war = {
+	FIN_crush_the_karelian_insurrection = {
+		priority = 50
+
+		icon = GFX_decision_generic_civil_support
+
+		ai_will_do = {
+			base = 0
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		visible = {
+			KAR = {
+				any_core_state = {
+					has_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+					is_controlled_by = ROOT
+				}
+			}
+		}
+
+		available = {
+			KAR = {
+				any_core_state = {
+					has_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+					is_controlled_by = ROOT
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+			has_political_power > 69
+			has_equipment = {
+				infantry_equipment > 1499
+			}
+		}
+		custom_cost_text = FIN_crush_the_karelian_insurrection_decision_cost_ie_cp_pp
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -30
+				add_political_power = -70
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment
+					amount = -1500
+				}
+			}
+
+			KAR = {
+				every_core_state = {
+					limit = {
+						has_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+						is_controlled_by = ROOT
+					}
+					remove_dynamic_modifier = { modifier = FIN_anti_soviet_sentiment }
+					hidden_effect = {
+						ROOT = { country_event = AAT_finland_kinship_war.05 } 
+						if = {
+							limit = {
+								country_exists = FIN
+							}
+							FIN = { country_event = { id = AAT_finland_kinship_war.04 hours = 1 } }
+						}
+					}
+				}
+			}
+
+			custom_effect_tooltip = FIN_crush_the_karelian_insurrection_tt
+		}
+	}
+}
+
+FIN_confederated_finno_russian_republics_category = {
+	FIN_integrate_karelia_puppet = {
+		priority = 49
+
+		icon = GFX_decision_generic_nationalism
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { KAR }
+
+		target_trigger = { #If somehow Karelia is a player, let's not insta-annex it
+			FROM = { is_ai = yes }
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			KAR = { is_subject_of = ROOT }
+		}
+
+		cost = 35
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 90
+
+		remove_effect = {
+			annex_country = {
+				target = KAR
+				transfer_troops = yes
+			}
+			hidden_effect = {
+				KAR = {
+					every_core_state = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	FIN_integrate_karelia_states = {
+		priority = 48
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		target_array = KAR.core_states
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+			hidden_effect = { #Also add Karelian core for flavor purposes
+				add_state_core = KAR
+			}
+		}
+	}
+
+	FIN_integrate_karelia_additional_states = {
+		priority = 47
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 879 }
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			146 = { #KARJALA
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			215 = { #ONEGA
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			216 = { #OLONETS
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+
+	FIN_integrate_veps_states = {
+		priority = 39
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 264 } #TIKHVIN
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+
+	FIN_integrate_veps_additional_states = {
+		priority = 38
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 244 351 } #VOLKHOV #VOLOGDA
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			264 = { #VOLKHOV
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+
+	FIN_integrate_ingria_states = {
+		priority = 29
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 208 } #LUGA
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+
+	FIN_integrate_ingria_additional_states = {
+		priority = 28
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 263 209 } #NOVGOROD PSKOV
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			208 = { #LUGA
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+
+	FIN_integrate_leningrad = {
+		priority = 27
+
+		icon = GFX_decision_infiltrate_state
+
+		ai_will_do = {
+			base = 0.1
+		}
+
+		state_target = yes
+
+		on_map_mode = map_and_decisions_view
+
+		targets = { 195 }
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = FIN_confederated_finno_russian_republics
+		}
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			208 = { #LUGA
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+			FROM = {
+				compliance > 60
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		days_remove = 360
+
+		remove_effect = {
+			add_state_core = FROM
+		}
+	}
+}

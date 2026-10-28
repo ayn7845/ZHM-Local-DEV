@@ -4,9 +4,3 @@ goals_only_faction_leader = {
 		is_faction_leader = yes	
 	}
 }
-goals_only_player = {
-	type = member_rules
-	trigger = {
-		is_ai = no
-	}
-}

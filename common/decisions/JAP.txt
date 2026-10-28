@@ -383,9 +383,21 @@ JAP_intervene_in_china = {
 			}
 		}
 
-		cost = 50
+		custom_cost_trigger = {
+			has_political_power > 74 
+			command_power > 99
+		}
+		custom_cost_text = decision_cost_CP_100_pp_75
+
+		ai_hint_pp_cost = 75 
 
 		complete_effect = {
+
+			hidden_effect = {
+				add_political_power = -75
+				add_command_power = -100
+			}
+
 			IF = {
 				limit = {
 					USA = {
@@ -393,7 +405,9 @@ JAP_intervene_in_china = {
 					}
 				}
 				USA = { add_war_support = 0.1 }
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
+
 			IF = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
@@ -410,6 +424,7 @@ JAP_intervene_in_china = {
 				}
 			}
 				
+			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission_tooltip = JAP_conquer_china
 			set_country_flag = JAP_conquer_china_activate
 		}
@@ -994,7 +1009,7 @@ foreign_politics = {
 									AND = {
 										is_subject_of = JAP
 										OR = {
-											#tag = MEN
+											tag = MEN
 											tag = MAN
 										}
 									}
@@ -1017,6 +1032,14 @@ foreign_politics = {
 
 		target_array = enemies
 
+		target_root_trigger = {
+			NOT = { has_country_flag = JAP_offered_china_white_peace_flag }
+			is_subject = no
+			any_enemy_country = {
+				is_literally_china = yes
+			}
+		}
+		
 		target_trigger = {
 			#Target is FROM
 			FROM = {
@@ -1030,10 +1053,6 @@ foreign_politics = {
 				exists = yes 
 				is_subject = no
 			}
-			is_subject = no
-			any_enemy_country = {
-				is_literally_china = yes
-			}
 		}
 
 		cost = 0
@@ -1045,6 +1064,7 @@ foreign_politics = {
 		}
 
 		complete_effect = {
+			set_country_flag = JAP_offered_china_white_peace_flag
 			event_target:WTT_current_china_leader = {
 				country_event = { 
 					id = wtt_japan.126 
@@ -1054,7 +1074,108 @@ foreign_politics = {
 		}
 	}
 
-	
+	JAP_sue_for_peace_MAN = {
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		priority = 15
+
+		available = {
+			FROM = { 
+				surrender_progress < 0.2 # if they are losing, lets not allow it
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_sue_for_peace_TT
+				# South Korea
+				525 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				1029 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				1031 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				1030 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				# North Korea
+				527 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				1028 = {
+					is_controlled_by_ROOT_or_ally = no
+				}
+				NOT = {
+					any_of = {
+						array = CHI.core_states
+						var:v = {
+							NOT = {
+								state = 524
+							}
+							controller = {
+								OR = {
+									tag = JAP
+									AND = {
+										is_subject_of = JAP
+										tag = MEN
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+		target_trigger = {
+			#Target is FROM
+			FROM = {
+				tag = MAN
+				has_war_with = ROOT
+			}
+		}
+
+		visible = {
+			FROM = { 
+				exists = yes 
+				is_subject = no
+			}
+			is_subject = no
+			has_war_with = FROM
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+		
+			base = 500
+
+			modifier = {
+				factor = 0
+				casualties_inflicted_by = {
+					opponent = MAN
+					thousands < 10
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_dont_surrender_instantly_lock 
+			}
+		}
+
+		complete_effect = {
+			MAN = {
+				country_event = { id = wtt_japan.129 days = 1 }
+			}
+		}
+	}
 
 	# Sueing for peace from being nuked, only available for a non-hist Japan 
 	JAP_sue_for_peace_nuke = {
@@ -1466,6 +1587,83 @@ foreign_politics = {
 		}
 	}
 
+	JAP_core_KOR_state = {
+		icon = GFX_decision_infiltrate_state
+	
+		allowed = {
+			original_tag = JAP
+		}
+		
+		visible = {
+			has_completed_focus = JAP_integrate_the_government_general
+		}
+		
+		available = {
+			#NOT = { has_country_flag = JAP_coring_KOR_state_in_progress_flag }
+			FROM = {
+				compliance > 40
+			}
+		}
+
+		state_target = any_controlled_state
+	    
+	    target_trigger = {
+	        FROM = {
+	        	NOT = { is_core_of = ROOT }
+	        	is_fully_controlled_by = ROOT
+	        	is_core_of = KOR
+	        }
+	    }
+	    on_map_mode = map_only
+
+	    cost = 30		
+
+		fire_only_once = yes
+
+		days_remove = 30
+
+		complete_effect = {
+			#hidden_effect = {
+			#	set_country_flag = { flag = JAP_coring_KOR_state_in_progress_flag value = 1 days = 31 }
+			#}
+		}
+
+		remove_effect = {
+			#hidden_effect = {
+			#	clr_country_flag = JAP_coring_KOR_state_in_progress_flag
+			#}
+			IF = {
+				limit = {
+					FROM = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				FROM = {
+					add_core_of = ROOT
+					transfer_state_to = ROOT
+				}
+			}
+			ELSE = {
+				FROM = {
+					add_core_of = ROOT
+				}
+			}
+		}
+
+		cancel_trigger = {
+			FROM = {
+				NOT = { is_fully_controlled_by = ROOT }
+			}
+		}
+
+		cancel_effect = {
+			#hidden_effect = {
+			#	clr_country_flag = JAP_coring_KOR_state_in_progress_flag
+			#}
+		}
+	}
 
 	JAP_core_MAN_state = {
 		icon = GFX_decision_infiltrate_state
@@ -1704,7 +1902,1312 @@ JAP_southern_expansion = {
 #Category allowed for JAP
 #Visible when has completed JAP_pacific_guardian focus.
 #Visible if independent
+JAP_pacific_guardian = {
 
+	JAP_release_korea = {
+
+		icon = generic_independence
+
+		available = {
+			country_exists = KOR
+		}
+
+		days_mission_timeout = 180
+
+		fire_only_once = yes
+		is_good = no 
+		activation = {
+			has_completed_focus = JAP_the_korean_question
+			has_full_control_of_state = 525
+			has_full_control_of_state = 527
+			KOR = { exists = no }
+		}
+
+		complete_effect = {
+			add_political_power = 50
+		}
+		timeout_effect = {
+			add_stability = -0.1 #naughty
+		}
+	}
+
+	JAP_guardian_of_INS = {
+
+		icon = jap_pacific_guardian
+
+		visible = {
+			has_completed_focus = JAP_pacific_guardian
+		}
+
+		available = {
+			HOL = {
+				#has_capitulated = yes
+				NOT =  { has_war_with = ROOT}
+			}
+			"INS" = {
+				is_puppet_of = HOL
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			HOL = { 
+				country_event = { 
+					id = wtt_japan.1 
+					hours = 6
+				} 
+			}
+		}
+	}
+
+	JAP_guardian_of_MAL = {
+
+		icon = jap_pacific_guardian
+
+		visible = {
+			has_completed_focus = JAP_pacific_guardian
+		}
+
+		available = {
+			ENG = {
+				#has_capitulated = yes
+				NOT =  { has_war_with = ROOT}
+			}
+			MAL = {
+				is_puppet_of = ENG
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			ENG = { 
+				country_event = { 
+					id = wtt_japan.1 
+					hours = 6
+				} 
+			}
+		}
+	}
+
+	JAP_guardian_of_indochina = {
+
+		icon = jap_pacific_guardian
+
+		visible = {
+			has_completed_focus = JAP_pacific_guardian
+		}
+
+		available = {
+			FRA = {
+				#has_capitulated = yes
+				NOT =  { has_war_with = ROOT}
+				OR = {
+					has_full_control_of_state = 670
+					has_full_control_of_state = 671
+					has_full_control_of_state = 286
+					has_full_control_of_state = 741
+					has_full_control_of_state = 1066 
+					has_full_control_of_state = 1067 
+					has_full_control_of_state = 1068 
+					has_full_control_of_state = 1069 
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			FRA = { 
+				country_event = { 
+					id = wtt_japan.1 
+					hours = 3
+				} 
+			}
+		}
+	}
+
+	# Assume Guardianship over §Y[FROM.GetNameDef]§! (SEA verison guardian decision)
+	JAP_assume_guardianship_over_asian_subject_decison = {
+		icon = GFX_decision_jap_pacific_guardian
+
+		priority = 50
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+		
+		visible = {
+			has_completed_focus = JAP_free_colonized_asian_countries
+		}
+		available = {
+			NOT = { has_country_flag = JAP_currently_trying_to_become_a_nations_guardian_flag }
+		}
+
+		target_array = global.asian_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	is_subject = yes
+	        	NOT = {
+	        		# Shouldn't be doable on India 
+	        		original_tag = RAJ
+	        	}
+	        	OVERLORD = {
+	        		capital_scope = {
+	        			NOT = {
+	        				is_on_continent = asia
+	        			}
+	        		}
+	        	}
+	        	NOT = {
+	        		has_war_with = ROOT
+	        		is_subject_of = ROOT
+	        	}
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 75		
+		fire_only_once = yes
+
+		days_remove = 30
+
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = { flag = JAP_currently_trying_to_become_a_nations_guardian_flag value = 1 days = 31 }
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = JAP_currently_trying_to_become_a_nations_guardian_flag
+			}
+			IF = {
+				limit = {
+					# This is only to avoid being spammed with errors for no particular reason when scoping to their overlord
+					FROM = {
+						is_subject = yes
+					}
+				}
+				FROM = {
+					OVERLORD = {
+						country_event = {
+							id = SEA_japan_foreign_policy.115
+							hours = 6
+							random_hours = 12
+						}	
+					}
+					set_country_flag = JAP_this_is_the_country_being_negotiated_at_the_moment
+				}
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				FROM = {
+					drop_cosmetic_tag = yes
+				}
+				puppet = {
+				    target = FROM
+				    end_wars = yes
+				}
+			}
+		}
+
+		cancel_trigger = {
+			FROM = {
+				OR = {
+					exists = no
+					is_subject = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		cancel_effect = {
+			hidden_effect = {
+				clr_country_flag = JAP_currently_trying_to_become_a_nations_guardian_flag
+			}
+		}
+	}
+
+	# Invite Asian Nation to your faction decision 
+	JAP_invite_demo_or_na_asian_nation_to_faction_decison = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+
+		priority = 30
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_create_greater_east_asian_treaty_organization
+		}
+
+		available = {
+			is_subject = no 
+			OR = {
+				is_faction_leader = yes
+				AND = {
+					is_faction_leader = no
+					any_allied_country = {
+						is_faction_leader = yes
+						has_government = democratic 
+					}
+				}
+			}
+		}
+
+		target_array = global.asian_and_oceanian_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	is_subject = no
+	        	is_in_faction = no
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.118
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ROOT = {
+					add_to_faction = FROM
+				}
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+}
+
+JAP_the_red_sun_over_asia_decisions = {
+	
+	# Invite Communust South American Nations to your faction decision 
+	JAP_invite_com_south_ame_nation_to_faction_decison = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+
+		priority = 30
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_trans_pacific_influence
+		}
+		available = {
+			
+		}
+
+		target_array = global.south_american_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	is_subject = no
+	        	is_in_faction = no
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        	has_government = communism
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.118
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ROOT = {
+					add_to_faction = FROM
+				}
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+	JAP_communist_core_asian_state = {
+
+		icon = GFX_decision_generic_form_nation
+
+		ai_will_do = {
+			base = 50
+		}
+
+		priority = 25
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = FROM 
+			} 
+		}
+	
+		allowed = {
+			original_tag = JAP
+		}
+		
+		visible = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		}
+		
+		available = {
+			FROM = {
+				NOT = { has_state_flag = JAP_coring_this_asian_state_in_progress_flag }
+			}
+			FROM = {
+				compliance > 45
+			}
+		}
+
+		state_target = any_controlled_state
+	    
+	    target_trigger = {
+	        FROM = {
+	        	NOT = { is_core_of = ROOT }
+	        	is_fully_controlled_by = ROOT
+	        	OR = {
+	        		is_on_continent = asia
+	        		is_on_continent = middle_east
+	        		is_on_continent = australia
+	        	}
+	        	OR = {
+	        		any_neighbor_state = {
+	        			is_core_of = ROOT
+	        		}
+	        		is_coastal = yes
+	        	}
+	        }
+	    }
+	    on_map_mode = map_only
+
+	    cost = 50		
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		complete_effect = {
+			hidden_effect = {
+				FROM = {
+					set_state_flag = { flag = JAP_coring_this_asian_state_in_progress_flag value = 1 days = 31 }
+				}
+			}
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				FROM = {
+					clr_state_flag = JAP_coring_this_asian_state_in_progress_flag
+				}
+			}
+
+			FROM = {
+				add_core_of = ROOT
+			}
+			
+		}
+
+		cancel_trigger = {
+			FROM = {
+				NOT = { is_fully_controlled_by = ROOT }
+			}
+		}
+
+		cancel_effect = {
+			hidden_effect = {
+				FROM = {
+					clr_state_flag = JAP_coring_this_asian_state_in_progress_flag
+				}
+			}
+		}
+	}
+
+	# Invite Communust Middle Eastern Nations to your faction decision 
+	JAP_invite_com_middle_eastern_nation_to_faction_decison = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+
+		priority = 30
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_spread_revolutionary_flames_to_west_asia
+		}
+		available = {
+			
+		}
+
+		target_array = global.middle_eastern_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	is_subject = no
+	        	is_in_faction = no
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        	has_government = communism
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.118
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ROOT = {
+					add_to_faction = FROM
+				}
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+	# Stir Communist Sentiments in Middle Eastern Nations
+	JAP_stir_communist_sentiments_in_the_middle_east_decison = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		priority = 31
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_spread_revolutionary_flames_to_west_asia
+		}
+		available = {
+			
+		}
+
+		target_array = global.middle_eastern_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        	NOT = {
+	        		has_government = communism
+	        	}
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_popup_events.37
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = JAP_fifth_international_agitation
+					days = 720
+				}
+				add_stability = -0.05
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+	# Stir Communist Sentiments in Greater Indian Nations
+	JAP_stir_communist_sentiments_in_south_asia_decison = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		priority = 31
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_spread_revolutionary_flames_to_south_asia
+		}
+		available = {
+			
+		}
+
+		target_array = global.asian_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        	NOT = {
+	        		has_government = communism
+	        	}
+	        	OR = {
+	        		original_tag = PAK
+	        		original_tag = RAJ
+	        		original_tag = KAS
+	        		original_tag = KHL
+	        		original_tag = NWF
+	        		original_tag = BLC
+	        		original_tag = KLT
+	        		original_tag = SIN
+	        		original_tag = RJP
+	        		original_tag = WIS
+	        		original_tag = CIP
+	        		original_tag = HYD
+	        		original_tag = KOL
+	        		original_tag = MYS
+	        		original_tag = RAS
+	        		original_tag = BAN
+	        		original_tag = SKK
+	        		original_tag = MPU
+	        		original_tag = BRM
+	        		original_tag = BHU
+	        		original_tag = NEP
+	        		original_tag = AFG
+	        	}
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_popup_events.37
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = JAP_fifth_international_agitation
+					days = 720
+				}
+				add_stability = -0.05
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+	# Invite Communust South Asian Nations to your faction decision 
+	JAP_invite_com_south_asian_nation_to_faction_decison = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+
+		priority = 30
+	
+		allowed = {
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+		
+		visible = {
+			has_completed_focus = JAP_spread_revolutionary_flames_to_south_asia
+		}
+		available = {
+			
+		}
+
+		target_array = global.asian_countries
+	    
+	    target_trigger = {
+	        FROM = {
+	        	is_subject = no
+	        	is_in_faction = no
+	        	NOT = {
+	        		has_war_with = ROOT
+	        	}
+	        	has_government = communism
+	        	OR = {
+	        		original_tag = PAK
+	        		original_tag = RAJ
+	        		original_tag = KAS
+	        		original_tag = KHL
+	        		original_tag = NWF
+	        		original_tag = BLC
+	        		original_tag = KLT
+	        		original_tag = SIN
+	        		original_tag = RJP
+	        		original_tag = WIS
+	        		original_tag = CIP
+	        		original_tag = HYD
+	        		original_tag = KOL
+	        		original_tag = MYS
+	        		original_tag = RAS
+	        		original_tag = BAN
+	        		original_tag = SKK
+	        		original_tag = MPU
+	        		original_tag = BRM
+	        		original_tag = BHU
+	        		original_tag = NEP
+	        		original_tag = AFG
+	        	}
+	        }
+	    }
+
+	    on_map_mode = decision_view_only 
+
+	    cost = 50		
+		fire_only_once = yes
+
+		#days_remove = 30
+
+		complete_effect = {
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.118
+					hours = 6
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ROOT = {
+					add_to_faction = FROM
+				}
+			}
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		cancel_effect = {
+			
+		}
+	}
+
+	# Offer Economic Integration to §Y[FROM.GetName]§!
+	JAP_PARF_economic_integration_decision = {
+		priority = 3
+		icon = GFX_decision_eng_trade_unions_support 
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				any_enemy_country = {
+					has_war_with = FROM
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					is_enemy_ideology = yes
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					has_government = ROOT
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+				    tag = FROM
+				    ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+				    tag = FROM
+				    ratio < 0.5
+				}
+			}
+		}
+
+		target_array = ROOT.allies
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					original_tag = JAP
+				}
+				capital_scope = { 
+					OR = {
+						is_on_continent = asia 
+						is_on_continent = australia
+						is_on_continent = middle_east
+					}
+				}
+				is_subject = no
+				has_idea = JAP_yen_bloc_idea
+				NOT = {
+					has_country_flag = JAP_has_sent_invitation_for_integration_once_already_flag
+					has_country_flag = JAP_country_that_rejected_economic_integration_flag
+				}
+			}
+		}
+
+		available = {
+			fighting_army_strength_ratio = {
+			    tag = FROM
+			    ratio > 2
+			}
+		}
+
+		visible = {	
+			has_completed_focus = JAP_a_common_currency_for_all_of_asia
+			FROM = {
+				is_in_faction_with = ROOT
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 100
+
+		complete_effect = {
+			FROM = {
+				country_event = { id = SEA_japan_foreign_policy.45 days = 1 } 
+				set_country_flag = JAP_has_sent_invitation_for_integration_once_already_flag
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+
+			effect_tooltip = {
+				puppet = {
+					target = FROM
+					end_wars = no
+					end_civil_wars = no
+				}		 
+			}
+		}
+	}
+
+	# Develop §Y[FROM.GetAdjective]§! Industries
+	JAP_PARF_develop_member_industry_decision = {
+		priority = 1
+		icon = GFX_decision_hol_attract_foreign_investors 
+
+		ai_will_do = {
+			base = 10
+		}
+
+		target_array = ROOT.allies
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					original_tag = JAP
+				}
+				capital_scope = { 
+					OR = {
+						is_on_continent = asia 
+						is_on_continent = australia
+						is_on_continent = middle_east
+					}
+				}
+				NOT = {
+					has_country_flag = JAP_has_developed_froms_industry_once_already_flag
+				}
+			}
+		}
+
+		available = {
+			
+		}
+
+		visible = {	
+			has_completed_focus = JAP_development_for_the_undeveloped
+			FROM = {
+				is_in_faction_with = ROOT
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		complete_effect = {
+			FROM = {
+				country_event = { id = SEA_japan_foreign_policy.48 days = 1 } 
+				set_country_flag = JAP_has_developed_froms_industry_once_already_flag
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+			FROM = {
+				effect_tooltip = {
+					add_tech_bonus = {
+						bonus = 0.5
+						uses = 2
+						category = industry
+					}
+				}
+				random_core_state = {
+					limit = {
+						is_owned_and_controlled_by = FROM
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					set_state_flag = JAP_state_development_target
+					effect_tooltip = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}	
+						IF = {
+							limit = {
+								infrastructure < 5
+							}
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+							}	
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+}
+
+
+
+
+JAP_colonial_independence = {
+
+	JAP_return_manchuria = {
+
+		icon = generic_independence
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		visible = {
+		
+			has_completed_focus = JAP_liberate_manchuria
+			
+			609 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			610 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			716 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			715 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			328 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			717 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			714 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			761 = {
+				owner = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+		}
+
+		available = {
+			is_faction_leader = yes
+			609 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			610 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			716 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			715 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			328 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			717 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			714 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+			761 = {
+				is_fully_controlled_by = controller
+				CONTROLLER = {
+					OR = {
+						is_puppet_of = JAP
+						original_tag = JAP
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			IF = {
+				limit = {
+					country_exists = event_target:WTT_current_china_leader
+				}
+				event_target:WTT_current_china_leader = { 
+					transfer_state = 609
+					transfer_state = 610
+					transfer_state = 716
+					transfer_state = 715
+					transfer_state = 328
+					transfer_state = 717
+					transfer_state = 714
+					transfer_state = 761
+					transfer_state = 745
+					country_event = { id = wtt_japan.101 days = 1 }
+					custom_effect_tooltip = JAP_liberate_manchuria_alliance_tt
+				}
+			}
+			IF = {
+				limit = {
+					country_exists = event_target:WTT_communist_china
+					NOT = { country_exists = event_target:WTT_current_china_leader }
+				}
+				event_target:WTT_communist_china = { 
+					transfer_state = 609
+					transfer_state = 610
+					transfer_state = 716
+					transfer_state = 715
+					transfer_state = 328
+					transfer_state = 717
+					transfer_state = 714
+					transfer_state = 761
+					transfer_state = 745
+					country_event = { id = wtt_japan.101 days = 1 }
+				}
+			}
+			IF = {
+				limit = {
+					NOT = { country_exists = event_target:WTT_communist_china }
+					NOT = { country_exists = event_target:WTT_current_china_leader }
+				}
+				random_other_country = {
+					limit = {
+						OR = {
+							original_tag = GXC
+							original_tag = YUN
+							original_tag = XSM
+							original_tag = SIK
+							original_tag = SHX
+							original_tag = MEN
+						}
+						NOT = {
+							has_government = communism
+							has_government = fascism
+						}
+					}
+					transfer_state = 609
+					transfer_state = 610
+					transfer_state = 716
+					transfer_state = 715
+					transfer_state = 328
+					transfer_state = 717
+					transfer_state = 714
+					transfer_state = 761
+					transfer_state = 745
+					country_event = { id = wtt_japan.101 days = 1 }
+					custom_effect_tooltip = JAP_liberate_manchuria_alliance_tt
+				}
+			}
+		}
+	}
+}
 
 political_actions = {
 
@@ -1853,7 +3356,6 @@ operations = {
 	# First border incident
 	JAP_test_the_soviets = {
 		icon = border_war
-		visible = { always = no }
 		allowed = {
 			original_tag = JAP
 		}
@@ -2726,7 +4228,12 @@ operations = {
 
 		allowed = { always = no } #Activated from effect
 		visible = { 
-			
+			hidden_trigger = { 
+				NOT = { 
+					has_border_war_with = JAP 
+					has_border_war_with = MAN 
+				} 
+			} 
 		}
 		cancel_if_not_visible = yes 
 
@@ -2968,6 +4475,11 @@ prospect_for_resources = {
 				has_completed_focus = JAP_sea_establish_the_northern_resource_area
 				has_completed_focus = JAP_transformation_of_nature
 			}
+			655 = {
+				NOT = {
+					has_state_flag = north_sakhalin_oil_developed
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -2993,6 +4505,7 @@ prospect_for_resources = {
 					type = oil
 					amount = 12
 				}
+				set_state_flag = north_sakhalin_oil_developed
 			}
 		}
 	}
@@ -3748,9 +5261,14 @@ prospect_for_resources = {
 				has_completed_focus = JAP_develop_the_chinese_resources
 			}
 			
+			597 = {
+				NOT = {
+					has_state_flag = shandong_aluminium_developed
+				}
+			}
 		}
 
-		fire_only_once = yes
+		fire_only_once = no
 
 		cancel_trigger = {
 			597 = { is_controlled_by_ROOT_or_subject = no }
@@ -3773,6 +5291,7 @@ prospect_for_resources = {
 					type = aluminium
 					amount = 12
 				}
+				set_state_flag = shandong_aluminium_developed
 			}
 		}
 	}
@@ -3802,10 +5321,14 @@ prospect_for_resources = {
 				has_completed_focus = JAP_develop_the_chinese_resources
 			}
 			
-
+			621 = {
+				NOT = {
+					has_state_flag = suiyuan_steel_developed
+				}
+			}
 		}
 
-		fire_only_once = yes
+		fire_only_once = no
 
 		cancel_trigger = {
 			621 = { is_controlled_by_ROOT_or_subject = no }
@@ -3828,6 +5351,7 @@ prospect_for_resources = {
 					type = steel
 					amount = 8
 				}
+				set_state_flag = suiyuan_steel_developed
 			}
 		}	
 	}
@@ -3851,10 +5375,14 @@ prospect_for_resources = {
 				has_completed_focus = JAP_develop_the_chinese_resources
 			}
 			
-			
+			325 = {
+				NOT = {
+					has_state_flag = yunnan_aluminium_developed
+				}
+			}
 		}
 
-		fire_only_once = yes
+		fire_only_once = no
 
 		cancel_trigger = {
 			325 = { is_controlled_by_ROOT_or_subject = no }
@@ -3877,6 +5405,7 @@ prospect_for_resources = {
 					type = aluminium
 					amount = 12
 				}
+				set_state_flag = yunnan_aluminium_developed
 			}
 		}	
 	}
@@ -3900,10 +5429,14 @@ prospect_for_resources = {
 				has_completed_focus = JAP_develop_the_chinese_resources
 			}
 			
-			
+			605 = {
+				NOT = {
+					has_state_flag = sichuan_aluminium_developed
+				}
+			}
 		}
 
-		fire_only_once = yes
+		fire_only_once = no
 
 		cancel_trigger = {
 			605 = { is_controlled_by_ROOT_or_subject = no }
@@ -3926,6 +5459,7 @@ prospect_for_resources = {
 					type = aluminium
 					amount = 12
 				}
+				set_state_flag = sichuan_aluminium_developed
 			}
 		}	
 	}
@@ -4149,7 +5683,9 @@ JAP_kwantung_army_decisions = {
 				is_subject = no 
 			}
 			NOT = { has_war_with = CHI }
-			
+			NOT = {
+				has_completed_focus = JAP_subdue_the_kwantung_army
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -4161,6 +5697,18 @@ JAP_kwantung_army_decisions = {
 			IF = {
 				limit = {
 					OR = {
+						HBC = {
+							OR = {
+								controls_state = 608
+								controls_state = 614
+							}
+						}
+						XIC = {
+							OR = {
+								controls_state = 608
+								controls_state = 614
+							}
+						}
 						CHI = { #if CHI owns one of these states, they get the event
 							OR = {
 								controls_state = 608
@@ -4178,14 +5726,57 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					PRC = { #only fires the event for PRC if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+						AND = {
+							controls_state = 608
+							controls_state = 614
+						}
+					}
+				}
+				PRC = {
+					country_event = {
+						id = china.1
+						days = 1
+						random_days = 3
+					}	
+				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					SHX = { #only fires the event for SHX if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+						AND = {
+							controls_state = 608
+							controls_state = 614
+						}
+					}
+				}
+				SHX = {
+					country_event = {
+						id = china.1
+						days = 1
+						random_days = 3
+					}	
+				}
 			}
-			ELSE_IF = { 
-
+			ELSE_IF = {
+				limit = {
+					SND = { #only fires the event for SND if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+						AND = {
+							controls_state = 608
+							controls_state = 597
+							controls_state = 614
+						}
+					}
+				}
+				SND = {
+					country_event = {
+						id = china.1
+						days = 1
+						random_days = 3
+					}	
+				}
 			}
 			ELSE = {
 				608 = {
@@ -4232,8 +5823,8 @@ JAP_kwantung_army_decisions = {
 			has_civil_war = no
 			is_subject = no 
 			NOT = { has_war_with = CHI }
-			#has_war_with = SHX
-			#has_subject = MEN
+			has_war_with = SHX
+			has_subject = MEN
 		}
 
 		cancel_if_not_visible = yes
@@ -4282,7 +5873,9 @@ JAP_kwantung_army_decisions = {
 			has_civil_war = no
 			is_subject = no 
 			NOT = { has_war_with = CHI }
-			
+			NOT = {
+				has_completed_focus = JAP_subdue_the_kwantung_army
+			}
 			613 = {
 				OWNER = {
 					is_literally_china = yes
@@ -4314,8 +5907,19 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { 
-				
+			ELSE_IF = {
+				limit = {
+					PRC = {
+						controls_state = 613
+					}
+				}
+				PRC = {
+					country_event = {
+						id = SEA_japan_popup_events.19
+						days = 1
+						random_days = 3
+					}	
+				}
 			}
 			ELSE = {
 				613 = {
@@ -4380,8 +5984,19 @@ JAP_kwantung_army_decisions = {
 		}
 
 		visible = { 
-			always = no
-	
+			OR = {
+				has_subject = RNG
+				has_subject = CHI
+				AND = {
+					has_completed_focus = JAP_subdue_the_kwantung_army
+					owns_state = 613 # Shanghai
+				}
+			}
+			has_completed_focus = JAP_reorganized_national_government
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
 		}
 	
 		available = {
@@ -4414,8 +6029,16 @@ JAP_kwantung_army_decisions = {
 
 		remove_effect = {
 
-			IF = { 
-
+			IF = {
+				limit = {
+					has_subject = RNG
+				}
+				FROM = {
+					every_core_state = {
+						add_claim_by = RNG
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			create_wargoal = {
@@ -6394,8 +8017,8 @@ JAP_imperial_influence_decision_cat = {
 				has_war_with = ENG
 				has_war_with = USA
 				has_war_with = PHI
-				#has_war_with = INS
-				#has_war_with = MAL
+				has_war_with = INS
+				has_war_with = MAL
 			}
 		}
 
@@ -7131,16 +8754,346 @@ JAP_imperial_influence_decision_cat = {
 JAP_the_propaganda_department_decisions = {
 
 	# Establish Contact with Thubten Kunphela
+	JAP_estabish_contact_with_thubten_kumphela_decision  = {
+
+		priority = 15
+
+		icon = GFX_decision_generic_political_discourse
+
+		ai_will_do = {
+			base = 50
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_an_expedition_to_tibet
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			TIB = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+	
+		available = {
+			
+		}
+
+		#days_remove = 70
+
+		#days_re_enable = 180
+
+		cost = 50
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			TIB = {
+				country_event = {
+					id = SEA_japan_foreign_policy.24
+					hours = 12
+					random_hours = 24
+				}	
+			}	
+			effect_tooltip = {
+				TIB = {
+					add_stability = -0.03
+					
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.05
+					}	
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_approached_the_tibet_impr_party_flag
+			}
+
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Establish a Trongdra Regiment in Exile
+	JAP_estabish_a_trongdra_regiment_in_exile  = {
+
+		priority = 14
+
+		icon = GFX_decision_generic_protection
+
+		ai_will_do = {
+			base = 50
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_an_expedition_to_tibet
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			TIB = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+	
+		available = {
+			has_country_flag = JAP_approached_the_tibet_impr_party_flag
+		}
+
+		#days_remove = 70
+
+		#days_re_enable = 180
+
+		cost = 25
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			TIB = {
+				country_event = {
+					id = SEA_japan_foreign_policy.25
+					hours = 12
+					random_hours = 24
+				}	
+			}	
+			effect_tooltip = {
+				TIB = {
+					add_manpower = -500
+
+					add_stability = -0.1
+					
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.1
+					}	
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_militarized_the_tibet_impr_party_flag
+			}
+
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+
+		}
+
+	}
 	
 	# Influence the Tibetan People
+	JAP_influence_tibetan_people_decision  = {
+
+		priority = 10
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		ai_will_do = {
+			base = 50
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_an_expedition_to_tibet
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			TIB = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = fascism
+					has_idea = JAP_japanese_influence_growing_tibet_2
+				}
+			}
+		}
+	
+		available = {
+			has_country_flag = JAP_approached_the_tibet_impr_party_flag
+		}
+
+		#days_remove = 70
+
+		days_re_enable = 180
+
+		cost = 50
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			TIB = {
+				country_event = {
+					id = SEA_japan_foreign_policy.23
+					hours = 12
+					random_hours = 24
+				}	
+			}	
+			effect_tooltip = {
+				TIB = {
+					add_timed_idea = {
+						idea = JAP_japanese_influence_growing_tibet_2
+						days = 176
+					}		
+				}
+			}
+
+		}
+
+		fire_only_once = no
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Coup the Tibetan Government
+	JAP_coup_the_tibetan_government_decision  = {
+
+		priority = 12
+
+		icon = GFX_decision_generic_civil_support
+
+		ai_will_do = {
+			base = 50
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_an_expedition_to_tibet
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			TIB = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+	
+		available = {
+			TIB = {
+				fascism > 0.35
+				is_subject = no
+				NOT = {
+					has_government = fascism
+				}
+			}
+			has_country_flag = JAP_militarized_the_tibet_impr_party_flag
+		}
+
+		#days_remove = 70
+
+		#days_re_enable = 180
+
+		cost = 75
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			TIB = {
+				country_event = {
+					id = SEA_japan_foreign_policy.26
+					hours = 12
+					random_hours = 24
+				}	
+			}	
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				puppet = TIB
+				TIB = {
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}		
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.2
+					}	
+					add_manpower = 2500
+					army_experience = 50
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_militarized_the_tibet_impr_party_flag
+			}
+
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Organize Tonarigumi in [FROM.GetNameDef]
 	JAP_create_subject_tonarigumi = {
@@ -7769,8 +9722,14 @@ JAP_the_propaganda_department_decisions = {
 					check_variable = { MON_rw_support > 0.35 }
 				}
 			}
-			OR = { 
-				
+			OR = {
+				MEN = {
+					exists = yes
+					is_ally_with = ROOT
+				}
+				MEN = {
+					exists = no
+				}
 			}
 		}
 
@@ -8241,7 +10200,147 @@ JAP_the_propaganda_department_decisions = {
 JAP_the_co_prosperity_sphere_decisions = {
 	
 	# Hand Mongol States over to the [MEN.GetAdjective] Administration
+	JAP_hand_mongol_states_to_mengkukuo_decision  = {
+
+		priority = 5
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+
+		target_root_trigger = { original_tag = JAP }
+
+		target_trigger = {
+			#Target is FROM
+			FROM = {
+				tag = MEN
+				is_subject_of = ROOT
+			}
+		}
+
+		ai_will_do = {
+			base = 100
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_mongol_autonomous_state
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			any_controlled_state = {
+				OR = {
+					state = 818
+					state = 817
+					state = 330
+					state = 820
+					state = 819
+					state = 564
+					state = 329
+					state = 654
+					state = 760
+					state = 756
+					state = 621
+					state = 746
+					state = 612
+					state = 611
+					state = 761
+					state = 563
+					state = 566
+					state = 616
+				}
+			}
+		}
+	
+		available = {
+			any_controlled_state = {
+				OR = {
+					state = 818
+					state = 817
+					state = 330
+					state = 820
+					state = 819
+					state = 564
+					state = 329
+					state = 654
+					state = 760
+					state = 756
+					state = 621
+					state = 746
+					state = 612
+					state = 611
+					state = 761
+					state = 563
+					state = 566
+					state = 616
+				}
+			}
+			has_completed_focus = JAP_mongol_autonomous_state # To Show people why they have it
+		}
+
+		#days_remove = 70
+
+		days_re_enable = 70
+
+		cost = 15
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.28
+					hours = 5
+				}	
+			}	
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				every_controlled_state = {
+					limit = {
+						OR = {
+							state = 818
+							state = 817
+							state = 330
+							state = 820
+							state = 819
+							state = 564
+							state = 329
+							state = 654
+							state = 760
+							state = 756
+							state = 621
+							state = 746
+							state = 612
+							state = 611
+							state = 761
+							state = 563
+							state = 566
+							state = 616
+						}
+					}
+					transfer_state_to = FROM
+				}
+			}
+
+		}
+
+		fire_only_once = no
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Offer Economic Integration to §Y[FROM.GetName]§!
 	JAP_GEACPS_economic_integration_decision = {
@@ -8386,33 +10485,46 @@ JAP_the_co_prosperity_sphere_decisions = {
 			}
 
 			custom_effect_tooltip = if_they_accept_tt
-
-			effect_tooltip = {
-				FROM = {
+			
+			FROM = {
+				effect_tooltip = {
 					add_tech_bonus = {
 						bonus = 0.5
 						uses = 2
 						category = industry
 					}
 				}
-				random_state = {
+				random_core_state = {
 					limit = {
 						is_owned_and_controlled_by = FROM
-						is_core_of = FROM
 						free_building_slots = {
 							building = industrial_complex
-							size > 2
+							size > 1
 							include_locked = yes
-						}	
+						}
 					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}	
-				}		 
+					set_state_flag = JAP_state_development_target
+					effect_tooltip = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}	
+						IF = {
+							limit = {
+								infrastructure < 5
+							}
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+							}	
+						}
+					}
+				}
 			}
+			
 		}
 	}
 
@@ -8479,16 +10591,1328 @@ JAP_the_co_prosperity_sphere_decisions = {
 	}
 
 	# Hand Chinese States over to the [RNG.GetAdjective] Administration
+	JAP_hand_chinese_states_to_the_reorganized_government_decision  = {
+
+		priority = 8
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+
+		target_root_trigger = { original_tag = JAP }
+
+		targets = { RNG }
+
+		target_trigger = {
+			#Target is FROM
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		ai_will_do = {
+			base = 150
+			modifier = {
+				factor = 0
+				has_political_power < 100
+			}
+			modifier = {
+				factor = 0.5
+				has_political_power < 125
+			}
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_reorganized_national_government
+			any_controlled_state = {
+				is_core_of = CHI
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_owned_by = RNG
+				}
+				NOT = {
+					state = 745 # Kwantung Leased Territory
+					state = 609 # Easty Hebei
+					state = 611 # South Chahar
+					state = 612 # Chahar
+					region = 155 # West Manchuria
+					region = 242 # North Manchuria
+					region = 243 # East Manchuria
+					state = 728 # Gouangzhouwan
+					state = 729 # Macau
+					state = 326 # Hong Kong
+					state = 743 # Qingdao
+					state = 524 # Taiwan
+					state = 1039 # Hebei-Chahar
+					state = 591 # Hainan
+				}
+			}
+		}
+	
+		available = {
+			has_subject = RNG
+		}
+
+		days_re_enable = 70
+
+		cost = 50
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			FROM = {
+				country_event = {
+					id = SEA_japan_foreign_policy.58
+					hours = 2
+				}	
+			}	
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				every_controlled_state = {
+					limit = {
+						is_core_of = CHI
+						is_fully_controlled_by = ROOT
+						NOT = {
+							is_owned_by = RNG
+							is_owned_by = ROOT
+						}
+						NOT = {
+							state = 745 # Kwantung Leased Territory
+							state = 609 # Easty Hebei
+							state = 611 # South Chahar
+							state = 612 # Chahar
+							region = 155 # West Manchuria
+							region = 242 # North Manchuria
+							region = 243 # East Manchuria
+							state = 728 # Gouangzhouwan
+							state = 729 # Macau
+							state = 326 # Hong Kong
+							state = 743 # Qingdao
+							state = 524 # Taiwan
+						}
+					}
+					#FROM = {
+						set_state_controller_to = RNG
+						add_contested_owner = RNG
+						add_claim_by = RNG
+					#}
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				every_owned_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						is_core_of = CHI
+						NOT = {
+							is_owned_by = RNG
+						}
+						NOT = {
+							state = 745 # Kwantung Leased Territory
+							state = 609 # Easty Hebei
+							state = 611 # South Chahar
+							state = 612 # Chahar
+							region = 155 # West Manchuria
+							region = 242 # North Manchuria
+							region = 243 # East Manchuria
+							state = 728 # Gouangzhouwan
+							state = 729 # Macau
+							state = 326 # Hong Kong
+							state = 743 # Qingdao
+							state = 524 # Taiwan
+						}
+					}
+					FROM = {
+						transfer_state = PREV
+					}
+				}
+			}
+
+		}
+
+		fire_only_once = no
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Merging the Chinese Puppet Administrations
+	JAP_merge_our_chinese_puppets_decision = {
+
+		priority = 7
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 250
+			modifier = {
+				factor = 0
+				has_political_power < 150
+			}
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_reorganized_national_government
+			has_subject = RNG
+			any_country = {
+				is_literally_china = yes
+				NOT = {
+					original_tag = RNG
+				}
+				is_subject_of = ROOT
+				is_ai = yes
+			}
+		}
+	
+		available = {
+			is_subject = no
+		}
+
+		days_re_enable = 180
+
+		cost = 100
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			every_country = {
+				limit = {
+					is_literally_china = yes
+					NOT = {
+						original_tag = RNG
+					}
+					is_subject_of = ROOT
+					is_ai = yes
+				}
+				country_event = {
+					id = SEA_japan_foreign_policy.63
+					hours = 8
+					random_hours = 12
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				every_country = {
+					limit = {
+						is_literally_china = yes
+						NOT = {
+							original_tag = RNG
+						}
+						is_subject_of = ROOT
+						is_ai = yes
+					}
+					RNG = {
+						annex_country = {
+							target = PREV
+							transfer_troops = yes
+						}	
+					}	
+					every_state = {
+						limit = {
+							is_core_of = PREV
+						}
+						add_core_of = RNG
+					}
+				}
+			}
+
+		}
+
+		fire_only_once = no
+
+		remove_effect = {
+
+		}
+
+	}
 
 	# Establish the State of Burma
+	JAP_establish_the_state_of_burma_decision = {
+	
+		priority = 50
+	
+		icon = GFX_decision_generic_nationalism
+	
+		ai_will_do = {
+			base = 800
+		}
 
+		highlight_states = {
+			highlight_state_targets = {
+				state = 993
+				state = 999
+				state = 998
+				state = 288
+				state = 640
+				state = 997
+				state = 996
+				state = 995
+				state = 994
+			}
+		}
+	
+		allowed = {  
+			original_tag = JAP
+		}
+	
+		visible = { 
+			has_completed_focus = JAP_strike_the_southern_road
+			NOT = { has_country_flag = JAP_created_state_of_burma_flag }
+		} 
+	
+		available = {
+			is_subject = no
+			OR = {
+				BRM = {
+					exists = no
+				}
+				BRM = {
+					is_subject = yes
+					has_war_with = ROOT
+					has_civil_war = no
+				}
+			}
+			BRM = {
+				any_core_state = {
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+	
+		cost = 25
+
+		complete_effect = {
+
+			IF = {
+				limit = {
+					BRM = {
+						exists = no
+					}
+				}
+				BRM = {
+					every_core_state = {
+						limit = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+						transfer_state_to = BRM
+					}
+				}
+				set_autonomy = {
+					target = BRM
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+				BRM = {
+					country_event = {
+						id = SEA_japan_foreign_policy.59
+						hours = 2
+					}	
+				}
+			}
+			ELSE = {
+				hidden_effect = {
+					BRM = {
+						every_core_state = {
+							limit = {
+								controller = {
+									OR = {
+										original_tag = ROOT
+										is_subject_of = ROOT
+									}
+								}
+							}
+							set_state_flag = is_state_that_should_go_to_japanese_burma_flag 
+						}
+					}
+				}
+				BRM = {
+					country_event = {
+						id = SEA_japan_foreign_policy.60
+						hours = 1
+					}	
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_created_state_of_burma_flag 
+			}
+		}
+	
+	}
+
+	# Establish the Provisional Government of Free India
+	JAP_establish_the_provisional_government_of_free_india_decision = {
+	
+		priority = 45
+	
+		icon = GFX_decision_generic_nationalism
+	
+		ai_will_do = {
+			base = 800
+		}
+	
+		allowed = {  
+			original_tag = JAP
+		}
+	
+		visible = { 
+			has_completed_focus = JAP_strike_the_southern_road
+			NOT = { has_country_flag = JAP_created_provisional_government_of_free_india_flag }
+		} 
+	
+		available = {
+			is_subject = no
+			OR = {
+				RAJ = {
+					exists = no
+				}
+				RAJ = {
+					is_subject = yes
+					has_war_with = ROOT
+					has_civil_war = no
+				}
+			}
+			RAJ = {
+				any_core_state = {
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+	
+		cost = 25
+
+		complete_effect = {
+
+			IF = {
+				limit = {
+					RAJ = {
+						exists = no
+					}
+				}
+				RAJ = {
+					every_core_state = {
+						limit = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+						transfer_state_to = RAJ
+					}
+				}
+				set_autonomy = {
+					target = RAJ
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+				RAJ = {
+					country_event = {
+						id = SEA_japan_foreign_policy.66
+						hours = 2
+					}	
+				}
+			}
+			ELSE = {
+				hidden_effect = {
+					RAJ = {
+						every_core_state = {
+							limit = {
+								controller = {
+									OR = {
+										original_tag = ROOT
+										is_subject_of = ROOT
+									}
+								}
+							}
+							set_state_flag = is_state_that_should_go_to_japanese_azad_hind_flag 
+						}
+					}
+					every_state = {
+						limit = {
+							is_in_array = {
+							    array = RAJ.owned_states_at_game_start
+							    value = THIS
+							}
+							controller = {
+								OR = {
+									original_tag = ROOT
+									is_subject_of = ROOT
+								}
+							}
+						}
+						set_state_flag = is_state_that_should_go_to_japanese_azad_hind_flag 
+					}
+				}
+				RAJ = {
+					country_event = {
+						id = SEA_japan_foreign_policy.67
+						hours = 1
+					}	
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_created_provisional_government_of_free_india_flag 
+			}
+		}
+	
+	}
+
+	# Establish the Second Philippine Republic
+	JAP_establish_the_second_philippine_republic_decision = {
+	
+		priority = 40
+	
+		icon = GFX_decision_generic_nationalism
+	
+		ai_will_do = {
+			base = 800
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 623
+				state = 1027
+				state = 327
+				state = 626
+				state = 624
+				state = 625
+				state = 628
+				state = 1026
+				state = 627
+				state = 1025
+			}
+		}
+	
+		allowed = {  
+			original_tag = JAP
+		}
+	
+		visible = { 
+			has_completed_focus = JAP_strike_the_southern_road
+			NOT = { has_country_flag = JAP_created_second_philippine_republic_flag }
+		} 
+	
+		available = {
+			is_subject = no
+			OR = {
+				PHI = {
+					exists = no
+				}
+				PHI = {
+					is_subject = yes
+					has_war_with = ROOT
+					has_civil_war = no
+				}
+			}
+			PHI = {
+				any_core_state = {
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+	
+		cost = 25
+
+		complete_effect = {
+
+			IF = {
+				limit = {
+					PHI = {
+						exists = no
+					}
+				}
+				PHI = {
+					every_core_state = {
+						limit = {
+							is_controlled_by_ROOT_or_subject = yes
+						}
+						transfer_state_to = PHI
+					}
+				}
+				set_autonomy = {
+					target = PHI
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+				PHI = {
+					country_event = {
+						id = SEA_japan_foreign_policy.68
+						hours = 2
+					}	
+				}
+			}
+			ELSE = {
+				random_state = {
+					limit = {
+						is_core_of = PHI
+						is_controlled_by = ROOT
+					}
+					transfer_state_to = PSR
+					add_core_of = PSR
+				}
+				PHI = {
+					every_core_state = {
+						add_claim_by = PSR
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = PHI
+						is_controlled_by = ROOT
+					}
+					set_state_controller_to = PSR
+				}
+
+				custom_effect_tooltip =  generic_skip_one_line_tt
+
+				set_autonomy = {
+					target = PSR
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				IF = {
+					limit = {
+						PHI = {
+							NOT = {
+								has_country_leader = {
+									ruling_only = yes
+									character = PHI_jose_laurel
+								}	
+							}
+						}
+					}
+				    PHI = {  
+			            PHI_jose_laurel = {
+			                set_nationality = PSR
+			                # Transfers to breakaway
+			            }
+		        	}
+				}
+				ELSE = {
+				    PHI = {  
+			            PHI_artemio_ricarte = {
+			                set_nationality = PSR
+			                # Transfers to breakaway
+			            }
+		        	}
+				}
+
+				PSR = {
+					country_event = {
+						id = SEA_japan_foreign_policy.135
+						hours = 1
+					}
+				}
+
+				#PHI = {
+				#	country_event = {
+				#		id = SEA_japan_foreign_policy.69
+				#		hours = 1
+				#	}	
+				#}
+			}
+
+			hidden_effect = {
+				set_country_flag = JAP_created_second_philippine_republic_flag 
+			}
+		}
+	
+	}
+
+	JAP_establish_kingdoms_of_annam_and_cambodia_decision = {
+
+		icon = GFX_decision_generic_operation
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 671
+				state = 1017
+				state = 670
+				state = 741
+				state = 286
+				state = 1066 
+				state = 1067 
+				state = 1068 
+				state = 1069 
+			}
+		}
+
+		priority = 30
+
+		fire_only_once = yes
+
+		cost = 30
+
+		visible = {
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			VIN = {
+				exists = no
+			}
+			CAM = {
+				exists = no
+			}
+			NOT = {
+				has_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+			}
+		}
+
+		available = {
+			
+			671 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1017 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			670 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			741 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			286 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1066 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1067 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1068 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1069 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = kingdoms_of_annam_and_cambodia_tt
+
+			hidden_effect = {
+
+				# Vietnamese+ States
+				every_state = {
+					limit = {
+						OR = {
+							state = 671
+							state = 1017
+							state = 670
+							state = 1069 
+						}
+					}
+					transfer_state_to = VIN
+					add_core_of = VIN
+				}
+
+				# Cambodian States
+				every_state = {
+					limit = {
+						OR = {
+							state = 741
+							state = 286
+							state = 1066 
+							state = 1067 
+							state = 1068 
+						}
+					}
+					transfer_state_to = CAM
+					add_core_of = CAM
+				}
+
+				set_autonomy = {
+					target = VIN
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				set_autonomy = {
+					target = CAM
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				VIN = {
+					set_cosmetic_tag = VIN_kingdom_of_annam_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+					set_capital = {
+						state = 1017
+						remember_old_capital = yes
+					}
+				}
+
+				CAM = {
+					set_cosmetic_tag = CAM_kingdom_of_cambodia_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+				}
+
+				set_country_flag = JAP_went_with_initial_sea_land_disposition_plan_flag
+				
+			}
+		}
+
+		ai_will_do = {
+			base = 500 
+			modifier = {
+				add = -500
+				is_historical_focus_on = yes # This was the initial but discarded plan for division
+			}
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
+		}
+	}
+
+	JAP_establish_empire_of_vietnam_decision = {
+
+		icon = GFX_decision_JAP_establish_empire_of_vietnam
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 671
+				state = 1017
+				state = 286
+				state = 1066 
+			}
+		}
+
+		priority = 29
+
+		fire_only_once = yes
+
+		cost = 10
+
+		visible = {
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			VIN = {
+				exists = no
+			}
+		}
+
+		available = {
+			
+			671 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1017 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			286 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1066 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = empire_of_vietnam_tt
+
+			hidden_effect = {
+
+				# Vietnamese States
+				every_state = {
+					limit = {
+						OR = {
+							state = 671
+							state = 1017
+							state = 286
+							state = 1066
+						}
+					}
+					transfer_state_to = VIN
+					add_core_of = VIN
+				}
+
+				set_autonomy = {
+					target = VIN
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				VIN = {
+					set_cosmetic_tag = VIN_empire_of_vietnam_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+					set_capital = {
+						state = 1017
+						remember_old_capital = yes
+					}
+				}
+
+				IF = {
+					limit = {
+						NOT = {
+							has_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+						}
+					}
+					set_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+				}
+				
+			}
+		}
+
+		ai_will_do = {
+			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
+		}
+
+	}
+
+	JAP_establish_kingdom_of_kampuchea_decision = {
+
+		icon = GFX_decision_JAP_establish_kingdom_of_kampuchea
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 741
+				state = 1067
+			}
+		}
+
+		priority = 28
+
+		fire_only_once = yes
+
+		cost = 10
+
+		visible = {
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			CAM = {
+				exists = no
+			}
+		}
+
+		available = {
+			
+			741 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = kingdom_of_kampuchea_tt
+
+			hidden_effect = {
+
+				# Cambodian States
+				741 = {
+					transfer_state_to = CAM
+					add_core_of = CAM
+				}
+				1067 = {
+					transfer_state_to = CAM
+					add_core_of = CAM
+				}
+
+				set_autonomy = {
+					target = CAM
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				CAM = {
+					set_cosmetic_tag = CAM_kingdom_of_kampuchea_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+				}
+
+				IF = {
+					limit = {
+						NOT = {
+							has_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+						}
+					}
+					set_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+				}
+				
+			}
+		}
+
+		ai_will_do = {
+			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
+		}
+
+	}
+
+	JAP_establish_kingdom_of_luang_prabang_decision = {
+
+		icon = GFX_decision_JAP_establish_kingdom_of_luang_prabang
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 670
+				state = 1068 
+				state = 1069 
+			}
+		}
+
+		priority = 27
+
+		fire_only_once = yes
+
+		cost = 10
+
+		visible = {
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			LAO = {
+				exists = no
+			}
+			NOT = {
+				has_country_flag = JAP_went_with_initial_sea_land_disposition_plan_flag
+			}
+		}
+
+		available = {
+			
+			670 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+			1068 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+			1069 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = kingdom_of_luang_prabang_tt
+
+			hidden_effect = {
+
+				# Laotian States
+				670 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+				1068 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+				1069 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+
+				set_autonomy = {
+					target = LAO
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				LAO = {
+					set_cosmetic_tag = LAO_kingdom_of_luang_prabang_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+				}
+
+				IF = {
+					limit = {
+						NOT = {
+							has_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+						}
+					}
+					set_country_flag = JAP_disposed_of_initial_indochina_land_disposal_plan_flag
+				}
+				
+			}
+		}
+
+		ai_will_do = {
+			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
+		}
+
+	}
+
+	JAP_establish_state_of_ceylon_decision = {
+
+		icon = GFX_decision_JAP_establish_state_of_ceylon
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 422
+			}
+		}
+
+		priority = 26
+
+		fire_only_once = yes
+
+		cost = 10
+
+		visible = {
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			SRL = {
+				exists = no
+			}
+		}
+
+		available = {
+			
+			422 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = state_of_ceylon_tt
+
+			hidden_effect = {
+
+				# Sri Lankan States
+				422 = {
+					transfer_state_to = SRL
+					add_core_of = SRL
+				}
+
+				set_autonomy = {
+					target = SRL
+					autonomous_state = autonomy_wtt_imperial_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+
+				SRL = {
+					set_cosmetic_tag = SRL_state_of_ceylon_tag
+					JAP_setup_faction_wide_aoe_effects_root_this = yes
+				}
+				
+			}
+		}
+
+		ai_will_do = {
+			base = 500 
+		}
+
+	}
 
 	# Organize the Timorese Black Columns
+	JAP_organize_timorese_black_columns_decision  = {
+
+		priority = 25
+
+		icon = GFX_decision_SWE_set_army_budget
+
+		ai_will_do = {
+			base = 10
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			OR = {
+				721 = {
+					is_controlled_by = ROOT
+				}
+				AND = {
+					has_subject = TML
+					TML = {
+						controls_state = 721
+					}
+				}
+			}
+		}
+	
+		available = {
+			has_war = yes
+		}
+
+		#days_remove = 70
+
+		#days_re_enable = 180
+
+		cost = 15
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			IF = {
+				limit = {
+					721 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				hidden_effect = {
+
+					delete_unit_template_and_units = {
+						division_template = "Colunas Negras"
+						disband = yes #if yes, will refund equipment/manpower.
+					}
+
+					division_template = {
+						name = "Colunas Negras"
+						division_names_group = POR_INF_01
+						role = garrison
+						#template_counter = 90
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+						}
+						support = {
+						}
+					}
+
+				}
+
+				721 = {
+					create_unit = {
+					    division = "name = \"1. Colunas Negras\" division_template = \"Colunas Negras\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+					    owner = ROOT
+					}
+					create_unit = {
+					    division = "name = \"2. Colunas Negras\" division_template = \"Colunas Negras\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+					    owner = ROOT
+					}
+				}
+			}	
+			ELSE_IF = {
+				limit = {
+					has_subject = TML
+					TML = {
+						controls_state = 721
+					}
+				}
+
+				TML = {
+
+					hidden_effect = {
+
+						delete_unit_template_and_units = {
+							division_template = "Colunas Negras"
+							disband = yes #if yes, will refund equipment/manpower.
+						}
+
+						division_template = {
+							name = "Colunas Negras"
+							division_names_group = POR_INF_01
+							role = garrison
+							#template_counter = 90
+							is_locked = no
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+							}
+							support = {
+							}
+						}
+
+					}
+
+					721 = {
+						create_unit = {
+						    division = "name = \"1. Colunas Negras\" division_template = \"Colunas Negras\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+						    owner = ROOT
+						}
+						create_unit = {
+						    division = "name = \"2. Colunas Negras\" division_template = \"Colunas Negras\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+						    owner = ROOT
+						}
+					}
+
+				}
+
+			}
+
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+
+		}
+
+	}
+
 	# Integrate Northern Karafuto
 	JAP_integrate_northern_karafuto_decision  = {
 
@@ -8554,7 +11978,81 @@ JAP_the_co_prosperity_sphere_decisions = {
 	}
 
 	# Empower the Yi Dynasty
+	JAP_empower_the_yi_dynasty_decision  = {
+
+		priority = 10
+
+		icon = GFX_decision_generic_monarchy
+
+		ai_will_do = {
+			base = 10
+		}
 	
+		allowed = {  
+			original_tag = JAP 
+		}
+
+		visible = { 
+			has_completed_focus = JAP_sea_greater_east_asian_co_properity_sphere
+			has_subject = KOR
+			KOR = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+	
+		available = {
+			
+		}
+
+		#days_remove = 70
+
+		#days_re_enable = 180
+
+		cost = 25
+
+		cancel_trigger = {
+		}
+
+        cancel_effect = {
+        }
+
+		modifier = {
+		}
+
+		complete_effect = { 
+
+			KOR = {
+				country_event = {
+					id = SEA_japan_popup_events.35
+					hours = 6
+				}	
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				KOR = {
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}	
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.3
+					}	
+					add_political_power = 100
+				}
+			}
+
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+
+		}
+
+	}
 
 }
 
@@ -12274,7 +15772,11 @@ war_measures = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CHI_holding_state_mission_trigger
-				
+				CHI = {
+					NOT = {
+						has_active_mission = CHI_holding_state_mission
+					}
+				}
 			}
 			
 		}
@@ -12338,5 +15840,170 @@ war_measures = {
 
 }
 
+# The Burmah Oil Company's Oil Fields - for blowing up and repairing the Burmese oil fields 
+BRM_burmah_oils_oil_fields = {
+	
+	BRM_blow_up_the_oil_fields = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 288 
+			} 
+		}
+
+		allowed = { 
+			
+		}
+
+		visible = {
+				
+			288 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			
+			is_subject = no
+			has_capitulated = no
+
+			NOT = {
+				288 = {
+					has_dynamic_modifier = { modifier = BRM_blown_up_oil_fields }
+				}
+			}
+			
+		}
+
+		available = {
+			has_war = yes
+			288 = {
+				any_neighbor_state = {
+					controller = {
+						has_war_with = ROOT
+					}
+				}	
+			}	
+		}
+
+		cost = 25
+		
+		cancel_trigger = {
+			OR = {
+				has_war = no
+				288 = {
+					is_controlled_by_ROOT_or_subject = no
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				controls_state = 288
+				surrender_progress > 0.15
+				add = 150
+			}
+			modifier = {
+				any_subject_country = {
+					is_subject_of = ROOT
+					controls_state = 288
+					surrender_progress > 0.15
+				}
+				add = 150
+			}
+			modifier = {
+				288 = {
+					state_is_fully_controlled_by_ROOT_or_subject = no
+				}
+				add = 100
+			}
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+
+			288 = {
+				add_dynamic_modifier = {
+					modifier = BRM_blown_up_oil_fields
+				}
+			}
+
+		}
+
+	}
+
+	BRM_repair_the_oil_fields = {
+
+		icon = GFX_decision_generic_construction
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 288 
+			} 
+		}
+
+		visible = {
+
+			288 = {
+				is_controlled_by_ROOT_or_subject = yes
+				has_dynamic_modifier = { modifier = BRM_blown_up_oil_fields }
+			}
+			
+			has_capitulated = no
+			is_subject = no 
+		}
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+		}
+
+		cost = 25
+
+		cancel_trigger = {
+			288 = {
+				is_controlled_by_ROOT_or_subject = no
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				controls_state = 288
+				has_war = no
+				add = 150
+			}
+			modifier = {
+				any_subject_country = {
+					is_subject_of = ROOT
+					controls_state = 288
+				}
+				has_war = no
+				add = 150
+			}
+			modifier = {
+				surrender_progress < 0.1
+				add = 50 
+			}
+		}
+
+		days_remove = 120
+
+		remove_effect = {
+
+			288 = {
+				remove_dynamic_modifier = {
+					modifier = BRM_blown_up_oil_fields
+				}
+			}
+
+		}
+	}
+
+}
 
 

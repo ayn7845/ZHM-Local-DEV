@@ -264,7 +264,7 @@ china_potential_core_states = {
 		limit = {
 			OR = {
 				is_core_of = CHI
-				
+				is_core_of = PRC
 			}
 		}
 	}
@@ -288,7 +288,7 @@ china_core_states_controlled_by_faction_leader_ideology = {
 		limit = {
 			OR = {
 				is_core_of = CHI
-				
+				is_core_of = PRC
 			}
 			controller = {
 				faction_leader = {

@@ -16,6 +16,27 @@ types = {
 
 		category = paratrooper_raids
 
+		ai_will_do = {
+			base = 0.5 # Don't plan these unless you have nothing better to do
+			modifier = {
+				# Don't target anyone who is not a potential enemy
+				factor = 0
+				NOT = {
+					is_in_array = {
+						array = potential_and_current_enemies
+						value = FROM  # Target country
+					}
+				}
+			}
+			modifier = {
+				# Don't waste Fallschirmjägers on this, unless late in the war and it might help us winning
+				factor = 0
+				tag = GER
+				date < 1944.1.1
+				NOT = { surrender_progress > 0 }
+			}
+		}
+
 		command_power = 25 # command power allocation cost
 
 		allowed = {
@@ -30,6 +51,11 @@ types = {
 			NOT = {
 				is_in_faction_with = FROM
 			}
+		}
+
+		# Can prepare
+		available = {
+
 		}
 
 		launchable = {
@@ -74,9 +100,9 @@ types = {
 		arrow = {
 		    type = air
 		}
-        # unit_model = {
-            # type = transport
-        # }
+        unit_model = {
+            equipment = air_transport
+        }
 
 		starting_point = {
 			types = { air_base }
@@ -353,9 +379,9 @@ types = {
 		arrow = {
 		    type = air
 		}
-        # unit_model = {
-            # type = transport
-        # }
+        unit_model = {
+            equipment = air_transport
+        }
 
 		starting_point = {
 			types = { air_base }

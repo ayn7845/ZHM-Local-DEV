@@ -679,8 +679,21 @@ characters={
 			allowed = {
 				original_tag = CAN
 			}
-			available = { 
-				always = no
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = CAN_swastika_clubs 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
 			}
 			traits = {
 				fascist_demagogue 
@@ -716,7 +729,7 @@ characters={
 					}
 					OR = {
 						has_completed_focus = CAN_strengthen_the_commonwealth_ties 
-					
+						has_completed_focus = CAN_permanent_joint_defense_board 
 					}
 				}
 				if = {
@@ -755,8 +768,21 @@ characters={
 			allowed = {
 				original_tag = CAN
 			}
-			available = { 
-				always = no
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = CAN_burn_the_royal_portraits 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
 			}
 			traits = {
 				communist_revolutionary 

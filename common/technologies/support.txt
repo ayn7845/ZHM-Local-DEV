@@ -179,6 +179,20 @@ technologies = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_land_military_engineering_vehicles
 			}
+
+			if = {
+				limit = {
+					original_tag = AFG
+					has_dlc = "Graveyard of Empires"
+					has_completed_focus = AFG_expand_quami_template
+				}
+				add_units_to_division_template = {
+					template_name = "Pashtun Levy" 
+					support = {
+						engineer = 0 
+					}
+				}
+			}
 		}
 	}
 
@@ -745,6 +759,22 @@ technologies = {
 				has_war = yes
 			}
 		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					original_tag = AFG
+					has_dlc = "Graveyard of Empires"
+					has_completed_focus = AFG_expand_quami_template
+				}
+				add_units_to_division_template = {
+					template_name = "Pashtun Levy" 
+					support = {
+						military_police = 0 
+					}
+				}
+			}
+		}
 	}
 
 	tech_military_police2 = {
@@ -1169,13 +1199,25 @@ technologies = {
 				date > "1939.1.1"
 			}
 		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					original_tag = AFG
+					has_dlc = "Graveyard of Empires"
+					has_completed_focus = AFG_expand_quami_template
+				}
+				add_units_to_division_template = {
+					template_name = "Pashtun Levy" 
+					support = {
+						field_hospital = 0 
+					}
+				}
+			}
+		}
 	}
 
 	tech_field_hospital2 = {
-
-		allow = {
-			always = no
-		}
 
 		field_hospital = {
 			casualty_trickleback = 0.10
@@ -1344,6 +1386,24 @@ technologies = {
 				factor = 1.2
 				date > "1948.1.1"
 			}
+		}
+	}
+
+
+	SWI_saint_bernard_tech = { #Saint Bernard tech
+		allow = { always = no } #Only obtained through Focus
+		field_hospital = {
+			casualty_trickleback = 0.10 ## REMEMBER TO UPDATE THE TOOLTIP
+			experience_loss_factor = -0.3
+		}
+	}
+
+	NORDIC_supportCollaboration_tech = { # For the Army Capston in the Nordic JFT
+		allow = { always = no } #Only obtained through Focus
+		category_support_battalions = {
+			max_organisation = 10
+			soft_attack = 0.25
+			experience_loss_factor = -0.05
 		}
 	}
 
@@ -1842,10 +1902,6 @@ technologies = {
 			railway_gun_equipment_1
 		}
 
-		allow = { 
-			always = no
-		}
-		
 		enable_equipment_modules = {
 			lc_hull_mounted_railway_gun #Module for Land Cruiser
 		}

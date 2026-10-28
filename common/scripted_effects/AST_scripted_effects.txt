@@ -147,6 +147,7 @@ AST_cabinet_trust_swap_idea = { #Will swap ideas that represent the correct Cabi
 					has_country_flag = AST_cabinet_trust_complete_1_flag
 					has_country_flag = AST_cabinet_trust_complete_2_flag
 					has_country_flag = AST_cabinet_trust_complete_3_flag
+					has_country_flag = AST_cabinet_trust_complete_4_flag
 				}
 			}
 		}
@@ -1019,7 +1020,18 @@ AST_divide_the_pacific_effect = {
 	custom_effect_tooltip = generic_skip_one_line_tt
 	custom_effect_tooltip = AST_dividing_the_pacific_ast_gain_tt 	
 	#If MAL/Singapore/SIA isn't controlled by JAP or AST, add AST state claims
-	
+	MAL = {
+		every_core_state = {
+			limit = { 
+				NOT = {
+					is_controlled_by = AST
+					is_controlled_by = JAP				
+				}
+			}
+		set_state_flag = AST_claims_to_ast
+		add_claim_by = AST 
+		}
+	}
 
 	custom_effect_tooltip = generic_skip_one_line_tt
 	SIA = {
@@ -1035,12 +1047,34 @@ AST_divide_the_pacific_effect = {
 		}
 	}
 
-	
+	JAP = {
+		add_ai_strategy = {
+			type = avoid_starting_wars
+			id = MAL
+			value = 150
+		}
+		add_ai_strategy = {
+			type = avoid_starting_wars
+			id = SIA
+			value = 150
+		}
+	}
 
 	#If BRM/French Indochina isn't controlled by JAP or AST, add JAP state claims
 	custom_effect_tooltip = generic_skip_one_line_tt
 	custom_effect_tooltip = AST_dividing_the_pacific_jap_gain_tt 
-	
+	BRM = {
+		every_core_state = {
+			limit = { 
+				NOT = {
+					is_controlled_by = AST
+					is_controlled_by = JAP				
+				}
+			}
+		set_state_flag = AST_claims_to_jap
+		add_claim_by = JAP 
+		}
+	}
 
 	custom_effect_tooltip = generic_skip_one_line_tt
 	every_state = {
@@ -1068,7 +1102,11 @@ AST_divide_the_pacific_effect = {
 	}
 
 	AST = {
-		
+		add_ai_strategy = {
+			type = avoid_starting_wars
+			id = BRM
+			value = 150
+		}
 		add_ai_strategy = {
 			type = avoid_starting_wars
 			id = FRA
@@ -1079,8 +1117,19 @@ AST_divide_the_pacific_effect = {
 	IF = { #Only for tooltip
 	    limit = {
 	        OR = {
-	           
-	            
+	            BRM = { 
+	            	OR = {
+	            		is_subject_of = AST 
+	            		has_country_flag = AST_brm_puppet_to_jap
+	            	}
+	            }
+	            any_state = {
+	                is_core_of = BRM
+	                OR = {
+		                is_controlled_by = AST
+		                has_state_flag = AST_transfer_to_jap
+		            }
+	            }
 	            any_state = {
 	            	OR = {
 		                is_controlled_by = AST
@@ -1105,9 +1154,33 @@ AST_divide_the_pacific_effect = {
 	}
 
 	#If BRM is subject of AST, transfer it to JAP
+	IF = {
+		limit = {
+			BRM = {
+				is_subject_of = AST
+			}
+		}
+		JAP = {
+			puppet = BRM
+		}	
+		BRM = { 
+			set_country_flag = AST_brm_puppet_to_jap
+		}
+		hidden_effect = {
+			BRM = { country_event = { id = AST_diplomatic_events.37 hours = 3 } }
+		}
+	}	
 				
 	#If BRM/French Indochina is controlled by AST, transfer it to JAP
-	
+	BRM = {
+		every_core_state = {
+			limit = { 
+				is_controlled_by = AST			
+			}
+		set_state_flag = AST_transfer_to_jap
+		transfer_state_to = JAP 
+		}
+	}
 
 	every_state = {
 		limit = {
@@ -1252,12 +1325,92 @@ AST_broken_nauru_pact_effect = {
 	}
 }
 
-AST_hand_in_glove_effect = {
+AST_hand_in_glove_effect = {	
+	IF = {
+		limit = {
+			BRM = {
+				is_ai = yes
+				is_subject_of = ENG
+			}
+		}
+		BRM = { 
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = BRM
+						has_state_flag = AST_hand_in_glove_transfer_to_ast
+					}
+				}
+				set_state_flag = AST_hand_in_glove_transfer_to_ast #For tt reasons
+				transfer_state_to = AST
+			} 
+		}
+	}
 	
+	BRM = {
+		every_core_state = {
+			limit = { 
+				OR = {
+					is_owned_by = ENG	
+					has_state_flag = AST_hand_in_glove_transfer_to_ast	
+				}	
+			}
+			set_state_flag = AST_hand_in_glove_transfer_to_ast #For tt reasons
+			transfer_state_to = AST
+		}
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+	IF = {
+		limit = {
+			MAL = {
+				is_ai = yes
+				is_subject_of = ENG
+			}
+		}
+		MAL = { 
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = MAL
+						has_state_flag = AST_hand_in_glove_transfer_to_ast
+					}
+				}
+				set_state_flag = AST_hand_in_glove_transfer_to_ast #For tt reasons
+				transfer_state_to = AST
+			} 
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+	}
+	
+	MAL = {
+		every_core_state = {
+			limit = { 
+				OR = {
+					is_owned_by = ENG			
+					has_state_flag = AST_hand_in_glove_transfer_to_ast
+				}	
+			}
+			set_state_flag = AST_hand_in_glove_transfer_to_ast #For tt reasons
+			transfer_state_to = AST
+		}
+	}
 }
 
-AST_hand_in_glove_deny_effect = { 
+AST_hand_in_glove_deny_effect = {
 
+	BRM = {
+		every_core_state = {
+			add_claim_by = AST
+		}
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+	MAL = {
+		every_core_state = {
+			add_claim_by = AST
+		}
+	}
 }
 
 AST_the_pacific_garrison_effect = {
@@ -1367,6 +1520,18 @@ AST_bound_once_more_effect = {
 	}
 }
 
+AST_new_guard_spirit_modify_effect = {
+	custom_effect_tooltip = AST_new_guard_spirit_modify
+	add_to_variable = {
+		var = AST_ng_members_var
+		value = 2500 #Edit tt if changed
+	}
+	add_to_variable = {
+		var = AST_ng_daily_var
+		value = 10 #Edit tt if changed
+	}
+}
+
 ### National Spirit Checks ###
 
 AST_add_or_modify_war_is_coming_spirit = {
@@ -1466,25 +1631,6 @@ add_or_modify_AST_no_foreign_battlefields_spirit = {
 	}
 }
 
-add_or_modify_AST_imperial_pressure_spirit = {
-	IF = {
-		limit = {
-			NOT = {
-				has_dynamic_modifier = {
-					modifier = AST_imperial_pressure_spirit
-				}		
-			}
-		}
-		hidden_effect = {
-			country_event = { id = AST_political_events.7 days = 1 }
-		}
-	}
-
-	ELSE = {
-		custom_effect_tooltip = AST_imperial_pressure_spirit_tt
-	}
-}
-
 add_or_modify_AST_strength_in_numbers_spirit = {
 	IF = {
 		limit = {
@@ -1520,6 +1666,28 @@ add_or_modify_AST_pacific_fleet_hub_spirit = {
 
 	ELSE = {
 		custom_effect_tooltip = AST_pacific_fleet_hub_spirit_tt
+	}
+}
+
+rename_australia_first_spirit_effect = {
+	IF = {
+		limit = {
+			has_dynamic_modifier = AST_australia_first_spirit
+		}
+		custom_effect_tooltip = AST_australia_first_rename_tt
+		hidden_effect = {
+			set_variable = { AST_for_crown_and_country_neutrality_drift = AST_australia_first_neutrality_drift }
+			set_variable = { AST_for_crown_and_country_war_support_factor = AST_australia_first_war_support_factor }
+			set_variable = { AST_for_crown_and_country_operative_slot = AST_australia_first_operative_slot }
+			set_variable = { AST_for_crown_and_country_military_industrial_organization_funds_gain = AST_australia_first_military_industrial_organization_funds_gain }
+			set_variable = { AST_for_crown_and_country_military_industrial_organization_research_bonus = AST_australia_first_military_industrial_organization_research_bonus }
+			remove_dynamic_modifier = {
+				modifier = AST_australia_first_spirit
+			}
+			add_dynamic_modifier = {
+				modifier = AST_for_crown_and_country_spirit
+			}
+		}
 	}
 }
 

@@ -119,8 +119,25 @@ ideas = {
 
 			cancel_if_invalid = no
 
-			on_add = { 
+			on_add = {
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_economy_law > 0 } }
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
 
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_economy_law = 0 }
+				}
 			}
 		}
 
@@ -192,8 +209,34 @@ ideas = {
 					has_war_support > 0.3
 					congress_high_support_trigger = yes
 				}
-				
-				
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus"
+					}
+					NOT = {
+						OR = {
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_3
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						has_dlc = "Peace For Our Time"
+					}
+					custom_trigger_tooltip = {
+						tooltip = CZE_bop_no_industrialists_tt
+						NOT = {
+							OR = {
+								has_idea = CZE_industrialists_veto
+								has_idea = CZE_industrialists_veto_2
+							}
+						}
+					}
+				}
 			}
 			on_add = {
 				if = {
@@ -205,8 +248,22 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_economy_law > 1 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_economy_law = 1 }
 				}
 			}
 
@@ -303,8 +360,34 @@ ideas = {
 					has_war_support > 0.5
 					congress_high_support_trigger = yes
 				}
-				
-				
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus"
+					}
+					NOT = {
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_3
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						has_dlc = "Peace For Our Time"
+					}
+					custom_trigger_tooltip = {
+						tooltip = CZE_bop_no_industrialists_tt
+						NOT = {
+							OR = {
+								has_idea = CZE_industrialists_veto
+								has_idea = CZE_industrialists_veto_2
+							}
+						}
+					}
+				}
 			}
 
 			cost = 150
@@ -329,8 +412,22 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_economy_law > 2 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_economy_law = 2 }
 				}
 			}
 			ai_will_do = {
@@ -340,43 +437,6 @@ ideas = {
 					factor = 20
 
 					is_major = yes
-				}
-
-				# HMM: we want the AI to get off of civilian economy as soon as it can so that it can use its civs more efficiently
-				modifier = {
-					add = 1000
-					OR = {
-						has_idea = undisturbed_isolation 
-						has_idea = isolation
-						has_idea = civilian_economy
-						has_idea = low_economic_mobilisation
-					}
-				}
-
-				# HMM: if we CAN go for war economy, skip partial, it's only a waste of PP
-				modifier = {
-					factor = 0
-					has_war_support > 0.5
-					OR = {
-						has_government = fascism
-						has_government = communism
-						AND = {
-							PHI_SEA = yes
-							OR = {
-								has_idea = PHI_ties_with_nationalist_spain
-								has_idea = PHI_ties_with_nationalist_spain_2
-							}
-						}
-						AND = {
-							has_war = yes
-							any_enemy_country = {
-								ic_ratio = {
-									tag = ROOT
-									ratio > 0.4
-								}
-							}
-						}
-					}
 				}
 				
 				modifier = {
@@ -403,7 +463,15 @@ ideas = {
 				}
 
 				modifier = {
-
+					factor = 100
+					OR = {
+						original_tag = URG
+						original_tag = PAR
+					}
+					NOT = {
+						has_idea = war_economy
+					}
+					has_completed_focus = GUAY_coup_detat
 				}
    			}
 		}
@@ -514,8 +582,34 @@ ideas = {
 					has_war_support > 0.75
 					congress_high_support_trigger = yes
 				}
-				
-				
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus"
+					}
+					NOT = {
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						has_dlc = "Peace For Our Time"
+					}
+					custom_trigger_tooltip = {
+						tooltip = CZE_bop_no_industrialists_tt
+						NOT = {
+							OR = {
+								has_idea = CZE_industrialists_veto
+								has_idea = CZE_industrialists_veto_2
+							}
+						}
+					}
+				}
 			}
 
 			cost = 150
@@ -540,23 +634,26 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_economy_law > 3 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
+					set_variable = { SIA_current_economy_law = 3 }
 				}
 			}
 			ai_will_do = {
    				base = 3
-
-				# HMM: we want the AI to get off of civilian economy as soon as it can so that it can use its civs more efficiently
-				modifier = {
-					add = 1000
-					OR = {
-						has_idea = undisturbed_isolation 
-						has_idea = isolation
-						has_idea = civilian_economy
-						has_idea = low_economic_mobilisation
-					}
-				}
 
 				modifier = {
 					#High prio on production
@@ -702,8 +799,34 @@ ideas = {
 					has_war_support > 0.9
 					congress_high_support_trigger = yes
 				}
-				
-				
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus"
+					}
+					NOT = {
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_3
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						has_dlc = "Peace For Our Time"
+					}
+					custom_trigger_tooltip = {
+						tooltip = CZE_bop_no_industrialists_tt
+						NOT = {
+							OR = {
+								has_idea = CZE_industrialists_veto
+								has_idea = CZE_industrialists_veto_2
+							}
+						}
+					}
+				}
 			}
 			on_add = {
 				if = {
@@ -715,8 +838,22 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_economy_law > 4 } }
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_economy_law = 4 }
 				}
 			}
 			ai_will_do = {
@@ -996,28 +1133,6 @@ ideas = {
 		law = yes
 		use_list_view = yes
 
-		SOV_collectivized_society = {
-			picture = SPR_collectivized_society
-			name = "Collectivized Society"
-			allowed = {
-				always = no
-			}
-			removal_cost = -1
-			modifier = {
-				min_export = 0
-				industrial_capacity_factory = 0.15
-				industrial_capacity_dockyard = 0.15
-				production_speed_buildings_factor = 0.15
-				research_speed_factor = 0.1
-				civilian_intel_to_others = 40
-				navy_intel_to_others = 20
-			}
-			allowed_to_remove = {
-				always = no
-			}
-			cancel_if_invalid = no
-		}
-
 		uncontrolled_exports = {
 
 
@@ -1043,6 +1158,8 @@ ideas = {
 			allowed_to_remove = {
 				OR = {
 					has_war = yes
+					has_completed_focus = POL_integrate_gdansk_industries
+					has_completed_focus = POL_expand_gdynia_seaport
 					NOT = {
 						owns_state = 85
 						owns_state = 807
@@ -1100,8 +1217,12 @@ ideas = {
 					NOT = { has_completed_focus = GER_autarky_efforts }
 				}
 
-				if = { 
-
+				if = {
+					limit = {
+						original_tag = PRC
+						has_dlc = "No Compromise, No Surrender"
+					}
+					NOT = { has_completed_focus = PRC_promote_paper_bills }
 				}
 			}
 
@@ -1128,7 +1249,7 @@ ideas = {
 					factor = 300
 
 					OR = {
-					
+						tag = PER
 						tag = IRQ
 					}
 					is_in_faction = no
@@ -1156,8 +1277,24 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_trade_law > 0 } }
+
+
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_trade_law = 0 }
 				}
    			}
 		}
@@ -1187,8 +1324,12 @@ ideas = {
 					NOT = { has_completed_focus = GER_autarky_efforts }
 				}
 
-				if = { 
-					
+				if = {
+					limit = {
+						original_tag = PRC
+						has_dlc = "No Compromise, No Surrender"
+					}
+					NOT = { has_completed_focus = PRC_promote_paper_bills }
 				}
 			}
 
@@ -1226,7 +1367,7 @@ ideas = {
 						tag = SWE
 
 						# Iraq & Iran are special oil snowflakes
-					
+						tag = PER
 						tag = IRQ
 					}
 				}
@@ -1237,8 +1378,24 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_trade_law > 1 } }
 
+
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_trade_law = 1 }
 				}
    			}
 		}
@@ -1361,8 +1518,24 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_trade_law > 2 } }
 
+
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_trade_law = 2 }
 				}
    			}
 		}
@@ -1583,8 +1756,24 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-					
+				if = {
+					limit = {
+						has_dlc = "Thunder at Our Gates"
+						original_tag = SIA
+					}
+					if = {
+						limit = { check_variable = { SIA_current_trade_law > 3 } }
+
+
+						SIA_decrease_military_approval = yes
+						SIA_increase_civilian_approval = yes
+					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
+
+					set_variable = { SIA_current_trade_law = 3 }
 				}
    			}
 		}
@@ -1594,9 +1783,8 @@ ideas = {
 				always = no
 			}
 			visible = {
-				always = no
-				#original_tag = RAJ
-				#has_completed_focus = RAJ_special_economic_zones
+				original_tag = RAJ
+				has_completed_focus = RAJ_special_economic_zones
 			}
 			available = {
 

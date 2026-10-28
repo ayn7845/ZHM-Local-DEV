@@ -30,7 +30,7 @@ GER_porsche_organization = {
 				original_tag = IRQ 
 				has_dlc = "Graveyard of Empires"
 			}
-		
+			NOR_AAT = yes
 		}
 	}
 
@@ -48,6 +48,12 @@ GER_porsche_organization = {
 				FROM = { original_tag = MEX }
 			}
 			FROM = { is_in_faction_with = GER }
+		}
+		IF = {
+			limit = {
+				FROM = { original_tag = NOR }
+			}
+			FROM = { has_completed_focus = NOR_invite_german_engineers }
 		}
 	}
 
@@ -265,11 +271,23 @@ GER_henschel_organization = {
 				original_tag = ETH
 				has_dlc = "By Blood Alone"
 			}
+			AND = {
+				tag = PER
+				has_dlc = "Graveyard of Empires"
+				has_dlc = "Arms Against Tyranny"
+			}
 		}
 	}
 	
 	visible = {
-		
+		IF = {
+			limit = { FROM = { original_tag = ETH } }
+			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
+		IF = {
+			limit = { FROM = { original_tag = PER } }
+			FROM = { has_completed_focus = PER_german_tanks }
+		}
 	}
 
 	available = {
@@ -306,6 +324,10 @@ GER_henschel_organization = {
 				#is_in_faction_with = GER
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
+		}
+		IF = {
+			limit = { FROM = { original_tag = PER } }
+			FROM = { has_completed_focus = PER_german_tanks }
 		}
 	}
 
@@ -812,6 +834,10 @@ GER_daimler_benz_organization = {
 				original_tag = BRA
 				has_dlc = "Trial of Allegiance"
 			}
+			AND = {
+				original_tag = BEL
+				has_dlc = "Gotterdammerung"
+			}
 		}
 	}
 
@@ -830,6 +856,17 @@ GER_daimler_benz_organization = {
 			}
 			FROM = {
 				has_completed_focus = BRA_german_tanks
+			}
+		}
+
+		IF = {
+			limit = {
+				FROM = {
+					original_tag = BEL
+				}
+			}
+			FROM = {
+				has_completed_focus = BEL_invite_german_tank_organization
 			}
 		}
 	}
@@ -1762,7 +1799,8 @@ GER_messerschmitt_organization = {
 	
 	allowed = {	
 		OR = {
-			original_tag = GER 
+			original_tag = GER
+			NOR_AAT = yes 
 		}
 	}
 
@@ -1773,6 +1811,13 @@ GER_messerschmitt_organization = {
 				FROM = { NOT = { original_tag = GER } }
 			}
 			FROM = { NOT = { has_war_with = GER } }
+		}
+		
+		if = {
+			limit = {
+				FROM = { original_tag = NOR }
+			}
+			FROM = { has_completed_focus = NOR_invite_german_engineers }
 		}
 	}
 
@@ -1934,7 +1979,10 @@ GER_junkers_organization = {
 	}
 	
 	visible = {
-		
+		IF = {
+			limit = { FROM = { original_tag = ETH } }
+			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
 	}
 
 	available = {
@@ -2299,7 +2347,7 @@ GER_heinkel_organization = {
 				original_tag = BUL
 				has_dlc = "Battle for the Bosporus"
 			}
-			
+			NOR_AAT = yes
 		}
 	}
 
@@ -2330,6 +2378,12 @@ GER_heinkel_organization = {
 				#is_in_faction_with = GER
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
+		}
+		ELSE_IF = {
+			limit = {
+				FROM = { original_tag = NOR }
+			}
+			FROM = { has_completed_focus = NOR_invite_german_engineers }
 		}
 	}
 
@@ -3089,7 +3143,10 @@ GER_mauser_organization = {
 	}
 	
 	visible = {
-		
+		IF = {
+			limit = { FROM = { original_tag = ETH } }
+			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
 	}
 	
 	available = {

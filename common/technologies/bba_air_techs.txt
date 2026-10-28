@@ -736,12 +736,6 @@ technologies = {
 			large_plane_airframe_0
 			large_plane_maritime_patrol_plane_airframe_0
 		}
-		allow = {
-            has_game_rule = {
-                rule = strat_bombing
-                option = allowed
-            }
-        }
 	
 		path = {
 			leads_to_tech = basic_large_airframe
@@ -796,12 +790,6 @@ technologies = {
 			leads_to_tech = improved_large_airframe
 			research_cost_coeff = 1
 		}
-		allow = {
-            has_game_rule = {
-                rule = strat_bombing
-                option = allowed
-            }
-        }
 
 		research_cost = 2
 		start_year = 1936

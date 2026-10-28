@@ -32,7 +32,7 @@ new_strategic_destruction = {
 			category_fighter = {
                 air_agility = 0.1
             }
-            air_intercept_efficiency = 0.15
+            air_intercept_efficiency = 0.2
 
             effect = {
                 if = {
@@ -117,7 +117,7 @@ new_battlefield_support = {
     description = GRAND_DOCTRINE_BATTLEFIELD_SUPPORT_DESC
     icon = GFX_doctrine_direct_ground_support_medium
     available = {
-        always = no
+        always = yes
     }
 
     xp_cost = 100

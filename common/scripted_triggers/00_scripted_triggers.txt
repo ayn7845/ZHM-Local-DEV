@@ -69,7 +69,19 @@ check_has_focus_tree_to_switch_to_fascism = {
 	NOT = { tag = GER }
 	NOT = { tag = MAN }
 	NOT = { tag = ITA }
-	
+	OR = {
+		NOT = {
+			AND = {
+				tag = SAF
+				has_dlc = "Together for Victory"
+			}
+		}
+		AND = {
+			tag = SAF
+			has_dlc = "Together for Victory"
+			has_completed_focus = SAF_south_africa_first
+		}
+	}
 	NOT = {
 		AND = {
 			tag = RAJ
@@ -166,10 +178,19 @@ check_has_focus_tree_to_switch_to_democratic = {
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
+	NOT = {
+		AND = {
+			OR = {
+				original_tag = INS
+			}
+			has_dlc = "Thunder at Our Gates"
+		}
+	}
 }
 
 check_has_focus_tree_to_switch_to_communism = {
-	
+	NOT = { tag = PRC }
+	NOT = { tag = SIK }
 	NOT = { tag = MAN }
 	NOT = { tag = SOV }
 	NOT = {
@@ -184,7 +205,12 @@ check_has_focus_tree_to_switch_to_communism = {
 			has_dlc = "Waking the Tiger"
 		}
 	}
-	
+	NOT = {
+		AND = {
+			tag = YUN
+			has_dlc = "Waking the Tiger"
+		}
+	}
 	NOT = {
 		AND = {
 			tag = USA
@@ -233,7 +259,14 @@ check_has_focus_tree_to_switch_to_communism = {
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
-	
+	NOT = {
+		AND = {
+			OR = {
+				original_tag = INS
+			}
+			has_dlc = "Thunder at Our Gates"
+		}
+	}
 }
 
 #State scope
@@ -615,8 +648,23 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 		NOT = { FROM = { original_tag = YUG } }
 	}
 
-
-	
+	if = {
+		limit = {
+			original_tag = POL
+		}
+		NOT = { FROM = { original_tag = DNZ } }
+	}
+	if = {
+		limit = {
+			original_tag = TUR
+		}
+		NOT = { FROM = { original_tag = KUR } }
+	}
+	NOT = {
+		FROM = {
+			original_tag = SDL
+		}
+	}
 	NOT = {
 		any_country_with_original_tag = {
 			original_tag_to_check = FROM
@@ -707,15 +755,26 @@ has_same_ideology = {
 
 is_latin_american_country = {
 	OR = {
-		
+		original_tag = CUB
 		original_tag = ARG
 		original_tag = BRA
-	
-		
+		original_tag = URG
+		original_tag = PAR
+		original_tag = CHL
+		original_tag = BOL
+		original_tag = PRU
+		original_tag = ECU
+		original_tag = COL
 		original_tag = VEN
-	
+		original_tag = PAN
+		original_tag = COS
+		original_tag = NIC
+		original_tag = HON
+		original_tag = ELS
+		original_tag = GUA
 		original_tag = MEX
-		
+		original_tag = HAI
+		original_tag = DOM
 	}
 }
 
@@ -1029,7 +1088,87 @@ country_can_be_reasonable_target_of_wargoal = { #Expected scopes: Target country
 # Countries will be less likely to try and liberate or puppet these nations 
 is_unlikely_country_tag = {
 	OR = {
-	 
+	    tag = BRI
+	    tag = CAT
+	    tag = NAV
+	    tag = GLC
+	    tag = ADU
+	    tag = BRI
+	    tag = OCC
+	    tag = COR
+	    tag = DNZ
+	    tag = KSH
+	    tag = CKK
+	    tag = FER
+	    tag = YAK
+	    tag = VLA
+	    tag = KKP
+	    tag = YAM
+	    tag = TAY
+	    tag = OVO
+	    tag = NEN
+	    tag = KOM
+	    tag = CHU
+	    tag = MEL
+	    tag = RIF
+	    tag = HAR
+	    tag = TIG
+	    tag = AFA
+	    tag = BEG
+	    tag = GBA
+	    tag = SID
+	    tag = ORO
+	    tag = QEM
+	    tag = LBV
+	    tag = PAP
+	    tag = TOS
+	    tag = SPM
+	    tag = TTS
+		tag = BSK
+		tag = TAT
+		tag = UDM
+		tag = KHA
+		tag = VGE
+		tag = KAL
+		tag = KAR
+		tag = SIL
+		tag = KSH
+		tag = ALT
+		tag = BUK
+		tag = KHI
+		tag = SMI
+		tag = QUE
+		tag = YUC
+		tag = RIG
+		tag = WLA
+		tag = GRN
+		tag = EVE
+		tag = SHL
+		tag = MEK
+		tag = HAN
+		tag = SAX
+		tag = PRE
+		tag = BAY
+		tag = WUR
+		tag = THU
+		tag = HES
+		tag = RHI
+		tag = RNG 
+		tag = PSR 
+		tag = GXC
+		tag = YUN
+		tag = SHX
+		tag = XSM
+		tag = SIK
+		tag = GDC
+		tag = SND
+		tag = SIC
+		tag = NXM
+		tag = GSM
+		tag = XIC
+		tag = KHM
+		tag = KUM
+		tag = HBC
 	}
 }
 
@@ -1225,6 +1364,7 @@ is_germanic = {
 		original_tag = NOR
 		original_tag = SWE
 		original_tag = DEN
+		original_tag = SWI
 		original_tag = HOL
 		original_tag = LUX
 		original_tag = BEL

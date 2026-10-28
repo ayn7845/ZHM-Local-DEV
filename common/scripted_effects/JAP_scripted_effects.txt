@@ -146,7 +146,7 @@ JAP_create_patrick_heenan_operative = {
 		traits = { operative_tough }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ENG NZL RAJ }
+		nationalities = { ENG NZL MAL RAJ }
 	}
 }
 
@@ -170,7 +170,7 @@ JAP_create_ignatius_lincoln_operative = {
 		traits = { operative_seducer operative_well_groomed operative_natural_orator }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { HUN AUS CHI }
+		nationalities = { HUN AUS TIB CHI ISR }
 	}
 }
 
@@ -819,13 +819,1737 @@ JAP_mobilize_railway_guns = {
 
 
 # Triggers the various versions of the democratic civil war. Does it here so it doesn't take up too much space in the poor events file
-JAP_trigger_democratic_civil_war = { 
+JAP_trigger_democratic_civil_war = {
+
+	# The Colonies and Imperial Protectorates Break Ties 
+	IF = {
+		limit = {
+			MAN = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = MAN autonomy_state = autonomy_free }
+		MAN = {
+			country_event = {
+				id = SEA_japan_popup_events.26
+				hours = 4
+			}	
+			effect_tooltip = {
+				set_cosmetic_tag = MAN_kwantung_army
+				IF = {
+					limit = {
+						has_idea = MAN_kwantung_veto 
+					}
+					remove_ideas = MAN_kwantung_veto 
+				}
+				add_ideas = MAN_militarism 
+			}
+		}
+		IF = {
+			limit = {
+				MEN = { is_subject_of = ROOT }
+			}
+			MAN = { puppet = MEN }
+		}
+	}
+	
+	IF = {
+		limit = {
+			KOR = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = KOR autonomy_state = autonomy_free }
+		KOR = {
+			country_event = {
+				id = SEA_japan_popup_events.27
+				hours = 4
+			}	
+			drop_cosmetic_tag = yes
+			retire_character = KOR_jiro_minami
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}	
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}	
+		}
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = KOR
+			}
+		}
+		release = KOR # Korea
+	}
+	IF = {
+		limit = {
+			PLU = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = PLU autonomy_state = autonomy_free }
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = PLU
+			}
+		}
+		release = PLU # Palau
+	}
+	IF = {
+		limit = {
+			FOR = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = FOR autonomy_state = autonomy_free }
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = FOR
+			}
+		}
+		release = FOR # Formosa/Taiwan
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	# The Militarism is tranfered to MAN which inherits Kwantung Army stuff
+	remove_ideas = JAP_militarism
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	# Set War Flag
+	set_global_flag = JAP_demcoratic_civil_war
+
+	# Get Ideology Support
+	set_variable = { JAP_communist_support_before_civil_war = party_popularity_100@communism }
+	set_variable = { JAP_democratic_support_before_civil_war = party_popularity_100@democratic }
+	set_variable = { JAP_fascist_support_before_civil_war = party_popularity_100@fascism }
+	set_variable = { JAP_neutrality_support_before_civil_war = party_popularity_100@neutrality }
+
+
+	# Setup for Army, Navy and Air Sizes
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_army_support }
+		}
+		set_variable = { ROOT.JAP_opposition_army_support = 0.4 }
+	}
+	IF = { 
+		limit = { 
+			JAP = { is_ai = yes } 
+			check_variable = { ROOT.JAP_opposition_army_support < 0.6 }
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.25 }
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_army_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_seek_yakuza_support
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.2 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_disillusioned_young_officers
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_first_bit_of_army_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_army_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_navy_support }
+		}
+		set_variable = { ROOT.JAP_opposition_navy_support = 0.6 }
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_the_navy_moderates
+		}
+		add_to_variable = { ROOT.JAP_opposition_navy_support = 0.3 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_navy_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_navy_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_navy_support = -0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_navy_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_navy_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_air_support }
+		}
+		set_variable = { ROOT.JAP_opposition_air_support = 0.5 }
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_air_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_the_navy_moderates
+		}
+		add_to_variable = { ROOT.JAP_opposition_air_support = 0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_air_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_army_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_air_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_air_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	set_temp_variable = { temp_imperial_army = 1 }
+	subtract_from_temp_variable = { temp_imperial_army = ROOT.JAP_opposition_army_support }
+	set_temp_variable = { temp_imperial_navy = 1 }
+	subtract_from_temp_variable = { temp_imperial_navy = ROOT.JAP_opposition_navy_support }
+	set_temp_variable = { temp_imperial_air = 1 }
+	subtract_from_temp_variable = { temp_imperial_air = ROOT.JAP_opposition_air_support }
+	
+	hidden_effect = {
+		MAN = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		KOR = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		FOR = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		PLU = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+	}
+
+	# Start the Actual Civil War 
+	start_civil_war = {
+	    ideology = fascism
+	    ruling_party = ROOT
+	    size = 0.6
+	    army_ratio = var:temp_imperial_army
+	    navy_ratio = var:temp_imperial_navy
+	    air_ratio = var:temp_imperial_air
+	    keep_all_characters = yes
+	    states = all
+	    states_filter = {
+	       	has_dynamic_modifier = {
+	       		modifier = JAP_state_under_army_control
+	       	}	
+	        is_controlled_by = ROOT
+	    }
+
+	    # Tranfers the Imperial Army Loyalists to the Imperial Army Side 
+    	PREV = {  # Original country
+    		JAP_hideki_tojo = { # Character
+    		    set_nationality = PREV.PREV
+    		    # Transfers to breakaway
+    		}
+    		every_unit_leader = {
+    			limit = {
+    				has_trait = JAP_IJA_loyalist
+    			}
+    			set_nationality = PREV.PREV
+    			# Transfers to breakaway
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV.PREV = {
+    				NOT = {
+    					has_country_leader = {
+    						ruling_only = yes
+    						character = JAP_hideki_tojo
+    					}
+    				}
+    				has_civil_war = yes
+    			}
+    		}
+    		PREV.PREV = {
+    			add_country_leader_role = {
+    				character = JAP_hideki_tojo
+    				promote_leader = yes
+    				country_leader = {
+    					ideology = emperor_fascism
+    					expire = "1952.1.1.1"
+    					traits = { JAP_IJA_prime_minister_trait } 
+    				}
+    			}	
+    		}
+    	}
+
+    	custom_effect_tooltip = generic_skip_one_line_tt
+
+    	PREV.PREV = {
+    		set_capital = {
+    			state = 531
+    			remember_old_capital = no
+    		}
+    	}
+
+    	custom_effect_tooltip = generic_skip_one_line_tt
+
+    	hidden_effect = {
+
+    		PREV.PREV = {
+
+	    		delete_unit_template_and_units = {
+	    			division_template = "Dai-Nippon Teikoku Rikugun Hohei Shidan"
+	    			disband = yes #if yes, will refund equipment/manpower.
+	    		}
+
+	    		division_template = {
+	    		    name = "Dai-Nippon Teikoku Rikugun Hohei Shidan"
+	    		    is_locked = yes
+	    		    division_names_group = JAP_INF_01
+					role = infantry
+	    		    priority = 0
+	    		    regiments = {
+	    		        infantry = { x = 0 y = 0 }
+	    		        infantry = { x = 0 y = 1 }
+	    		        infantry = { x = 0 y = 2 }
+	    		        infantry = { x = 0 y = 3 }
+	    		        infantry = { x = 1 y = 0 }
+	    		        infantry = { x = 1 y = 1 }
+	    		    }
+	    		    support = {
+	    		    	engineer = { x = 0 y = 0 }
+	    		    	artillery = { x = 0 y = 1 }
+	    		    }
+	    		}
+	    		random_state = {
+	    			limit = {
+	    				is_core_of = JAP
+	    				is_controlled_by = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"1. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"2. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"3. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    		}
+	    		random_state = {
+	    			limit = {
+	    				is_core_of = JAP
+	    				is_controlled_by = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"4. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"5. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"6. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    		}
+	    	}
+
+	    	IF = {
+	    		limit = {
+	    			PREV = {
+	    				has_country_flag = JAP_IJA_recruited_more_conscripts_flag
+	    			}
+	    		}
+	    		PREV.PREV = {
+	    			random_state = {
+	    				limit = {
+	    					is_core_of = JAP
+	    					is_controlled_by = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"7. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"8. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"9. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"10. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    			}
+	    		}
+	    	}
+
+	    	IF = {
+	    		limit = {
+	    			PREV = {
+	    				has_country_flag = JAP_IJA_recruited_kwantung_army_units_for_cw_flag
+	    			}
+	    		}
+	    		PREV.PREV = {
+
+	    			delete_unit_template_and_units = {
+	    				division_template = "Kantō-gun Hohei Shidan"
+	    				disband = yes #if yes, will refund equipment/manpower.
+	    			}
+
+		    		division_template = {
+		    		    name = "Kantō-gun Hohei Shidan"
+		    		    is_locked = yes
+		    		    division_names_group = JAP_CAV_01
+						role = infantry
+		    		    priority = 0
+		    		    regiments = {
+		    		        cavalry = { x = 0 y = 0 }
+		    		        cavalry = { x = 0 y = 1 }
+		    		        cavalry = { x = 0 y = 2 }
+		    		        cavalry = { x = 0 y = 3 }
+		    		        cavalry = { x = 1 y = 0 }
+		    		        cavalry = { x = 1 y = 1 }
+		    		    }
+		    		    support = {
+		    		    }
+		    		}
+
+	    			random_state = {
+	    				limit = {
+	    					is_core_of = JAP
+	    					is_controlled_by = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"1. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"2. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"3. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    			}
+	    		}
+	    	}
+
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV.PREV = {
+    				NOT = {
+    					has_idea = JAP_militarism 
+    				}
+    			}
+    		}
+    		PREV.PREV = {
+    			add_ideas = JAP_militarism
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_diverted_military_funds_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_low_on_funds_idea
+    				days = 365
+    			}	
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_limited_the_militarys_power_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_low_popular_support_idea
+    				days = 365
+    			}	
+    			custom_effect_tooltip = generic_skip_one_line_tt
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_organized_student_protests_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_widespread_protests_and_sabotage_idea
+    				days = 365
+    			}	
+    			custom_effect_tooltip = generic_skip_one_line_tt
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				OR = {
+    					has_country_flag = JAP_communists_siezed_trucks_flag
+    					has_country_flag = JAP_communists_siezed_artillery_flag
+    					has_country_flag = JAP_communists_siezed_infantry_weapons_flag
+    				}
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_stolen_equipment_idea
+    				days = 180
+    			}	
+    		}
+    	}
+
+    	hidden_effect = {
+    		PREV.PREV = {
+    			set_cosmetic_tag = JAP_army_dominant
+    		}
+    	}
+
+    }
+
+    hidden_effect = {
+    	delete_unit_template_and_units = {
+    		division_template = "Keishichō"
+    		disband = yes #if yes, will refund equipment/manpower.
+    	}
+
+    	division_template = {
+    	    name = "Keishichō"
+    	    is_locked = no
+    	    division_names_group = JAP_INF_01
+    	    template_counter = 120
+    		role = infantry
+    	    priority = 0
+    	    regiments = {
+    	        militia = { x = 0 y = 0 }
+    	        militia = { x = 0 y = 1 }
+    	        militia = { x = 0 y = 2 }
+    	        militia = { x = 1 y = 0 }
+    	        militia = { x = 1 y = 1 }
+    	    }
+    	    support = {
+    	    }
+    	}
+    	282 = {
+    		create_unit = {
+    		    division = "name = \"1. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    		    owner = ROOT
+    		}
+    		create_unit = {
+    		    division = "name = \"2. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    		    owner = ROOT
+    		}
+    		create_unit = {
+    		    division = "name = \"3. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    		    owner = ROOT
+    		}
+    		create_unit = {
+    		    division = "name = \"4. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    		    owner = ROOT
+    		}
+    		create_unit = {
+    		    division = "name = \"5. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    		    owner = ROOT
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			has_country_flag = JAP_secured_more_police_forces_flag
+    		}
+    		282 = {
+    			create_unit = {
+    			    division = "name = \"6. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"7. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"8. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"9. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"10. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"11. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"12. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    			create_unit = {
+    			    division = "name = \"13. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = ROOT
+    			}
+    		}
+    	}
+    }
+
+    custom_effect_tooltip = generic_skip_one_line_tt
+
+    # Clear the civil war prep state modifiers 
+    every_core_state = {
+    	limit = {
+    		has_dynamic_modifier = {
+    			modifier = JAP_state_under_army_control
+    		}	
+    	}
+    	remove_dynamic_modifier = {
+    		modifier = JAP_state_under_army_control
+    	}	
+    }
+    every_core_state = {
+    	limit = {
+    		has_dynamic_modifier = {
+    			modifier = JAP_state_under_rebel_control
+    		}	
+    	}
+    	remove_dynamic_modifier = {
+    		modifier = JAP_state_under_rebel_control
+    	}	
+    }
+    every_core_state = {
+    	limit = {
+    		has_dynamic_modifier = {
+    			modifier = JAP_state_infiltrated_by_the_jcp
+    		}	
+    	}
+    	remove_dynamic_modifier = {
+    		modifier = JAP_state_infiltrated_by_the_jcp
+    	}	
+    }
+	
+    custom_effect_tooltip = generic_skip_one_line_tt
+
+    IF = {
+    	limit = {
+    		has_completed_focus = JAP_raise_support_within_the_proletarian_class
+    	}
+    	add_ideas = JAP_strong_unions_idea
+    }
+
+    custom_effect_tooltip = generic_skip_one_line_tt
+
+    IF = {
+    	limit = {
+    		has_country_flag = JAP_will_replace_hirohito_with_nobuhito_flag
+    	}
+    	country_event = {
+    		id = SEA_japan_popup_events.23
+    		hours = 24
+    		random_hours = 72
+    	}	
+    }
+
+    hidden_effect = {
+    	IF = {
+    		limit = {
+    			has_country_flag = JAP_communists_siezed_infantry_weapons_flag
+    		}
+    		add_equipment_to_stockpile = { 
+    			type = infantry_equipment
+    			amount = 500 
+    			producer = ROOT
+    		}	
+    	}
+    	IF = {
+    		limit = {
+    			has_country_flag = JAP_communists_siezed_artillery_flag
+    		}
+    		add_equipment_to_stockpile = { 
+    			type = artillery_equipment
+    			amount = 250 
+    			producer = ROOT
+    		}	
+    	}
+    	IF = {
+    		limit = {
+    			has_country_flag = JAP_communists_siezed_trucks_flag
+    		}
+    		add_equipment_to_stockpile = { 
+    			type = motorized_equipment
+    			amount = 250 
+    			producer = ROOT
+    		}	
+    	}
+    	IF = {
+    		limit = {
+    			has_country_flag = JAP_IJA_secured_army_arsenals_flag
+    		}
+    		add_timed_idea = {
+    			idea = JAP_army_arsenals_emptied_idea
+    			days = 365
+    		}	
+    	}
+    }
+
 
 }
 
 # Triggers the Communist Civil War for Japan 
-JAP_trigger_communist_civil_war = { 
+JAP_trigger_communist_civil_war = {
 	
+	# The Colonies and Imperial Protectorates Break Ties 
+	IF = {
+		limit = {
+			MAN = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = MAN autonomy_state = autonomy_free }
+		MAN = {
+			country_event = {
+				id = SEA_japan_popup_events.26
+				hours = 4
+			}	
+			effect_tooltip = {
+				set_cosmetic_tag = MAN_kwantung_army
+				IF = {
+					limit = {
+						has_idea = MAN_kwantung_veto 
+					}
+					remove_ideas = MAN_kwantung_veto 
+				}
+				add_ideas = MAN_militarism 
+			}
+		}
+		IF = {
+			limit = {
+				MEN = { is_subject_of = ROOT }
+			}
+			MAN = { puppet = MEN }
+		}
+	}
+	
+	IF = {
+		limit = {
+			KOR = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = KOR autonomy_state = autonomy_free }
+		KOR = {
+			country_event = {
+				id = SEA_japan_popup_events.27
+				hours = 4
+			}	
+			drop_cosmetic_tag = yes
+			retire_character = KOR_jiro_minami
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}	
+		}
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = KOR
+			}
+		}
+		release = KOR # Korea
+	}
+	IF = {
+		limit = {
+			PLU = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = PLU autonomy_state = autonomy_free }
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = PLU
+			}
+		}
+		release = PLU # Palau
+	}
+	IF = {
+		limit = {
+			FOR = { is_subject_of = ROOT }
+		}
+		set_autonomy = { target = FOR autonomy_state = autonomy_free }
+	}
+	IF = {
+		limit = {
+			any_controlled_state = {
+				is_core_of = FOR
+			}
+		}
+		release = FOR # Formosa/Taiwan
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	# The Militarism is tranfered to MAN which inherits Kwantung Army stuff
+	remove_ideas = JAP_militarism
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	# Set War Flag
+	set_global_flag = JAP_communist_civil_war
+
+	# Get Ideology Support
+	set_variable = { JAP_communist_support_before_civil_war = party_popularity_100@communism }
+	set_variable = { JAP_democratic_support_before_civil_war = party_popularity_100@democratic }
+	set_variable = { JAP_fascist_support_before_civil_war = party_popularity_100@fascism }
+	set_variable = { JAP_neutrality_support_before_civil_war = party_popularity_100@neutrality }
+
+
+	# Setup for Army, Navy and Air Sizes
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_army_support }
+		}
+		set_variable = { ROOT.JAP_opposition_army_support = 0.4 }
+	}
+	IF = { 
+		limit = { 
+			JAP = { is_ai = yes } 
+			check_variable = { ROOT.JAP_opposition_army_support < 0.6 }
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.2 }
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_army_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_seek_yakuza_support
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.2 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_disillusioned_young_officers
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = 0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_first_bit_of_army_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_army_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_army_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_army_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_navy_support }
+		}
+		set_variable = { ROOT.JAP_opposition_navy_support = 0.5 }
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_the_navy_moderates
+		}
+		add_to_variable = { ROOT.JAP_opposition_navy_support = 0.3 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_navy_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_navy_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_navy_support = -0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_navy_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_navy_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {
+			NOT = { has_variable = ROOT.JAP_opposition_air_support }
+		}
+		set_variable = { ROOT.JAP_opposition_air_support = 0.45 }
+	}
+	clamp_variable = {
+		var = ROOT.JAP_opposition_air_support
+		min = 0
+		max = 0.9
+	}
+	IF = {
+		limit = {  
+			has_completed_focus = JAP_sway_the_navy_moderates
+		}
+		add_to_variable = { ROOT.JAP_opposition_air_support = 0.1 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_air_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	IF = {
+		limit = {  
+			has_country_flag = JAP_IJA_secured_more_army_support_support_flag
+		}
+		add_to_variable = { ROOT.JAP_opposition_air_support = -0.05 }
+		clamp_variable = {
+			var = ROOT.JAP_opposition_air_support
+			max = 0.9
+			min = 0.1
+		}
+	}
+	set_temp_variable = { temp_imperial_army = 1 }
+	subtract_from_temp_variable = { temp_imperial_army = ROOT.JAP_opposition_army_support }
+	set_temp_variable = { temp_imperial_navy = 1 }
+	subtract_from_temp_variable = { temp_imperial_navy = ROOT.JAP_opposition_navy_support }
+	set_temp_variable = { temp_imperial_air = 1 }
+	subtract_from_temp_variable = { temp_imperial_air = ROOT.JAP_opposition_air_support }
+
+	hidden_effect = {
+		MAN = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		KOR = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		FOR = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+		PLU = {
+			every_owned_state = {
+				teleport_armies = {
+					limit = {
+						original_tag = JAP
+					}
+					to_state_array = JAP.owned_controlled_states
+				}
+			}
+		}
+	}
+
+	# Start the Actual Civil War 
+	start_civil_war = {
+	    ideology = fascism
+	    ruling_party = communism
+	    size = 0.6
+	    army_ratio = var:temp_imperial_army
+	    navy_ratio = var:temp_imperial_navy
+	    air_ratio = var:temp_imperial_air
+	    keep_all_characters = yes
+	    states = all
+	    states_filter = {
+	       	has_dynamic_modifier = {
+	       		modifier = JAP_state_under_army_control
+	       	}	
+	       	NOT = {
+	       		has_dynamic_modifier = {
+	       			modifier = JAP_state_infiltrated_by_the_jcp
+	       		}	
+	       	}
+	        is_controlled_by = ROOT
+	    }
+
+	    # Tranfers the Imperial Army Loyalists to the Imperial Army Side 
+    	PREV = {  # Original country
+    		JAP_hideki_tojo = { # Character
+    		    set_nationality = PREV.PREV
+    		    # Transfers to breakaway
+    		}
+    		every_unit_leader = {
+    			limit = {
+    				has_trait = JAP_IJA_loyalist
+    			}
+    			set_nationality = PREV.PREV
+    			# Transfers to breakaway
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV.PREV = {
+    				NOT = {
+    					has_country_leader = {
+    						ruling_only = yes
+    						character = JAP_hideki_tojo
+    					}
+    				}
+    				has_civil_war = yes
+    			}
+    		}
+    		PREV.PREV = {
+    			add_country_leader_role = {
+    				character = JAP_hideki_tojo
+    				promote_leader = yes
+    				country_leader = {
+    					ideology = emperor_fascism
+    					expire = "1952.1.1.1"
+    					traits = { JAP_IJA_prime_minister_trait } 
+    				}
+    			}	
+    		}
+    	}
+
+    	custom_effect_tooltip = generic_skip_one_line_tt
+
+    	PREV.PREV = {
+    		set_capital = {
+    			state = 531
+    			remember_old_capital = no
+    		}
+    	}
+
+    	custom_effect_tooltip = generic_skip_one_line_tt
+
+    	hidden_effect = {
+
+    		PREV.PREV = {
+
+	    		delete_unit_template_and_units = {
+	    			division_template = "Dai-Nippon Teikoku Rikugun Hohei Shidan"
+	    			disband = yes #if yes, will refund equipment/manpower.
+	    		}
+
+	    		division_template = {
+	    		    name = "Dai-Nippon Teikoku Rikugun Hohei Shidan"
+	    		    is_locked = yes
+	    		    division_names_group = JAP_INF_01
+					role = infantry
+	    		    priority = 0
+	    		    regiments = {
+	    		        infantry = { x = 0 y = 0 }
+	    		        infantry = { x = 0 y = 1 }
+	    		        infantry = { x = 0 y = 2 }
+	    		        infantry = { x = 0 y = 3 }
+	    		        infantry = { x = 1 y = 0 }
+	    		        infantry = { x = 1 y = 1 }
+	    		    }
+	    		    support = {
+	    		    	engineer = { x = 0 y = 0 }
+	    		    	artillery = { x = 0 y = 1 }
+	    		    }
+	    		}
+	    		random_state = {
+	    			limit = {
+	    				is_core_of = JAP
+	    				is_controlled_by = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"1. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"2. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"3. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    		}
+	    		random_state = {
+	    			limit = {
+	    				is_core_of = JAP
+	    				is_controlled_by = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"4. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"5. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"6. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    		}
+	    		random_state = {
+	    			limit = {
+	    				is_core_of = JAP
+	    				is_controlled_by = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"7. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"8. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    			create_unit = {
+	    			    division = "name = \"9. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    			    owner = PREV
+	    			}
+	    		}
+	    	}
+
+	    	IF = {
+	    		limit = {
+	    			PREV = {
+	    				has_country_flag = JAP_IJA_recruited_more_conscripts_flag
+	    			}
+	    		}
+	    		PREV.PREV = {
+	    			random_state = {
+	    				limit = {
+	    					is_core_of = JAP
+	    					is_controlled_by = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"10. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"11. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"12. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"13. Dai-Nippon Teikoku Rikugun Hohei Shidan\" division_template = \"Dai-Nippon Teikoku Rikugun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    			}
+	    		}
+	    	}
+
+	    	IF = {
+	    		limit = {
+	    			PREV = {
+	    				has_country_flag = JAP_IJA_recruited_kwantung_army_units_for_cw_flag
+	    			}
+	    		}
+	    		PREV.PREV = {
+
+	    			delete_unit_template_and_units = {
+	    				division_template = "Kantō-gun Hohei Shidan"
+	    				disband = yes #if yes, will refund equipment/manpower.
+	    			}
+
+		    		division_template = {
+		    		    name = "Kantō-gun Hohei Shidan"
+		    		    is_locked = yes
+		    		    division_names_group = JAP_CAV_01
+						role = infantry
+		    		    priority = 0
+		    		    regiments = {
+		    		        cavalry = { x = 0 y = 0 }
+		    		        cavalry = { x = 0 y = 1 }
+		    		        cavalry = { x = 0 y = 2 }
+		    		        cavalry = { x = 0 y = 3 }
+		    		        cavalry = { x = 1 y = 0 }
+		    		        cavalry = { x = 1 y = 1 }
+		    		    }
+		    		    support = {
+		    		    }
+		    		}
+
+	    			random_state = {
+	    				limit = {
+	    					is_core_of = JAP
+	    					is_controlled_by = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"1. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"2. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    				create_unit = {
+	    				    division = "name = \"3. Kantō-gun Hohei Shidan\" division_template = \"Kantō-gun Hohei Shidan\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+	    				    owner = PREV
+	    				}
+	    			}
+	    		}
+	    	}
+
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV.PREV = {
+    				NOT = {
+    					has_idea = JAP_militarism 
+    				}
+    			}
+    		}
+    		PREV.PREV = {
+    			add_ideas = JAP_militarism
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_diverted_military_funds_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_low_on_funds_idea
+    				days = 365
+    			}	
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_limited_the_militarys_power_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_low_popular_support_idea
+    				days = 365
+    			}	
+    			custom_effect_tooltip = generic_skip_one_line_tt
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				has_country_flag = JAP_organized_student_protests_flag
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_widespread_protests_and_sabotage_idea
+    				days = 365
+    			}	
+    			custom_effect_tooltip = generic_skip_one_line_tt
+    		}
+    	}
+
+    	IF = {
+    		limit = {
+    			PREV = {
+    				OR = {
+    					has_country_flag = JAP_communists_siezed_trucks_flag
+    					has_country_flag = JAP_communists_siezed_artillery_flag
+    					has_country_flag = JAP_communists_siezed_infantry_weapons_flag
+    				}
+    			}
+    		}
+    		PREV.PREV = {
+    			add_timed_idea = {
+    				idea = JAP_stolen_equipment_idea
+    				days = 180
+    			}	
+    		}
+    	}
+
+    	hidden_effect = {
+    		PREV.PREV = {
+    			set_cosmetic_tag = JAP_army_dominant
+    		}
+    	}
+
+    }
+
+    hidden_effect = {
+    	delete_unit_template_and_units = {
+    		division_template = "Sanson Kōsakutai"
+    		disband = yes #if yes, will refund equipment/manpower.
+    	}
+
+    	division_template = {
+    	    name = "Sanson Kōsakutai"
+    	    is_locked = no
+    	    division_names_group = JAP_MIL_02
+    	    template_counter = 118
+    		role = infantry
+    		override_model = JAP_militia_alt_0_entity
+    	    priority = 0
+    	    regiments = {
+    	        militia = { x = 0 y = 0 }
+    	        militia = { x = 0 y = 1 }
+    	        militia = { x = 0 y = 2 }
+    	        militia = { x = 1 y = 0 }
+    	        militia = { x = 1 y = 1 }
+    	    }
+    	    support = {
+    	    }
+    	}
+    }
+
+    random_owned_controlled_state = {
+    	limit = {
+    		has_state_flag = JAP_communists_chose_this_state_as_headquarters_flag
+    	}
+    	ROOT = {
+    		set_capital = {
+    			state = PREV
+    			remember_old_capital = no
+    		}
+    	}
+    	create_unit = {
+    	    division = "name = \"1. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    	create_unit = {
+    	    division = "name = \"2. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    	create_unit = {
+    	    division = "name = \"3. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    	create_unit = {
+    	    division = "name = \"4. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    	create_unit = {
+    	    division = "name = \"5. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    	create_unit = {
+    	    division = "name = \"6. Sanson Kōsakutai\" division_template = \"Sanson Kōsakutai\" start_experience_factor = 0.5"
+    	    owner = ROOT
+    	}
+    }
+
+    custom_effect_tooltip = JAP_democratic_side_also_spawns_tt
+    hidden_effect = {
+    	create_dynamic_country = {
+    	    original_tag = JAP
+    	    set_politics = {
+    	    	ruling_party = democratic
+    	    	elections_allowed = yes
+    	    	last_election = "1936.1.1"
+    	    	election_frequency = 48
+    	    }	
+    	    add_popularity = {
+    	    	ideology = democratic
+    	    	popularity = 0.7
+    	    }	
+    	    set_country_flag = JAP_is_demo_in_three_way_cw_country_flag  
+    	    every_state = {
+    	    	limit = {
+    	    		has_dynamic_modifier = {
+    	    			modifier = JAP_state_under_rebel_control
+    	    		}		
+    	    		NOT = {
+    	    			has_dynamic_modifier = {
+    	    				modifier = JAP_state_infiltrated_by_the_jcp
+    	    			}
+    	    		}
+    	    	}
+    	    	transfer_state_to = PREV
+    	    }
+    	    282 = { # Just teleport all units in Tokyo 
+    	    	teleport_armies = {
+    	    	    limit = {
+    	    	    }
+    	    	    to_state_array = owned_controlled_states
+    	    	}
+    	    }
+    	    
+    	    # Transfers the Democratic Leader to the Democratic Side 
+    		every_possible_country = { 
+    			limit = {
+    				has_character = JAP_machida_chuuji
+    			}
+    			JAP_machida_chuuji = { # Character
+    			    set_nationality = PREV.PREV
+    			    # Transfers to democratic breakaway
+    			}
+    		}
+
+    		IF = {
+    			limit = {
+    				#PREV = {
+    					NOT = {
+    						has_country_leader = {
+    							ruling_only = yes
+    							character = JAP_machida_chuuji
+    						}
+    					}
+    				#}
+    			}
+    			promote_character = JAP_machida_chuuji
+    		}
+
+    		every_army_leader = {
+    			limit = {
+    				OWNER = { tag = ROOT }
+    				AND = {
+    					has_trait = JAP_royal_lineage
+    					has_trait = JAP_government_supporter
+    				}
+    			}
+    			set_nationality = PREV 
+    		}
+
+    		delete_unit_template_and_units = {
+    			division_template = "Keishichō"
+    			disband = yes #if yes, will refund equipment/manpower.
+    		}
+
+    		division_template = {
+    		    name = "Keishichō"
+    		    is_locked = no
+    		    division_names_group = JAP_INF_01
+    		    template_counter = 120
+    			role = infantry
+    		    priority = 0
+    		    regiments = {
+    		        militia = { x = 0 y = 0 }
+    		        militia = { x = 0 y = 1 }
+    		        militia = { x = 0 y = 2 }
+    		        militia = { x = 1 y = 0 }
+    		        militia = { x = 1 y = 1 }
+    		    }
+    		    support = {
+    		    }
+    		}
+    		282 = {
+    			create_unit = {
+    			    division = "name = \"1. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"2. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"3. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"4. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"5. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"6. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"7. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"8. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"9. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    			create_unit = {
+    			    division = "name = \"10. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    			    owner = PREV
+    			}
+    		}
+    		IF = {
+    			limit = {
+    				ROOT = {
+    					has_country_flag = JAP_secured_more_police_forces_flag
+    				}
+    			}
+    			282 = {
+    				create_unit = {
+    				    division = "name = \"11. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"12. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"13. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"14. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"15. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"16. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"17. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    				create_unit = {
+    				    division = "name = \"18. Keishichō\" division_template = \"Keishichō\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+    				    owner = PREV
+    				}
+    			}
+    		}
+    	}
+    }
+
+    #Transfer troops in territory belonging to the Democrats back "home" 
+    every_core_state = {
+    	limit = {
+    		NOT = { is_fully_controlled_by = ROOT }
+    		OWNER = {
+    			has_government = democratic
+    		}
+    	}
+    	teleport_armies = {
+    		limit = { 
+    			tag = ROOT
+    		}
+    		to_state_array = owned_controlled_states
+    	}
+    }
+
+	# Clear the civil war prep state modifiers 
+	every_core_state = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = JAP_state_under_army_control
+			}	
+		}
+		remove_dynamic_modifier = {
+			modifier = JAP_state_under_army_control
+		}	
+	}
+	every_core_state = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = JAP_state_under_rebel_control
+			}	
+		}
+		remove_dynamic_modifier = {
+			modifier = JAP_state_under_rebel_control
+		}	
+	}
+	every_core_state = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = JAP_state_infiltrated_by_the_jcp
+			}	
+		}
+		remove_dynamic_modifier = {
+			modifier = JAP_state_infiltrated_by_the_jcp
+		}	
+	}
+	
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	IF = {
+		limit = {
+			has_completed_focus = JAP_raise_support_within_the_proletarian_class
+		}
+		add_ideas = JAP_strong_unions_idea
+	}
+
+	hidden_effect = {
+		IF = {
+			limit = {
+				has_country_flag = JAP_communists_siezed_infantry_weapons_flag
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = 500 
+				producer = ROOT
+			}	
+		}
+		IF = {
+			limit = {
+				has_country_flag = JAP_communists_siezed_artillery_flag
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment
+				amount = 250 
+				producer = ROOT
+			}	
+		}
+		IF = {
+			limit = {
+				has_country_flag = JAP_communists_siezed_trucks_flag
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment
+				amount = 250 
+				producer = ROOT
+			}	
+		}
+		IF = {
+			limit = {
+				has_country_flag = JAP_IJA_secured_army_arsenals_flag
+			}
+			add_timed_idea = {
+				idea = JAP_army_arsenals_emptied_idea
+				days = 365
+			}	
+		}
+	}
+
+
+
 }
 
 

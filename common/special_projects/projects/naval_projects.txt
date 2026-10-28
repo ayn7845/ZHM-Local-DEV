@@ -16,6 +16,10 @@ sp_naval_cruiser_submarine = {
 
 	project_tags = sp_tag_submarine
 	
+	ai_will_do = {
+		base = 1
+	}
+
 	complexity = sp_complexity.medium
 	prototype_time = sp_time.prototype.medium 
 	allowed = {
@@ -81,7 +85,19 @@ sp_naval_cruiser_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_torpedo_accident
 	}
 	
 	unique_prototype_rewards = {
@@ -167,6 +183,10 @@ sp_naval_fleet_submarine = {
 
 	project_tags = sp_tag_submarine
 
+	ai_will_do = {
+		base = 1
+	}
+
 	allowed = {
 		#FREE PROJECT
 	}
@@ -240,7 +260,19 @@ sp_naval_fleet_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_torpedo_accident
 	}
 
 	unique_prototype_rewards = {
@@ -338,6 +370,10 @@ sp_naval_nuclear_submarine = {
 		sp_tag_submarine
 	}
 
+	ai_will_do = {
+		base = 1
+	}
+
 	complexity = sp_complexity.insane
 	prototype_time = sp_time.prototype.long	
 	allowed = {
@@ -398,7 +434,19 @@ sp_naval_nuclear_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_nuclear_accident
 	}
 
 	unique_prototype_rewards = {
@@ -508,6 +556,10 @@ sp_naval_rocket_launching_submarine = {
 		sp_tag_rocket
 		sp_tag_submarine
 	}
+
+	ai_will_do = {
+		base = 1
+	}
 	
 	resource_cost = {
 		resources = { 
@@ -560,7 +612,18 @@ sp_naval_rocket_launching_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3	
 	}
 
 	unique_prototype_rewards = {
@@ -689,6 +752,10 @@ sp_naval_nuclear_missile_submarine = {
 		sp_tag_nuclear_warfare
 		sp_tag_submarine
 	}
+
+	ai_will_do = {
+		base = 1
+	}
 	
 	resource_cost = {
 		resources = { 
@@ -743,7 +810,19 @@ sp_naval_nuclear_missile_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_nuclear_accident
 	}
 
 	unique_prototype_rewards = {
@@ -851,6 +930,10 @@ sp_naval_nuclear_torpedo = {
 		sp_tag_submarine
 		sp_tag_nuclear_warfare
 	}
+
+	ai_will_do = {
+		base = 1
+	}
 	
 	resource_cost = {
 		resources = { 
@@ -902,7 +985,19 @@ sp_naval_nuclear_torpedo = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always	
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_nuclear_accident		
 	}
 
 	unique_prototype_rewards = {
@@ -968,6 +1063,10 @@ sp_naval_midget_submarine = {
 
 	project_tags = {
 		sp_tag_submarine
+	}
+
+	ai_will_do = {
+		base = 1
 	}
 
 	allowed = {
@@ -1093,7 +1192,19 @@ sp_naval_midget_submarine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always		
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_failure_torpedo_accident		
 	}
 
 	unique_prototype_rewards = {
@@ -1227,6 +1338,16 @@ sp_naval_aip_engine = {
 
 	ai_will_do = {
 		base = 1
+		modifier = {
+			factor = 0.2
+			ROOT = { 
+				original_tag = JAP
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+		}
 	}
 
 	allowed = {
@@ -1293,7 +1414,18 @@ sp_naval_aip_engine = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always	
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
@@ -1379,6 +1511,16 @@ sp_naval_anechoic_tiles = {
 
 	ai_will_do = {
 		base = 1
+		modifier = {
+			factor = 0.2
+			ROOT = { 
+				original_tag = JAP
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+		}
 	}
 
 	allowed = {
@@ -1441,7 +1583,18 @@ sp_naval_anechoic_tiles = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always	
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {
@@ -1514,8 +1667,8 @@ sp_naval_anechoic_tiles = {
 			}
 
 		}	
-		}	
 	}
+}
 
 #SUBMARINE CARRIER
 sp_naval_submarine_carrier = {
@@ -1572,12 +1725,65 @@ specialization = specialization_naval
 	prototype_time = sp_time.prototype.medium
 	project_output = {
 		country_effects = {
+			if = {
+				limit = {
+					original_tag = JAP
+					is_special_project_completed = sp:sp_naval_anechoic_tiles
+				}
+				add_design_template_bonus = {
+					name = sp_naval_submarine_carrier_free_design
+					uses = 1
+					cost_factor = 0.25
+					equipment = ship_hull_carrier_submarine
+				}
+				create_equipment_variant = {
+					name = "Sentoku Class"
+					type = ship_hull_carrier_submarine
+					name_group = JAP_SS_HISTORICAL
+					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_4
+						fixed_ship_engine_slot = sub_ship_engine_2
+						rear_1_custom_slot = ship_submarine_deck_space
+						mid_1_custom_slot = ship_anechoic_tile
+					}
+					design_team = mio:JAP_sasebo_naval_arsenal_organization
+				}
+			}
+			else_if = {
+				limit = {
+					original_tag = JAP
+					NOT = { is_special_project_completed = sp:sp_naval_anechoic_tiles }
+				}
+				add_design_template_bonus = {
+					name = sp_naval_submarine_carrier_free_design
+					uses = 1
+					cost_factor = 0.25
+					equipment = ship_hull_carrier_submarine
+				}
+				create_equipment_variant = {
+					name = "Sentoku Class"
+					type = ship_hull_carrier_submarine
+					name_group = JAP_SS_HISTORICAL
+					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_4
+						fixed_ship_engine_slot = sub_ship_engine_1
+						rear_1_custom_slot = ship_submarine_deck_space
+					}
+					design_team = mio:JAP_sasebo_naval_arsenal_organization
+				}
+			}
+			else = {
 				add_design_template_bonus = {
 					name = sp_naval_submarine_carrier_free_design
 					uses = 1
 					cost_factor = 1
 					equipment = ship_hull_carrier_submarine
-				}		
+				}
+			}
 		}
 
 		enable_equipments = {
@@ -1593,7 +1799,18 @@ specialization = specialization_naval
 		}
 	}
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always			
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {
@@ -1659,7 +1876,7 @@ specialization = specialization_naval
 				}
 			}
 		}
-	}
+	}	
 }
 
 #########################################################
@@ -1680,6 +1897,16 @@ sp_naval_torpedo_cruiser = {
 
 	ai_will_do = {
 		base = 1
+		modifier = {
+			factor = 2
+			ROOT = { 
+				original_tag = JAP
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+		}
 	}
 
 	allowed = {
@@ -1757,7 +1984,25 @@ sp_naval_torpedo_cruiser = {
 		
 	}
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always		
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3
+		sp_naval_generic_reward_artillery_tech_1
+		sp_naval_generic_reward_artillery_tech_2
+		sp_naval_generic_reward_artillery_tech_3
+		sp_naval_generic_failure_torpedo_accident				
 	}
 
 	unique_prototype_rewards = {
@@ -1849,12 +2094,34 @@ sp_naval_torpedo_cruiser = {
 #Super Heavy Battleship
 sp_naval_super_heavy_battleship = {
 	specialization = specialization_naval
- 
 
 	project_tags = sp_tag_surface_ship
 
 	ai_will_do = {
 		base = 1
+		modifier = {
+			factor = 0 
+			AND = {
+				ROOT = { is_major = no } # Pointless unless we are big enough to do this
+				ROOT = { has_government = democratic }# Don't spend the tax payers' money on this, then they won't vote for you again
+			}
+		}
+		modifier = {
+			factor = 0.3 
+			AND = {
+				ROOT = { is_major = no } # Pointless unless we are big enough to do this
+			}
+		}
+		modifier = {
+			factor = 5
+			ROOT = { 
+				original_tag = JAP
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+		}
 	}
 
 	allowed = {
@@ -1866,9 +2133,8 @@ sp_naval_super_heavy_battleship = {
 			if = {
 				limit = { 
 					has_dlc = "Man the Guns"
-					}
-			has_tech = early_ship_hull_heavy
-				
+				}
+				has_tech = early_ship_hull_heavy
 			}
 			else = {
 				has_tech = early_battleship
@@ -1938,7 +2204,24 @@ sp_naval_super_heavy_battleship = {
 		
 	}
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always			
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3
+		sp_naval_generic_reward_artillery_tech_1
+		sp_naval_generic_reward_artillery_tech_2
+		sp_naval_generic_reward_artillery_tech_3				
 	}
 
 	unique_prototype_rewards = {
@@ -2265,7 +2548,24 @@ sp_naval_modern_battleship = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always							
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3
+		sp_naval_generic_reward_artillery_tech_1
+		sp_naval_generic_reward_artillery_tech_2
+		sp_naval_generic_reward_artillery_tech_3							
 	}
 
 	unique_prototype_rewards = {
@@ -2590,7 +2890,21 @@ sp_naval_modern_carrier = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always				
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3					
 	}
 
 unique_prototype_rewards = {
@@ -2934,7 +3248,18 @@ sp_naval_ice_carrier = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always		
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
@@ -3081,7 +3406,18 @@ sp_naval_underway_replenishment = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always			
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {
@@ -3201,7 +3537,18 @@ sp_naval_proximity_fuze = {
 	}
 
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always			
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {
@@ -3314,7 +3661,18 @@ sp_naval_support_ships = {
 		}
 	}
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always					
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {
@@ -3515,7 +3873,18 @@ specialization = specialization_naval
 		}
 	}
 	generic_prototype_rewards = {
-		sp_naval_generic_reward_always					
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3			
 	}
 
 	unique_prototype_rewards = {

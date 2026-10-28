@@ -8,7 +8,11 @@ ability = { #same as last stand with 25% less cost
 		type = army_leader
 		
 		allowed = {
-			always = no
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = SWE_winter_drill
+			}
 		}
 		
 		cost = 0.16

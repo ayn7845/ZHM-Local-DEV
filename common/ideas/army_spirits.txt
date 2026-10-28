@@ -278,15 +278,12 @@ ideas = {
 		}
 		NOR_flexible_officers_academy_spirit = {
 			ledger = army
-			visible = {
-				always = no
-				
-					original_tag = NOR
-				
+			visible = { 
+				has_military_academy = yes 
+				has_completed_focus = NOR_officers_academy
 			}
 			available = { 
 				NOR_AAT = yes 
-				always = no
 			}
 			modifier = {
 				army_leader_start_level = 2
@@ -308,6 +305,10 @@ ideas = {
 			ledger = army
 			available = { 
 				has_military_academy = yes 
+				NOT = {
+					has_completed_focus = CHI_close_whampoa
+					has_completed_focus = CHI_end_military_primacy
+				}
 			}
 			visible = { 
 				tag = CHI
@@ -321,8 +322,12 @@ ideas = {
 				army_leader_cost_factor = -0.15
 				custom_modifier_tooltip = political_loyalty_spirit_tt
 			}
-			allowed_to_remove = { 
-
+			allowed_to_remove = {
+				OR = {
+					has_completed_focus = CHI_end_military_primacy
+					has_completed_focus = CHI_close_whampoa 
+					has_completed_focus = CHI_focus_on_meritocratic_principles
+				}
 			}
 			ai_will_do = {
 				base = 1
@@ -333,6 +338,30 @@ ideas = {
 			}
 		}
 		
+		cult_of_heroism_army_spirit = {
+			ledger = army
+			visible = { has_dlc = "No Compromise, No Surrender" }
+			available = { 
+					has_doctrine = grand_battleplan
+			}
+
+			modifier = {
+				automatic_grant_medal_chance = 0.50
+				unit_medal_effectiveness = -0.25    		  			    			    			 			    			 				
+			}
+
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Compromise, No Surrender" }
+				}
+				modifier = {
+					factor = 2
+					has_doctrine = commandos					
+				}
+			}
+		}
 		
 		professional_officer_corps_spirit = {
 			ledger = army
@@ -381,8 +410,16 @@ ideas = {
 		proper_heritage_spirit = {
 			ledger = army
 			available = {
-				IF = { 
-					
+				IF = {
+					limit = { 
+						original_tag = AFG 
+						has_dlc = "Graveyard of Empires"
+					}
+					OR = {
+						has_completed_focus = AFG_reintroduce_war_elephants
+						has_doctrine = grand_battleplan
+						has_doctrine = mounted_infantry
+					}
 				}
 				ELSE = {
 					OR = {
@@ -751,8 +788,7 @@ ideas = {
 		spirit_of_defiance_army_spirit = {
 			ledger = army
 			visible = { has_dlc = "No Compromise, No Surrender" }
-			available = {
-				always = no
+			available = { 
 				OR = {
 					has_doctrine = mass_assault 
 					has_doctrine = guerilla_war
@@ -813,8 +849,8 @@ ideas = {
 				has_dlc = "Peace For Our Time"
 			}
 			visible = {
-				NOT = { 
-					
+				NOT = {
+					has_completed_focus = CZE_revive_the_czechoslovak_legion_dynamic
 				}
 			}
 			modifier = {
@@ -829,7 +865,7 @@ ideas = {
 			ai_will_do = {
 				base = 0
 			}
-		}
+		}				
 	}
 
 
@@ -1250,12 +1286,7 @@ ideas = {
 		quick_improvisation_spirit = {
 			ledger = army
 			available = {
-				OR = { 
-					has_doctrine = new_mobile_warfare
-					tag = USA
-					tag = ENG
-				}
-				
+				has_doctrine = new_mobile_warfare
 			}
 			modifier = {
 				command_abilities_cost_factor = -0.20
