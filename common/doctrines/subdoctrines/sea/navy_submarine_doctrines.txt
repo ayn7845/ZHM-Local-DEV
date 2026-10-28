@@ -111,7 +111,7 @@ submarine_fleet_operations = {
 			navy_submarine_attack_factor = 0.10
 		}
 		diverse_operations = {
-			
+			submarine = { mines_planting = 0.20 }
 		}
 		predictive_search_patterns = {
 			submarine = {
@@ -263,19 +263,19 @@ coastal_minelaying = {
     	covert_buildup = {
     		submarine = {
     			naval_speed = 0.1
-    			
+    			mines_planting = 0.25
     		}
 
     	}
 
     	placement_for_effect = {
-    		
+    		naval_mines_damage_factor = 0.25
     	}
 
 
     	minefield_patrols = {
     		destroyer = {
-    			
+    			mines_planting = 0.25
     			lg_attack = 0.1
     		}
 
@@ -405,6 +405,6 @@ long_range_submarines = {
         }   
 
     }
-}
+
 
 
