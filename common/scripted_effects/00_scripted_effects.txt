@@ -180,68 +180,6 @@ GER_democratic_nations_ai_strategies = {
 		value = -200
 	}
 	# Estonia
-	add_ai_strategy = {
-		type = protect
-		id = "EST"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = ignore
-		id = "EST"
-		value = 200
-	}
-	add_ai_strategy = {
-		type = befriend
-		id = "EST"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = alliance
-		id = "EST"
-		value = -200
-	}
-	# Latvia
-	add_ai_strategy = {
-		type = protect
-		id = "LAT"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = ignore
-		id = "LAT"
-		value = 200
-	}
-	add_ai_strategy = {
-		type = befriend
-		id = "LAT"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = alliance
-		id = "LAT"
-		value = -200
-	}
-	# Lithuania
-	add_ai_strategy = {
-		type = protect
-		id = "LIT"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = ignore
-		id = "LIT"
-		value = 200
-	}
-	add_ai_strategy = {
-		type = befriend
-		id = "LIT"
-		value = -200
-	}
-	add_ai_strategy = {
-		type = alliance
-		id = "LIT"
-		value = -200
-	}
 	# Romania
 	add_ai_strategy = {
 		type = protect
@@ -643,75 +581,6 @@ get_best_alliance_match_communism_effect = { #arguably a trigger, but it does st
 	}
 }
 
-# Sets the badge flag the signatory panel reads, bumping the refresh counter only when the state actually flips.
-MTG_naval_treaty_mark_over_allowance_effect = {
-	hidden_effect = {
-		if = {
-			limit = {
-				NOT = { has_country_flag = MTG_over_treaty_allowance }
-			}
-			set_country_flag = MTG_over_treaty_allowance
-			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
-		}
-	}
-}
-
-MTG_naval_treaty_clear_over_allowance_effect = {
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = MTG_over_treaty_allowance
-			}
-			clr_country_flag = MTG_over_treaty_allowance
-			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
-		}
-	}
-}
-
-# Daily compliance check for one signatory, the benchmark selection mirrors the treaty missions rather than inventing a second rule.
-MTG_naval_treaty_sync_ui_compliance_effect = {
-	hidden_effect = {
-		if = {
-			limit = {
-				has_naval_treaty_over_allowance_trigger = yes
-			}
-			MTG_naval_treaty_mark_over_allowance_effect = yes
-		}
-		else = {
-			MTG_naval_treaty_clear_over_allowance_effect = yes
-		}
-	}
-}
-
-# Keeps the signatory list behind MTG_naval_treaties_ui in step with the treaty ideas, safe to call from anywhere.
-MTG_naval_treaty_sync_ui_membership_effect = {
-	hidden_effect = {
-		if = {
-			limit = {
-				exists = yes
-				has_naval_treaty_trigger = yes
-				NOT = { is_in_array = { array = global.MTG_naval_treaty_members value = THIS } }
-			}
-			add_to_array = { global.MTG_naval_treaty_members = THIS }
-			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
-		}
-		else_if = {
-			limit = {
-				is_in_array = { array = global.MTG_naval_treaty_members value = THIS }
-				# Annexed signatories keep their idea, so existence has to be checked separately or dead tags pile up.
-				OR = {
-					NOT = { exists = yes }
-					NOT = { has_naval_treaty_trigger = yes }
-				}
-			}
-			remove_from_array = { global.MTG_naval_treaty_members = THIS }
-			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
-			# Leaving the treaty clears the treaty-derived badge, otherwise a rejoining country shows a stale one
-			MTG_naval_treaty_clear_over_allowance_effect = yes
-		}
-	}
-}
-
 remove_naval_treaty_effect = {
 	if = {
 		limit = {
@@ -738,8 +607,6 @@ remove_naval_treaty_effect = {
 		remove_ideas = MTG_naval_treaty_cheating_reduced
 	}
 	set_country_flag = MTG_naval_treaty_abandoned
-	# The idea on_remove already syncs, this covers the case where the hook fires before the idea is actually gone.
-	MTG_naval_treaty_sync_ui_membership_effect = yes
 }
 
 civil_war_anti_exploiter_punitive_action = {
@@ -1002,21 +869,11 @@ abandon_colony_tag = {
 			}
 			set_cosmetic_tag = RAJ_UK
 		}
-		else_if = {
-			limit = {
-				original_tag = MAL
-			}
-			set_cosmetic_tag = MAL_UK
+		else_if = { 
+
 		}
-		else_if = {
-			limit = {
-				original_tag = INS
-				NOT = {
-					has_cosmetic_tag = INS_HOL_FLAG
-					has_cosmetic_tag = INS_UNION
-				}
-			}
-			set_cosmetic_tag = INS_HOL
+		else_if = { 
+
 		}
 	}
 	else = {
@@ -1034,10 +891,6 @@ abandon_colony_tag = {
 					AND = {
 						has_dlc = "Graveyard of Empires" 
 						original_tag = RAJ 
-					}
-					AND = {
-						has_dlc = "Thunder at Our Gates"
-						original_tag = INS
 					}
 				} 
 			}
@@ -1348,31 +1201,7 @@ remove_communist_spirits_effect = {
 		limit = { has_idea = comintern_influence }
 		remove_ideas = comintern_influence
 	}
-	if = {
-		limit = { has_idea = pan_slavic_propaganda }
-		remove_ideas = pan_slavic_propaganda
-	}
-	if = {
-		limit = { has_idea = agitated_peasants }
-		remove_ideas = agitated_peasants
-	}
-	if = {
-		limit = { has_idea = armed_communist_militants }
-		remove_ideas = armed_communist_militants
-	}
-	if = {
-		limit = { has_idea = BALTIC_communist_propaganda }
-		remove_ideas = BALTIC_communist_propaganda
-	}
-	if = {
-		limit = { has_idea = BALTIC_communist_militancy }
-		remove_ideas = BALTIC_communist_militancy
-	}
-
-	if = {
-		limit = { has_idea = SWE_foreign_communist_influence }
-		remove_ideas = SWE_foreign_communist_influence
-	}
+	
 }
 
 #Should remove any and all democratic foreign influence
@@ -1907,7 +1736,14 @@ set_add_communist_weight_small = {
 
 leave_the_league_of_nations = {
 	custom_effect_tooltip = leave_the_league_of_nations_tt
-	hidden_effect = { remove_ideas = league_of_nations_member_idea }
+	hidden_effect = { 
+		if = { 
+			limit = { 
+				has_idea = league_of_nations_member_idea
+			}
+		remove_ideas = league_of_nations_member_idea
+		}
+	}
 }
 
 bba_get_fighter_GER_effect = { #creates a fighter design if necessary and exports a number of them to ROOT
@@ -2888,7 +2724,7 @@ bba_get_cas_USA_effect = { #creates a CAS design if necessary and exports a numb
 						fixed_auxiliary_weapon_slot_1 = small_bomb_bay
 						fixed_auxiliary_weapon_slot_2 = small_bomb_bay
 						engine_type_slot = engine_4_2x
-						special_type_slot_1 = hmg_defense_turret
+						special_type_slot_1 = hmg_defense_turret_2x
 					}
 					icon = "GFX_USA_CAS3_medium"
 				}
