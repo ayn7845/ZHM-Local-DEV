@@ -17,7 +17,10 @@ armored_spearhead = {
     ai_will_do = {
 
         base = 1
-        
+        modifier = {
+            factor = 25
+            original_tag = GER
+        }
         modifier = {
             factor = 0.5
             is_major = no
@@ -99,8 +102,8 @@ armored_spearhead_no_lar = {
 
         base = 1
         modifier = {
-            factor = 10
-            tag = GER
+            factor = 25
+            original_tag = GER
         }
         modifier = {
             factor = 0.5
@@ -177,10 +180,6 @@ armored_infantry_support = {
             }
         }
         modifier = {
-            factor = 100
-            tag = GER
-        }
-        modifier = {
             factor = 0.5
             is_major = no
         }
@@ -220,7 +219,7 @@ armored_infantry_support = {
                 max_organisation = 5
             }
 			category_tank_destroyer_regimental_support = {			
-                max_organisation = 5
+				max_organisation = 5
 			}
         }
 		
@@ -277,7 +276,8 @@ streamlined_deployment = {
             factor = 25
             OR = {
                 original_tag = SOV 
-                original_tag = CHI
+                original_tag = CHI 
+                original_tag = PRC 
             }
         }
 
@@ -752,8 +752,5 @@ tank_destroyer_force = {
                 max_organisation = 5
 			}
         }
-
-
-
     }
 }

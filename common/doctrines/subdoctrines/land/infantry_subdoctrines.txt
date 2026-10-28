@@ -14,6 +14,10 @@ mobile_infantry = {
     ai_will_do = { 
         base = 1
         modifier = {
+            factor = 95
+            original_tag = GER
+        }
+        modifier = {
             factor = 0.5
             is_major = no
         }
@@ -47,7 +51,6 @@ mobile_infantry = {
         combined_arms_planning = {
             category_all_infantry = {
                 max_organisation = 10
-                soft_attack = 0.1
                 maximum_speed = 0.05
             }
         }
@@ -56,7 +59,7 @@ mobile_infantry = {
                 max_organisation = 20
             }
 			category_regimental_support_artillery = {
-                soft_attack = 0.10
+                soft_attack = 0.1
                 breakthrough = 0.05
                 defense = 0.05
             }
@@ -64,7 +67,7 @@ mobile_infantry = {
         delegated_authority = {
             category_vehicle_infantry = {
                 default_morale = 0.1
-                breakthrough = 0.1
+                soft_attack = 0.1
             }
         }
         maneuver_warfare = {
@@ -147,7 +150,7 @@ defensive_postures = {
 			}
         }
         field_construction_training = {
-            dig_in_speed_factor = 0.15
+            dig_in_speed_factor = 0.2
         }
 
     }
@@ -174,7 +177,6 @@ large_unit_tactics = {
                 original_tag = SOV
                 original_tag = CHI
                 original_tag = JAP
-                original_tag = GER
             }
         }
         modifier = {
@@ -192,19 +194,19 @@ large_unit_tactics = {
    
     #OTHER BASE REWARDS
     
-    category_light_infantry = {
+    category_all_infantry = {
         supply_consumption = -0.01
     }
 
     rewards = {
         wide_trench_networks = {
-            dig_in_speed_factor = 0.10
+            dig_in_speed_factor = 0.15
         }
         flexible_division_structures = {
         #2
            unit_infantry_design_cost_factor = -1
            infantry = {
-                combat_width = -0.3
+                combat_width = -0.2
             }
         }
         unit_knowledge_sharing = {
@@ -215,7 +217,7 @@ large_unit_tactics = {
         }
         large_front_offensive = {
         #4
-            category_light_infantry = {
+            category_all_infantry = {
                 max_organisation = 10
                 soft_attack = 0.1
             }
@@ -298,7 +300,6 @@ assault_infantry = {
             anti_air_battery = {
                 air_attack = 0.05
             }
-
         }
 
         integrated_support_batteries = {
@@ -318,8 +319,8 @@ assault_infantry = {
                 max_organisation = 20
                 air_attack = 0.05
             }
-
         }
+
         breakthrough_fireteams = {
         #4
             light_tank_recon = {
@@ -347,6 +348,7 @@ assault_infantry = {
                 }
             }
         }
+
         assault_detachments = {
         #5
             category_support_artillery = {
@@ -376,7 +378,6 @@ assault_infantry = {
                     soft_attack = 0.1
                 }
             }
-
         }
     }
 }
@@ -457,7 +458,8 @@ mounted_infantry = {
 		
 		beasts_of_war = {
             category_cavalry = {
-                maximum_speed = 0.4  
+                maximum_speed = 0.4 
+                max_strength = 0.05 
             }
             recon = {
                 maximum_speed = 0.4
@@ -548,7 +550,7 @@ commandos = {
             logistics_company = {
                 battalion_mult = {
                  category = category_vehicle_infantry
-                 max_strength = 5
+                 max_strength = 2.5
                  add = yes
                 }
             }
@@ -726,8 +728,24 @@ peoples_war = {
     xp_cost = 50
     xp_type = army
 
-    available = { 
-        has_government = communism
+    available = {
+        if = {
+            limit = {
+                NOT = {
+                    original_tag = INS
+                }
+            }
+            has_government = communism
+        }
+        else = {
+            OR = {
+                has_government = communism
+                AND = {
+                    original_tag = INS
+                    has_completed_focus = INS_underground_revolution
+                }
+            }
+        }
     }
     visible = {
         has_dlc = "No Compromise, No Surrender"
@@ -735,7 +753,11 @@ peoples_war = {
     ai_will_do = {
 
         base = 1
-        
+        modifier = {
+            factor = 95
+            original_tag = PRC
+        }
+
         modifier = {
             factor = 2
             is_major = no
@@ -782,7 +804,7 @@ peoples_war = {
 		
         quick_decision_offensive_warfare = {
         #3
-            mastery = 50        
+            mastery = 50
             militia = {
                initiative = 0.015
                max_organisation = 10
