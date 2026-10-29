@@ -3334,9 +3334,9 @@ focus_tree = {
 				track = submarines
 			}
 
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = BRA_german_sub_initiative
-				cost_reduction_factor = 0.5
+				cost_reduction = 0.5
 				uses = 1
 				category = naval_doctrine
 			}

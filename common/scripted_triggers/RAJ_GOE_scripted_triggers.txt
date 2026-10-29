@@ -21,7 +21,7 @@ is_raj_releasable = {
 # Political branches that unlock advisors, true until a rival path closes them off
 RAJ_swaraj_branch_open = {
 	NOT = {
-		has_completed_focus = RAJ_great_depression_price_controls
+		
 		has_completed_focus = RAJ_his_majestys_loyal_government
 	}
 }
@@ -44,7 +44,7 @@ RAJ_forward_bloc_branch_open = {
 RAJ_eic_branch_open = {
 	NOT = {
 		has_completed_focus = RAJ_his_majestys_loyal_government
-		has_completed_focus = RAJ_look_to_the_past
+		#has_completed_focus = RAJ_look_to_the_past
 		has_completed_focus = RAJ_provincial_autonomy
 	}
 }

@@ -209,7 +209,9 @@ CHI_mukden_arsenal_organization = {
 			}
 		}
 	}
-	CHI_beining_railway_tangshan_manufacturing_plant_organization = {
+}
+
+CHI_beining_railway_tangshan_manufacturing_plant_organization = {
 	name = CHI_beining_railway_tangshan_manufacturing_plant
 	include = generic_train_organization
 	icon = GFX_idea_PRC_china_railway_construction_corporation

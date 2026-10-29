@@ -73,18 +73,6 @@ defined_text = {
 	}
 }
 
-text = { #I am BAN and havent revealed pressure
-		trigger = {
-			ROOT = {
-				original_tag = BAN
-				NOT = { has_country_flag = reveal_pressure }
-			}
-		}
-		localization_key = RAJ_hidden_pressure_BAN
-	}
-
-}
-
 # Vie for Princely States gain line, ROOT is the country and FROM the targeted state
 defined_text = {
 	name = GetVieForPrincesGainText
@@ -164,20 +152,6 @@ defined_text = {
 # Viewing player's own pressure on the row's state, rival pressure stays hidden
 defined_text = {
 	name = GetRAJPartitionOwnPressure
-
-	text = {
-		trigger = {
-			ROOT = { original_tag = PAK }
-		}
-		localization_key = RAJ_GOE_partition_gui_own_pressure_PAK
-	}
-
-	text = {
-		trigger = {
-			ROOT = { original_tag = BAN }
-		}
-		localization_key = RAJ_GOE_partition_gui_own_pressure_BAN
-	}
 
 	text = {
 		trigger = {

@@ -2591,31 +2591,12 @@ focus_tree = {
 
 		completion_reward = {
 
-			every_state = {
-				limit = {
-					NOT = {
-						is_core_of = ROOT
-					}
-					OR = {
-						state = 664
-						state = 70
-						state = 71
-						state = 73
-						state = 72
-					}
-				}
-				add_core_of = ROOT
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
+		
 
 			every_state = {
 				limit = {
 					NOT = {
 						is_owned_by = ROOT
-					}
-					any_subject_country = {
-						owns_state = PREV
 					}
 					OR = {
 						state = 664

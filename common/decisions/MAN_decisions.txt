@@ -2520,7 +2520,7 @@ MAN_march_on_beijing_decisions = {
 	MAN_march_on_hebei_chahar_mission = {
 		icon = border_war
 		
-		allowed = { hidden_trigger = { always = no } }
+		allowed = {  always = no } 
 
 		available = {
 			hidden_trigger = { hidden_trigger = { always = no } }
@@ -2645,7 +2645,7 @@ MAN_march_on_beijing_decisions = {
 	MAN_march_on_beijing_mission = {
 		icon = border_war
 		
-		allowed = { hidden_trigger = { always = no } }
+		allowed = { always = no }
 
 		available = {
 			hidden_trigger = { hidden_trigger = { always = no } }
@@ -2770,7 +2770,7 @@ MAN_march_on_beijing_decisions = {
 	MAN_march_on_hebei_mission = {
 		icon = border_war
 		
-		allowed = { hidden_trigger = { always = no } }
+		allowed = { always = no }
 
 		available = {
 			hidden_trigger = { hidden_trigger = { always = no } }
