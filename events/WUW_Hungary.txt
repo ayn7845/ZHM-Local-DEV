@@ -2267,8 +2267,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						controls_state = PREV
 					}
 				}
@@ -2487,8 +2486,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						controls_state = PREV
 					}
 				}
@@ -3034,8 +3032,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						controls_state = PREV
 					}
 				}

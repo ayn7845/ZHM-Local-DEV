@@ -1760,8 +1760,8 @@ news_event = {
 	option = {
 		name = lar_news.12.b # Allies
 		trigger = {
-			any_other_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				is_in_faction_with = ROOT
 			}
 		}
@@ -1819,8 +1819,8 @@ news_event = {
 	option = {
 		name = lar_news.12.b # Axis
 		trigger = {
-			any_other_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				is_in_faction_with = ROOT
 			}
 		}

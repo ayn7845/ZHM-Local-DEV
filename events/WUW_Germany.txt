@@ -9531,8 +9531,7 @@ country_event = {
 				is_core_of = SER
 				OR = {
 					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						controls_state = PREV
 					}
 				}
@@ -9578,8 +9577,7 @@ country_event = {
 				is_core_of = SER
 				OR = {
 					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						controls_state = PREV
 					}
 				}

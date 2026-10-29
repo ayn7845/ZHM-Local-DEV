@@ -1566,8 +1566,7 @@ news_event = {
 	option = {
 		name = wtt_news.40.c
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 446
 				#owns_state = 453
 				has_country_flag = blew_up_suez
@@ -1577,8 +1576,7 @@ news_event = {
 	option = {
 		name = wtt_news.40.d
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 446
 				#owns_state = 453
 			}
@@ -1589,8 +1587,7 @@ news_event = {
 	option = {
 		name = wtt_news.40.e
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 446
 				#owns_state = 453
 				NOT = { has_country_flag = blew_up_suez }
@@ -1617,8 +1614,7 @@ news_event = {
 	option = {
 		name = wtt_news.40.g
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_country_flag = blew_up_suez
 			}
 			any_other_country = {
@@ -1713,8 +1709,7 @@ news_event = {
 	option = {
 		name = wtt_news.41.c
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 685
 				has_country_flag = blew_up_panama
 			}
@@ -1723,8 +1718,7 @@ news_event = {
 	option = {
 		name = wtt_news.41.d
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 685
 			}
 			has_country_flag = blew_up_panama
@@ -1734,8 +1728,7 @@ news_event = {
 	option = {
 		name = wtt_news.41.e
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				owns_state = 685
 				NOT = { has_country_flag = blew_up_panama }
 			}
@@ -1760,8 +1753,7 @@ news_event = {
 	option = {
 		name = wtt_news.41.g
 		trigger = {
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_country_flag = blew_up_panama
 			}
 			any_other_country = {
