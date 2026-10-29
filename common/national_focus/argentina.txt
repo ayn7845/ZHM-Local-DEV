@@ -857,7 +857,7 @@ focus_tree = {
 					}
 					add_opinion_modifier = { target = USA modifier = sanctions_relations }
 				}
-
+			}
 			add_ideas = ARG_maintain_neutrality_idea
 		}
 	}

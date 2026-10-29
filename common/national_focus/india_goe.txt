@@ -14253,6 +14253,7 @@ focus = {
                 show_modifiers = no 
             }   
         }
+    }
 
     focus = {
         id = RAJ_great_indian_peninsula_railway_dlc

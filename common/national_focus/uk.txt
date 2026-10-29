@@ -3328,6 +3328,9 @@ focus_tree = {
 		bypass = {
 		}
 
+		allow_branch = { 
+			always = no
+		}
 		continue_if_invalid = yes
 
 		icon = GFX_focus_RAJ_two_nation_theory
@@ -7001,7 +7004,8 @@ focus_tree = {
 						}
 						AND = {
 							exists = no
-							any_core_state = {
+							NOT = {
+								any_core_state = {
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7023,7 +7027,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = CAN
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7060,7 +7065,8 @@ focus_tree = {
 							AND = {
 								exists = no
 								NOT = {
-									any_core_state = {
+									any_state = {
+										is_core_of = RAJ
 										NOT = { state = 320 }
 										NOT = { state = 321 }
 										NOT = { is_owned_by = ROOT }
@@ -7079,7 +7085,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = AST
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7095,7 +7102,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = NZL
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7118,7 +7126,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = CAN
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7134,7 +7143,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = SAF
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7154,7 +7164,8 @@ focus_tree = {
 							AND = {
 								exists = no
 								NOT = {
-									any_core_state = {
+									any_state = {
+										is_core_of = RAJ
 										NOT = { state = 320 }
 										NOT = { state = 321 }
 										NOT = { is_owned_by = ROOT }
@@ -7173,7 +7184,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = AST
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7189,7 +7201,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = NZL
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7207,7 +7220,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = CAN
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7223,7 +7237,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = SAF
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7243,10 +7258,11 @@ focus_tree = {
 							AND = {
 								exists = no
 								NOT = {
-									any_core_state = {
-										NOT = { is_owned_by = ROOT }
+									any_state = {
+										is_core_of = RAJ
 										NOT = { state = 320 }
 										NOT = { state = 321 }
+										NOT = { is_owned_by = ROOT }
 									}
 								}
 							}
@@ -7262,7 +7278,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = AST
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7278,7 +7295,8 @@ focus_tree = {
 						AND = {
 							exists = no
 							NOT = {
-								any_core_state = {
+								any_state = {
+									is_core_of = NZL
 									NOT = { is_owned_by = ROOT }
 								}
 							}
@@ -7929,7 +7947,11 @@ focus_tree = {
 			is_subject = no
 		}
 		bypass = {
-			num_subjects < 1
+			NOT = {
+				any_country = {
+					is_subject_of = ENG
+				}
+			}
 			NOT = {
 				focus_progress = {
 					focus = ENG_maintaining_the_balance_of_power
@@ -8408,19 +8430,8 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				send_embargo = SOV
-				custom_effect_tooltip = embargo_relation_tt
-			}
-			else = {
-				add_opinion_modifier = { target = SOV modifier = embargo }
-				SOV = {
-					add_opinion_modifier = { target = ENG modifier = sanctions_relations }
-				}
-			}
+			send_embargo = SOV
+			custom_effect_tooltip = embargo_relation_tt
 		}
 	}
 	focus = {
@@ -8536,19 +8547,8 @@ focus_tree = {
 			factor = 1
 		}	
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				send_embargo = GER
-				custom_effect_tooltip = embargo_relation_tt
-			}
-			else = {
-				add_opinion_modifier = { target = GER modifier = embargo }
-				GER = {
-					add_opinion_modifier = { target = ENG modifier = sanctions_relations }
-				}
-			}
+			send_embargo = GER
+			custom_effect_tooltip = embargo_relation_tt
 		}
 	}
 
@@ -9771,8 +9771,8 @@ focus_tree = {
 				limit = {
 					NOT = { has_dlc = "La Resistance" }
 				}
-				any_country_with_original_tag = {
-					original_tag_to_check = SPR
+				any_country = {
+					original_tag = SPR
 					has_government = fascism
 					exists = yes
 					NOT = { is_in_faction_with = ENG }
@@ -9828,8 +9828,8 @@ focus_tree = {
 				limit = {
 					NOT = { has_dlc = "La Resistance" }
 				}
-				any_country_with_original_tag = {
-					original_tag_to_check = SPR
+				any_country = {
+					original_tag = SPR
 					has_government = fascism
 					exists = yes
 					NOT = { is_in_faction_with = ENG }
@@ -9854,8 +9854,8 @@ focus_tree = {
 					NOT = { has_dlc = "La Resistance" }
 				}
 				NOT = {
-					any_country_with_original_tag = {
-						original_tag_to_check = SPR
+					any_country = {
+						original_tag = SPR
 						has_government = fascism
 						exists = yes
 					}
@@ -9888,8 +9888,8 @@ focus_tree = {
 					limit = {
 						NOT = { has_dlc = "La Resistance" }
 					}
-					any_country_with_original_tag = {
-						original_tag_to_check = SPR
+					any_country = {
+						original_tag = SPR
 						has_government = fascism
 						exists = yes
 						is_in_faction_with = GER
@@ -11277,14 +11277,13 @@ focus_tree = {
 		mutually_exclusive = { focus = ENG_the_british_communist_alternative }
 		available = {
 			is_subject = no
-			country_exists = SOU
+			country_exists = SOu
 			NOT = { is_in_faction_with = SOU }
 			NOT = { has_war_with = SOU }
 			SOU = { 
-				has_civil_war = no
-				is_faction_leader = yes
 				has_government = communism
-			}
+				has_civil_war = no
+				}
 		}
 		bypass = {
 			is_in_faction_with = SOU

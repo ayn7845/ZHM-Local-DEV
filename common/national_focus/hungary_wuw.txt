@@ -2332,9 +2332,7 @@ focus_tree = {
 
 			is_subject = no
 
-			UKR = {
-				exists = no
-			}
+			
 
 			custom_trigger_tooltip = { 
 

@@ -491,10 +491,6 @@ JAP_state_is_soviet_bloc_controlled = { ### State scope. The Soviet bloc as the 
 			MON = { is_in_faction_with = SOV }
 		}
 		AND = {
-			is_controlled_by = SIK
-			SIK = { is_in_faction_with = SOV }
-		}
-		AND = {
 			is_controlled_by = TAN
 			TAN = { is_in_faction_with = SOV }
 		}
