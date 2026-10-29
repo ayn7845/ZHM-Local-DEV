@@ -3,7 +3,7 @@ RAJ_GOE_independence_movement = {
 	#TODO_VD add violence
 	RAJ_GOE_urge_non_violence = { 
 
-		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign
+		icon = GFX_decision_generic_political_address
 		
 		state_target = any_controlled_state
 		
@@ -12,7 +12,7 @@ RAJ_GOE_independence_movement = {
 				has_completed_focus = RAJ_mahatma
 			}
 			NOT = { has_completed_focus = RAJ_forward_bloc }
-
+			is_subject = yes
 		}
 		
 		available = {
@@ -46,13 +46,9 @@ RAJ_GOE_independence_movement = {
 			FROM = {
 				add_resistance = -60
 			}
-			ROOT = {
-				add_autonomy_ratio = { 
-					value = -0.05 
-					#localization = LOC_KEY
-				}
-				custom_effect_tooltip = idea_RAJ_independence_movement_tt
-				#add_to_variable = { RAJ_autonomy_gain_independence_movement = -0.05 tooltip = autonomy_gain_tt }
+			add_autonomy_ratio = { 
+				value = -0.05 
+				#localization = LOC_KEY
 			}
 		}
 	}

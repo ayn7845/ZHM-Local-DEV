@@ -13,9 +13,9 @@ ROM_change_sides = {
 		available = {
 			is_faction_leader = no
 			has_capitulated = no
-			any_country = {
+			any_enemy_country = {
 				is_faction_leader = yes
-				has_war_with = ROM
+				
 				OR = {
 					has_government = democratic
 					original_tag = ENG
@@ -69,9 +69,8 @@ ROM_change_sides = {
 			#top priority is joining the Allies if they still exist
 			if = {
 				limit = {
-					any_country = {
+					any_enemy_country = {
 						is_faction_leader = yes
-						has_war_with = ROM
 						has_government = democratic
 						OR = {
 							original_tag = ENG
@@ -82,7 +81,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = democratic
 						OR = {
 							original_tag = ENG
@@ -95,9 +94,8 @@ ROM_change_sides = {
 			#then attempts to join the USA's faction
 			else_if = {
 				limit = {
-					any_country = {
+					any_enemy_country = {
 						is_faction_leader = yes
-						has_war_with = ROM
 						has_government = democratic
 						OR = {
 							original_tag = USA
@@ -108,7 +106,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = democratic
 						OR = {
 							original_tag = USA
@@ -123,7 +121,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = democratic
 					}
 					save_event_target_as = romania_new_ally_target
@@ -165,9 +163,9 @@ ROM_change_sides = {
 		available = {
 			is_faction_leader = no
 			has_capitulated = no
-			any_country = {
+			any_enemy_country = {
 				is_faction_leader = yes
-				has_war_with = ROM
+				
 				OR = {
 					has_government = communism
 					original_tag = SOV
@@ -219,9 +217,8 @@ ROM_change_sides = {
 			#top priority is joining the Commintern if they still exist
 			if = {
 				limit = {
-					any_country = {
+					any_enemy_country = {
 						is_faction_leader = yes
-						has_war_with = ROM
 						has_government = communism
 						OR = {
 							original_tag = SOV
@@ -232,7 +229,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = communism
 						OR = {
 							original_tag = SOV
@@ -247,7 +244,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = communism
 					}
 					save_event_target_as = romania_new_ally_target
@@ -280,9 +277,9 @@ ROM_change_sides = {
 		available = {
 			is_faction_leader = no
 			has_capitulated = no
-			any_country = {
+			any_enemy_country = {
 				is_faction_leader = yes
-				has_war_with = ROM
+				
 				OR = {
 					has_government = fascism
 					original_tag = GER
@@ -335,9 +332,8 @@ ROM_change_sides = {
 			#top priority is joining the Axis if they still exist
 			if = {
 				limit = {
-					any_country = {
+					any_enemy_country = {
 						is_faction_leader = yes
-						has_war_with = ROM
 						has_government = fascism
 						OR = {
 							original_tag = GER
@@ -348,7 +344,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = fascism
 						OR = {
 							original_tag = GER
@@ -361,9 +357,8 @@ ROM_change_sides = {
 			#then attempts to join Italy's faction
 			else_if = {
 				limit = {
-					any_country = {
+					any_enemy_country = {
 						is_faction_leader = yes
-						has_war_with = ROM
 						has_government = fascism
 						OR = {
 							original_tag = ITA
@@ -374,7 +369,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = fascism
 						OR = {
 							original_tag = ITA
@@ -389,7 +384,7 @@ ROM_change_sides = {
 				random_enemy_country = {
 					limit = {
 						is_faction_leader = yes
-						has_war_with = ROM
+						
 						has_government = fascism
 					}
 					save_event_target_as = romania_new_ally_target

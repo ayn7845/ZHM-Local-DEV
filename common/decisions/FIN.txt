@@ -2422,7 +2422,7 @@ FIN_foreign_politics_decision_category = {
 			}
 			modifier = { # Don't Do it if you, Germany or any of their Allies hold Leningrad or Moscow and you are not very close to collapsing 
 				factor = 0
-				surrender_progress < 0.75
+				surrender_progress < 0.4
 				OR = {
 					195 = { # Leningrad
 						OR = { 
@@ -2460,7 +2460,7 @@ FIN_foreign_politics_decision_category = {
 			}
 			modifier = { # Stalingrad feels a little less safe than the others
 				factor = 0.5
-				surrender_progress < 0.75
+				surrender_progress < 0.4
 				217 = { # Stalingrad
 					OR = { 
 						
@@ -2489,7 +2489,7 @@ FIN_foreign_politics_decision_category = {
 			}
 			modifier = { # Panic mode
 				add = 200
-				check_variable = { ROOT.surrender_progress > 0.75 } 
+				check_variable = { ROOT.surrender_progress > 0.4 } 
 			}
 		}
 
@@ -2790,10 +2790,9 @@ FIN_foreign_politics_decision_category = {
 			GER = {
 				has_war_with = SOV
 			}
-			any_country = {
+			any_enemy_country = {
 				has_government = democratic
 				is_faction_leader = yes
-				has_war_with = GER
 			}
 			722 = {
 				is_owned_and_controlled_by = ROOT

@@ -2872,16 +2872,9 @@ SOV_propaganda_campaigns = {
 		available = {
 			SOV_propaganda_poster_slot_available = yes
 
-			any_country = {
+			any_country_with_original_tag_of = {
+				target = {ENG FRA GER ITA USA JAP}
 				has_government = democratic
-				OR = {
-					tag = ENG
-					tag = FRA
-					tag = GER
-					tag = ITA
-					tag = USA
-					tag = JAP
-				}
 			}
 		}
 
@@ -3128,16 +3121,10 @@ SOV_propaganda_campaigns = {
 		available = {
 			SOV_propaganda_poster_slot_available = yes
 
-			any_country = {
+			any_country_with_original_tag_of = {
+				target = {ENG FRA GER ITA USA JAP}
 				has_government = fascism
-				OR = {
-					tag = ENG
-					tag = FRA
-					tag = GER
-					tag = ITA
-					tag = USA
-					tag = JAP
-				}
+				
 			}
 		}
 
@@ -3717,8 +3704,7 @@ SOV_propaganda_campaigns = {
 			custom_effect_tooltip = SOV_propaganda_builders_of_communism_effect_tt
 			if = {
 				limit = {
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 					}
 				}
 				hidden_effect = {
@@ -5635,8 +5621,8 @@ SOV_diplomacy_nordic_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -5928,8 +5914,8 @@ SOV_diplomacy_balkan_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -8303,7 +8289,7 @@ SOV_industry_relocation = {
 		target_trigger = {
 			FROM = {
 				is_core_of = ROOT
-				is_fully_controlled_by = ROOT
+				
 				is_on_continent = europe
 				OR = {
 					has_state_category = town
@@ -8313,7 +8299,7 @@ SOV_industry_relocation = {
 					has_state_category = megalopolis
 					has_state_category = metropolis
 				}
-				infrastructure > 2
+				
 			}
 		}
 
@@ -8350,7 +8336,7 @@ SOV_industry_relocation = {
 
 		cancel_if_not_visible = no
 
-		cost = 25
+		cost = 10
 
 		days_remove = SOV_industrial_relocation_days
 
@@ -9235,10 +9221,10 @@ SOV_great_patriotic_war = {
 
 		ai_hint_pp_cost = 15
 		custom_cost_trigger = {
-			command_power > 49
+			command_power > 24
 			has_political_power > 14
 		}
-		custom_cost_text = decision_cost_CP_50_pp_15
+		custom_cost_text = decision_cost_CP_25_pp_15
 
 		days_remove = 90
 
@@ -9248,7 +9234,7 @@ SOV_great_patriotic_war = {
 
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -50
+				add_command_power = -25
 				add_political_power = -15
 			}
 		}
@@ -9283,10 +9269,10 @@ SOV_great_patriotic_war = {
 
 		ai_hint_pp_cost = 50
 		custom_cost_trigger = {
-			command_power > 49
+			command_power > 24
 			has_political_power > 49
 		}
-		custom_cost_text = decision_cost_CP_50_pp_50
+		custom_cost_text = decision_cost_CP_25_pp_50
 
 		fire_only_once = yes
 		visible = {
@@ -9306,7 +9292,7 @@ SOV_great_patriotic_war = {
 
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -50
+				add_command_power = -25
 				add_political_power = -50
 			}
 			set_country_flag = SOV_order_227_flag
@@ -9696,8 +9682,12 @@ SOV_great_patriotic_war = {
 				NOT = { state = 5 }
 				NOT = { state = 85 }
 			}
-			any_other_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+				}
 				NOT = { is_in_faction_with = ROOT }
 				has_war_with = GER
 				any_controlled_state = {
@@ -9713,8 +9703,12 @@ SOV_great_patriotic_war = {
 			any_controlled_state = {
 				is_core_of = GER
 			}
-			any_other_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+				}
 				NOT = { is_in_faction_with = ROOT }
 				has_war_with = GER
 			}
