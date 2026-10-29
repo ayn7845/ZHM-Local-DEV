@@ -1956,6 +1956,7 @@ shared_focus = {
 		}
 		set_variable = { CHI_ledo_road_current_level = 1 }
 		add_offsite_building = { type = arms_factory level = 1 }
+		set_global_flag = CHI_ledo_road_focus_taken
 	}
 }
 

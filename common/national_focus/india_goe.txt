@@ -14211,6 +14211,49 @@ focus = {
         }
     }
 
+     focus = {
+        id = RAJ_establish_the_alupuram_works
+        icon = GFX_focus_generic_aluminum
+        prerequisite = { focus = RAJ_bombay_baroda_and_central_india_railway }
+        x = 2
+        y = 1
+        relative_position_id = RAJ_bombay_baroda_and_central_india_railway
+        
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+            controls_state = 982 
+        }
+        
+        bypass = {
+
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        completion_reward = {
+            982 = {
+                add_resource = {
+                    type = aluminium
+                    amount = 15  
+                }
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            unlock_decision_tooltip = {
+                decision = establish_jaykaynagar_aliminium_smelters
+                show_effect_tooltip = yes # default is no
+                show_modifiers = no 
+            }   
+        }
+
     focus = {
         id = RAJ_great_indian_peninsula_railway_dlc
         icon = GFX_goal_generic_construct_infrastructure

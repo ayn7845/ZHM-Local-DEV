@@ -479,7 +479,7 @@ focus_tree = {
 				custom_effect_tooltip = BRA_modify_estado_moderno_ns_intro
 				add_to_variable = {
 					BRA_estado_moderno_production_factory_max_efficiency_factor = 0.05
-					tooltip = industrial_capacity_factory_tt
+					tooltip = production_factory_max_efficiency_factor_tt
 				}
 				add_to_variable = {
 					BRA_estado_moderno_consumer_goods_factor = -0.05
@@ -2463,8 +2463,8 @@ focus_tree = {
 			factor = 20
 		}
 		available = {	
-			any_other_country = {
-				original_tag = USA
+			any_country_with_original_tag = {
+				original_tag_to_check = USA
 				has_war_with_major = yes
 				has_government = democratic
 				NOT = {
@@ -2507,8 +2507,8 @@ focus_tree = {
 		
 		cost = 10
 		available = {
-			any_country = {
-				original_tag = GER
+			any_country_with_original_tag = {
+				original_tag_to_check = GER
 				NOT = {
 					has_government = BRA
 				}
@@ -3327,13 +3327,20 @@ focus_tree = {
 
 			navy_experience = 15
 
-			add_tech_bonus = {
+			add_mastery_bonus = {
 				name = BRA_german_sub_initiative
-				bonus = 0.75
-				uses = 1
-				category = submarine_doctrine
+				bonus = 0.1
+				days = 180
+				track = submarines
 			}
 
+			add_tech_bonus = {
+				name = BRA_german_sub_initiative
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+			
 			add_tech_bonus = {
 				name = BRA_german_sub_initiative
 				bonus = 0.5
@@ -5037,8 +5044,7 @@ allow_branch = {
 				has_government = neutrality
 			}
 			is_in_faction = yes
-			any_other_country = {
-				is_in_faction_with = ROOT
+			any_allied_country = {
 				capital_scope = {
 					is_on_continent = south_america
 					#is_core_of = PREV
@@ -7151,8 +7157,8 @@ allow_branch = {
 			}
 		}
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR
 				exists = yes
 				is_subject = no
 			}
@@ -7449,8 +7455,8 @@ allow_branch = {
 		}
 		will_lead_to_war_with = POR
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR
 				exists = yes
 			}
 		}
@@ -7496,8 +7502,8 @@ allow_branch = {
 		}
 		will_lead_to_war_with = POR
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR
 				exists = yes
 				OR = {
 					is_subject = no

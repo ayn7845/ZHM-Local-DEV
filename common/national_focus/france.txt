@@ -488,17 +488,8 @@
 		}
 
 		available = {
-			any_state = {
-				OR = {
-					state = 272
-					state = 780
-					state = 556
-					state = 779
-					state = 778
-					state = 781
-					state = 776
-					state = 777
-				}	
+			any_state_of = {
+				target = {272 780 556 779 778 781 776 777}	
 				is_owned_or_subject_trigger = yes
 			}
 		}
@@ -1110,11 +1101,11 @@
 				}
 				capital_scope = {
 					create_unit = {
-						division = "name = \"1re Division Cuirassée\" division_template = \"Division Cuirassée\" start_experience_factor = 0.7 force_equipment_variants = { heavy_tank_chassis_0 = { creator = \"FRA\" version_name = \"Char B1\"} }"  
+						division = "name = \"1re Division Cuirassée\" division_template = \"Division Cuirassée\" start_experience_factor = 0.7 force_equipment_variants = { heavy_tank_chassis_1 = { creator = \"FRA\" version_name = \"Char B1\"} }"  
 						owner = ROOT
 					}
 					create_unit = {
-						division = "name = \"2me Division Cuirassée\" division_template = \"Division Cuirassée\" start_experience_factor = 0.7 force_equipment_variants = { heavy_tank_chassis_0 = { creator = \"FRA\" version_name = \"Char B1\"} }"  
+						division = "name = \"2me Division Cuirassée\" division_template = \"Division Cuirassée\" start_experience_factor = 0.7 force_equipment_variants = { heavy_tank_chassis_1 = { creator = \"FRA\" version_name = \"Char B1\"} }"  
 						owner = ROOT
 					}
 				}
