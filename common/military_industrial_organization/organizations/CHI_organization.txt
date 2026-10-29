@@ -209,4 +209,34 @@ CHI_mukden_arsenal_organization = {
 			}
 		}
 	}
+	CHI_beining_railway_tangshan_manufacturing_plant_organization = {
+	name = CHI_beining_railway_tangshan_manufacturing_plant
+	include = generic_train_organization
+	icon = GFX_idea_PRC_china_railway_construction_corporation
+
+	allowed = {
+		OR = {
+			is_literally_china_not_prc = yes
+			tag = MAN
+		} 
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	available = {
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = CHI } }
+			}
+			owner = { controls_state = 609 } # East Hebei/Tangshan  
+		}
+		IF = {
+			limit = {
+				FROM = { original_tag = CHI }
+			}
+			OR = {
+				owner = { has_country_flag = CHI_relocated_beining_railway_tangshan }
+				owner = { controls_state = 609 } # East Hebei/Tangshan  
+			}
+		}
+	}
 }
