@@ -370,7 +370,7 @@ GER = {
 		23 = { #italy
 			o_eiche
 			o_achse
-			o_alaric
+			o_alarich
 			o_scwartz
 			o_siegfried
 			o_konstantin
