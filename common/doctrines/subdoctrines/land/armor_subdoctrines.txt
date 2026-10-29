@@ -277,7 +277,7 @@ streamlined_deployment = {
             OR = {
                 original_tag = SOV 
                 original_tag = CHI 
-                original_tag = PRC 
+              
             }
         }
 

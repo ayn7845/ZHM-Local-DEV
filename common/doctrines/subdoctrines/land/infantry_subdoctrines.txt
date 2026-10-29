@@ -728,24 +728,8 @@ peoples_war = {
     xp_cost = 50
     xp_type = army
 
-    available = {
-        if = {
-            limit = {
-                NOT = {
-                    original_tag = INS
-                }
-            }
-            has_government = communism
-        }
-        else = {
-            OR = {
-                has_government = communism
-                AND = {
-                    original_tag = INS
-                    has_completed_focus = INS_underground_revolution
-                }
-            }
-        }
+    available = { 
+        has_government = communism
     }
     visible = {
         has_dlc = "No Compromise, No Surrender"
@@ -753,10 +737,7 @@ peoples_war = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 95
-            original_tag = PRC
-        }
+       
 
         modifier = {
             factor = 2
