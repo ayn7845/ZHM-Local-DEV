@@ -3613,6 +3613,67 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = GER_establish_the_skijager
+		icon = GFX_focus_GER_gebirgsjager
+		prerequisite = { focus = GER_instill_auftragstaktik }
+
+		x = 2
+		y = 1
+		relative_position_id = GER_instill_auftragstaktik
+		cost = 5
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_special_forces_cap = 0.05
+				tooltip = special_forces_cap_tt
+			}
+			add_to_variable = { 
+				GER_military_acclimatization_cold_climate_gain_factor = 0.1
+				tooltip = acclimatization_cold_climate_gain_factor_tt
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_doctrine_cost_reduction = {
+					name = GER_establish_the_skijager
+					cost_reduction = 0.25
+					uses = 2
+					category = special_forces_doctrine
+				}
+				custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
+				hidden_effect = {
+					add_mastery_bonus = {
+						name = GER_establish_the_skijager
+						bonus = 0.1
+						days = 240
+						sub_doctrine = mountaineers_1
+					}
+					add_mastery_bonus = {
+						name = GER_establish_the_skijager
+						bonus = 0.1
+						days = 240
+						sub_doctrine = mountaineers_2
+					}
+				}				
+			}
+			add_tech_bonus = {
+				name = GER_establish_the_skijager
+				bonus = 0.5
+				uses = 1
+				category = mountaineers_tech
+			}
+		}
+	}
+
+	focus = {
 		id = GER_establish_the_afrikakorps
 		icon = GFX_focus_GER_afrikakorps
 		prerequisite = { focus = GER_instill_auftragstaktik }
