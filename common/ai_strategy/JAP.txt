@@ -750,7 +750,7 @@ JAP_dei_stage_1_borneo = {
 	}
 	enable = {
 		is_historical_focus_on = yes
-		has_war_with = INS
+		#has_war_with = INS
 		date > 1941.1.1
 	}
 	abort_when_not_enabled = yes
