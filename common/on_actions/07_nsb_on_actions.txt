@@ -759,29 +759,7 @@ on_actions = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					POL = {
-						is_subject_of = GER
-						is_ai = no #So that there's no weird transfer of states between AIs
-					}
-					GER = { is_ai = yes }
-				}
-				GER = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								is_core_of = POL
-								is_claimed_by = POL
-							}
-							NOT = { is_core_of = GER }
-						}
-						POL = {
-							transfer_state = PREV
-						}
-					}
-				}
-			}
+			
 			
 		}
 		effect = { #SOV - Fourth Five Year Plan
@@ -1080,6 +1058,8 @@ on_actions = {
 			
 		}
 	}
+
+	
 
 	on_monthly_SOV = { 
 		effect = { 

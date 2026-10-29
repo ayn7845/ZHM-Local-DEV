@@ -1710,6 +1710,17 @@ on_actions = {
 				}
 				add_to_variable = { BEL.special_projects_completed = 1 }
 			}
+			# Used by the US AI to time its second nuclear facility
+			IF = {
+				limit = {
+					ROOT = {
+						original_tag = USA
+						is_special_project_completed = sp:sp_nuclear_reactor
+						NOT = { has_country_flag = USA_nuclear_reactor_done_flag }
+					}
+				}
+				ROOT = { set_country_flag = USA_nuclear_reactor_done_flag }
+			}
 		}
 	}
 

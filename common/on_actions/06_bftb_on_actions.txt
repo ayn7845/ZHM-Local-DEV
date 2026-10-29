@@ -951,8 +951,7 @@ on_actions = {
 						character = BUL_ferdinand_i 
 						ruling_only = yes
 					}
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						NOT = { has_idea = BUL_ferdinands_puppet }
 					}
 				}

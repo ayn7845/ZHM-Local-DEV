@@ -73,6 +73,16 @@ on_actions = {
 				}
 			}
 		}
+
+		# Builds the signatory list for MTG_naval_treaties_ui, the starting signatories get their ideas from history so no idea hook fires for them.
+		effect = {
+			every_country = {
+				limit = {
+					has_naval_treaty_trigger = yes
+				}
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
+		}
 	}
 	# country
 	on_new_term_election = {
@@ -162,6 +172,25 @@ on_actions = {
 	# country, FROM = enemy ace
 	on_non_ace_killed_other_ace = {
 
+	}
+
+	# Self-heals the signatory list once a week, which also backfills saves made before the list existed.
+	on_weekly = {
+		effect = {
+			MTG_naval_treaty_sync_ui_membership_effect = yes
+		}
+	}
+
+	# Only signatories are checked, so this is a handful of countries a day rather than every tag in the game.
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					has_naval_treaty_trigger = yes
+				}
+				MTG_naval_treaty_sync_ui_compliance_effect = yes
+			}
+		}
 	}
 
 	# During justifying wargoals
@@ -516,13 +545,7 @@ on_actions = {
 	on_declare_war = {
 		effect = {
 			#make sure Germany doesn't force ideology on France for the achievement
-			if = {
-				limit = {
-					FROM = { original_tag = FRA }
-					tag = GER
-				}
-				set_country_flag = invalid_for_danzig_achievement
-			}
+			
 			#make sure warlords don't use the same guy
 			
 			#make sure Dominions lose the dominion tag
@@ -1651,8 +1674,16 @@ on_actions = {
 			if = {
 				limit = {
 					OR = {
-						TAG = ENG
 						TAG = USA
+					}
+					AND = {
+						TAG = ENG
+						USA = {
+							divisions_in_state = {
+								state = 126
+								size > 0
+							}
+						}
 					}
 					FROM = { original_tag = GER }
 					FROM = { has_war_with = ROOT }
