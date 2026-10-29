@@ -108,30 +108,6 @@ leader_traits = {
 			tag = CHI
 			generate_wargoal_tension_against = 0.75
 		}
-		targeted_modifier = {
-			tag = PRC
-			generate_wargoal_tension_against = 0.75
-		}
-		targeted_modifier = {
-			tag = SHX
-			generate_wargoal_tension_against = 0.75
-		}
-		targeted_modifier = {
-			tag = GXC
-			generate_wargoal_tension_against = 0.75
-		}
-		targeted_modifier = {
-			tag = YUN
-			generate_wargoal_tension_against = 0.75
-		}
-		targeted_modifier = {
-			tag = XSM
-			generate_wargoal_tension_against = 0.75
-		}
-		targeted_modifier = {
-			tag = SIK
-			generate_wargoal_tension_against = 0.75
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -4044,7 +4020,7 @@ leader_traits = {
 		#foreign_subversive_activites = -0.1
 		improve_relations_maintain_cost_factor = -0.3
 	}
-	minister_of_the_interior_abate = {
+	ETH_minister_of_the_interior_abate = {
 		random = no
 		sprite = 13
 		trade_opinion_factor = 0.1
@@ -14660,16 +14636,7 @@ leader_traits = {
 		stability_factor = 0.05
 	}
 
-	PRC_zhang_guotao_in_kmt = {
-		random = no ## This is Zhang Guotao when in KMT
-		sprite = 13
-
-		targeted_modifier = {
-			tag = PRC
-			attack_bonus_against = 0.05
-		}
-
-	}
+	
 
 	PRC_rural_survey_trait = {
 		random = no ## This is given from focus, no loc 
