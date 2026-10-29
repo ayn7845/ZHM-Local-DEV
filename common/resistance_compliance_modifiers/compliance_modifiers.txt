@@ -78,7 +78,14 @@ compliance_80 = {
 				limit = {
 					NOT = { has_country_flag = stop_collaboration_government_events }
 				}
-				country_event = { id = occupied_countries.1 days = 2 }
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { has_country_flag = stop_collaboration_government_events }
+						}
+						country_event = { id = occupied_countries.1 days = 2 }
+					}
+				}
 			}
 		}
 	}
