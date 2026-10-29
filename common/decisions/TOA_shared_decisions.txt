@@ -462,8 +462,8 @@ improving_our_army_category = {
 	
 		available = {
 			has_completed_focus = SMB_foreign_advisors
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
