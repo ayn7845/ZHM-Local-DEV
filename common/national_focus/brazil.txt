@@ -2486,6 +2486,7 @@ focus_tree = {
 		}
 		available = {	
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = USA
 				has_war_with_major = yes
 				has_government = democratic
@@ -2535,6 +2536,7 @@ focus_tree = {
 		cost = 10
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = GER
 				NOT = {
 					has_government = BRA

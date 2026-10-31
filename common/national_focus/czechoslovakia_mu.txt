@@ -4618,6 +4618,7 @@ focus_tree = {
 			is_subject_of = GER
 			any_collection_element = {
 				collection = game:all_majors
+				NOT = { tag = ROOT }
 				has_war_with = GER
 				has_government = democratic
 				NOT = {
@@ -11005,6 +11006,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SOV
 				has_civil_war = yes
 				NOT = {
@@ -11016,6 +11018,7 @@ focus_tree = {
 
 		bypass = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SOV
 				has_war_with = ROOT
 			}

@@ -8377,6 +8377,7 @@ focus_tree = {
 					NOT = { has_dlc = "La Resistance" }
 				}
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {SPR}
 					has_government = fascism
 					has_volunteers_amount_from = {
@@ -9179,6 +9180,7 @@ focus_tree = {
 			else_if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = AUS
 						has_civil_war = yes
 						OR = {
@@ -9207,6 +9209,7 @@ focus_tree = {
 								has_government = neutrality
 								NOT = {
 									any_country_with_original_tag = {
+										exists = yes
 										original_tag_to_check = AUS
 										has_government = fascism
 									}
@@ -9214,6 +9217,7 @@ focus_tree = {
 							}
 							NOT = {
 								any_country_with_original_tag = {
+									exists = yes
 									original_tag_to_check = AUS
 									OR = {
 										has_government = fascism
@@ -11886,6 +11890,7 @@ focus_tree = {
 					#tooltip = GER_danzig_trigger_polish_civil_war
 					AND = {
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = POL
 							has_civil_war = yes
 							OR = {
@@ -25502,6 +25507,7 @@ focus_tree = {
 					has_guaranteed = SOV
 				}
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SOV #in the event of cw weirdness
 					OR = {
 						exists = no
@@ -30663,6 +30669,7 @@ focus_tree = {
 		available = {
 			SOV = {
 				any_neighbor_country = {
+					NOT = { tag = ROOT }
 					OR = {
 						is_guaranteed_by = ROOT
 						is_in_faction_with = ROOT
@@ -30835,6 +30842,7 @@ focus_tree = {
 		
 		available = {
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {LIT LAT POL EST UBD BLR KSH SIL UKR}
 				OR = {
 					is_guaranteed_by = ROOT
@@ -30858,6 +30866,7 @@ focus_tree = {
 				limit = {
 					NOT = {
 						any_country_with_original_tag_of = {
+							exists = yes
 							target = {LIT LAT POL EST UBD BLR KSH SIL UKR}
 							OR = {
 								is_guaranteed_by = ROOT
@@ -31179,6 +31188,7 @@ focus_tree = {
 
 		available = {
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {FIN LIT LAT POL EST UBD BLR KSH SIL UKR KAR}
 				is_guaranteed_by = ROOT
 				is_in_faction = no
@@ -35747,6 +35757,7 @@ focus_tree = {
 			has_war = no
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = GER
 					has_government = fascism
 				}
@@ -37497,6 +37508,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SPR
 				has_government = communism
 				NOT = { has_war_with = ROOT }
@@ -38001,6 +38013,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {HUN ROM YUG BUL}
 				has_government = communism	
 			}
@@ -38018,6 +38031,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = HUN
 						has_government = communism 
 					}
@@ -38042,6 +38056,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = ROM
 						has_government = communism 
 					}
@@ -38066,6 +38081,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = YUG
 						has_government = communism 
 					}
@@ -38090,6 +38106,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = BUL
 						has_government = communism 
 					}
@@ -38206,6 +38223,7 @@ focus_tree = {
 			is_subject = no
 
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {FRA HOL BEL LUX}
 				has_government = communism
 			}
@@ -38223,6 +38241,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = FRA
 						has_government = communism 
 					}
@@ -38247,6 +38266,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = HOL
 						has_government = communism 
 					}
@@ -38271,6 +38291,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = BEL
 						has_government = communism 
 					}
@@ -38295,6 +38316,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = LUX
 						has_government = communism 
 					}

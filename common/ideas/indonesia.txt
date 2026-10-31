@@ -912,6 +912,7 @@ ideas = {
 			cancel = {
 				NOT = {
 					any_other_country_with_original_tag_of = {
+						exists = yes
 						target = {INS}
 						is_in_faction_with = ROOT
 					}

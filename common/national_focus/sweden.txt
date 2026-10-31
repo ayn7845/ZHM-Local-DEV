@@ -1758,6 +1758,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = NOR 
 						NOT = { 
 							has_war_with = ROOT 
@@ -3118,6 +3119,7 @@ focus_tree = {
 		available = {
 			any_collection_element = {
 				collection = game:all_majors
+				NOT = { tag = ROOT }
 				has_government = ROOT
 				NOT = { has_war_with = ROOT }
 			}
@@ -8169,6 +8171,7 @@ focus_tree = {
 		cost = 10
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = GER
 				has_government = fascism
 				NOT = { has_war_with = ROOT }

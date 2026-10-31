@@ -8627,11 +8627,13 @@ focus_tree = {
 		available = {
 			is_subject = no
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = GER
 				has_government = fascism
 				NOT = { has_war_with = ROOT }
 			}
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = ITA
 				has_government = fascism
 				NOT = { has_war_with = ROOT }
@@ -8645,22 +8647,26 @@ focus_tree = {
 					OR = {
 						NOT = {
 							any_country_with_original_tag = {
+								exists = yes
 								original_tag_to_check = GER
 								has_government = fascism
 							}
 						}
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = GER
 							has_government = fascism
 							has_war_with = ROOT
 						}
 						NOT = {
 							any_country_with_original_tag = {
+								exists = yes
 								original_tag_to_check = ITA
 								has_government = fascism
 							}
 						}
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ITA
 							has_government = fascism
 							has_war_with = ROOT

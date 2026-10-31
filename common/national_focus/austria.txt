@@ -4906,6 +4906,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = SOV
 						is_in_faction = no
 						OR = {
@@ -4925,6 +4926,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = GER
 						is_in_faction = no
 						OR = {
@@ -12523,6 +12525,7 @@ focus_tree = {
 						}
 
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ITA # Add other triggers as needed
 							has_government = fascism
 						}
@@ -12538,6 +12541,7 @@ focus_tree = {
 					limit = { 
 						has_government = communism
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = SOV # Add other triggers as needed
 							has_government = communism
 						}
@@ -12552,6 +12556,7 @@ focus_tree = {
 					limit = { 
 						has_government = democratic
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ENG
 							has_government = democratic
 						}
@@ -12583,6 +12588,7 @@ focus_tree = {
 							has_government = neutrality
 						}
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ITA
 							has_government = fascism
 						}
@@ -12598,6 +12604,7 @@ focus_tree = {
 					limit = { 
 						has_government = communism
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = SOV
 							has_government = communism
 						}
@@ -12612,6 +12619,7 @@ focus_tree = {
 					limit = { 
 						has_government = democratic
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ENG
 							has_government = democratic
 						}

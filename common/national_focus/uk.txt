@@ -7424,6 +7424,7 @@ focus_tree = {
 
 		available = {
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {NZL SAF RAJ AST CAN MAL PAL JOR KUW BRM}
 				is_in_faction_with = ROOT
 			}
@@ -7636,6 +7637,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = RAJ
 				is_in_faction_with = ROOT
 			}
@@ -7819,6 +7821,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = AST
 				is_in_faction_with = ROOT
 			}
@@ -7980,6 +7983,7 @@ focus_tree = {
 		prerequisite = { focus = uk_australia_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = NZL
 				is_in_faction_with = ROOT
 			}
@@ -8140,6 +8144,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = CAN
 				is_in_faction_with = ROOT
 			}
@@ -8299,6 +8304,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SAF
 				is_in_faction_with = ROOT
 			}

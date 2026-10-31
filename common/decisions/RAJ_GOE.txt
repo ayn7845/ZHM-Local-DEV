@@ -4655,6 +4655,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = NEP
 					has_government = communism
 				}
@@ -4683,6 +4684,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = NEP
 					OR = {
 						has_government = communism
@@ -4712,6 +4714,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = TIB
 					has_government = communism
 				}
@@ -4740,6 +4743,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = TIB
 					OR = {
 						has_government = communism
@@ -4769,6 +4773,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = BRM
 					has_government = communism
 				}
@@ -4797,6 +4802,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = BRM
 					OR = {
 						has_government = communism
@@ -4826,6 +4832,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = TIB
 					has_government = communism
 				}
@@ -4854,6 +4861,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = AFG
 					OR = {
 						has_government = communism
@@ -4883,6 +4891,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = PER
 					has_government = communism
 				}
@@ -4911,6 +4920,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = PER
 					OR = {
 						has_government = communism
@@ -4940,6 +4950,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SIA
 					has_government = communism
 				}
@@ -4968,6 +4979,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SIA
 					OR = {
 						has_government = communism
@@ -4997,6 +5009,7 @@ RAJ_peasant_uprisings_cat = {
 		available = {
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = INS 
 					has_government = communism
 				}
@@ -5025,6 +5038,7 @@ RAJ_peasant_uprisings_cat = {
 
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = INS
 					OR = {
 						has_government = communism

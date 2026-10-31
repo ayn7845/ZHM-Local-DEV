@@ -3123,6 +3123,7 @@ focus_tree = {
 		available = {
 			any_collection_element = {
 				collection = game:all_majors
+				NOT = { tag = ROOT }
 				is_in_faction_with = ROOT
 				has_government = fascism
 			}
@@ -5332,6 +5333,7 @@ focus_tree = {
 		id = SPA_demand_french_north_africa
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = FRA
 			
 				has_focus_tree = vichy_french_focus
@@ -5619,6 +5621,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = FRA
 						OR = {
 							owns_state = 557
@@ -11039,6 +11042,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = SOV
 						has_government = communism
 						NOT = { has_completed_focus = SOV_the_right_opposition }

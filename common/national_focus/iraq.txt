@@ -5398,6 +5398,7 @@ focus_tree = {
 				}
 				OR = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = FRA
 						owns_state = 680
 					}
@@ -5986,6 +5987,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SPR
 				NOT = {
 					is_in_faction_with = ROOT
@@ -10328,6 +10330,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = SOV
 						is_faction_leader = yes
 						has_government = communism

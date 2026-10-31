@@ -3026,10 +3026,7 @@ focus_tree = {
 			every_state = {
 				limit = {
 					owner = {
-						OR = {
-							NOT = { tag = ROOT}
-							is_subject_of = ROOT
-						}
+						is_subject_of = ROOT
 					}
 					OR = {
 						state = 664
@@ -7529,6 +7526,7 @@ focus_tree = {
 
 			any_collection_element = {
 				collection = game:all_majors
+				NOT = { tag = ROOT }
 				is_faction_leader = yes
 				OR = {
 					AND = {
@@ -13284,6 +13282,7 @@ focus_tree = {
 
 			any_collection_element = {
 				collection = game:all_majors
+				NOT = { tag = ROOT }
 				capital_scope = {
 					is_on_continent = europe
 				}

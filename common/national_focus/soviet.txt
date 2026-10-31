@@ -12398,6 +12398,7 @@ focus_tree = {
 			}
 			else = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					has_civil_war = yes
 					NOT = { has_war_with = ROOT }
