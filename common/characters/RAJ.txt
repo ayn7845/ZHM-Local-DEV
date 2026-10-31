@@ -2750,7 +2750,25 @@ RAJ_GOE_g_d_birla= {
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
-				has_country_flag = RAJ_industrialists_joined_eic 
+				OR = {
+					has_country_flag = RAJ_industrialists_joined_eic
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+					RAJ_eic_branch_open = yes
+					NOT = {
+						#has_completed_focus = RAJ_great_depression_price_controls
+						has_completed_focus = RAJ_provincial_autonomy
+						has_completed_focus = RAJ_empower_provincial_authorities
+					}
+				}
+			}
+			available = {
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = RAJ_industrialists_joined_eic_tt
+						has_country_flag = RAJ_industrialists_joined_eic
+					}
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+				}
 			}
 			traits = {
 				motor_tycoon
