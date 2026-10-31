@@ -96,8 +96,8 @@ focus_tree = {
 		mutually_exclusive = { focus = POR_limited_self_rule }
 			
 		icon = GFX_focus_por_luso_tropicalism
-		x = 0
-		y = 1
+		x = -2
+		y = 2
 
 		relative_position_id = POR_colonial_assimilation_policy
 		cost = 5
@@ -2086,6 +2086,82 @@ focus_tree = {
 	}
 
 	focus = {
+		id = POR_atlantic_defense_strategy
+		available = {
+			OR = {
+				has_full_control_of_state = 698
+				has_full_control_of_state = 697
+				has_full_control_of_state = 702
+			}			
+		}
+
+		bypass = {		
+		}
+		prerequisite = { focus = POR_national_cruiser_production }			
+		icon = GFX_focus_generic_destroyer
+		x = 0		
+		y = 2
+
+		relative_position_id = POR_national_cruiser_production
+		cost = 10
+		completion_reward = { 
+			if = {
+				limit = { has_full_control_of_state = 698 }
+				698 = { #Azores
+					add_building_construction = {
+						type = coastal_bunker		
+						level = 2
+						province = 1751
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = air_base	
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			if = {
+				limit = { has_full_control_of_state = 697 }
+				697 = { #Madeira
+					add_building_construction = {
+						type = coastal_bunker		
+						level = 1
+						province = 3118
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = air_base	
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			if = {
+				limit = { has_full_control_of_state = 702 }
+				702 = { #Cape Verde
+					add_building_construction = {
+						type = coastal_bunker		
+						level = 1
+						province = 13014
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = air_base	
+						level = 1
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+
+	focus = {
 		id = POR_endless_sea
 		available = {
 			
@@ -2093,12 +2169,12 @@ focus_tree = {
 
 		bypass = {
 		}
-		prerequisite = { focus = POR_national_cruiser_production }
+		prerequisite = { focus = POR_atlantic_defense_strategy }
 		icon = GFX_focus_generic_coastal_fort
 		x = 0
-		y = 2
+		y = 1
 
-		relative_position_id = POR_national_cruiser_production
+		relative_position_id = POR_atlantic_defense_strategy
 		cost = 20
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
@@ -4517,6 +4593,145 @@ focus_tree = {
 	}
 
 	focus = {
+		id = POR_observation_mission
+
+		available = {	
+			SPR_scw_in_progress = yes
+			country_exists = SPA	
+			NOT = { has_war_with = SPA }	
+		}
+
+		bypass = {
+			has_global_flag = scw_over
+		}
+		prerequisite = { focus = POR_portuguese_legion }
+		icon = GFX_goal_generic_position_armies
+		x = -4		
+		y = 1
+
+		relative_position_id = POR_portuguese_legion
+		cost = 10
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = { 	
+			add_doctrine_cost_reduction = {
+				name = POR_observation_mission
+			    cost_reduction = 0.5
+			    uses = 1
+			    category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = POR_observation_mission
+			    bonus = 0.5
+			    uses = 1
+			    category = light_air
+			}
+			add_tech_bonus = {
+				name = POR_observation_mission
+			    bonus = 0.5
+			    uses = 1
+			    category = cat_light_armor
+			}
+			army_experience = 10
+			air_experience = 20
+
+			hidden_effect = {
+				add_ai_strategy = {
+					type = befriend
+					id = SPA
+					value = 100
+				}
+				SPA = {
+					add_ai_strategy = {
+						type = befriend
+						id = POR
+						value = 100
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = POR_send_assistance
+
+		select_effect = {
+			if = {
+				limit = {
+					country_exists = SPD
+					is_neighbor_of = SPD
+				}
+				add_ai_strategy = {
+					type = prepare_for_war
+					id = SPD
+					value = 100
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SPB
+					is_neighbor_of = SPB
+				}
+				add_ai_strategy = {
+					type = prepare_for_war
+					id = SPB
+					value = 100
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SPC
+					is_neighbor_of = SPC
+				}
+				add_ai_strategy = {
+					type = prepare_for_war
+					id = SPC
+					value = 100
+				}
+			}
+		}
+
+		available = {
+			has_civil_war = no
+			SPR_scw_in_progress = yes
+			country_exists = SPA
+			NOT = { has_war_with = SPA }
+			is_puppet = no
+		}
+
+		bypass = {
+			has_global_flag = scw_over
+		}
+		prerequisite = { focus = POR_observation_mission }
+		icon = GFX_focus_intervention_spain_nationalists
+		x = 0	
+		y = 1
+
+		relative_position_id = POR_observation_mission
+		cost = 10
+		completion_reward = { 	
+			unlock_decision_tooltip = POR_fight_alongside_the_nationalists
+			if = { 
+				limit = { country_exists = SPD }
+				SPD = {
+					country_event = { id = lar_portugal_spanish_civil_war.2 }
+				}
+			}
+			if = { 
+				limit = { country_exists = SPB }
+				SPB = {
+					country_event = { id = lar_portugal_spanish_civil_war.2 }
+				}
+			}
+			if = { 
+				limit = { country_exists = SPC }
+				SPC = {
+					country_event = { id = lar_portugal_spanish_civil_war.2 }
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = POR_nationalist_intervention
 
 		select_effect = {
@@ -4619,12 +4834,13 @@ focus_tree = {
 		}
 		prerequisite = { focus = POR_portuguese_legion }
 
+		mutually_exclusive = { focus = POR_national_syndicalism }
 
 		icon = GFX_goal_generic_political_pressure
-		x = 0
-		y = 1
+		x = 4
+		y = 0
 
-		relative_position_id = POR_portuguese_legion
+		relative_position_id = POR_observation_mission
 		cost = 10
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY}
 		completion_reward = { 

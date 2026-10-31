@@ -2648,21 +2648,30 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
-			43 = {
+			random_state = {
+				limit = {
+					has_state_flag = HUN_reintegrate_the_railroads_Inf
+				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
 			}
-			155 = {
+			random_state = {
+				limit = {
+					has_state_flag = HUN_reintegrate_the_railroads_Inf_2
+				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
 			}
-			154 = {
+			random_state = {
+				limit = {
+					has_state_flag = HUN_reintegrate_the_railroads_Inf_3
+				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -2680,7 +2689,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			43 = {
+			random_owned_controlled_state = {
+				prioritize = { 155 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -2694,7 +2704,8 @@ focus_tree = {
 				}
 				set_state_flag = HUN_reintegrate_the_railroads_Inf
 			}
-			155 = {
+			random_owned_controlled_state = {
+				prioritize = { 43 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -2708,7 +2719,8 @@ focus_tree = {
 				}
 				set_state_flag = HUN_reintegrate_the_railroads_Inf_2
 			}
-			154 = {
+			random_owned_controlled_state = {
+				prioritize = { 664 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
