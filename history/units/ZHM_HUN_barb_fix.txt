@@ -96,8 +96,8 @@
 		}
 
 		if = { 
-			limit = { NOT = { has_doctrine = grand_battleplan } }
-			set_grand_doctrine = grand_battleplan
+			limit = { NOT = { has_doctrine = mass_assault } }
+			set_grand_doctrine = mass_assault
 		}
 
 		if = { 
