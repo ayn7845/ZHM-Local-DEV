@@ -17,4 +17,3 @@ ast_right_vs_left_campaign_empty_inlay_window = {
             NOT = { has_completed_focus = AST_against_war_and_fascism }
         }
     }
-}

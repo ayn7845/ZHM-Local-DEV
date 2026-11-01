@@ -29,13 +29,13 @@ NOR_is_historical_ai = {
 		AND = {
 			is_historical_focus_on = yes 
 			has_game_rule = {
-				rule = NOR_ai_behavior
+				rule = NOR_AI_BEHAVIOR
 				option = DEFAULT
 			}
 		}
 		has_country_flag = NOR_AI_RANDOM_HISTORICAL
 		has_game_rule = {
-			rule = NOR_ai_behavior
+			rule = NOR_AI_BEHAVIOR
 			option = HISTORICAL
 		}
 	}

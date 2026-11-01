@@ -115,7 +115,7 @@ characters={
 					is_historical_focus_on  = yes
 					has_game_rule  = {
 						rule  = USA_ai_behavior
-						option  = DEFAULT
+						option  = default
 					}
 					factor  = 0.000
 				}
@@ -1663,7 +1663,7 @@ characters={
 					is_historical_focus_on  = yes
 					has_game_rule  = {
 						rule  = USA_ai_behavior
-						option  = DEFAULT
+						option  = default
 					}
 					factor  = 0.000
 				}

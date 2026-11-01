@@ -843,7 +843,7 @@ news_event = {
 
 #New 4th International News Event
 news_event = {
-	id = nsb_news.200
+	id = NSB_news.200
 	title = news.173.t
 	picture = GFX_news_event_023
 	

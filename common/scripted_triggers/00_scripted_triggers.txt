@@ -480,7 +480,7 @@ ENG_is_on_historical_plan_trigger = {
 		}
 		has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
 		has_game_rule = {
-			rule = ENG_ai_behavior
+			rule = eng_ai_behavior
 			option = DEMOCRATIC_HISTORICAL
 		}
 	}

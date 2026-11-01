@@ -9090,7 +9090,7 @@ country_event = {
 
 			division_template = {
 				name = "Georgische Legion"	
-				division_names_group = GER_Inf_01
+				division_names_group = GER_INF_01
 				template_counter = 48 # The Cross 
 				regiments = {
 					infantry = { x = 0 y = 0 }
@@ -9653,7 +9653,7 @@ country_event = {
 
 			division_template = {
 				name = "Kosaken-Kavallerie-Division"	
-				division_names_group = GER_Cav_01
+				division_names_group = GER_CAV_01
 				template_counter = 106 # The Cossack Regiment Symbol 
 				regiments = {
 					cavalry = { x = 0 y = 0 }

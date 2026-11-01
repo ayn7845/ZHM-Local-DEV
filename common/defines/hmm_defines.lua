@@ -94,8 +94,8 @@ NDefines.NAir.MISSION_COMMAND_POWER_COSTS = {  -- command power cost per plane t
 		0.0, -- NAVAL_MINES_SWEEPING
 		0.0, -- RECON
 		0.0, -- NAVAL_PATROL
-		 0.0, -- BARRAGE
-		 0.0, -- SAM
+		0,0, -- BARRAGE
+		0,0, -- SAM
 	}
 
 
