@@ -1,4 +1,4 @@
-add_namespace = TAOG_news
+add_namespace = taog_news
 
 # Netherlands-Indonesia Union
 news_event = {

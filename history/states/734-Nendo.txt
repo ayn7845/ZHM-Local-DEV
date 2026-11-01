@@ -17,7 +17,7 @@ state={
 		}
 
 		victory_points = {
-			7390 1 # Nendö 
+			7390 1 # NendÃ¶ 
 		}
 		
 	}

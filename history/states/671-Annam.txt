@@ -30,7 +30,7 @@ state = {
 		}
 
 		victory_points = {
-			12319 1 # Lào Cai
+			12319 1 # LÃ o Cai
 		}
 
 		victory_points = {
