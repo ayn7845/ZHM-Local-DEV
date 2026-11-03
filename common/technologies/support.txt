@@ -207,7 +207,7 @@ technologies = {
 		}
 
 		enable_equipment_modules = {
-			dozer_blade
+			#dozer_blade # ZHM_DEL modded out, maybe game rule later
 			#flamethrower #MM: Moved to Special Project sp_land_flamethrower_tank
 		}
 
