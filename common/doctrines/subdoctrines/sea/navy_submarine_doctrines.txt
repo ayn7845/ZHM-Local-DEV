@@ -403,8 +403,8 @@ long_range_submarines = {
                 torpedo_attack = 0.1
             }
         }   
-
     }
+}
 
 
 
