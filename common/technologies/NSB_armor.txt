@@ -82,14 +82,14 @@ technologies = {
 						has_tech = motorised_infantry
 					}
 
-					load_oob = "unlock_tanks_mot"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks_mot"
 				}
 				if = {
 					limit = {
 						NOT = { has_tech = motorised_infantry }
 					}
 
-					load_oob = "unlock_tanks"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks"
 				}
 			}
 
@@ -180,14 +180,14 @@ technologies = {
 						has_tech = motorised_infantry
 					}
 
-					load_oob = "unlock_tanks_mot"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks_mot"
 				}
 				if = {
 					limit = {
 						NOT = { has_tech = motorised_infantry }
 					}
 
-					load_oob = "unlock_tanks"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks"
 				}
 
 				if = { #Italian templates
@@ -582,14 +582,14 @@ technologies = {
 						has_tech = motorised_infantry
 					}
 
-					load_oob = "unlock_tanks_mot"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks_mot"
 				}
 				if = {
 					limit = {
 						NOT = { has_tech = motorised_infantry }
 					}
 
-					load_oob = "unlock_tanks"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks"
 				}
 			}
 
@@ -1054,14 +1054,14 @@ technologies = {
 						has_tech = motorised_infantry
 					}
 
-					load_oob = "unlock_tanks_mot"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks_mot"
 				}
 				if = {
 					limit = {
 						NOT = { has_tech = motorised_infantry }
 					}
 
-					load_oob = "unlock_tanks"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks"
 				}
 			}
 

@@ -730,9 +730,6 @@ SOV_paranoia_system = {
 				}
 				remove_ideas = SOV_purged_junior_navy_officers_1
 			}
-			else = {
-				#log = "I CANNOT REMOVE A NS THAT DOESN'T EXIST!"
-			}
 		}
 	}
 
@@ -14448,12 +14445,6 @@ SOV_permanent_revolution_dec_cat = {
 
 		complete_effect = {
 			FROM = {
-				if = { 
-
-				}
-				else = { 
-					
-				}
 				country_event = { id = NSB_soviet_permanent_revolution.1 hours = 2 }
 			}
 			hidden_effect = {
@@ -14642,7 +14633,7 @@ political_actions = {
 
 		complete_effect = {
 			FROM = {
-				country_event = { id = wtt_warlord_vs_prc.21 }
+				#ZHM-REVIEW event not defined: country_event = { id = wtt_warlord_vs_prc.21 }
 				custom_effect_tooltip = if_they_accept
 				effect_tooltip = {
 				#	PRC_soviet_tribute_level_up = yes
@@ -14712,7 +14703,7 @@ political_actions = {
 
 		complete_effect = {
 			TUR = {
-				country_event = { id = bftb_greece.34 }
+				#ZHM-REVIEW event not defined: country_event = { id = bftb_greece.34 }
 			}
 			hidden_effect = {
 				clr_global_flag = GRE_turkey_surrenders

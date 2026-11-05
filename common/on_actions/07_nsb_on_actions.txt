@@ -1050,9 +1050,6 @@ on_actions = {
 				}
 				#log = "Medium Paranoia days = [?SOV_medium_paranoia_days] // High Paranoia days = [?SOV_high_paranoia_days]" #Debug
 			}
-			else = {
-				#log = "NOT A PURGE WEEK" #Debug
-			}
 
 			### SOVIET CIVIL WAR TRIGGER
 			
@@ -1154,8 +1151,8 @@ on_actions = {
 				}
 				ROOT = {
 					add_ideas = {
-						SOV_system_decentralization_idea
-						SOV_the_local_soviets_idea
+						#ZHM-REVIEW idea not defined: SOV_system_decentralization_idea
+						#ZHM-REVIEW idea not defined: SOV_the_local_soviets_idea
 					}
 				}
 			}

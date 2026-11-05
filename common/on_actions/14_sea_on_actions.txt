@@ -2403,34 +2403,22 @@ on_actions = {
 
 		effect = {
 			#Yulbars Khan flees
-			IF = { 
-
-			}
 		}
 
 		# Ma Hongbin flees 
 		effect = {
 
-			IF = { 
-
-			}
 
 		}
 
 		# Mahmut Muhiti offers to return to Sinkiangi service 
 		effect = {
 
-			IF = { 
-
-			}
 		}
 
 		# Ma Hushan flees with gold to India 
 		effect = {
 
-			IF = { 
-				
-			}
 		}
 
 		effect = {

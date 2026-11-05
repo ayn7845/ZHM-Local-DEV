@@ -8930,14 +8930,6 @@ prospect_for_resources = {
 			num_of_civilian_factories_available_for_projects > 4
 			owns_state = 688
 			controls_state = 688
-			if = { 
-
-			}
-			else = {
-				hidden_trigger = {
-					always = yes
-				}
-			}
 
 		}
 

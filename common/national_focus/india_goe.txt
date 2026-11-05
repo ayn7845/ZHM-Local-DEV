@@ -2444,12 +2444,6 @@ focus_tree = {
 
            custom_effect_tooltip = generic_skip_one_line_tt
 
-            if = {
-
-             }
-            else = { 
-
-            }
             hidden_effect = {
             
                ENG = {
@@ -4361,9 +4355,7 @@ focus_tree = {
         
         bypass = {
 
-            OR = { 
-
-            }
+            always = no
         }
 
         bypass_effect = {
@@ -7991,9 +7983,7 @@ focus_tree = {
         prerequisite = { focus = RAJ_eastern_pakistan  focus = RAJ_united_bengal }
         cost = 10
         available = {
-            if = { 
-
-            }
+            if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
             else = {
                 is_subject = no
                 hidden_trigger = {
@@ -12405,12 +12395,7 @@ focus = {
 
 
 		#Event to annex Malay
-		if = { 
-
-        }
-		else_if = { 
-
-        }
+		if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	}
 }
 
@@ -12837,9 +12822,6 @@ focus = {
 		if = { # BRM is independent -> Send event to them
 			limit = {
 				
-				NOT = { 
-
-                }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
@@ -13122,7 +13104,7 @@ focus = {
 				limit = {
 					NOT = { has_template = "Marines" }
 				}
-				load_oob = "unlock_marines"
+				#ZHM-REVIEW oob file missing: load_oob = "unlock_marines"
 			}
 		}
 
@@ -18092,9 +18074,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18130,9 +18110,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18166,9 +18144,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18216,9 +18192,6 @@ focus = {
             custom_effect_tooltip = generic_skip_one_line_tt
             
 
-            if = { 
-
-            }
         }
     }
 

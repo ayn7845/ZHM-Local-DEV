@@ -7898,7 +7898,7 @@ focus_tree = {
 				#### SEND EVENT TO COUTNRIES OCCUPYING / PUPPETING BALTICS ###
 				for_each_scope_loop = {
 					array = ROOT.countries_with_nordic_territory_array			
-					country_event = { id = AAT_finland_diplomacy.17 hours = 1 }
+					#ZHM-REVIEW event not defined: country_event = { id = AAT_finland_diplomacy.17 hours = 1 }
 					#log = "Sent event to [THIS.GetName]"
 				}
 				clear_array = ROOT.countries_with_nordic_territory_array
@@ -12871,7 +12871,7 @@ focus_tree = {
 					limit = {
 						NOT = { has_template = "Marines" }
 					}
-					load_oob = "unlock_marines"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_marines"
 				}
 			}
 

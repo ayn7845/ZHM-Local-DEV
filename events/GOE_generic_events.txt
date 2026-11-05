@@ -110,8 +110,6 @@ country_event = {
 				end_puppet = ROOT
 			}
 			drop_cosmetic_tag = yes
-			IF = {}
-			IF = {}
 		}
 		VIC = {
 			country_event = {

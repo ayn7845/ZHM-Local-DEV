@@ -134,9 +134,6 @@ if = {
 
 recruit_character = HOL_hendrikus_colijn
 recruit_character = HOL_anton_mussert
-if = {
-	
-}
 
 
 # Taog indonesia stuff
@@ -151,9 +148,6 @@ if = {
 	set_variable = { var = HOL_east_indies_investments_mod_fuel_gain_factor value = 0 }
 }
 
-if = {
-	
-}
 
 1939.1.1 = { 
 	

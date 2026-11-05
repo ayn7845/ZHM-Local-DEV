@@ -693,24 +693,6 @@ shared_focus = {
 					}
 				}
 			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
 			if = {
 				limit = {
 					tag = MAN

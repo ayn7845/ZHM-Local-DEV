@@ -201,9 +201,7 @@ country_event = { ### Asian trade countries agree to trade
 				}
 				custom_effect_tooltip = idea_desc|PHI_asian_trade_connections_siam
 			}
-			else_if = { 
-				
-			}
+			else_if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 			else = {
 				custom_effect_tooltip = idea_desc|PHI_asian_trade_connections_dutch_east_india
 			}
@@ -216,12 +214,7 @@ country_event = { ### Asian trade countries agree to trade
 				add_ideas = PHI_asian_trade_connections_siam
 			}
 		}
-		else_if = { 
-
-		}
-		else_if = { 
-			
-		}
+		else_if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		FROM = {
 			hidden_effect = {
 				add_ideas = PHI_asian_trade_connections_philippines

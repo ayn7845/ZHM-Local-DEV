@@ -3101,9 +3101,6 @@ country_event = {
 			base = 1
 		}
 
-		trigger = {
-			always = no
-		}
 
 		if = {
 			limit = {
@@ -3145,13 +3142,10 @@ country_event = {
 		name = NSB_soviet_foreign_politics_events.152.b
 		
 		ai_chance = { 
-			
+			base = 1
 		}
 	}
 
-	option = { }
-
-	option = { }
 }
 
 # Anglo-Soviet Invasion of Iran proposal - Event for ENG
@@ -3336,9 +3330,6 @@ country_event = {
 			hidden_effect = {
 				country_event = { id = NSB_soviet_foreign_politics_events.150 hours = 1 }
 			}
-		}
-		IF = { 
-			
 		}
 	}
 
@@ -8600,12 +8591,6 @@ country_event = {
 		name = NSB_soviet_permanent_revolution.1.a
 
 		effect_tooltip = {
-			if = { 
-				
-			}
-			else = { 
-				
-			}
 			FROM = {
 				create_wargoal = {
 					type = topple_government

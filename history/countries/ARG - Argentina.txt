@@ -4,14 +4,14 @@
 
 IF = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "ARG_1936_naval_mtg"
+		#ZHM-REVIEW oob file missing: set_naval_oob = "ARG_1936_naval_mtg"
 	ELSE = {
 		set_naval_oob = "ARG_1936_naval_legacy"
 	}
 }
 IF = {
 	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "ARG_1936_air_bba"
+		#ZHM-REVIEW oob file missing: set_air_oob = "ARG_1936_air_bba"
 		set_technology = {
 			iw_small_airframe = 1
 			aa_lmg = 1

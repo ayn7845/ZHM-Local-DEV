@@ -1,7 +1,7 @@
 ﻿division_template = {
 	name = "HUN BARB TEMPLATE FIX"
 
-	division_names_group = HUN_Arm_01
+	division_names_group = HUN_ARM_01
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -54,7 +54,7 @@
 #####################
 	instant_effect = {
 
-		delete_unit = { scope = HUN }
+		delete_unit = { disband = yes }
 
 		 if = { # Reset their stockpile because they are fucking morons
 				send_equipment = { equipment = infantry_equipment amount = 1000000 target = WST }
@@ -148,7 +148,7 @@
 			limit = { has_manpower < 300000 }
 			add_manpower = 150000
 		}
-		else = { 
+		else_if = { 
 			limit = { has_manpower < 400000 }
 			add_manpower = 50000
 		}
@@ -367,7 +367,7 @@
 				producer = HUN
 			}
 		}
-		else = { 
+		else_if = { 
 			limit = { date < 1941.7.1 }
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment_3

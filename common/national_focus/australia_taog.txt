@@ -4877,9 +4877,7 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			IF = { 
-
-			}
+			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 
 			ELSE = {
 				ENG = { country_event = { id = AST_diplomatic_events.43 days = 3 } }
@@ -6190,15 +6188,15 @@ focus_tree = {
 					gain_random_agency_upgrade = yes
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				add_ideas = {
-					SWI_expanded_spy_network_idea
-				}
+				#ZHM-REVIEW idea SWI_expanded_spy_network_idea not defined: add_ideas = {
+					#SWI_expanded_spy_network_idea
+				#}
 			}
 
 			ELSE = {
-				add_ideas = {
-					SWI_expanded_spy_network_idea
-				}
+				#ZHM-REVIEW idea SWI_expanded_spy_network_idea not defined: add_ideas = {
+					#SWI_expanded_spy_network_idea
+				#}
 			}
 		}
 
@@ -6830,15 +6828,7 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			if = { 
-
-			}
-			else_if = { 
-
-			}
-			else = { 
-				
-			}
+			if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 
 			custom_effect_tooltip = AST_red_solidarity_tt
 		}

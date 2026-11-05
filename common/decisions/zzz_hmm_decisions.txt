@@ -585,7 +585,7 @@ Technologies = {
                 }
                 date > 1939.1.1
             }
-            else = { 
+            else_if = { 
                 limit = { 
                     axis = yes
                 }

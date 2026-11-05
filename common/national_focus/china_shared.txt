@@ -686,24 +686,6 @@ shared_focus = {
 					}
 				}
 			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-				
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
 			if = {
 				limit = {
 					tag = MAN
@@ -1707,24 +1689,6 @@ shared_focus = {
 					ROOT = { has_wargoal_against = PREV }
 				}
 			}
-		}
-		if = { 
-
-		}
-		if = { 
-
-		}
-		if = { 
-
-		}
-		if = { 
-
-		}
-		if = { 
-
-		}
-		if = { 
-			
 		}
 	}
 

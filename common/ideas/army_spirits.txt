@@ -381,9 +381,7 @@ ideas = {
 		proper_heritage_spirit = {
 			ledger = army
 			available = {
-				IF = { 
-					
-				}
+				IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 				ELSE = {
 					OR = {
 						has_doctrine = grand_battleplan
@@ -813,9 +811,6 @@ ideas = {
 				has_dlc = "Peace For Our Time"
 			}
 			visible = {
-				NOT = { 
-					
-				}
 			}
 			modifier = {
 				trait_winter_specialist_xp_gain_factor = 0.10

@@ -5867,7 +5867,7 @@ allow_branch = {
 				uses = 1
 				category = train_tech
 			}
-			add_ideas = ETH_mass_transit_idea
+			#ZHM-REVIEW idea not defined: add_ideas = ETH_mass_transit_idea
 		}
 	}
 

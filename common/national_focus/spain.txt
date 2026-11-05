@@ -4376,15 +4376,6 @@ focus_tree = {
 				    expire = 0
 				}
 			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
 
 		}
 	}

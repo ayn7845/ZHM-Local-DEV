@@ -8,7 +8,7 @@ ZHM_host = {
 }
 
 easy_LL = {
-	icon = GFX_decision_categ
+	icon = GFX_decision_category_generic_political_actions
 
 	allowed = {
 		always = yes

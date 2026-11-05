@@ -8618,9 +8618,7 @@ focus_tree = {
 			modifier = {
 				factor = 4
 				CZE = {
-					OR = {
-						
-					}
+					always = no
 				}
 			}
 			
@@ -9763,13 +9761,15 @@ focus_tree = {
 		cost = 5
 
 		bypass = {
-			HUN = { 
-				owns_state = 664
+			OR = {
+				NOT = { country_exists = HUN }
+				HUN = { owns_state = 664 }
 			}
 		}
 
 		available = {
 			is_subject = no
+			country_exists = HUN
 			HUN = { 
 				NOT = { 
 					owns_state = 664
@@ -11658,9 +11658,6 @@ focus_tree = {
 			is_subject = no
 			OR = {
 				NOT = { HOL = { is_in_faction_with = GER } }
-				if = { 
-
-				}
 				NOT = { BEL = { is_in_faction_with = GER } }
 				NOT = { LUX = { is_in_faction_with = GER } }
 			}
@@ -12425,9 +12422,6 @@ focus_tree = {
 					target = IRE
 					expire = 0
 				}
-			}
-			if = {
-
 			}
 		}
 	}
@@ -21182,9 +21176,6 @@ focus_tree = {
 
 		completion_reward = {
 
-			if = { 
-
-			}
 		
 			add_stability = 0.05
 			add_political_power = 50
@@ -21233,9 +21224,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		completion_reward = {
-			if = { 
-
-			}
 
 			set_country_flag = GER_the_proletarian_revolution_flag
 
@@ -24946,9 +24934,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		completion_reward = {
-			if = { 
-
-			}
 
 			add_popularity = {
 				ideology = neutrality
@@ -26200,9 +26185,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
-			IF = { 
-
-			}
 		}
 	}
 
@@ -26363,9 +26345,6 @@ focus_tree = {
 				}
 			}
 			
-			IF = { 
-
-			}
 		}
 	}
 
@@ -28885,7 +28864,6 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			OR = {}
 		}
 
 		dynamic = yes
@@ -29268,12 +29246,6 @@ focus_tree = {
 			custom_effect_tooltip = GER_liberate_oppressed_people_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-
-			}
-			IF = { 
-
-			}
 
 		}
 	}
@@ -29375,9 +29347,6 @@ focus_tree = {
 
 		completion_reward = {
 
-			IF = { 
-
-			}
 
 			add_manpower = 15000
 			add_popularity = {
@@ -29399,7 +29368,7 @@ focus_tree = {
 
 				division_template = {
 					name = "Kosaken-Kavallerie-Division"	
-					division_names_group = GER_CAV_01
+					division_names_group = GER_Cav_01
 					template_counter = 106 # The Cossack Regiment Symbol 
 					regiments = {
 						cavalry = { x = 0 y = 0 }
@@ -29417,7 +29386,7 @@ focus_tree = {
 
 				division_template = {
 					name = "Russische Befreiungsarmee"	
-					division_names_group = GER_INF_01
+					division_names_group = GER_Inf_01
 					template_counter = 49 # The Griffin 
 					regiments = {
 						infantry = { x = 0 y = 0 }
@@ -29969,11 +29938,11 @@ focus_tree = {
 			188 = { #Memel
 				add_claim_by = GER
 				controller = {
-					country_event = { 
-						id = baltic.4 
-						days = 1
-						random_days = 3
-					}
+					#ZHM-REVIEW event not defined: country_event = { 
+						#id = baltic.4 
+						#days = 1
+						#random_days = 3
+					#}
 				}
 			}
 		}
@@ -34929,11 +34898,11 @@ allow_branch = {
 					owns_state = 188
 					controls_state = 188 
 				}
-				country_event = { 
-					id = baltic.4 
-					days = 1
-					random_days = 3
-				}
+				#ZHM-REVIEW event not defined: country_event = { 
+					#id = baltic.4 
+					#days = 1
+					#random_days = 3
+				#}
 			}
 			if = {
 				limit = {

@@ -212,9 +212,7 @@ FRA_communism_riot_effect = {
 }
 
 FRA_transfer_indochina_effect = {
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			671 = { CONTROLLER = { original_tag = FRA } }
@@ -227,9 +225,7 @@ FRA_transfer_indochina_effect = {
 		transfer_state = 1017
 		transfer_state = 1066
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			741 = { CONTROLLER = { original_tag = FRA } } 
@@ -238,9 +234,7 @@ FRA_transfer_indochina_effect = {
 		transfer_state = 741
 		transfer_state = 1067
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			670 = { CONTROLLER = { original_tag = FRA } } 
@@ -254,16 +248,12 @@ FRA_transfer_indochina_effect = {
 }
 
 FRA_transfer_syria_effect = {
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 553 = { CONTROLLER = { original_tag = FRA } } }
 		transfer_state = 553
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			680 = { CONTROLLER = { original_tag = FRA } }
@@ -277,9 +267,7 @@ FRA_transfer_syria_effect = {
 }
 
 FRA_transfer_north_africa_effect = {
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			458 = { CONTROLLER = { original_tag = FRA } } 
@@ -288,9 +276,7 @@ FRA_transfer_north_africa_effect = {
 		transfer_state = 458
 		transfer_state = 665
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			461 = { CONTROLLER = { original_tag = FRA } } 
@@ -299,9 +285,7 @@ FRA_transfer_north_africa_effect = {
 		transfer_state = 461
 		transfer_state = 462
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			513 = { CONTROLLER = { original_tag = FRA } }
@@ -315,45 +299,35 @@ FRA_transfer_north_africa_effect = {
 }
 
 FRA_transfer_central_africa_effect = {
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			772 = { CONTROLLER = { original_tag = FRA } } 
 		}
 		transfer_state = 772
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			539 = { CONTROLLER = { original_tag = FRA } } 
 		}
 		transfer_state = 539
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			660 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 660
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			773 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 773
 	}
-	if = { 
-		
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			774 = { CONTROLLER = { original_tag = FRA } }	
@@ -362,54 +336,42 @@ FRA_transfer_central_africa_effect = {
 	}
 }
 FRA_transfer_western_africa_effect = {
-	if = { 
-		
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			781 = { CONTROLLER = { original_tag = FRA } } 
 		}
 		transfer_state = 781
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = { 
 			776 = { CONTROLLER = { original_tag = FRA } } 
 		}
 		transfer_state = 776
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			777 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 777
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			778 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 778
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			779 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 779
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			556 = { CONTROLLER = { original_tag = FRA } }	
@@ -420,27 +382,21 @@ FRA_transfer_western_africa_effect = {
 		transfer_state = 898
 		transfer_state = 899
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			780 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 780
 	}
-	if = { 
-
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			272 = { CONTROLLER = { original_tag = FRA } }	
 		}
 		transfer_state = 272
 	}
-	if = { 
-		
-	}
+	if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	else_if = {
 		limit = {
 			557 = { CONTROLLER = { original_tag = FRA } }	

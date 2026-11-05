@@ -1953,10 +1953,10 @@ focus_tree = {
 					}
 				}
 				SOU = {
-					country_event = {
-						id = AAT_norway.8
-						days = 10 
-					}
+					#ZHM-REVIEW event not defined: country_event = {
+						#id = AAT_norway.8
+						#days = 10 
+					#}
 				}
 			}
 		}
@@ -4964,27 +4964,21 @@ focus_tree = {
 			random_country = {
 				limit = {
 					original_tag = FRA
-					OR = { 
-
-					}
+					always = no
 				}
 				country_event = { id = mexico.54 hours = 6 }
 			}
 			random_country = {
 				limit = {
 					original_tag = USA
-					OR = { 
-
-					}
+					always = no
 				}
 				country_event = { id = mexico.54 hours = 6 }
 			}						
 			random_country = {
 				limit = {
 					original_tag = HOL
-					OR = { 
-						
-					}
+					always = no
 				}
 				country_event = { id = mexico.54 hours = 6 }
 			}

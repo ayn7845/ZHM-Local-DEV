@@ -784,9 +784,7 @@ ideas = {
 
 			cancel = {
 
-				OR = { 
-					
-				}
+				always = no
 
 			}
 

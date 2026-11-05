@@ -275,3 +275,11 @@ D25 = {
 
 
 
+VEN = {
+	color = rgb { 252 209 22 }
+	color_ui = rgb { 252 209 22 }
+}
+WST = {
+	color = rgb { 0 0 0 }
+	color_ui = rgb { 0 0 0 }
+}

@@ -1102,9 +1102,7 @@ SOV_we_want_to_send_ultimatums = {
 		}
 	}
 	any_other_country = {
-		OR = {
-			
-		}
+		always = no
 		NOT = { has_country_flag = SOV_ultimatum_sent_flag }
 	}
 }

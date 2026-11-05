@@ -4723,7 +4723,7 @@ JAP_takasago_volunteers_landing_check = {
 			NOT = { has_state_flag = JAP_takasago_volunteers_raised }
 		}
 		set_state_flag = JAP_takasago_volunteers_raised
-		JAP = { country_event = { id = SEA_japan.2 hours = 0 } }
+		#ZHM-REVIEW event SEA_japan.2 is not defined: JAP = { country_event = { id = SEA_japan.2 hours = 0 } }
 	}
 }
 
@@ -4745,7 +4745,7 @@ JAP_home_islands_landing_check = {
 		}
 		JAP = {
 			set_country_flag = JAP_home_islands_invaded
-			country_event = { id = SEA_japan.3 hours = 0 }
+			#ZHM-REVIEW event SEA_japan.3 is not defined: country_event = { id = SEA_japan.3 hours = 0 }
 		}
 	}
 }

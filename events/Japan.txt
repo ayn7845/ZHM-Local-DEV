@@ -141,7 +141,7 @@ country_event = {
 			608 = { 
 				OWNER = {
 					set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-					country_event = { id = SEA_china.28 days = 2 }
+					#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 				}
 			}
 		}
@@ -183,14 +183,14 @@ country_event = {
 					hidden_effect = { #to hide duplicate events in tooltip
 						OWNER = {
 							set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-							country_event = { id = SEA_china.28 days = 2 }
+							#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 						}
 					}
 				}
 				else = {
 					OWNER = {
 						set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-						country_event = { id = SEA_china.28 days = 2 }
+						#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 					}
 				}
 
@@ -200,9 +200,7 @@ country_event = {
 			614 = { add_claim_by = ROOT }
 		}
 
-		IF = { 
-
-		}
+		IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		
 		ELSE_IF = {
 			limit = {
@@ -229,14 +227,14 @@ country_event = {
 				hidden_effect = { #to hide duplicate events in tooltip in the most
 					OWNER = {
 						set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-						country_event = { id = SEA_china.28 days = 2 }
+						#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 					}
 				}
 			}
 			else = {
 				OWNER = {
 					set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-					country_event = { id = SEA_china.28 days = 2 }
+					#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 				}
 			}
 		}
@@ -269,7 +267,7 @@ country_event = {
 			597 = { 
 				OWNER = {
 					set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-					country_event = { id = SEA_china.28 days = 2 }
+					#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 				}
 			}
 		}
@@ -313,7 +311,7 @@ country_event = {
 					1038 = { 
 						OWNER = {
 							set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-							country_event = { id = SEA_china.28 days = 2 }
+							#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 						}
 					}
 				}
@@ -322,7 +320,7 @@ country_event = {
 				1038 = { 
 					OWNER = {
 						set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-						country_event = { id = SEA_china.28 days = 2 }
+						#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 					}
 				}
 			}
@@ -359,7 +357,7 @@ country_event = {
 			743 = { 
 				OWNER = {
 					set_country_flag = JAP_already_sent_demand_for_northern_chinese_concessions
-					country_event = { id = SEA_china.28 days = 2 }
+					#ZHM-REVIEW event not defined: country_event = { id = SEA_china.28 days = 2 }
 				}
 			}
 		}
@@ -894,7 +892,7 @@ country_event = {
 	option = {
 		name = japan.15.a
 		hidden_effect = {
-			load_oob = "JAP_Indian_National_Army_reinforcement"
+			#ZHM-REVIEW oob file missing: load_oob = "JAP_Indian_National_Army_reinforcement"
 		}
 		custom_effect_tooltip = JAP_Indian_National_Army_arrives
 		add_manpower = 10000
