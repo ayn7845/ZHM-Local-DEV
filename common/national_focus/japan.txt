@@ -23957,7 +23957,7 @@ allow_branch = {
 				}
 				add_tech_bonus = {
 					name = JAP_establish_synthetic_fuel_joint_venture
-					bonus = 0.5
+					bonus = 1
 					uses = 2
 					category = cat_synth_oil
 				}
@@ -27535,15 +27535,15 @@ allow_branch = {
 
 		completion_reward = {
 			
-			IF = {
-				limit = {
-					NOT = { has_tech = railway_gun }
-				}
-				set_technology = { railway_gun = 1 }
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			#IF = {
+			#	limit = {
+			#		NOT = { has_tech = railway_gun }
+			#	}
+			#	set_technology = { railway_gun = 1 }
+			#	custom_effect_tooltip = generic_skip_one_line_tt
+			#}
 
-			JAP_mobilize_railway_guns = yes
+			#JAP_mobilize_railway_guns = yes
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
