@@ -149,6 +149,10 @@ SIA = {
 	color = rgb { 171 190 152 }
 	color_ui = rgb { 222 247 198 }
 }
+VEN = {
+	color = rgb { 252 209 22 }
+	color_ui = rgb { 252 209 22 }
+}
 USA = {
 	color = rgb { 20 133 237 }
 	color_ui = rgb { 87 160 255 }
@@ -165,10 +169,13 @@ RAJ = {
 	color = rgb { 226  135  40 }
 	color_ui = rgb { 226  135  40 }
 }
-
 MAN = {
 	color = rgb { 255 120 71 }
 	color_ui = rgb { 255 120 71 }
+}
+WST = {
+	color = rgb { 0 0 0 }
+	color_ui = rgb { 0 0 0 }
 }
 D01 = {
 	color = rgb { 122 179 97 }
@@ -269,17 +276,4 @@ D24 = {
 D25 = {
 	color = rgb { 124 140 162 }
 	color_ui = rgb { 161 182 211 }
-}
-
-
-
-
-
-VEN = {
-	color = rgb { 252 209 22 }
-	color_ui = rgb { 252 209 22 }
-}
-WST = {
-	color = rgb { 0 0 0 }
-	color_ui = rgb { 0 0 0 }
 }
