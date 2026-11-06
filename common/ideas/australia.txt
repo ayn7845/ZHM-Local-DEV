@@ -642,7 +642,7 @@ ideas = {
 			picture = AST_australian_comforts_fund_idea
 
 			modifier = {
-				army_org_factor = 0.05
+				#army_org_factor = 0.05 # ZHM_DEL goodbye org?
 				org_loss_when_moving = -0.1
    			}	
 		}
