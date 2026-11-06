@@ -10,6 +10,7 @@
  sov_inf_gen_desc:0 "Capable Commander to lead our vast Army"
  no_leader_promotion_trait:0 "No Leader Promotion"
  no_leader_promotion_trait_desc:0 "Trait exists only on FALS Generals"
+ ai_idea:0 "AI Idea"
 
  HMM_banned_by_rules: "Banned by Game Rules"
  HMM_axis_only: "Axis Only"
