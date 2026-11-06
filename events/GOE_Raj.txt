@@ -1698,9 +1698,6 @@ country_event = {
 		}
 
 		transfer_state = 431
-		if = { 
-
-		}
 	}
 
 	option = {
@@ -1745,9 +1742,6 @@ country_event = {
 		}
 
 		transfer_state = 433
-		if = { 
-
-		}
 	}
 
 	option = {
@@ -2477,20 +2471,15 @@ country_event = {
 
 			#Hyderabad
 
-			if = {}
 
 			#Kashmir
-			if = {}
 
 			#Kalat
-			if = {}
 
 
 			#Kalat
-			if = {}
 
 			# release BAN before pakistan if united bengal
-			if = {}
 
 			
 			
@@ -2592,10 +2581,8 @@ country_event = {
 			}
 		}
 
-		if = {}
 
 
-		if = {}
 		hidden_effect = {}
 		for_each_scope_loop = {
 			array = RAJ.raj_releasables
@@ -3651,12 +3638,6 @@ country_event = {
 	option = { #Good stuff
 		name = GOE_RAJ_loyalist.10.a
 
-		if = { 
-
-		}
-		else = { 
-
-		}
 	}
 }
 

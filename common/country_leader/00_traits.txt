@@ -14723,6 +14723,15 @@ leader_traits = {
 
 	}
 
+	NZL_reserve_bank_governor_empowered = { #ZHM-REVIEW added: referenced by common/ideas/new_zealand.txt but was never defined; placeholder values
+		sprite = 13
+		random = no
+		
+		production_speed_buildings_factor = 0.075
+		consumer_goods_factor = -0.075
+
+	}
+
 	NZL_hydro_electricity_professor = {
 		random = no
 		sprite = 13

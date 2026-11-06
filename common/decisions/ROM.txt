@@ -482,7 +482,7 @@ ROM_dividing_yugo = {
 
 		complete_effect = {
 			YUG = {
-				country_event = DOD_romania.60
+				#ZHM-REVIEW event not defined: country_event = DOD_romania.60
 			}
 		}
 
@@ -527,7 +527,7 @@ ROM_dividing_yugo = {
 
 		complete_effect = {
 			GER = {
-				country_event = DOD_romania.601
+				#ZHM-REVIEW event not defined: country_event = DOD_romania.601
 			}
 		}
 
@@ -572,7 +572,7 @@ ROM_dividing_yugo = {
 
 		complete_effect = {
 			ITA = {
-				country_event = DOD_romania.601
+				#ZHM-REVIEW event not defined: country_event = DOD_romania.601
 			}
 		}
 
@@ -617,7 +617,7 @@ ROM_dividing_yugo = {
 
 		complete_effect = {
 			HUN = {
-				country_event = DOD_romania.601
+				#ZHM-REVIEW event not defined: country_event = DOD_romania.601
 			}
 		}
 

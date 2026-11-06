@@ -1741,14 +1741,14 @@ PHI_government_in_exile_cat = {
 
 		remove_effect = {
 			var:host = {
-				country_event = {
-					id = ww_BEL_event_diplomatic.15
-					hours = 6
-				}
+				#ZHM-REVIEW event not defined: country_event = {
+					#id = ww_BEL_event_diplomatic.15
+					#hours = 6
+				#}
 			}
 
 			custom_effect_tooltip = if_they_accept_tt
-			event_option_tooltip = ww_BEL_event_diplomatic.15.a
+			#ZHM-REVIEW event not defined: event_option_tooltip = ww_BEL_event_diplomatic.15.a
 		}
 	}
 
@@ -1763,14 +1763,14 @@ PHI_government_in_exile_cat = {
 
 		remove_effect = {
 			var:host = {
-				country_event = {
-					id = ww_BEL_event_diplomatic.17
-					hours = 6
-				}
+				#ZHM-REVIEW event not defined: country_event = {
+					#id = ww_BEL_event_diplomatic.17
+					#hours = 6
+				#}
 			}
 
 			custom_effect_tooltip = if_they_accept_tt
-			event_option_tooltip = ww_BEL_event_diplomatic.17.a
+			#ZHM-REVIEW event not defined: event_option_tooltip = ww_BEL_event_diplomatic.17.a
 		}
 	}
 }
@@ -2115,12 +2115,6 @@ economy_decisions = {
 						target = ROOT
 						value > 49
 					}
-				}
-				if = { 
-
-				}
-				else = { 
-					
 				}
 			}
 		}

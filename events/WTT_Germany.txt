@@ -182,7 +182,7 @@ country_event = {
 			    		division_template = {
 			    		    name = "Bund Wiking"
 			    		    is_locked = yes
-			    		    division_names_group = GER_INF_01
+			    		    division_names_group = GER_Inf_01
 			    		    priority = 0
 			    		    template_counter = 79 # The Viking Helmet 
 			    		    regiments = {
@@ -382,7 +382,7 @@ country_event = {
 			    		division_template = {
 			    		    name = "Bund Wiking"
 			    		    is_locked = yes
-			    		    division_names_group = GER_INF_01
+			    		    division_names_group = GER_Inf_01
 			    		    priority = 0
 			    		    template_counter = 79 # The Viking Helmet 
 			    		    regiments = {
@@ -418,7 +418,7 @@ country_event = {
 		}
 
 		hidden_effect = {
-			load_oob = "GER_German_Civil_War_neutrality"
+			#ZHM-REVIEW oob file missing: load_oob = "GER_German_Civil_War_neutrality"
 
 			random_other_country = {
 				limit = {
@@ -427,7 +427,7 @@ country_event = {
 				}
 				set_stability = 0.9
 				set_war_support = 0.8
-				load_oob = "GER_German_Civil_War_fascist"
+				#ZHM-REVIEW oob file missing: load_oob = "GER_German_Civil_War_fascist"
 			}
 
 			if = {
@@ -595,14 +595,14 @@ country_event = {
 			limit = {
 				controls_state = 165
 			}
-			load_oob = "SPR_German_Expatriates_Barcelona" #spawn units in Barcelona
+			#ZHM-REVIEW oob file missing: load_oob = "SPR_German_Expatriates_Barcelona" #spawn units in Barcelona
 		}
 		if = {
 			limit = {
 				controls_state = 41
 				NOT = { controls_state = 165 }
 			}
-			load_oob = "SPR_German_Expatriates_Madrid" #spawn units in Madrid
+			#ZHM-REVIEW oob file missing: load_oob = "SPR_German_Expatriates_Madrid" #spawn units in Madrid
 		}
 	}
 }

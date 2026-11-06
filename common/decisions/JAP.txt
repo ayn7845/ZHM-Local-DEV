@@ -4178,15 +4178,7 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
+			ELSE_IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 			ELSE = {
 				608 = {
 					OWNER = {
@@ -4314,9 +4306,7 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { 
-				
-			}
+			ELSE_IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 			ELSE = {
 				613 = {
 					OWNER = {
@@ -4414,9 +4404,6 @@ JAP_kwantung_army_decisions = {
 
 		remove_effect = {
 
-			IF = { 
-
-			}
 
 			create_wargoal = {
 				type = annex_everything
@@ -7768,9 +7755,6 @@ JAP_the_propaganda_department_decisions = {
 					add_to_temp_variable = { MON_rw_support = party_popularity@fascism }
 					check_variable = { MON_rw_support > 0.35 }
 				}
-			}
-			OR = { 
-				
 			}
 		}
 

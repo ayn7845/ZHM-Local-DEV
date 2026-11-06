@@ -1557,9 +1557,6 @@ country_event = {
 			}
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = USA_fighter_refused }
-			NOT = { #to prevent overflow issues
-			
-			}
 		}
 		USA = { country_event = DOD_yugoslavia.153 }	
 	}
@@ -2184,9 +2181,6 @@ country_event = {
 			}
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = USA_heavy_fighter_refused }
-			NOT = { #to prevent overflow issues
-				
-			}
 		}
 		USA = { country_event = DOD_yugoslavia.154 }	
 	}
@@ -3253,9 +3247,6 @@ country_event = {
 			}
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = USA_CAS_refused }
-			NOT = { #to prevent overflow issues
-				
-			}
 		}
 		USA = { country_event = DOD_yugoslavia.163 }	
 	}
@@ -3880,9 +3871,6 @@ country_event = {
 			}
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = USA_tactical_bomber_refused }
-			NOT = { #to prevent overflow issues
-				
-			}
 		}
 		USA = { country_event = DOD_yugoslavia.164 }	
 	}

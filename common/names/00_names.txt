@@ -2200,8 +2200,6 @@ VEN = {
 WST = {
 	male = {
 		names = { "John" "Bob" "Lucas" "Marcus" "Alexander" "Alex" "Peter" "Jonas" "Jim" "Johannes"}
-		surnames = { }
-		callsigns = { }
 	}
 	female = {
 		names = { "Juliette" "Anna" }

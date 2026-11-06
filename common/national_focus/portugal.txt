@@ -2107,7 +2107,7 @@ focus_tree = {
 					add_building_construction = {
 						type = coastal_bunker		
 						level = 2
-						province = 1751
+						province = 11805
 						instant_build = yes
 					}
 
@@ -3446,9 +3446,6 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 			has_government = communism
-			OR = {
-				
-			}				
 		}
 
 		bypass = {		
@@ -3463,9 +3460,7 @@ focus_tree = {
 		completion_reward = {
 			every_other_country = {
 				limit = {
-					OR = {
-					
-					}
+					always = no
 					has_government = communism
 				}
 				add_opinion_modifier = {
@@ -3475,9 +3470,7 @@ focus_tree = {
 			}
 			every_other_country = {
 				limit = {
-					OR = {
-					
-					}
+					always = no
 					NOT = { has_government = communism }
 				}
 				add_popularity = {
@@ -3499,9 +3492,6 @@ focus_tree = {
 			has_global_flag = scw_over
 			has_government = communism
 			any_country = {
-				OR = {
-								
-				}
 				has_government = communism
 			}
 		}
@@ -3518,9 +3508,7 @@ focus_tree = {
 		completion_reward = { 
 			every_other_country = {
 				limit = {
-					OR = {
-								
-					}
+					always = no
 					has_government = communism			
 				}
 				if = {
@@ -4538,7 +4526,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER}
 		completion_reward = {
 
-			add_ideas = por_portuguese_legion
+			add_ideas = POR_portuguese_legion
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 

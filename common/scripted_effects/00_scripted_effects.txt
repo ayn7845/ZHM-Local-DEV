@@ -940,12 +940,7 @@ abandon_colony_tag = {
 			}
 			set_cosmetic_tag = RAJ_UK
 		}
-		else_if = { 
-
-		}
-		else_if = { 
-
-		}
+		else_if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 	}
 	else = {
 		if = {

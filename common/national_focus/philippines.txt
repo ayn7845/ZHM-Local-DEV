@@ -5760,7 +5760,7 @@ initial_show_position = {
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
 			
-			add_ideas = BEL_volunteer_effort1_ns	
+			#ZHM-REVIEW idea not defined: add_ideas = BEL_volunteer_effort1_ns	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 

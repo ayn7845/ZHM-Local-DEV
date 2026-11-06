@@ -349,8 +349,8 @@ on_actions = {
 	on_border_war_lost = {
 		effect = {
 			owner = {
-				country_event = { id = china.14 }
-				country_event = { id = china.16 }
+				#ZHM-REVIEW event not defined: country_event = { id = china.14 }
+				#ZHM-REVIEW event not defined: country_event = { id = china.16 }
 			}
 		}
 	}
@@ -840,7 +840,7 @@ on_actions = {
 					}
 
 				}
-				country_event = { id = wtt_denmark.1 days = 1 }
+				#ZHM-REVIEW event not defined: country_event = { id = wtt_denmark.1 days = 1 }
 			}
 			if = {
 				limit = {
@@ -1675,7 +1675,6 @@ on_actions = {
 				limit = {
 					OR = {
 						TAG = USA
-					}
 					AND = {
 						TAG = ENG
 						USA = {
@@ -1684,6 +1683,7 @@ on_actions = {
 								size > 0
 							}
 						}
+					}
 					}
 					FROM = { original_tag = GER }
 					FROM = { has_war_with = ROOT }
@@ -1781,7 +1781,7 @@ on_actions = {
 				}
 				FROM.FROM = {
 					set_state_flag = USA_militia_spawned
-					state_event = { id = mtg_usa_civil_war_fascists.1000 trigger_for = controller }
+					#ZHM-REVIEW event not defined: state_event = { id = mtg_usa_civil_war_fascists.1000 trigger_for = controller }
 				}
 			}
 			if = {

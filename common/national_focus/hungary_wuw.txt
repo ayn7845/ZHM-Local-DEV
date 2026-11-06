@@ -2595,6 +2595,7 @@ focus_tree = {
 
 			every_state = {
 				limit = {
+					OWNER = { is_subject_of = ROOT }
 					NOT = {
 						is_owned_by = ROOT
 					}
@@ -3365,9 +3366,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-				
-			}
 
 		}
 	}
@@ -3669,7 +3667,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			add_ideas = { POL_royal_hussars_idea }
+			#ZHM-REVIEW idea not defined: add_ideas = { POL_royal_hussars_idea }
 
 			custom_effect_tooltip = wuw_HUN_royal_hussars_tt
 			hidden_effect = {
@@ -7792,9 +7790,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-
-			}
 
 
 			hidden_effect = {
@@ -9905,7 +9900,7 @@ focus_tree = {
 				        		division_template = {
 				        		    name = "Volksbund Militia"
 				        		    is_locked = yes
-				        		    division_names_group = GER_INF_01
+				        		    division_names_group = GER_Inf_01
 									role = garrison
 				        		    priority = 0
 				        		    regiments = {

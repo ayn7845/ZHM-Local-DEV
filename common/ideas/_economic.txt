@@ -205,9 +205,6 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-
-				}
 			}
 
 			cost = 150
@@ -329,9 +326,6 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-					
-				}
 			}
 			ai_will_do = {
    				factor = 2
@@ -540,9 +534,6 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-
-				}
 			}
 			ai_will_do = {
    				base = 3
@@ -715,9 +706,6 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 
-				if = { 
-					
-				}
 			}
 			ai_will_do = {
    				base = 1
@@ -1100,9 +1088,6 @@ ideas = {
 					NOT = { has_completed_focus = GER_autarky_efforts }
 				}
 
-				if = { 
-
-				}
 			}
 
 			cost = 150
@@ -1156,9 +1141,6 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-					
-				}
    			}
 		}
 
@@ -1187,9 +1169,6 @@ ideas = {
 					NOT = { has_completed_focus = GER_autarky_efforts }
 				}
 
-				if = { 
-					
-				}
 			}
 
 
@@ -1237,9 +1216,6 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-
-				}
    			}
 		}
 
@@ -1361,9 +1337,6 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-
-				}
    			}
 		}
 
@@ -1583,9 +1556,6 @@ ideas = {
    			}
 
    			on_add = {
-				if = { 
-					
-				}
    			}
 		}
 

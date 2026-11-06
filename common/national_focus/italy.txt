@@ -3822,7 +3822,7 @@ focus_tree = {
 					limit = {
 						NOT = { has_template = "Paratroopers" }
 					}
-					load_oob = "unlock_paratroopers"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_paratroopers"
 				}
 			}
 			random_owned_controlled_state = {
@@ -5685,7 +5685,7 @@ focus_tree = {
 					limit = {
 						NOT = { has_template = "Marines" }
 					}
-					load_oob = "unlock_marines"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_marines"
 				}
 			}
 			random_owned_controlled_state = {
@@ -15849,10 +15849,7 @@ focus_tree = {
 					limit = {
 						has_dlc = "By Blood Alone"
 					}
-					load_oob = "ITA_aviazione_legionaria_bba"
-				}
-				else = {
-					load_oob = "ITA_aviazione_legionaria_legacy"
+					#ZHM-REVIEW oob file missing: load_oob = "ITA_aviazione_legionaria_bba"
 				}
 			}
 

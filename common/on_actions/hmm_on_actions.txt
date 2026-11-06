@@ -305,7 +305,7 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = { gives_military_access_to = GER }
-					date > 1939.4.31
+					date > 1939.4.30
 				}
 				give_military_access = GER
 			}

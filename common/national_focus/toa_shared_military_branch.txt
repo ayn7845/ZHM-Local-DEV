@@ -146,9 +146,6 @@ shared_focus = {
 			add_dynamic_modifier = { modifier = ARG_army_modifier }
 		}
 	
-		ELSE = {
-			#add_dynamic_modifier = { modifier = south_american_army_modifier }
-		}
 	}
 }
 
@@ -1464,9 +1461,7 @@ shared_focus = {
 
 	allow_branch = {
 		NOT = {
-			OR = {
-				
-			}
+			always = no
 		}
 	}
 
@@ -2009,9 +2004,6 @@ shared_focus = {
 			add_dynamic_modifier = { modifier = ARG_airforce_modifier }
 		}
 		
-		ELSE = {
-			#add_dynamic_modifier = { modifier = south_american_airforce_modifier }
-		}
 	}
 }
 
@@ -3133,9 +3125,6 @@ shared_focus = {
 			add_dynamic_modifier = { modifier = ARG_navy_modifier }
 		}
 		
-		ELSE = {
-			#add_dynamic_modifier = { modifier = south_american_navy_modifier }
-		}
 
 	}
 }
@@ -3358,9 +3347,7 @@ shared_focus = {
 		NOT = {
 			has_idea = SMB_MTG_naval_arms_race_legacy
 		}
-		OR = {
-			
-		}
+		always = no
 	}
 
 	completion_reward = {

@@ -5,7 +5,7 @@ state={
 	manpower = 670800
 
 	resources={
-		oil= 43 
+		#oil= 43 # ZHM_DEL moved to south sakahlin
 	}
 
 	state_category = pastoral

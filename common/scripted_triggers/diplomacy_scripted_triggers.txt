@@ -434,9 +434,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			original_tag = RAJ
 			is_subject = no
 			NOT = { has_country_flag = RAJ_allow_release_states }
-			OR = {
-				
-			}
+			always = no
 		}
 
 		custom_trigger_tooltip = {

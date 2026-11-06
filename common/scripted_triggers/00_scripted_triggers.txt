@@ -1073,9 +1073,7 @@ country_can_be_reasonable_target_of_wargoal = { #Expected scopes: Target country
 
 # Countries will be less likely to try and liberate or puppet these nations 
 is_unlikely_country_tag = {
-	OR = {
-	 
-	}
+	always = no
 }
 
 big_communist_exists = {

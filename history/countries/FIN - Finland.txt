@@ -523,8 +523,8 @@ set_grand_doctrine = new_operational_integrity
 	}
 
 	# These templates would otherwise not be unlocked
-	load_oob = "unlock_motorized"
-	load_oob = "unlock_tanks_mot"
+	#ZHM-REVIEW oob file missing: load_oob = "unlock_motorized"
+	#ZHM-REVIEW oob file missing: load_oob = "unlock_tanks_mot"
 	
 	### FOCUS TREE ###
 	#1936

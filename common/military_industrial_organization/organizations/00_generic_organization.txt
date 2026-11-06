@@ -4009,9 +4009,7 @@ generic_general_aircraft_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { 
-
-				}
+				always = no
 				has_dlc = "Waking the Tiger"
 			}
 		}

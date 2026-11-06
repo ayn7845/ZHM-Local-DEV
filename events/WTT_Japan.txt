@@ -1705,15 +1705,7 @@ country_event = {
 	# They have accepted.
 	option = {
 		name = wtt_japan.127.a
-		if = { 
-
-		}
-		else_if = { 
-
-		}
-		else_if = { 
-
-		}
+		if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		if = {
 			limit = {
 				524 = { #Taiwan
@@ -1777,9 +1769,7 @@ country_event = {
 				white_peace = ROOT
 			}
 		}
-		if = { 
-			
-		}
+		if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		else = {
 			every_other_country = {
 				limit = {

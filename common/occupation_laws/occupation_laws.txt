@@ -486,9 +486,6 @@ reconciliation = {
 		always = no
 		original_tag = TUR
 		has_dlc = "Battle for the Bosporus"
-		OR = {
-			
-		}
 		
 	}
 
@@ -719,9 +716,7 @@ independent_rule = {
 		original_tag = RAJ
 		has_completed_focus = RAJ_princely_states_policy
 		FROM = {
-			OR = {
-				
-			}
+			always = no
 		}
 	}
 
@@ -763,9 +758,7 @@ princely_subjugation = {
 		original_tag = RAJ
 		has_completed_focus = RAJ_princely_states_policy
 		FROM = {
-			OR = {
-				
-			}
+			always = no
 		}
 	}
 

@@ -184,8 +184,8 @@ on_actions = {
 					remove_resource_rights = 291
 				}
 				 
-				GER = { country_event = { id = bftb_turkey.71 hours = 8 } } 
-				ITA = { country_event = { id = bftb_turkey.73 hours = 8 } } 
+				GER = {  }  #ZHM-REVIEW removed undefined event bftb_turkey.71
+				ITA = {  }  #ZHM-REVIEW removed undefined event bftb_turkey.73
 				if = {
 					limit = {
 						IRQ = { NOT = { has_idea = nationalism } }

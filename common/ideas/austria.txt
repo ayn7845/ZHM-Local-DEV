@@ -88,9 +88,6 @@ ideas = {
 				base = 1
 				modifier = {
 					factor = 2
-					OR = {
-						
-					}
 				}
 			}
 			
@@ -116,9 +113,6 @@ ideas = {
 				base = 1
 				modifier = {
 					factor = 2
-					OR = {
-						
-					}
 				}
 			}
 
@@ -186,9 +180,6 @@ ideas = {
 				base = 1
 				modifier = {
 					factor = 2
-					OR = {
-						
-					}
 				}
 			}
 		} 
@@ -240,9 +231,6 @@ ideas = {
 				base = 1
 				modifier = {
 					factor = 2
-					OR = {
-						
-					}
 				}
 			}
 		}
@@ -270,9 +258,6 @@ ideas = {
 				base = 1
 				modifier = {
 					factor = 2
-					OR = {
-						
-					}
 				}
 			}
 		}
@@ -560,15 +545,9 @@ ideas = {
 			}
 
 			available = {
-				NOT = {
-					
-				}
 			}
 
 			visible = {
-				NOT = {
-					
-				}
 			}
 
 			ai_will_do = {

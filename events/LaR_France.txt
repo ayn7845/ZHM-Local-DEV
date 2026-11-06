@@ -387,9 +387,9 @@ country_event = {
 						has_country_flag = FRA_north_africa_promised_independence
 						factor = 0.25
 					}
-					country_event = lar_france_french_union.2 #accepts
+					#ZHM-REVIEW event not defined: country_event = lar_france_french_union.2 #accepts
 				} 
-				75 = { country_event = lar_france_french_union.3 } #refuses
+				75 = {  } #refuses #ZHM-REVIEW removed undefined event lar_france_french_union.3
 			}
 		}
 		if = {
@@ -402,9 +402,9 @@ country_event = {
 						has_country_flag = FRA_west_africa_promised_independence
 						factor = 0.25
 					}
-					country_event = lar_france_french_union.4 #accepts
+					#ZHM-REVIEW event not defined: country_event = lar_france_french_union.4 #accepts
 				} 
-				55 = { country_event = lar_france_french_union.5 } #refuses
+				55 = {  } #refuses #ZHM-REVIEW removed undefined event lar_france_french_union.5
 			}
 		}
 		if = {
@@ -417,9 +417,9 @@ country_event = {
 						has_country_flag = FRA_central_africa_promised_independence
 						factor = 0.25
 					}
-					country_event = lar_france_french_union.6 #accepts
+					#ZHM-REVIEW event not defined: country_event = lar_france_french_union.6 #accepts
 				} 
-				55 = { country_event = lar_france_french_union.7 } #refuses
+				55 = {  } #refuses #ZHM-REVIEW removed undefined event lar_france_french_union.7
 			}
 		}
 		if = {
@@ -432,9 +432,9 @@ country_event = {
 						has_country_flag = FRA_syria_promised_independence
 						factor = 0.25
 					}
-					country_event = lar_france_french_union.8 #accepts
+					#ZHM-REVIEW event not defined: country_event = lar_france_french_union.8 #accepts
 				} 
-				85 = { country_event = lar_france_french_union.9 } #refuses
+				85 = {  } #refuses #ZHM-REVIEW removed undefined event lar_france_french_union.9
 			}
 		}
 		if = {
@@ -447,9 +447,9 @@ country_event = {
 						has_country_flag = FRA_indochina_promised_independence
 						factor = 0.25
 					}
-					country_event = lar_france_french_union.10 #accepts
+					#ZHM-REVIEW event not defined: country_event = lar_france_french_union.10 #accepts
 				} 
-				95 = { country_event = lar_france_french_union.11 } #refuses
+				95 = {  } #refuses #ZHM-REVIEW removed undefined event lar_france_french_union.11
 			}
 		}
 	}
@@ -3095,7 +3095,7 @@ country_event = {
 			factor = 80
 		}
 		VIC = { country_event = LaR_france_vichy_notification_events.6 }
-		if = { }
+		if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		else_if = {
 			limit = {
 				543 = { CONTROLLER = { original_tag = FRA } }

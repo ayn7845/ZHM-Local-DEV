@@ -1191,9 +1191,6 @@ SOV_pick_great_purge_administration_type_effect = {
 		}
 		SOV_trigger_great_purge_moscow_trial_effect = yes
 	}
-	else = {
-		#log = "What are you doing the Great Purge of administration is not available you madman"
-	}
 }
 
 SOV_pick_regular_purge_army_type_effect = {
@@ -1645,15 +1642,9 @@ SOV_trigger_great_purge_moscow_trial_effect = {
 					}
 
 				}
-				else = {
-					#log = "RAN OUT OF POLITICAL ADVISORS, DAMN!" #Debug
-				}
 				add_to_temp_variable = { temp_targets_index = 1 }
 				#log = "LOOP: temp_targets_index = [?temp_targets_index]" #Debug
 			}
-		}
-		else = {
-			#log = "No Random People" #Debug
 		}
 	}
 
@@ -2089,9 +2080,6 @@ SOV_great_purge_army_trial_of_the_generals_effect = {
 						}
 						#log = "RANDOM MARSHAL/ADVISOR PICK" #Debug
 					}
-					else = {
-						#log = "RAN OUT OF ARMY LEADERS, DAMN!" #Debug
-					}
 					add_to_temp_variable = { temp_targets_index = 1 }
 					#log = "LOOP: temp_targets_index = [?temp_targets_index]" #Debug
 				}
@@ -2292,9 +2280,6 @@ SOV_trigger_great_purge_trial_of_the_admirals_effect = {
 					}
 					#log = "RANDOM ADMIRAL/ADVISOR PICK" #Debug
 				}
-				else = {
-					#log = "RAN OUT OF NAVY LEADERS, DAMN!" #Debug
-				}
 				add_to_temp_variable = { temp_targets_index = 1 }
 				#log = "LOOP: temp_targets_index = [?temp_targets_index]" #Debug
 			}
@@ -2461,9 +2446,6 @@ SOV_trigger_great_purge_airforce_chiefs_effect = {
 						set_character_flag = SOV_targeted_for_purge_flag
 					}
 					#log = "RANDOM ADMIRAL/ADVISOR PICK" #Debug
-				}
-				else = {
-					#log = "RAN OUT OF NAVY LEADERS, DAMN!" #Debug
 				}
 				add_to_temp_variable = { temp_targets_index = 1 }
 				#log = "LOOP: temp_targets_index = [?temp_targets_index]" #Debug
@@ -8097,9 +8079,6 @@ SOV_left_opposition_civil_war_start = {
 	
 
 	# Check Foreign Funds
-	IF = { 
-
-	}
 
 }
 
@@ -8373,19 +8352,19 @@ SOV_exiles_civil_war_start = {
 	# The Women's Fascist Movement
 	if = {
 		limit = { has_country_flag = SOV_fascist_womens_movement_flag }
-		add_ideas = SOV_fascist_womens_movement_idea
+		#ZHM-REVIEW idea not defined: add_ideas = SOV_fascist_womens_movement_idea
 	}
 
 	# The True Tsars
 	if = {
 		limit = { has_country_flag = SOV_the_true_tsars_flag }
-		add_ideas = SOV_the_true_tsars_idea
+		#ZHM-REVIEW idea not defined: add_ideas = SOV_the_true_tsars_idea
 	}
 
 	if = {
 		limit = { has_country_flag = SOV_dismissed_the_counter_revolution_flag }
 
-		add_ideas = SOV_uncertain_counter_revolution_idea
+		#ZHM-REVIEW idea not defined: add_ideas = SOV_uncertain_counter_revolution_idea
 	}
 
 	# Tolkachi

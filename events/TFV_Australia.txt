@@ -459,9 +459,6 @@ country_event = {
 		
 		effect_tooltip = {
 			AST = {
-				if = { 
-
-				}
 
 				if = {
 					limit = { JAP = { is_faction_leader = yes } }
@@ -514,9 +511,6 @@ country_event = {
 	
 	option = {
 		name = tfv_australia.81.a
-		if = { 
-			
-		}
 		
 		if = {
 			limit = { JAP = { is_faction_leader = yes } }

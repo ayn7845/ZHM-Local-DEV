@@ -132,9 +132,6 @@ on_actions = {
 					set_from_from = ROOT
 				}
 			}
-			else = {
-				# other cause of death
-			}
 			
 			if = {
 				limit = {

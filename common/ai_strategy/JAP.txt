@@ -410,9 +410,6 @@ chinese_war_dont_push_mas = {
 	}
 	enable = {
 		has_war_with = CHI
-		OR = {
-			
-		}
 		country_exists = CHI
 		CHI = {
 			has_capitulated = no

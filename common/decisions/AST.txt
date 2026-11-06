@@ -649,9 +649,6 @@ AST_union_control_2_cat = {
 					usage_desc = volunteer_target_is_triggered_uprising_tt
 				}
 			}
-			if = { 
-
-			}
 		}
 
 		ai_will_do = {

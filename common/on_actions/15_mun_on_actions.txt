@@ -139,7 +139,7 @@ on_actions = {
 				}
 				CZE = {
 					set_country_flag = CZE_support_scw_faction_lost
-					country_event = MUN_czech.1025
+					#ZHM-REVIEW event not defined: country_event = MUN_czech.1025
 				}
 			}
 			if = {
@@ -161,7 +161,7 @@ on_actions = {
 				save_event_target_as = CZE_supported_spanish_faction
 				CZE = {
 					set_country_flag = CZE_support_scw_faction_won
-					country_event = MUN_czech.1025
+					#ZHM-REVIEW event not defined: country_event = MUN_czech.1025
 				}
 			}
 		}

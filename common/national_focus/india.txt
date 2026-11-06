@@ -1197,9 +1197,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			OR = { 
-
-			}
+			always = no
 		}
 
 		cancel_if_invalid = yes
@@ -1642,10 +1640,10 @@ focus_tree = {
 					ETH = { has_character = RAJ_orde_wingate }
 				}
 				ETH = {
-					country_event = {
-						id = BBA_ethiopia_exile_events.05
-						hours = 1
-					}
+					#ZHM-REVIEW event not defined: country_event = {
+						#id = BBA_ethiopia_exile_events.05
+						#hours = 1
+					#}
 				}
 			}
 			ELSE = {
@@ -3413,11 +3411,6 @@ focus_tree = {
 		}
 
 		bypass = {
-			NOT = {
-				AND = { 
-					
-				}
-			}
 		}
 
 		cancel_if_invalid = yes
