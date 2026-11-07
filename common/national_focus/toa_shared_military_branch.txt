@@ -1277,7 +1277,7 @@ shared_focus = {
 		
 	}	
 	allow_branch = {
-		always = no
+		
 	}
 	ai_will_do = {
 			factor = 20
@@ -1396,9 +1396,13 @@ shared_focus = {
 	available = {
 
 	}
-
+	
 	bypass = {
 		
+	}
+
+	allow_branch = { 
+		always = no
 	}
 
 	ai_will_do = {
@@ -1457,7 +1461,7 @@ shared_focus = {
 	cost = 5
 
 	allow_branch = {
-		
+		always = no
 	}
 
 	offset = {
