@@ -3095,8 +3095,8 @@ country_event = {
 			factor = 80
 		}
 		VIC = { country_event = LaR_france_vichy_notification_events.6 }
-		if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-		else_if = {
+		
+		if = {
 			limit = {
 				543 = { CONTROLLER = { original_tag = FRA } }
 			}

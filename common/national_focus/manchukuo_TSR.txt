@@ -2994,13 +2994,11 @@
 			}
 			remove_ideas = MAN_kwantung_veto
 
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-			ELSE = {
-				add_timed_idea = {
-					idea = MAN_korean_liberation_army_no_korea
-					days = 365
-				}	
-			}
+			add_timed_idea = {
+				idea = MAN_korean_liberation_army_no_korea
+				days = 365
+			}	
+			
 			
 
 			hidden_effect = { set_variable = { MAN_independence_target = OVERLORD } } #We're using a variable here because the saved event target becomes invalidated deep in ScopedEventTarget 
@@ -4614,7 +4612,7 @@
 		
 
 		completion_reward = {
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
+			
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {

@@ -4877,15 +4877,14 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 
-			ELSE = {
-				ENG = { country_event = { id = AST_diplomatic_events.43 days = 3 } }
-				custom_effect_tooltip = if_they_accept_tt
-				effect_tooltip = {
-					AST_hand_in_glove_effect = yes
-				}
+			ENG = { country_event = { id = AST_diplomatic_events.43 days = 3 } }
+			custom_effect_tooltip = if_they_accept_tt
+
+			effect_tooltip = {
+				AST_hand_in_glove_effect = yes
 			}
+			
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
@@ -6828,7 +6827,7 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			if = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
+			
 
 			custom_effect_tooltip = AST_red_solidarity_tt
 		}

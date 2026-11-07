@@ -2016,8 +2016,8 @@ allow_branch = {
 				}
 			}
 
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-			ELSE_IF = {
+			
+			IF = {
 				limit = {
 					611 = {
 						is_fully_controlled_by = ROOT
@@ -13436,8 +13436,8 @@ allow_branch = {
 				}
 			}
 
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-			ELSE_IF = {
+		
+			IF = {
 				limit = {
 					611 = {
 						is_fully_controlled_by = ROOT

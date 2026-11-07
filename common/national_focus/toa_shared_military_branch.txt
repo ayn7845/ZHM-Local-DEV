@@ -1272,11 +1272,13 @@ shared_focus = {
 	available = {  
 
 	}  
-
+	
 	bypass = {
 		
+	}	
+	allow_branch = {
+		always = no
 	}
-
 	ai_will_do = {
 			factor = 20
 		}   
@@ -1342,12 +1344,7 @@ shared_focus = {
 		}
 
 	allow_branch = {
-		NOT = {
-			OR = {
-				original_tag = BRA
-				original_tag = ARG
-			}
-		}
+		always = no
 	}
 
 	
@@ -1460,9 +1457,7 @@ shared_focus = {
 	cost = 5
 
 	allow_branch = {
-		NOT = {
-			always = no
-		}
+		
 	}
 
 	offset = {
@@ -3347,7 +3342,7 @@ shared_focus = {
 		NOT = {
 			has_idea = SMB_MTG_naval_arms_race_legacy
 		}
-		always = no
+		
 	}
 
 	completion_reward = {

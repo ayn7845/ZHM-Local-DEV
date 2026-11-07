@@ -14412,7 +14412,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_the_gobi_gambit focus = SOV_support_the_kuomintang }
 
 		bypass = {
-			always = no
+			
 		}
 
 		available = {

@@ -8609,18 +8609,7 @@ focus_tree = {
 					}
 				}
 			}
-			modifier = {
-				factor = 4
-				CZE = {
-				
-				}
-			}
-			modifier = {
-				factor = 4
-				CZE = {
-					always = no
-				}
-			}
+		
 			
 			modifier = {
 				factor = 0

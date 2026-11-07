@@ -4178,7 +4178,7 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
+			
 			ELSE = {
 				608 = {
 					OWNER = {
@@ -4306,7 +4306,6 @@ JAP_kwantung_army_decisions = {
 					}	
 				}
 			}
-			ELSE_IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 			ELSE = {
 				613 = {
 					OWNER = {

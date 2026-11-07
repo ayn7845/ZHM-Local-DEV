@@ -415,12 +415,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-		ELSE = {
-			455 = {
-				transfer_state_to = IRQ
-			}
+		
+		
+		455 = {
+			transfer_state_to = IRQ
 		}
+		
 	}
 }
 
@@ -594,12 +594,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-		ELSE = {
-			455 = {
-				transfer_state_to = IRQ
-			}
+		
+		
+		455 = {
+			transfer_state_to = IRQ
 		}
+		
 	}
 }
 

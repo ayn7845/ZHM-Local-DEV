@@ -1559,14 +1559,9 @@ country_event = {
 					set_state_flag = MEN_occupied_state_suiyuan_campaign
 				}
 			}
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
+			
 
-			ROOT = { 
-
-			}
-			every_country = { 
-
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1578,14 +1573,7 @@ country_event = {
 		name = SEA_japan_foreign_policy.29.a
 
 		effect_tooltip = {
-			IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
-
-			ROOT = { 
-
-			}
-			every_country = { 
-
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 

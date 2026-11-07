@@ -199,10 +199,8 @@ country_event = {
 		ELSE = {
 			614 = { add_claim_by = ROOT }
 		}
-
-		IF = { limit = { always = yes } } #ZHM-REVIEW was an empty if; kept so the following else stays inactive
 		
-		ELSE_IF = {
+		IF = {
 			limit = {
 				1039 = {
 					OWNER = {
