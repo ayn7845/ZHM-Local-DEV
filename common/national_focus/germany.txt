@@ -11612,7 +11612,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = GER_danzig_or_war
-		cost = 4
+		cost = 0
 
 		will_lead_to_war_with = BEL
 		will_lead_to_war_with = HOL
