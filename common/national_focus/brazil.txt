@@ -1108,10 +1108,15 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = BRA_radio_nacional_idea
-			#IF = {
-			#	limit = { NOT = { has_tech = radio } }
-			#	set_technology = { radio = 1 }
-			#}
+			IF = {
+				limit = { NOT = { has_tech = radio } }
+				add_tech_bonus = {
+				name = brazil_radio
+				bonus = 10
+				uses = 1
+				technology = radio
+				}
+			}
 		}
 	}
 
