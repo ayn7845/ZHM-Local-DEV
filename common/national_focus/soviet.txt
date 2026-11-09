@@ -13411,7 +13411,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_respect_baltic_self_determination
-		cost = 0
+		cost = 10
 		
 		ai_will_do = {
 			factor = 1
@@ -13890,7 +13890,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 0
+		cost = 10
 
 		ai_will_do = {
 			factor = 2.5
