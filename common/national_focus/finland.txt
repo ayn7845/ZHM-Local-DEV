@@ -11014,12 +11014,12 @@ focus_tree = {
 				}
 			}
 			
-			effect_tooltip = {
-				add_ideas = FIN_finnish_airforce_fake
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = FIN_finnish_airforce }
-			}
+			#effect_tooltip = {
+				#add_ideas = FIN_finnish_airforce_fake
+			#}
+			#hidden_effect = {
+				#add_dynamic_modifier = { modifier = FIN_finnish_airforce }
+			#}
 		}
 	}
 	
@@ -11577,10 +11577,10 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 25
 
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_weather_penalty = -0.1 tooltip = air_weather_penalty_tt }
-			add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_air_home_defence_factor = 0.1 tooltip = air_home_defence_factor_tt }
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_weather_penalty = -0.1 tooltip = air_weather_penalty_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_home_defence_factor = 0.1 tooltip = air_home_defence_factor_tt }
 
 			add_doctrine_cost_reduction = {
 				name = FIN_pilot_training
@@ -11622,10 +11622,10 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 35
 
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_ace_effectiveness_factor = 0.1 tooltip = ace_effectiveness_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_ace_effectiveness_factor = 0.1 tooltip = ace_effectiveness_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
 
 			add_doctrine_cost_reduction = {
 				name = FIN_expand_air_force_academy
@@ -11693,13 +11693,13 @@ focus_tree = {
 		search_filters = {  FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_naval_strike_targetting_factor = 0.1 tooltip = naval_strike_targetting_factor_tt }
-			custom_effect_tooltip = FIN_naval_airforce_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_naval_strike_targetting_factor = 0.1 tooltip = naval_strike_targetting_factor_tt }
+			#custom_effect_tooltip = FIN_naval_airforce_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_naval_bomber_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_naval_bomber_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_naval_airforce
@@ -11879,13 +11879,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_cas_efficiency = 0.1 tooltip = air_cas_efficiency_tt }
-			custom_effect_tooltip = FIN_support_for_ground_forces_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_cas_efficiency = 0.1 tooltip = air_cas_efficiency_tt }
+			#custom_effect_tooltip = FIN_support_for_ground_forces_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_cas_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_cas_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_support_for_ground_forces
@@ -12019,13 +12019,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_superiority_efficiency = 0.1 tooltip = air_superiority_efficiency_tt }
-			custom_effect_tooltip = FIN_dominate_the_skies_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_superiority_efficiency = 0.1 tooltip = air_superiority_efficiency_tt }
+			#custom_effect_tooltip = FIN_dominate_the_skies_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_fighter_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_fighter_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_dominate_the_skies
