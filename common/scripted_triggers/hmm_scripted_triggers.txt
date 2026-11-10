@@ -47,6 +47,20 @@ is_annexable_playable_country = {
 	}
 }
 
+is_noob_nation = { 
+	OR = {
+		#tag = SIA
+		#tag = MAN
+		tag = NZL
+		tag = PHI
+		tag = IRQ
+		tag = MEX
+		#tag = SAF
+		tag = POR
+		tag = ARG
+	}
+}
+
 allies = {
 	OR = {
 		tag = ENG

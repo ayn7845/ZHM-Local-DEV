@@ -728,127 +728,323 @@ DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
-	if = { 
-		limit = { 
-				OR = { 
-					TAG = MEX
-					TAG = POR
-					TAG = ARG
+	if = { # SOVIETS
+		limit = {
+			has_game_rule = { rule = soviet_ll_rule option = limited }
+		}
+		if = { 
+			limit = { FROM = { tag = SOV } }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_SOV_DIPLO_TT
+				if = { 
+					limit = { 
+					OR = { 
+						date > 1942.6.1
+						SOV = { surrender_progress > 0.35 }
+						}
+					}
+					always = yes
+				}
+				else = { 
+					always = no
+				}
+			} 
+		}
+	}
+	if = { # SOVIETS
+		limit = {
+			has_game_rule = { rule = soviet_ll_rule option = banned }
+		}
+		if = { 
+			limit = { 
+				FROM = { tag = SOV }
+			}
+			custom_trigger_tooltip = {
+			tooltip = banned_LL_SOV_DIPLO_TT
+			always = no
+			}
+		}
+		 
+	}
+	if = { # JAP
+		limit = {
+			has_game_rule = { rule = japan_ll_rule option = limited }
+		}
+		if = { 
+			limit = { tag = JAP }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
 				}
 			}
-			always = no
+		} 
+	}
+	if = { # JAP
+		limit = {
+			has_game_rule = { rule = japan_ll_rule option = faction_ll }
 		}
+		if = { 
+			limit = { tag = JAP }
+			custom_trigger_tooltip = {
+				tooltip = same_faction_LL_DIPLO_TT
+				is_in_faction_with = FROM
+			}
+		}	
+	}
+	if = { # JAP
+		limit = {
+			has_game_rule = { rule = japan_ll_rule option = banned }
+		}
+		if = { 
+			limit = { tag = JAP }
+			always = no
+		}	
+	}
+	
 
-	if = {
+	if = { # FINLAND
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = FREE
-			}
+			has_game_rule = { rule = finland_ll_rule option = limited }
 		}
-		always = yes
+		if = { 
+			limit = { tag = FIN }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
+				}
+			}
+		} 
 	}
-	if = {
+	if = { # FIN
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = LIMITED
-			}
+			has_game_rule = { rule = finland_ll_rule option = banned }
 		}
-		always = yes #handled by game logic, see above
+		if = { 
+			limit = { tag = FIN }
+			custom_trigger_tooltip = {
+				tooltip = banned_LL_DIPLO_TT
+				always = no
+			}
+		}	
+	}	
+
+	if = { # NOOB NATIONS
+		limit = {
+			has_game_rule = { rule = noob_nation_ll_rule option = limited }
+		}
+		if = { 
+			limit = { is_noob_nation = yes }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
+				}
+			}
+		} 
 	}
-	if = {
+	if = { 
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = SAME_IDEOLOGY
+			has_game_rule = { rule = noob_nation_ll_rule option = banned }
+		}
+		if = { 
+			limit = { is_noob_nation = yes }
+			custom_trigger_tooltip = {
+				tooltip = banned_LL_DIPLO_TT
+				always = no
 			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_SAME_IDEOLOGY_TT
-			has_government = FROM
-		}
+		}	
 	}
-	if = {
+	if = { 
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = SAME_FACTION
+			has_game_rule = { rule = noob_nation_ll_rule option = faction_ll }
+		}
+		if = { 
+			limit = { is_noob_nation = yes }
+			custom_trigger_tooltip = {
+				tooltip = same_faction_LL_DIPLO_TT
+				is_in_faction_with = FROM
 			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_SAME_FACTION_TT
-			is_in_faction_with = FROM
-		}
-	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = BLOCKED
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_BLOCKED_TT
-			always = no
-		}
+		}	
 	}
 }
 DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
-	if = {
+	if = { # SOVIETS
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = FREE
+			has_game_rule = { rule = soviet_ll_rule option = limited }
+		}
+		if = { 
+			limit = { tag = SOV }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_SOV_DIPLO_TT
+				if = { 
+					limit = { 
+					OR = { 
+						date > 1942.6.1
+						SOV = { surrender_progress > 0.35 }
+						}
+					}
+					always = yes
+				}
+				else = { 
+					always = no
+				}
+			}
+		} 
+	}
+	if = { # SOVIETS
+		limit = {
+			has_game_rule = { rule = soviet_ll_rule option = banned }
+		}
+		if = { 
+			limit = { 
+				tag = SOV
+			}
+			custom_trigger_tooltip = {
+				tooltip = banned_LL_SOV_DIPLO_TT
+				always = no
 			}
 		}
-		always = yes
 	}
-	if = {
+	if = { # JAP
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = LIMITED
-			}
+			has_game_rule = { rule = japan_ll_rule option = limited }
 		}
-		always = yes #handled by game logic, see above
+		if = { 
+			limit = { FROM = { tag = JAP } }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
+				}
+			}
+		} 
 	}
-	if = {
+	if = { # JAP
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = SAME_IDEOLOGY
+			has_game_rule = { rule = japan_ll_rule option = faction_ll }
+		}
+		if = { 
+			limit = { FROM = { tag = JAP } }
+			custom_trigger_tooltip = {
+				tooltip = same_faction_LL_DIPLO_TT
+				is_in_faction_with = JAP
 			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_SAME_IDEOLOGY_TT
-			has_government = FROM
-		}
+		}	
 	}
-	if = {
+	if = { # JAP
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = SAME_FACTION
+			has_game_rule = { rule = japan_ll_rule option = banned }
+		}
+		if = { 
+			limit = { FROM = { tag = JAP } }
+			custom_trigger_tooltip = {
+				tooltip = banned_req_LL_DIPLO_TT
+				always = no
 			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_SAME_FACTION_TT
-			is_in_faction_with = FROM
-		}
+		}	
 	}
-	if = {
+	
+
+	if = { # FINLAND
 		limit = {
-			has_game_rule = {
-				rule = allow_lend_lease
-				option = BLOCKED
+			has_game_rule = { rule = finland_ll_rule option = limited }
+		}
+		if = { 
+			limit = { FROM = { tag = FIN } }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
+				}
 			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_ALLOW_LEND_LEASE_BLOCKED_TT
-			always = no
-		}
+		} 
 	}
+	if = { # FIN
+		limit = {
+			has_game_rule = { rule = finland_ll_rule option = banned }
+		}
+		if = { 
+			limit = { FROM = { tag = FIN } }
+			custom_trigger_tooltip = {
+				tooltip = banned_req_LL_DIPLO_TT
+				always = no
+			}
+		}	
+	}
+		
+
+	if = { # NOOB NATIONS
+		limit = {
+			has_game_rule = { rule = noob_nation_ll_rule option = limited }
+		}
+		
+		if = { 
+			limit = { FROM = { is_noob_nation = yes } }
+			custom_trigger_tooltip = {
+				tooltip = limited_LL_DIPLO_TT
+				if = { 
+					limit = { date < 1942.1.1 }
+					always = no
+				}
+				else_if = { 
+					limit = { date > 1942.1.1 }
+					always = yes
+				}
+			}
+		} 
+	}
+	if = { 
+		limit = {
+			has_game_rule = { rule = noob_nation_ll_rule option = banned }
+		}
+		if = { 
+			limit = { FROM = { is_noob_nation = yes } }
+			custom_trigger_tooltip = {
+				tooltip = banned_req_LL_DIPLO_TT
+				always = no
+			}
+		}	
+	}
+	if = { 
+		limit = {
+			has_game_rule = { rule = noob_nation_ll_rule option = faction_ll }
+		}
+		if = { 
+			limit = { FROM = { is_noob_nation = yes } }
+			custom_trigger_tooltip = {
+				tooltip = same_faction_LL_DIPLO_TT
+				is_in_faction_with = FROM
+			}
+		}	
+	}
+	
 }
 DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 	if = {

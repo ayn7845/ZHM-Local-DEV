@@ -1,0 +1,93 @@
+soviet_ll_rule = {
+	name = "Soviet Lend Lease Rule"
+	group = "HMM Rules"
+	icon = "GFX_decision_SWI_support_humanitarian_efforts"
+    option = {
+		name = allowed
+		text = "Fully Allowed"
+		desc = "No limitations to lend lease"
+	}
+    default = {
+		name = limited
+		text = "Limited"
+		desc = "Soviets may receive lend lease if there are over 35% Surrender Progress or after 1942.7.1"
+	}
+	option = {
+		name = banned
+		text = "Fully Banned"
+		desc = "The Soviet Union may never recieve lend lease"
+	}
+}
+
+japan_ll_rule = {
+	name = "Japan Lend Lease Rule"
+	group = "HMM Rules"
+	icon = "GFX_decision_SWI_support_humanitarian_efforts"
+    option = {
+		name = allowed
+		text = "Fully Allowed"
+		desc = "Do whatever"
+	}
+    option = {
+		name = limited
+		text = "Limited"
+		desc = "May lend lease after 1942.1.1"
+	}
+    default = {
+		name = faction_ll
+		text = "Faction Only"
+		desc = "May only Lend Lease in Faction"
+	}
+	option = {
+		name = banned
+		text = "Fully Banned"
+		desc = "Can never lend lease"
+	}
+}
+
+finland_ll_rule = {
+	name = "Finland Lend Lease Rule"
+	group = "HMM Rules"
+	icon = "GFX_decision_SWI_support_humanitarian_efforts"
+    default = {
+		name = allowed
+		text = "Fully Allowed"
+		desc = "No limitations to lend lease"
+	}
+    option = {
+		name = limited
+		text = "Limited"
+		desc = "May lend lease after 1942.1.1"
+	}
+	option = {
+		name = banned
+		text = "Fully Banned"
+		desc = "Can never lend lease"
+	}
+}
+
+noob_nation_ll_rule = {
+	name = "Noob Nation Lend Lease Rule"
+	group = "HMM Rules"
+	icon = "GFX_decision_SWI_support_humanitarian_efforts"
+    option = {
+		name = allowed
+		text = "Fully Allowed"
+		desc = "Do whatever"
+	}
+    option = {
+		name = limited
+		text = "Limited"
+		desc = "May lend lease after 1942.1.1"
+	}
+    option = {
+		name = faction_ll
+		text = "Faction Only"
+		desc = "May only Lend Lease in Faction"
+	}
+	default = {
+		name = banned
+		text = "Fully Banned"
+		desc = "Can never lend lease"
+	}
+}
