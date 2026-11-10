@@ -1,0 +1,18 @@
+
+game_check = {
+    icon = GFX_decision_category_generic
+
+    allowed = {
+        is_playable_country = yes
+    }
+
+    visible = {
+        always = yes
+    }
+
+    priority = -1000
+    
+    scripted_gui = check_non_default_rules_ui
+    
+    visible_when_empty = yes
+}
