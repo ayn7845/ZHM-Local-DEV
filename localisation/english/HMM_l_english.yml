@@ -44,6 +44,7 @@
  zhm_opinion_modifier_temp_ally:0 "Temporary Alliance"
  #NO_OFFER_MIL_ACCESS_SOV_TO_ALLIES_DIPLO_TT:0 "Military Access to the §YSoviet Union§W is not §Rallowed§W"
   # DECISION CATEGORIES #
+ game_check:0 "Game Rules"
  ZHM_host:0 "Host Decisions"
  easy_LL:0 "Easy Lend lease"
 

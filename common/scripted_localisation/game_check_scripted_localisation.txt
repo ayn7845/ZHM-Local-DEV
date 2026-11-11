@@ -8,7 +8,7 @@ defined_text = {
                 option = GER
             }
         }
-        localization_key = "check_gamerules_GER"
+        localization_key = "Germany"
     }
     text = {
         trigger = {
@@ -17,7 +17,7 @@ defined_text = {
                 option = ITA
             }
         }
-        localization_key = "check_gamerules_ITA"
+        localization_key = "Italy"
     }
     text = {
         trigger = {
@@ -26,7 +26,7 @@ defined_text = {
                 option = SPR
             }
         }
-        localization_key = "check_gamerules_SPR"
+        localization_key = "Spain"
     }
     text = {
         trigger = {
@@ -35,7 +35,7 @@ defined_text = {
                 option = ROM
             }
         }
-        localization_key = "check_gamerules_ROM"
+        localization_key = "Romania"
     }
     text = {
         trigger = {
@@ -44,7 +44,7 @@ defined_text = {
                 option = HUN
             }
         }
-        localization_key = "check_gamerules_HUN"
+        localization_key = "Hungary"
     }
     text = {
         trigger = {
@@ -53,7 +53,7 @@ defined_text = {
                 option = FIN
             }
         }
-        localization_key = "check_gamerules_FIN"
+        localization_key = "Finland"
     }
     text = {
         trigger = {
@@ -62,7 +62,7 @@ defined_text = {
                 option = BUL
             }
         }
-        localization_key = "check_gamerules_BUL"
+        localization_key = "Bulgaria"
     }
     text = {
         trigger = {
@@ -71,7 +71,7 @@ defined_text = {
                 option = JAP
             }
         }
-        localization_key = "check_gamerules_JAP"
+        localization_key = "Japan"
     }
     text = {
         trigger = {
@@ -80,7 +80,7 @@ defined_text = {
                 option = MAN
             }
         }
-        localization_key = "check_gamerules_MAN"
+        localization_key = "Manchukuo"
     }
     text = {
         trigger = {
@@ -89,7 +89,7 @@ defined_text = {
                 option = ENG
             }
         }
-        localization_key = "check_gamerules_ENG"
+        localization_key = "United Kingdom"
     }
     text = {
         trigger = {
@@ -98,7 +98,7 @@ defined_text = {
                 option = USA
             }
         }
-        localization_key = "check_gamerules_USA"
+        localization_key = "United States"
     }
     text = {
         trigger = {
@@ -107,7 +107,7 @@ defined_text = {
                 option = FRA
             }
         }
-        localization_key = "check_gamerules_FRA"
+        localization_key = "France"
     }
     text = {
         trigger = {
@@ -116,7 +116,7 @@ defined_text = {
                 option = RAJ
             }
         }
-        localization_key = "check_gamerules_RAJ"
+        localization_key = "British Raj"
     }
     text = {
         trigger = {
@@ -125,7 +125,7 @@ defined_text = {
                 option = CAN
             }
         }
-        localization_key = "check_gamerules_CAN"
+        localization_key = "Canada"
     }
     text = {
         trigger = {
@@ -134,7 +134,7 @@ defined_text = {
                 option = AST
             }
         }
-        localization_key = "check_gamerules_AST"
+        localization_key = "Australia"
     }
     text = {
         trigger = {
@@ -143,7 +143,7 @@ defined_text = {
                 option = SAF
             }
         }
-        localization_key = "check_gamerules_SAF"
+        localization_key = "South Africa"
     }
     text = {
         trigger = {
@@ -152,7 +152,7 @@ defined_text = {
                 option = MEX
             }
         }
-        localization_key = "check_gamerules_MEX"
+        localization_key = "Mexico"
     }
     text = {
         trigger = {
@@ -161,7 +161,7 @@ defined_text = {
                 option = BRA
             }
         }
-        localization_key = "check_gamerules_BRA"
+        localization_key = "Brazil"
     }
     text = {
         trigger = {
@@ -170,8 +170,159 @@ defined_text = {
                 option = SOV
             }
         }
-        localization_key = "check_gamerules_SOV"
+        localization_key = "Soviet Union"
     }
+}
+
+defined_text = {
+    name = GetSovietLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetJapanLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = faction_ll
+            }
+        }
+        localization_key = "Faction Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetFinlandLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetNoobNationLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = faction_ll
+            }
+        }
+        localization_key = "Faction Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
 }
 
 defined_text = {
@@ -183,7 +334,7 @@ defined_text = {
                 option = banned
             }
         }
-        localization_key = "check_gamerules_banned"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -192,7 +343,7 @@ defined_text = {
                 option = axis
             }
         }
-        localization_key = "check_gamerules_axis"
+        localization_key = "Axis Only"
     }
     text = {
         trigger = {
@@ -201,7 +352,7 @@ defined_text = {
                 option = allies
             }
         }
-        localization_key = "check_gamerules_allies"
+        localization_key = "Allies Only"
     }
     text = {
         trigger = {
@@ -210,7 +361,7 @@ defined_text = {
                 option = allowed
             }
         }
-        localization_key = "check_gamerules_allowed"
+        localization_key = "Allowed"
     }
 }
 
@@ -223,7 +374,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -232,7 +383,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -245,7 +396,7 @@ defined_text = {
                 option = brazil_ac
             }
         }
-        localization_key = "check_gamerules_brazil_ac"
+        localization_key = "Brazil AC"
     }
     text = {
         trigger = {
@@ -254,7 +405,7 @@ defined_text = {
                 option = canada_ac
             }
         }
-        localization_key = "check_gamerules_canada_ac"
+        localization_key = "Canada AC"
     }
     text = {
         trigger = {
@@ -263,7 +414,7 @@ defined_text = {
                 option = uk_ac
             }
         }
-        localization_key = "check_gamerules_uk_ac"
+        localization_key = "UK AC"
     }
 }
 
@@ -276,7 +427,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -285,7 +436,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -298,7 +449,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -307,7 +458,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -320,7 +471,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -329,7 +480,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -342,7 +493,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -351,7 +502,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "On"
     }
 }
 
@@ -364,7 +515,7 @@ defined_text = {
                 option = yes
             }
         }
-        localization_key = "check_gamerules_yes"
+        localization_key = "Allowed"
     }
     text = {
         trigger = {
@@ -373,7 +524,7 @@ defined_text = {
                 option = no
             }
         }
-        localization_key = "check_gamerules_no"
+        localization_key = "Banned"
     }
 }
 
@@ -386,7 +537,7 @@ defined_text = {
                 option = allowed
             }
         }
-        localization_key = "check_gamerules_allowed"
+        localization_key = "Allowed"
     }
     text = {
         trigger = {
@@ -395,7 +546,7 @@ defined_text = {
                 option = skoda_works
             }
         }
-        localization_key = "check_gamerules_skoda_works"
+        localization_key = "Skoda Works"
     }
     text = {
         trigger = {
@@ -404,7 +555,7 @@ defined_text = {
                 option = td_mio
             }
         }
-        localization_key = "check_gamerules_td_mio"
+        localization_key = "TD MIO Banned"
     }
     text = {
         trigger = {
@@ -413,7 +564,7 @@ defined_text = {
                 option = air_mio
             }
         }
-        localization_key = "check_gamerules_air_mio"
+        localization_key = "Air MIO banned"
     }
     text = {
         trigger = {
@@ -422,7 +573,7 @@ defined_text = {
                 option = production_mio
             }
         }
-        localization_key = "check_gamerules_production_mio"
+        localization_key = "Skoda Works Banned"
     }
     text = {
         trigger = {
@@ -431,7 +582,7 @@ defined_text = {
                 option = banned
             }
         }
-        localization_key = "check_gamerules_banned"
+        localization_key = "Banned"
     }
 }
 
@@ -444,7 +595,7 @@ defined_text = {
                 option = Germany_no_wirtschaftswunder
             }
         }
-        localization_key = "check_gamerules_Germany_no_wirtschaftswunder"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -453,7 +604,7 @@ defined_text = {
                 option = Germany_wirtschaftswunder
             }
         }
-        localization_key = "check_gamerules_Germany_wirtschaftswunder"
+        localization_key = "Allowed"
     }
 }
 
@@ -466,7 +617,7 @@ defined_text = {
                 option = Germany_no_cancel_MEFO_Bills
             }
         }
-        localization_key = "check_gamerules_Germany_no_cancel_MEFO_Bills"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -475,7 +626,7 @@ defined_text = {
                 option = Germany_cancel_MEFO_Bills
             }
         }
-        localization_key = "check_gamerules_Germany_cancel_MEFO_Bills"
+        localization_key = "Allowed"
     }
 }
 
@@ -488,7 +639,7 @@ defined_text = {
                 option = Germany_no_fate_of_yugo
             }
         }
-        localization_key = "check_gamerules_Germany_no_fate_of_yugo"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -497,7 +648,7 @@ defined_text = {
                 option = Germany_fate_of_yugo
             }
         }
-        localization_key = "check_gamerules_Germany_fate_of_yugo"
+        localization_key = "Allowed"
     }
 }
 
@@ -510,7 +661,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -519,7 +670,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "Allowed"
     }
 }
 
@@ -532,7 +683,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -541,7 +692,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "Allowed"
     }
 }
 
@@ -554,7 +705,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -563,7 +714,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "Allowed"
     }
 }
 
@@ -576,7 +727,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
@@ -585,7 +736,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "Allowed"
     }
 }
 
@@ -598,7 +749,7 @@ defined_text = {
                 option = sub2
             }
         }
-        localization_key = "check_gamerules_sub2"
+        localization_key = "Submarine 3 & 4 Banned"
     }
     text = {
         trigger = {
@@ -607,7 +758,7 @@ defined_text = {
                 option = sub3
             }
         }
-        localization_key = "check_gamerules_sub3"
+        localization_key = "Submarine 3 and Snorkel 1 Allowed"
     }
     text = {
         trigger = {
@@ -616,7 +767,7 @@ defined_text = {
                 option = sub4
             }
         }
-        localization_key = "check_gamerules_sub4"
+        localization_key = "Submarine 4 and Snorkel 2. Allowed"
     }
 }
 
@@ -629,7 +780,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -638,7 +789,7 @@ defined_text = {
                 option = sov4
             }
         }
-        localization_key = "check_gamerules_sov4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -647,7 +798,7 @@ defined_text = {
                 option = sov8
             }
         }
-        localization_key = "check_gamerules_sov8"
+        localization_key = "On-8"
     }
     text = {
         trigger = {
@@ -656,7 +807,7 @@ defined_text = {
                 option = sov12
             }
         }
-        localization_key = "check_gamerules_sov12"
+        localization_key = "On-12"
     }
 }
 
@@ -669,7 +820,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -678,7 +829,7 @@ defined_text = {
                 option = ger4
             }
         }
-        localization_key = "check_gamerules_ger4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -687,7 +838,7 @@ defined_text = {
                 option = ger8
             }
         }
-        localization_key = "check_gamerules_ger8"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -696,7 +847,7 @@ defined_text = {
                 option = ger12
             }
         }
-        localization_key = "check_gamerules_ger12"
+        localization_key = "On-12"
     }
 }
 
@@ -709,7 +860,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -718,7 +869,7 @@ defined_text = {
                 option = jap4
             }
         }
-        localization_key = "check_gamerules_jap4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -727,7 +878,7 @@ defined_text = {
                 option = jap8
             }
         }
-        localization_key = "check_gamerules_jap8"
+        localization_key = "On-8"
     }
     text = {
         trigger = {
@@ -736,7 +887,7 @@ defined_text = {
                 option = jap12
             }
         }
-        localization_key = "check_gamerules_jap12"
+        localization_key = "On-12"
     }
 }
 
@@ -749,7 +900,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -758,7 +909,7 @@ defined_text = {
                 option = eng4
             }
         }
-        localization_key = "check_gamerules_eng4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -767,7 +918,7 @@ defined_text = {
                 option = eng8
             }
         }
-        localization_key = "check_gamerules_eng8"
+        localization_key = "On-8"
     }
     text = {
         trigger = {
@@ -776,7 +927,7 @@ defined_text = {
                 option = eng12
             }
         }
-        localization_key = "check_gamerules_eng12"
+        localization_key = "On-12"
     }
 }
 
@@ -789,7 +940,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -798,7 +949,7 @@ defined_text = {
                 option = ita4
             }
         }
-        localization_key = "check_gamerules_ita4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -807,7 +958,7 @@ defined_text = {
                 option = ita8
             }
         }
-        localization_key = "check_gamerules_ita8"
+        localization_key = "On-8"
     }
     text = {
         trigger = {
@@ -816,7 +967,7 @@ defined_text = {
                 option = ita12
             }
         }
-        localization_key = "check_gamerules_ita12"
+        localization_key = "On-12"
     }
 }
 
@@ -829,7 +980,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -838,7 +989,7 @@ defined_text = {
                 option = fra4
             }
         }
-        localization_key = "check_gamerules_fra4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -847,7 +998,7 @@ defined_text = {
                 option = fra8
             }
         }
-        localization_key = "check_gamerules_fra8"
+        localization_key = "On-8"
     }
     text = {
         trigger = {
@@ -856,7 +1007,7 @@ defined_text = {
                 option = fra12
             }
         }
-        localization_key = "check_gamerules_fra12"
+        localization_key = "On-12"
     }
 }
 
@@ -869,7 +1020,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -878,7 +1029,7 @@ defined_text = {
                 option = usa4
             }
         }
-        localization_key = "check_gamerules_usa4"
+        localization_key = "On-4"
     }
     text = {
         trigger = {
@@ -887,7 +1038,7 @@ defined_text = {
                 option = usa8
             }
         }
-        localization_key = "check_gamerules_usa8"
+        localization_key = "On-8"
     }
 }
 
@@ -900,7 +1051,7 @@ defined_text = {
                 option = no
             }
         }
-        localization_key = "check_gamerules_no"
+        localization_key = "No"
     }
     text = {
         trigger = {
@@ -909,7 +1060,7 @@ defined_text = {
                 option = yes
             }
         }
-        localization_key = "check_gamerules_yes"
+        localization_key = "Yes"
     }
 }
 
@@ -922,7 +1073,7 @@ defined_text = {
                 option = allowed
             }
         }
-        localization_key = "check_gamerules_allowed"
+        localization_key = "Allowed"
     }
     text = {
         trigger = {
@@ -931,7 +1082,7 @@ defined_text = {
                 option = banned
             }
         }
-        localization_key = "check_gamerules_banned"
+        localization_key = "Banned and German Eco Nerfed"
     }
     text = {
         trigger = {
@@ -940,7 +1091,7 @@ defined_text = {
                 option = banned_no_eco_nerf
             }
         }
-        localization_key = "check_gamerules_banned_no_eco_nerf"
+        localization_key = "Banned and German Eco Unnerfed"
     }
 }
 
@@ -953,7 +1104,7 @@ defined_text = {
                 option = ger_mech
             }
         }
-        localization_key = "check_gamerules_ger_mech"
+        localization_key = "German Lend Lease for Mech"
     }
     text = {
         trigger = {
@@ -962,7 +1113,7 @@ defined_text = {
                 option = bul_mech
             }
         }
-        localization_key = "check_gamerules_bul_mech"
+        localization_key = "German-Bulgarian Lend Lease for Mech"
     }
     text = {
         trigger = {
@@ -971,7 +1122,7 @@ defined_text = {
                 option = mixer
             }
         }
-        localization_key = "check_gamerules_mixer"
+        localization_key = "Germany can choose either BUL or GER"
     }
     text = {
         trigger = {
@@ -980,7 +1131,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -993,7 +1144,7 @@ defined_text = {
                 option = ger_gun
             }
         }
-        localization_key = "check_gamerules_ger_gun"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -1002,7 +1153,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
 }
 
@@ -1015,7 +1166,7 @@ defined_text = {
                 option = off
             }
         }
-        localization_key = "check_gamerules_off"
+        localization_key = "Off"
     }
     text = {
         trigger = {
@@ -1024,7 +1175,7 @@ defined_text = {
                 option = on
             }
         }
-        localization_key = "check_gamerules_on"
+        localization_key = "On"
     }
     text = {
         trigger = {
@@ -1033,7 +1184,7 @@ defined_text = {
                 option = only_axis
             }
         }
-        localization_key = "check_gamerules_only_axis"
+        localization_key = "Axis Only"
     }
 }
 

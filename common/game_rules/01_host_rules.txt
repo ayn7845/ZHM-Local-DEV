@@ -179,7 +179,7 @@ Germany_czech_manufacturers = {
 }
 
 Germany_Wirtschaftswunder = {
-	name = "German Prioritize Economic Growth "
+	name = "German Prioritize Economic Growth"
 	group = "HMM Rules"
 	icon = "GFX_decision_ger_mefo_bills"
 	option = {
