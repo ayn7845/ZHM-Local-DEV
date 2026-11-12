@@ -1043,24 +1043,24 @@ defined_text = {
 }
 
 defined_text = {
-    name = GetPlayableIraqStatus
+    name = GetEthiopiaHoldStatus
     text = {
         trigger = {
             has_game_rule = {
-                rule = playable_iraq
-                option = no
+                rule = ethiopia_hold
+                option = banned
             }
         }
-        localization_key = "No"
+        localization_key = "Banned"
     }
     text = {
         trigger = {
             has_game_rule = {
-                rule = playable_iraq
-                option = yes
+                rule = ethiopia_hold
+                option = allowed
             }
         }
-        localization_key = "Yes"
+        localization_key = "Allowed"
     }
 }
 

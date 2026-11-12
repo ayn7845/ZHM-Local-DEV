@@ -595,9 +595,8 @@ on_actions = {
 			}
 			if = { # IRAQ SLOTS REMOVED IF THERES NO PLAYER ON IT
 				limit = { 
-					has_game_rule = { 
-						rule = playable_iraq
-						option = no
+					IRQ = { 
+						is_ai = yes
 					}
 				}
 				every_state = { 

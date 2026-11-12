@@ -832,9 +832,8 @@ on_actions = {
 		effect = {
 			if = {
 				limit ={
-					has_game_rule = {
-						rule = playable_iraq
-						option = no
+					IRQ = { 
+						is_ai = yes
 					}
 				}
 				ENG = { 
