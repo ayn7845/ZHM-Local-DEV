@@ -38,7 +38,11 @@ state = {
 		victory_points = {
 			9807 1 # Morioka
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

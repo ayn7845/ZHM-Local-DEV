@@ -46,12 +46,10 @@ state = {
 			11985 2 # Shimonoseki
 		}
 
-		1939.1.1 = {
-			buildings = {
-				dockyard = 3
-				arms_factory = 3
-				industrial_complex = 2
-			}
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
 		}
 
 	}

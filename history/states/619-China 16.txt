@@ -22,6 +22,11 @@ state={
 		victory_points = {
 			2015 2 # Kashgar
 		}
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
+		}
 	}
 
 

@@ -15,7 +15,7 @@ state = {
 
 		owner = JAP
 		add_core_of = JAP
-		add_core_of = WST
+		
 
 		buildings = {
 			infrastructure = 2
@@ -30,7 +30,11 @@ state = {
 		victory_points = {
 			3962 2 # Hakodate
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

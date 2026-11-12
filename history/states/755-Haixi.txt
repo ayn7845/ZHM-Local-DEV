@@ -23,21 +23,10 @@ state={
 			industrial_complex = 1
 		}
 
-		1938.10.25 = {
-			if = {
-				limit = {
-					NOT = {
-						has_dlc = "Waking the Tiger"
-					}
-
-				}
-				CHI = {
-					transfer_state = PREV
-
-				}
-
-			}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
 		}
 
 	}
