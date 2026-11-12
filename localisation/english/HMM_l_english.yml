@@ -33,6 +33,7 @@
  easy_LL_activation:0 "Will start a Cycling Aircraft §GLend Lease§W to §Y[FROM.GetNameDefCap]§W"
 
  NO_MIL_ACCESS_SOV_DIPLO_TT:0 "§RMilitary Access to the §YSoviet Union§R is not allowed§W"
+ NO_MIL_ACCESS_JAP_DIPLO_TT:0 "§RMilitary Access for §YJapan§R is not allowed§W"
  limited_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W unless they are over §Y35%§R §RSurrender Progress§W or after §YJune 1st, 1942§W"
  banned_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W"
  same_faction_LL_DIPLO_TT:0 "§RLend Lease may only be in Faction§W"

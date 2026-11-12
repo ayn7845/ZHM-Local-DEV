@@ -469,14 +469,8 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 
 }
 DIPLOMACY_MILACC_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_access
-				option = FREE
-			}
-		}
-		if = { # allies cannot get mil access to soviet
+
+	if = { # allies cannot get mil access to soviet
 			limit = { 
 				allies = yes
 				has_game_rule = { 
@@ -486,17 +480,25 @@ DIPLOMACY_MILACC_ENABLE_TRIGGER = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = NO_MIL_ACCESS_SOV_DIPLO_TT #RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
-				FROM = {
-					NOT = {
-						tag = SOV
+				if = { 
+					limit = { 
+						FROM = { tag = SOV }
 					}
+					always = no
 				}
 			}
 		}
-		else = { 
-			always = yes
-		}	
+
+	if = { 
+		limit = { 
+			tag = JAP
+		}
+		custom_trigger_tooltip = {
+			tooltip = NO_MIL_ACCESS_JAP_DIPLO_TT
+			always = no
+		}
 	}
+	
 	
 	if = {
 		limit = {
@@ -524,14 +526,7 @@ DIPLOMACY_MILACC_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_access
-				option = FREE
-			}
-		}
-		if = { # allies cannot get mil access to soviet
+	if = { # allies cannot get mil access to soviet
 			limit = { 
 				tag = SOV
 				has_game_rule = { 
@@ -541,18 +536,24 @@ DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = NO_MIL_ACCESS_SOV_DIPLO_TT #RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
-				FROM = {
-					NOT = {
-						allies = yes
+				if = { 
+					limit = { 
+						FROM = { allies = yes }
 					}
+					always = no
 				}
 			}
 		}
-		else = { 
-			always = yes
+	if = { 
+		limit = { 
+			FROM = { tag = JAP }
 		}
-		
+		custom_trigger_tooltip = {
+			tooltip = NO_MIL_ACCESS_JAP_DIPLO_TT
+			always = no
+		}
 	}
+
 	if = {
 		limit = {
 			has_game_rule = {
@@ -658,14 +659,14 @@ DIPLOMACY_REVOKE_OFFER_AIR_BASE_ACCESS_ENABLE_TRIGGER = {
 }
 
 DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_access
-				option = FREE
-			}
+	if = { 
+		limit = { 
+			tag = JAP
 		}
-		always = yes
+		custom_trigger_tooltip = {
+			tooltip = NO_MIL_ACCESS_JAP_DIPLO_TT
+			always = no
+		}
 	}
 	if = {
 		limit = {
@@ -693,14 +694,14 @@ DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_access
-				option = FREE
-			}
+	if = { 
+		limit = { 
+			FROM = { tag = JAP }
 		}
-		always = yes
+		custom_trigger_tooltip = {
+			tooltip = NO_MIL_ACCESS_JAP_DIPLO_TT
+			always = no
+		}
 	}
 	if = {
 		limit = {
