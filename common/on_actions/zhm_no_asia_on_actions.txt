@@ -1,0 +1,144 @@
+on_actions = { 
+    on_startup = { 
+        effect = { 
+            if = { 
+                limit = { 
+                    has_start_date > 1936.1.1.12
+                }
+                ITA = { 
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 4
+                    }
+                }
+                HUN = { 
+                    if = { 
+                        limit = { 
+                            NOT = { 
+                                has_idea = zhm_command_power
+                            }
+                        }
+                        add_ideas = zhm_command_power
+                    }
+                    HUN_gusztav_jany = { 
+                        if = { 
+							limit = { NOT = { has_trait = sov_inf_gen } }
+							add_trait = { trait = sov_inf_gen }
+						}
+                    }
+                    HUN_jeno_ratz = { 
+                        if = { 
+							limit = { NOT = { has_trait = sov_inf_gen } }
+							add_trait = { trait = sov_inf_gen }
+						}
+                    }
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 4
+                    }
+                    add_equipment_to_stockpile = {
+					    type = train_equipment
+					    amount = 18
+				    }
+				    add_equipment_to_stockpile = {
+					    type = infantry_equipment_0
+					    amount = 0
+				    }
+				    add_equipment_to_stockpile = {
+					    type = infantry_equipment_1
+					    amount = 9600
+				    }
+				    add_equipment_to_stockpile = {
+					    type = support_equipment_1
+					    amount = 303
+				    }
+				    add_equipment_to_stockpile = {
+					    type = motorized_equipment_0
+					    amount = 0
+				    }
+				    add_equipment_to_stockpile = {
+					    type = motorized_equipment_1
+					    amount = 70
+				    }
+				    add_equipment_to_stockpile = {
+					    type = artillery_equipment_1
+					    amount = 87
+				    }
+                }
+                GER = { 
+                    if = { 
+                        limit = { 
+                            has_dlc = "La Resistance"
+                        }
+                        add_ideas = zhm_operative_slots
+                    }
+                }
+                ENG = { 
+                    add_equipment_to_stockpile = {
+					    type = convoy
+					    amount = 2000
+				    }
+                }
+            }
+            if = { 
+                limit = { 
+                    has_start_date > 1936.1.1.13 # No asia
+                }
+                set_global_flag = zhm_no_asia
+                WST = { 
+                    set_country_flag = zhm_no_asia_simulation
+                }
+                SOV = { 
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 1
+                    }
+                }
+                WST = { 
+                    give_resource_rights = { receiver = ENG state = 360 }
+                    give_resource_rights = { receiver = ENG state = 394 }
+                    give_resource_rights = { receiver = ENG state = 375 }
+                    give_resource_rights = { receiver = ENG state = 391 }
+                }
+                ENG = {
+                    country_event = { id = zhm.10 }
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 6
+                    } 
+                    if = { 
+                        limit = { NOT = { OR = { has_idea = uk_ac_idea_1 has_idea = uk_ac_idea_2 } } }
+                        add_ideas = uk_ac_idea_2
+                    }
+                    if = { 
+                        limit = { NOT = { has_idea = zhm_command_power } } 
+                        add_ideas = zhm_command_power
+                    }
+                    add_tech_bonus = {
+				        bonus = 1
+				        uses = 5
+				        category = artillery
+			        }
+                    add_tech_bonus = {
+				        bonus = 1
+				        uses = 5
+				        category = armor
+			        }
+                    if = { 
+                        limit = { 
+                            has_dlc = "La Resistance"
+                        }
+                        add_ideas = zhm_operative_slots
+                    }
+                }
+                687 = { 
+                    add_building_construction = {
+						type = infrastructure
+						level = 4
+						instant_build = yes
+					}
+                }
+            }
+        }
+    }
+}     
