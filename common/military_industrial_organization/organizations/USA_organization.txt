@@ -376,6 +376,16 @@ USA_detroit_arsenal_organization = {
 		}
 	}
 
+	override_trait = {
+		token = generic_mio_trait_adaptable_chassis
+
+		position = { x=1 y=1 }
+		
+		available = {
+			USA = { has_completed_focus = USA_main_battle_tanks }
+		}
+	}
+
 	initial_trait = {
 		name = USA_mio_trait_dedicated_tank_factory
 		
