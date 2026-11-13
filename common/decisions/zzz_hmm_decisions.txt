@@ -1059,6 +1059,22 @@ Technologies = {
             activate_mission = GER_recieving_ll_mech_1a
             set_country_flag = GER_started_ll_mech
             set_country_flag = no_spain
+            if = { 
+                limit = { 
+                    GER = { 
+                        NOT = { 
+                            has_country_flag = spain_civs_added
+                        }
+                    }
+                }
+                GER = { 
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 10
+                    }
+                    set_country_flag = spain_civs_added
+                }
+            }
 			SPR = {	
 				set_technology = {
 				    mechanised_infantry = 1
@@ -1571,6 +1587,22 @@ Technologies = {
             activate_mission = GER_recieving_ll_gun_1a
             set_country_flag = GER_started_ll_gun
             set_country_flag = no_finland
+            if = { 
+                limit = { 
+                    GER = { 
+                        NOT = { 
+                            has_country_flag = fin_civs_added
+                        }
+                    }
+                }
+                GER = { 
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 5
+                    }
+                    set_country_flag = fin_civs_added
+                }
+            }
 			FIN = {	
 				set_technology = {
 				    advanced_infantry_weapons = 1
