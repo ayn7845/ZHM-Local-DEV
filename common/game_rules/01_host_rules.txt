@@ -491,19 +491,19 @@ usa_boost = {
 	}
 }
 
-ethiopia_hold = {
-	name = "Ethiopia Hold"
+playable_iraq = {
+	name = "Playable Iraq"
 	group = "HMM Rules"
-	icon = "GFX_decision_generic_orginization_of_african_unity"
+	icon = "GFX_decision_category_usa_intervention_mandate"
 	default = {
-		name = banned
-		text = "Banned"
-		desc = "Ethiopia is demilitarized and any Axis armies in Ethiopia will be teleported before WW2"
+		name = no
+		text = "No"
+		desc = "Iraq is annexed into the UK day 1"
 	}
 	option = {
-		name = allowed
-		text = "Allowed"
-		desc = "Axis are allowed to have divisions in Ethiopia"
+		name = yes
+		text = "Yes"
+		desc = "Iraq is playable"
 	}
 }
 

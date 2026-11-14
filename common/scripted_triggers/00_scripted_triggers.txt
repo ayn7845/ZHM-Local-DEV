@@ -915,8 +915,6 @@ is_major_not_original_tag_root = {
 is_initial_ethiopian_state = {
 	OR = {
 		state = 271
-		state = 550
-		state = 559
 		state = 835
 		state = 836
 		state = 837
@@ -926,8 +924,6 @@ is_initial_ethiopian_state = {
 		state = 841
 		state = 842
 		state = 843
-		state = 844
-		state = 908
 	}
 }
 

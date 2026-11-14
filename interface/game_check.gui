@@ -735,24 +735,24 @@ guiTypes = {
 
         # Playable Iraq (changed)
         iconType = {
-            name = "ethiopia_hold_icon_changed"
-            spriteType = "GFX_decision_generic_orginization_of_african_unity"
+            name = "playable_iraq_icon_changed"
+            spriteType = "GFX_decision_category_usa_intervention_mandate"
             position = { x = 5 y = 1005 }
             
         }
         instantTextBoxType = {
-            name = "ethiopia_hold_name_text_changed"
+            name = "playable_iraq_name_text_changed"
             position = { x = @GAMERULE_NAMES_X y = 1010 }
             font = "hoi_18mbs"
-            text = "Ethiopia Hold"
+            text = "Playable Iraq"
             maxWidth = 180
             
         }
         instantTextBoxType = {
-            name = "ethiopia_hold_status_changed"
+            name = "playable_iraq_status_changed"
             position = { x = @STATUS_TEXT_X y = 1010 }
             font = "hoi_18mbs"
-            text = "[GetEthiopiaHoldStatus]"
+            text = "[GetPlayableIraqStatus]"
             format = center
             maxwidth = 110
             
