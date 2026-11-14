@@ -706,19 +706,6 @@ on_actions = {
 					}
 					allow_allies_grind = yes
 				}
-				if = { 
-					limit = { 
-						has_global_flag = zhm_no_asia
-						ENG = { 
-							NOT = { 
-								has_country_flag = no_asia_fighter_LL
-							}
-						}
-					}
-					ENG = { 
-						country_event = { id = zhm.9 }
-					}
-				}
             }
 			else_if = {
                 limit = {

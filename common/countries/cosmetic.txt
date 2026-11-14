@@ -1477,8 +1477,3 @@ SIA_great_thai_empire = { #Mandate 1, Phibun, historical
 	color = rgb { 252 253 254 } 
 	color_ui = rgb { 252 253 254 }
 }
-
-united_HUN_ROM_kingdom = { 
-	color = rgb { 222 107 53 }
-	color_ui = rgb { 222 107 53 }
-}

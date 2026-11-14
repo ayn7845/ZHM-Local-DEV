@@ -24,17 +24,8 @@ ideas = {
 			}
 		}
 
-		zhm_operative_slots = { 
-			name = "Operative Slots"
-			removal_cost = -1
-			picture = generic_spy_intel
-			modifier = { 
-				operative_slot = 2
-			}
-		}
-
         zhm_manpower = {
-			name = "Extra Manpower"
+			name = "Colonial Manpower"
 			removal_cost = -1
 			picture = MEX_politicised_army
 			modifier = {
@@ -95,7 +86,7 @@ ideas = {
 		}
 
 		uk_ac_idea_2 = { # Deversus AC moment
-			name = "Improved AC Spirit" 
+			name = "No AC COOP Spirit" 
 			picture = generic_air_fighter
 			removal_cost = -1
 			modifier = {
