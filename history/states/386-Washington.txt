@@ -34,10 +34,12 @@ state = {
 			7315 10 # Seattle
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				7315 = {
+					air_facility = 1 # Boeing Factories
+				}
+			}
 		}
 	}
 

@@ -27,11 +27,7 @@ state=
 		 strategic_province_location = {
 		 	defensible_coastline = 3995
 		 }
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
-		}
+
 	}
 	provinces={
 		3995 13023 13024 

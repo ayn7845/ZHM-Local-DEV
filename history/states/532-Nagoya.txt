@@ -28,10 +28,14 @@ state = {
 			10125 25 # Nagoya
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				arms_factory = 2
+				industrial_complex = 3
+				10125 = {
+					air_facility = 1 # Mitsubishi Arnsenals 
+				}
+			}
 		}
 
 	}

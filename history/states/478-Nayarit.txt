@@ -26,16 +26,7 @@ state={
 		victory_points = {
 			12746 1
 		}
-		1936.1.1.13 = {
-			owner = BRA
-			controller = BRA
-			add_core_of = BRA
-		}
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
-		}
+
 	}
 
 	provinces={

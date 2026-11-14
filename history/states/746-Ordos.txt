@@ -25,10 +25,8 @@ state={
 			infrastructure = 1
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1938.10.25 = {
+			controller = JAP
 		}
 	}
 	manpower=500000

@@ -36,10 +36,11 @@ state = {
 
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1938.10.25 = {
+			add_victory_points = {
+				province = 8049
+				value = 2
+			}	
 		}
 
 	}

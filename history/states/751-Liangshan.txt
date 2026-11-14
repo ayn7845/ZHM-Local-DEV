@@ -24,11 +24,14 @@ state = {
 			10841 3 # Ya'An 
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 1
+				infrastructure = 1
+
+			}
 		}
+
 	}
 
 	provinces = {

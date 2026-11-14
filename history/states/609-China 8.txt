@@ -13,7 +13,7 @@ state = {
 
 		owner = JAP
 		add_core_of = CHI
-		
+		add_core_of = WST
 
 		buildings = {
 			infrastructure = 3 # was: 5
@@ -41,11 +41,7 @@ state = {
 		victory_points = {
 			1052 1 # Tangshan
 		}
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
-		}
+
 	}
 
 	provinces = {

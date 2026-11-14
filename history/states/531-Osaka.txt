@@ -39,10 +39,11 @@ state = {
 			1136 1 # Maizuru
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				arms_factory = 3
+				industrial_complex = 5
+			}
 		}
 
 	}

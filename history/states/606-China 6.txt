@@ -28,10 +28,16 @@ state={
 		#	9937 1 # Jinjiazhai 
 		#} 
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1938.10.25 = {
+			controller = JAP
+			buildings = {
+				industrial_complex = 3
+				infrastructure = 3 #was: 6
+				air_base = 1
+				arms_factory = 1
+
+			}
+
 		}
 
 	}

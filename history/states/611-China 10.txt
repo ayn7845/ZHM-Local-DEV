@@ -8,7 +8,7 @@ state = {
 	history = {
 
 		owner = MAN
-		
+		add_core_of = WST
 		add_core_of = CHI
 
 		buildings = {
@@ -19,11 +19,7 @@ state = {
 		victory_points = {
 			10397 2 # Zhangbei
 		}
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
-		}
+
 	}
 
 	provinces = {

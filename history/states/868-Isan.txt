@@ -23,11 +23,6 @@ state={
 		}
 		
 		add_core_of = SIA
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
-		}
 	}
 	manpower=4772823 
 	state_category = town

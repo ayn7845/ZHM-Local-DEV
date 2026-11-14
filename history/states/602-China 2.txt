@@ -33,11 +33,7 @@ state={
 		victory_points = {
 			12350 1 # Hengyang 
 		}
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
-		}
+
 	}
 
 	provinces={

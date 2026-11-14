@@ -25,10 +25,13 @@ state = {
 			11972 1 # Yibin
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 3
+				infrastructure = 3
+				air_base = 3
+				arms_factory = 1
+			}
 		}
 
 	}

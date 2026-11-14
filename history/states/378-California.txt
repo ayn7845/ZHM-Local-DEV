@@ -45,10 +45,10 @@ state={
 		victory_points = {
 			9713 1 
 		}
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			add_core_of = WST
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 7
+			}
 		}
 	}
 

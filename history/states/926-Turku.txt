@@ -34,11 +34,7 @@ state = {
 				coastal_bunker = 1
 			}
 		}
-		1936.1.1.13 = {
-			owner = GER
-			controller = GER
-			add_core_of = GER
-		}
+		
 	}
 
 	provinces = {

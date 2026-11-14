@@ -22,10 +22,12 @@ state = {
 			10004 1 # Fangchenggang
 		}
 
-		1936.1.1.14 = {
-			owner = WST
-			controller = WST
-			#add_core_of = WST
+		1938.10.25 = {
+			JAP = {
+				set_province_controller = 1018
+				set_province_controller = 4023
+				set_province_controller = 10004
+			} 			
 		}
 	}
 
