@@ -7,7 +7,6 @@
  pre_grind_desc:0 "No Grinding Pregrinded Generals"
  tank_pre_grind:0 "Tank Pregrind" 
  sov_inf_gen:0 "Infantry General"
- last_stand_gen:0 "Last Stand General"
  sov_inf_gen_desc:0 "Capable Commander to lead our vast Army"
  no_leader_promotion_trait:0 "No Leader Promotion"
  no_leader_promotion_trait_desc:0 "Trait exists only on FALS Generals"
@@ -71,7 +70,7 @@
 
 
 
- NO_ASIA_NAME:0 "Europe Only(WIP, Playable)"
+ NO_ASIA_NAME:0 "No-Asia(not balanced)"
  NO_ASIA_DESC:0 "Made for low playercount games\nBalance should be fine, but could need some more testing/refining"
 
 
