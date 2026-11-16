@@ -4009,14 +4009,6 @@ generic_general_aircraft_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { 
-
-				}
-				has_dlc = "Waking the Tiger"
-			}
-		}
-		NOT = {
-			AND = {
 				original_tag = MEX
 				has_dlc = "Man the Guns"
 			}

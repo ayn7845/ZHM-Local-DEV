@@ -159,6 +159,10 @@ ideas = {
 				always = no
 			}
 
+			available = {
+				always = no
+			}
+
 			picture = generic_economic_crisis
 
 			modifier = {
@@ -172,6 +176,10 @@ ideas = {
 		AST_citizen_army_spirit_fake = { #Fake for bookmark
 
 			allowed = {
+				always = no
+			}
+
+			available = {
 				always = no
 			}
 
@@ -189,6 +197,10 @@ ideas = {
 				always = no
 			}
 
+			available = {
+				always = no
+			}
+			
 			picture = generic_war_preparation
 
 			modifier = {
@@ -630,7 +642,7 @@ ideas = {
 			picture = AST_australian_comforts_fund_idea
 
 			modifier = {
-				army_org_factor = 0.05
+				#army_org_factor = 0.05 # ZHM_DEL goodbye org?
 				org_loss_when_moving = -0.1
    			}	
 		}

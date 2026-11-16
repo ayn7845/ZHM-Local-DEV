@@ -190,9 +190,6 @@ ideas = {
 						
 					}
 				}
-				IF = { 
-					
-				}
 			}
 
 			allowed_civil_war = {

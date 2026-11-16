@@ -9949,10 +9949,10 @@ country_event = {
 		add_war_support = 0.15
 
 		AUS = {
-			country_event = {
-				id = AUS_political_events.106
-				hours = 12
-			}
+			#ZHM-REVIEW event not defined: country_event = {
+				#id = AUS_political_events.106
+				#hours = 12
+			#}
 		}
 	}
 
@@ -10024,10 +10024,10 @@ country_event = {
 		}
 
 		AUS = {
-			country_event = {
-				id = AUS_political_events.106
-				days = 1
-			}
+			#ZHM-REVIEW event not defined: country_event = {
+				#id = AUS_political_events.106
+				#days = 1
+			#}
 		}
 	}
 
@@ -10062,10 +10062,10 @@ country_event = {
 		}
 
 		AUS = {
-			country_event = {
-				id = AUS_political_events.105
-				hours = 12
-			}
+			#ZHM-REVIEW event not defined: country_event = {
+				#id = AUS_political_events.105
+				#hours = 12
+			#}
 		}
 	}
 }
@@ -10214,7 +10214,7 @@ country_event = {
 		}
 
 		FROM = {
-			country_event = { id = BBA_italo_ethiopian_war_events.500 hours = 2 }
+			#ZHM-REVIEW event not defined: country_event = { id = BBA_italo_ethiopian_war_events.500 hours = 2 }
 		}
 	}
 
@@ -12356,7 +12356,7 @@ country_event = {
 		}
 
 		FROM = { 
-			country_event = { id = BBA_italo_ethiopian_war_events.500 hours = 4 random_hours = 2 }
+			#ZHM-REVIEW event not defined: country_event = { id = BBA_italo_ethiopian_war_events.500 hours = 4 random_hours = 2 }
 		}
 
 		hidden_effect = { #For scripted loc  purposes

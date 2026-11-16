@@ -1526,7 +1526,7 @@ country_event = {
 # dispatcher event - senate
 country_event = {
 	id = usa.50
-	Hidden = yes
+	hidden = yes
 	is_triggered_only = yes
 	trigger = {
 		tag = USA
@@ -1610,7 +1610,7 @@ country_event = {
 # dispatcher event - house
 country_event = {
 	id = usa.51
-	Hidden = yes
+	hidden = yes
 	is_triggered_only = yes
 	trigger = {
 		tag = USA

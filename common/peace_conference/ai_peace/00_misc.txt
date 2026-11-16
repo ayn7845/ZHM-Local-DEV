@@ -114,7 +114,7 @@ peace_ai_desires = {
                         original_tag = JAP
                     }
                     ROOT.FROM.FROM = {
-                        original_tag = CHI
+                        WTT_is_chinese_country = yes
                     }
                 }
             }

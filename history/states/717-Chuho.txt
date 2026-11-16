@@ -9,7 +9,7 @@ state = {
 		owner = MAN
 		add_core_of = CHI
 		add_core_of = MAN
-		add_core_of = WST
+		
 
 		victory_points = {
 			10463 1 # Jiamusi
@@ -18,7 +18,11 @@ state = {
 		buildings = { 
 			infrastructure = 2
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

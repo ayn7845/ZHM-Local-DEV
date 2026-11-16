@@ -334,8 +334,7 @@ PER_defensive_maneuvers_modifier = {
 
 	icon = GFX_idea_generic_wall_line
 	modifier_army_sub_unit_infantry_defence_factor = PER_sub_unit_infantry_defence_factor
-	modifier_army_sub_unit_irregular_infantry_defence_factor =
-	PER_sub_unit_infantry_irregular_defence_factor
+	modifier_army_sub_unit_irregular_infantry_defence_factor = PER_sub_unit_infantry_irregular_defence_factor
 	army_attack_factor = PER_army_attack_factor
 }
 

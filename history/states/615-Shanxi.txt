@@ -33,14 +33,10 @@ state = {
 			industrial_complex = 2
 		}
 
-		1938.10.25 = {
-			controller = JAP
-			CHI = {
-				set_province_controller = 1034
-				set_province_controller = 1531
-				set_province_controller = 4074
-				set_province_controller = 10367
-			}
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
 		}
 
 	}

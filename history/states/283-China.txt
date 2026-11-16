@@ -24,9 +24,10 @@ state = {
 		}
 
 
-		1938.10.25 = {
-			owner = CHI
-			controller = CHI
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
 		}
 	}
 

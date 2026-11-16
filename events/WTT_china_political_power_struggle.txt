@@ -723,7 +723,7 @@ country_event = {
 		set_global_flag = wtt_war_over_national_leadership
 		set_country_flag = wtt_refused_giving_leadership
 		clr_global_flag = wtt_national_leadership_takeover_in_progress
-		add_ideas = CHI_illegal_regime
+		#ZHM-REVIEW idea not defined: add_ideas = CHI_illegal_regime
 		FROM = {
 			country_event = { id = wtt_take_national_leadership.3 }
 		}

@@ -782,14 +782,6 @@ ideas = {
 
 			picture = ast_volunteer_defence_corps
 
-			cancel = {
-
-				OR = { 
-					
-				}
-
-			}
-
 			removal_cost = -1
 
 			equipment_bonus = {

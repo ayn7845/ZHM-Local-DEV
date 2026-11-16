@@ -100,9 +100,6 @@ ITA_missiolinis_manage_next_mission = {
 
 
 	}
-	else = { #RANDOM MISSIOLINIS TIME
-
-	}
 }
 
 ITA_missiolinis_initialize_new_mission_effect = { #Sets flags and everything necessary to keep track of ongoing missions, last time a mission was issued, etc.
@@ -375,7 +372,7 @@ ITA_missiolini_strengthen_the_airforce_success_effect = {
 		add_command_power = 35
 		add_war_support = 0.05
 		add_timed_idea = {
-			idea = ITA_strengthened_the_airforce_lion_Version
+			idea = ITA_strengthened_the_airforce_lion_version
 			days = 365
 		}
 	}
@@ -1390,9 +1387,6 @@ ITA_bop_decrease_lost_core_modifier = {
 			modifier = ITA_power_balance_lost_core_1
 		}
 	}
-	else = {
-		#NOTHING cannot decrease
-	}
 }
 
 ITA_bop_remove_lost_core_modifier = {
@@ -1619,9 +1613,6 @@ ITA_start_civil_war_effect = { #The one triggered via BoP
 			}
 		}
 	}
-	else = {
-		#log = "No RSI overlord"
-	}
 
 	if = {
 		limit = {
@@ -1637,9 +1628,6 @@ ITA_start_civil_war_effect = { #The one triggered via BoP
 				end_wars = no
 			}
 		}
-	}
-	else = {
-		#log = "No RDS overlord"
 	}
 
 	#IDEOLOGY AND LEADERS
@@ -5352,7 +5340,7 @@ ITA_add_the_king_of_the_skies_template_production_and_wing = {
 
 	custom_effect_tooltip = ITA_aquila_magna_tt
 	hidden_effect = {
-		load_oob = ITA_aquila_magna
+		#ZHM-REVIEW oob file missing: load_oob = ITA_aquila_magna
 	}
 }
 
@@ -5458,7 +5446,7 @@ ITA_add_improved_light_tank_templates = {
 		type = light_tank_destroyer_chassis_2
 		parent_version = 0
 		modules = {
-			main_armament_slot = tank_medium_cannon
+			main_armament_slot = tank_high_velocity_cannon
 			turret_type_slot = tank_light_fixed_superstructure_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
@@ -5827,7 +5815,7 @@ ITA_add_modern_musculus_sh_tank_template_and_production = {
 		equipment = {
 			type = super_heavy_tank_chassis_1
 			creator = "ITA"
-			version_name = "Caesar"
+			version_name = "Cataphract Mortis"
 		}
 
 		requested_factories = 1

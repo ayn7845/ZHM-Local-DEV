@@ -405,9 +405,6 @@ country_event = {
 				}
 			}
 		}
-		NOT = { 
-			
-		}
 		NOT = {
 			AND = {
 				has_dlc = "Thunder at Our Gates"
@@ -1897,9 +1894,6 @@ country_event = {
 			}
 		}
 
-		NOT = { 
-
-		}
 
 		NOT = {
 			AND = {
@@ -2138,12 +2132,6 @@ country_event = {
 				has_dlc = "By Blood Alone"
 				original_tag = ETH
 				has_country_flag = ETH_communist_civil_war
-			}
-			AND = {
-
-			}
-			AND = { 
-				
 			}
 			original_tag = MEX # Best not to let this happen during any of their nmany potential civil wars that may have the same ideology 
 		}

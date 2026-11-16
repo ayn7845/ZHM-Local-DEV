@@ -1705,15 +1705,7 @@ country_event = {
 	# They have accepted.
 	option = {
 		name = wtt_japan.127.a
-		if = { 
-
-		}
-		else_if = { 
-
-		}
-		else_if = { 
-
-		}
+		
 		if = {
 			limit = {
 				524 = { #Taiwan
@@ -1777,10 +1769,8 @@ country_event = {
 				white_peace = ROOT
 			}
 		}
-		if = { 
-			
-		}
-		else = {
+		
+		#else = {
 			every_other_country = {
 				limit = {
 					OR = {
@@ -1820,7 +1810,7 @@ country_event = {
 				}
 				white_peace = ROOT
 			}
-		}
+		#}
 		hidden_effect = {
 			
 			set_truce = {

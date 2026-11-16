@@ -1,0 +1,1190 @@
+#scripted localization
+defined_text = {
+    name = GetHorstHostCountryStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = GER
+            }
+        }
+        localization_key = "Germany"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = ITA
+            }
+        }
+        localization_key = "Italy"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = SPR
+            }
+        }
+        localization_key = "Spain"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = ROM
+            }
+        }
+        localization_key = "Romania"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = HUN
+            }
+        }
+        localization_key = "Hungary"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = FIN
+            }
+        }
+        localization_key = "Finland"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = BUL
+            }
+        }
+        localization_key = "Bulgaria"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = JAP
+            }
+        }
+        localization_key = "Japan"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = MAN
+            }
+        }
+        localization_key = "Manchukuo"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = ENG
+            }
+        }
+        localization_key = "United Kingdom"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = USA
+            }
+        }
+        localization_key = "United States"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = FRA
+            }
+        }
+        localization_key = "France"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = RAJ
+            }
+        }
+        localization_key = "British Raj"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = CAN
+            }
+        }
+        localization_key = "Canada"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = AST
+            }
+        }
+        localization_key = "Australia"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = SAF
+            }
+        }
+        localization_key = "South Africa"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = MEX
+            }
+        }
+        localization_key = "Mexico"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = BRA
+            }
+        }
+        localization_key = "Brazil"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = horst_host_country
+                option = SOV
+            }
+        }
+        localization_key = "Soviet Union"
+    }
+}
+
+defined_text = {
+    name = GetSovietLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetJapanLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = faction_ll
+            }
+        }
+        localization_key = "Faction Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = japan_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetFinlandLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finland_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetNoobNationLendLeaseStatus
+
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = limited
+            }
+        }
+        localization_key = "Limited"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = faction_ll
+            }
+        }
+        localization_key = "Faction Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = noob_nation_ll_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+  
+}
+
+defined_text = {
+    name = GetCasDoctrinesStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = cas_doctrines_status
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = cas_doctrines_status
+                option = axis
+            }
+        }
+        localization_key = "Axis Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = cas_doctrines_status
+                option = allies
+            }
+        }
+        localization_key = "Allies Only"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = cas_doctrines_status
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetAlliedPreGrindStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = allied_pre_grind
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = allied_pre_grind
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetAlliesAcRuleStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = allies_ac_rule
+                option = brazil_ac
+            }
+        }
+        localization_key = "Brazil AC"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = allies_ac_rule
+                option = canada_ac
+            }
+        }
+        localization_key = "Canada AC"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = allies_ac_rule
+                option = uk_ac
+            }
+        }
+        localization_key = "UK AC"
+    }
+}
+
+defined_text = {
+    name = GetAxisFuelSpiritStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = axis_fuel_spirit
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = axis_fuel_spirit
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetItalyAltHistStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = italy_alt_hist
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = italy_alt_hist
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetSovietResearchSlotStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_research_slot
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_research_slot
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetSovietCollectivizedEconomyStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_collectivized_economy
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_collectivized_economy
+                option = off
+            }
+        }
+        localization_key = "On"
+    }
+}
+
+defined_text = {
+    name = GetSovietEradicateWesternFascismRuleStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_eradicate_western_fascism_rule
+                option = yes
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = soviet_eradicate_western_fascism_rule
+                option = no
+            }
+        }
+        localization_key = "Banned"
+    }
+}
+
+defined_text = {
+    name = GetGermanyCzechManufacturersStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = skoda_works
+            }
+        }
+        localization_key = "Skoda Works"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = td_mio
+            }
+        }
+        localization_key = "TD MIO Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = air_mio
+            }
+        }
+        localization_key = "Air MIO banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = production_mio
+            }
+        }
+        localization_key = "Skoda Works Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_czech_manufacturers
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+}
+
+defined_text = {
+    name = GetGermanyWirtschaftswunderStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Wirtschaftswunder
+                option = Germany_no_wirtschaftswunder
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Wirtschaftswunder
+                option = Germany_wirtschaftswunder
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetGermanyCancelMefoStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Cancel_Mefo
+                option = Germany_no_cancel_MEFO_Bills
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Cancel_Mefo
+                option = Germany_cancel_MEFO_Bills
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetGermanyFateOfYugoStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Fate_of_yugo
+                option = Germany_no_fate_of_yugo
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = Germany_Fate_of_yugo
+                option = Germany_fate_of_yugo
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetUrbanAssaultVechileStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = urban_assault_vechile
+                option = off
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = urban_assault_vechile
+                option = on
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetRailwayGunStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = railway_gun
+                option = off
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = railway_gun
+                option = on
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetSuperHeavyRailwayGunStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = super_heavy_railway_gun
+                option = off
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = super_heavy_railway_gun
+                option = on
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetMultiChargeLargeCaliberGunStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = multi_charge_large_caliber_gun
+                option = off
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = multi_charge_large_caliber_gun
+                option = on
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetMaxSubmarineTechStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = max_submarine_tech
+                option = sub2
+            }
+        }
+        localization_key = "Submarine 3 & 4 Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = max_submarine_tech
+                option = sub3
+            }
+        }
+        localization_key = "Submarine 3 and Snorkel 1 Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = max_submarine_tech
+                option = sub4
+            }
+        }
+        localization_key = "Submarine 4 and Snorkel 2. Allowed"
+    }
+}
+
+defined_text = {
+    name = GetSovBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = sov_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = sov_boost
+                option = sov4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = sov_boost
+                option = sov8
+            }
+        }
+        localization_key = "On-8"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = sov_boost
+                option = sov12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetGerBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ger_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ger_boost
+                option = ger4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ger_boost
+                option = ger8
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ger_boost
+                option = ger12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetJapBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = jap_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = jap_boost
+                option = jap4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = jap_boost
+                option = jap8
+            }
+        }
+        localization_key = "On-8"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = jap_boost
+                option = jap12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetEngBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = eng_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = eng_boost
+                option = eng4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = eng_boost
+                option = eng8
+            }
+        }
+        localization_key = "On-8"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = eng_boost
+                option = eng12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetItaBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ita_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ita_boost
+                option = ita4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ita_boost
+                option = ita8
+            }
+        }
+        localization_key = "On-8"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ita_boost
+                option = ita12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetFraBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = fra_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = fra_boost
+                option = fra4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = fra_boost
+                option = fra8
+            }
+        }
+        localization_key = "On-8"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = fra_boost
+                option = fra12
+            }
+        }
+        localization_key = "On-12"
+    }
+}
+
+defined_text = {
+    name = GetUsaBoostStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = usa_boost
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = usa_boost
+                option = usa4
+            }
+        }
+        localization_key = "On-4"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = usa_boost
+                option = usa8
+            }
+        }
+        localization_key = "On-8"
+    }
+}
+
+defined_text = {
+    name = GetEthiopiaHoldStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ethiopia_hold
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = ethiopia_hold
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+}
+
+defined_text = {
+    name = GetStratBombingStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = strat_bombing
+                option = allowed
+            }
+        }
+        localization_key = "Allowed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = strat_bombing
+                option = banned
+            }
+        }
+        localization_key = "Banned and German Eco Nerfed"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = strat_bombing
+                option = banned_no_eco_nerf
+            }
+        }
+        localization_key = "Banned and German Eco Unnerfed"
+    }
+}
+
+defined_text = {
+    name = GetSpanishProductionStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = spanish_production
+                option = ger_mech
+            }
+        }
+        localization_key = "German Lend Lease for Mech"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = spanish_production
+                option = bul_mech
+            }
+        }
+        localization_key = "German-Bulgarian Lend Lease for Mech"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = spanish_production
+                option = mixer
+            }
+        }
+        localization_key = "Germany can choose either BUL or GER"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = spanish_production
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetFinishProductionStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finish_production
+                option = ger_gun
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = finish_production
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+}
+
+defined_text = {
+    name = GetTradebacksStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tradebacks
+                option = off
+            }
+        }
+        localization_key = "Off"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tradebacks
+                option = on
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tradebacks
+                option = only_axis
+            }
+        }
+        localization_key = "Axis Only"
+    }
+}
+

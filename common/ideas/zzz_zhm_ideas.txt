@@ -1,7 +1,40 @@
 ideas = { 
     country = { 
+
+		zhm_scw_idea = {
+			name = "Spanish Civil War Early End"
+
+			removal_cost = -1
+			picture = SPR_nationalist_remnants
+
+			cancel = { 
+				date > 1938.1.1
+			}
+			modifier = {
+				political_power_gain = -1
+			}
+		}
+
+		zhm_temp_ws = {
+			name = "Temporary War Support"
+			removal_cost = -1
+			picture = MEX_politicised_army
+			modifier = {
+				war_support_factor = 0.10
+			}
+		}
+
+		zhm_operative_slots = { 
+			name = "Operative Slots"
+			removal_cost = -1
+			picture = generic_spy_intel
+			modifier = { 
+				operative_slot = 2
+			}
+		}
+
         zhm_manpower = {
-			name = "Colonial Manpower"
+			name = "Extra Manpower"
 			removal_cost = -1
 			picture = MEX_politicised_army
 			modifier = {
@@ -39,6 +72,15 @@ ideas = {
 			}
 		}
 
+		default_ac_idea = { 
+			name = "AC idea"
+			picture = generic_air_fighter
+			removal_cost = -1
+			modifier = { 
+				air_fuel_consumption_factor = -0.5
+			}
+		}
+		
 		uk_ac_idea_1 = { # tuned down version if a UK coop joins
 			name = "AC Spirit" 
 			picture = generic_air_fighter
@@ -48,11 +90,12 @@ ideas = {
 				air_ace_generation_chance_factor = 0.10
 				max_command_power = 40
 				base_fuel_gain = 2700
+				air_fuel_consumption_factor = -0.5
 			}
 		}
 
 		uk_ac_idea_2 = { # Deversus AC moment
-			name = "No AC COOP Spirit" 
+			name = "Improved AC Spirit" 
 			picture = generic_air_fighter
 			removal_cost = -1
 			modifier = {
@@ -67,6 +110,7 @@ ideas = {
 				naval_strike_agility_factor = 0.05
 				max_command_power = 40
 				base_fuel_gain = 2700
+				air_fuel_consumption_factor = -0.5
 			}
 		}
 
@@ -74,7 +118,7 @@ ideas = {
 			name = "German Fuel"
             picture = generic_stockpile_fuel
             modifier = {
-                base_fuel_gain = 1000
+                base_fuel_gain = 1300
             }
         }
 
@@ -92,6 +136,12 @@ ideas = {
             modifier = {
                 base_fuel_gain = 160
             }
+			cancel = { 
+				OR = { 
+					has_idea = italian_fuel
+					has_idea = german_fuel
+				}
+			}
         }
 
 		POR_is_ai = { # Unused

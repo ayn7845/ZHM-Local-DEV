@@ -13,7 +13,7 @@ state = {
 	history = {
 
 		owner = JAP
-		
+		add_core_of = CHI
 
 		buildings = {
 			infrastructure = 2
@@ -29,7 +29,11 @@ state = {
 		victory_points = {
 			898 1 # Seishin
 		}	
-		
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

@@ -305,7 +305,7 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = { gives_military_access_to = GER }
-					date > 1939.4.31
+					date > 1939.4.30
 				}
 				give_military_access = GER
 			}
@@ -706,6 +706,19 @@ on_actions = {
 					}
 					allow_allies_grind = yes
 				}
+				if = { 
+					limit = { 
+						has_global_flag = zhm_no_asia
+						ENG = { 
+							NOT = { 
+								has_country_flag = no_asia_fighter_LL
+							}
+						}
+					}
+					ENG = { 
+						country_event = { id = zhm.9 }
+					}
+				}
             }
 			else_if = {
                 limit = {
@@ -832,9 +845,8 @@ on_actions = {
 		effect = {
 			if = {
 				limit ={
-					has_game_rule = {
-						rule = playable_iraq
-						option = no
+					IRQ = { 
+						is_ai = yes
 					}
 				}
 				ENG = { 

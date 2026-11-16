@@ -44,7 +44,87 @@ form_greater_german_reich_category = {
 	}
 }
 
-operations = { 
+operations = {
+
+	no_asia_world_tension_1 = {
+
+		name = "World Tension Simulation"
+
+		icon = GFX_decision_generic_air
+		days_mission_timeout = 365
+
+		activation = {
+			has_country_flag = zhm_no_asia_simulation
+		}
+		
+		allowed = { 
+			tag = WST
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = {
+			always = yes
+		}
+		
+		cancel_trigger = {
+			#always = no
+		}
+
+		fire_only_once = yes
+		is_good = yes
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+			add_threat = 30
+			activate_mission = no_asia_world_tension_2
+		}
+	} 
+	no_asia_world_tension_2 = {
+
+		name = "World Tension Simulation"
+
+		icon = GFX_decision_generic_air
+		days_mission_timeout = 250
+
+		activation = {
+			if = { 
+				limit = { 
+					has_country_flag = zhm_no_asia_simulation
+				}
+				NOT = { 
+					has_active_mission = no_asia_world_tension_1
+				}
+			}
+			else = { 
+				always = no
+			}
+		}
+
+		allowed = { 
+			tag = WST
+		}
+
+		visible = {	
+			
+		}
+		
+		#cost = 0
+		
+		fire_only_once = yes
+		is_good = yes
+		cancel_if_not_visible = yes
+		available = {
+			hidden_trigger = { always = no }
+			NOT = { has_active_mission = no_asia_world_tension_1 }
+		}
+
+		timeout_effect = {
+			
+			add_threat = 20
+		}
+	}
 	
 	annex_romania = { 
 		name = "Annex Romania"
@@ -110,6 +190,534 @@ operations = {
         }
 	}
 }
+
+easy_LL = {
+
+	start_LL_eng = {
+
+		name = "Start Lend lease to United Kingdom"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_eng }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = uk_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = ENG } }
+
+		available = {
+			date > 1940.5.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_eng
+		}
+	}
+
+    active_LL_eng_1 = {
+
+		name = "Sending Air to United Kingdom 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_eng
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_eng 
+			NOT = { has_active_mission = active_LL_eng_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = ENG }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = ENG }	
+			}
+			activate_mission = active_LL_eng_2
+		}			
+    }
+
+	active_LL_eng_2 = {
+
+		name = "Sending Air to United Kingdom 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_eng
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = ENG }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = ENG }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = ENG }	
+			}
+			activate_mission = active_LL_eng_1
+		}			
+    }
+
+	close_LL_eng = {
+
+		name = "Close Air Lend Lease to United Kingdom"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_eng
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_eng
+		}
+	}
+
+
+
+##################################################################################################################
+##################################################################################################################
+##################################################################################################################
+
+
+	start_LL_CAN = {
+
+		name = "Start Lend lease to Canada"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_CAN }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = canada_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = CAN } }
+
+		available = {
+			date > 1940.5.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_CAN
+		}
+	}
+
+    active_LL_CAN_1 = {
+
+		name = "Sending Air to Canada 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_CAN
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_CAN 
+			NOT = { has_active_mission = active_LL_CAN_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = CAN }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = CAN }	
+			}
+			activate_mission = active_LL_CAN_2
+		}			
+    }
+
+	active_LL_CAN_2 = {
+
+		name = "Sending Air to Canada 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_CAN
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = CAN }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = CAN }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = CAN }	
+			}
+			activate_mission = active_LL_CAN_1
+		}			
+    }
+
+	close_LL_CAN = {
+
+		name = "Close Air Lend Lease to Canada"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_CAN
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_CAN
+		}
+	}
+
+
+##################################################################################################################
+##################################################################################################################
+##################################################################################################################
+
+
+	start_LL_BRA = {
+
+		name = "Start Lend lease to Brazil"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			NOT = { has_country_flag = sending_ll_to_BRA }
+			has_game_rule = { 
+				rule = allies_ac_rule
+				option = brazil_ac
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		target_trigger = { FROM = { original_tag = BRA } }
+
+		available = {
+			date > 1940.5.1 # Danzig or War
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = easy_LL_activation
+			set_country_flag = sending_ll_to_BRA
+		}
+	}
+
+    active_LL_BRA_1 = {
+
+		name = "Sending Air to Brazil 1"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = sending_ll_to_BRA
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = sending_ll_to_BRA 
+			NOT = { has_active_mission = active_LL_BRA_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = BRA }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = BRA }	
+			}
+			activate_mission = active_LL_BRA_2
+		}			
+    }
+
+	active_LL_BRA_2 = {
+
+		name = "Sending Air to Brazil 2"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = sending_ll_to_BRA
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+            if = { limit = { tag = USA }
+				send_equipment = { equipment = small_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = small_plane_cas_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_airframe amount = 100000 target = BRA }
+				send_equipment = { equipment = medium_plane_fighter_airframe amount = 100000 target = BRA }	
+				send_equipment = { equipment = large_plane_airframe amount = 100000 target = BRA }	
+			}
+			activate_mission = active_LL_BRA_1
+		}			
+    }
+
+	close_LL_BRA = {
+
+		name = "Close Air Lend Lease to Brazil"
+
+		icon = GFX_decision_generic_air
+
+		visible = {	
+			original_tag = USA
+			has_country_flag = sending_ll_to_BRA
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = sending_ll_to_BRA
+		}
+	}
+
+
+
+
+
+	no_asia_uk_LL = {
+
+		name = "Fighter LL ENG"
+
+		icon = GFX_decision_generic_air
+			
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = { 
+			has_country_flag = no_asia_fighter_LL
+		}
+
+		is_good = yes
+		activation = { 
+			has_country_flag = no_asia_fighter_LL 
+			NOT = { has_active_mission = no_asia_uk_LL_2 }
+		}
+		days_mission_timeout = 30
+
+		cancel_if_not_visible = yes
+
+		timeout_effect = {
+            if = { 
+				limit = { date < 1940.1.1 }
+					add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 250
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			else_if = { 
+				limit = { 
+					date > 1940.1.1
+					date < 1940.6.1
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 500
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			else_if = { 
+				limit = { 
+					date > 1940.6.1
+					#date > 1940.8.1
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 1000
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			
+			activate_mission = no_asia_uk_LL_2
+		}			
+    }
+
+	no_asia_uk_LL_2 = {
+
+		name = "Fighter LL ENG"
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		visible = { 
+			has_country_flag = no_asia_fighter_LL
+		}
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+		activation = { always = no }
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+           if = { 
+				limit = { date < 1940.1.1 }
+					add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 250
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			else_if = { 
+				limit = { 
+					date > 1940.1.1
+					date < 1940.6.1
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 500
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			else_if = { 
+				limit = { 
+					date > 1940.6.1
+					#date > 1940.8.1
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_2
+					amount = 1000
+					producer = ENG
+					variant_name = "F2 JET NO ASIA"
+				}	
+			}
+			activate_mission = no_asia_uk_LL
+		}			
+    }
+
+}	
 
 ZHM_host = { 
 
@@ -257,12 +865,93 @@ ZHM_host = {
 						SPA = { annex_country = { target = PREV transfer_troops = no } } 
 					}
 					country_event = { id = lar_news.1 }
+
+					add_ideas = zhm_scw_idea
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				set_global_flag = nationalist_victory
 				set_global_flag = scw_over
-
 				
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				if = { 
+					limit = { 
+						date < 1936.8.1
+					}
+					army_experience = 200
+				}
+				else_if = { 
+					limit = { 
+						date < 1936.10.1
+					}
+					army_experience = 175
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.1.1
+					}
+					army_experience = 150
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.3.1
+					}
+					army_experience = 125
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.6.1
+					}
+					army_experience = 100
+				}
+				else_if = { 
+					limit = { 
+						date < 1937.9.1
+					}
+					army_experience = 75
+				}
+				else_if = { 
+					limit = { 
+						date < 1938.1.1
+					}
+					army_experience = 50
+				}
+				else = { 
+					army_experience = 25
+				}
+				
+				every_state = { 
+					limit = { 
+						has_state_flag = SPR_sided_with_republicans_flag
+						NOT = { 
+							OR = { 
+								state = 792
+								state = 790
+								state = 171
+								state = 174
+								state = 788
+								state = 791
+								state = 176
+								state = 166
+								state = 172
+							}
+						}
+					}
+					remove_core_of = SPA
+					start_resistance = yes
+				}
+				RAJ = { 
+					add_timed_idea = { 
+						idea = zhm_temp_ws
+						days = 300
+					}
+				}
+				ENG = { 
+					add_timed_idea = { 
+						idea = zhm_temp_ws
+						days = 300
+					}
+				}
 			}
 		}
 
@@ -466,6 +1155,65 @@ ZHM_host = {
 				} 
 				GER = { 
 					load_oob = "ZHM_GER_1936_naval_mtg"
+				}
+			}
+		}
+
+		ROM_barb_wall_fix = { 
+			name = "Fix Romanian Barb Wall"
+			icon = GFX_decision_category_generic
+			fire_only_once = yes
+			cost = 0 
+
+			
+			days_remove = 1
+
+			available = { 
+				date > 1941.4.1
+				ROM = { 
+					NOT = { 
+						has_war_with = SOV
+					}
+				}
+			}
+			
+			complete_effect = { 
+				news_event = { 
+					id = zhm.7
+				} 
+				ROM = { 
+					load_oob = "ZHM_ROM_barb_fix"
+				}
+			}
+		}
+
+		HUN_barb_wall_fix = { 
+			name = "Fix Hungarian Barb Wall"
+			icon = GFX_decision_category_generic
+			fire_only_once = yes
+			cost = 0 
+
+			
+			days_remove = 1
+
+			available = { 
+				date > 1941.4.1
+				HUN = { 
+					NOT = { 
+						has_war_with = SOV
+					}
+				}
+				ROM = { 
+					exists = yes
+				}
+			}
+			
+			complete_effect = { 
+				news_event = { 
+					id = zhm.8
+				} 
+				HUN = { 
+					load_oob = "ZHM_HUN_barb_fix"
 				}
 			}
 		}

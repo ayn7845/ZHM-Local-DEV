@@ -28,8 +28,10 @@ state = {
 		victory_points = {
 			11913 20 # Nanjing
 		}
-		1938.10.25 = {
-			controller = JAP
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
 		}
 	}
 

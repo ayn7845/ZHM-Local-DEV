@@ -382,22 +382,13 @@ on_actions = {
 	#ROOT is country declaring war
 	on_declare_war = {
 		effect = {
-			IF = { 
-
-			}
 			#Picking out who is the leader in a war when invading Iran
-			IF = { 
-
-			}
 		}
 	}
 
 	on_subject_free = {
 		effect = {
 			##ROOT is subject FROM is previous overlord
-			if = { 
-
-			}
 
 
 			if = {
@@ -480,18 +471,6 @@ on_actions = {
 		}
 		#Capitulations Pertaining to Achievements
 		effect = {
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-
-			}
-			if = { 
-				
-			}
 		}
 		effect = {
 			IF = {
@@ -625,9 +604,6 @@ on_actions = {
 	#FROM is faction leader on join faction requests. THIS DOES NOT FIRE ON ADD_TO_FACTION EFFECT! USE ON_OFFER_JOIN_FACTION!
 	ON_OFFER_JOIN_FACTION = { 
 		effect = { # Adding the correct stuff for faction joiners for the AH joint focus tree
-			IF = { 
-				
-			}
 		}
 	}
 

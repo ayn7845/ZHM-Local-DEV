@@ -759,29 +759,7 @@ on_actions = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					POL = {
-						is_subject_of = GER
-						is_ai = no #So that there's no weird transfer of states between AIs
-					}
-					GER = { is_ai = yes }
-				}
-				GER = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								is_core_of = POL
-								is_claimed_by = POL
-							}
-							NOT = { is_core_of = GER }
-						}
-						POL = {
-							transfer_state = PREV
-						}
-					}
-				}
-			}
+			
 			
 		}
 		effect = { #SOV - Fourth Five Year Plan
@@ -1072,14 +1050,13 @@ on_actions = {
 				}
 				#log = "Medium Paranoia days = [?SOV_medium_paranoia_days] // High Paranoia days = [?SOV_high_paranoia_days]" #Debug
 			}
-			else = {
-				#log = "NOT A PURGE WEEK" #Debug
-			}
 
 			### SOVIET CIVIL WAR TRIGGER
 			
 		}
 	}
+
+	
 
 	on_monthly_SOV = { 
 		effect = { 
@@ -1174,8 +1151,8 @@ on_actions = {
 				}
 				ROOT = {
 					add_ideas = {
-						SOV_system_decentralization_idea
-						SOV_the_local_soviets_idea
+						#ZHM-REVIEW idea not defined: SOV_system_decentralization_idea
+						#ZHM-REVIEW idea not defined: SOV_the_local_soviets_idea
 					}
 				}
 			}

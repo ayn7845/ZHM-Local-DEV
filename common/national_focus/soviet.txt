@@ -1151,6 +1151,11 @@ focus_tree = {
 					has_dlc = "No Compromise, No Surrender"
 				}
 				has_completed_focus = SOV_curtailment_of_the_collective_farms 
+				}
+				ELSE = {
+					hidden_trigger = {
+					always = no
+				}
 			}
 		}
 		
@@ -2440,20 +2445,14 @@ focus_tree = {
 							NOT = { has_government = communism }
 						}
 						
-						load_oob = "SOV_night_witches_nsb_alt_bba"
-						else = {
-							load_oob = "SOV_night_witches_nsb_bba" #nested here because otherwise it is considered a nested else for the higher level if
-						}
+						#ZHM-REVIEW oob file missing: load_oob = "SOV_night_witches_nsb_alt_bba"
 					}
 				}
 				else_if = { #ALT IDEOLOGY
 					limit = {
 						NOT = { has_government = communism }
 					}
-					load_oob = "SOV_night_witches_nsb_alt"
-				}
-				else = { #DEFAULT COMMUNISM
-					load_oob = "SOV_night_witches_nsb"
+					#ZHM-REVIEW oob file missing: load_oob = "SOV_night_witches_nsb_alt"
 				}
 			}
 		}
@@ -4903,7 +4902,7 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { SOV_defense_industry_production_speed_coastal_bunker_factor = 0.05 }
 			add_to_variable = { SOV_defense_industry_production_speed_bunker_factor = 0.05 }
-			add_to_variable = { SOV_defense_industry_max_dig_in_factor = 0.05 }
+			add_to_variable = { SOV_defense_industry_max_dig_in = 2 }
 			custom_effect_tooltip = SOV_military_engineering_university_ns_tt
 		}
 	}
@@ -4916,7 +4915,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = SOV_the_means_to_wage_war
-		cost = 10
+		cost = 5
 		dynamic = yes 
 		available = {
 
@@ -7210,9 +7209,6 @@ focus_tree = {
 			custom_effect_tooltip = SOV_trigger_first_moscow_trial_tt
 
 			custom_effect_tooltip = newline_tt
-			if = { 
-
-			}
 		}
 	}
 
@@ -7499,9 +7495,6 @@ focus_tree = {
 
 			custom_effect_tooltip = newline_tt
 
-			if = { 
-
-			}
 		}
 	}
 
@@ -7730,9 +7723,6 @@ focus_tree = {
 			set_country_flag = SOV_stalinist_military_flag #New Generals have more chances of being Stalinists after this
 
 			custom_effect_tooltip = newline_tt
-			if = { 
-
-			}
 		}
 	}
 
@@ -7833,9 +7823,6 @@ focus_tree = {
 			SOV_remove_paranoia_effect = yes #REMOVE PARANOIA SYSTEM
 
 			custom_effect_tooltip = newline_tt
-			if = { 
-
-			}
 		}
 	}
 
@@ -8515,7 +8502,7 @@ focus_tree = {
 			add_political_power = 120
 			SOV_paranoia_low_increase_effect = yes
 
-			news_event = { id = nsb_news.200 hours = 2 random_hours = 2 }			
+			#ZHM-REVIEW event not defined: news_event = { id = nsb_news.200 hours = 2 random_hours = 2 }			
 		}
 	}
 
@@ -9303,7 +9290,7 @@ focus_tree = {
 				ideology = communism 
 				popularity = 0.1
 			}
-			add_ideas = SOV_system_decentralization_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_system_decentralization_idea
 		}
 	}
 
@@ -9421,7 +9408,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			add_ideas = SOV_the_local_soviets_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_the_local_soviets_idea
 		}
 	}
 
@@ -9497,23 +9484,11 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SOV_autonomous_soviet_republics_tt
 			# Georgia
-			IF = { 
-
-			}
 			# Armenia
-			IF = { 
-
-			}
 
 			# Axerbaijan
-			IF = { 
-
-			}
 
 			# Belarus
-			IF = { 
-
-			}
 		}
 	}
 
@@ -10245,7 +10220,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = SOV_curtailment_of_the_collective_farms_tt
-			add_ideas = SOV_curtailment_collective_farms_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_curtailment_collective_farms_idea
 		}
 	}
 
@@ -10269,7 +10244,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.05
-			add_ideas = SOV_administrative_reforms_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_administrative_reforms_idea
 		}
 	}
 
@@ -10483,7 +10458,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_ideas = SOV_local_organizations_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_local_organizations_idea
 		}
 	}
 
@@ -11393,7 +11368,7 @@ focus_tree = {
 				ideology = communism 
 				popularity = 0.05
 			}
-			add_ideas = SOV_strong_trade_unions_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_strong_trade_unions_idea
 			
 		}
 	}
@@ -11416,7 +11391,7 @@ focus_tree = {
 				ideology = communism 
 				popularity = 0.1
 			}
-			add_ideas = SOV_the_peoples_revolution_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_the_peoples_revolution_idea
 		}
 	}
 
@@ -12402,7 +12377,8 @@ focus_tree = {
 		
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			any_country = {
+			any_collection_element = {
+				collection = game:all_majors
 				OR = {
 					tag = ENG
 					tag = FRA
@@ -12410,7 +12386,7 @@ focus_tree = {
 					tag = ITA
 				}
 				has_government = fascism
-				is_major = yes
+				
 			}
 			is_subject = no
 		}
@@ -12839,7 +12815,8 @@ focus_tree = {
 		
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			any_country = {
+			any_collection_element = {
+				collection = game:all_majors
 				OR = {
 					tag = ENG
 					tag = FRA
@@ -12847,7 +12824,6 @@ focus_tree = {
 					tag = ITA
 				}
 				has_government = democratic
-				is_major = yes
 				is_subject = no
 			}
 		}
@@ -13762,7 +13738,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			POL = {
-				country_event = { id = poland.2 }
+				#ZHM-REVIEW event not defined: country_event = { id = poland.2 }
 				custom_effect_tooltip = needs_approval
 			}
 			effect_tooltip = {
@@ -13860,7 +13836,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			POL = {
-				country_event = { id = poland.5 }
+				#ZHM-REVIEW event not defined: country_event = { id = poland.5 }
 				custom_effect_tooltip = needs_approval
 				effect_tooltip = {
 					add_state_claim = 5
@@ -13934,39 +13910,56 @@ focus_tree = {
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
 			is_subject = no
-			any_country = {
-				owns_state = 78
-				controls_state = 78
+			78 = {
+				owner = {
+					controls_state = 78
+				}
 			}
 		}
 
 		bypass = {
 			OR = {
 				AND = {
-					OR = {
-						owns_state = 78 #Bessarabia
-						78 = {
-							owner = { is_in_faction_with = ROOT }
+					78 = { #Bessarabia
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
-					OR = {
-						owns_state = 80 #Bucovina
-						80 = {
-							owner = { is_in_faction_with = ROOT }
+					80 = { #Bucovina
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
-					OR = {
-						owns_state = 766 #Southern Bessarabia
-						766 = {
-							owner = { is_in_faction_with = ROOT }
+					766 = { #Southern Bessarabia
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
 				}
-				any_country = {
-					owns_state = 78
-					owns_state = 80
-					owns_state = 766
-					has_war_with = ROOT
+				78 = { #Besserabia
+					owner = {
+						owns_state = 80 #Bucovina
+						owns_state = 766 #Southern Bessarabia
+						has_war_with = ROOT
+					}
 				}
 			}
 		}
@@ -14393,9 +14386,6 @@ focus_tree = {
 				is_controlled_by_ROOT_or_subject = yes 
 			}
 
-			OR = { 
-
-			}
 
 			is_subject = no
 		}
@@ -14422,9 +14412,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_the_gobi_gambit focus = SOV_support_the_kuomintang }
 
 		bypass = {
-			OR = { 
-				
-			}
+			
 		}
 
 		available = {
@@ -14584,7 +14572,7 @@ focus_tree = {
 				limit = {
 					is_in_faction_with = ROOT
 					SOV_is_chinese_tag = yes
-					is_in_faction_with = ROOT
+					
 				}
 				hidden_effect = {
 					country_event = NSB_soviet_foreign_politics_events.251
@@ -15164,7 +15152,7 @@ focus_tree = {
 				popularity = 0.05
 			}
 			custom_effect_tooltip = SOV_fascist_womens_movement_tt
-			effect_tooltip = { add_ideas = SOV_fascist_womens_movement_idea }
+			#ZHM-REVIEW idea not defined: effect_tooltip = { add_ideas = SOV_fascist_womens_movement_idea }
 			set_country_flag = SOV_fascist_womens_movement_flag
 		}
 		
@@ -15206,7 +15194,7 @@ focus_tree = {
 				popularity = 0.1
 			}
 			custom_effect_tooltip = SOV_the_true_tsars_tt
-			effect_tooltip = { add_ideas = SOV_the_true_tsars_idea }		
+			#ZHM-REVIEW idea not defined: effect_tooltip = { add_ideas = SOV_the_true_tsars_idea }		
 			set_country_flag = SOV_the_true_tsars_flag
 		}
 	}
@@ -15601,7 +15589,7 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = { 
-				id = NSB_Soviet_fascist_civil_war.001 hours = 6 random_hours = 6 
+				id = NSB_Soviet_fascist_civil_war.001 hours = 2
 			}
 			SOV_opposition_support_high_increase_effect = yes 
 			SOV_increase_opposition_army_support = yes
@@ -15968,7 +15956,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_ideas = SOV_restore_the_glory_of_the_motherland
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_restore_the_glory_of_the_motherland
 		}
 	}
 
@@ -15996,7 +15984,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			add_ideas = SOV_church_power_1
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_church_power_1
 		}
 	}
 
@@ -16174,7 +16162,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			add_ideas = SOV_romanov_spirit_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_romanov_spirit_idea
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = SOV_reconvene_the_zemsky_sobor_tt
 			country_event = NSB_soviet_fascist_tsarist.14
@@ -16291,7 +16279,7 @@ focus_tree = {
 			custom_effect_tooltip = SOV_dismantle_the_zemsky_sobor_tt
 			add_stability = dismantle_the_zemsky_sobor_var
 			retire_character = SOV_tsar_vladimir_kirillovich
-			add_ideas = SOV_tsar_vladimir_i
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_tsar_vladimir_i
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = yes
@@ -16305,7 +16293,7 @@ focus_tree = {
 			news_event = { id = nsb_news.401 hours = 12 }
 			IF = { 
 				limit = { has_idea = SOV_uncertain_counter_revolution_idea }
-				remove_ideas = SOV_uncertain_counter_revolution_idea
+				#ZHM-REVIEW idea not defined: remove_ideas = SOV_uncertain_counter_revolution_idea
 			}
 		}
 	}
@@ -16335,7 +16323,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = SOV_russian_corporate_state
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_russian_corporate_state
 		}
 
 		completion_reward = {
@@ -16374,7 +16362,7 @@ focus_tree = {
 				}
 				set_state_flag = SOV_russian_corporate_state_2IC
 			}
-			add_ideas = SOV_russian_corporate_state
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_russian_corporate_state
 		}
 	}
 
@@ -16401,7 +16389,7 @@ focus_tree = {
 			#}
 			IF = { 
 				limit = { has_idea = SOV_uncertain_counter_revolution_idea }
-				remove_ideas = SOV_uncertain_counter_revolution_idea
+				#ZHM-REVIEW idea not defined: remove_ideas = SOV_uncertain_counter_revolution_idea
 			}
 		}
 	}
@@ -16579,7 +16567,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_ideas = SOV_honest_serfdom_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_honest_serfdom_idea
 		}
 	}
 
@@ -16627,7 +16615,7 @@ focus_tree = {
 				uses = 1
 				technology = super_heavy_tank_chassis
 			}
-			add_ideas = SOV_the_iron_wall_of_russian_resolve
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_the_iron_wall_of_russian_resolve
 		}
 	}
 
@@ -16780,11 +16768,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
 
 		completion_reward = {
-			add_ideas = SOV_legacy_of_rome
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_legacy_of_rome
    			set_cosmetic_tag = SOV_ROME
    			custom_effect_tooltip = generic_skip_one_line_tt
    			
-   			remove_ideas = SOV_tsar_vladimir_i
+   			#ZHM-REVIEW idea not defined: remove_ideas = SOV_tsar_vladimir_i
    			custom_effect_tooltip = SOV_the_third_rome_tt
    			if = {
    				limit = {
@@ -17215,7 +17203,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SOV_our_slavic_commitments
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_our_slavic_commitments
 			give_guarantee = CZE
 			give_guarantee = POL
 			give_guarantee = YUG
@@ -17385,132 +17373,7 @@ focus_tree = {
 	  				}
 	  			}
     		}
-    		every_country = {
-    			limit = {
-    				NOT = {
-    					tag = POL
-	     				tag = BUL
-	     				tag = YUG
-	     				tag = CZE
-	     				tag = ROOT
-    				}
-    				OR = {
-    					controls_state = 9
-						controls_state = 69
-						controls_state = 972
-						controls_state = 70
-						controls_state = 71
-						controls_state = 72
-						controls_state = 73
-						controls_state = 74
-						controls_state = 75
-						controls_state = 664
-						controls_state = 48
-						controls_state = 211
-						controls_state = 212
-						controls_state = 801
-						controls_state = 97
-						controls_state = 85
-						controls_state = 762
-						controls_state = 90
-						controls_state = 88
-						controls_state = 92
-						controls_state = 91
-						controls_state = 95
-						controls_state = 94
-						controls_state = 86
-						controls_state = 98
-						controls_state = 89
-						controls_state = 10
-						controls_state = 96
-						controls_state = 784
-						controls_state = 93
-						controls_state = 87
-						controls_state = 104
-						controls_state = 109
-						controls_state = 103
-						controls_state = 804
-						controls_state = 802
-						controls_state = 106
-						controls_state = 970
-						controls_state = 105
-						controls_state = 108
-						controls_state = 107
-						controls_state = 102
-						controls_state = 853
-						controls_state = 803
-						controls_state = 45
-						controls_state = 764
-						controls_state = 736
-						controls_state = 852
-						controls_state = 163
-					}
-    			}
-    			every_state = {
-					limit = { 
-						OR = {
-							state = 9
-							state = 69
-							state = 972
-							state = 70
-							state = 71
-							state = 72
-							state = 73
-							state = 74
-							state = 75
-							state = 664
-							state = 48
-							state = 211
-							state = 212
-							state = 801
-							state = 97
-							state = 85
-							state = 762
-							state = 90
-							state = 88
-							state = 92
-							state = 91
-							state = 95
-							state = 94
-							state = 86
-							state = 98
-							state = 89
-							state = 10
-							state = 96
-							state = 784
-							state = 93
-							state = 87
-							state = 104
-							state = 109
-							state = 103
-							state = 804
-							state = 802
-							state = 106
-							state = 970
-							state = 105
-							state = 108
-							state = 107
-							state = 102
-							state = 853
-							state = 803
-							state = 45
-							state = 764
-							state = 736
-							state = 852
-							state = 163
-						}
-					}
-					ROOT = { add_state_claim = PREV } 
-				}
-#				Changed the outcome from getting war goals to getting claims. 
-#    			ROOT = {
-#    				create_wargoal = {
-#					    type = take_state_focus
-#					    generator = { 9 69 70 71 72 73 74 75 664 48 211 212 801 97 85 762 90 88 92 91 95 94 86 98 89 10 96 784 93 87 104 109 103 804 802 106 105 108 107 102 853 803 #45 764 736 852 163 }
-#					    target = PREV
-#					}
-#				}
-    		}
+    		
 		}
 	}
 
@@ -17673,7 +17536,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_ideas = SOV_siberian_lessons
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_siberian_lessons
 			every_owned_state = {
 				limit = {
 					OR = {
@@ -18037,12 +17900,6 @@ focus_tree = {
 				#	days = 730
 				#}
 			}
-			else = {
-				#add_timed_idea = {
-				#	idea = SOV_modernize_the_far_eastern_fleet_vanilla
-				#	days = 730
-				#}
-			}
 		}
 	}
 
@@ -18171,7 +18028,7 @@ focus_tree = {
 					add_claim_by = ROOT
 				}
 			}
-			add_ideas = SOV_an_empire_in_the_pacific_idea
+			#ZHM-REVIEW idea not defined: add_ideas = SOV_an_empire_in_the_pacific_idea
 		}
 	}
 

@@ -7,15 +7,16 @@
  pre_grind_desc:0 "No Grinding Pregrinded Generals"
  tank_pre_grind:0 "Tank Pregrind" 
  sov_inf_gen:0 "Infantry General"
+ last_stand_gen:0 "Last Stand General"
  sov_inf_gen_desc:0 "Capable Commander to lead our vast Army"
  no_leader_promotion_trait:0 "No Leader Promotion"
  no_leader_promotion_trait_desc:0 "Trait exists only on FALS Generals"
+ ai_idea:0 "AI Idea"
 
  HMM_banned_by_rules: "Banned by Game Rules"
  HMM_axis_only: "Axis Only"
  HMM_allies_only: "Allies Only"
 
- ZHM_host:0 "Host Decisions"
  ZHM_scw_autocomp_focus:0 "§GCompletes every Nationalist Spain focuses for SCW§W"
  ZHM_game_rule:0 "UK, USA, & France will have some pregrinded traits §RTRAITS WILL NOT SPAWN IF CAS DOCTRINES ARE ALLOWED§!"
  ZHM_anchluss:0 "§YGerman Reich§W annexes §YAustria§!"
@@ -30,6 +31,27 @@
  ZHM_baltic_claims:0 "The §YSoviet Union§W gains claim on all §YBaltic States§W"
  ZHM_baltic_decisions:0 "Unlocks §Ydecisions§W to annex the §YBaltic States§W"
 
+ easy_LL_activation:0 "Will start a Cycling Aircraft §GLend Lease§W to §Y[FROM.GetNameDefCap]§W"
+
+ NO_MIL_ACCESS_SOV_DIPLO_TT:0 "§RMilitary Access to the §YSoviet Union§R is not allowed§W"
+ NO_MIL_ACCESS_JAP_DIPLO_TT:0 "§RMilitary Access for §YJapan§R is not allowed§W"
+ limited_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W unless they are over §Y35%§R §RSurrender Progress§W or after §YJune 1st, 1942§W"
+ banned_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W"
+ same_faction_LL_DIPLO_TT:0 "§RLend Lease may only be in Faction§W"
+ limited_LL_DIPLO_TT:0 "§RLend Lease may only be in Faction§W"
+ banned_LL_DIPLO_TT:0 "§Y[ROOT.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
+ banned_req_LL_DIPLO_TT:0 "§Y[FROM.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
+
+
+ zhm_opinion_modifier_temp_ally:0 "Temporary Alliance"
+ #NO_OFFER_MIL_ACCESS_SOV_TO_ALLIES_DIPLO_TT:0 "Military Access to the §YSoviet Union§W is not §Rallowed§W"
+  # DECISION CATEGORIES #
+ game_check:0 "Game Rules"
+ ZHM_host:0 "Host Decisions"
+ easy_LL:0 "Easy Lend lease"
+
+ zhm_scw_idea_desc:0 "Gets §Rremoved§W §YJan 1st, 1938§W \n Added to prevent §YSpain§W from continuing the focuses it would not normally be able to do"
+
  # ZHM EVENTS
   #zhm.1.a:0 "Annex Portugal?" # Title?
   zhm.1.b:0 "You received 4 Civilian Factories because Portugal is not a player."
@@ -38,6 +60,10 @@
   zhm.4.b:0 "German Consumer Goods were adjusted by -10%"
   zhm.5.b:0 ""
   zhm.6.b:0 ""
+  zhm.7.b:0 ""
+  zhm.8.b:0 ""
+  zhm.9.b:0 "Half of USA is annexed to you and Heavy Fighter Lend Lease Starts"
+  zhm.10.b:0 "When it's Danzig or War, half of USA will be annexed to you and Fighter Lend Lease will begin"
 
  ## HMM'S ALTERNED VANILLA TOOLTIPS
 
@@ -47,8 +73,8 @@
 
 
 
- NO_ASIA_NAME:0 "No-Asia(not balanced)"
- NO_ASIA_DESC:0 "Made for low playercount games\nBalance should be fine, but could need some more testing/refining
+ NO_ASIA_NAME:0 "Europe Only(WIP, Playable)"
+ NO_ASIA_DESC:0 "Made for low playercount games\nBalance should be fine, but could need some more testing/refining"
 
 
 ## Victory System Localisation
@@ -185,3 +211,4 @@
  a50cw:0 "Create 50W Infantry Template"
  a50cw_desc:0 "Create a 50-width infantry division (25 battalions) template."
 
+ NZL_reserve_bank_governor_empowered:0 "Empowered Reserve Bank Governor"

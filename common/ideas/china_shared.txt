@@ -1414,9 +1414,6 @@ ideas = {
 				NOT = {
 					has_war_with = SOV
 				}
-				IF = { 
-					
-				}
 			}
 
 			allowed = { ## If have SEA, then all China except PRC has it. Else all have it (because SEA PRC has Sinochem)

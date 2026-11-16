@@ -55,9 +55,6 @@
 			original_tag = HOL
 			
 		}
-		if = { 
-
-		}
 	}
 
 	available = {
@@ -362,9 +359,6 @@ joint_focus = {
 				limit = { AST = { has_country_flag = abdacom_member } }
 				custom_effect_tooltip = ABDA_develop_naval_infrastructure_ast_tt
 			}
-			if = { 
-
-			}
 		}
 		else = {
 			custom_effect_tooltip = ABDA_develop_naval_infrastructure_generic_tt
@@ -390,9 +384,6 @@ joint_focus = {
 						}
 					}
 				}
-			}
-			if = { 
-
 			}
 		}
 	}
@@ -530,9 +521,6 @@ joint_focus = {
 					AST = { has_country_flag = abdacom_member }
 				}
 			}
-			if = { 
-
-			}
 			if = {
 				limit = { HOL = { has_country_flag = abdacom_member } }
 				custom_effect_tooltip = ABDA_naval_procurement_hol_ships_tt
@@ -549,9 +537,6 @@ joint_focus = {
 			if = {
 				limit = { has_dlc = "Man the Guns" }
 				USA = {
-					if = { 
-
-					}
 					if = {
 						limit = { HOL = { has_country_flag = abdacom_member } }
 						create_ship = { type = ship_hull_light_1 equipment_variant = "Clemson Class" creator = USA name = "ABDACOM Netherlands I" }
@@ -585,9 +570,6 @@ joint_focus = {
 				}
 			}
 			else = {
-				if = { 
-
-				}
 				if = {
 					limit = { HOL = { has_country_flag = abdacom_member } }
 					HOL = {

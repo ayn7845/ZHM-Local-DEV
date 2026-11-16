@@ -27,7 +27,11 @@ state={
 		victory_points = { #Viipuri
 			9206 3 
 		}
-		
+		1936.1.1.13 = {
+			owner = GER
+			controller = GER
+			add_core_of = GER
+		}
 
 	}
 

@@ -95,10 +95,10 @@ country_event = {
 			base = 0
 		}
 		FROM = {
-			country_event = { 
-				id = AAT_Sweden_flashpoints.13
-				days = 4
-			}
+			#ZHM-REVIEW event not defined: country_event = { 
+				#id = AAT_Sweden_flashpoints.13
+				#days = 4
+			#}
 		}
 	}
 }
@@ -172,10 +172,10 @@ country_event = {
 			type = puppet_wargoal_focus
 		}
 		SWE = {
-			country_event = {
-				id = AAT_Sweden_flashpoints.21
-				days = 2
-			}
+			#ZHM-REVIEW event not defined: country_event = {
+				#id = AAT_Sweden_flashpoints.21
+				#days = 2
+			#}
 		}
 	}
 	# Drop the issue
@@ -189,10 +189,10 @@ country_event = {
 			}
 		}
 		FROM = {
-			country_event = {
-				id = AAT_Sweden_flashpoints.13
-				days = 2
-			}
+			#ZHM-REVIEW event not defined: country_event = {
+				#id = AAT_Sweden_flashpoints.13
+				#days = 2
+			#}
 		}
 	}
 	# TODO_ASD: News Events for war/peace

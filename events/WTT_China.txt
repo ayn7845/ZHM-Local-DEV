@@ -881,9 +881,6 @@ country_event = {
 						}
 					}
 				}
-				OR = { 
-
-				}
 			}		
 		}
 		name = wtt_xian_incident.5.a #accept the proposal
@@ -1064,9 +1061,6 @@ country_event = {
 							}
 						}
 					}
-				}
-				OR = { 
-
 				}
 			}		
 		}

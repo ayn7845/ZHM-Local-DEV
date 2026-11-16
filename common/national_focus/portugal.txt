@@ -32,7 +32,7 @@ focus_tree = {
 		}
 
 		icon = GFX_focus_generic_military_academy
-		x = 5
+		x = 4
 		y = 0
 
 		cost = 10
@@ -96,8 +96,8 @@ focus_tree = {
 		mutually_exclusive = { focus = POR_limited_self_rule }
 			
 		icon = GFX_focus_por_luso_tropicalism
-		x = -2
-		y = 2
+		x = 0
+		y = 1
 
 		relative_position_id = POR_colonial_assimilation_policy
 		cost = 5
@@ -2088,11 +2088,7 @@ focus_tree = {
 	focus = {
 		id = POR_atlantic_defense_strategy
 		available = {
-			OR = {
-				has_full_control_of_state = 698
-				has_full_control_of_state = 697
-				has_full_control_of_state = 702
-			}			
+						
 		}
 
 		bypass = {		
@@ -2106,48 +2102,12 @@ focus_tree = {
 		cost = 10
 		completion_reward = { 
 			if = {
-				limit = { has_full_control_of_state = 698 }
-				698 = { #Azores
+				limit = { has_full_control_of_state = 112 }
+				112 = { #Azores NOW LISBON
 					add_building_construction = {
 						type = coastal_bunker		
 						level = 2
-						province = 1751
-						instant_build = yes
-					}
-
-					add_building_construction = {
-						type = air_base	
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-
-			if = {
-				limit = { has_full_control_of_state = 697 }
-				697 = { #Madeira
-					add_building_construction = {
-						type = coastal_bunker		
-						level = 1
-						province = 3118
-						instant_build = yes
-					}
-
-					add_building_construction = {
-						type = air_base	
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-
-			if = {
-				limit = { has_full_control_of_state = 702 }
-				702 = { #Cape Verde
-					add_building_construction = {
-						type = coastal_bunker		
-						level = 1
-						province = 13014
+						province = 11805
 						instant_build = yes
 					}
 
@@ -2614,7 +2574,7 @@ focus_tree = {
 		prerequisite = {		
 		}			
 		icon = GFX_focus_generic_strike_at_democracy1
-		x = 9
+		x = 7
 		y = 0
 
 		relative_position_id = POR_army_reorganization
@@ -3351,15 +3311,8 @@ focus_tree = {
 				custom_effect_tooltip = POR_the_iberian_socialist_union_cores_tt
 				if = { # Any Spanish Puppet will get annexed
 					limit = {
-						any_country = {
-							OR = {
-								original_tag = SPR
-								tag = GLC
-								tag = NAV
-								tag = CAT
-								tag = ADU
-							}
-							is_puppet_of = ROOT
+						any_subject_country = {
+							original_tag = SPR
 						}
 					}
 					hidden_effect = {
@@ -3367,10 +3320,7 @@ focus_tree = {
 							limit = {
 								OR = {
 									original_tag = SPR
-									tag = GLC
-									tag = NAV
-									tag = CAT
-									tag = ADU
+									
 								}
 								is_puppet_of = ROOT
 							}
@@ -3389,10 +3339,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							tag = SPD
-							tag = GLC
-							tag = NAV
-							tag = CAT
-							tag = ADU
+						
 						}
 						NOT = { has_war_with = ROOT }
 						NOT = { is_puppet_of = ROOT }
@@ -3499,9 +3446,6 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 			has_government = communism
-			OR = {
-				
-			}				
 		}
 
 		bypass = {		
@@ -3516,9 +3460,7 @@ focus_tree = {
 		completion_reward = {
 			every_other_country = {
 				limit = {
-					OR = {
-					
-					}
+					always = no
 					has_government = communism
 				}
 				add_opinion_modifier = {
@@ -3528,9 +3470,7 @@ focus_tree = {
 			}
 			every_other_country = {
 				limit = {
-					OR = {
-					
-					}
+					always = no
 					NOT = { has_government = communism }
 				}
 				add_popularity = {
@@ -3552,9 +3492,6 @@ focus_tree = {
 			has_global_flag = scw_over
 			has_government = communism
 			any_country = {
-				OR = {
-								
-				}
 				has_government = communism
 			}
 		}
@@ -3571,9 +3508,7 @@ focus_tree = {
 		completion_reward = { 
 			every_other_country = {
 				limit = {
-					OR = {
-								
-					}
+					always = no
 					has_government = communism			
 				}
 				if = {
@@ -3795,8 +3730,8 @@ focus_tree = {
 				has_government = democratic
 				has_government = communism
 			}
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4299,16 +4234,18 @@ focus_tree = {
 		id = POR_join_the_allies
 		available = {
 			is_in_faction = no
-			any_other_country = {
-				NOT = { has_war_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = { tag = ROOT }
 				is_faction_leader = yes
-				is_major = yes
+				NOT = { has_war_with = ROOT }
 				has_government = democratic
 			}
 			NOT = {
-				any_other_country = {
-					is_in_faction_with = ENG
-					has_war_with = POR
+				POR = {
+					any_enemy_country = {
+						is_in_faction_with = ENG
+					}
 				}
 			}			
 		}
@@ -4318,9 +4255,9 @@ focus_tree = {
 				is_in_faction_with = ENG
 				AND = {
 					is_in_faction = yes
-					any_other_country = {
+					any_allied_country = {
 						is_faction_leader = yes
-						is_in_faction_with = ROOT
+						NOT = {tag = ROOT}
 						has_government = democratic
 					}
 				}
@@ -4589,7 +4526,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER}
 		completion_reward = {
 
-			add_ideas = por_portuguese_legion
+			add_ideas = POR_portuguese_legion
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4612,6 +4549,10 @@ focus_tree = {
 			NOT = { has_war_with = SPA }	
 		}
 
+
+		allow_branch = { 
+			always = no
+		}
 		bypass = {
 			has_global_flag = scw_over
 		}
@@ -4776,8 +4717,8 @@ focus_tree = {
 		}
 		available = {	
 			has_global_flag = scw_over
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4970,14 +4911,13 @@ focus_tree = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT 
-					any_other_country = {
-						is_in_faction_with = ENG
+					any_allied_country = {
 						has_war_with = ROOT
 					}
 				}
 			}
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				has_war_with = ENG
 			}
 		}
@@ -5275,9 +5215,8 @@ focus_tree = {
 				NOT = { has_war_with = ROOT }
 			}
 			NOT = {
-				any_other_country = {
+				any_enemy_country = {
 					is_in_faction_with = GER
-					has_war_with = ROOT
 				}
 			}	
 		}

@@ -415,14 +415,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = { 
-			
+		
+		
+		455 = {
+			transfer_state_to = IRQ
 		}
-		ELSE = {
-			455 = {
-				transfer_state_to = IRQ
-			}
-		}
+		
 	}
 }
 
@@ -596,14 +594,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		IF = { 
-
+		
+		
+		455 = {
+			transfer_state_to = IRQ
 		}
-		ELSE = {
-			455 = {
-				transfer_state_to = IRQ
-			}
-		}
+		
 	}
 }
 
@@ -1075,8 +1071,6 @@ country_event = {
 			}
 		}
 		FROM = {
-			IF = {}
-			ELSE = {}
 		}
 	}
 }

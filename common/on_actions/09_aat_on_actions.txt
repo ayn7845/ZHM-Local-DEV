@@ -191,10 +191,10 @@ on_actions = {
 					}
 				}
 				ROOT = {
-					country_event = {
-						id = AAT_norway.16
-						hours = 4 
-					}
+					#ZHM-REVIEW event not defined: country_event = {
+						#id = AAT_norway.16
+						#hours = 4 
+					#}
 				}
 			}
 		}
@@ -319,7 +319,7 @@ on_actions = {
 					force_disable_resistance = yes 
 				}
 				set_global_flag = JAN_mayen_has_risen
-				news_event = AAT_norway_news.99
+				#ZHM-REVIEW event not defined: news_event = AAT_norway_news.99
 			}
 		}
 		effect = {

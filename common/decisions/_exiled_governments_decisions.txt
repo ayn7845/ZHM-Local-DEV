@@ -129,10 +129,10 @@ governments_in_exile = {
 				limit = {
 					tag = ETH
 				}
-				country_event = {
-					id = BBA_ethiopia_exile_events.53
-					hours = 1
-				}
+				#ZHM-REVIEW event not defined: country_event = {
+					#id = BBA_ethiopia_exile_events.53
+					#hours = 1
+				#}
 			}
 		}
 		ai_will_do = {

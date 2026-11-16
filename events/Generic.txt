@@ -232,9 +232,6 @@ country_event = {
 		}
 		add_to_faction = FROM
 		FROM = { country_event = { id = generic.3 hours = 6 } }
-		IF = { 
-			
-		}
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
 			FROM = { 

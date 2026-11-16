@@ -4495,7 +4495,7 @@ country_event = {
 	
 	option = { # Option for Nationalists - Franco
 		name = lar_spain.2.a
-		trigger = { has_completed_focus = SPA_con_paquito }
+		trigger = { has_completed_focus = SPA_a_great_spain }
 		ai_chance = {
 			base = 40
 			modifier = {
@@ -10970,17 +10970,29 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			kill_country_leader = yes
-			create_country_leader = {
-				name = "Military Junta"
-				desc = "POLITICS_MILITARY_JUNTA_DESC"
-				picture = "GFX_portrait_SPA_military_junta"
-				expire = "1965.1.1"
-				ideology = despotism
-				traits = {
-					divided_interests
+			if = { 
+				limit = { 
+					NOT = { 
+						has_country_leader = {
+							character = SPA_francisco_franco
+							ruling_only = yes
+						}
+					}
+				}
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Military Junta"
+					desc = "POLITICS_MILITARY_JUNTA_DESC"
+					picture = "GFX_portrait_SPA_military_junta"
+					expire = "1965.1.1"
+					ideology = despotism
+					
+					traits = {
+						divided_interests
+					}
 				}
 			}
+			
 		}
 	}
 	

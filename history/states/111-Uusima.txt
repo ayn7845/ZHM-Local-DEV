@@ -30,6 +30,16 @@ state = {
 				naval_base = 5
 				coastal_bunker = 2
 			}
+
+			6009 = { 
+				land_facility = 1
+			}
+
+		}
+		1936.1.1.13 = {
+			owner = GER
+			controller = GER
+			add_core_of = GER
 		}
 	}
 

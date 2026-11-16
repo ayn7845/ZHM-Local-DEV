@@ -746,8 +746,8 @@ defined_text = { #Italy Guarentees Major Back Tooltip
 	name = GetItalyGuaranteesMajor
 	text = { #Italy has non_aggression pact with Major
 		trigger = { 
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				has_non_aggression_pact_with = ROOT
 			}
 		}

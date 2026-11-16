@@ -33,7 +33,11 @@ state = {
 			infrastructure = 1 #MM: Was 2
 			industrial_complex = 1
 		}
-		
+		1936.1.1.13 = {
+			owner = GER
+			controller = GER
+			add_core_of = GER
+		}
 	}
 
 	provinces={

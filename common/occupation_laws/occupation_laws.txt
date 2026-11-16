@@ -486,9 +486,6 @@ reconciliation = {
 		always = no
 		original_tag = TUR
 		has_dlc = "Battle for the Bosporus"
-		OR = {
-			
-		}
 		
 	}
 
@@ -716,13 +713,9 @@ independent_rule = {
 	fallback_law = foreign_civilian_oversight
 
 	visible = {
+		always = no
 		original_tag = RAJ
 		has_completed_focus = RAJ_princely_states_policy
-		FROM = {
-			OR = {
-				
-			}
-		}
 	}
 
 	state_modifier = {
@@ -762,11 +755,6 @@ princely_subjugation = {
 		always = no # ZHM Idk where this is in the tree... So we'll always false this for now.
 		original_tag = RAJ
 		has_completed_focus = RAJ_princely_states_policy
-		FROM = {
-			OR = {
-				
-			}
-		}
 	}
 
 	state_modifier = {

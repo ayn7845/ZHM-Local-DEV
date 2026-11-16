@@ -370,7 +370,7 @@ GER = {
 		23 = { #italy
 			o_eiche
 			o_achse
-			o_alaric
+			o_alarich
 			o_scwartz
 			o_siegfried
 			o_konstantin
@@ -2200,8 +2200,6 @@ VEN = {
 WST = {
 	male = {
 		names = { "John" "Bob" "Lucas" "Marcus" "Alexander" "Alex" "Peter" "Jonas" "Jim" "Johannes"}
-		surnames = { }
-		callsigns = { }
 	}
 	female = {
 		names = { "Juliette" "Anna" }

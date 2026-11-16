@@ -426,7 +426,7 @@ on_actions = {
 					}
 					FROM = {
 						clr_country_flag = wtt_refused_giving_leadership
-						remove_ideas = CHI_illegal_regime
+						#ZHM-REVIEW idea not defined: remove_ideas = CHI_illegal_regime
 					}
 					clr_global_flag = wtt_war_over_national_leadership
 					WTT_restart_political_struggle = yes
@@ -441,7 +441,7 @@ on_actions = {
 						clear_global_event_target = WTT_current_china_leader
 					}
 					save_global_event_target_as = WTT_current_china_leader
-					remove_ideas = CHI_illegal_regime
+					#ZHM-REVIEW idea not defined: remove_ideas = CHI_illegal_regime
 					WTT_restart_political_struggle = yes
 				}
 			}

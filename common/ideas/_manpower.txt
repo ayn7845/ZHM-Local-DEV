@@ -20,13 +20,7 @@ ideas = {
 
 			cancel_if_invalid = no
 			on_add = {
-				if = { 
 
-				}
-
-				if = { 
-					
-				}
 			}
 		}
 
@@ -121,13 +115,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
 
-				}
-
-				if = { 
-
-				}
 			}
 		}
 
@@ -326,13 +314,7 @@ ideas = {
 			}
 
 			on_add = {
-				if = { 
 
-				}
-
-				if = { 
-					
-				}
 			}
 			cancel_if_invalid = no
 		}
@@ -493,9 +475,6 @@ ideas = {
 					}
 				}
 
-				if = { 
-
-				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -611,13 +590,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
 
-				}
-
-				if = { 
-
-				}
 			}
 		}
 
@@ -758,9 +731,6 @@ ideas = {
 					}
 				}
 
-				if = { 
-
-				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -881,13 +851,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
-				if = { 
 
-				}
-
-				if = { 
-
-				}
 			}
 		}
 
@@ -998,9 +962,6 @@ ideas = {
 					}
 				}
 
-				if = { 
-
-				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -1097,13 +1058,7 @@ ideas = {
 					add_ideas = FIN_militarized_society
 				}
 
-				if = { 
 
-				}
-
-				if = { 
-
-				}
 			}
 
 			cost = 150
@@ -1227,9 +1182,6 @@ ideas = {
 					}
 				}
 				
-				if = { 
-
-				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -1312,13 +1264,7 @@ ideas = {
 					add_ideas = FIN_militarized_society
 				}
 
-				if = { 
 
-				}
-
-				if = { 
-					
-				}
 			}
 
 			cost = 150

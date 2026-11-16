@@ -19,7 +19,11 @@ state = {
 			infrastructure = 2
 			industrial_complex = 1
 		}
-		
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

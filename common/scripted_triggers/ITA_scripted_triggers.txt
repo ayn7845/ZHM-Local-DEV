@@ -663,9 +663,6 @@ ITA_is_appropriate_cw_side_for_character_split = {
 			NOT = { has_country_flag = ITA_fascist_side_for_character_split_flag }
 			#log = "I am a GOOD PERSON [FROM.GetName]"
 		}
-		else = {
-			#log ="I have no idea what I am [FROM.GetName]"
-		}
 
 		#if = { #Cannot check for unit_leader_flags from character scope
 		#	limit = {
@@ -709,9 +706,6 @@ ITA_is_appropriate_cw_side_for_character_split = {
 			NOT = { has_country_flag = ITA_antifa_side_for_character_split_flag }
 			#log = "I am a FASCIST [FROM.GetName]"
 			#has_government = fascism
-		}
-		else = {
-			#log ="I have no idea what I am [FROM.GetName]"
 		}
 	}
 }

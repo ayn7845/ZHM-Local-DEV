@@ -12,7 +12,7 @@ state = {
 	history = {
 
 		owner = JAP
-		
+		add_core_of = CHI
 
 		buildings = {
 			infrastructure = 2
@@ -22,7 +22,11 @@ state = {
 		victory_points = {
 			7125 3 # Seoul/Keijō/Gyeongseong
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

@@ -6184,12 +6184,6 @@ country_event = {
 			base = 1
 		}
 
-		if = { 
-
-		}
-		else = { 
-			
-		}
 
 	}
 

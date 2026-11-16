@@ -60,7 +60,7 @@ improving_our_army_category = {
 				}
 				custom_effect_tooltip = BRA_modify_brazilian_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
 			}
 			ELSE_IF = {
 				limit = {
@@ -68,12 +68,12 @@ improving_our_army_category = {
 				}
 				custom_effect_tooltip = ARG_modify_argentine_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
 			}
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
 				add_to_variable = { JUNO_army_modifier_army_armor_defence_factor = 0.05 tooltip = army_armor_defence_factor_tt }
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.04 tooltip = army_org_factor_tt }
 			}
 
 			hidden_effect = {
@@ -267,7 +267,7 @@ improving_our_army_category = {
 					original_tag = BRA
 				}
 				custom_effect_tooltip = BRA_modify_brazilian_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 			}
 			ELSE_IF = {
@@ -275,12 +275,12 @@ improving_our_army_category = {
 					original_tag = ARG
 				}
 				custom_effect_tooltip = ARG_modify_argentine_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 			}
 			ELSE = {
 				custom_effect_tooltip = JUNO_modify_south_american_army_ns_intro
-				add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
+				#add_to_variable = { JUNO_army_modifier_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 				add_to_variable = { JUNO_army_modifier_army_attack_speed_factor = 0.05 tooltip = army_attack_speed_factor_tt }
 			}
 			
@@ -462,8 +462,8 @@ improving_our_army_category = {
 	
 		available = {
 			has_completed_focus = SMB_foreign_advisors
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				exists = yes
 				NOT = {
 					has_war_with = ROOT

@@ -1230,7 +1230,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		add_ideas = MEN_true_mongol_state
+		#ZHM-REVIEW idea not defined: add_ideas = MEN_true_mongol_state
 
 	}
 }
@@ -1559,28 +1559,12 @@ country_event = {
 					set_state_flag = MEN_occupied_state_suiyuan_campaign
 				}
 			}
-			IF = { 
+			
 
-			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
-
-			ROOT = { 
-
-			}
-			every_country = { 
-
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-
-			}
 		}
 	}
 	
@@ -1589,28 +1573,10 @@ country_event = {
 		name = SEA_japan_foreign_policy.29.a
 
 		effect_tooltip = {
-			IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
-
-			ROOT = { 
-
-			}
-			every_country = { 
-
-			}
+			
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = { 
-
-			}
 		}		
 
 	}

@@ -2816,10 +2816,6 @@ news_event = {
 		name = wtt_news.68.a
 		trigger = {
 			always = no
-			OR = {
-			#	original_tag = INS
-			#	original_tag = MAL
-			}
 			NOT = { has_war_with = FROM }
 		}
 	}
@@ -2854,10 +2850,6 @@ news_event = {
 		name = wtt_news.69.a
 		trigger = {
 			always = no
-			OR = {
-				#original_tag = INS
-				#original_tag = MAL
-			}
 			NOT = { has_war_with = FROM }
 		}
 	}

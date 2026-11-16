@@ -26,8 +26,15 @@ state = {
 			arms_factory = 3
 			industrial_complex = 1
 			air_base = 3
+			3663 = { 
+				land_facility = 1
+			}
 		}
-		
+		1936.1.1.13 = {
+			owner = HUN
+			controller = HUN
+			add_core_of = HUN
+		}
 	}
 
 	provinces = {

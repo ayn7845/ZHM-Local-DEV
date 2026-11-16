@@ -108,7 +108,7 @@ country_event = {
 	option = {
 		name = yugoslavia.2.b
 		ai_chance = { factor = 0 }
-		remove_ideas = { king_peter_1 }
+		#ZHM-REVIEW idea not defined: remove_ideas = { king_peter_1 }
 	
 		
 		start_civil_war = { ideology = democratic size = 0.6 capital = 107 states = { 108 803 802 106 105 } }
@@ -119,7 +119,7 @@ country_event = {
 				NOT = { tag = ROOT }
 				has_government = democratic
 			}
-			add_ideas = { king_peter_1 }
+			#ZHM-REVIEW idea not defined: add_ideas = { king_peter_1 }
 			
 		
 			every_other_country = {

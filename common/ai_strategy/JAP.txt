@@ -410,9 +410,6 @@ chinese_war_dont_push_mas = {
 	}
 	enable = {
 		has_war_with = CHI
-		OR = {
-			
-		}
 		country_exists = CHI
 		CHI = {
 			has_capitulated = no
@@ -750,7 +747,7 @@ JAP_dei_stage_1_borneo = {
 	}
 	enable = {
 		is_historical_focus_on = yes
-		has_war_with = INS
+		#has_war_with = INS
 		date > 1941.1.1
 	}
 	abort_when_not_enabled = yes

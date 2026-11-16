@@ -64,7 +64,7 @@ NDefines.NNavy.SUPPLY_PRIORITY = 2								    	-- Default convoy priority for su
 NDefines.NNavy.RESOURCE_ORIGIN_PRIORITY = 3								-- Default convoy priority for resources shipped internally
 NDefines.NNavy.RESOURCE_EXPORT_PRIORITY = 4								-- Default convoy priority for export trade
 NDefines.NNavy.RESOURCE_LENDLEASE_PRIORITY = 3                          -- Default convoy priority for export lend lease
-NDefines.NCountry.FUEL_LEASE_CONVOY_RATIO = 0.001
+NDefines.NCountry.FUEL_LEASE_CONVOY_RATIO = 0  -- was 0.0001
 
 
 ---LOGI STRIKE NERFS---
@@ -94,8 +94,8 @@ NDefines.NAir.MISSION_COMMAND_POWER_COSTS = {  -- command power cost per plane t
 		0.0, -- NAVAL_MINES_SWEEPING
 		0.0, -- RECON
 		0.0, -- NAVAL_PATROL
-		0,0, -- BARRAGE
-		0,0, -- SAM
+		0.0, -- BARRAGE
+		0.0, -- SAM
 	}
 
 
@@ -129,6 +129,11 @@ NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 999
 NDefines.NGame.LAG_DAYS_FOR_PAUSE = 999
 NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 14 							    -- WAS 48 | drastically cuts down on save file sizes after WW2 starts and well into barbarossa
 NDefines.NGame.MESSAGE_TIMEOUT_DAYS = 14					     	    -- WAS 60 | less messages lying around at the top of your screen
+
+NDefines.NDiplomacy.VOLUNTEERS_TRANSFER_SPEED = 7					-- days to transfer a unit to another nation FROM 14 DOWN TO 7 
+NDefines.NDiplomacy.VOLUNTEERS_RECALL_DAYS_PER_UNIT = 1				-- FROM 2 TO 1
+NDefines.NDiplomacy.SEND_VOLUNTEERS_AGAIN_COOLDOWN = 7			-- How long after recalling volunteers can you send volunteers to the same country (Days) FROM 180 TO 7
+NDefines.NDiplomacy.RECALL_VOLUNTEERS_AFTER_ARRIVAL_COOLDOWN = 7 -- How long after arriving can the volunteers be recalled (Days) FROM 180 TO 7
 
 NDefines_CareerProfile.NCareerProfile.MOD_STATISTICS_GROUP = "HMM"
 NDefines_CareerProfile.NCareerProfile.MOD_STATISTICS_GROUP_NAME = "HMM"

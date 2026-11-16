@@ -1306,7 +1306,10 @@ focus_tree = {
 					compare = greater_than_or_equals
 				}
 			}
-			has_country_leader = { ruling_only = yes character = AST_john_curtin }
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_john_curtin }
+				has_country_flag = AST_has_natunity_flag
+			}	
 		}
 
 		bypass = {
@@ -2921,9 +2924,10 @@ focus_tree = {
 					compare = greater_than_or_equals
 				}
 			}
-
-			has_country_leader = { ruling_only = yes character = AST_robert_menzies }
-
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_robert_menzies }
+				has_country_flag = AST_has_natunity_flag
+			}
 			NOT = {
 				is_subject_of = ENG
 			}
@@ -4873,17 +4877,14 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			IF = { 
 
-			}
+			ENG = { country_event = { id = AST_diplomatic_events.43 days = 3 } }
+			custom_effect_tooltip = if_they_accept_tt
 
-			ELSE = {
-				ENG = { country_event = { id = AST_diplomatic_events.43 days = 3 } }
-				custom_effect_tooltip = if_they_accept_tt
-				effect_tooltip = {
-					AST_hand_in_glove_effect = yes
-				}
+			effect_tooltip = {
+				AST_hand_in_glove_effect = yes
 			}
+			
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
@@ -6186,15 +6187,15 @@ focus_tree = {
 					gain_random_agency_upgrade = yes
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				add_ideas = {
-					SWI_expanded_spy_network_idea
-				}
+				#ZHM-REVIEW idea SWI_expanded_spy_network_idea not defined: add_ideas = {
+					#SWI_expanded_spy_network_idea
+				#}
 			}
 
 			ELSE = {
-				add_ideas = {
-					SWI_expanded_spy_network_idea
-				}
+				#ZHM-REVIEW idea SWI_expanded_spy_network_idea not defined: add_ideas = {
+					#SWI_expanded_spy_network_idea
+				#}
 			}
 		}
 
@@ -6826,15 +6827,7 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			if = { 
-
-			}
-			else_if = { 
-
-			}
-			else = { 
-				
-			}
+			
 
 			custom_effect_tooltip = AST_red_solidarity_tt
 		}
@@ -9314,7 +9307,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 tooltip = army_org_factor_tt }
+			#add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.025 tooltip = army_non_core_attack_factor_tt }
 			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.025 tooltip = army_non_core_defence_factor_tt }
 		}
@@ -9826,7 +9819,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.10 tooltip = army_org_factor_tt }
+			#add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.10 tooltip = army_org_factor_tt }
 			add_to_variable = { AST_australian_military_forces_spirit_army_attack_factor = 0.05 tooltip = army_attack_factor_tt }
 		}
 

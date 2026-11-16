@@ -19,7 +19,11 @@ state = {
 		victory_points = {
 			10243 1 # Cagayan de Oro
 		}
-		
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
+		}
 	}
 
 	provinces = {

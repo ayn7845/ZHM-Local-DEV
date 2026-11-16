@@ -34,7 +34,9 @@ state = {
 			7520 = {
 				coastal_bunker = 1
 			}
-
+			10388 = { 
+				land_facility = 1
+			}
 		}
 
 		1939.1.1 = {

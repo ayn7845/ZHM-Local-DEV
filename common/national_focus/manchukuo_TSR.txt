@@ -2880,9 +2880,6 @@
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = MAN_li_zhaolin_high_command
 			hidden_effect = {
-				IF = { 
-
-				}
 				division_template = {
 					name = "Northeast Counter-Japanese Division"
 					priority = 2
@@ -2997,15 +2994,11 @@
 			}
 			remove_ideas = MAN_kwantung_veto
 
-			IF = { 
-				
-			}
-			ELSE = {
-				add_timed_idea = {
-					idea = MAN_korean_liberation_army_no_korea
-					days = 365
-				}	
-			}
+			add_timed_idea = {
+				idea = MAN_korean_liberation_army_no_korea
+				days = 365
+			}	
+			
 			
 
 			hidden_effect = { set_variable = { MAN_independence_target = OVERLORD } } #We're using a variable here because the saved event target becomes invalidated deep in ScopedEventTarget 
@@ -3047,9 +3040,6 @@
 						tag = MAN
 					}
 				}
-			}
-			IF = { 
-
 			}
 			hidden_effect = {
 				news_event = { id = tsr_manchukuo_news.1 days = 2 }
@@ -3146,9 +3136,6 @@
 				add_idea = MAN_rival_government
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			IF = { 
-
-			}
 			hidden_effect = {
 				614 = { add_core_of = ROOT }
 				608 = { add_core_of = ROOT }
@@ -3495,9 +3482,6 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			IF = { 
-				
-			}
 			set_politics = {
 				ruling_party = communism
 			}
@@ -3603,9 +3587,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
-			IF = { 
-				
-			}
 		}
 	}
 
@@ -4631,18 +4612,7 @@
 		
 
 		completion_reward = {
-			IF = { 
-				
-			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
-			ELSE_IF = { 
-
-			}
+			
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {

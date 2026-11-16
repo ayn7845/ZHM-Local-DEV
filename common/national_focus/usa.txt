@@ -429,13 +429,13 @@ focus_tree = {
 				add_stability = -0.1
 			}
 			USA_return_majority = yes
-		
+			
+			if = {
+				limit = { not = { has_country_flag = mtg_usa_civil_war_fascists_1 } }
 				country_event = mtg_usa_civil_war_fascists.1
 				#custom_effect_tooltip = mtg_usa_civil_war_warning_tt
-			
-			hidden_effect = { 
-
 			}
+			
 		}
 	}
 	focus = {
@@ -4705,6 +4705,11 @@ focus_tree = {
 				exists = yes
 				NOT = { has_government = ROOT }
 			}
+			any_state_of = {
+				target = {650 631 532 638 642}
+
+				is_fully_controlled_by = ROOT
+			}
 		}
 		will_lead_to_war_with = JAP
 		x = 0
@@ -4715,79 +4720,94 @@ focus_tree = {
 		#	factor = 1
 		#}
 		completion_reward = {
-			650 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13067
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13067
-					level = 2
-					instant_build = yes
-				}
-			}
-			631 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13052
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13052
-					level = 2
-					instant_build = yes
+			if = {
+				limit = { 650 = { is_fully_controlled_by = ROOT } }
+				650 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13067
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13067
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
-			632 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13047
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13047
-					level = 2
-					instant_build = yes
-				}
-			}
-			638 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 12140
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 12140
-					level = 2
-					instant_build = yes
+			if = {
+				limit = { 631 = { is_fully_controlled_by = ROOT } }
+				631 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13052
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13052
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
-			642 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13050
-					level = 2
-					instant_build = yes
+			if = { 
+				limit = { 632 = {is_fully_controlled_by = ROOT}} 
+				632 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13047
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13047
+						level = 2
+						instant_build = yes
+					}
 				}
-				add_building_construction = {
-					type = naval_base
-					province = 13050
-					level = 2
-					instant_build = yes
+			}
+			if = {
+				limit = { 638 = { is_fully_controlled_by = ROOT} }
+				638 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 12140
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 12140
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 642 = { is_fully_controlled_by = ROOT}}
+				642 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13050
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13050
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 		}
@@ -5212,6 +5232,9 @@ focus_tree = {
 				show_mio_tooltip = USA_detroit_arsenal_organization
 				mio:USA_detroit_arsenal_organization = {
 					add_mio_size = 2
+					unlock_mio_trait_tooltip = generic_mio_trait_single_engine
+					unlock_mio_trait_tooltip = generic_mio_trait_dual_engine_redundancy
+					unlock_mio_trait_tooltip = generic_mio_trait_adaptable_turret_ring
 				}
 			}
 			ELSE = {

@@ -17,6 +17,10 @@ state={
 			arms_factory = 2
 			industrial_complex = 4
 			air_base = 3
+
+			2008 = { 
+				land_facility = 1
+			}
 		}
 		add_core_of = MEX
 		victory_points = {
@@ -24,6 +28,16 @@ state={
 		}
 		victory_points = {
 			2008 10
+		}
+		1936.1.1.13 = {
+			owner = BRA
+			controller = BRA
+			add_core_of = BRA
+		}
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			add_core_of = WST
 		}
 	}
 

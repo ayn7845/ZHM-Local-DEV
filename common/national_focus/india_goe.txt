@@ -2444,12 +2444,6 @@ focus_tree = {
 
            custom_effect_tooltip = generic_skip_one_line_tt
 
-            if = {
-
-             }
-            else = { 
-
-            }
             hidden_effect = {
             
                ENG = {
@@ -4361,9 +4355,6 @@ focus_tree = {
         
         bypass = {
 
-            OR = { 
-
-            }
         }
 
         bypass_effect = {
@@ -7991,22 +7982,18 @@ focus_tree = {
         prerequisite = { focus = RAJ_eastern_pakistan  focus = RAJ_united_bengal }
         cost = 10
         available = {
-            if = { 
-
+            is_subject = no
+            hidden_trigger = {
+                has_country_flag = { flag = RAJ_GOE_partition_has_happened }
             }
-            else = {
-                is_subject = no
-                hidden_trigger = {
-                    has_country_flag = { flag = RAJ_GOE_partition_has_happened }
-                }
-                custom_trigger_tooltip = {
-                    tooltip = RAJ_hedgemony_of_the_subcontinent_tt
-                    all_of_scopes = {
-                      array = RAJ.owned_states_at_game_start
-                      is_owned_by = ROOT 
-                    }
+            custom_trigger_tooltip = {
+                tooltip = RAJ_hedgemony_of_the_subcontinent_tt
+                all_of_scopes = {
+                    array = RAJ.owned_states_at_game_start
+                    is_owned_by = ROOT 
                 }
             }
+            
         }
 
         ai_will_do = {
@@ -10045,10 +10032,10 @@ focus = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = RAJ_GOE_tara_singh
+		#custom_effect_tooltip = available_political_advisor
+		#show_ideas_tooltip = RAJ_GOE_tara_singh
 
-		custom_effect_tooltip = generic_skip_one_line_tt
+		#custom_effect_tooltip = generic_skip_one_line_tt
 
 		show_unit_leaders_tooltip = RAJ_GOE_ishar_singh
 		show_unit_leaders_tooltip = RAJ_GOE_parkash_singh
@@ -12405,12 +12392,7 @@ focus = {
 
 
 		#Event to annex Malay
-		if = { 
-
-        }
-		else_if = { 
-
-        }
+		
 	}
 }
 
@@ -12837,9 +12819,6 @@ focus = {
 		if = { # BRM is independent -> Send event to them
 			limit = {
 				
-				NOT = { 
-
-                }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
@@ -13122,7 +13101,7 @@ focus = {
 				limit = {
 					NOT = { has_template = "Marines" }
 				}
-				load_oob = "unlock_marines"
+				#ZHM-REVIEW oob file missing: load_oob = "unlock_marines"
 			}
 		}
 
@@ -14208,6 +14187,50 @@ focus = {
 
             add_to_variable = { RAJ_railway_focuses = 1 }
 
+        }
+    }
+
+     focus = {
+        id = RAJ_establish_the_alupuram_works
+        icon = GFX_focus_generic_aluminum
+        prerequisite = { focus = RAJ_bombay_baroda_and_central_india_railway }
+        x = 2
+        y = 1
+        relative_position_id = RAJ_bombay_baroda_and_central_india_railway
+        
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+            controls_state = 982 
+        }
+        
+        bypass = {
+
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        completion_reward = {
+            982 = {
+                add_resource = {
+                    type = aluminium
+                    amount = 15  
+                }
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            unlock_decision_tooltip = {
+                decision = establish_jaykaynagar_aliminium_smelters
+                show_effect_tooltip = yes # default is no
+                show_modifiers = no 
+            }   
         }
     }
 
@@ -18048,9 +18071,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18086,9 +18107,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18122,9 +18141,7 @@ focus = {
         }
         
         bypass = {
-            OR = { 
-
-            }
+            always = no
 
         }
 
@@ -18172,9 +18189,6 @@ focus = {
             custom_effect_tooltip = generic_skip_one_line_tt
             
 
-            if = { 
-
-            }
         }
     }
 

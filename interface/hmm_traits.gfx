@@ -9,5 +9,10 @@ spriteTypes = {
 		name = "GFX_trait_pre_grind"
 		texturefile = "gfx/interface/traits/trait_pre_grind.dds"
 	}
+
+	spriteType = {
+		name = "GFX_trait_sov_inf_gen"
+		texturefile = "gfx/interface/traits/trait_sov_inf_gen.dds"
+	}
 	
 }

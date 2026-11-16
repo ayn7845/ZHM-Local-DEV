@@ -1041,8 +1041,8 @@ focus_tree = {
 				has_government = democratic
 				has_government = communism
 			}
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				has_government = communism
 				NOT = { has_war_with = ROOT }
 			}
@@ -1246,8 +1246,8 @@ focus_tree = {
 				has_government = communism
 				has_government = democratic
 			}
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				is_subject = no
 				has_government = communism
 				NOT = { has_war_with = ROOT }
@@ -1263,7 +1263,15 @@ focus_tree = {
 				popularity = 0.05
 			}
 
-			SOV = { country_event = { id = AAT_finland_diplomacy.20 hours = 6 random_hours = 2 } }
+			random_country_with_original_tag = {
+				original_tag_to_check = SOV
+				limit = {
+					has_government = communism
+					has_country_leader_ideology = stalinism
+					NOT = { has_war_with = ROOT }
+				}
+				country_event = { id = AAT_finland_diplomacy.20 hours = 6 random_hours = 2 }
+			}
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = AAT_finland_diplomacy.21.a
 		}
@@ -1696,8 +1704,8 @@ focus_tree = {
 			modifier = { #Let Soviet player enjoy Baltics tack
 				factor = 0.1
 				FIN_is_communist_ai = yes
-				any_other_country = {
-					original_tag = SOV
+				any_country_with_original_tag = {
+					original_tag_to_check = SOV
 					is_ai = no
 					has_completed_focus = SOV_baltic_security
 				}
@@ -2098,8 +2106,8 @@ focus_tree = {
 			modifier = {
 				factor = 100
 				FIN_is_communist_ai = yes
-				any_other_country = {
-					original_tag = SOV
+				any_country_with_original_tag = {
+					original_tag_to_check = SOV
 					is_faction_leader = yes
 					has_government = communism
 					NOT = { has_war_with = ROOT }
@@ -2116,8 +2124,8 @@ focus_tree = {
 			has_government = communism
 			has_civil_war = no
 			is_subject = no
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				is_faction_leader = yes
 				has_government = communism
 				NOT = { has_war_with = ROOT }
@@ -2188,13 +2196,8 @@ focus_tree = {
 			}
 			has_civil_war = no
 			is_subject = no
-			any_other_country = {
-				OR = {
-					tag = SWE
-					tag = NOR
-					tag = DEN
-					
-				}
+			any_country_with_original_tag_of = {
+				target = {SWE NOR DEN }
 				FIN_country_can_be_invited_into_faction_socialist = yes
 			}
 		}
@@ -7895,7 +7898,7 @@ focus_tree = {
 				#### SEND EVENT TO COUTNRIES OCCUPYING / PUPPETING BALTICS ###
 				for_each_scope_loop = {
 					array = ROOT.countries_with_nordic_territory_array			
-					country_event = { id = AAT_finland_diplomacy.17 hours = 1 }
+					#ZHM-REVIEW event not defined: country_event = { id = AAT_finland_diplomacy.17 hours = 1 }
 					#log = "Sent event to [THIS.GetName]"
 				}
 				clear_array = ROOT.countries_with_nordic_territory_array
@@ -11011,12 +11014,12 @@ focus_tree = {
 				}
 			}
 			
-			effect_tooltip = {
-				add_ideas = FIN_finnish_airforce_fake
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = FIN_finnish_airforce }
-			}
+			#effect_tooltip = {
+				#add_ideas = FIN_finnish_airforce_fake
+			#}
+			#hidden_effect = {
+				#add_dynamic_modifier = { modifier = FIN_finnish_airforce }
+			#}
 		}
 	}
 	
@@ -11574,10 +11577,10 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 25
 
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_weather_penalty = -0.1 tooltip = air_weather_penalty_tt }
-			add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_air_home_defence_factor = 0.1 tooltip = air_home_defence_factor_tt }
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_weather_penalty = -0.1 tooltip = air_weather_penalty_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_home_defence_factor = 0.1 tooltip = air_home_defence_factor_tt }
 
 			add_doctrine_cost_reduction = {
 				name = FIN_pilot_training
@@ -11619,10 +11622,10 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 35
 
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_ace_effectiveness_factor = 0.1 tooltip = ace_effectiveness_factor_tt }
-			add_to_variable = { FIN_finnish_airforce_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_ace_generation_chance_factor = 0.1 tooltip = air_ace_generation_chance_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_ace_effectiveness_factor = 0.1 tooltip = ace_effectiveness_factor_tt }
+			#add_to_variable = { FIN_finnish_airforce_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
 
 			add_doctrine_cost_reduction = {
 				name = FIN_expand_air_force_academy
@@ -11690,13 +11693,13 @@ focus_tree = {
 		search_filters = {  FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_naval_strike_targetting_factor = 0.1 tooltip = naval_strike_targetting_factor_tt }
-			custom_effect_tooltip = FIN_naval_airforce_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_naval_strike_targetting_factor = 0.1 tooltip = naval_strike_targetting_factor_tt }
+			#custom_effect_tooltip = FIN_naval_airforce_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_naval_bomber_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_naval_bomber_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_naval_airforce
@@ -11876,13 +11879,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_cas_efficiency = 0.1 tooltip = air_cas_efficiency_tt }
-			custom_effect_tooltip = FIN_support_for_ground_forces_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_cas_efficiency = 0.1 tooltip = air_cas_efficiency_tt }
+			#custom_effect_tooltip = FIN_support_for_ground_forces_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_cas_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_cas_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_support_for_ground_forces
@@ -12016,13 +12019,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
-			add_to_variable = { FIN_finnish_airforce_air_superiority_efficiency = 0.1 tooltip = air_superiority_efficiency_tt }
-			custom_effect_tooltip = FIN_dominate_the_skies_ns_tt
+			#custom_effect_tooltip = FIN_modify_finnish_airforce_ns_intro
+			#add_to_variable = { FIN_finnish_airforce_air_superiority_efficiency = 0.1 tooltip = air_superiority_efficiency_tt }
+			#custom_effect_tooltip = FIN_dominate_the_skies_ns_tt
 
-			hidden_effect = {
-				add_ideas = FIN_hidden_fighter_production_ns
-			}
+			#hidden_effect = {
+				#add_ideas = FIN_hidden_fighter_production_ns
+			#}
 
 			add_tech_bonus = {
 				name = FIN_dominate_the_skies
@@ -12868,7 +12871,7 @@ focus_tree = {
 					limit = {
 						NOT = { has_template = "Marines" }
 					}
-					load_oob = "unlock_marines"
+					#ZHM-REVIEW oob file missing: load_oob = "unlock_marines"
 				}
 			}
 

@@ -32,7 +32,11 @@ state={
 			industrial_complex = 3
 
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
+		}
 	}
 
 	provinces={

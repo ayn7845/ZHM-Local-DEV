@@ -2437,7 +2437,7 @@ characters = {
 		}
 	}
 
-	ITA_giuseppe_de_stefanis = {
+	ITA_giuseppe_de_stefanis = { # ZHM_change not vanilla, i dont give a flying fuck
 		name = ITA_giuseppe_de_stefanis
 		portraits = {
 			army = {
@@ -2447,23 +2447,17 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { infantry_officer armor_officer }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 2
-			logistics_skill = 2
+			traits = { cavalry_officer panzer_leader trickster trait_engineer skilled_staffer cavalry_leader commando urban_assault_specialist camouflage_expert pre_grind }
+			skill = 6
+			attack_skill = 6
+			defense_skill = 7
+			planning_skill = 7
+			logistics_skill = 6
 			legacy_id = 0
-			visible = {
-				OR = {
-					has_completed_focus = ITA_italian_socialism
-					has_completed_focus = ITA_monarchia_d_italia
-				}
-			}
 		}
 	}
 
-	ITA_ugo_luca = {
+	ITA_ugo_luca = { # ZHM_change not vanilla, i dont give a flying fuck
 		name = ITA_ugo_luca
 		portraits = {
 			army = {
@@ -2473,19 +2467,13 @@ characters = {
 		}
 		
 		corps_commander = {
-			traits = { infantry_officer urban_assault_specialist }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
+			traits = { cavalry_officer panzer_leader trickster organizer skilled_staffer cavalry_leader commando camouflage_expert pre_grind }
+			skill = 6
+			attack_skill = 6
+			defense_skill = 7
+			planning_skill = 7
+			logistics_skill = 6
 			legacy_id = 0
-			visible = { 
-				OR = {
-					has_completed_focus = ITA_the_carabinieri
-					has_completed_focus = ITA_empower_the_carabinieri
-				}
-			}
 		}
 	}
 
