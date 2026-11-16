@@ -61,6 +61,47 @@ is_noob_nation = {
 	}
 }
 
+is_minor_nation = {
+	OR = { 
+		tag = CAN # allies
+		tag = AST
+		tag = BRA
+		tag = MEX
+		tag = NZL
+		tag = RAJ
+		tag = SAF
+		tag = IRE
+		tag = PHI
+		tag = ARG # allies
+
+
+		tag = HUN # Axis
+		tag = ROM
+		tag = SPR
+		tag = BUL
+		tag = SIA
+		tag = MAN
+		tag = FIN
+		tag = IRQ
+		tag = POR # axis
+
+	}
+		
+}
+
+is_major_nation = { 
+	OR = { 
+		tag = ENG
+		tag = FRA
+		tag = USA
+		tag = SOV
+
+		tag = JAP
+		tag = ITA
+		tag = GER
+	}
+}
+
 allies = {
 	OR = {
 		tag = ENG
