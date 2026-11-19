@@ -274,10 +274,15 @@ technologies = {
 
 		ai_will_do = {
 			factor = 2
+			
+			modifier = {
+				factor = 4
+				tag = SOV
+			}
 
 			modifier = {
 				factor = 2
-				date > "1940.1.6"
+				date > "1940.1.1"
 			}
 
 			modifier = {
@@ -336,10 +341,15 @@ technologies = {
 
 		ai_will_do = {
 			factor = 2
+			
+			modifier = {
+				factor = 4
+				tag = SOV
+			}
 
 			modifier = {
 				factor = 2
-				date > "1941.1.6"
+				date > "1941.1.1"
 			}
 
 			modifier = {

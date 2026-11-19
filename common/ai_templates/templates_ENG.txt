@@ -45,8 +45,8 @@ armor_ENG = {
 			}
 
 			regiments = {
-				light_armor = 3
-				motorized = 3
+				light_armor = 4
+				motorized = 4
 			}
 		}
 
@@ -61,7 +61,7 @@ armor_ENG = {
 			factor = 1
 
 			modifier = {
-				factor = 1.5
+				factor = 2
 				OR = {
 					has_tech = basic_light_tank
 					has_tech = basic_light_tank_chassis
@@ -69,7 +69,7 @@ armor_ENG = {
 			}
 
 			modifier = {
-				factor = 1.5
+				factor = 2
 				OR = {
 					has_tech = improved_light_tank
 					has_tech = improved_light_tank_chassis
@@ -91,7 +91,7 @@ armor_ENG = {
 			}
 			
 			regiments = {
-				light_armor = 3
+				light_armor = 4
 				motorized = 4
 			}
 		}
@@ -107,7 +107,7 @@ armor_ENG = {
 			factor = 1
 
 			modifier = {
-				factor = 3
+				factor = 5
 				OR = {
 					has_tech = basic_medium_tank
 					has_tech = basic_medium_tank_chassis
@@ -129,8 +129,8 @@ armor_ENG = {
 			}
 			
 			regiments = {
-				light_armor = 3			
-				medium_armor = 1
+				light_armor = 2			
+				medium_armor = 2
 				motorized = 4
 			}
 		}
@@ -146,7 +146,7 @@ armor_ENG = {
 			factor = 1
 
 			modifier = {
-				factor = 4
+				factor = 6
 				OR = {
 					has_tech = basic_medium_tank
 					has_tech = basic_medium_tank_chassis
@@ -190,7 +190,7 @@ armor_ENG = {
 			factor = 1
 
 			modifier = {
-				factor = 3.5
+				factor = 7
 				OR = {
 					has_tech = improved_medium_tank
 					has_tech = improved_medium_tank_chassis
@@ -216,14 +216,12 @@ armor_ENG = {
 			regimental_support = {
 				mot_fire_support = 2
 				anti_air_battery = 1
-				anti_tank_battery = 1
+				medium_tank_destroyer_support = 1
 			}
 
 			regiments = {
-				medium_armor = 4
-				motorized = 8
-				mot_artillery_brigade = 2  
-				mot_anti_air_brigade = 1
+				medium_armor = 7
+				motorized = 12
 			}
 		}
 		
@@ -238,7 +236,7 @@ armor_ENG = {
 			factor = 1
 
 			modifier = {
-				factor = 4
+				factor = 8
 				OR = {
 					has_tech = main_battle_tank
 					has_tech = main_battle_tank_chassis
@@ -354,7 +352,7 @@ infantry_ENG = {
 			}
 			
 			regiments = {
-				infantry = 9
+				infantry = 12
 				artillery_brigade = 2
 			}
 		}
@@ -394,9 +392,10 @@ mountaineers_ENG = {
 			
 			support = {
 				engineer = 1
+				recon = 1
 				artillery = 1
 				logistics_company = 1
-				recon = 1
+				field_hospital = 1
 			}
 
 			regimental_support = {
@@ -405,7 +404,7 @@ mountaineers_ENG = {
 			}
 			
 			regiments = {
-				mountaineers = 9
+				mountaineers = 12
 			}
 		}
 	}
@@ -442,19 +441,21 @@ marines_ENG = {
 		target_template = {
 			
 			support = {
-				recon = 1
-				logistics_company = 1
 				engineer = 1
+				recon = 1
 				artillery = 1
+				logistics_company = 1
+				field_hospital = 1
 			}
 			
 			regimental_support = {
 				anti_tank_battery = 1
 				fire_support = 1
+				field_guns = 1
 			}
 
 			regiments = {
-				marine = 9
+				marine = 12
 			}
 		}
 	}

@@ -420,8 +420,9 @@ propaganda_efforts = {
 				has_war_support < 0.3
 			}
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 40
 				has_war = yes
+				has_war_support < 0.5
 				has_casualties_war_support < -0.25
 			}
 			modifier = {
@@ -479,7 +480,7 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 100
 				has_war = yes
 				has_convoys_war_support < -0.29
 			}
@@ -549,7 +550,7 @@ propaganda_efforts = {
 				has_war_support < 0.35
 			}
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 40
 				has_war = yes
 				has_bombing_war_support < -0.20
 			}
@@ -624,8 +625,17 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
-				has_war_support < 0.6
+				add = 100
+				OR = {
+					AND = {
+						has_war_support > 0.45
+						has_war_support < 0.5
+					}
+					AND = {
+						has_war_support > 0.55
+						has_war_support < 0.6
+					}
+				}
 			}
 		}
 	}
@@ -689,12 +699,12 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
+				add = 100
 				has_war_support < 0.6
 			}
 		}
 	}
-	
+
 }
 
 operations = {
@@ -1987,6 +1997,14 @@ war_measures = {
 				}
 				NOT = {
 					tag = INS #has a focus
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "To The Bitter End"
+				}
+				NOT = {
+					tag = ROM #has a focus
 				}
 			}
 		}
@@ -3476,6 +3494,7 @@ foreign_support = {
 
 generic_purchase_old_ships_category = {
 	purchase_ships_eng = {
+		priority = 2	#group the destroyer ones together
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
@@ -3515,15 +3534,59 @@ generic_purchase_old_ships_category = {
 			}			
 		}
 	}
+	purchase_ships_ita = {
+		priority = 2	#group the destroyer ones together
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_old_ships_flag
+			ITA = { 
+				NOT = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+				}
+			}
+			NOT = { has_war_with = ITA }
+		}
+		available = {
+			NOT = {
+				ITA = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			ITA = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}			
+		}
+	}
 	purchase_ships_sov = {
+		priority = 3
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
 			has_country_flag = generic_purchase_old_ships_flag
 			SOV = { 
+				NOT = {
 					has_country_flag = sold_ships_to_us@ROOT
-					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+					has_country_flag = negotiating_ship_purchase_flag@ROOT
+				}
 			}
 
 			NOT = { has_war_with = SOV}
@@ -3555,6 +3618,7 @@ generic_purchase_old_ships_category = {
 		}
 	}
 	purchase_ships_ger = {
+		priority = 1
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
@@ -3596,6 +3660,7 @@ generic_purchase_old_ships_category = {
 		}
 	}
 	purchase_ships_usa = {
+		priority = 2	#group the destroyer ones together
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no

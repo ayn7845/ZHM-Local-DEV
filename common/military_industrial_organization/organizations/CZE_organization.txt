@@ -2482,12 +2482,12 @@ CZE_automatic_weapons_equipment_organization = { #Based on CZ Uhersky Brod
 		limit_to_equipment_type = { infantry_equipment }
 
 		equipment_bonus = {
-			defense = 0.03
+			soft_attack = 0.02
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.03
-			production_efficiency_gain_factor = -0.03
+			production_efficiency_gain_factor = 0.03
+			#production_efficiency_gain_factor = -0.03
 		}
 	}
 
@@ -2507,13 +2507,13 @@ CZE_automatic_weapons_equipment_organization = { #Based on CZ Uhersky Brod
 		limit_to_equipment_type = { infantry_equipment }
 
 		production_bonus = {
-			production_efficiency_gain_factor = 0.03
+			production_efficiency_cap_factor = 0.03
 			#production_resource_penalty_factor = -0.03
 		}
 		
 		equipment_bonus = {
 			reliability = 0.03
-			soft_attack = 0.02
+			defense = 0.03
 		}
 	}
 

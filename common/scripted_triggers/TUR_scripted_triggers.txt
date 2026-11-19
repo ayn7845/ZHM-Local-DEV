@@ -674,7 +674,15 @@ TUR_is_friend_for_bosphorus = { #Scripted Trigger for handling the Bosphorus acc
 					has_country_flag = TUR_strait_compromise_set
 				}
 				NOT = { has_war_with = TUR }  	
-				TUR_owns_state_in_black_sea = yes
+				OR = {
+					TUR_owns_state_in_black_sea = yes
+					AND = {
+						TUR = {
+							has_country_flag = ROM_agreed_to_allow_ROM_allies
+						}
+						is_ally_with = ROM
+					}
+				}
 			}
 			797 = { #This so countries allied to the controller of the Bosphorus can cross it. 
 				controller = {
@@ -710,7 +718,15 @@ TUR_is_friend_for_dardanelles = { #Scripted Trigger for handling the Dardanelles
 					has_country_flag = TUR_strait_compromise_set
 				}
 				NOT = { has_war_with = TUR }  	
-				TUR_owns_state_in_black_sea = yes 
+				OR = {
+					TUR_owns_state_in_black_sea = yes
+					AND = {
+						TUR = {
+							has_country_flag = ROM_agreed_to_allow_ROM_allies
+						}
+						is_ally_with = ROM
+					}
+				}
 			}
 			797 = { #This so countries allied to the controller of the Dardanelles can cross them. 
 				controller = { 

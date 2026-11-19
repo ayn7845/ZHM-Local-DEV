@@ -522,7 +522,7 @@ infantry_GER = {
 	infantry_default_GER = {
 	
 		upgrade_prio = {
-			base = 2
+			base = 1
 		}
 		
 		target_template = {
@@ -547,15 +547,10 @@ infantry_GER = {
 	infantry_Upgrade_GER = { # Adding some AA to infantry Divs
 	
 		upgrade_prio = {
-			base = 1
+			base = 2
 			modifier = {
 				factor = 0
 				date < 1938.1.1
-			}
-
-			modifier = {
-				factor = 3
-				date > 1938.1.1
 			}
 		}
 		
@@ -581,17 +576,11 @@ infantry_GER = {
 	infantry_Upgrade_2_GER = {
 	
 		upgrade_prio = {
-			base = 1
+			base = 3
 
 			modifier = {
 				factor = 0
 				date < 1939.9.1
-			}
-
-			modifier = {
-				factor = 4
-				has_war_with_major = yes
-				date > 1939.9.1
 			}
 		}
 
@@ -605,7 +594,7 @@ infantry_GER = {
 				engineer = 1
 				recon = 1
 				artillery = 1
-			#	field_hospital = 1
+				field_hospital = 1
 			}
 
 			regimental_support = {
@@ -614,7 +603,7 @@ infantry_GER = {
 			}
 			
 			regiments = {
-				infantry = 9
+				infantry = 10
 				artillery_brigade = 2
 			}
 		}
@@ -623,17 +612,11 @@ infantry_GER = {
 	infantry_Upgrade_3_GER = {
 	
 		upgrade_prio = {
-			base = 1
+			base = 4
 
 			modifier = {
 				factor = 0
 				date < 1941.9.1
-			}
-
-			modifier = {
-				factor = 10
-				has_war_with_major = yes
-				date > 1941.9.1
 			}
 		}
 		
@@ -643,18 +626,17 @@ infantry_GER = {
 				engineer = 1
 				recon = 1
 				artillery = 1
-			#	field_hospital = 1
+				field_hospital = 1
 			}
 
 			regimental_support = {
 				anti_tank_battery = 1
-				anti_air_battery = 1
 				fire_support = 1
 				field_guns = 1
 			}
 			
 			regiments = {
-				infantry = 9
+				infantry = 10
 				artillery_brigade = 2
 			}
 		}

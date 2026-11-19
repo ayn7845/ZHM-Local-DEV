@@ -177,6 +177,12 @@ fascism_on_the_rise = {
 					original_tag = AST
 				}
 			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				OR = {
+					original_tag = ROM
+				}
+			}
 		}
 	}
 	
@@ -251,6 +257,12 @@ democratic_on_the_rise = {
 					original_tag = AFG
 				}
 			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				OR = {
+					original_tag = ROM
+				}
+			}
 		}
 	}
 	
@@ -321,6 +333,12 @@ communism_on_the_rise = {
 				has_dlc = "Thunder at Our Gates"
 				OR = {
 					original_tag = AST
+				}
+			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				OR = {
+					original_tag = ROM
 				}
 			}
 		}
@@ -618,6 +636,10 @@ generic_purchase_old_ships_category = {
 			}
 			original_tag = CHI
 			original_tag = NZL
+			AND = {
+				original_tag = ROM
+				has_dlc = "To The Bitter End"
+			}
 		}
 	}
 	visible = {

@@ -521,6 +521,18 @@ GER_is_soviet_greater_romania_state = {
 	}
 }
 
+# Volyn stays with a German-aligned Poland instead of going to Reichskommissariat Ukraine
+GER_is_volyn_kept_by_aligned_poland = {
+	state = 93
+	is_core_of = POL
+	owner = {
+		OR = {
+			has_completed_focus = POL_seek_german_alignment
+			has_completed_focus = POL_beck_ribbentrop
+		}
+	}
+}
+
 # Greater Romania Additional States in the Soviets
 GER_is_additional_soviet_greater_romania_state = {
 	OR = {

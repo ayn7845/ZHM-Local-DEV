@@ -21,7 +21,6 @@ POL_pzinz_organization = {
 					has_dlc = "No Step Back"
 				}
 			}
-			tag = ROM
 			AND = {
 				has_dlc = "Peace For Our Time"
 				tag = CZE

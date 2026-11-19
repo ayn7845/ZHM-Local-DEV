@@ -231,7 +231,6 @@ armored_SOV = {
 	}
 }
 
-
 breakthrough_armor_SOV = {
 
 	available_for = {
@@ -467,7 +466,6 @@ breakthrough_armor_SOV = {
 	}
 }
 
-
 garrison_SOV = {
 
 	available_for = {
@@ -521,16 +519,42 @@ infantry_SOV = {
 	role = infantry
 
 	upgrade_prio = {
-		base = 8
+		base = 24
 	}
 
 	infantry_early_SOV = {
 		upgrade_prio = {
 			base = 1
+		}
 
+		target_template = {
+
+			support = {
+				engineer = 1
+				# recon = 1
+				# field_hospital = 1
+				# anti_tank = 1
+			}
+			
+			regimental_support = {
+				fire_support = 1
+				field_guns = 2
+			}
+
+			regiments = {
+				infantry = 9
+				artillery_brigade = 1
+			}
+		}
+	}
+	
+	infantry_early_mid_SOV = {
+		upgrade_prio = {
+			base = 1.5
+			
 			modifier = {
-				factor = 2
-				date < 1939.6.1
+				factor = 0
+				date < 1939.1.1
 			}
 		}
 
@@ -545,38 +569,7 @@ infantry_SOV = {
 			}
 			
 			regimental_support = {
-				field_guns = 1
-			}
-
-			regiments = {
-				infantry = 9
-				artillery_brigade = 1
-			}
-		}
-	}
-
-	infantry_mid_SOV = {
-
-		upgrade_prio = {
-			base = 4
-			
-			modifier = {
-				factor = 0
-				date < 1940.6.1
-			}
-		}
-
-
-		target_template = {
-
-			support = {
-				engineer = 1
-				artillery = 1
-				# recon = 1
-				# field_hospital = 1
-			}
-
-			regimental_support = {
+				fire_support = 1
 				field_guns = 2
 			}
 
@@ -586,11 +579,44 @@ infantry_SOV = {
 			}
 		}
 	}
+
+	infantry_mid_SOV = {
+
+		upgrade_prio = {
+			base = 2
+			
+			modifier = {
+				factor = 0
+				date < 1940.3.1
+			}
+		}
+
+
+		target_template = {
+
+			support = {
+				engineer = 1
+				artillery = 1
+				recon = 1
+				# field_hospital = 1
+			}
+
+			regimental_support = {
+				fire_support = 1
+				field_guns = 2
+			}
+
+			regiments = {
+				infantry = 11
+				artillery_brigade = 1
+			}
+		}
+	}
 	
 	infantry_late_SOV = {
 
 		upgrade_prio = {
-			base = 6
+			base = 3
 
 			modifier = {
 				factor = 0
@@ -602,15 +628,45 @@ infantry_SOV = {
 
 			support = {
 				engineer = 1
-				artillery = 1
 				recon = 1
-				field_hospital = 1
+				anti_tank = 1
+				#field_hospital = 1
 			}
 
 			regimental_support = {
-				anti_tank_battery = 1
 				anti_air_battery = 1
-				fire_support = 1
+				field_guns = 2
+			}
+
+			regiments = {
+				infantry = 12
+				artillery_brigade = 1
+			}
+		}
+	}
+	
+	infantry_late_late_SOV = {
+
+		upgrade_prio = {
+			base = 4
+
+			modifier = {
+				factor = 0
+				date < 1943.6.1
+			}
+		}
+
+		target_template = {
+
+			support = {
+				engineer = 1
+				recon = 1
+				artillery = 1
+			}
+
+			regimental_support = {
+				anti_air_battery = 1
+				anti_tank_battery = 2
 			}
 
 			regiments = {
@@ -768,81 +824,6 @@ paratroopers_SOV = {
 	}
 }
 
-
-anti_armor_SOV = {
-	# This is relatively similar to the anti_armor_GER in Germany's file
-
-	available_for = {
-		SOV
-	}
-
-	role = motorized
-
-	upgrade_prio = {
-		base = 2
-
-		modifier = {
-			factor = 3
-			# has_war_with = GER
-			any_enemy_country = {
-				ROOT = {
-					estimated_intel_max_armor = {
-						tag = PREV
-						value > 20
-					}
-				}
-			}
-		}
-
-		modifier = {
-			factor = 0
-			NOT = { has_tech = interwar_antitank }
-		}
-	}
-
-	infantry_anti_armor_SOV = {
-		custom_icon = 28
-
-		upgrade_prio = {
-			base = 1.1
-
-			modifier = {
-				factor = 2
-				has_tech = interwar_antitank
-
-				# has_war_with = GER
-				#any_enemy_country = {
-				#	ROOT = {
-				#		estimated_intel_max_armor = {
-				#			tag = PREV
-				#			value > 20
-				#		}
-				#	}
-				#}
-			}
-		}
-
-		target_template = {
-			
-			support = {
-				engineer = 1
-				recon = 1
-				field_hospital = 1
-				artillery = 1
-			}
-			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 2
-			}
-
-			regiments = {
-				infantry = 7
-				anti_tank_brigade = 2
-			}
-		}
-	}
-}
 
 
 # Non-complete list of sub-units
