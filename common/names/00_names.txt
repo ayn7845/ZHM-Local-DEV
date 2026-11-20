@@ -1158,24 +1158,56 @@ DEN = {
 ROM = {
 	male = {
 		names = {
-			Adrian Alexandru Andrei Anton Artur Bogdan Carol Cezar Constantin Constin
+			Adrian Alexandru Andrei Anton Artur Bogdan Carol Cezar Constantin Costin
 			Cosmin Daniel Dumitru Emanuel Eremia Eugen Ferdinand Flaviu Florea Gheorghe
 			Grigore Henric Horatiu Iacob Ilie Ioan Ion Iosif Iulian
 			Iuliu Laurentiu Leontin Luca Lucian Mihai Mircea Nicolae Ovidiu Petru
 			Radu Sergiu Silviu Simion Stefan Valeriu Vasile Victor Vintila Vlad
-		  }
+			Aurel Aurelian Avram Barbu Calin Camil Ciprian Claudiu Cornel Corneliu 
+			Cristea Cristian Dan Darius Dinu Dorin Doru Dragos Eduard Emil Emilian 
+			Ernest Filip Florin Gabriel Gavril Gelu George Gherman Horia Ilarion Iorgu 
+			Irimie Justin Lazar Leon Liviu Macarie Manole Marcel Marian Marin Marius 
+			Matei Maxim Maximilian Miron Moise Nae Neagoe Neculai Octav Octavian Paun 
+			Pavel Petre Pompiliu Relu Remus Romeo Romulus Sabin Sandu Sava Sebastian 
+			Sever Silvestru Sorin Stelian Teodor Tiberiu Titus Toma Traian Tudor 
+			Valentin Viorel Virgil Vladimir Voicu Zaharia Zamfir Catalin Burebista
+		}
 	}
 	female = {
-		names = { Andrea Adriana Beatrice Bianca Juliana Ina Eugenia Nadia Sanda Sabina Raluca Ramona Rodica Patricia Liliana Felicia Corina }
+		names = { 
+			Andrea Adriana Beatrice Bianca Iuliana Ina Eugenia Nadia Sanda Sabina 
+			Raluca Ramona Rodica Patricia Liliana Felicia Corina 
+			Maria Elena Ioana Ana Viorica Georgeta Lucretia Ecaterina Elisabeta 
+			Florica Margareta Aurelia Silvia Victoria Constanta Ileana Magdalena 
+			Livia Angela Virginia Marioara Stela Valeria Eleonora Elvira Iulia 
+			Doina Lenuta Mariana Mihaela Smaranda Tudora Vasilica Zoita
+		}
 	}
 	surnames = {
-		Chifu Angelescu Antonescu Argetoianu Averescu Baldescu Barozzi Berindei Cernat Christecu Cihoski
-		Ciuperca Coanda Crainiceanu Critescu Culcer Cuza Dona Dragalina Dumitrescu
-		Falcoianu Florescu Gardescu Grigorescu Froza Harjeu Holban Iancovescu Iliasevici Iliescu
-		Ionascu Ionescu Ionitiu Koslinski Lahovary Lupescu Mardarescu Murgescu Poenaru Prezan
-		Salajan Samsonovici Schitiu Scodrea Slaniceanu Steflea Tatarascu Tenescu Vaitoianu Zottu
-	 }
-	callsigns = { }
+		Chifu Angelescu Antonescu Argetoianu Averescu Baldescu Barozzi Berindei Cernat 
+		Christescu Cihoski Ciuperca Coanda Crainiceanu Cristescu Culcer Cuza Dona 
+		Dragalina Dumitrescu Falcoianu Florescu Gardescu Grigorescu Groza Harjeu 
+		Holban Iancovescu Iliasevici Iliescu Ionascu Ionescu Ionitiu Koslinski Lahovary 
+		Lupescu Mardarescu Murgescu Poenaru Prezan Salajan Samsonovici Schitiu Scodrea 
+		Slaniceanu Steflea Tatarescu Tenescu Vaitoianu Zottu
+		Aldea Alexandrescu Andrei Andreescu Anghel Apostol Avramescu Balanescu Balan 
+		Banateanu Barna Barladeanu Botez Botezatu Bratianu Bucur Bunea Calinescu 
+		Cantacuzino Carafoli Carp Carstea Campianu Campeanu Cazacu Ciobanu Ciuca Cocis 
+		Codreanu Coman Constantinescu Cornea Costache Costea Cristea Croitoru Danciu 
+		Dascalu David Diaconescu Dima Dinescu Dobre Dobrescu Dogaru Dragan Draghici 
+		Ene Enescu Filipescu Gafencu Georgescu Gheorghe Gheorghiu Ghita Giurescu Goga 
+		Iacob Ignat Ilie Ionita Iorga Lazarescu Leca Luca Lupu Macovei Madgearu Manea 
+		Maniu Manole Manescu Margarit Marinescu Matei Mihai Mihalache Mihailescu Minea 
+		Mirea Miron Mocanu Mogos Moisil Moldovan Moraru Munteanu Muresan Neacsu Neagu 
+		Nedelcu Nistor Nita Nitescu Olaru Olteanu Oprea Opris Panait Parvu Patrascu Paun 
+		Petre Petrescu Pintea Pintilie Pop Popa Popescu Preda Puiu Radescu Radulescu Radu 
+		Rosu Rotaru Rusu Sandu Sava Savescu Sarbu Simion Sima Soare Stan Stanescu State 
+		Stefan Stefanescu Stoian Stoica Suciu Tanase Tarlea Teodorescu Titulescu Toma 
+		Tomescu Tudor Tudose Varga Vasile Vasilescu Vlad Voicu Voinea Vulpe Zamfir
+	}
+	callsigns = { 
+		"Dracul" "Zmeul" "Lupul" "Corbul" "Vulturul" "Fantoma" "Fulgerul" "Spaima" "Soimul" "Nebunul"
+	}
 }
 
 YUG = {

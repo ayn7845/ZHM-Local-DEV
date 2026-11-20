@@ -820,7 +820,6 @@ types = {
 				original_tag = BUL
 				original_tag = SPR
 				original_tag = DEN
-				original_tag = CRO
 				original_tag = ITA
 				original_tag = JAP
 				original_tag = MAN

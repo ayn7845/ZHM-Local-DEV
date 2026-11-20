@@ -800,27 +800,11 @@ potential_habsburg_countries_total = {
 				}
 				AND = {
 					exists = yes
-					original_tag = UKR
-				}
-				AND = {
-					exists = yes
 					original_tag = SPR
 				}
 				AND = {
 					exists = yes
 					original_tag = MEX
-				}
-				AND = {
-					exists = yes
-					original_tag = TOS
-				}
-				AND = {
-					exists = yes
-					original_tag = LBV
-				}
-				AND = {
-					exists = yes
-					original_tag = CRO
 				}
 			}
 		}

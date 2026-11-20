@@ -2423,7 +2423,6 @@ news_event = {
 			OR = {
 				original_tag = AUS
 				original_tag = CZE
-				original_tag = CRO
 			}
 			NOT = { has_war_with = FROM }
 		}
@@ -2433,7 +2432,6 @@ news_event = {
 		trigger = {
 			NOT = { original_tag = AUS }
 			NOT = { original_tag = CZE }
-			NOT = { original_tag = CRO }
 			NOT = { has_war_with = FROM }
 		}
 	}

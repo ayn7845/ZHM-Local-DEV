@@ -1907,6 +1907,14 @@ war_measures = {
 						tag = FRA #has a focus
 						tag = GER #has a focus
 					}
+				}
+				IF = {
+					limit = {
+						has_dlc = "To The Bitter End"
+					}
+						NOT = {
+					tag = ROM #has a focus
+					}
 				} 
 				AND = {
 					has_dlc = "Trial of Allegiance"

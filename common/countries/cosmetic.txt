@@ -1478,7 +1478,29 @@ SIA_great_thai_empire = { #Mandate 1, Phibun, historical
 	color_ui = rgb { 252 253 254 }
 }
 
-united_HUN_ROM_kingdom = { 
+united_HUN_ROM_kingdom = { # ZHM specific
 	color = rgb { 222 107 53 }
 	color_ui = rgb { 222 107 53 }
+}
+
+ROM_CRO_legionary_state = {
+	color = rgb { 72 143 70 }
+	color_ui = rgb { 72 143 69 }
+}
+ROM_GRE_legionary_state = {
+	color = rgb { 72 143 71 }
+	color_ui = rgb { 72 143 69 }
+}
+
+ROM_DACIA = {
+	color = rgb { 192 192 192 }
+	color_ui = rgb { 192 192 192 }
+}
+ROM_romanian_bulgarian_ssr = {
+	color = rgb { 170  10  9 }
+	color_ui = rgb { 200  10  9 }
+}
+ROM_legionary_balkan_state = {
+	color = rgb { 72 143 69 }
+    color_ui = rgb { 72 143 69 }
 }
