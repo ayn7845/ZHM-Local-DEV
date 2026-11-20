@@ -29,6 +29,14 @@ state = {
 			3663 = { 
 				land_facility = 1
 			}
+			9617 = {
+				landmark_arcul_de_triumf = {
+					allowed = {
+						has_dlc = "To The Bitter End"
+					}
+					level = 1
+				}
+			}
 		}
 		1936.1.1.13 = {
 			owner = HUN
