@@ -2502,6 +2502,9 @@ country_event = { # Germany wants tribute
 				hours = 6
 			}
 		}
+		trigger = { 
+			always = no # ZHM no, you're a slave to Germany stfu
+		}
 	}
 	option = { # Accept
 		name = BA_romania_german_four_year_plan.102.c
