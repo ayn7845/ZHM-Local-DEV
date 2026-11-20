@@ -189,7 +189,94 @@ operations = {
             }
         }
 	}
-}
+
+	annex_hungary = { 
+		name = "Annex Hungary"
+		fire_only_once = yes
+		cost = 0
+
+		available = { 
+			HUN = { is_ai = yes } 
+		}
+
+		ai_will_do = { 
+			factor = 0
+		}
+		
+		allowed = { tag = ROM }
+
+		targets = { HUN }
+
+		complete_effect = {
+			
+                HUN = {
+                    transfer_units_fraction = {
+                        target = ROM
+                        size = 1
+                        stockpile_ratio = 1
+                        army_ratio = 1
+                        navy_ratio = 1
+                        air_ratio = 1
+                        keep_unit_leaders_trigger = {
+                            always = no
+                        }
+                    }
+                }
+                ROM = {
+                    annex_country = {
+                        target = HUN
+                        transfer_troops = yes
+                    }
+					if = { limit = { NOT = { has_idea = zhm_command_power } }
+						add_ideas = zhm_command_power
+					}
+                }
+                every_state = {
+                    limit = {
+                        is_core_of = HUN
+                        is_controlled_by = ROM
+                    }
+                add_core_of = ROM
+            }
+        }
+	}
+
+	zhm_trickster_roll = { 
+		name = "Trickster Roll"
+		fire_only_once = yes
+		cost = 0
+		icon = GFX_decision_generic_army_support
+		available = { 
+
+			
+			any_army_leader = {
+					
+				skill < 2
+					NOT = { 
+					has_trait = trickster
+				}	
+			}
+			
+		}
+		ai_will_do = { 
+			factor = 0
+		}
+		
+		allowed = { is_minor_nation = yes } 
+
+		complete_effect = {
+			random_army_leader = { 
+				limit = { 
+					skill < 2
+					NOT = { 
+						has_trait = trickster
+					}
+				}
+				add_trait = { trait = trickster }
+				}
+        	}
+		}
+	}
 
 easy_LL = {
 
