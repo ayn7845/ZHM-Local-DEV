@@ -328,6 +328,7 @@ ideas = {
 					has_government = communism
 					original_tag = HUN # ZHM let them always go extensive since spawn in divs removed
 					original_tag = FIN
+					original_tag = ROM # ZHM let them always go extensive because cope
 					if = {
 						limit = {
 							PHI_SEA = yes
