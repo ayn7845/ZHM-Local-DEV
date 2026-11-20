@@ -1175,6 +1175,7 @@ ZHM_host = {
 						has_war_with = SOV
 					}
 				}
+				always = no
 			}
 			
 			complete_effect = { 
@@ -1206,6 +1207,7 @@ ZHM_host = {
 				ROM = { 
 					exists = yes
 				}
+				always = no # Outdated
 			}
 			
 			complete_effect = { 
