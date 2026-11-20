@@ -152,6 +152,14 @@ country_event = {
 		}
 		add_war_support = 0.05
 	}
+
+	option = {
+		name = election.3.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.05
+	}
 }
 
 # Fascists in Government?
@@ -176,6 +184,10 @@ country_event = {
 			AND = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
+			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
 			}
 		}
 		DEN_aat = no #Denmark has custom election events
@@ -244,13 +256,14 @@ country_event = {
 				tag = GRE 
 				#has_dlc = "Battle for the Bosporus"
 			} 
-			
+		
 			AND = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
 			}
-			AND = { 
-				tag = FRA
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
 			}
 		}
 		DEN_aat = no #Denmark has custom election events
@@ -350,6 +363,10 @@ country_event = {
 				tag = BRA
 			}
 			
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
+			}
 		}
 		DEN_aat = no #Denmark has custom election events
 		NOR_aat = no
@@ -455,6 +472,10 @@ country_event = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
 			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
+			}
 		}
 		DEN_aat = no #Denmark has custom election events
 		NOR_aat = no 
@@ -538,6 +559,10 @@ country_event = {
 			AND = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
+			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
 			}
 		}
 		DEN_aat = no #Denmark has custom election events
@@ -628,10 +653,13 @@ country_event = {
 				original_tag = TUR
 				has_dlc = "Battle for the Bosporus"
 			}
-			
 			AND = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
+			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
 			}
 		}
 	}
@@ -689,6 +717,10 @@ country_event = {
 				has_dlc = "Trial of Allegiance"
 				tag = BRA
 			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
+			}
 		}
 	}
 	
@@ -729,6 +761,10 @@ country_event = {
 			AND = {
 				Tag = USA
 				date < 1949.1.1
+			}
+			AND = {
+				has_dlc = "To The Bitter End"
+				tag = ROM
 			}
 		}
 		DEN_aat = no #Denmark has custom election events
