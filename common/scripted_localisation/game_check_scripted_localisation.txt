@@ -366,6 +366,37 @@ defined_text = {
 }
 
 defined_text = {
+    name = GetTacticalWithdrawalRuleStatus
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tactical_withdrawal_rule
+                option = On
+            }
+        }
+        localization_key = "On"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tactical_withdrawal_rule
+                option = all_arms_at_defense_army_spirit_option
+            }
+        }
+        localization_key = "All Arms AT Defense Army banned"
+    }
+    text = {
+        trigger = {
+            has_game_rule = {
+                rule = tactical_withdrawal_rule
+                option = banned
+            }
+        }
+        localization_key = "Banned"
+    }
+}
+
+defined_text = {
     name = GetAlliedPreGrindStatus
     text = {
         trigger = {

@@ -24,6 +24,27 @@ cas_doctrines_status = {
 	}
 }
 
+tactical_withdrawal_rule = { 
+	name = "Tactical Withdrawal Status"
+	group = "HMM Rules"
+	icon = "GFX_decision_generic_army_support"
+	default = { 
+		name = On
+		text = "On"
+		desc = "No change to Tactical Withdrawal"
+	}
+	option = { 
+		name = all_arms_at_defense_army_spirit_option
+		text = "All Arms AT Defense Army banned"
+		desc= "All Arms AT Defense Army banned is unselectable(100% factor for rolling Tactical Withdrawal Tactic)"
+	}
+	option = { 
+		name = banned
+		text = "banned"
+		desc= "Tactical Withdrawal tactic will never Roll"
+	}
+}
+
 allied_pre_grind = { 
 	name = "Allies Pre-Grind"
 	group = "HMM Rules"

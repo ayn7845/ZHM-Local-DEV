@@ -276,6 +276,10 @@ tactic_tactical_withdrawal = { #counters encirclement
 	
 	base =  {
 		factor = 4
+		modifier = {
+			factor = 0
+			has_game_rule = { rule = tactical_withdrawal_rule option = banned }
+		}
 	}
 	picture = withdraw
 	

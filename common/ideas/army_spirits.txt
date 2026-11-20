@@ -1089,6 +1089,19 @@ ideas = {
 					has_doctrine = superior_firepower
 					has_doctrine = tank_destroyer_force
 				}
+				NOT = {
+					OR = { 
+						has_game_rule = { 
+							rule = tactical_withdrawal_rule
+							option = all_arms_at_defense_army_spirit_option
+						}
+						has_game_rule = { 
+							rule = tactical_withdrawal_rule
+							option = banned
+						}
+					} 
+					
+				}
 			}
 			
 			modifier = {
