@@ -1,4 +1,4 @@
-version="1.19.*"
+version="1.20.*"
 tags={
 	"Historical"
 }
@@ -42,5 +42,5 @@ replace_path="events"
 replace_path="map/strategicregions"
 replace_path="map/supplyareas"
 name="ZHM"
-supported_version="1.19.5.0"
+supported_version="1.20.*"
 remote_file_id="3759969193"
