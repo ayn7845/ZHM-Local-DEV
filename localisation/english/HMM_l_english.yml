@@ -38,7 +38,7 @@
  limited_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W unless they are over §Y35%§R §RSurrender Progress§W or after §YJune 1st, 1942§W"
  banned_LL_SOV_DIPLO_TT:0 "§WLend Lease to the §YSoviet Union§W is §RProhibited§W"
  same_faction_LL_DIPLO_TT:0 "§RLend Lease may only be in Faction§W"
- limited_LL_DIPLO_TT:0 "§RLend Lease may only be in Faction§W"
+ limited_LL_DIPLO_TT:0 "§RLend Lease may only be after 1942.1.1§W"
  banned_LL_DIPLO_TT:0 "§Y[ROOT.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
  banned_req_LL_DIPLO_TT:0 "§Y[FROM.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
 
