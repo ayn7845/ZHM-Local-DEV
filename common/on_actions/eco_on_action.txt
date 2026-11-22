@@ -1773,6 +1773,50 @@ on_actions = {
 				#	amount = 0
 				#}
 			}
+			ARG = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 3200
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 7
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 0
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment_0
+					amount = 0
+				}
+				#add_equipment_to_stockpile = {
+				#	type = motorized_equipment_1
+				#	amount = 0
+				#}
+				#There is no need for the "0" ones but what ever i guess??? Also this spewed out an error
+				#add_equipment_to_stockpile = {
+				#	type = artillery_equipment_1
+				#	amount = 0
+				#}
+				#add_equipment_to_stockpile = {
+				#	type = anti_tank_equipment_1
+				#	amount = 0
+				#}
+				#add_equipment_to_stockpile = {
+					#type = anti_air_equipment_1
+					#amount = 0
+				#}
+				#add_equipment_to_stockpile = {
+				#	type = armored_car_equipment
+				#	amount = 0
+				#}
+				
+			}
 			SIA = {
 				add_equipment_to_stockpile = {
 					type = infantry_equipment_0
@@ -2165,19 +2209,23 @@ on_actions = {
 				#}
 				
 			}
-			IRQ = {
-				
+			POR = {
+				add_manpower = 24000 #added vanilla manpower cuz it's actually important to ur focus order
 				add_equipment_to_stockpile = {
 					type = infantry_equipment_0
 					amount = 0
 				}
 				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 6
+				}
+				add_equipment_to_stockpile = {
 					type = infantry_equipment_1
-					amount = 840
+					amount = 2200
 				}
 				add_equipment_to_stockpile = {
 					type = support_equipment_1
-					amount = 0
+					amount = 46
 				}
 				add_equipment_to_stockpile = {
 					type = motorized_equipment_0
@@ -2187,26 +2235,26 @@ on_actions = {
 				#	type = motorized_equipment_1
 				#	amount = 0
 				#}
-				add_equipment_to_stockpile = {
-					type = artillery_equipment_1
-					amount = 0
-				}
+				#There is no need for the "0" ones but what ever i guess??? Also this spewed out an error
+				#add_equipment_to_stockpile = {
+				#	type = artillery_equipment_1
+				#	amount = 0
+				#}
 				#add_equipment_to_stockpile = {
 				#	type = anti_tank_equipment_1
 				#	amount = 0
 				#}
-				#There is no need for the "0" ones but what ever i guess??? Also this spewed out an error
 				#add_equipment_to_stockpile = {
-				#	type = anti_air_equipment_1
-				#	amount = 0
+					#type = anti_air_equipment_1
+					#amount = 0
 				#}
 				#add_equipment_to_stockpile = {
 				#	type = armored_car_equipment
 				#	amount = 0
 				#}
+				
 			}
-			
-			
+		
 		}
 	}
 	on_startup = {
