@@ -265,6 +265,7 @@ country_event = {
 				has_dlc = "To The Bitter End"
 				tag = ROM
 			}
+			original_tag = FRA
 		}
 		DEN_aat = no #Denmark has custom election events
 		NOR_AAT = no
