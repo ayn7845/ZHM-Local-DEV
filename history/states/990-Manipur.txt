@@ -17,6 +17,11 @@ state={
 		victory_points = {
 			1553 5
 		}
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
+		}
 	}
 	buildings_max_level_factor=1.000
 	local_supplies=1.000

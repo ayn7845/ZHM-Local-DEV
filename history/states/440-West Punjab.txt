@@ -14,7 +14,11 @@ state={
 		victory_points = { 	10772 15 }
 		victory_points = { 	10898 1 }
 		victory_points = { 10173 3 }
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
+		}
 	}
 	state_category = town
 	manpower=16024000

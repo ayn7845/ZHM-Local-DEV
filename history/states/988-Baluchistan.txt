@@ -17,7 +17,11 @@ state={
 		victory_points = {
 			5105 3 # Quetta
 		}
-
+		1936.1.1.14 = {
+			owner = WST
+			controller = WST
+			#add_core_of = WST
+		}
 	}
 
 	buildings_max_level_factor=1.000
