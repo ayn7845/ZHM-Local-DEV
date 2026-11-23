@@ -8856,13 +8856,17 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		available = {
-            #is_subject = no
-			#has_war = no
-			#has_civil_war = no
             OR = {
                 date > 1937.6.1
-                custom_trigger_tooltip = {
-                tooltip = GER_anschluss_eq_trigger_tt
+                #custom_trigger_tooltip = {
+               # tooltip = GER_anschluss_eq_trigger_tt
+                #	fighting_army_strength_ratio = {
+				#		tag = AUS
+				#		ratio > global.deployed_manpower_ratio_needed_for_anschluss
+				#	}
+            	#}
+				custom_trigger_tooltip = {
+                tooltip = GER_anschluss_eq_trigger_tt_zhm
                 	has_equipment = {
 						infantry_equipment > 40000
 					}

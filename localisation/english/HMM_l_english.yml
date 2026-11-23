@@ -41,6 +41,7 @@
  limited_LL_DIPLO_TT:0 "§RLend Lease may only be after 1942.1.1§W"
  banned_LL_DIPLO_TT:0 "§Y[ROOT.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
  banned_req_LL_DIPLO_TT:0 "§Y[FROM.GetNameDefCap]§R is NOT allowed to Lend Lease§W"
+ GER_anschluss_eq_trigger_tt_zhm:0 "At least §Y40.000§W infantry equipment in the Stockpile"
 
 
  zhm_opinion_modifier_temp_ally:0 "Temporary Alliance"
