@@ -14,7 +14,7 @@ on_actions = {
                 HUN = { 
                     if = { 
                         limit = { 
-                            NOT = { 
+                            NOT = {
                                 has_idea = zhm_command_power
                             }
                         }
@@ -34,7 +34,7 @@ on_actions = {
                     }
                     add_offsite_building = { 
                         type = industrial_complex
-					    level = 4
+					    level = 6
                     }
                     add_equipment_to_stockpile = {
 					    type = train_equipment
@@ -72,6 +72,10 @@ on_actions = {
                         }
                         add_ideas = zhm_operative_slots
                     }
+                    add_offsite_building = { 
+                        type = industrial_complex
+					    level = 4
+                    }
                 }
                 ENG = { 
                     add_equipment_to_stockpile = {
@@ -91,7 +95,7 @@ on_actions = {
                 SOV = { 
                     add_offsite_building = { 
                         type = industrial_complex
-					    level = 1
+					    level = 4
                     }
                 }
                 WST = { 
@@ -99,6 +103,18 @@ on_actions = {
                     give_resource_rights = { receiver = ENG state = 394 }
                     give_resource_rights = { receiver = ENG state = 375 }
                     give_resource_rights = { receiver = ENG state = 391 }
+                }
+                AST = { 
+                    add_equipment_to_stockpile = {
+					    type = infantry_equipment_1
+					    amount = 10000
+				    }
+				    add_equipment_to_stockpile = {
+					    type = support_equipment_1
+					    amount = 500
+				    }
+                    add_manpower = 300000 # Fill for no Raj player Thx
+                    add_research_slot = 1 # Trust
                 }
                 ENG = {
                     country_event = { id = zhm.10 }
@@ -123,6 +139,11 @@ on_actions = {
 				        bonus = 1
 				        uses = 5
 				        category = armor
+			        }
+                    add_tech_bonus = {
+				        bonus = 1
+				        uses = 1
+				        category = infantry_weapons
 			        }
                     if = { 
                         limit = { 
