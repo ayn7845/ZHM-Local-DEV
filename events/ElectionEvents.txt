@@ -34,6 +34,7 @@ country_event = {
 				date < 1949.1.1
 			} 
 		}
+		NOT = { original_tag = ROM }
 		DEN_aat = no #Denmark has custom election events
 		AST_taog = no #Australia has custom election events
 		OR = { NOT = { original_tag = SPR } NOT = { date < 1937.1.1 } }

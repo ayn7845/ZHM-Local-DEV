@@ -876,12 +876,14 @@ ideas = {
 
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.2 group = mobilization_laws }
-				has_war = yes
+				OR = {
+					has_war = yes 
+					original_tag = SPR
+				}
 				OR = {
 					has_war_support > 0.7
 					surrender_progress > 0
 				}
-				enemies_strength_ratio > 0.75
 				#any_enemy_country = {
 				#	strength_ratio = {
 				#		tag = ROOT
@@ -1097,12 +1099,14 @@ ideas = {
 
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.25 group = mobilization_laws }
-				has_war = yes
+				OR = {
+					has_war = yes 
+					original_tag = SPR
+				}
 				OR = {
 					has_war_support > 0.85
 					surrender_progress > 0.25
 				}
-				enemies_strength_ratio > 1
 				#any_enemy_country = {
 				#	strength_ratio = {
 				#		tag = ROOT

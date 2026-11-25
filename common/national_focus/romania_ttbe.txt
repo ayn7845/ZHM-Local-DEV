@@ -12235,8 +12235,11 @@ focus = {
 			controls_state = 80
 		}
 		bypass = {
-			controls_state = 84		#if you cant even do the follow-up focuses, better to keep this locked
-			OR = {					#marijn211: NOT -> AND would be simpler but doesn't give a proper tooltip
+			controls_state = 84
+			OR = {
+        	SOV = {
+            	has_completed_focus = SOV_claims_on_poland
+        		}
 				NOT = {
 					controls_state = 83
 				}
