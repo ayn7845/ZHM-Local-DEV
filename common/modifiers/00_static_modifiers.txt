@@ -728,5 +728,5 @@ CZE_i_am_agreeable_to_license = { #I just like to license things
 
 ### TTBE
 ROM_protector_of_the_orthodox = {
-	compliance_gain = 0.25
+	compliance_gain = 0.15 # Was 0.25 - Norrman
 }

@@ -121,6 +121,7 @@ ROM_armed_forces = {
 	theorist_cost_factor = ROM_theorist_cost_factor
 	max_planning_factor = ROM_max_planning_factor
 	air_ace_generation_chance_factor = ROM_air_ace_generation_chance_factor
+	army_strength_factor = ROM_army_strength_factor
 	#avoid adding more stats, we're now roughly at the amount Finland has as well
 }
 

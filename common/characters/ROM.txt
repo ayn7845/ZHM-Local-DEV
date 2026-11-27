@@ -178,7 +178,7 @@ characters={
 	}
 
 	ROM_carol_ii = {
-		name="Carol II"
+		name=ROM_carol_ii
 		portraits={
 			civilian={
 				large="GFX_portrait_ROM_carol_ii"
@@ -484,12 +484,6 @@ characters={
 					}
 					NOT = {
 						has_autonomy_state = autonomy_supervised_state
-					}
-					NOT = {
-						has_country_leader = {
-							character = ROM_iuliu_maniu
-							ruling_only = yes
-						}
 					}
 				}
 			}
@@ -827,6 +821,7 @@ characters={
 				original_tag = ROM
 			}
 
+			can_be_fired = no
 			visible = {
 				has_completed_focus = ROM_constitutional_reform
 				NOT = { has_completed_focus = ROM_purge_the_carlists }				
@@ -2439,6 +2434,7 @@ characters={
 		}
 
 		corps_commander={
+			traits = { infantry_officer }
 			skill=3
 			attack_skill=3
 			defense_skill=2

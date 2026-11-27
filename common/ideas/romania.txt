@@ -82,8 +82,8 @@ ideas = {
 		picture = ROM_royal_shield_idea
 		allowed = { always = no }
 		modifier = {
-			army_attack_factor = 0.10
-			army_morale_factor = 0.10
+			army_attack_factor = 0.05
+			army_morale_factor = 0.05
 			justify_war_goal_time = -0.25
 			drift_defence_factor = 0.75
 		}
@@ -100,8 +100,8 @@ ideas = {
 			}
 		}		
 		ROM_imported_romanian_harvest = {
-			picture = generic_production_bonus
-			
+			allowed = { always = no }
+
 			removal_cost = -1
 
 			modifier = {
@@ -1857,6 +1857,7 @@ ideas = {
 			modifier = {
 				planning_speed = -0.1
 				conscription_factor = 0.1
+				army_strength_factor = -0.05
 				army_core_defence_factor = 0.1
 			}
 		}
@@ -2590,7 +2591,7 @@ ideas = {
 			}
 		}
 		ROM_defender_of_the_balkans = {
-			picture = tur_coordinated_balkan_armed_forces
+			#picture = tur_coordinated_balkan_armed_forces	#new unique icon should be automatically recognized
 			
 			allowed = {
 				always = no
@@ -2605,7 +2606,7 @@ ideas = {
 			modifier = {
 				army_attack_against_major_factor = 0.1
 				army_defence_against_major_factor = 0.1
-				non_core_manpower = 0.25
+				non_core_manpower = 0.075
 			}
 		}
 
@@ -3320,6 +3321,11 @@ ideas = {
 			picture = ROM_resita
 			allowed = { original_TAG = ROM }
 			research_bonus = { artillery = 0.15 }
+			visible = {
+				NOT = {
+					has_idea = ROM_max_auschnitt
+				}
+			}
 			traits = { artillery_manufacturer }
 		}
 
@@ -3327,8 +3333,13 @@ ideas = {
 			name = ROM_resita
 			picture = ROM_resita
 			
-			allowed = { original_TAG = ROM }
-			available = { has_idea = ROM_max_auschnitt }
+			allowed = {
+				original_TAG = ROM
+				has_dlc = "To The Bitter End"
+			}
+			visible = {
+				has_idea = ROM_max_auschnitt
+			}
 			
 			cost = 100
 			

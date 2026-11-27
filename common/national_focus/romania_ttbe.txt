@@ -4049,6 +4049,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			hidden_effect = {
+				mark_focus_tree_layout_dirty = yes
+			}
 			swap_ideas = {
 				remove_idea = ROM_government_infighting
 				add_idea = ROM_government_infighting_2
@@ -6944,6 +6947,28 @@ focus_tree = {
 				show_ideas_tooltip = ROM_miron_cristea	
 			}
 			add_political_power = 100
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ROM_the_palace_coup
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = ROM_michael_NOT_rulling_tt
+			}			
+			if = {
+				limit = {
+					has_completed_focus = ROM_the_palace_coup
+				}
+				custom_effect_tooltip = ROM_michael_rulling_bonus_tt
+				add_political_power = 50
+				add_war_support = 0.05
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.10
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
 	}
@@ -6961,6 +6986,25 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = ROM_the_sentinels
 				add_idea = ROM_the_sentinels_2
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ROM_the_palace_coup
+					}
+				}
+				custom_effect_tooltip = ROM_michael_NOT_rulling_tt
+			}
+			if = {
+				limit = {
+					has_completed_focus = ROM_the_palace_coup
+				}
+				custom_effect_tooltip = ROM_michael_rulling_bonus_tt
+				custom_effect_tooltip = ROM_armed_forces_dynamic_modifier_tt
+				add_to_variable = {
+					ROM_army_org_factor = 0.05	#Fun fact, Michael was part of the Sentinels when he was younger, and not in a ceremonial way, Carol ensured he had a good education and also experience with the common folk.
+					tooltip = army_org_factor_tt
+				}
 			}
 		}
 		search_filters = { FOCUS_FILTER_MANPOWER }
@@ -7005,9 +7049,6 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ROM_puppeteer_the_church
-		}
-		prerequisite = {
 			focus = ROM_limit_carols_reckless_spending
 		}
 
@@ -7018,8 +7059,39 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = { id = BA_romania_flavour.32 hours = 6 }
+			custom_effect_tooltip = generic_skip_one_line_tt
+		
+			custom_effect_tooltip = ROM_seize_camarilla_wealth_tt
+			random_owned_controlled_state = {
+				prioritize = { 46 }
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				mio:ROM_malaxa_organization_2 = { add_mio_funds = 1000 }
+				mio:ROM_resita_works_organization = { add_mio_funds = 1000 }
+			}
+			if = {
+				limit = { has_completed_focus = ROM_puppeteer_the_church }
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_war_support = 0.05
+				add_stability = 0.05
+				add_political_power = 40
+			}
+			if = {
+				limit = { has_completed_focus = ROM_expand_the_sentinels }
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = ROM_armed_forces_dynamic_modifier_tt
+				add_to_variable = { ROM_mobilization_speed = 0.1 tooltip = mobilization_speed_tt }
+			}
 		}
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL }
 	}
 
 	focus = {
@@ -7059,7 +7131,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_aggressive_diplomacy }
 
 		available = {
-			is_faction_leader = yes
+			is_in_faction = yes
 		}
 
 		completion_reward = {
@@ -7069,9 +7141,14 @@ focus_tree = {
 				limit = { is_in_faction_with = ROOT }
 				country_event = { id = BA_romania_flavour.29 }
 			}
-			custom_effect_tooltip = ROM_bucharest_summit_tt
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ROM_faction_ideology_warning_tt		
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				custom_effect_tooltip = ROM_bucharest_summit_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = ROM_faction_ideology_warning_tt					
+			}	
 			add_political_power = 70	
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7092,6 +7169,36 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 80
 			add_ideas = ROM_royal_shield_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ROM_the_palace_coup
+					}
+				}
+				custom_effect_tooltip = ROM_michael_NOT_rulling_tt
+			}			
+			if = {
+				limit = { has_completed_focus = ROM_the_palace_coup has_completed_focus = ROM_mobilize_the_royal_guard }
+				custom_effect_tooltip = ROM_michael_rulling_bonus_tt
+				custom_effect_tooltip = ROM_mobilize_the_royal_guard_1_tt
+				hidden_effect = {
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Divizia 2 Garda 'Vlad Tepes'\" division_template = \"Garda Regala\" start_experience_factor = 0.6 start_equipment_factor = 1.0 " 
+							owner = ROM
+						}
+						create_unit = {
+							division = "name = \"Divizia 3 Garda 'Stefan cel Mare'\" division_template = \"Garda Regala\" start_experience_factor = 0.6 start_equipment_factor = 1.0 " 
+							owner = ROM
+						}
+						create_unit = {
+							division = "name = \"Divizia 4 Garda 'Mircea cel Batran'\" division_template = \"Garda Regala\" start_experience_factor = 0.6 start_equipment_factor = 1.0 " 
+							owner = ROM
+						}
+					}										
+				}				
+			}
 		}
 		search_filters = { FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_STABILITY }
 	}
@@ -7108,25 +7215,36 @@ focus_tree = {
 		
 		prerequisite = { focus = ROM_the_bucharest_security_convention }
 
-		completion_reward = {
+		completion_reward = { 
 			random_owned_controlled_state = {
-				prioritize = { 46 84 }
+				prioritize = { 46  }
 				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
 			}
+			random_owned_controlled_state = {
+				prioritize = {  84 }
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}			
 			every_other_country = {
 				limit = { is_in_faction_with = ROOT }
-				add_offsite_building = { type = arms_factory level = 1 }
+				add_offsite_building = { type = arms_factory level = 2 }
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			every_country = {
+			if = {
 				limit = {
-					has_idea = ROM_bucharest_pact_spirit
+					is_faction_leader = yes
 				}
-				swap_ideas = {
-					remove_idea = ROM_bucharest_pact_spirit
-					add_idea = ROM_bucharest_pact_spirit_2
+				custom_effect_tooltip = generic_skip_one_line_tt
+				every_country = {
+					limit = {
+						has_idea = ROM_bucharest_pact_spirit
+					}
+					swap_ideas = {
+						remove_idea = ROM_bucharest_pact_spirit
+						add_idea = ROM_bucharest_pact_spirit_2
+					}				
 				}				
 			}
 		}
@@ -7145,6 +7263,10 @@ focus_tree = {
 		
 		prerequisite = { focus = ROM_bulwark_of_monarchism }
 		prerequisite = { focus = ROM_arsenal_of_the_crown }
+
+		available = {
+			is_faction_leader = yes
+		}
 
 		completion_reward = {
 			unlock_decision_category_tooltip = ROM_anti_extremist_crusade_cat
@@ -7168,25 +7290,37 @@ focus_tree = {
 		relative_position_id = ROM_limit_carols_reckless_spending 
 		mutually_exclusive = { focus = ROM_cordon_sanitaire_ba }
 		prerequisite = { focus = ROM_limit_carols_reckless_spending }
-		x = -1
+		x = 1
 		y = 1
 		cost = 5
 
-		bypass = {
+		available = {
 			GER = {
+				exists = yes
+				is_subject = no
 				OR = {
+					is_faction_leader = yes
+					is_in_faction = no
+				}
+				NOT = {
 					has_government = fascism
 					has_government = communism
-					is_subject = yes
-					exists = no
 				}
-			}			
+			}
+		}
+
+		bypass = {
+			is_in_faction = yes
+			OR = {
+				is_in_faction_with = GER
+				NOT = {
+					is_in_faction_with = POL
+				}
+			}
 		}
 
 		bypass_effect = {
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_political_power = 150
-			add_war_support = 0.1
+			set_rule = { can_create_factions = yes }
 		}
 
 		completion_reward = {
@@ -7197,6 +7331,7 @@ focus_tree = {
 					}
 				}
 				set_rule = { can_create_factions = yes }
+				custom_effect_tooltip = generic_skip_one_line_tt
 				if = {
 					limit = {
 						has_dlc = "No Compromise, No Surrender"
@@ -7209,24 +7344,23 @@ focus_tree = {
 				else = {
 					create_faction = ROM_germany_faction
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				GER = {
 					country_event = generic.5
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				add_political_power = 75			
 			}
 			if = {		
 				limit = {
 					GER = {
 						is_faction_leader = yes
-						OR = {
-							has_government = neutrality
-							has_government = democratic
-						}
 					}					
 				}
 				GER = {
 					country_event = generic.2
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				add_political_power = 75
 			}
 		}
@@ -7246,8 +7380,14 @@ focus_tree = {
 
 		available = {
 			GER = {
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
 				NOT = {
 					has_government = fascism
+				}
+				NOT = {	#dont merge with the NOT block above, this fixes the tooltip looking weird
 					has_government = communism
 				}
 			}
@@ -7851,7 +7991,7 @@ focus_tree = {
 		text = ROM_the_cordon_sanitaire
 
 		relative_position_id = ROM_limit_carols_reckless_spending
-		x = 1
+		x = -1
 		y = 1
 
 		cost = 5
@@ -7863,6 +8003,20 @@ focus_tree = {
 			focus = ROM_align_with_germany
 		}
 
+		bypass = {
+			is_in_faction = yes
+			OR = {
+				is_in_faction_with = POL
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+
+		bypass_effect = {
+			set_rule = { can_create_factions = yes }
+		}
+
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7870,7 +8024,14 @@ focus_tree = {
 				limit = {
 					POL = {
 						is_faction_leader = yes #Poland did own faction
+						exists = yes 
 						has_capitulated = no
+						is_subject = no
+						is_in_faction = no
+						OR ={
+							has_government = democratic
+							has_government = neutrality
+						}
 					}
 				}
 				POL = {
@@ -8396,7 +8557,8 @@ focus_tree = {
 			hidden_effect = {
 				division_template = {
 					name = "Garda Regala"
-					priority = 1
+					priority = 2 #Elite
+					template_counter = 6	#Icon
 					division_names_group = ROM_INF_01
 					regiments = {
 						infantry = { x = 0 y = 0 }
@@ -9619,25 +9781,17 @@ focus_tree = {
 
 		available = {
 			has_war_with = SOV
-			OR = {
-				GER = {
-					exists = yes
-					has_war_with = SOV
-				}
-				GER = {
+			GER = {
+				OR = {
 					exists = no
+					has_capitulated = yes
+					has_war_with = SOV
 				}
 			}
 			OR = {
-				surrender_progress > 0.2
-				AND = {
-					surrender_progress > 0.1
-					NOT = {
-						ROOT = {
-							has_full_control_of_state = 78
-							has_full_control_of_state = 766
-						}
-					}
+				surrender_progress > 0.1
+				GER = {
+					surrender_progress > 0.2
 				}
 				AND = {
 					casualties_inflicted_by = {
@@ -9646,7 +9800,7 @@ focus_tree = {
 					}
 					war_length_with = {
 						tag = SOV
-						months > 12
+						months > 11
 					}
 					SOV = {
 						surrender_progress < 0.15
