@@ -899,4 +899,16 @@
 			}
 		}
 	}
+	on_annex = {
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						ROM_is_improving_relations = yes
+					}
+					ROM_diplo_stop_improving_tier = yes
+				}
+			}
+		}
+	}
 }

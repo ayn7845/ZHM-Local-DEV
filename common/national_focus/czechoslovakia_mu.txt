@@ -11405,7 +11405,7 @@ focus_tree = {
 
 	focus = {
 		id = CZE_strengthen_the_little_entente
-		icon = GFX_focus_AUS_invite_the_entente
+		icon = GFX_focus_ROM_reaffirm_the_little_entente
 
 		prerequisite = {
 			focus = CZE_forgive_trading_debts

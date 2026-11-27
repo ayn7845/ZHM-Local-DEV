@@ -8540,7 +8540,7 @@ balkan_domination = {
 		custom_trigger_tooltip = {
 			tooltip = united_balkans_gre_tt
 			# Greece
-			43 = {
+			47 = {
 				is_owned_and_controlled_by = ROOT
 			}
 			182 = {

@@ -840,7 +840,7 @@ joint_focus = {
 
 joint_focus = {
 	id = INSHOL_modernize_knil
-	icon = GFX_focus_chi_army_reform
+	icon = GFX_focus_ROM_modernize_the_land_forces
 	text_icon = INSHOL_INS_HOL_focus_style
 	available = {
 		OR = {

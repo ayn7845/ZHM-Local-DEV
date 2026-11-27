@@ -7835,7 +7835,17 @@ ROM_the_royal_gambit_category = {
 		days_mission_timeout = 365
 		selectable_mission = no
 		complete_effect = {
-
+			hidden_effect = {
+				if = {
+					limit = {
+						any_war_participation > 0.2
+					}
+					complete_national_focus = ROM_another_great_game
+				}
+				else = {
+					complete_national_focus = ROM_a_red_flag_over_bucharest	
+				}
+			}
 		}
 		timeout_effect = {
 			custom_effect_tooltip = ROM_royal_gambit_low_war_participation_tt
@@ -7863,11 +7873,12 @@ ROM_another_great_game_category = {
 		fire_only_once = yes
 
 		available = {
-			NOT = {
-				has_war_with = ENG
-				has_war_with = FRA
-				has_war_with = USA
-			}
+			# NOT = {
+			# 	has_war_with = ENG
+			# 	has_war_with = FRA
+			# 	has_war_with = USA
+			# }
+			has_war = no
 		}
 
 		days_remove = 14
@@ -7962,6 +7973,7 @@ ROM_another_great_game_category = {
 
 		available = {
 			has_country_flag = ROM_allies_did_not_abandon_us
+			has_war = no
 		}
 
 		days_remove = 14
@@ -8027,8 +8039,8 @@ ROM_another_great_game_category = {
 		fire_only_once = yes
 
 		visible = {
-			#has_completed_focus = ROM_a_show_of_force
-			#has_country_flag = ROM_soviets_are_not_leaving
+			has_completed_focus = ROM_a_show_of_force
+			has_country_flag = ROM_soviets_are_not_leaving
 		}
 
 		war_with_on_remove = SOV
@@ -9271,6 +9283,14 @@ ROM_balkan_communism = {
 		remove_effect = {
 			FROM = {
 				add_core_of = ROOT
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_cosmetic_tag = UBF_united_balkan_federation
+					}
+				}
+				set_cosmetic_tag = UBF_united_balkan_federation
 			}
 		}
 	}
